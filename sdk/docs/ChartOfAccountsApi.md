@@ -4,46 +4,46 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateChartOfAccounts**](ChartOfAccountsApi.md#createchartofaccounts) | **POST** /api/chartofaccounts/{scope} | [EXPERIMENTAL] CreateChartOfAccounts: Create a Chart of Accounts |
-| [**CreateCleardownModule**](ChartOfAccountsApi.md#createcleardownmodule) | **POST** /api/chartofaccounts/{scope}/{code}/cleardownmodules | [EXPERIMENTAL] CreateCleardownModule: Create a Cleardown Module |
-| [**CreateGeneralLedgerProfile**](ChartOfAccountsApi.md#creategeneralledgerprofile) | **POST** /api/chartofaccounts/{scope}/{code}/generalledgerprofile | [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile. |
-| [**CreatePostingModule**](ChartOfAccountsApi.md#createpostingmodule) | **POST** /api/chartofaccounts/{scope}/{code}/postingmodules | [EXPERIMENTAL] CreatePostingModule: Create a Posting Module |
-| [**DeleteAccounts**](ChartOfAccountsApi.md#deleteaccounts) | **POST** /api/chartofaccounts/{scope}/{code}/accounts/$delete | [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts |
-| [**DeleteChartOfAccounts**](ChartOfAccountsApi.md#deletechartofaccounts) | **DELETE** /api/chartofaccounts/{scope}/{code} | [EXPERIMENTAL] DeleteChartOfAccounts: Delete a Chart of Accounts |
-| [**DeleteCleardownModule**](ChartOfAccountsApi.md#deletecleardownmodule) | **DELETE** /api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode} | [EXPERIMENTAL] DeleteCleardownModule: Delete a Cleardown Module. |
-| [**DeleteGeneralLedgerProfile**](ChartOfAccountsApi.md#deletegeneralledgerprofile) | **DELETE** /api/chartofaccounts/{scope}/{code}/generalledgerprofile/{generalLedgerProfileCode} | [EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile. |
-| [**DeletePostingModule**](ChartOfAccountsApi.md#deletepostingmodule) | **DELETE** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode} | [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module. |
-| [**GetAccount**](ChartOfAccountsApi.md#getaccount) | **GET** /api/chartofaccounts/{scope}/{code}/accounts/{accountCode} | [EXPERIMENTAL] GetAccount: Get Account |
-| [**GetAccountProperties**](ChartOfAccountsApi.md#getaccountproperties) | **GET** /api/chartofaccounts/{scope}/{code}/accounts/{accountCode}/properties | [EXPERIMENTAL] GetAccountProperties: Get Account properties |
-| [**GetChartOfAccounts**](ChartOfAccountsApi.md#getchartofaccounts) | **GET** /api/chartofaccounts/{scope}/{code} | [EXPERIMENTAL] GetChartOfAccounts: Get ChartOfAccounts |
-| [**GetChartOfAccountsProperties**](ChartOfAccountsApi.md#getchartofaccountsproperties) | **GET** /api/chartofaccounts/{scope}/{code}/properties | [EXPERIMENTAL] GetChartOfAccountsProperties: Get chart of accounts properties |
-| [**GetCleardownModule**](ChartOfAccountsApi.md#getcleardownmodule) | **GET** /api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode} | [EXPERIMENTAL] GetCleardownModule: Get a Cleardown Module |
-| [**GetGeneralLedgerProfile**](ChartOfAccountsApi.md#getgeneralledgerprofile) | **GET** /api/chartofaccounts/{scope}/{code}/generalledgerprofile/{generalLedgerProfileCode} | [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile. |
-| [**GetPostingModule**](ChartOfAccountsApi.md#getpostingmodule) | **GET** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode} | [EXPERIMENTAL] GetPostingModule: Get a Posting Module |
-| [**ListAccounts**](ChartOfAccountsApi.md#listaccounts) | **GET** /api/chartofaccounts/{scope}/{code}/accounts | [EXPERIMENTAL] ListAccounts: List Accounts |
-| [**ListChartsOfAccounts**](ChartOfAccountsApi.md#listchartsofaccounts) | **GET** /api/chartofaccounts | [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts |
-| [**ListCleardownModuleRules**](ChartOfAccountsApi.md#listcleardownmodulerules) | **GET** /api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode}/cleardownrules | [EXPERIMENTAL] ListCleardownModuleRules: List Cleardown Module Rules |
-| [**ListCleardownModules**](ChartOfAccountsApi.md#listcleardownmodules) | **GET** /api/chartofaccounts/{scope}/{code}/cleardownmodules | [EXPERIMENTAL] ListCleardownModules: List Cleardown Modules |
-| [**ListGeneralLedgerProfiles**](ChartOfAccountsApi.md#listgeneralledgerprofiles) | **GET** /api/chartofaccounts/{scope}/{code}/generalledgerprofile | [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles. |
-| [**ListPostingModuleRules**](ChartOfAccountsApi.md#listpostingmodulerules) | **GET** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules | [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules |
-| [**ListPostingModules**](ChartOfAccountsApi.md#listpostingmodules) | **GET** /api/chartofaccounts/{scope}/{code}/postingmodules | [EXPERIMENTAL] ListPostingModules: List Posting Modules |
-| [**PatchChartOfAccounts**](ChartOfAccountsApi.md#patchchartofaccounts) | **PATCH** /api/chartofaccounts/{scope}/{code} | [EXPERIMENTAL] PatchChartOfAccounts: Patch a Chart of Accounts. |
-| [**PatchCleardownModule**](ChartOfAccountsApi.md#patchcleardownmodule) | **PATCH** /api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode} | [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module |
-| [**PatchPostingModule**](ChartOfAccountsApi.md#patchpostingmodule) | **PATCH** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode} | [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module |
-| [**SetCleardownModuleDetails**](ChartOfAccountsApi.md#setcleardownmoduledetails) | **PUT** /api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode} | [EXPERIMENTAL] SetCleardownModuleDetails: Set the details of a Cleardown Module |
-| [**SetCleardownModuleRules**](ChartOfAccountsApi.md#setcleardownmodulerules) | **PUT** /api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode}/cleardownrules | [EXPERIMENTAL] SetCleardownModuleRules: Set the rules of a Cleardown Module |
-| [**SetGeneralLedgerProfileMappings**](ChartOfAccountsApi.md#setgeneralledgerprofilemappings) | **PUT** /api/chartofaccounts/{scope}/{code}/generalledgerprofile/{generalLedgerProfileCode}/mappings | [EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings. |
-| [**SetPostingModuleDetails**](ChartOfAccountsApi.md#setpostingmoduledetails) | **PUT** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode} | [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module |
-| [**SetPostingModuleRules**](ChartOfAccountsApi.md#setpostingmodulerules) | **PUT** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules | [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module |
-| [**UpsertAccountProperties**](ChartOfAccountsApi.md#upsertaccountproperties) | **POST** /api/chartofaccounts/{scope}/{code}/accounts/{accountCode}/properties/$upsert | [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties |
-| [**UpsertAccounts**](ChartOfAccountsApi.md#upsertaccounts) | **POST** /api/chartofaccounts/{scope}/{code}/accounts | [EXPERIMENTAL] UpsertAccounts: Upsert Accounts |
-| [**UpsertChartOfAccountsProperties**](ChartOfAccountsApi.md#upsertchartofaccountsproperties) | **POST** /api/chartofaccounts/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties |
+| [**CreateChartOfAccounts**](ChartOfAccountsApi.md#createchartofaccounts) | **POST** /api/chartofaccounts/{scope} | [EARLY ACCESS] CreateChartOfAccounts: Create a Chart of Accounts |
+| [**CreateCleardownModule**](ChartOfAccountsApi.md#createcleardownmodule) | **POST** /api/chartofaccounts/{scope}/{code}/cleardownmodules | [EARLY ACCESS] CreateCleardownModule: Create a Cleardown Module |
+| [**CreateGeneralLedgerProfile**](ChartOfAccountsApi.md#creategeneralledgerprofile) | **POST** /api/chartofaccounts/{scope}/{code}/generalledgerprofile | [EARLY ACCESS] CreateGeneralLedgerProfile: Create a General Ledger Profile. |
+| [**CreatePostingModule**](ChartOfAccountsApi.md#createpostingmodule) | **POST** /api/chartofaccounts/{scope}/{code}/postingmodules | [EARLY ACCESS] CreatePostingModule: Create a Posting Module |
+| [**DeleteAccounts**](ChartOfAccountsApi.md#deleteaccounts) | **POST** /api/chartofaccounts/{scope}/{code}/accounts/$delete | [EARLY ACCESS] DeleteAccounts: Soft or hard delete multiple accounts |
+| [**DeleteChartOfAccounts**](ChartOfAccountsApi.md#deletechartofaccounts) | **DELETE** /api/chartofaccounts/{scope}/{code} | [EARLY ACCESS] DeleteChartOfAccounts: Delete a Chart of Accounts |
+| [**DeleteCleardownModule**](ChartOfAccountsApi.md#deletecleardownmodule) | **DELETE** /api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode} | [EARLY ACCESS] DeleteCleardownModule: Delete a Cleardown Module. |
+| [**DeleteGeneralLedgerProfile**](ChartOfAccountsApi.md#deletegeneralledgerprofile) | **DELETE** /api/chartofaccounts/{scope}/{code}/generalledgerprofile/{generalLedgerProfileCode} | [EARLY ACCESS] DeleteGeneralLedgerProfile: Delete a General Ledger Profile. |
+| [**DeletePostingModule**](ChartOfAccountsApi.md#deletepostingmodule) | **DELETE** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode} | [EARLY ACCESS] DeletePostingModule: Delete a Posting Module. |
+| [**GetAccount**](ChartOfAccountsApi.md#getaccount) | **GET** /api/chartofaccounts/{scope}/{code}/accounts/{accountCode} | [EARLY ACCESS] GetAccount: Get Account |
+| [**GetAccountProperties**](ChartOfAccountsApi.md#getaccountproperties) | **GET** /api/chartofaccounts/{scope}/{code}/accounts/{accountCode}/properties | [EARLY ACCESS] GetAccountProperties: Get Account properties |
+| [**GetChartOfAccounts**](ChartOfAccountsApi.md#getchartofaccounts) | **GET** /api/chartofaccounts/{scope}/{code} | [EARLY ACCESS] GetChartOfAccounts: Get ChartOfAccounts |
+| [**GetChartOfAccountsProperties**](ChartOfAccountsApi.md#getchartofaccountsproperties) | **GET** /api/chartofaccounts/{scope}/{code}/properties | [EARLY ACCESS] GetChartOfAccountsProperties: Get chart of accounts properties |
+| [**GetCleardownModule**](ChartOfAccountsApi.md#getcleardownmodule) | **GET** /api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode} | [EARLY ACCESS] GetCleardownModule: Get a Cleardown Module |
+| [**GetGeneralLedgerProfile**](ChartOfAccountsApi.md#getgeneralledgerprofile) | **GET** /api/chartofaccounts/{scope}/{code}/generalledgerprofile/{generalLedgerProfileCode} | [EARLY ACCESS] GetGeneralLedgerProfile: Get a General Ledger Profile. |
+| [**GetPostingModule**](ChartOfAccountsApi.md#getpostingmodule) | **GET** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode} | [EARLY ACCESS] GetPostingModule: Get a Posting Module |
+| [**ListAccounts**](ChartOfAccountsApi.md#listaccounts) | **GET** /api/chartofaccounts/{scope}/{code}/accounts | [EARLY ACCESS] ListAccounts: List Accounts |
+| [**ListChartsOfAccounts**](ChartOfAccountsApi.md#listchartsofaccounts) | **GET** /api/chartofaccounts | [EARLY ACCESS] ListChartsOfAccounts: List Charts of Accounts |
+| [**ListCleardownModuleRules**](ChartOfAccountsApi.md#listcleardownmodulerules) | **GET** /api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode}/cleardownrules | [EARLY ACCESS] ListCleardownModuleRules: List Cleardown Module Rules |
+| [**ListCleardownModules**](ChartOfAccountsApi.md#listcleardownmodules) | **GET** /api/chartofaccounts/{scope}/{code}/cleardownmodules | [EARLY ACCESS] ListCleardownModules: List Cleardown Modules |
+| [**ListGeneralLedgerProfiles**](ChartOfAccountsApi.md#listgeneralledgerprofiles) | **GET** /api/chartofaccounts/{scope}/{code}/generalledgerprofile | [EARLY ACCESS] ListGeneralLedgerProfiles: List General Ledger Profiles. |
+| [**ListPostingModuleRules**](ChartOfAccountsApi.md#listpostingmodulerules) | **GET** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules | [EARLY ACCESS] ListPostingModuleRules: List Posting Module Rules |
+| [**ListPostingModules**](ChartOfAccountsApi.md#listpostingmodules) | **GET** /api/chartofaccounts/{scope}/{code}/postingmodules | [EARLY ACCESS] ListPostingModules: List Posting Modules |
+| [**PatchChartOfAccounts**](ChartOfAccountsApi.md#patchchartofaccounts) | **PATCH** /api/chartofaccounts/{scope}/{code} | [EARLY ACCESS] PatchChartOfAccounts: Patch a Chart of Accounts. |
+| [**PatchCleardownModule**](ChartOfAccountsApi.md#patchcleardownmodule) | **PATCH** /api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode} | [EARLY ACCESS] PatchCleardownModule: Patch a Cleardown Module |
+| [**PatchPostingModule**](ChartOfAccountsApi.md#patchpostingmodule) | **PATCH** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode} | [EARLY ACCESS] PatchPostingModule: Patch a Posting Module |
+| [**SetCleardownModuleDetails**](ChartOfAccountsApi.md#setcleardownmoduledetails) | **PUT** /api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode} | [EARLY ACCESS] SetCleardownModuleDetails: Set the details of a Cleardown Module |
+| [**SetCleardownModuleRules**](ChartOfAccountsApi.md#setcleardownmodulerules) | **PUT** /api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode}/cleardownrules | [EARLY ACCESS] SetCleardownModuleRules: Set the rules of a Cleardown Module |
+| [**SetGeneralLedgerProfileMappings**](ChartOfAccountsApi.md#setgeneralledgerprofilemappings) | **PUT** /api/chartofaccounts/{scope}/{code}/generalledgerprofile/{generalLedgerProfileCode}/mappings | [EARLY ACCESS] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings. |
+| [**SetPostingModuleDetails**](ChartOfAccountsApi.md#setpostingmoduledetails) | **PUT** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode} | [EARLY ACCESS] SetPostingModuleDetails: Set the details of a Posting Module |
+| [**SetPostingModuleRules**](ChartOfAccountsApi.md#setpostingmodulerules) | **PUT** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules | [EARLY ACCESS] SetPostingModuleRules: Set the rules of a Posting Module |
+| [**UpsertAccountProperties**](ChartOfAccountsApi.md#upsertaccountproperties) | **POST** /api/chartofaccounts/{scope}/{code}/accounts/{accountCode}/properties/$upsert | [EARLY ACCESS] UpsertAccountProperties: Upsert account properties |
+| [**UpsertAccounts**](ChartOfAccountsApi.md#upsertaccounts) | **POST** /api/chartofaccounts/{scope}/{code}/accounts | [EARLY ACCESS] UpsertAccounts: Upsert Accounts |
+| [**UpsertChartOfAccountsProperties**](ChartOfAccountsApi.md#upsertchartofaccountsproperties) | **POST** /api/chartofaccounts/{scope}/{code}/properties/$upsert | [EARLY ACCESS] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties |
 
 <a id="createchartofaccounts"></a>
 # **CreateChartOfAccounts**
 > ChartOfAccounts CreateChartOfAccounts (string scope, ChartOfAccountsRequest chartOfAccountsRequest)
 
-[EXPERIMENTAL] CreateChartOfAccounts: Create a Chart of Accounts
+[EARLY ACCESS] CreateChartOfAccounts: Create a Chart of Accounts
 
 Create the given Chart of Accounts.
 
@@ -94,7 +94,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ChartOfAccounts result = apiInstance.CreateChartOfAccounts(scope, chartOfAccountsRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreateChartOfAccounts: Create a Chart of Accounts
+                // [EARLY ACCESS] CreateChartOfAccounts: Create a Chart of Accounts
                 ChartOfAccounts result = apiInstance.CreateChartOfAccounts(scope, chartOfAccountsRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -115,7 +115,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateChartOfAccounts: Create a Chart of Accounts
+    // [EARLY ACCESS] CreateChartOfAccounts: Create a Chart of Accounts
     ApiResponse<ChartOfAccounts> response = apiInstance.CreateChartOfAccountsWithHttpInfo(scope, chartOfAccountsRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -159,7 +159,7 @@ catch (ApiException e)
 # **CreateCleardownModule**
 > CleardownModuleResponse CreateCleardownModule (string scope, string code, CleardownModuleRequest cleardownModuleRequest)
 
-[EXPERIMENTAL] CreateCleardownModule: Create a Cleardown Module
+[EARLY ACCESS] CreateCleardownModule: Create a Cleardown Module
 
 Create the given Cleardown Module.
 
@@ -211,7 +211,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // CleardownModuleResponse result = apiInstance.CreateCleardownModule(scope, code, cleardownModuleRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreateCleardownModule: Create a Cleardown Module
+                // [EARLY ACCESS] CreateCleardownModule: Create a Cleardown Module
                 CleardownModuleResponse result = apiInstance.CreateCleardownModule(scope, code, cleardownModuleRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -232,7 +232,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateCleardownModule: Create a Cleardown Module
+    // [EARLY ACCESS] CreateCleardownModule: Create a Cleardown Module
     ApiResponse<CleardownModuleResponse> response = apiInstance.CreateCleardownModuleWithHttpInfo(scope, code, cleardownModuleRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -277,7 +277,7 @@ catch (ApiException e)
 # **CreateGeneralLedgerProfile**
 > GeneralLedgerProfileResponse CreateGeneralLedgerProfile (string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest)
 
-[EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile.
+[EARLY ACCESS] CreateGeneralLedgerProfile: Create a General Ledger Profile.
 
 Create the given General Ledger profile.
 
@@ -329,7 +329,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // GeneralLedgerProfileResponse result = apiInstance.CreateGeneralLedgerProfile(scope, code, generalLedgerProfileRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile.
+                // [EARLY ACCESS] CreateGeneralLedgerProfile: Create a General Ledger Profile.
                 GeneralLedgerProfileResponse result = apiInstance.CreateGeneralLedgerProfile(scope, code, generalLedgerProfileRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -350,7 +350,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile.
+    // [EARLY ACCESS] CreateGeneralLedgerProfile: Create a General Ledger Profile.
     ApiResponse<GeneralLedgerProfileResponse> response = apiInstance.CreateGeneralLedgerProfileWithHttpInfo(scope, code, generalLedgerProfileRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -395,7 +395,7 @@ catch (ApiException e)
 # **CreatePostingModule**
 > PostingModuleResponse CreatePostingModule (string scope, string code, PostingModuleRequest postingModuleRequest)
 
-[EXPERIMENTAL] CreatePostingModule: Create a Posting Module
+[EARLY ACCESS] CreatePostingModule: Create a Posting Module
 
 Create the given Posting Module.
 
@@ -447,7 +447,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PostingModuleResponse result = apiInstance.CreatePostingModule(scope, code, postingModuleRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreatePostingModule: Create a Posting Module
+                // [EARLY ACCESS] CreatePostingModule: Create a Posting Module
                 PostingModuleResponse result = apiInstance.CreatePostingModule(scope, code, postingModuleRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -468,7 +468,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreatePostingModule: Create a Posting Module
+    // [EARLY ACCESS] CreatePostingModule: Create a Posting Module
     ApiResponse<PostingModuleResponse> response = apiInstance.CreatePostingModuleWithHttpInfo(scope, code, postingModuleRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -513,7 +513,7 @@ catch (ApiException e)
 # **DeleteAccounts**
 > DeleteAccountsResponse DeleteAccounts (string scope, string code, List<string> requestBody, string? deleteMode = null)
 
-[EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts
+[EARLY ACCESS] DeleteAccounts: Soft or hard delete multiple accounts
 
 Delete one or more account from the Chart of Accounts. Soft deletion marks the account as inactive  While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
 
@@ -566,7 +566,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeleteAccountsResponse result = apiInstance.DeleteAccounts(scope, code, requestBody, deleteMode, opts: opts);
 
-                // [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts
+                // [EARLY ACCESS] DeleteAccounts: Soft or hard delete multiple accounts
                 DeleteAccountsResponse result = apiInstance.DeleteAccounts(scope, code, requestBody, deleteMode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -587,7 +587,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts
+    // [EARLY ACCESS] DeleteAccounts: Soft or hard delete multiple accounts
     ApiResponse<DeleteAccountsResponse> response = apiInstance.DeleteAccountsWithHttpInfo(scope, code, requestBody, deleteMode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -633,7 +633,7 @@ catch (ApiException e)
 # **DeleteChartOfAccounts**
 > DeletedEntityResponse DeleteChartOfAccounts (string scope, string code)
 
-[EXPERIMENTAL] DeleteChartOfAccounts: Delete a Chart of Accounts
+[EARLY ACCESS] DeleteChartOfAccounts: Delete a Chart of Accounts
 
 Delete the given Chart of Accounts.
 
@@ -684,7 +684,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteChartOfAccounts(scope, code, opts: opts);
 
-                // [EXPERIMENTAL] DeleteChartOfAccounts: Delete a Chart of Accounts
+                // [EARLY ACCESS] DeleteChartOfAccounts: Delete a Chart of Accounts
                 DeletedEntityResponse result = apiInstance.DeleteChartOfAccounts(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -705,7 +705,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteChartOfAccounts: Delete a Chart of Accounts
+    // [EARLY ACCESS] DeleteChartOfAccounts: Delete a Chart of Accounts
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteChartOfAccountsWithHttpInfo(scope, code);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -749,7 +749,7 @@ catch (ApiException e)
 # **DeleteCleardownModule**
 > DeletedEntityResponse DeleteCleardownModule (string scope, string code, string cleardownModuleCode)
 
-[EXPERIMENTAL] DeleteCleardownModule: Delete a Cleardown Module.
+[EARLY ACCESS] DeleteCleardownModule: Delete a Cleardown Module.
 
 Delete the given Cleardown Module.
 
@@ -801,7 +801,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteCleardownModule(scope, code, cleardownModuleCode, opts: opts);
 
-                // [EXPERIMENTAL] DeleteCleardownModule: Delete a Cleardown Module.
+                // [EARLY ACCESS] DeleteCleardownModule: Delete a Cleardown Module.
                 DeletedEntityResponse result = apiInstance.DeleteCleardownModule(scope, code, cleardownModuleCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -822,7 +822,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteCleardownModule: Delete a Cleardown Module.
+    // [EARLY ACCESS] DeleteCleardownModule: Delete a Cleardown Module.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteCleardownModuleWithHttpInfo(scope, code, cleardownModuleCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -867,7 +867,7 @@ catch (ApiException e)
 # **DeleteGeneralLedgerProfile**
 > DeletedEntityResponse DeleteGeneralLedgerProfile (string scope, string code, string generalLedgerProfileCode)
 
-[EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile.
+[EARLY ACCESS] DeleteGeneralLedgerProfile: Delete a General Ledger Profile.
 
 Delete the given General Ledger Profile.
 
@@ -919,7 +919,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteGeneralLedgerProfile(scope, code, generalLedgerProfileCode, opts: opts);
 
-                // [EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile.
+                // [EARLY ACCESS] DeleteGeneralLedgerProfile: Delete a General Ledger Profile.
                 DeletedEntityResponse result = apiInstance.DeleteGeneralLedgerProfile(scope, code, generalLedgerProfileCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -940,7 +940,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile.
+    // [EARLY ACCESS] DeleteGeneralLedgerProfile: Delete a General Ledger Profile.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteGeneralLedgerProfileWithHttpInfo(scope, code, generalLedgerProfileCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -985,7 +985,7 @@ catch (ApiException e)
 # **DeletePostingModule**
 > DeletedEntityResponse DeletePostingModule (string scope, string code, string postingModuleCode)
 
-[EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
+[EARLY ACCESS] DeletePostingModule: Delete a Posting Module.
 
 Delete the given Posting Module.
 
@@ -1037,7 +1037,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeletePostingModule(scope, code, postingModuleCode, opts: opts);
 
-                // [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
+                // [EARLY ACCESS] DeletePostingModule: Delete a Posting Module.
                 DeletedEntityResponse result = apiInstance.DeletePostingModule(scope, code, postingModuleCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1058,7 +1058,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
+    // [EARLY ACCESS] DeletePostingModule: Delete a Posting Module.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeletePostingModuleWithHttpInfo(scope, code, postingModuleCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1103,7 +1103,7 @@ catch (ApiException e)
 # **GetAccount**
 > Account GetAccount (string scope, string code, string accountCode, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] GetAccount: Get Account
+[EARLY ACCESS] GetAccount: Get Account
 
 Retrieve the definition of a particular Account which is part of a Chart of Accounts.
 
@@ -1158,7 +1158,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Account result = apiInstance.GetAccount(scope, code, accountCode, effectiveAt, asAt, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] GetAccount: Get Account
+                // [EARLY ACCESS] GetAccount: Get Account
                 Account result = apiInstance.GetAccount(scope, code, accountCode, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1179,7 +1179,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetAccount: Get Account
+    // [EARLY ACCESS] GetAccount: Get Account
     ApiResponse<Account> response = apiInstance.GetAccountWithHttpInfo(scope, code, accountCode, effectiveAt, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1227,7 +1227,7 @@ catch (ApiException e)
 # **GetAccountProperties**
 > AccountProperties GetAccountProperties (string scope, string code, string accountCode, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetAccountProperties: Get Account properties
+[EARLY ACCESS] GetAccountProperties: Get Account properties
 
 Get all the properties of a single account.
 
@@ -1281,7 +1281,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AccountProperties result = apiInstance.GetAccountProperties(scope, code, accountCode, effectiveAt, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetAccountProperties: Get Account properties
+                // [EARLY ACCESS] GetAccountProperties: Get Account properties
                 AccountProperties result = apiInstance.GetAccountProperties(scope, code, accountCode, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1302,7 +1302,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetAccountProperties: Get Account properties
+    // [EARLY ACCESS] GetAccountProperties: Get Account properties
     ApiResponse<AccountProperties> response = apiInstance.GetAccountPropertiesWithHttpInfo(scope, code, accountCode, effectiveAt, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1349,7 +1349,7 @@ catch (ApiException e)
 # **GetChartOfAccounts**
 > ChartOfAccounts GetChartOfAccounts (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] GetChartOfAccounts: Get ChartOfAccounts
+[EARLY ACCESS] GetChartOfAccounts: Get ChartOfAccounts
 
 Retrieve the definition of a particular Chart of Accounts.
 
@@ -1403,7 +1403,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ChartOfAccounts result = apiInstance.GetChartOfAccounts(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] GetChartOfAccounts: Get ChartOfAccounts
+                // [EARLY ACCESS] GetChartOfAccounts: Get ChartOfAccounts
                 ChartOfAccounts result = apiInstance.GetChartOfAccounts(scope, code, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1424,7 +1424,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetChartOfAccounts: Get ChartOfAccounts
+    // [EARLY ACCESS] GetChartOfAccounts: Get ChartOfAccounts
     ApiResponse<ChartOfAccounts> response = apiInstance.GetChartOfAccountsWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1471,7 +1471,7 @@ catch (ApiException e)
 # **GetChartOfAccountsProperties**
 > ChartOfAccountsProperties GetChartOfAccountsProperties (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetChartOfAccountsProperties: Get chart of accounts properties
+[EARLY ACCESS] GetChartOfAccountsProperties: Get chart of accounts properties
 
 Get all the properties of a single chart of accounts.
 
@@ -1524,7 +1524,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ChartOfAccountsProperties result = apiInstance.GetChartOfAccountsProperties(scope, code, effectiveAt, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetChartOfAccountsProperties: Get chart of accounts properties
+                // [EARLY ACCESS] GetChartOfAccountsProperties: Get chart of accounts properties
                 ChartOfAccountsProperties result = apiInstance.GetChartOfAccountsProperties(scope, code, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1545,7 +1545,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetChartOfAccountsProperties: Get chart of accounts properties
+    // [EARLY ACCESS] GetChartOfAccountsProperties: Get chart of accounts properties
     ApiResponse<ChartOfAccountsProperties> response = apiInstance.GetChartOfAccountsPropertiesWithHttpInfo(scope, code, effectiveAt, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1591,7 +1591,7 @@ catch (ApiException e)
 # **GetCleardownModule**
 > CleardownModuleResponse GetCleardownModule (string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetCleardownModule: Get a Cleardown Module
+[EARLY ACCESS] GetCleardownModule: Get a Cleardown Module
 
 Retrieve the definition of a Cleardown Module complete with its rules.
 
@@ -1644,7 +1644,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // CleardownModuleResponse result = apiInstance.GetCleardownModule(scope, code, cleardownModuleCode, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetCleardownModule: Get a Cleardown Module
+                // [EARLY ACCESS] GetCleardownModule: Get a Cleardown Module
                 CleardownModuleResponse result = apiInstance.GetCleardownModule(scope, code, cleardownModuleCode, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1665,7 +1665,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetCleardownModule: Get a Cleardown Module
+    // [EARLY ACCESS] GetCleardownModule: Get a Cleardown Module
     ApiResponse<CleardownModuleResponse> response = apiInstance.GetCleardownModuleWithHttpInfo(scope, code, cleardownModuleCode, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1711,7 +1711,7 @@ catch (ApiException e)
 # **GetGeneralLedgerProfile**
 > GeneralLedgerProfileResponse GetGeneralLedgerProfile (string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
+[EARLY ACCESS] GetGeneralLedgerProfile: Get a General Ledger Profile.
 
 Get the given General Ledger Profile.
 
@@ -1764,7 +1764,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // GeneralLedgerProfileResponse result = apiInstance.GetGeneralLedgerProfile(scope, code, generalLedgerProfileCode, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
+                // [EARLY ACCESS] GetGeneralLedgerProfile: Get a General Ledger Profile.
                 GeneralLedgerProfileResponse result = apiInstance.GetGeneralLedgerProfile(scope, code, generalLedgerProfileCode, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1785,7 +1785,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
+    // [EARLY ACCESS] GetGeneralLedgerProfile: Get a General Ledger Profile.
     ApiResponse<GeneralLedgerProfileResponse> response = apiInstance.GetGeneralLedgerProfileWithHttpInfo(scope, code, generalLedgerProfileCode, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1831,7 +1831,7 @@ catch (ApiException e)
 # **GetPostingModule**
 > PostingModuleResponse GetPostingModule (string scope, string code, string postingModuleCode, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetPostingModule: Get a Posting Module
+[EARLY ACCESS] GetPostingModule: Get a Posting Module
 
 Retrieve the definition of a Posting Module complete with its rules.
 
@@ -1884,7 +1884,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PostingModuleResponse result = apiInstance.GetPostingModule(scope, code, postingModuleCode, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetPostingModule: Get a Posting Module
+                // [EARLY ACCESS] GetPostingModule: Get a Posting Module
                 PostingModuleResponse result = apiInstance.GetPostingModule(scope, code, postingModuleCode, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1905,7 +1905,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetPostingModule: Get a Posting Module
+    // [EARLY ACCESS] GetPostingModule: Get a Posting Module
     ApiResponse<PostingModuleResponse> response = apiInstance.GetPostingModuleWithHttpInfo(scope, code, postingModuleCode, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1951,7 +1951,7 @@ catch (ApiException e)
 # **ListAccounts**
 > PagedResourceListOfAccount ListAccounts (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] ListAccounts: List Accounts
+[EARLY ACCESS] ListAccounts: List Accounts
 
 List the accounts in a Chart of Accounts
 
@@ -2008,7 +2008,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfAccount result = apiInstance.ListAccounts(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] ListAccounts: List Accounts
+                // [EARLY ACCESS] ListAccounts: List Accounts
                 PagedResourceListOfAccount result = apiInstance.ListAccounts(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2029,7 +2029,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListAccounts: List Accounts
+    // [EARLY ACCESS] ListAccounts: List Accounts
     ApiResponse<PagedResourceListOfAccount> response = apiInstance.ListAccountsWithHttpInfo(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2079,7 +2079,7 @@ catch (ApiException e)
 # **ListChartsOfAccounts**
 > PagedResourceListOfChartOfAccounts ListChartsOfAccounts (DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts
+[EARLY ACCESS] ListChartsOfAccounts: List Charts of Accounts
 
 List all the Charts of Accounts matching particular criteria.
 
@@ -2135,7 +2135,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfChartOfAccounts result = apiInstance.ListChartsOfAccounts(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts
+                // [EARLY ACCESS] ListChartsOfAccounts: List Charts of Accounts
                 PagedResourceListOfChartOfAccounts result = apiInstance.ListChartsOfAccounts(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2156,7 +2156,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts
+    // [EARLY ACCESS] ListChartsOfAccounts: List Charts of Accounts
     ApiResponse<PagedResourceListOfChartOfAccounts> response = apiInstance.ListChartsOfAccountsWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2205,7 +2205,7 @@ catch (ApiException e)
 # **ListCleardownModuleRules**
 > PagedResourceListOfCleardownModuleRule ListCleardownModuleRules (string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null)
 
-[EXPERIMENTAL] ListCleardownModuleRules: List Cleardown Module Rules
+[EARLY ACCESS] ListCleardownModuleRules: List Cleardown Module Rules
 
 List the Rules in a Cleardown Module
 
@@ -2261,7 +2261,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfCleardownModuleRule result = apiInstance.ListCleardownModuleRules(scope, code, cleardownModuleCode, asAt, page, limit, filter, opts: opts);
 
-                // [EXPERIMENTAL] ListCleardownModuleRules: List Cleardown Module Rules
+                // [EARLY ACCESS] ListCleardownModuleRules: List Cleardown Module Rules
                 PagedResourceListOfCleardownModuleRule result = apiInstance.ListCleardownModuleRules(scope, code, cleardownModuleCode, asAt, page, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2282,7 +2282,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListCleardownModuleRules: List Cleardown Module Rules
+    // [EARLY ACCESS] ListCleardownModuleRules: List Cleardown Module Rules
     ApiResponse<PagedResourceListOfCleardownModuleRule> response = apiInstance.ListCleardownModuleRulesWithHttpInfo(scope, code, cleardownModuleCode, asAt, page, limit, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2331,7 +2331,7 @@ catch (ApiException e)
 # **ListCleardownModules**
 > PagedResourceListOfCleardownModuleResponse ListCleardownModules (string scope, string code, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null)
 
-[EXPERIMENTAL] ListCleardownModules: List Cleardown Modules
+[EARLY ACCESS] ListCleardownModules: List Cleardown Modules
 
 List all the Cleardown Modules matching particular criteria.
 
@@ -2387,7 +2387,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfCleardownModuleResponse result = apiInstance.ListCleardownModules(scope, code, asAt, page, limit, filter, sortBy, opts: opts);
 
-                // [EXPERIMENTAL] ListCleardownModules: List Cleardown Modules
+                // [EARLY ACCESS] ListCleardownModules: List Cleardown Modules
                 PagedResourceListOfCleardownModuleResponse result = apiInstance.ListCleardownModules(scope, code, asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2408,7 +2408,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListCleardownModules: List Cleardown Modules
+    // [EARLY ACCESS] ListCleardownModules: List Cleardown Modules
     ApiResponse<PagedResourceListOfCleardownModuleResponse> response = apiInstance.ListCleardownModulesWithHttpInfo(scope, code, asAt, page, limit, filter, sortBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2457,7 +2457,7 @@ catch (ApiException e)
 # **ListGeneralLedgerProfiles**
 > PagedResourceListOfGeneralLedgerProfileResponse ListGeneralLedgerProfiles (string scope, string code, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null)
 
-[EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
+[EARLY ACCESS] ListGeneralLedgerProfiles: List General Ledger Profiles.
 
 List all the General Ledger profiles matching particular criteria.
 
@@ -2513,7 +2513,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfGeneralLedgerProfileResponse result = apiInstance.ListGeneralLedgerProfiles(scope, code, asAt, page, limit, filter, sortBy, opts: opts);
 
-                // [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
+                // [EARLY ACCESS] ListGeneralLedgerProfiles: List General Ledger Profiles.
                 PagedResourceListOfGeneralLedgerProfileResponse result = apiInstance.ListGeneralLedgerProfiles(scope, code, asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2534,7 +2534,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
+    // [EARLY ACCESS] ListGeneralLedgerProfiles: List General Ledger Profiles.
     ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> response = apiInstance.ListGeneralLedgerProfilesWithHttpInfo(scope, code, asAt, page, limit, filter, sortBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2583,7 +2583,7 @@ catch (ApiException e)
 # **ListPostingModuleRules**
 > PagedResourceListOfPostingModuleRule ListPostingModuleRules (string scope, string code, string postingModuleCode, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null)
 
-[EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules
+[EARLY ACCESS] ListPostingModuleRules: List Posting Module Rules
 
 List the Rules in a Posting Module
 
@@ -2639,7 +2639,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfPostingModuleRule result = apiInstance.ListPostingModuleRules(scope, code, postingModuleCode, asAt, page, limit, filter, opts: opts);
 
-                // [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules
+                // [EARLY ACCESS] ListPostingModuleRules: List Posting Module Rules
                 PagedResourceListOfPostingModuleRule result = apiInstance.ListPostingModuleRules(scope, code, postingModuleCode, asAt, page, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2660,7 +2660,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules
+    // [EARLY ACCESS] ListPostingModuleRules: List Posting Module Rules
     ApiResponse<PagedResourceListOfPostingModuleRule> response = apiInstance.ListPostingModuleRulesWithHttpInfo(scope, code, postingModuleCode, asAt, page, limit, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2709,7 +2709,7 @@ catch (ApiException e)
 # **ListPostingModules**
 > PagedResourceListOfPostingModuleResponse ListPostingModules (string scope, string code, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null)
 
-[EXPERIMENTAL] ListPostingModules: List Posting Modules
+[EARLY ACCESS] ListPostingModules: List Posting Modules
 
 List all the Posting Modules matching particular criteria.
 
@@ -2765,7 +2765,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfPostingModuleResponse result = apiInstance.ListPostingModules(scope, code, asAt, page, limit, filter, sortBy, opts: opts);
 
-                // [EXPERIMENTAL] ListPostingModules: List Posting Modules
+                // [EARLY ACCESS] ListPostingModules: List Posting Modules
                 PagedResourceListOfPostingModuleResponse result = apiInstance.ListPostingModules(scope, code, asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2786,7 +2786,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListPostingModules: List Posting Modules
+    // [EARLY ACCESS] ListPostingModules: List Posting Modules
     ApiResponse<PagedResourceListOfPostingModuleResponse> response = apiInstance.ListPostingModulesWithHttpInfo(scope, code, asAt, page, limit, filter, sortBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2835,7 +2835,7 @@ catch (ApiException e)
 # **PatchChartOfAccounts**
 > ChartOfAccounts PatchChartOfAccounts (string scope, string code, List<Operation> operation)
 
-[EXPERIMENTAL] PatchChartOfAccounts: Patch a Chart of Accounts.
+[EARLY ACCESS] PatchChartOfAccounts: Patch a Chart of Accounts.
 
 Update fields on a Chart of Accounts.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description.
 
@@ -2887,7 +2887,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ChartOfAccounts result = apiInstance.PatchChartOfAccounts(scope, code, operation, opts: opts);
 
-                // [EXPERIMENTAL] PatchChartOfAccounts: Patch a Chart of Accounts.
+                // [EARLY ACCESS] PatchChartOfAccounts: Patch a Chart of Accounts.
                 ChartOfAccounts result = apiInstance.PatchChartOfAccounts(scope, code, operation);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2908,7 +2908,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PatchChartOfAccounts: Patch a Chart of Accounts.
+    // [EARLY ACCESS] PatchChartOfAccounts: Patch a Chart of Accounts.
     ApiResponse<ChartOfAccounts> response = apiInstance.PatchChartOfAccountsWithHttpInfo(scope, code, operation);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2953,7 +2953,7 @@ catch (ApiException e)
 # **PatchCleardownModule**
 > CleardownModuleResponse PatchCleardownModule (string scope, string code, string cleardownModuleCode, List<Operation> operation)
 
-[EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module
+[EARLY ACCESS] PatchCleardownModule: Patch a Cleardown Module
 
 Update fields on a Cleardown Module.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, Rules.
 
@@ -3006,7 +3006,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // CleardownModuleResponse result = apiInstance.PatchCleardownModule(scope, code, cleardownModuleCode, operation, opts: opts);
 
-                // [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module
+                // [EARLY ACCESS] PatchCleardownModule: Patch a Cleardown Module
                 CleardownModuleResponse result = apiInstance.PatchCleardownModule(scope, code, cleardownModuleCode, operation);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3027,7 +3027,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module
+    // [EARLY ACCESS] PatchCleardownModule: Patch a Cleardown Module
     ApiResponse<CleardownModuleResponse> response = apiInstance.PatchCleardownModuleWithHttpInfo(scope, code, cleardownModuleCode, operation);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -3073,7 +3073,7 @@ catch (ApiException e)
 # **PatchPostingModule**
 > PostingModuleResponse PatchPostingModule (string scope, string code, string postingModuleCode, List<Operation> operation)
 
-[EXPERIMENTAL] PatchPostingModule: Patch a Posting Module
+[EARLY ACCESS] PatchPostingModule: Patch a Posting Module
 
 Update fields on a Posting Module.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, Rules.
 
@@ -3126,7 +3126,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PostingModuleResponse result = apiInstance.PatchPostingModule(scope, code, postingModuleCode, operation, opts: opts);
 
-                // [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module
+                // [EARLY ACCESS] PatchPostingModule: Patch a Posting Module
                 PostingModuleResponse result = apiInstance.PatchPostingModule(scope, code, postingModuleCode, operation);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3147,7 +3147,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module
+    // [EARLY ACCESS] PatchPostingModule: Patch a Posting Module
     ApiResponse<PostingModuleResponse> response = apiInstance.PatchPostingModuleWithHttpInfo(scope, code, postingModuleCode, operation);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -3193,7 +3193,7 @@ catch (ApiException e)
 # **SetCleardownModuleDetails**
 > CleardownModuleResponse SetCleardownModuleDetails (string scope, string code, string cleardownModuleCode, CleardownModuleDetails cleardownModuleDetails)
 
-[EXPERIMENTAL] SetCleardownModuleDetails: Set the details of a Cleardown Module
+[EARLY ACCESS] SetCleardownModuleDetails: Set the details of a Cleardown Module
 
 Update the given Cleardown Module details.
 
@@ -3246,7 +3246,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // CleardownModuleResponse result = apiInstance.SetCleardownModuleDetails(scope, code, cleardownModuleCode, cleardownModuleDetails, opts: opts);
 
-                // [EXPERIMENTAL] SetCleardownModuleDetails: Set the details of a Cleardown Module
+                // [EARLY ACCESS] SetCleardownModuleDetails: Set the details of a Cleardown Module
                 CleardownModuleResponse result = apiInstance.SetCleardownModuleDetails(scope, code, cleardownModuleCode, cleardownModuleDetails);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3267,7 +3267,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] SetCleardownModuleDetails: Set the details of a Cleardown Module
+    // [EARLY ACCESS] SetCleardownModuleDetails: Set the details of a Cleardown Module
     ApiResponse<CleardownModuleResponse> response = apiInstance.SetCleardownModuleDetailsWithHttpInfo(scope, code, cleardownModuleCode, cleardownModuleDetails);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -3313,7 +3313,7 @@ catch (ApiException e)
 # **SetCleardownModuleRules**
 > CleardownModuleRulesUpdatedResponse SetCleardownModuleRules (string scope, string code, string cleardownModuleCode, List<CleardownModuleRule> cleardownModuleRule)
 
-[EXPERIMENTAL] SetCleardownModuleRules: Set the rules of a Cleardown Module
+[EARLY ACCESS] SetCleardownModuleRules: Set the rules of a Cleardown Module
 
 Set the given Cleardown Modules rules, this will replace the existing set of rules for the cleardown module.
 
@@ -3366,7 +3366,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // CleardownModuleRulesUpdatedResponse result = apiInstance.SetCleardownModuleRules(scope, code, cleardownModuleCode, cleardownModuleRule, opts: opts);
 
-                // [EXPERIMENTAL] SetCleardownModuleRules: Set the rules of a Cleardown Module
+                // [EARLY ACCESS] SetCleardownModuleRules: Set the rules of a Cleardown Module
                 CleardownModuleRulesUpdatedResponse result = apiInstance.SetCleardownModuleRules(scope, code, cleardownModuleCode, cleardownModuleRule);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3387,7 +3387,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] SetCleardownModuleRules: Set the rules of a Cleardown Module
+    // [EARLY ACCESS] SetCleardownModuleRules: Set the rules of a Cleardown Module
     ApiResponse<CleardownModuleRulesUpdatedResponse> response = apiInstance.SetCleardownModuleRulesWithHttpInfo(scope, code, cleardownModuleCode, cleardownModuleRule);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -3433,7 +3433,7 @@ catch (ApiException e)
 # **SetGeneralLedgerProfileMappings**
 > GeneralLedgerProfileResponse SetGeneralLedgerProfileMappings (string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping)
 
-[EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings.
+[EARLY ACCESS] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings.
 
 Update the given General Ledger profile Mappings.
 
@@ -3486,7 +3486,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // GeneralLedgerProfileResponse result = apiInstance.SetGeneralLedgerProfileMappings(scope, code, generalLedgerProfileCode, generalLedgerProfileMapping, opts: opts);
 
-                // [EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings.
+                // [EARLY ACCESS] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings.
                 GeneralLedgerProfileResponse result = apiInstance.SetGeneralLedgerProfileMappings(scope, code, generalLedgerProfileCode, generalLedgerProfileMapping);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3507,7 +3507,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings.
+    // [EARLY ACCESS] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings.
     ApiResponse<GeneralLedgerProfileResponse> response = apiInstance.SetGeneralLedgerProfileMappingsWithHttpInfo(scope, code, generalLedgerProfileCode, generalLedgerProfileMapping);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -3553,7 +3553,7 @@ catch (ApiException e)
 # **SetPostingModuleDetails**
 > PostingModuleResponse SetPostingModuleDetails (string scope, string code, string postingModuleCode, PostingModuleDetails postingModuleDetails)
 
-[EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
+[EARLY ACCESS] SetPostingModuleDetails: Set the details of a Posting Module
 
 Update the given Posting Module details.
 
@@ -3606,7 +3606,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PostingModuleResponse result = apiInstance.SetPostingModuleDetails(scope, code, postingModuleCode, postingModuleDetails, opts: opts);
 
-                // [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
+                // [EARLY ACCESS] SetPostingModuleDetails: Set the details of a Posting Module
                 PostingModuleResponse result = apiInstance.SetPostingModuleDetails(scope, code, postingModuleCode, postingModuleDetails);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3627,7 +3627,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
+    // [EARLY ACCESS] SetPostingModuleDetails: Set the details of a Posting Module
     ApiResponse<PostingModuleResponse> response = apiInstance.SetPostingModuleDetailsWithHttpInfo(scope, code, postingModuleCode, postingModuleDetails);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -3673,7 +3673,7 @@ catch (ApiException e)
 # **SetPostingModuleRules**
 > PostingModuleRulesUpdatedResponse SetPostingModuleRules (string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule)
 
-[EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
+[EARLY ACCESS] SetPostingModuleRules: Set the rules of a Posting Module
 
 Set the given Posting Modules rules, this will replace the existing set of rules for the posting module.
 
@@ -3726,7 +3726,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PostingModuleRulesUpdatedResponse result = apiInstance.SetPostingModuleRules(scope, code, postingModuleCode, postingModuleRule, opts: opts);
 
-                // [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
+                // [EARLY ACCESS] SetPostingModuleRules: Set the rules of a Posting Module
                 PostingModuleRulesUpdatedResponse result = apiInstance.SetPostingModuleRules(scope, code, postingModuleCode, postingModuleRule);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3747,7 +3747,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
+    // [EARLY ACCESS] SetPostingModuleRules: Set the rules of a Posting Module
     ApiResponse<PostingModuleRulesUpdatedResponse> response = apiInstance.SetPostingModuleRulesWithHttpInfo(scope, code, postingModuleCode, postingModuleRule);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -3793,7 +3793,7 @@ catch (ApiException e)
 # **UpsertAccountProperties**
 > AccountProperties UpsertAccountProperties (string scope, string code, string accountCode, Dictionary<string, Property>? requestBody = null)
 
-[EXPERIMENTAL] UpsertAccountProperties: Upsert account properties
+[EARLY ACCESS] UpsertAccountProperties: Upsert account properties
 
 Update or insert one or more properties onto a single account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'Account'.                Upserting a property that exists for an account, with a null value, will delete the instance of the property for that group.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
@@ -3846,7 +3846,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AccountProperties result = apiInstance.UpsertAccountProperties(scope, code, accountCode, requestBody, opts: opts);
 
-                // [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties
+                // [EARLY ACCESS] UpsertAccountProperties: Upsert account properties
                 AccountProperties result = apiInstance.UpsertAccountProperties(scope, code, accountCode, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3867,7 +3867,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties
+    // [EARLY ACCESS] UpsertAccountProperties: Upsert account properties
     ApiResponse<AccountProperties> response = apiInstance.UpsertAccountPropertiesWithHttpInfo(scope, code, accountCode, requestBody);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -3913,7 +3913,7 @@ catch (ApiException e)
 # **UpsertAccounts**
 > AccountsUpsertResponse UpsertAccounts (string scope, string code, List<Account> account)
 
-[EXPERIMENTAL] UpsertAccounts: Upsert Accounts
+[EARLY ACCESS] UpsertAccounts: Upsert Accounts
 
 Create or update accounts in the Chart of Accounts. An account will be updated  if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
 
@@ -3965,7 +3965,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AccountsUpsertResponse result = apiInstance.UpsertAccounts(scope, code, account, opts: opts);
 
-                // [EXPERIMENTAL] UpsertAccounts: Upsert Accounts
+                // [EARLY ACCESS] UpsertAccounts: Upsert Accounts
                 AccountsUpsertResponse result = apiInstance.UpsertAccounts(scope, code, account);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3986,7 +3986,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertAccounts: Upsert Accounts
+    // [EARLY ACCESS] UpsertAccounts: Upsert Accounts
     ApiResponse<AccountsUpsertResponse> response = apiInstance.UpsertAccountsWithHttpInfo(scope, code, account);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -4031,7 +4031,7 @@ catch (ApiException e)
 # **UpsertChartOfAccountsProperties**
 > ChartOfAccountsProperties UpsertChartOfAccountsProperties (string scope, string code, Dictionary<string, Property>? requestBody = null)
 
-[EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
+[EARLY ACCESS] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
 
 Update or insert one or more properties onto a single Chart of Accounts. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'ChartOfAccounts'.                Upserting a property that exists for a Chart of Accounts, with a null value, will delete the instance of the property for that group.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
@@ -4083,7 +4083,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ChartOfAccountsProperties result = apiInstance.UpsertChartOfAccountsProperties(scope, code, requestBody, opts: opts);
 
-                // [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
+                // [EARLY ACCESS] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
                 ChartOfAccountsProperties result = apiInstance.UpsertChartOfAccountsProperties(scope, code, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -4104,7 +4104,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
+    // [EARLY ACCESS] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
     ApiResponse<ChartOfAccountsProperties> response = apiInstance.UpsertChartOfAccountsPropertiesWithHttpInfo(scope, code, requestBody);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

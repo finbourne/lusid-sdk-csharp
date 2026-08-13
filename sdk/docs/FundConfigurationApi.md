@@ -4,18 +4,18 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateFundConfiguration**](FundConfigurationApi.md#createfundconfiguration) | **POST** /api/fundconfigurations/{scope} | [EXPERIMENTAL] CreateFundConfiguration: Create a FundConfiguration. |
-| [**DeleteFundConfiguration**](FundConfigurationApi.md#deletefundconfiguration) | **DELETE** /api/fundconfigurations/{scope}/{code} | [EXPERIMENTAL] DeleteFundConfiguration: Delete a FundConfiguration. |
-| [**GetFundConfiguration**](FundConfigurationApi.md#getfundconfiguration) | **GET** /api/fundconfigurations/{scope}/{code} | [EXPERIMENTAL] GetFundConfiguration: Get FundConfiguration. |
-| [**ListFundConfigurations**](FundConfigurationApi.md#listfundconfigurations) | **GET** /api/fundconfigurations | [EXPERIMENTAL] ListFundConfigurations: List FundConfiguration. |
-| [**PatchFundConfiguration**](FundConfigurationApi.md#patchfundconfiguration) | **PATCH** /api/fundconfigurations/{scope}/{code} | [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration. |
-| [**UpsertFundConfigurationProperties**](FundConfigurationApi.md#upsertfundconfigurationproperties) | **POST** /api/fundconfigurations/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertFundConfigurationProperties: Upsert FundConfiguration properties |
+| [**CreateFundConfiguration**](FundConfigurationApi.md#createfundconfiguration) | **POST** /api/fundconfigurations/{scope} | [EARLY ACCESS] CreateFundConfiguration: Create a FundConfiguration. |
+| [**DeleteFundConfiguration**](FundConfigurationApi.md#deletefundconfiguration) | **DELETE** /api/fundconfigurations/{scope}/{code} | [EARLY ACCESS] DeleteFundConfiguration: Delete a FundConfiguration. |
+| [**GetFundConfiguration**](FundConfigurationApi.md#getfundconfiguration) | **GET** /api/fundconfigurations/{scope}/{code} | [EARLY ACCESS] GetFundConfiguration: Get FundConfiguration. |
+| [**ListFundConfigurations**](FundConfigurationApi.md#listfundconfigurations) | **GET** /api/fundconfigurations | [EARLY ACCESS] ListFundConfigurations: List FundConfiguration. |
+| [**PatchFundConfiguration**](FundConfigurationApi.md#patchfundconfiguration) | **PATCH** /api/fundconfigurations/{scope}/{code} | [EARLY ACCESS] PatchFundConfiguration: Patch Fund Configuration. |
+| [**UpsertFundConfigurationProperties**](FundConfigurationApi.md#upsertfundconfigurationproperties) | **POST** /api/fundconfigurations/{scope}/{code}/properties/$upsert | [EARLY ACCESS] UpsertFundConfigurationProperties: Upsert FundConfiguration properties |
 
 <a id="createfundconfiguration"></a>
 # **CreateFundConfiguration**
 > FundConfiguration CreateFundConfiguration (string scope, FundConfigurationRequest fundConfigurationRequest)
 
-[EXPERIMENTAL] CreateFundConfiguration: Create a FundConfiguration.
+[EARLY ACCESS] CreateFundConfiguration: Create a FundConfiguration.
 
 Create the given FundConfiguration.
 
@@ -66,7 +66,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FundConfiguration result = apiInstance.CreateFundConfiguration(scope, fundConfigurationRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreateFundConfiguration: Create a FundConfiguration.
+                // [EARLY ACCESS] CreateFundConfiguration: Create a FundConfiguration.
                 FundConfiguration result = apiInstance.CreateFundConfiguration(scope, fundConfigurationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -87,7 +87,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateFundConfiguration: Create a FundConfiguration.
+    // [EARLY ACCESS] CreateFundConfiguration: Create a FundConfiguration.
     ApiResponse<FundConfiguration> response = apiInstance.CreateFundConfigurationWithHttpInfo(scope, fundConfigurationRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -131,7 +131,7 @@ catch (ApiException e)
 # **DeleteFundConfiguration**
 > DeletedEntityResponse DeleteFundConfiguration (string scope, string code)
 
-[EXPERIMENTAL] DeleteFundConfiguration: Delete a FundConfiguration.
+[EARLY ACCESS] DeleteFundConfiguration: Delete a FundConfiguration.
 
 Delete the given FundConfiguration.
 
@@ -182,7 +182,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteFundConfiguration(scope, code, opts: opts);
 
-                // [EXPERIMENTAL] DeleteFundConfiguration: Delete a FundConfiguration.
+                // [EARLY ACCESS] DeleteFundConfiguration: Delete a FundConfiguration.
                 DeletedEntityResponse result = apiInstance.DeleteFundConfiguration(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -203,7 +203,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteFundConfiguration: Delete a FundConfiguration.
+    // [EARLY ACCESS] DeleteFundConfiguration: Delete a FundConfiguration.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteFundConfigurationWithHttpInfo(scope, code);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -247,7 +247,7 @@ catch (ApiException e)
 # **GetFundConfiguration**
 > FundConfiguration GetFundConfiguration (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] GetFundConfiguration: Get FundConfiguration.
+[EARLY ACCESS] GetFundConfiguration: Get FundConfiguration.
 
 Retrieve the definition of a particular FundConfiguration.
 
@@ -301,7 +301,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FundConfiguration result = apiInstance.GetFundConfiguration(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] GetFundConfiguration: Get FundConfiguration.
+                // [EARLY ACCESS] GetFundConfiguration: Get FundConfiguration.
                 FundConfiguration result = apiInstance.GetFundConfiguration(scope, code, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -322,7 +322,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetFundConfiguration: Get FundConfiguration.
+    // [EARLY ACCESS] GetFundConfiguration: Get FundConfiguration.
     ApiResponse<FundConfiguration> response = apiInstance.GetFundConfigurationWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -369,7 +369,7 @@ catch (ApiException e)
 # **ListFundConfigurations**
 > PagedResourceListOfFundConfiguration ListFundConfigurations (DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] ListFundConfigurations: List FundConfiguration.
+[EARLY ACCESS] ListFundConfigurations: List FundConfiguration.
 
 List all the FundConfiguration matching particular criteria.
 
@@ -425,7 +425,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfFundConfiguration result = apiInstance.ListFundConfigurations(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] ListFundConfigurations: List FundConfiguration.
+                // [EARLY ACCESS] ListFundConfigurations: List FundConfiguration.
                 PagedResourceListOfFundConfiguration result = apiInstance.ListFundConfigurations(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -446,7 +446,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListFundConfigurations: List FundConfiguration.
+    // [EARLY ACCESS] ListFundConfigurations: List FundConfiguration.
     ApiResponse<PagedResourceListOfFundConfiguration> response = apiInstance.ListFundConfigurationsWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -495,7 +495,7 @@ catch (ApiException e)
 # **PatchFundConfiguration**
 > FundConfiguration PatchFundConfiguration (string scope, string code, List<Operation> operation)
 
-[EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration.
+[EARLY ACCESS] PatchFundConfiguration: Patch Fund Configuration.
 
 Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters, BucketSets, ApportionmentBucketSet, ApportionmentMethodProperty.
 
@@ -547,7 +547,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FundConfiguration result = apiInstance.PatchFundConfiguration(scope, code, operation, opts: opts);
 
-                // [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration.
+                // [EARLY ACCESS] PatchFundConfiguration: Patch Fund Configuration.
                 FundConfiguration result = apiInstance.PatchFundConfiguration(scope, code, operation);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -568,7 +568,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration.
+    // [EARLY ACCESS] PatchFundConfiguration: Patch Fund Configuration.
     ApiResponse<FundConfiguration> response = apiInstance.PatchFundConfigurationWithHttpInfo(scope, code, operation);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -613,7 +613,7 @@ catch (ApiException e)
 # **UpsertFundConfigurationProperties**
 > FundConfigurationProperties UpsertFundConfigurationProperties (string scope, string code, Dictionary<string, Property>? requestBody = null)
 
-[EXPERIMENTAL] UpsertFundConfigurationProperties: Upsert FundConfiguration properties
+[EARLY ACCESS] UpsertFundConfigurationProperties: Upsert FundConfiguration properties
 
 Update or insert one or more properties onto a single FundConfiguration. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'FundConfiguration'.                Upserting a property that exists for an FundConfiguration, with a null value, will delete the instance of the property for that group.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
@@ -665,7 +665,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FundConfigurationProperties result = apiInstance.UpsertFundConfigurationProperties(scope, code, requestBody, opts: opts);
 
-                // [EXPERIMENTAL] UpsertFundConfigurationProperties: Upsert FundConfiguration properties
+                // [EARLY ACCESS] UpsertFundConfigurationProperties: Upsert FundConfiguration properties
                 FundConfigurationProperties result = apiInstance.UpsertFundConfigurationProperties(scope, code, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -686,7 +686,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertFundConfigurationProperties: Upsert FundConfiguration properties
+    // [EARLY ACCESS] UpsertFundConfigurationProperties: Upsert FundConfiguration properties
     ApiResponse<FundConfigurationProperties> response = apiInstance.UpsertFundConfigurationPropertiesWithHttpInfo(scope, code, requestBody);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

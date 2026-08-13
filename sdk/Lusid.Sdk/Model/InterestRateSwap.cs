@@ -45,8 +45,9 @@ namespace Lusid.Sdk.Model
         /// <param name="settlementCcy">Settlement currency if IRS is non-deliverable..</param>
         /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven fixed-floating swap.  The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
-        /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward. (required) (default to &quot;InterestRateSwap&quot;).</param>
-        public InterestRateSwap(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), bool isNonDeliverable = default(bool), List<InstrumentLeg> legs = default(List<InstrumentLeg>), string settlementCcy = default(string), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        /// <param name="cancelSchedule">cancelSchedule.</param>
+        /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption. (required) (default to &quot;InterestRateSwap&quot;).</param>
+        public InterestRateSwap(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), bool isNonDeliverable = default(bool), List<InstrumentLeg> legs = default(List<InstrumentLeg>), string settlementCcy = default(string), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), CancelSchedule cancelSchedule = default(CancelSchedule), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -60,6 +61,7 @@ namespace Lusid.Sdk.Model
             this.SettlementCcy = settlementCcy;
             this.AdditionalPayments = additionalPayments;
             this.TimeZoneConventions = timeZoneConventions;
+            this.CancelSchedule = cancelSchedule;
         }
 
         /// <summary>
@@ -111,6 +113,12 @@ namespace Lusid.Sdk.Model
         public TimeZoneConventions TimeZoneConventions { get; set; }
 
         /// <summary>
+        /// Gets or Sets CancelSchedule
+        /// </summary>
+        [DataMember(Name = "cancelSchedule", EmitDefaultValue = false)]
+        public CancelSchedule CancelSchedule { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -126,6 +134,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  SettlementCcy: ").Append(SettlementCcy).Append("\n");
             sb.Append("  AdditionalPayments: ").Append(AdditionalPayments).Append("\n");
             sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
+            sb.Append("  CancelSchedule: ").Append(CancelSchedule).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -196,6 +205,11 @@ namespace Lusid.Sdk.Model
                     this.TimeZoneConventions == input.TimeZoneConventions ||
                     (this.TimeZoneConventions != null &&
                     this.TimeZoneConventions.Equals(input.TimeZoneConventions))
+                ) && base.Equals(input) && 
+                (
+                    this.CancelSchedule == input.CancelSchedule ||
+                    (this.CancelSchedule != null &&
+                    this.CancelSchedule.Equals(input.CancelSchedule))
                 );
         }
 
@@ -232,6 +246,10 @@ namespace Lusid.Sdk.Model
                 if (this.TimeZoneConventions != null)
                 {
                     hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
+                }
+                if (this.CancelSchedule != null)
+                {
+                    hashCode = (hashCode * 59) + this.CancelSchedule.GetHashCode();
                 }
                 return hashCode;
             }

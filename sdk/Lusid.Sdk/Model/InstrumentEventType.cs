@@ -597,7 +597,13 @@ namespace Lusid.Sdk.Model
         /// Enum PikBondInterestEvent for value: PikBondInterestEvent
         /// </summary>
         [EnumMember(Value = "PikBondInterestEvent")]
-        PikBondInterestEvent = 95
+        PikBondInterestEvent = 95,
+
+        /// <summary>
+        /// Enum CommodityForwardCashSettlementEvent for value: CommodityForwardCashSettlementEvent
+        /// </summary>
+        [EnumMember(Value = "CommodityForwardCashSettlementEvent")]
+        CommodityForwardCashSettlementEvent = 96
     }
 
 }

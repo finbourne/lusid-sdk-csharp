@@ -4,62 +4,62 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AcceptEstimateValuationPoint**](FundsApi.md#acceptestimatevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$acceptestimate | [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. |
-| [**AddAllocationGroups**](FundsApi.md#addallocationgroups) | **POST** /api/funds/{scope}/{code}/allocationgroups | [EXPERIMENTAL] AddAllocationGroups: Add Allocation Groups to a Fund. |
-| [**AddSeries**](FundsApi.md#addseries) | **POST** /api/funds/{scope}/{code}/series | [EXPERIMENTAL] AddSeries: Add Series to a Fund. |
-| [**CreateFee**](FundsApi.md#createfee) | **POST** /api/funds/{scope}/{code}/fees | [EXPERIMENTAL] CreateFee: Create a Fee. |
-| [**CreateFund**](FundsApi.md#createfund) | **POST** /api/funds/{scope} | [EXPERIMENTAL] CreateFund: Create a Fund. |
-| [**CreateFundV2**](FundsApi.md#createfundv2) | **POST** /api/funds/v2/{scope} | [EXPERIMENTAL] CreateFundV2: Create a Fund V2 (Preview). |
-| [**CreateValuationPoint**](FundsApi.md#createvaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$create | [EXPERIMENTAL] CreateValuationPoint: Create a Valuation Point. |
-| [**DeactivateNavTypes**](FundsApi.md#deactivatenavtypes) | **POST** /api/funds/{scope}/{code}/deactivateNavTypes | [EXPERIMENTAL] DeactivateNavTypes: Deactivate NAV types on a Fund. |
-| [**DeleteBookmark**](FundsApi.md#deletebookmark) | **DELETE** /api/funds/{scope}/{code}/bookmarks/{bookmarkCode} | [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark. |
-| [**DeleteFee**](FundsApi.md#deletefee) | **DELETE** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] DeleteFee: Delete a Fee. |
-| [**DeleteFund**](FundsApi.md#deletefund) | **DELETE** /api/funds/{scope}/{code} | [EXPERIMENTAL] DeleteFund: Delete a Fund. |
-| [**DeleteNavActivityAdjustments**](FundsApi.md#deletenavactivityadjustments) | **POST** /api/funds/{scope}/{code}/navAdjustment/$delete | [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments. |
-| [**DeleteValuationPoint**](FundsApi.md#deletevaluationpoint) | **DELETE** /api/funds/{scope}/{code}/valuationpoints/{diaryEntryCode} | [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point. |
-| [**FinaliseCandidateValuationPoint**](FundsApi.md#finalisecandidatevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$finalisecandidate | [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point. |
-| [**GetA2BDataForFund**](FundsApi.md#geta2bdataforfund) | **POST** /api/funds/{scope}/{code}/valuationpoints/a2b/$query | [EXPERIMENTAL] GetA2BDataForFund: Get A2B data for a Fund. |
-| [**GetA2BMovementsForFund**](FundsApi.md#geta2bmovementsforfund) | **POST** /api/funds/{scope}/{code}/valuationpoints/a2bmovements/$query | [EXPERIMENTAL] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund. |
-| [**GetFee**](FundsApi.md#getfee) | **GET** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund. |
-| [**GetFeeProperties**](FundsApi.md#getfeeproperties) | **GET** /api/funds/{scope}/{code}/fees/{feeCode}/properties | [EXPERIMENTAL] GetFeeProperties: Get Fee properties. |
-| [**GetFund**](FundsApi.md#getfund) | **GET** /api/funds/{scope}/{code} | [EXPERIMENTAL] GetFund: Get a Fund. |
-| [**GetFundProperties**](FundsApi.md#getfundproperties) | **GET** /api/funds/{scope}/{code}/properties | [EXPERIMENTAL] GetFundProperties: Get Fund properties. |
-| [**GetHoldingContributorsForFund**](FundsApi.md#getholdingcontributorsforfund) | **POST** /api/funds/{scope}/{code}/holdings/{holdingId}/contributors | [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund. |
-| [**GetHoldingsForFund**](FundsApi.md#getholdingsforfund) | **POST** /api/funds/{scope}/{code}/$holdings | [EXPERIMENTAL] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund. |
-| [**GetValuationForFund**](FundsApi.md#getvaluationforfund) | **POST** /api/funds/{scope}/{code}/$valuation | [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund. |
-| [**GetValuationPointData**](FundsApi.md#getvaluationpointdata) | **POST** /api/funds/{scope}/{code}/valuationpoints/$query | [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund. |
-| [**GetValuationPointJournalEntryLines**](FundsApi.md#getvaluationpointjournalentrylines) | **POST** /api/funds/{scope}/{code}/valuationpoints/journalentrylines/$query | [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund. |
-| [**GetValuationPointPnlSummary**](FundsApi.md#getvaluationpointpnlsummary) | **POST** /api/funds/{scope}/{code}/valuationpoints/pnlsummary/$query | [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. |
-| [**GetValuationPointQuotes**](FundsApi.md#getvaluationpointquotes) | **POST** /api/funds/{scope}/{code}/valuationpoints/quotes/$query | [EXPERIMENTAL] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point. |
-| [**GetValuationPointTransactions**](FundsApi.md#getvaluationpointtransactions) | **POST** /api/funds/{scope}/{code}/valuationpoints/transactions/$query | [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund. |
-| [**GetValuationPointTrialBalance**](FundsApi.md#getvaluationpointtrialbalance) | **POST** /api/funds/{scope}/{code}/valuationpoints/trialbalance/$query | [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund. |
-| [**GetValuationPointUnsettledTransactions**](FundsApi.md#getvaluationpointunsettledtransactions) | **POST** /api/funds/{scope}/{code}/valuationpoints/unsettledtransactions/$query | [EXPERIMENTAL] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund. |
-| [**ListFees**](FundsApi.md#listfees) | **GET** /api/funds/{scope}/{code}/fees | [EXPERIMENTAL] ListFees: List Fees for a specified Fund. |
-| [**ListFundCalendar**](FundsApi.md#listfundcalendar) | **GET** /api/funds/{scope}/{code}/calendar | [EXPERIMENTAL] ListFundCalendar: List Fund Calendar. |
-| [**ListFundCalendarEntries**](FundsApi.md#listfundcalendarentries) | **GET** /api/funds/{scope}/{code}/calendars | [EXPERIMENTAL] ListFundCalendarEntries: List Fund Calendar Entries. |
-| [**ListFunds**](FundsApi.md#listfunds) | **GET** /api/funds | [EXPERIMENTAL] ListFunds: List Funds. |
-| [**ListNavActivityAdjustments**](FundsApi.md#listnavactivityadjustments) | **GET** /api/funds/{scope}/{code}/navAdjustment | [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point |
-| [**ListValuationPointComplexMarketData**](FundsApi.md#listvaluationpointcomplexmarketdata) | **POST** /api/funds/{scope}/{code}/valuationpoints/complexmarketdata/$query | [EXPERIMENTAL] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point. |
-| [**ListValuationPointInstruments**](FundsApi.md#listvaluationpointinstruments) | **GET** /api/funds/{scope}/{code}/valuationpoints/instruments/$query | [EXPERIMENTAL] ListValuationPointInstruments: List Instruments inside a valuation point |
-| [**ListValuationPointOverview**](FundsApi.md#listvaluationpointoverview) | **GET** /api/funds/{scope}/{code}/valuationPointOverview | [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. |
-| [**PatchFee**](FundsApi.md#patchfee) | **PATCH** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] PatchFee: Patch Fee. |
-| [**PatchFund**](FundsApi.md#patchfund) | **PATCH** /api/funds/{scope}/{code} | [EXPERIMENTAL] PatchFund: Patch a Fund. |
+| [**AcceptEstimateValuationPoint**](FundsApi.md#acceptestimatevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$acceptestimate | [EARLY ACCESS] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. |
+| [**AddAllocationGroups**](FundsApi.md#addallocationgroups) | **POST** /api/funds/{scope}/{code}/allocationgroups | [EARLY ACCESS] AddAllocationGroups: Add Allocation Groups to a Fund. |
+| [**AddSeries**](FundsApi.md#addseries) | **POST** /api/funds/{scope}/{code}/series | [EARLY ACCESS] AddSeries: Add Series to a Fund. |
+| [**CreateFee**](FundsApi.md#createfee) | **POST** /api/funds/{scope}/{code}/fees | [EARLY ACCESS] CreateFee: Create a Fee. |
+| [**CreateFund**](FundsApi.md#createfund) | **POST** /api/funds/{scope} | [EARLY ACCESS] CreateFund: Create a Fund. |
+| [**CreateFundV2**](FundsApi.md#createfundv2) | **POST** /api/funds/v2/{scope} | [EARLY ACCESS] CreateFundV2: Create a Fund V2 (Preview). |
+| [**CreateValuationPoint**](FundsApi.md#createvaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$create | [EARLY ACCESS] CreateValuationPoint: Create a Valuation Point. |
+| [**DeactivateNavTypes**](FundsApi.md#deactivatenavtypes) | **POST** /api/funds/{scope}/{code}/deactivateNavTypes | [EARLY ACCESS] DeactivateNavTypes: Deactivate NAV types on a Fund. |
+| [**DeleteBookmark**](FundsApi.md#deletebookmark) | **DELETE** /api/funds/{scope}/{code}/bookmarks/{bookmarkCode} | [EARLY ACCESS] DeleteBookmark: Delete a Bookmark. |
+| [**DeleteFee**](FundsApi.md#deletefee) | **DELETE** /api/funds/{scope}/{code}/fees/{feeCode} | [EARLY ACCESS] DeleteFee: Delete a Fee. |
+| [**DeleteFund**](FundsApi.md#deletefund) | **DELETE** /api/funds/{scope}/{code} | [EARLY ACCESS] DeleteFund: Delete a Fund. |
+| [**DeleteNavActivityAdjustments**](FundsApi.md#deletenavactivityadjustments) | **POST** /api/funds/{scope}/{code}/navAdjustment/$delete | [EARLY ACCESS] DeleteNavActivityAdjustments: Delete Nav activity adjustments. |
+| [**DeleteValuationPoint**](FundsApi.md#deletevaluationpoint) | **DELETE** /api/funds/{scope}/{code}/valuationpoints/{diaryEntryCode} | [EARLY ACCESS] DeleteValuationPoint: Delete a Valuation Point. |
+| [**FinaliseCandidateValuationPoint**](FundsApi.md#finalisecandidatevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$finalisecandidate | [EARLY ACCESS] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point. |
+| [**GetA2BDataForFund**](FundsApi.md#geta2bdataforfund) | **POST** /api/funds/{scope}/{code}/valuationpoints/a2b/$query | [EARLY ACCESS] GetA2BDataForFund: Get A2B data for a Fund. |
+| [**GetA2BMovementsForFund**](FundsApi.md#geta2bmovementsforfund) | **POST** /api/funds/{scope}/{code}/valuationpoints/a2bmovements/$query | [EARLY ACCESS] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund. |
+| [**GetFee**](FundsApi.md#getfee) | **GET** /api/funds/{scope}/{code}/fees/{feeCode} | [EARLY ACCESS] GetFee: Get a Fee for a specified Fund. |
+| [**GetFeeProperties**](FundsApi.md#getfeeproperties) | **GET** /api/funds/{scope}/{code}/fees/{feeCode}/properties | [EARLY ACCESS] GetFeeProperties: Get Fee properties. |
+| [**GetFund**](FundsApi.md#getfund) | **GET** /api/funds/{scope}/{code} | [EARLY ACCESS] GetFund: Get a Fund. |
+| [**GetFundProperties**](FundsApi.md#getfundproperties) | **GET** /api/funds/{scope}/{code}/properties | [EARLY ACCESS] GetFundProperties: Get Fund properties. |
+| [**GetHoldingContributorsForFund**](FundsApi.md#getholdingcontributorsforfund) | **POST** /api/funds/{scope}/{code}/holdings/{holdingId}/contributors | [EARLY ACCESS] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund. |
+| [**GetHoldingsForFund**](FundsApi.md#getholdingsforfund) | **POST** /api/funds/{scope}/{code}/$holdings | [EARLY ACCESS] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund. |
+| [**GetValuationForFund**](FundsApi.md#getvaluationforfund) | **POST** /api/funds/{scope}/{code}/$valuation | [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund. |
+| [**GetValuationPointData**](FundsApi.md#getvaluationpointdata) | **POST** /api/funds/{scope}/{code}/valuationpoints/$query | [EARLY ACCESS] GetValuationPointData: Get Valuation Point Data for a Fund. |
+| [**GetValuationPointJournalEntryLines**](FundsApi.md#getvaluationpointjournalentrylines) | **POST** /api/funds/{scope}/{code}/valuationpoints/journalentrylines/$query | [EARLY ACCESS] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund. |
+| [**GetValuationPointPnlSummary**](FundsApi.md#getvaluationpointpnlsummary) | **POST** /api/funds/{scope}/{code}/valuationpoints/pnlsummary/$query | [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. |
+| [**GetValuationPointQuotes**](FundsApi.md#getvaluationpointquotes) | **POST** /api/funds/{scope}/{code}/valuationpoints/quotes/$query | [EARLY ACCESS] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point. |
+| [**GetValuationPointTransactions**](FundsApi.md#getvaluationpointtransactions) | **POST** /api/funds/{scope}/{code}/valuationpoints/transactions/$query | [EARLY ACCESS] GetValuationPointTransactions: Get the Transactions for the given Fund. |
+| [**GetValuationPointTrialBalance**](FundsApi.md#getvaluationpointtrialbalance) | **POST** /api/funds/{scope}/{code}/valuationpoints/trialbalance/$query | [EARLY ACCESS] GetValuationPointTrialBalance: Get Trial Balance for the given Fund. |
+| [**GetValuationPointUnsettledTransactions**](FundsApi.md#getvaluationpointunsettledtransactions) | **POST** /api/funds/{scope}/{code}/valuationpoints/unsettledtransactions/$query | [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund. |
+| [**ListFees**](FundsApi.md#listfees) | **GET** /api/funds/{scope}/{code}/fees | [EARLY ACCESS] ListFees: List Fees for a specified Fund. |
+| [**ListFundCalendar**](FundsApi.md#listfundcalendar) | **GET** /api/funds/{scope}/{code}/calendar | [EARLY ACCESS] ListFundCalendar: List Fund Calendar. |
+| [**ListFundCalendarEntries**](FundsApi.md#listfundcalendarentries) | **GET** /api/funds/{scope}/{code}/calendars | [EARLY ACCESS] ListFundCalendarEntries: List Fund Calendar Entries. |
+| [**ListFunds**](FundsApi.md#listfunds) | **GET** /api/funds | [EARLY ACCESS] ListFunds: List Funds. |
+| [**ListNavActivityAdjustments**](FundsApi.md#listnavactivityadjustments) | **GET** /api/funds/{scope}/{code}/navAdjustment | [EARLY ACCESS] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point |
+| [**ListValuationPointComplexMarketData**](FundsApi.md#listvaluationpointcomplexmarketdata) | **POST** /api/funds/{scope}/{code}/valuationpoints/complexmarketdata/$query | [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point. |
+| [**ListValuationPointInstruments**](FundsApi.md#listvaluationpointinstruments) | **GET** /api/funds/{scope}/{code}/valuationpoints/instruments/$query | [EARLY ACCESS] ListValuationPointInstruments: List Instruments inside a valuation point |
+| [**ListValuationPointOverview**](FundsApi.md#listvaluationpointoverview) | **GET** /api/funds/{scope}/{code}/valuationPointOverview | [EARLY ACCESS] ListValuationPointOverview: List Valuation Points Overview for a given Fund. |
+| [**PatchFee**](FundsApi.md#patchfee) | **PATCH** /api/funds/{scope}/{code}/fees/{feeCode} | [EARLY ACCESS] PatchFee: Patch Fee. |
+| [**PatchFund**](FundsApi.md#patchfund) | **PATCH** /api/funds/{scope}/{code} | [EARLY ACCESS] PatchFund: Patch a Fund. |
 | [**QueryCashStatement**](FundsApi.md#querycashstatement) | **POST** /api/funds/{scope}/{code}/valuationpoints/cashstatement/$query | [DEPRECATED] QueryCashStatement: [DEPRECATED] QueryCashStatement: Query cash statement for a Fund valuation point. |
-| [**QueryCashStatementLocalCurrency**](FundsApi.md#querycashstatementlocalcurrency) | **POST** /api/funds/{scope}/{code}/valuationpoints/cashstatementlocalcurrency/$query | [EXPERIMENTAL] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point. |
-| [**RevertValuationPointToEstimate**](FundsApi.md#revertvaluationpointtoestimate) | **POST** /api/funds/{scope}/{code}/valuationpoints/$reverttoestimate | [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate. |
-| [**SetShareClassInstruments**](FundsApi.md#setshareclassinstruments) | **PUT** /api/funds/{scope}/{code}/shareclasses | [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund. |
-| [**UpdateValuationPoint**](FundsApi.md#updatevaluationpoint) | **PUT** /api/funds/{scope}/{code}/valuationpoints | [EXPERIMENTAL] UpdateValuationPoint: Update a Valuation Point. |
-| [**UpsertBookmark**](FundsApi.md#upsertbookmark) | **POST** /api/funds/{scope}/{code}/bookmarks | [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark. |
-| [**UpsertDiaryEntryTypeValuationPoint**](FundsApi.md#upsertdiaryentrytypevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints | [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. |
-| [**UpsertFeeProperties**](FundsApi.md#upsertfeeproperties) | **POST** /api/funds/{scope}/{code}/fees/{feeCode}/properties/$upsert | [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties. |
-| [**UpsertFundProperties**](FundsApi.md#upsertfundproperties) | **POST** /api/funds/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties. |
-| [**UpsertNavActivityAdjustments**](FundsApi.md#upsertnavactivityadjustments) | **POST** /api/funds/{scope}/{code}/navAdjustment | [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point |
+| [**QueryCashStatementLocalCurrency**](FundsApi.md#querycashstatementlocalcurrency) | **POST** /api/funds/{scope}/{code}/valuationpoints/cashstatementlocalcurrency/$query | [EARLY ACCESS] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point. |
+| [**RevertValuationPointToEstimate**](FundsApi.md#revertvaluationpointtoestimate) | **POST** /api/funds/{scope}/{code}/valuationpoints/$reverttoestimate | [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate. |
+| [**SetShareClassInstruments**](FundsApi.md#setshareclassinstruments) | **PUT** /api/funds/{scope}/{code}/shareclasses | [EARLY ACCESS] SetShareClassInstruments: Set the ShareClass Instruments on a Fund. |
+| [**UpdateValuationPoint**](FundsApi.md#updatevaluationpoint) | **PUT** /api/funds/{scope}/{code}/valuationpoints | [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point. |
+| [**UpsertBookmark**](FundsApi.md#upsertbookmark) | **POST** /api/funds/{scope}/{code}/bookmarks | [EARLY ACCESS] UpsertBookmark: Upsert a bookmark. |
+| [**UpsertDiaryEntryTypeValuationPoint**](FundsApi.md#upsertdiaryentrytypevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints | [EARLY ACCESS] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. |
+| [**UpsertFeeProperties**](FundsApi.md#upsertfeeproperties) | **POST** /api/funds/{scope}/{code}/fees/{feeCode}/properties/$upsert | [EARLY ACCESS] UpsertFeeProperties: Upsert Fee properties. |
+| [**UpsertFundProperties**](FundsApi.md#upsertfundproperties) | **POST** /api/funds/{scope}/{code}/properties/$upsert | [EARLY ACCESS] UpsertFundProperties: Upsert Fund properties. |
+| [**UpsertNavActivityAdjustments**](FundsApi.md#upsertnavactivityadjustments) | **POST** /api/funds/{scope}/{code}/navAdjustment | [EARLY ACCESS] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point |
 
 <a id="acceptestimatevaluationpoint"></a>
 # **AcceptEstimateValuationPoint**
 > AcceptEstimateValuationPointResponse AcceptEstimateValuationPoint (string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = null)
 
-[EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
+[EARLY ACCESS] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
 
 Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as 'Candidate',  otherwise it will be marked as 'Final'.
 
@@ -112,7 +112,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AcceptEstimateValuationPointResponse result = apiInstance.AcceptEstimateValuationPoint(scope, code, valuationPointDataRequest, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
+                // [EARLY ACCESS] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
                 AcceptEstimateValuationPointResponse result = apiInstance.AcceptEstimateValuationPoint(scope, code, valuationPointDataRequest, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -133,7 +133,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
+    // [EARLY ACCESS] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
     ApiResponse<AcceptEstimateValuationPointResponse> response = apiInstance.AcceptEstimateValuationPointWithHttpInfo(scope, code, valuationPointDataRequest, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -179,7 +179,7 @@ catch (ApiException e)
 # **AddAllocationGroups**
 > Fund AddAllocationGroups (string scope, string code, List<AllocationGroupDefinition> allocationGroupDefinition)
 
-[EXPERIMENTAL] AddAllocationGroups: Add Allocation Groups to a Fund.
+[EARLY ACCESS] AddAllocationGroups: Add Allocation Groups to a Fund.
 
 Add the given Allocation Group definitions to the Fund.
 
@@ -231,7 +231,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Fund result = apiInstance.AddAllocationGroups(scope, code, allocationGroupDefinition, opts: opts);
 
-                // [EXPERIMENTAL] AddAllocationGroups: Add Allocation Groups to a Fund.
+                // [EARLY ACCESS] AddAllocationGroups: Add Allocation Groups to a Fund.
                 Fund result = apiInstance.AddAllocationGroups(scope, code, allocationGroupDefinition);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -252,7 +252,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] AddAllocationGroups: Add Allocation Groups to a Fund.
+    // [EARLY ACCESS] AddAllocationGroups: Add Allocation Groups to a Fund.
     ApiResponse<Fund> response = apiInstance.AddAllocationGroupsWithHttpInfo(scope, code, allocationGroupDefinition);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -297,7 +297,7 @@ catch (ApiException e)
 # **AddSeries**
 > Fund AddSeries (string scope, string code, List<SeriesDefinitionRequest> seriesDefinitionRequest)
 
-[EXPERIMENTAL] AddSeries: Add Series to a Fund.
+[EARLY ACCESS] AddSeries: Add Series to a Fund.
 
 Add the given Series definitions to the specified Share Classes of the Fund.
 
@@ -349,7 +349,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Fund result = apiInstance.AddSeries(scope, code, seriesDefinitionRequest, opts: opts);
 
-                // [EXPERIMENTAL] AddSeries: Add Series to a Fund.
+                // [EARLY ACCESS] AddSeries: Add Series to a Fund.
                 Fund result = apiInstance.AddSeries(scope, code, seriesDefinitionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -370,7 +370,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] AddSeries: Add Series to a Fund.
+    // [EARLY ACCESS] AddSeries: Add Series to a Fund.
     ApiResponse<Fund> response = apiInstance.AddSeriesWithHttpInfo(scope, code, seriesDefinitionRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -415,7 +415,7 @@ catch (ApiException e)
 # **CreateFee**
 > Fee CreateFee (string scope, string code, FeeRequest feeRequest, string? navTypeCode = null)
 
-[EXPERIMENTAL] CreateFee: Create a Fee.
+[EARLY ACCESS] CreateFee: Create a Fee.
 
 Create the given Fee.
 
@@ -468,7 +468,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Fee result = apiInstance.CreateFee(scope, code, feeRequest, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] CreateFee: Create a Fee.
+                // [EARLY ACCESS] CreateFee: Create a Fee.
                 Fee result = apiInstance.CreateFee(scope, code, feeRequest, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -489,7 +489,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateFee: Create a Fee.
+    // [EARLY ACCESS] CreateFee: Create a Fee.
     ApiResponse<Fee> response = apiInstance.CreateFeeWithHttpInfo(scope, code, feeRequest, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -535,7 +535,7 @@ catch (ApiException e)
 # **CreateFund**
 > Fund CreateFund (string scope, FundRequest fundRequest)
 
-[EXPERIMENTAL] CreateFund: Create a Fund.
+[EARLY ACCESS] CreateFund: Create a Fund.
 
 Create the given Fund.
 
@@ -586,7 +586,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Fund result = apiInstance.CreateFund(scope, fundRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreateFund: Create a Fund.
+                // [EARLY ACCESS] CreateFund: Create a Fund.
                 Fund result = apiInstance.CreateFund(scope, fundRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -607,7 +607,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateFund: Create a Fund.
+    // [EARLY ACCESS] CreateFund: Create a Fund.
     ApiResponse<Fund> response = apiInstance.CreateFundWithHttpInfo(scope, fundRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -651,7 +651,7 @@ catch (ApiException e)
 # **CreateFundV2**
 > Fund CreateFundV2 (string scope, FundDefinitionRequest fundDefinitionRequest)
 
-[EXPERIMENTAL] CreateFundV2: Create a Fund V2 (Preview).
+[EARLY ACCESS] CreateFundV2: Create a Fund V2 (Preview).
 
 Create the given V2 Fund.
 
@@ -702,7 +702,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Fund result = apiInstance.CreateFundV2(scope, fundDefinitionRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreateFundV2: Create a Fund V2 (Preview).
+                // [EARLY ACCESS] CreateFundV2: Create a Fund V2 (Preview).
                 Fund result = apiInstance.CreateFundV2(scope, fundDefinitionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -723,7 +723,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateFundV2: Create a Fund V2 (Preview).
+    // [EARLY ACCESS] CreateFundV2: Create a Fund V2 (Preview).
     ApiResponse<Fund> response = apiInstance.CreateFundV2WithHttpInfo(scope, fundDefinitionRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -767,7 +767,7 @@ catch (ApiException e)
 # **CreateValuationPoint**
 > ValuationPoint CreateValuationPoint (string scope, string code, CreateValuationPointRequest createValuationPointRequest, string? navTypeCode = null)
 
-[EXPERIMENTAL] CreateValuationPoint: Create a Valuation Point.
+[EARLY ACCESS] CreateValuationPoint: Create a Valuation Point.
 
 Insert the estimate Valuation Point.
 
@@ -820,7 +820,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ValuationPoint result = apiInstance.CreateValuationPoint(scope, code, createValuationPointRequest, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] CreateValuationPoint: Create a Valuation Point.
+                // [EARLY ACCESS] CreateValuationPoint: Create a Valuation Point.
                 ValuationPoint result = apiInstance.CreateValuationPoint(scope, code, createValuationPointRequest, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -841,7 +841,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateValuationPoint: Create a Valuation Point.
+    // [EARLY ACCESS] CreateValuationPoint: Create a Valuation Point.
     ApiResponse<ValuationPoint> response = apiInstance.CreateValuationPointWithHttpInfo(scope, code, createValuationPointRequest, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -887,7 +887,7 @@ catch (ApiException e)
 # **DeactivateNavTypes**
 > Fund DeactivateNavTypes (string scope, string code, List<string> requestBody, string? deleteMode = null)
 
-[EXPERIMENTAL] DeactivateNavTypes: Deactivate NAV types on a Fund.
+[EARLY ACCESS] DeactivateNavTypes: Deactivate NAV types on a Fund.
 
 Deactivate the given NAV types on the Fund.
 
@@ -940,7 +940,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Fund result = apiInstance.DeactivateNavTypes(scope, code, requestBody, deleteMode, opts: opts);
 
-                // [EXPERIMENTAL] DeactivateNavTypes: Deactivate NAV types on a Fund.
+                // [EARLY ACCESS] DeactivateNavTypes: Deactivate NAV types on a Fund.
                 Fund result = apiInstance.DeactivateNavTypes(scope, code, requestBody, deleteMode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -961,7 +961,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeactivateNavTypes: Deactivate NAV types on a Fund.
+    // [EARLY ACCESS] DeactivateNavTypes: Deactivate NAV types on a Fund.
     ApiResponse<Fund> response = apiInstance.DeactivateNavTypesWithHttpInfo(scope, code, requestBody, deleteMode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1007,7 +1007,7 @@ catch (ApiException e)
 # **DeleteBookmark**
 > DeletedEntityResponse DeleteBookmark (string scope, string code, string bookmarkCode, string? navTypeCode = null)
 
-[EXPERIMENTAL] DeleteBookmark: Delete a Bookmark.
+[EARLY ACCESS] DeleteBookmark: Delete a Bookmark.
 
 Deletes the given Bookmark.
 
@@ -1060,7 +1060,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteBookmark(scope, code, bookmarkCode, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark.
+                // [EARLY ACCESS] DeleteBookmark: Delete a Bookmark.
                 DeletedEntityResponse result = apiInstance.DeleteBookmark(scope, code, bookmarkCode, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1081,7 +1081,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark.
+    // [EARLY ACCESS] DeleteBookmark: Delete a Bookmark.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteBookmarkWithHttpInfo(scope, code, bookmarkCode, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1127,7 +1127,7 @@ catch (ApiException e)
 # **DeleteFee**
 > DeletedEntityResponse DeleteFee (string scope, string code, string feeCode)
 
-[EXPERIMENTAL] DeleteFee: Delete a Fee.
+[EARLY ACCESS] DeleteFee: Delete a Fee.
 
 Delete the given Fee.
 
@@ -1179,7 +1179,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteFee(scope, code, feeCode, opts: opts);
 
-                // [EXPERIMENTAL] DeleteFee: Delete a Fee.
+                // [EARLY ACCESS] DeleteFee: Delete a Fee.
                 DeletedEntityResponse result = apiInstance.DeleteFee(scope, code, feeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1200,7 +1200,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteFee: Delete a Fee.
+    // [EARLY ACCESS] DeleteFee: Delete a Fee.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteFeeWithHttpInfo(scope, code, feeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1245,7 +1245,7 @@ catch (ApiException e)
 # **DeleteFund**
 > DeletedEntityResponse DeleteFund (string scope, string code)
 
-[EXPERIMENTAL] DeleteFund: Delete a Fund.
+[EARLY ACCESS] DeleteFund: Delete a Fund.
 
 Delete the given Fund.
 
@@ -1296,7 +1296,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteFund(scope, code, opts: opts);
 
-                // [EXPERIMENTAL] DeleteFund: Delete a Fund.
+                // [EARLY ACCESS] DeleteFund: Delete a Fund.
                 DeletedEntityResponse result = apiInstance.DeleteFund(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1317,7 +1317,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteFund: Delete a Fund.
+    // [EARLY ACCESS] DeleteFund: Delete a Fund.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteFundWithHttpInfo(scope, code);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1361,7 +1361,7 @@ catch (ApiException e)
 # **DeleteNavActivityAdjustments**
 > DeletedEntityResponse DeleteNavActivityAdjustments (string scope, string code, string valuationPointCode, List<NavActivityAdjustmentResponse> navActivityAdjustmentResponse, string? navTypeCode = null, string? valuationPointCodeVariant = null)
 
-[EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
+[EARLY ACCESS] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
 
 Delete Nav activity adjustments on a Valuation Point.
 
@@ -1416,7 +1416,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteNavActivityAdjustments(scope, code, valuationPointCode, navActivityAdjustmentResponse, navTypeCode, valuationPointCodeVariant, opts: opts);
 
-                // [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
+                // [EARLY ACCESS] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
                 DeletedEntityResponse result = apiInstance.DeleteNavActivityAdjustments(scope, code, valuationPointCode, navActivityAdjustmentResponse, navTypeCode, valuationPointCodeVariant);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1437,7 +1437,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
+    // [EARLY ACCESS] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteNavActivityAdjustmentsWithHttpInfo(scope, code, valuationPointCode, navActivityAdjustmentResponse, navTypeCode, valuationPointCodeVariant);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1485,7 +1485,7 @@ catch (ApiException e)
 # **DeleteValuationPoint**
 > DeletedEntityResponse DeleteValuationPoint (string scope, string code, string diaryEntryCode, string? diaryEntryCodeVariant = null, string? navTypeCode = null)
 
-[EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point.
+[EARLY ACCESS] DeleteValuationPoint: Delete a Valuation Point.
 
 Deletes the given Valuation Point.
 
@@ -1539,7 +1539,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteValuationPoint(scope, code, diaryEntryCode, diaryEntryCodeVariant, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point.
+                // [EARLY ACCESS] DeleteValuationPoint: Delete a Valuation Point.
                 DeletedEntityResponse result = apiInstance.DeleteValuationPoint(scope, code, diaryEntryCode, diaryEntryCodeVariant, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1560,7 +1560,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point.
+    // [EARLY ACCESS] DeleteValuationPoint: Delete a Valuation Point.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteValuationPointWithHttpInfo(scope, code, diaryEntryCode, diaryEntryCodeVariant, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1607,7 +1607,7 @@ catch (ApiException e)
 # **FinaliseCandidateValuationPoint**
 > ValuationPointDataResponse FinaliseCandidateValuationPoint (string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = null)
 
-[EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
+[EARLY ACCESS] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
 
 Moves a 'Candidate' status Valuation Point to status 'Final'.
 
@@ -1660,7 +1660,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ValuationPointDataResponse result = apiInstance.FinaliseCandidateValuationPoint(scope, code, valuationPointDataRequest, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
+                // [EARLY ACCESS] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
                 ValuationPointDataResponse result = apiInstance.FinaliseCandidateValuationPoint(scope, code, valuationPointDataRequest, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1681,7 +1681,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
+    // [EARLY ACCESS] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
     ApiResponse<ValuationPointDataResponse> response = apiInstance.FinaliseCandidateValuationPointWithHttpInfo(scope, code, valuationPointDataRequest, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1727,7 +1727,7 @@ catch (ApiException e)
 # **GetA2BDataForFund**
 > VersionedResourceListOfFundA2BDataRecord GetA2BDataForFund (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? navTypeCode = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] GetA2BDataForFund: Get A2B data for a Fund.
+[EARLY ACCESS] GetA2BDataForFund: Get A2B data for a Fund.
 
 Get the A2B data for transaction portfolios in a specified Fund.
 
@@ -1783,7 +1783,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // VersionedResourceListOfFundA2BDataRecord result = apiInstance.GetA2BDataForFund(scope, code, valuationPointDataQueryParameters, navTypeCode, asAt, filter, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] GetA2BDataForFund: Get A2B data for a Fund.
+                // [EARLY ACCESS] GetA2BDataForFund: Get A2B data for a Fund.
                 VersionedResourceListOfFundA2BDataRecord result = apiInstance.GetA2BDataForFund(scope, code, valuationPointDataQueryParameters, navTypeCode, asAt, filter, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1804,7 +1804,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetA2BDataForFund: Get A2B data for a Fund.
+    // [EARLY ACCESS] GetA2BDataForFund: Get A2B data for a Fund.
     ApiResponse<VersionedResourceListOfFundA2BDataRecord> response = apiInstance.GetA2BDataForFundWithHttpInfo(scope, code, valuationPointDataQueryParameters, navTypeCode, asAt, filter, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1853,7 +1853,7 @@ catch (ApiException e)
 # **GetA2BMovementsForFund**
 > VersionedResourceListOfFundA2BMovementRecord GetA2BMovementsForFund (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? navTypeCode = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund.
+[EARLY ACCESS] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund.
 
 Get the A2B movement records of transaction portfolios in a specified Fund.
 
@@ -1909,7 +1909,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // VersionedResourceListOfFundA2BMovementRecord result = apiInstance.GetA2BMovementsForFund(scope, code, valuationPointDataQueryParameters, navTypeCode, asAt, filter, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund.
+                // [EARLY ACCESS] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund.
                 VersionedResourceListOfFundA2BMovementRecord result = apiInstance.GetA2BMovementsForFund(scope, code, valuationPointDataQueryParameters, navTypeCode, asAt, filter, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1930,7 +1930,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund.
+    // [EARLY ACCESS] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund.
     ApiResponse<VersionedResourceListOfFundA2BMovementRecord> response = apiInstance.GetA2BMovementsForFundWithHttpInfo(scope, code, valuationPointDataQueryParameters, navTypeCode, asAt, filter, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1979,7 +1979,7 @@ catch (ApiException e)
 # **GetFee**
 > Fee GetFee (string scope, string code, string feeCode, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] GetFee: Get a Fee for a specified Fund.
+[EARLY ACCESS] GetFee: Get a Fee for a specified Fund.
 
 Retrieve a fee for a specified Fund.
 
@@ -2034,7 +2034,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Fee result = apiInstance.GetFee(scope, code, feeCode, effectiveAt, asAt, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund.
+                // [EARLY ACCESS] GetFee: Get a Fee for a specified Fund.
                 Fee result = apiInstance.GetFee(scope, code, feeCode, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2055,7 +2055,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund.
+    // [EARLY ACCESS] GetFee: Get a Fee for a specified Fund.
     ApiResponse<Fee> response = apiInstance.GetFeeWithHttpInfo(scope, code, feeCode, effectiveAt, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2103,7 +2103,7 @@ catch (ApiException e)
 # **GetFeeProperties**
 > FeeProperties GetFeeProperties (string scope, string code, string feeCode, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetFeeProperties: Get Fee properties.
+[EARLY ACCESS] GetFeeProperties: Get Fee properties.
 
 Get all the properties of a single fee.
 
@@ -2157,7 +2157,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FeeProperties result = apiInstance.GetFeeProperties(scope, code, feeCode, effectiveAt, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetFeeProperties: Get Fee properties.
+                // [EARLY ACCESS] GetFeeProperties: Get Fee properties.
                 FeeProperties result = apiInstance.GetFeeProperties(scope, code, feeCode, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2178,7 +2178,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetFeeProperties: Get Fee properties.
+    // [EARLY ACCESS] GetFeeProperties: Get Fee properties.
     ApiResponse<FeeProperties> response = apiInstance.GetFeePropertiesWithHttpInfo(scope, code, feeCode, effectiveAt, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2225,7 +2225,7 @@ catch (ApiException e)
 # **GetFund**
 > Fund GetFund (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] GetFund: Get a Fund.
+[EARLY ACCESS] GetFund: Get a Fund.
 
 Retrieve the definition of a particular Fund.
 
@@ -2279,7 +2279,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Fund result = apiInstance.GetFund(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] GetFund: Get a Fund.
+                // [EARLY ACCESS] GetFund: Get a Fund.
                 Fund result = apiInstance.GetFund(scope, code, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2300,7 +2300,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetFund: Get a Fund.
+    // [EARLY ACCESS] GetFund: Get a Fund.
     ApiResponse<Fund> response = apiInstance.GetFundWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2347,7 +2347,7 @@ catch (ApiException e)
 # **GetFundProperties**
 > FundProperties GetFundProperties (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetFundProperties: Get Fund properties.
+[EARLY ACCESS] GetFundProperties: Get Fund properties.
 
 Get all the properties of a single fund.
 
@@ -2400,7 +2400,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FundProperties result = apiInstance.GetFundProperties(scope, code, effectiveAt, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetFundProperties: Get Fund properties.
+                // [EARLY ACCESS] GetFundProperties: Get Fund properties.
                 FundProperties result = apiInstance.GetFundProperties(scope, code, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2421,7 +2421,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetFundProperties: Get Fund properties.
+    // [EARLY ACCESS] GetFundProperties: Get Fund properties.
     ApiResponse<FundProperties> response = apiInstance.GetFundPropertiesWithHttpInfo(scope, code, effectiveAt, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2467,7 +2467,7 @@ catch (ApiException e)
 # **GetHoldingContributorsForFund**
 > VersionedResourceListOfHoldingContributor GetHoldingContributorsForFund (string scope, string code, long holdingId, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? navTypeCode = null, bool? includeHistoric = null, string? taxLotId = null, bool? includeUnsettledMovements = null, int? limit = null, DateTimeOffset? asAt = null, string? page = null)
 
-[EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
+[EARLY ACCESS] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
 
 Get the holdings of transaction portfolios in a specified Fund.
 
@@ -2527,7 +2527,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // VersionedResourceListOfHoldingContributor result = apiInstance.GetHoldingContributorsForFund(scope, code, holdingId, valuationPointDataQueryParameters, navTypeCode, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page, opts: opts);
 
-                // [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
+                // [EARLY ACCESS] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
                 VersionedResourceListOfHoldingContributor result = apiInstance.GetHoldingContributorsForFund(scope, code, holdingId, valuationPointDataQueryParameters, navTypeCode, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2548,7 +2548,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
+    // [EARLY ACCESS] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
     ApiResponse<VersionedResourceListOfHoldingContributor> response = apiInstance.GetHoldingContributorsForFundWithHttpInfo(scope, code, holdingId, valuationPointDataQueryParameters, navTypeCode, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2601,7 +2601,7 @@ catch (ApiException e)
 # **GetHoldingsForFund**
 > VersionedResourceListOfPortfolioHolding GetHoldingsForFund (string scope, string code, SingleValuationPointQueryParameters singleValuationPointQueryParameters, string? navTypeCode = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? propertyKeys = null, bool? byTaxlots = null, int? includeSettlementEventsAfterDays = null)
 
-[EXPERIMENTAL] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund.
+[EARLY ACCESS] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund.
 
 Get the holdings of transaction portfolios in a specified Fund.
 
@@ -2659,7 +2659,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // VersionedResourceListOfPortfolioHolding result = apiInstance.GetHoldingsForFund(scope, code, singleValuationPointQueryParameters, navTypeCode, asAt, filter, propertyKeys, byTaxlots, includeSettlementEventsAfterDays, opts: opts);
 
-                // [EXPERIMENTAL] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund.
+                // [EARLY ACCESS] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund.
                 VersionedResourceListOfPortfolioHolding result = apiInstance.GetHoldingsForFund(scope, code, singleValuationPointQueryParameters, navTypeCode, asAt, filter, propertyKeys, byTaxlots, includeSettlementEventsAfterDays);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2680,7 +2680,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund.
+    // [EARLY ACCESS] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund.
     ApiResponse<VersionedResourceListOfPortfolioHolding> response = apiInstance.GetHoldingsForFundWithHttpInfo(scope, code, singleValuationPointQueryParameters, navTypeCode, asAt, filter, propertyKeys, byTaxlots, includeSettlementEventsAfterDays);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2731,7 +2731,7 @@ catch (ApiException e)
 # **GetValuationForFund**
 > ListAggregationResponse GetValuationForFund (string scope, string code, string? navTypeCode = null, FundValuationRequest? fundValuationRequest = null)
 
-[EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund.
+[EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund.
 
 Perform valuation on a specified Fund.
 
@@ -2784,7 +2784,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ListAggregationResponse result = apiInstance.GetValuationForFund(scope, code, navTypeCode, fundValuationRequest, opts: opts);
 
-                // [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund.
+                // [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund.
                 ListAggregationResponse result = apiInstance.GetValuationForFund(scope, code, navTypeCode, fundValuationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2805,7 +2805,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund.
+    // [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund.
     ApiResponse<ListAggregationResponse> response = apiInstance.GetValuationForFundWithHttpInfo(scope, code, navTypeCode, fundValuationRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2851,7 +2851,7 @@ catch (ApiException e)
 # **GetValuationPointData**
 > ValuationPointDataResponse GetValuationPointData (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = null, string? navTypeCode = null)
 
-[EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
+[EARLY ACCESS] GetValuationPointData: Get Valuation Point Data for a Fund.
 
 Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all 'Assets' and 'Liabilities' from the Fund's Trial balance to produce a GAV.  Start date will be assumed from the last 'official' ValuationPoint and EndDate will be as provided.
 
@@ -2905,7 +2905,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ValuationPointDataResponse result = apiInstance.GetValuationPointData(scope, code, valuationPointDataQueryParameters, asAt, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
+                // [EARLY ACCESS] GetValuationPointData: Get Valuation Point Data for a Fund.
                 ValuationPointDataResponse result = apiInstance.GetValuationPointData(scope, code, valuationPointDataQueryParameters, asAt, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2926,7 +2926,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
+    // [EARLY ACCESS] GetValuationPointData: Get Valuation Point Data for a Fund.
     ApiResponse<ValuationPointDataResponse> response = apiInstance.GetValuationPointDataWithHttpInfo(scope, code, valuationPointDataQueryParameters, asAt, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2973,7 +2973,7 @@ catch (ApiException e)
 # **GetValuationPointJournalEntryLines**
 > ValuationPointResourceListOfFundJournalEntryLine GetValuationPointJournalEntryLines (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = null, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null)
 
-[EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
+[EARLY ACCESS] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
 
 Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
 
@@ -3032,7 +3032,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ValuationPointResourceListOfFundJournalEntryLine result = apiInstance.GetValuationPointJournalEntryLines(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
+                // [EARLY ACCESS] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
                 ValuationPointResourceListOfFundJournalEntryLine result = apiInstance.GetValuationPointJournalEntryLines(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3053,7 +3053,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
+    // [EARLY ACCESS] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
     ApiResponse<ValuationPointResourceListOfFundJournalEntryLine> response = apiInstance.GetValuationPointJournalEntryLinesWithHttpInfo(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -3105,7 +3105,7 @@ catch (ApiException e)
 # **GetValuationPointPnlSummary**
 > ValuationPointResourceListOfPnlJournalEntryLine GetValuationPointPnlSummary (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = null, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, string? navTypeCode = null)
 
-[EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
+[EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
 
 Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
 
@@ -3163,7 +3163,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ValuationPointResourceListOfPnlJournalEntryLine result = apiInstance.GetValuationPointPnlSummary(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
+                // [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
                 ValuationPointResourceListOfPnlJournalEntryLine result = apiInstance.GetValuationPointPnlSummary(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3184,7 +3184,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
+    // [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
     ApiResponse<ValuationPointResourceListOfPnlJournalEntryLine> response = apiInstance.GetValuationPointPnlSummaryWithHttpInfo(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -3235,7 +3235,7 @@ catch (ApiException e)
 # **GetValuationPointQuotes**
 > ValuationPointResourceListOfAccountedQuote GetValuationPointQuotes (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = null, int? limit = null, string? page = null, string? navTypeCode = null)
 
-[EXPERIMENTAL] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point.
+[EARLY ACCESS] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point.
 
 Gets all quotes within the effective date range of the specified Valuation Point for a Fund,  including any quotes added via a Complex Close (Post-Close Activity).
 
@@ -3291,7 +3291,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ValuationPointResourceListOfAccountedQuote result = apiInstance.GetValuationPointQuotes(scope, code, valuationPointDataQueryParameters, asAt, limit, page, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point.
+                // [EARLY ACCESS] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point.
                 ValuationPointResourceListOfAccountedQuote result = apiInstance.GetValuationPointQuotes(scope, code, valuationPointDataQueryParameters, asAt, limit, page, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3312,7 +3312,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point.
+    // [EARLY ACCESS] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point.
     ApiResponse<ValuationPointResourceListOfAccountedQuote> response = apiInstance.GetValuationPointQuotesWithHttpInfo(scope, code, valuationPointDataQueryParameters, asAt, limit, page, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -3361,7 +3361,7 @@ catch (ApiException e)
 # **GetValuationPointTransactions**
 > ValuationPointResourceListOfAccountedTransaction GetValuationPointTransactions (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null, string? dataModelScope = null, string? dataModelCode = null, bool? showCancelledTransactions = null, string? membershipType = null)
 
-[EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
+[EARLY ACCESS] GetValuationPointTransactions: Get the Transactions for the given Fund.
 
 Gets the Transactions for the given Valuation Point for a Fund.
 
@@ -3423,7 +3423,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ValuationPointResourceListOfAccountedTransaction result = apiInstance.GetValuationPointTransactions(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, dataModelScope, dataModelCode, showCancelledTransactions, membershipType, opts: opts);
 
-                // [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
+                // [EARLY ACCESS] GetValuationPointTransactions: Get the Transactions for the given Fund.
                 ValuationPointResourceListOfAccountedTransaction result = apiInstance.GetValuationPointTransactions(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, dataModelScope, dataModelCode, showCancelledTransactions, membershipType);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3444,7 +3444,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
+    // [EARLY ACCESS] GetValuationPointTransactions: Get the Transactions for the given Fund.
     ApiResponse<ValuationPointResourceListOfAccountedTransaction> response = apiInstance.GetValuationPointTransactionsWithHttpInfo(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, dataModelScope, dataModelCode, showCancelledTransactions, membershipType);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -3499,9 +3499,9 @@ catch (ApiException e)
 # **GetValuationPointTrialBalance**
 > ValuationPointResourceListOfTrialBalance GetValuationPointTrialBalance (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = null, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null, bool? excludeCleardownModule = null)
 
-[EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
+[EARLY ACCESS] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
 
-Gets the Trial Balance for the given Valuation Point for a Fund.                The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
+Gets the Trial Balance for the given Valuation Point for a Fund.                The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).                Supplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.  Any caller with access to this endpoint may use it; it is not role-restricted.
 
 ### Example
 ```csharp
@@ -3559,7 +3559,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ValuationPointResourceListOfTrialBalance result = apiInstance.GetValuationPointTrialBalance(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode, excludeCleardownModule, opts: opts);
 
-                // [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
+                // [EARLY ACCESS] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
                 ValuationPointResourceListOfTrialBalance result = apiInstance.GetValuationPointTrialBalance(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode, excludeCleardownModule);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3580,7 +3580,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
+    // [EARLY ACCESS] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
     ApiResponse<ValuationPointResourceListOfTrialBalance> response = apiInstance.GetValuationPointTrialBalanceWithHttpInfo(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode, excludeCleardownModule);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -3633,7 +3633,7 @@ catch (ApiException e)
 # **GetValuationPointUnsettledTransactions**
 > ValuationPointResourceListOfUnsettledTransaction GetValuationPointUnsettledTransactions (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null)
 
-[EXPERIMENTAL] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
+[EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
 
 Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,  looking back from inception. Settlement status is point-in-time: post-cutoff settlement  activity does not alter the result.
 
@@ -3690,7 +3690,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ValuationPointResourceListOfUnsettledTransaction result = apiInstance.GetValuationPointUnsettledTransactions(scope, code, valuationPointDataQueryParameters, asAt, limit, page, propertyKeys, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
+                // [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
                 ValuationPointResourceListOfUnsettledTransaction result = apiInstance.GetValuationPointUnsettledTransactions(scope, code, valuationPointDataQueryParameters, asAt, limit, page, propertyKeys, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3711,7 +3711,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
+    // [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
     ApiResponse<ValuationPointResourceListOfUnsettledTransaction> response = apiInstance.GetValuationPointUnsettledTransactionsWithHttpInfo(scope, code, valuationPointDataQueryParameters, asAt, limit, page, propertyKeys, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -3761,7 +3761,7 @@ catch (ApiException e)
 # **ListFees**
 > PagedResourceListOfFee ListFees (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] ListFees: List Fees for a specified Fund.
+[EARLY ACCESS] ListFees: List Fees for a specified Fund.
 
 List all the Fees matching a particular criteria.
 
@@ -3819,7 +3819,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfFee result = apiInstance.ListFees(scope, code, effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] ListFees: List Fees for a specified Fund.
+                // [EARLY ACCESS] ListFees: List Fees for a specified Fund.
                 PagedResourceListOfFee result = apiInstance.ListFees(scope, code, effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3840,7 +3840,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListFees: List Fees for a specified Fund.
+    // [EARLY ACCESS] ListFees: List Fees for a specified Fund.
     ApiResponse<PagedResourceListOfFee> response = apiInstance.ListFeesWithHttpInfo(scope, code, effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -3891,7 +3891,7 @@ catch (ApiException e)
 # **ListFundCalendar**
 > PagedResourceListOfFundCalendarEntry ListFundCalendar (string scope, string code, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] ListFundCalendar: List Fund Calendar.
+[EARLY ACCESS] ListFundCalendar: List Fund Calendar.
 
 List all the Calendar Entries associated with the Fund.
 
@@ -3948,7 +3948,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfFundCalendarEntry result = apiInstance.ListFundCalendar(scope, code, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] ListFundCalendar: List Fund Calendar.
+                // [EARLY ACCESS] ListFundCalendar: List Fund Calendar.
                 PagedResourceListOfFundCalendarEntry result = apiInstance.ListFundCalendar(scope, code, asAt, page, limit, filter, sortBy, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3969,7 +3969,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListFundCalendar: List Fund Calendar.
+    // [EARLY ACCESS] ListFundCalendar: List Fund Calendar.
     ApiResponse<PagedResourceListOfFundCalendarEntry> response = apiInstance.ListFundCalendarWithHttpInfo(scope, code, asAt, page, limit, filter, sortBy, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -4019,7 +4019,7 @@ catch (ApiException e)
 # **ListFundCalendarEntries**
 > PagedResourceListOfFundCalendarEntries ListFundCalendarEntries (string scope, string code, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] ListFundCalendarEntries: List Fund Calendar Entries.
+[EARLY ACCESS] ListFundCalendarEntries: List Fund Calendar Entries.
 
 List all the Calendar Entries associated with the Fund.
 
@@ -4076,7 +4076,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfFundCalendarEntries result = apiInstance.ListFundCalendarEntries(scope, code, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] ListFundCalendarEntries: List Fund Calendar Entries.
+                // [EARLY ACCESS] ListFundCalendarEntries: List Fund Calendar Entries.
                 PagedResourceListOfFundCalendarEntries result = apiInstance.ListFundCalendarEntries(scope, code, asAt, page, limit, filter, sortBy, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -4097,7 +4097,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListFundCalendarEntries: List Fund Calendar Entries.
+    // [EARLY ACCESS] ListFundCalendarEntries: List Fund Calendar Entries.
     ApiResponse<PagedResourceListOfFundCalendarEntries> response = apiInstance.ListFundCalendarEntriesWithHttpInfo(scope, code, asAt, page, limit, filter, sortBy, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -4147,7 +4147,7 @@ catch (ApiException e)
 # **ListFunds**
 > PagedResourceListOfFund ListFunds (DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] ListFunds: List Funds.
+[EARLY ACCESS] ListFunds: List Funds.
 
 List all the Funds matching particular criteria.
 
@@ -4203,7 +4203,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfFund result = apiInstance.ListFunds(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] ListFunds: List Funds.
+                // [EARLY ACCESS] ListFunds: List Funds.
                 PagedResourceListOfFund result = apiInstance.ListFunds(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -4224,7 +4224,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListFunds: List Funds.
+    // [EARLY ACCESS] ListFunds: List Funds.
     ApiResponse<PagedResourceListOfFund> response = apiInstance.ListFundsWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -4273,7 +4273,7 @@ catch (ApiException e)
 # **ListNavActivityAdjustments**
 > ResourceListOfNavActivityAdjustmentResponse ListNavActivityAdjustments (string scope, string code, string valuationPointCode, string? navTypeCode = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, string? valuationPointCodeVariant = null)
 
-[EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
+[EARLY ACCESS] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
 
 Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
 
@@ -4331,7 +4331,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfNavActivityAdjustmentResponse result = apiInstance.ListNavActivityAdjustments(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, filter, valuationPointCodeVariant, opts: opts);
 
-                // [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
+                // [EARLY ACCESS] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
                 ResourceListOfNavActivityAdjustmentResponse result = apiInstance.ListNavActivityAdjustments(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, filter, valuationPointCodeVariant);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -4352,7 +4352,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
+    // [EARLY ACCESS] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
     ApiResponse<ResourceListOfNavActivityAdjustmentResponse> response = apiInstance.ListNavActivityAdjustmentsWithHttpInfo(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, filter, valuationPointCodeVariant);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -4403,7 +4403,7 @@ catch (ApiException e)
 # **ListValuationPointComplexMarketData**
 > ValuationPointResourceListOfAccountedComplexMarketData ListValuationPointComplexMarketData (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = null, int? limit = null, string? page = null, string? navTypeCode = null)
 
-[EXPERIMENTAL] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
+[EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
 
 Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
 
@@ -4459,7 +4459,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ValuationPointResourceListOfAccountedComplexMarketData result = apiInstance.ListValuationPointComplexMarketData(scope, code, valuationPointDataQueryParameters, asAt, limit, page, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
+                // [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
                 ValuationPointResourceListOfAccountedComplexMarketData result = apiInstance.ListValuationPointComplexMarketData(scope, code, valuationPointDataQueryParameters, asAt, limit, page, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -4480,7 +4480,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
+    // [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
     ApiResponse<ValuationPointResourceListOfAccountedComplexMarketData> response = apiInstance.ListValuationPointComplexMarketDataWithHttpInfo(scope, code, valuationPointDataQueryParameters, asAt, limit, page, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -4529,7 +4529,7 @@ catch (ApiException e)
 # **ListValuationPointInstruments**
 > PagedResourceListOfValuationPointInstrument ListValuationPointInstruments (string scope, string code, string valuationPointCode, string? navTypeCode = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? instrumentPropertyKeys = null, string? valuationPointCodeVariant = null)
 
-[EXPERIMENTAL] ListValuationPointInstruments: List Instruments inside a valuation point
+[EARLY ACCESS] ListValuationPointInstruments: List Instruments inside a valuation point
 
 Lists the Instruments linked to Transactions within a Valuation Point for a Fund.
 
@@ -4589,7 +4589,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfValuationPointInstrument result = apiInstance.ListValuationPointInstruments(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, filter, sortBy, instrumentPropertyKeys, valuationPointCodeVariant, opts: opts);
 
-                // [EXPERIMENTAL] ListValuationPointInstruments: List Instruments inside a valuation point
+                // [EARLY ACCESS] ListValuationPointInstruments: List Instruments inside a valuation point
                 PagedResourceListOfValuationPointInstrument result = apiInstance.ListValuationPointInstruments(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, filter, sortBy, instrumentPropertyKeys, valuationPointCodeVariant);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -4610,7 +4610,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListValuationPointInstruments: List Instruments inside a valuation point
+    // [EARLY ACCESS] ListValuationPointInstruments: List Instruments inside a valuation point
     ApiResponse<PagedResourceListOfValuationPointInstrument> response = apiInstance.ListValuationPointInstrumentsWithHttpInfo(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, filter, sortBy, instrumentPropertyKeys, valuationPointCodeVariant);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -4663,7 +4663,7 @@ catch (ApiException e)
 # **ListValuationPointOverview**
 > PagedResourceListOfValuationPointOverview ListValuationPointOverview (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? propertyKeys = null, string? navTypeCode = null)
 
-[EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
+[EARLY ACCESS] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
 
 List the overview of all the Valuation Points that match the given criteria for a given Fund.
 
@@ -4721,7 +4721,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfValuationPointOverview result = apiInstance.ListValuationPointOverview(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
+                // [EARLY ACCESS] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
                 PagedResourceListOfValuationPointOverview result = apiInstance.ListValuationPointOverview(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -4742,7 +4742,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
+    // [EARLY ACCESS] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
     ApiResponse<PagedResourceListOfValuationPointOverview> response = apiInstance.ListValuationPointOverviewWithHttpInfo(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -4793,7 +4793,7 @@ catch (ApiException e)
 # **PatchFee**
 > Fee PatchFee (string scope, string code, string feeCode, List<Operation> operation)
 
-[EXPERIMENTAL] PatchFee: Patch Fee.
+[EARLY ACCESS] PatchFee: Patch Fee.
 
 Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
 
@@ -4846,7 +4846,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Fee result = apiInstance.PatchFee(scope, code, feeCode, operation, opts: opts);
 
-                // [EXPERIMENTAL] PatchFee: Patch Fee.
+                // [EARLY ACCESS] PatchFee: Patch Fee.
                 Fee result = apiInstance.PatchFee(scope, code, feeCode, operation);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -4867,7 +4867,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PatchFee: Patch Fee.
+    // [EARLY ACCESS] PatchFee: Patch Fee.
     ApiResponse<Fee> response = apiInstance.PatchFeeWithHttpInfo(scope, code, feeCode, operation);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -4913,7 +4913,7 @@ catch (ApiException e)
 # **PatchFund**
 > Fund PatchFund (string scope, string code, List<Operation> operation)
 
-[EXPERIMENTAL] PatchFund: Patch a Fund.
+[EARLY ACCESS] PatchFund: Patch a Fund.
 
 Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, BaseCurrency, PortfolioIds, FundConfigurationId, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, PrimaryNavType, AdditionalNavTypes, AborId, YearEndDate.
 
@@ -4965,7 +4965,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Fund result = apiInstance.PatchFund(scope, code, operation, opts: opts);
 
-                // [EXPERIMENTAL] PatchFund: Patch a Fund.
+                // [EARLY ACCESS] PatchFund: Patch a Fund.
                 Fund result = apiInstance.PatchFund(scope, code, operation);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -4986,7 +4986,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PatchFund: Patch a Fund.
+    // [EARLY ACCESS] PatchFund: Patch a Fund.
     ApiResponse<Fund> response = apiInstance.PatchFundWithHttpInfo(scope, code, operation);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -5161,7 +5161,7 @@ catch (ApiException e)
 # **QueryCashStatementLocalCurrency**
 > ValuationPointResourceListOfFundCashStatementLocalCurrency QueryCashStatementLocalCurrency (string scope, string code, QueryFundCashStatementParameters queryFundCashStatementParameters, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null)
 
-[EXPERIMENTAL] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point.
+[EARLY ACCESS] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point.
 
 Returns settled cash movements with a running balance in local currency for the specified Fund  valuation point period. The cash statement is derived from Journal Entry Lines filtered to  settled cash (HoldType='B', SourceType=LusidTransaction). Use the DisplayMode parameter on the  request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses system-generated zero-net reversal/TrueUp pairs into SystemCorrection rows). Base  currency columns are out of scope for this variant and are not returned.
 
@@ -5219,7 +5219,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ValuationPointResourceListOfFundCashStatementLocalCurrency result = apiInstance.QueryCashStatementLocalCurrency(scope, code, queryFundCashStatementParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point.
+                // [EARLY ACCESS] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point.
                 ValuationPointResourceListOfFundCashStatementLocalCurrency result = apiInstance.QueryCashStatementLocalCurrency(scope, code, queryFundCashStatementParameters, asAt, filter, limit, page, propertyKeys, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -5240,7 +5240,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point.
+    // [EARLY ACCESS] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point.
     ApiResponse<ValuationPointResourceListOfFundCashStatementLocalCurrency> response = apiInstance.QueryCashStatementLocalCurrencyWithHttpInfo(scope, code, queryFundCashStatementParameters, asAt, filter, limit, page, propertyKeys, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -5291,7 +5291,7 @@ catch (ApiException e)
 # **RevertValuationPointToEstimate**
 > ValuationPointDataResponse RevertValuationPointToEstimate (string scope, string code, RevertValuationPointDataRequest revertValuationPointDataRequest, string? navTypeCode = null)
 
-[EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
+[EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
 
 Moves a 'Final' status Valuation Point to status 'Estimate'.
 
@@ -5344,7 +5344,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ValuationPointDataResponse result = apiInstance.RevertValuationPointToEstimate(scope, code, revertValuationPointDataRequest, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
+                // [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
                 ValuationPointDataResponse result = apiInstance.RevertValuationPointToEstimate(scope, code, revertValuationPointDataRequest, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -5365,7 +5365,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
+    // [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
     ApiResponse<ValuationPointDataResponse> response = apiInstance.RevertValuationPointToEstimateWithHttpInfo(scope, code, revertValuationPointDataRequest, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -5411,7 +5411,7 @@ catch (ApiException e)
 # **SetShareClassInstruments**
 > Fund SetShareClassInstruments (string scope, string code, SetShareClassInstrumentsRequest setShareClassInstrumentsRequest)
 
-[EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
+[EARLY ACCESS] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
 
 Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
 
@@ -5463,7 +5463,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Fund result = apiInstance.SetShareClassInstruments(scope, code, setShareClassInstrumentsRequest, opts: opts);
 
-                // [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
+                // [EARLY ACCESS] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
                 Fund result = apiInstance.SetShareClassInstruments(scope, code, setShareClassInstrumentsRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -5484,7 +5484,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
+    // [EARLY ACCESS] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
     ApiResponse<Fund> response = apiInstance.SetShareClassInstrumentsWithHttpInfo(scope, code, setShareClassInstrumentsRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -5529,7 +5529,7 @@ catch (ApiException e)
 # **UpdateValuationPoint**
 > ValuationPoint UpdateValuationPoint (string scope, string code, UpdateValuationPointRequest updateValuationPointRequest, string? navTypeCode = null)
 
-[EXPERIMENTAL] UpdateValuationPoint: Update a Valuation Point.
+[EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point.
 
 Updates an existing Valuation Point.
 
@@ -5582,7 +5582,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ValuationPoint result = apiInstance.UpdateValuationPoint(scope, code, updateValuationPointRequest, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] UpdateValuationPoint: Update a Valuation Point.
+                // [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point.
                 ValuationPoint result = apiInstance.UpdateValuationPoint(scope, code, updateValuationPointRequest, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -5603,7 +5603,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpdateValuationPoint: Update a Valuation Point.
+    // [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point.
     ApiResponse<ValuationPoint> response = apiInstance.UpdateValuationPointWithHttpInfo(scope, code, updateValuationPointRequest, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -5650,7 +5650,7 @@ catch (ApiException e)
 # **UpsertBookmark**
 > FundCalendarEntry UpsertBookmark (string scope, string code, UpsertFundBookmarkRequest upsertFundBookmarkRequest, string? navTypeCode = null)
 
-[EXPERIMENTAL] UpsertBookmark: Upsert a bookmark.
+[EARLY ACCESS] UpsertBookmark: Upsert a bookmark.
 
 This method will update or upsert a Bookmark for the Fund.
 
@@ -5703,7 +5703,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FundCalendarEntry result = apiInstance.UpsertBookmark(scope, code, upsertFundBookmarkRequest, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark.
+                // [EARLY ACCESS] UpsertBookmark: Upsert a bookmark.
                 FundCalendarEntry result = apiInstance.UpsertBookmark(scope, code, upsertFundBookmarkRequest, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -5724,7 +5724,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark.
+    // [EARLY ACCESS] UpsertBookmark: Upsert a bookmark.
     ApiResponse<FundCalendarEntry> response = apiInstance.UpsertBookmarkWithHttpInfo(scope, code, upsertFundBookmarkRequest, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -5770,7 +5770,7 @@ catch (ApiException e)
 # **UpsertDiaryEntryTypeValuationPoint**
 > DiaryEntry UpsertDiaryEntryTypeValuationPoint (string scope, string code, UpsertValuationPointRequest upsertValuationPointRequest, string? navTypeCode = null)
 
-[EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
+[EARLY ACCESS] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
 
 Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.
 
@@ -5823,7 +5823,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DiaryEntry result = apiInstance.UpsertDiaryEntryTypeValuationPoint(scope, code, upsertValuationPointRequest, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
+                // [EARLY ACCESS] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
                 DiaryEntry result = apiInstance.UpsertDiaryEntryTypeValuationPoint(scope, code, upsertValuationPointRequest, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -5844,7 +5844,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
+    // [EARLY ACCESS] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
     ApiResponse<DiaryEntry> response = apiInstance.UpsertDiaryEntryTypeValuationPointWithHttpInfo(scope, code, upsertValuationPointRequest, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -5890,7 +5890,7 @@ catch (ApiException e)
 # **UpsertFeeProperties**
 > FeeProperties UpsertFeeProperties (string scope, string code, string feeCode, Dictionary<string, Property>? requestBody = null)
 
-[EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties.
+[EARLY ACCESS] UpsertFeeProperties: Upsert Fee properties.
 
 Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'Fee'.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
@@ -5943,7 +5943,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FeeProperties result = apiInstance.UpsertFeeProperties(scope, code, feeCode, requestBody, opts: opts);
 
-                // [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties.
+                // [EARLY ACCESS] UpsertFeeProperties: Upsert Fee properties.
                 FeeProperties result = apiInstance.UpsertFeeProperties(scope, code, feeCode, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -5964,7 +5964,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties.
+    // [EARLY ACCESS] UpsertFeeProperties: Upsert Fee properties.
     ApiResponse<FeeProperties> response = apiInstance.UpsertFeePropertiesWithHttpInfo(scope, code, feeCode, requestBody);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -6010,7 +6010,7 @@ catch (ApiException e)
 # **UpsertFundProperties**
 > FundProperties UpsertFundProperties (string scope, string code, Dictionary<string, Property>? requestBody = null)
 
-[EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties.
+[EARLY ACCESS] UpsertFundProperties: Upsert Fund properties.
 
 Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'Fund'.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
@@ -6062,7 +6062,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FundProperties result = apiInstance.UpsertFundProperties(scope, code, requestBody, opts: opts);
 
-                // [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties.
+                // [EARLY ACCESS] UpsertFundProperties: Upsert Fund properties.
                 FundProperties result = apiInstance.UpsertFundProperties(scope, code, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -6083,7 +6083,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties.
+    // [EARLY ACCESS] UpsertFundProperties: Upsert Fund properties.
     ApiResponse<FundProperties> response = apiInstance.UpsertFundPropertiesWithHttpInfo(scope, code, requestBody);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -6128,7 +6128,7 @@ catch (ApiException e)
 # **UpsertNavActivityAdjustments**
 > DateTimeOffset UpsertNavActivityAdjustments (string scope, string code, string valuationPointCode, List<NavActivityAdjustment> navActivityAdjustment, string? navTypeCode = null, string? valuationPointCodeVariant = null)
 
-[EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
+[EARLY ACCESS] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
 
 Upserts the NAV adjustment activities to the specified valuation point for a Fund.
 
@@ -6183,7 +6183,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DateTimeOffset result = apiInstance.UpsertNavActivityAdjustments(scope, code, valuationPointCode, navActivityAdjustment, navTypeCode, valuationPointCodeVariant, opts: opts);
 
-                // [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
+                // [EARLY ACCESS] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
                 DateTimeOffset result = apiInstance.UpsertNavActivityAdjustments(scope, code, valuationPointCode, navActivityAdjustment, navTypeCode, valuationPointCodeVariant);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -6204,7 +6204,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
+    // [EARLY ACCESS] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
     ApiResponse<DateTimeOffset> response = apiInstance.UpsertNavActivityAdjustmentsWithHttpInfo(scope, code, valuationPointCode, navActivityAdjustment, navTypeCode, valuationPointCodeVariant);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

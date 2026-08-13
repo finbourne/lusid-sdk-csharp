@@ -4,18 +4,18 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateFeeType**](FeeTypesApi.md#createfeetype) | **POST** /api/feetypes/{scope} | [EXPERIMENTAL] CreateFeeType: Create a FeeType. |
-| [**DeleteFeeType**](FeeTypesApi.md#deletefeetype) | **DELETE** /api/feetypes/{scope}/{code} | [EXPERIMENTAL] DeleteFeeType: Delete a FeeType. |
-| [**GetFeeTemplateSpecifications**](FeeTypesApi.md#getfeetemplatespecifications) | **GET** /api/feetypes/feetransactiontemplatespecification | [EXPERIMENTAL] GetFeeTemplateSpecifications: Get FeeTemplateSpecifications used in the FeeType. |
-| [**GetFeeType**](FeeTypesApi.md#getfeetype) | **GET** /api/feetypes/{scope}/{code} | [EXPERIMENTAL] GetFeeType: Get a FeeType |
-| [**ListFeeTypes**](FeeTypesApi.md#listfeetypes) | **GET** /api/feetypes | [EXPERIMENTAL] ListFeeTypes: List FeeTypes |
-| [**UpdateFeeType**](FeeTypesApi.md#updatefeetype) | **PUT** /api/feetypes/{scope}/{code} | [EXPERIMENTAL] UpdateFeeType: Update a FeeType. |
+| [**CreateFeeType**](FeeTypesApi.md#createfeetype) | **POST** /api/feetypes/{scope} | [EARLY ACCESS] CreateFeeType: Create a FeeType. |
+| [**DeleteFeeType**](FeeTypesApi.md#deletefeetype) | **DELETE** /api/feetypes/{scope}/{code} | [EARLY ACCESS] DeleteFeeType: Delete a FeeType. |
+| [**GetFeeTemplateSpecifications**](FeeTypesApi.md#getfeetemplatespecifications) | **GET** /api/feetypes/feetransactiontemplatespecification | [EARLY ACCESS] GetFeeTemplateSpecifications: Get FeeTemplateSpecifications used in the FeeType. |
+| [**GetFeeType**](FeeTypesApi.md#getfeetype) | **GET** /api/feetypes/{scope}/{code} | [EARLY ACCESS] GetFeeType: Get a FeeType |
+| [**ListFeeTypes**](FeeTypesApi.md#listfeetypes) | **GET** /api/feetypes | [EARLY ACCESS] ListFeeTypes: List FeeTypes |
+| [**UpdateFeeType**](FeeTypesApi.md#updatefeetype) | **PUT** /api/feetypes/{scope}/{code} | [EARLY ACCESS] UpdateFeeType: Update a FeeType. |
 
 <a id="createfeetype"></a>
 # **CreateFeeType**
 > FeeType CreateFeeType (string scope, FeeTypeRequest feeTypeRequest)
 
-[EXPERIMENTAL] CreateFeeType: Create a FeeType.
+[EARLY ACCESS] CreateFeeType: Create a FeeType.
 
 Create a FeeType that contains templates used to create fee transactions.
 
@@ -66,7 +66,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FeeType result = apiInstance.CreateFeeType(scope, feeTypeRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreateFeeType: Create a FeeType.
+                // [EARLY ACCESS] CreateFeeType: Create a FeeType.
                 FeeType result = apiInstance.CreateFeeType(scope, feeTypeRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -87,7 +87,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateFeeType: Create a FeeType.
+    // [EARLY ACCESS] CreateFeeType: Create a FeeType.
     ApiResponse<FeeType> response = apiInstance.CreateFeeTypeWithHttpInfo(scope, feeTypeRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -131,7 +131,7 @@ catch (ApiException e)
 # **DeleteFeeType**
 > DeletedEntityResponse DeleteFeeType (string scope, string code)
 
-[EXPERIMENTAL] DeleteFeeType: Delete a FeeType.
+[EARLY ACCESS] DeleteFeeType: Delete a FeeType.
 
 Delete a FeeType that contains templates used to create fee transactions.
 
@@ -182,7 +182,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteFeeType(scope, code, opts: opts);
 
-                // [EXPERIMENTAL] DeleteFeeType: Delete a FeeType.
+                // [EARLY ACCESS] DeleteFeeType: Delete a FeeType.
                 DeletedEntityResponse result = apiInstance.DeleteFeeType(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -203,7 +203,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteFeeType: Delete a FeeType.
+    // [EARLY ACCESS] DeleteFeeType: Delete a FeeType.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteFeeTypeWithHttpInfo(scope, code);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -247,7 +247,7 @@ catch (ApiException e)
 # **GetFeeTemplateSpecifications**
 > FeeTransactionTemplateSpecification GetFeeTemplateSpecifications ()
 
-[EXPERIMENTAL] GetFeeTemplateSpecifications: Get FeeTemplateSpecifications used in the FeeType.
+[EARLY ACCESS] GetFeeTemplateSpecifications: Get FeeTemplateSpecifications used in the FeeType.
 
 Get FeeTemplateSpecifications used in the FeeType.
 
@@ -296,7 +296,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FeeTransactionTemplateSpecification result = apiInstance.GetFeeTemplateSpecifications(opts: opts);
 
-                // [EXPERIMENTAL] GetFeeTemplateSpecifications: Get FeeTemplateSpecifications used in the FeeType.
+                // [EARLY ACCESS] GetFeeTemplateSpecifications: Get FeeTemplateSpecifications used in the FeeType.
                 FeeTransactionTemplateSpecification result = apiInstance.GetFeeTemplateSpecifications();
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -317,7 +317,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetFeeTemplateSpecifications: Get FeeTemplateSpecifications used in the FeeType.
+    // [EARLY ACCESS] GetFeeTemplateSpecifications: Get FeeTemplateSpecifications used in the FeeType.
     ApiResponse<FeeTransactionTemplateSpecification> response = apiInstance.GetFeeTemplateSpecificationsWithHttpInfo();
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -355,7 +355,7 @@ This endpoint does not need any parameter.
 # **GetFeeType**
 > FeeType GetFeeType (string scope, string code, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetFeeType: Get a FeeType
+[EARLY ACCESS] GetFeeType: Get a FeeType
 
 Get a FeeType that contains templates used to create fee transactions.
 
@@ -407,7 +407,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FeeType result = apiInstance.GetFeeType(scope, code, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetFeeType: Get a FeeType
+                // [EARLY ACCESS] GetFeeType: Get a FeeType
                 FeeType result = apiInstance.GetFeeType(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -428,7 +428,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetFeeType: Get a FeeType
+    // [EARLY ACCESS] GetFeeType: Get a FeeType
     ApiResponse<FeeType> response = apiInstance.GetFeeTypeWithHttpInfo(scope, code, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -473,7 +473,7 @@ catch (ApiException e)
 # **ListFeeTypes**
 > PagedResourceListOfFeeType ListFeeTypes (DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null)
 
-[EXPERIMENTAL] ListFeeTypes: List FeeTypes
+[EARLY ACCESS] ListFeeTypes: List FeeTypes
 
 List FeeTypes that contain templates used to create fee transactions.
 
@@ -527,7 +527,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfFeeType result = apiInstance.ListFeeTypes(asAt, page, limit, filter, sortBy, opts: opts);
 
-                // [EXPERIMENTAL] ListFeeTypes: List FeeTypes
+                // [EARLY ACCESS] ListFeeTypes: List FeeTypes
                 PagedResourceListOfFeeType result = apiInstance.ListFeeTypes(asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -548,7 +548,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListFeeTypes: List FeeTypes
+    // [EARLY ACCESS] ListFeeTypes: List FeeTypes
     ApiResponse<PagedResourceListOfFeeType> response = apiInstance.ListFeeTypesWithHttpInfo(asAt, page, limit, filter, sortBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -595,7 +595,7 @@ catch (ApiException e)
 # **UpdateFeeType**
 > FeeType UpdateFeeType (string scope, string code, UpdateFeeTypeRequest updateFeeTypeRequest)
 
-[EXPERIMENTAL] UpdateFeeType: Update a FeeType.
+[EARLY ACCESS] UpdateFeeType: Update a FeeType.
 
 Update a FeeType that contains templates used to create fee transactions.
 
@@ -647,7 +647,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FeeType result = apiInstance.UpdateFeeType(scope, code, updateFeeTypeRequest, opts: opts);
 
-                // [EXPERIMENTAL] UpdateFeeType: Update a FeeType.
+                // [EARLY ACCESS] UpdateFeeType: Update a FeeType.
                 FeeType result = apiInstance.UpdateFeeType(scope, code, updateFeeTypeRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -668,7 +668,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpdateFeeType: Update a FeeType.
+    // [EARLY ACCESS] UpdateFeeType: Update a FeeType.
     ApiResponse<FeeType> response = apiInstance.UpdateFeeTypeWithHttpInfo(scope, code, updateFeeTypeRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

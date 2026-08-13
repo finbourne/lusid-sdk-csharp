@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type &#39;Other&#39;.
+        /// [EARLY ACCESS] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type &#39;Other&#39;.
         /// </summary>
         /// <remarks>
         /// Adds a new diary entry to the specified Abor
@@ -47,7 +47,7 @@ namespace Lusid.Sdk.Api
         DiaryEntry AddDiaryEntry(string scope, string code, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type &#39;Other&#39;.
+        /// [EARLY ACCESS] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type &#39;Other&#39;.
         /// </summary>
         /// <remarks>
         /// Adds a new diary entry to the specified Abor
@@ -61,7 +61,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DiaryEntry</returns>
         Lusid.Sdk.Client.ApiResponse<DiaryEntry> AddDiaryEntryWithHttpInfo(string scope, string code, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
+        /// [EARLY ACCESS] ClosePeriod: Closes or locks the current period for the given Abor.
         /// </summary>
         /// <remarks>
         /// Closes or Locks the current open period for the given Abor.
@@ -76,7 +76,7 @@ namespace Lusid.Sdk.Api
         DiaryEntry ClosePeriod(string scope, string code, ClosePeriodDiaryEntryRequest closePeriodDiaryEntryRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
+        /// [EARLY ACCESS] ClosePeriod: Closes or locks the current period for the given Abor.
         /// </summary>
         /// <remarks>
         /// Closes or Locks the current open period for the given Abor.
@@ -90,7 +90,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DiaryEntry</returns>
         Lusid.Sdk.Client.ApiResponse<DiaryEntry> ClosePeriodWithHttpInfo(string scope, string code, ClosePeriodDiaryEntryRequest closePeriodDiaryEntryRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] CreateAbor: Create an Abor.
+        /// [EARLY ACCESS] CreateAbor: Create an Abor.
         /// </summary>
         /// <remarks>
         /// Create the given Abor.
@@ -104,7 +104,7 @@ namespace Lusid.Sdk.Api
         Abor CreateAbor(string scope, AborRequest aborRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateAbor: Create an Abor.
+        /// [EARLY ACCESS] CreateAbor: Create an Abor.
         /// </summary>
         /// <remarks>
         /// Create the given Abor.
@@ -117,7 +117,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Abor</returns>
         Lusid.Sdk.Client.ApiResponse<Abor> CreateAborWithHttpInfo(string scope, AborRequest aborRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAbor: Delete an Abor.
+        /// [EARLY ACCESS] DeleteAbor: Delete an Abor.
         /// </summary>
         /// <remarks>
         /// Delete the given Abor.
@@ -131,7 +131,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteAbor(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAbor: Delete an Abor.
+        /// [EARLY ACCESS] DeleteAbor: Delete an Abor.
         /// </summary>
         /// <remarks>
         /// Delete the given Abor.
@@ -144,7 +144,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteAborWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteDiaryEntry: Delete a diary entry type &#39;Other&#39; from the specified Abor.
+        /// [EARLY ACCESS] DeleteDiaryEntry: Delete a diary entry type &#39;Other&#39; from the specified Abor.
         /// </summary>
         /// <remarks>
         /// Delete a diary entry type &#39;Other&#39; from the specified Abor.
@@ -159,7 +159,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteDiaryEntry(string scope, string code, string diaryEntryCode, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteDiaryEntry: Delete a diary entry type &#39;Other&#39; from the specified Abor.
+        /// [EARLY ACCESS] DeleteDiaryEntry: Delete a diary entry type &#39;Other&#39; from the specified Abor.
         /// </summary>
         /// <remarks>
         /// Delete a diary entry type &#39;Other&#39; from the specified Abor.
@@ -173,7 +173,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteDiaryEntryWithHttpInfo(string scope, string code, string diaryEntryCode, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetAbor: Get Abor.
+        /// [EARLY ACCESS] GetAbor: Get Abor.
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a particular Abor.
@@ -190,7 +190,7 @@ namespace Lusid.Sdk.Api
         Abor GetAbor(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAbor: Get Abor.
+        /// [EARLY ACCESS] GetAbor: Get Abor.
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a particular Abor.
@@ -206,7 +206,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Abor</returns>
         Lusid.Sdk.Client.ApiResponse<Abor> GetAborWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetAborProperties: Get Abor properties
+        /// [EARLY ACCESS] GetAborProperties: Get Abor properties
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single abor.
@@ -222,7 +222,7 @@ namespace Lusid.Sdk.Api
         AborProperties GetAborProperties(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAborProperties: Get Abor properties
+        /// [EARLY ACCESS] GetAborProperties: Get Abor properties
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single abor.
@@ -237,7 +237,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of AborProperties</returns>
         Lusid.Sdk.Client.ApiResponse<AborProperties> GetAborPropertiesWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
+        /// [EARLY ACCESS] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
         /// </summary>
         /// <remarks>
         /// Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
@@ -256,7 +256,7 @@ namespace Lusid.Sdk.Api
         VersionedResourceListOfJournalEntryLine GetJournalEntryLines(string scope, string code, JournalEntryLinesQueryParameters journalEntryLinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
+        /// [EARLY ACCESS] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
         /// </summary>
         /// <remarks>
         /// Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
@@ -274,44 +274,44 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of VersionedResourceListOfJournalEntryLine</returns>
         Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfJournalEntryLine> GetJournalEntryLinesWithHttpInfo(string scope, string code, JournalEntryLinesQueryParameters journalEntryLinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor.
+        /// [EARLY ACCESS] GetTrialBalance: Get the Trial Balance for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
+        /// Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).                Supplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.  Any caller with access to this endpoint may use it; it is not role-restricted.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.               Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfTrialBalance</returns>
         VersionedResourceListOfTrialBalance GetTrialBalance(string scope, string code, TrialBalanceQueryParameters trialBalanceQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor.
+        /// [EARLY ACCESS] GetTrialBalance: Get the Trial Balance for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
+        /// Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).                Supplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.  Any caller with access to this endpoint may use it; it is not role-restricted.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.               Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfTrialBalance</returns>
         Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTrialBalance> GetTrialBalanceWithHttpInfo(string scope, string code, TrialBalanceQueryParameters trialBalanceQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListAbors: List Abors.
+        /// [EARLY ACCESS] ListAbors: List Abors.
         /// </summary>
         /// <remarks>
         /// List all the Abors matching particular criteria.
@@ -330,7 +330,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfAbor ListAbors(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListAbors: List Abors.
+        /// [EARLY ACCESS] ListAbors: List Abors.
         /// </summary>
         /// <remarks>
         /// List all the Abors matching particular criteria.
@@ -348,7 +348,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfAbor</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAbor> ListAborsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListDiaryEntries: List diary entries.
+        /// [EARLY ACCESS] ListDiaryEntries: List diary entries.
         /// </summary>
         /// <remarks>
         /// List all the diary entries matching particular criteria.
@@ -369,7 +369,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfDiaryEntry ListDiaryEntries(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListDiaryEntries: List diary entries.
+        /// [EARLY ACCESS] ListDiaryEntries: List diary entries.
         /// </summary>
         /// <remarks>
         /// List all the diary entries matching particular criteria.
@@ -389,7 +389,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfDiaryEntry</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDiaryEntry> ListDiaryEntriesWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period.
+        /// [EARLY ACCESS] LockPeriod: Locks the last Closed or given Closed Period.
         /// </summary>
         /// <remarks>
         /// Locks the specified or last locked period for the given Abor.
@@ -404,7 +404,7 @@ namespace Lusid.Sdk.Api
         DiaryEntry LockPeriod(string scope, string code, LockPeriodDiaryEntryRequest? lockPeriodDiaryEntryRequest = default(LockPeriodDiaryEntryRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period.
+        /// [EARLY ACCESS] LockPeriod: Locks the last Closed or given Closed Period.
         /// </summary>
         /// <remarks>
         /// Locks the specified or last locked period for the given Abor.
@@ -418,7 +418,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DiaryEntry</returns>
         Lusid.Sdk.Client.ApiResponse<DiaryEntry> LockPeriodWithHttpInfo(string scope, string code, LockPeriodDiaryEntryRequest? lockPeriodDiaryEntryRequest = default(LockPeriodDiaryEntryRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PatchAbor: Patch Abor.
+        /// [EARLY ACCESS] PatchAbor: Patch Abor.
         /// </summary>
         /// <remarks>
         /// Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
@@ -433,7 +433,7 @@ namespace Lusid.Sdk.Api
         Abor PatchAbor(string scope, string code, List<Operation> operation, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchAbor: Patch Abor.
+        /// [EARLY ACCESS] PatchAbor: Patch Abor.
         /// </summary>
         /// <remarks>
         /// Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
@@ -447,7 +447,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Abor</returns>
         Lusid.Sdk.Client.ApiResponse<Abor> PatchAborWithHttpInfo(string scope, string code, List<Operation> operation, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
+        /// [EARLY ACCESS] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
         /// </summary>
         /// <remarks>
         /// Reopens one or more periods.
@@ -462,7 +462,7 @@ namespace Lusid.Sdk.Api
         PeriodDiaryEntriesReopenedResponse ReOpenPeriods(string scope, string code, ReOpenPeriodDiaryEntryRequest? reOpenPeriodDiaryEntryRequest = default(ReOpenPeriodDiaryEntryRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
+        /// [EARLY ACCESS] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
         /// </summary>
         /// <remarks>
         /// Reopens one or more periods.
@@ -476,7 +476,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PeriodDiaryEntriesReopenedResponse</returns>
         Lusid.Sdk.Client.ApiResponse<PeriodDiaryEntriesReopenedResponse> ReOpenPeriodsWithHttpInfo(string scope, string code, ReOpenPeriodDiaryEntryRequest? reOpenPeriodDiaryEntryRequest = default(ReOpenPeriodDiaryEntryRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties
+        /// [EARLY ACCESS] UpsertAborProperties: Upsert Abor properties
         /// </summary>
         /// <remarks>
         /// Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -491,7 +491,7 @@ namespace Lusid.Sdk.Api
         AborProperties UpsertAborProperties(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties
+        /// [EARLY ACCESS] UpsertAborProperties: Upsert Abor properties
         /// </summary>
         /// <remarks>
         /// Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -514,7 +514,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type &#39;Other&#39;.
+        /// [EARLY ACCESS] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type &#39;Other&#39;.
         /// </summary>
         /// <remarks>
         /// Adds a new diary entry to the specified Abor
@@ -530,7 +530,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DiaryEntry> AddDiaryEntryAsync(string scope, string code, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type &#39;Other&#39;.
+        /// [EARLY ACCESS] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type &#39;Other&#39;.
         /// </summary>
         /// <remarks>
         /// Adds a new diary entry to the specified Abor
@@ -545,7 +545,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DiaryEntry)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DiaryEntry>> AddDiaryEntryWithHttpInfoAsync(string scope, string code, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
+        /// [EARLY ACCESS] ClosePeriod: Closes or locks the current period for the given Abor.
         /// </summary>
         /// <remarks>
         /// Closes or Locks the current open period for the given Abor.
@@ -561,7 +561,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DiaryEntry> ClosePeriodAsync(string scope, string code, ClosePeriodDiaryEntryRequest closePeriodDiaryEntryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
+        /// [EARLY ACCESS] ClosePeriod: Closes or locks the current period for the given Abor.
         /// </summary>
         /// <remarks>
         /// Closes or Locks the current open period for the given Abor.
@@ -576,7 +576,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DiaryEntry)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DiaryEntry>> ClosePeriodWithHttpInfoAsync(string scope, string code, ClosePeriodDiaryEntryRequest closePeriodDiaryEntryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] CreateAbor: Create an Abor.
+        /// [EARLY ACCESS] CreateAbor: Create an Abor.
         /// </summary>
         /// <remarks>
         /// Create the given Abor.
@@ -591,7 +591,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Abor> CreateAborAsync(string scope, AborRequest aborRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateAbor: Create an Abor.
+        /// [EARLY ACCESS] CreateAbor: Create an Abor.
         /// </summary>
         /// <remarks>
         /// Create the given Abor.
@@ -605,7 +605,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Abor)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Abor>> CreateAborWithHttpInfoAsync(string scope, AborRequest aborRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAbor: Delete an Abor.
+        /// [EARLY ACCESS] DeleteAbor: Delete an Abor.
         /// </summary>
         /// <remarks>
         /// Delete the given Abor.
@@ -620,7 +620,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteAborAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAbor: Delete an Abor.
+        /// [EARLY ACCESS] DeleteAbor: Delete an Abor.
         /// </summary>
         /// <remarks>
         /// Delete the given Abor.
@@ -634,7 +634,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteAborWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteDiaryEntry: Delete a diary entry type &#39;Other&#39; from the specified Abor.
+        /// [EARLY ACCESS] DeleteDiaryEntry: Delete a diary entry type &#39;Other&#39; from the specified Abor.
         /// </summary>
         /// <remarks>
         /// Delete a diary entry type &#39;Other&#39; from the specified Abor.
@@ -650,7 +650,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteDiaryEntryAsync(string scope, string code, string diaryEntryCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteDiaryEntry: Delete a diary entry type &#39;Other&#39; from the specified Abor.
+        /// [EARLY ACCESS] DeleteDiaryEntry: Delete a diary entry type &#39;Other&#39; from the specified Abor.
         /// </summary>
         /// <remarks>
         /// Delete a diary entry type &#39;Other&#39; from the specified Abor.
@@ -665,7 +665,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteDiaryEntryWithHttpInfoAsync(string scope, string code, string diaryEntryCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetAbor: Get Abor.
+        /// [EARLY ACCESS] GetAbor: Get Abor.
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a particular Abor.
@@ -683,7 +683,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Abor> GetAborAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAbor: Get Abor.
+        /// [EARLY ACCESS] GetAbor: Get Abor.
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a particular Abor.
@@ -700,7 +700,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Abor)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Abor>> GetAborWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetAborProperties: Get Abor properties
+        /// [EARLY ACCESS] GetAborProperties: Get Abor properties
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single abor.
@@ -717,7 +717,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<AborProperties> GetAborPropertiesAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAborProperties: Get Abor properties
+        /// [EARLY ACCESS] GetAborProperties: Get Abor properties
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single abor.
@@ -733,7 +733,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (AborProperties)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AborProperties>> GetAborPropertiesWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
+        /// [EARLY ACCESS] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
         /// </summary>
         /// <remarks>
         /// Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
@@ -753,7 +753,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<VersionedResourceListOfJournalEntryLine> GetJournalEntryLinesAsync(string scope, string code, JournalEntryLinesQueryParameters journalEntryLinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
+        /// [EARLY ACCESS] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
         /// </summary>
         /// <remarks>
         /// Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
@@ -772,19 +772,19 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (VersionedResourceListOfJournalEntryLine)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfJournalEntryLine>> GetJournalEntryLinesWithHttpInfoAsync(string scope, string code, JournalEntryLinesQueryParameters journalEntryLinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor.
+        /// [EARLY ACCESS] GetTrialBalance: Get the Trial Balance for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
+        /// Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).                Supplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.  Any caller with access to this endpoint may use it; it is not role-restricted.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.               Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -792,26 +792,26 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<VersionedResourceListOfTrialBalance> GetTrialBalanceAsync(string scope, string code, TrialBalanceQueryParameters trialBalanceQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor.
+        /// [EARLY ACCESS] GetTrialBalance: Get the Trial Balance for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
+        /// Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).                Supplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.  Any caller with access to this endpoint may use it; it is not role-restricted.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.               Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfTrialBalance)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTrialBalance>> GetTrialBalanceWithHttpInfoAsync(string scope, string code, TrialBalanceQueryParameters trialBalanceQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListAbors: List Abors.
+        /// [EARLY ACCESS] ListAbors: List Abors.
         /// </summary>
         /// <remarks>
         /// List all the Abors matching particular criteria.
@@ -831,7 +831,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfAbor> ListAborsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListAbors: List Abors.
+        /// [EARLY ACCESS] ListAbors: List Abors.
         /// </summary>
         /// <remarks>
         /// List all the Abors matching particular criteria.
@@ -850,7 +850,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfAbor)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAbor>> ListAborsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListDiaryEntries: List diary entries.
+        /// [EARLY ACCESS] ListDiaryEntries: List diary entries.
         /// </summary>
         /// <remarks>
         /// List all the diary entries matching particular criteria.
@@ -872,7 +872,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfDiaryEntry> ListDiaryEntriesAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListDiaryEntries: List diary entries.
+        /// [EARLY ACCESS] ListDiaryEntries: List diary entries.
         /// </summary>
         /// <remarks>
         /// List all the diary entries matching particular criteria.
@@ -893,7 +893,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfDiaryEntry)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDiaryEntry>> ListDiaryEntriesWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period.
+        /// [EARLY ACCESS] LockPeriod: Locks the last Closed or given Closed Period.
         /// </summary>
         /// <remarks>
         /// Locks the specified or last locked period for the given Abor.
@@ -909,7 +909,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DiaryEntry> LockPeriodAsync(string scope, string code, LockPeriodDiaryEntryRequest? lockPeriodDiaryEntryRequest = default(LockPeriodDiaryEntryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period.
+        /// [EARLY ACCESS] LockPeriod: Locks the last Closed or given Closed Period.
         /// </summary>
         /// <remarks>
         /// Locks the specified or last locked period for the given Abor.
@@ -924,7 +924,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DiaryEntry)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DiaryEntry>> LockPeriodWithHttpInfoAsync(string scope, string code, LockPeriodDiaryEntryRequest? lockPeriodDiaryEntryRequest = default(LockPeriodDiaryEntryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PatchAbor: Patch Abor.
+        /// [EARLY ACCESS] PatchAbor: Patch Abor.
         /// </summary>
         /// <remarks>
         /// Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
@@ -940,7 +940,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Abor> PatchAborAsync(string scope, string code, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchAbor: Patch Abor.
+        /// [EARLY ACCESS] PatchAbor: Patch Abor.
         /// </summary>
         /// <remarks>
         /// Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
@@ -955,7 +955,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Abor)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Abor>> PatchAborWithHttpInfoAsync(string scope, string code, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
+        /// [EARLY ACCESS] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
         /// </summary>
         /// <remarks>
         /// Reopens one or more periods.
@@ -971,7 +971,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PeriodDiaryEntriesReopenedResponse> ReOpenPeriodsAsync(string scope, string code, ReOpenPeriodDiaryEntryRequest? reOpenPeriodDiaryEntryRequest = default(ReOpenPeriodDiaryEntryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
+        /// [EARLY ACCESS] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
         /// </summary>
         /// <remarks>
         /// Reopens one or more periods.
@@ -986,7 +986,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PeriodDiaryEntriesReopenedResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PeriodDiaryEntriesReopenedResponse>> ReOpenPeriodsWithHttpInfoAsync(string scope, string code, ReOpenPeriodDiaryEntryRequest? reOpenPeriodDiaryEntryRequest = default(ReOpenPeriodDiaryEntryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties
+        /// [EARLY ACCESS] UpsertAborProperties: Upsert Abor properties
         /// </summary>
         /// <remarks>
         /// Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -1002,7 +1002,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<AborProperties> UpsertAborPropertiesAsync(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties
+        /// [EARLY ACCESS] UpsertAborProperties: Upsert Abor properties
         /// </summary>
         /// <remarks>
         /// Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -1140,7 +1140,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type &#39;Other&#39;. Adds a new diary entry to the specified Abor
+        /// [EARLY ACCESS] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type &#39;Other&#39;. Adds a new diary entry to the specified Abor
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -1156,7 +1156,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type &#39;Other&#39;. Adds a new diary entry to the specified Abor
+        /// [EARLY ACCESS] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type &#39;Other&#39;. Adds a new diary entry to the specified Abor
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -1262,7 +1262,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type &#39;Other&#39;. Adds a new diary entry to the specified Abor
+        /// [EARLY ACCESS] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type &#39;Other&#39;. Adds a new diary entry to the specified Abor
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -1279,7 +1279,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type &#39;Other&#39;. Adds a new diary entry to the specified Abor
+        /// [EARLY ACCESS] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type &#39;Other&#39;. Adds a new diary entry to the specified Abor
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -1388,7 +1388,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor. Closes or Locks the current open period for the given Abor.
+        /// [EARLY ACCESS] ClosePeriod: Closes or locks the current period for the given Abor. Closes or Locks the current open period for the given Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -1404,7 +1404,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor. Closes or Locks the current open period for the given Abor.
+        /// [EARLY ACCESS] ClosePeriod: Closes or locks the current period for the given Abor. Closes or Locks the current open period for the given Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -1510,7 +1510,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor. Closes or Locks the current open period for the given Abor.
+        /// [EARLY ACCESS] ClosePeriod: Closes or locks the current period for the given Abor. Closes or Locks the current open period for the given Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -1527,7 +1527,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor. Closes or Locks the current open period for the given Abor.
+        /// [EARLY ACCESS] ClosePeriod: Closes or locks the current period for the given Abor. Closes or Locks the current open period for the given Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -1636,7 +1636,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateAbor: Create an Abor. Create the given Abor.
+        /// [EARLY ACCESS] CreateAbor: Create an Abor. Create the given Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -1651,7 +1651,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateAbor: Create an Abor. Create the given Abor.
+        /// [EARLY ACCESS] CreateAbor: Create an Abor. Create the given Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -1749,7 +1749,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateAbor: Create an Abor. Create the given Abor.
+        /// [EARLY ACCESS] CreateAbor: Create an Abor. Create the given Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -1765,7 +1765,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateAbor: Create an Abor. Create the given Abor.
+        /// [EARLY ACCESS] CreateAbor: Create an Abor. Create the given Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -1866,7 +1866,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAbor: Delete an Abor. Delete the given Abor.
+        /// [EARLY ACCESS] DeleteAbor: Delete an Abor. Delete the given Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to be deleted.</param>
@@ -1881,7 +1881,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAbor: Delete an Abor. Delete the given Abor.
+        /// [EARLY ACCESS] DeleteAbor: Delete an Abor. Delete the given Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to be deleted.</param>
@@ -1975,7 +1975,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAbor: Delete an Abor. Delete the given Abor.
+        /// [EARLY ACCESS] DeleteAbor: Delete an Abor. Delete the given Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to be deleted.</param>
@@ -1991,7 +1991,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAbor: Delete an Abor. Delete the given Abor.
+        /// [EARLY ACCESS] DeleteAbor: Delete an Abor. Delete the given Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to be deleted.</param>
@@ -2088,7 +2088,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteDiaryEntry: Delete a diary entry type &#39;Other&#39; from the specified Abor. Delete a diary entry type &#39;Other&#39; from the specified Abor.
+        /// [EARLY ACCESS] DeleteDiaryEntry: Delete a diary entry type &#39;Other&#39; from the specified Abor. Delete a diary entry type &#39;Other&#39; from the specified Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -2104,7 +2104,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteDiaryEntry: Delete a diary entry type &#39;Other&#39; from the specified Abor. Delete a diary entry type &#39;Other&#39; from the specified Abor.
+        /// [EARLY ACCESS] DeleteDiaryEntry: Delete a diary entry type &#39;Other&#39; from the specified Abor. Delete a diary entry type &#39;Other&#39; from the specified Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -2206,7 +2206,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteDiaryEntry: Delete a diary entry type &#39;Other&#39; from the specified Abor. Delete a diary entry type &#39;Other&#39; from the specified Abor.
+        /// [EARLY ACCESS] DeleteDiaryEntry: Delete a diary entry type &#39;Other&#39; from the specified Abor. Delete a diary entry type &#39;Other&#39; from the specified Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -2223,7 +2223,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteDiaryEntry: Delete a diary entry type &#39;Other&#39; from the specified Abor. Delete a diary entry type &#39;Other&#39; from the specified Abor.
+        /// [EARLY ACCESS] DeleteDiaryEntry: Delete a diary entry type &#39;Other&#39; from the specified Abor. Delete a diary entry type &#39;Other&#39; from the specified Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -2328,7 +2328,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAbor: Get Abor. Retrieve the definition of a particular Abor.
+        /// [EARLY ACCESS] GetAbor: Get Abor. Retrieve the definition of a particular Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -2346,7 +2346,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAbor: Get Abor. Retrieve the definition of a particular Abor.
+        /// [EARLY ACCESS] GetAbor: Get Abor. Retrieve the definition of a particular Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -2458,7 +2458,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAbor: Get Abor. Retrieve the definition of a particular Abor.
+        /// [EARLY ACCESS] GetAbor: Get Abor. Retrieve the definition of a particular Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -2477,7 +2477,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAbor: Get Abor. Retrieve the definition of a particular Abor.
+        /// [EARLY ACCESS] GetAbor: Get Abor. Retrieve the definition of a particular Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -2589,7 +2589,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAborProperties: Get Abor properties Get all the properties of a single abor.
+        /// [EARLY ACCESS] GetAborProperties: Get Abor properties Get all the properties of a single abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to list the properties for.</param>
@@ -2606,7 +2606,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAborProperties: Get Abor properties Get all the properties of a single abor.
+        /// [EARLY ACCESS] GetAborProperties: Get Abor properties Get all the properties of a single abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to list the properties for.</param>
@@ -2712,7 +2712,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAborProperties: Get Abor properties Get all the properties of a single abor.
+        /// [EARLY ACCESS] GetAborProperties: Get Abor properties Get all the properties of a single abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to list the properties for.</param>
@@ -2730,7 +2730,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAborProperties: Get Abor properties Get all the properties of a single abor.
+        /// [EARLY ACCESS] GetAborProperties: Get Abor properties Get all the properties of a single abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to list the properties for.</param>
@@ -2837,7 +2837,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// [EARLY ACCESS] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -2857,7 +2857,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// [EARLY ACCESS] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -2987,7 +2987,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// [EARLY ACCESS] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -3008,7 +3008,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// [EARLY ACCESS] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -3137,16 +3137,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
+        /// [EARLY ACCESS] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).                Supplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.  Any caller with access to this endpoint may use it; it is not role-restricted.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.               Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfTrialBalance</returns>
@@ -3157,16 +3157,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
+        /// [EARLY ACCESS] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).                Supplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.  Any caller with access to this endpoint may use it; it is not role-restricted.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.               Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfTrialBalance</returns>
@@ -3287,16 +3287,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
+        /// [EARLY ACCESS] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).                Supplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.  Any caller with access to this endpoint may use it; it is not role-restricted.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.               Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3308,16 +3308,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
+        /// [EARLY ACCESS] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).                Supplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.  Any caller with access to this endpoint may use it; it is not role-restricted.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.               Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3437,7 +3437,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListAbors: List Abors. List all the Abors matching particular criteria.
+        /// [EARLY ACCESS] ListAbors: List Abors. List all the Abors matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
@@ -3457,7 +3457,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListAbors: List Abors. List all the Abors matching particular criteria.
+        /// [EARLY ACCESS] ListAbors: List Abors. List all the Abors matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
@@ -3577,7 +3577,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListAbors: List Abors. List all the Abors matching particular criteria.
+        /// [EARLY ACCESS] ListAbors: List Abors. List all the Abors matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
@@ -3598,7 +3598,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListAbors: List Abors. List all the Abors matching particular criteria.
+        /// [EARLY ACCESS] ListAbors: List Abors. List all the Abors matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
@@ -3714,7 +3714,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListDiaryEntries: List diary entries. List all the diary entries matching particular criteria.
+        /// [EARLY ACCESS] ListDiaryEntries: List diary entries. List all the diary entries matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -3736,7 +3736,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListDiaryEntries: List diary entries. List all the diary entries matching particular criteria.
+        /// [EARLY ACCESS] ListDiaryEntries: List diary entries. List all the diary entries matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -3872,7 +3872,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListDiaryEntries: List diary entries. List all the diary entries matching particular criteria.
+        /// [EARLY ACCESS] ListDiaryEntries: List diary entries. List all the diary entries matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -3895,7 +3895,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListDiaryEntries: List diary entries. List all the diary entries matching particular criteria.
+        /// [EARLY ACCESS] ListDiaryEntries: List diary entries. List all the diary entries matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -4027,7 +4027,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period. Locks the specified or last locked period for the given Abor.
+        /// [EARLY ACCESS] LockPeriod: Locks the last Closed or given Closed Period. Locks the specified or last locked period for the given Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -4043,7 +4043,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period. Locks the specified or last locked period for the given Abor.
+        /// [EARLY ACCESS] LockPeriod: Locks the last Closed or given Closed Period. Locks the specified or last locked period for the given Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -4143,7 +4143,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period. Locks the specified or last locked period for the given Abor.
+        /// [EARLY ACCESS] LockPeriod: Locks the last Closed or given Closed Period. Locks the specified or last locked period for the given Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -4160,7 +4160,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period. Locks the specified or last locked period for the given Abor.
+        /// [EARLY ACCESS] LockPeriod: Locks the last Closed or given Closed Period. Locks the specified or last locked period for the given Abor.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -4263,7 +4263,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchAbor: Patch Abor. Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
+        /// [EARLY ACCESS] PatchAbor: Patch Abor. Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -4279,7 +4279,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchAbor: Patch Abor. Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
+        /// [EARLY ACCESS] PatchAbor: Patch Abor. Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -4385,7 +4385,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchAbor: Patch Abor. Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
+        /// [EARLY ACCESS] PatchAbor: Patch Abor. Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -4402,7 +4402,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchAbor: Patch Abor. Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
+        /// [EARLY ACCESS] PatchAbor: Patch Abor. Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -4511,7 +4511,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. Reopens one or more periods.
+        /// [EARLY ACCESS] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. Reopens one or more periods.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -4527,7 +4527,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. Reopens one or more periods.
+        /// [EARLY ACCESS] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. Reopens one or more periods.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -4627,7 +4627,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. Reopens one or more periods.
+        /// [EARLY ACCESS] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. Reopens one or more periods.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -4644,7 +4644,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. Reopens one or more periods.
+        /// [EARLY ACCESS] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. Reopens one or more periods.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -4747,7 +4747,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EARLY ACCESS] UpsertAborProperties: Upsert Abor properties Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to update or insert the properties onto.</param>
@@ -4763,7 +4763,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EARLY ACCESS] UpsertAborProperties: Upsert Abor properties Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to update or insert the properties onto.</param>
@@ -4863,7 +4863,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EARLY ACCESS] UpsertAborProperties: Upsert Abor properties Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to update or insert the properties onto.</param>
@@ -4880,7 +4880,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EARLY ACCESS] UpsertAborProperties: Upsert Abor properties Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to update or insert the properties onto.</param>

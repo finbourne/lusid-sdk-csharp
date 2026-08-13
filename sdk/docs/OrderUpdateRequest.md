@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | [**ResourceId**](ResourceId.md) |  | 
 **Quantity** | **decimal?** | The quantity of the given instrument ordered. | [optional] 
+**Amount** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Client-defined properties associated with this order. | [optional] 
 **Price** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
@@ -20,6 +21,8 @@ using Lusid.Sdk.Model;
 using System;
 
 ResourceId id = new ResourceId();
+CurrencyAndAmount? amount = new CurrencyAndAmount();
+
 ResourceId? portfolioId = new ResourceId();
 
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
@@ -34,6 +37,7 @@ string side = "example side";
 OrderUpdateRequest orderUpdateRequestInstance = new OrderUpdateRequest(
     id: id,
     quantity: quantity,
+    amount: amount,
     portfolioId: portfolioId,
     properties: properties,
     price: price,

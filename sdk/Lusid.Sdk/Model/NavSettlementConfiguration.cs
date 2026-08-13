@@ -31,24 +31,39 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NavSettlementConfiguration" /> class.
         /// </summary>
-        /// <param name="cashSettlement">cashSettlement.</param>
-        /// <param name="deferredCashReceipt">deferredCashReceipt.</param>
+        [JsonConstructorAttribute]
+        protected NavSettlementConfiguration() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NavSettlementConfiguration" /> class.
+        /// </summary>
+        /// <param name="cashSettlement">cashSettlement (required).</param>
+        /// <param name="deferredCashReceipt">deferredCashReceipt (required).</param>
         public NavSettlementConfiguration(NavSettlementConfigurationCategory cashSettlement = default(NavSettlementConfigurationCategory), NavSettlementConfigurationCategory deferredCashReceipt = default(NavSettlementConfigurationCategory))
         {
+            // to ensure "cashSettlement" is required (not null)
+            if (cashSettlement == null)
+            {
+                throw new ArgumentNullException("cashSettlement is a required property for NavSettlementConfiguration and cannot be null");
+            }
             this.CashSettlement = cashSettlement;
+            // to ensure "deferredCashReceipt" is required (not null)
+            if (deferredCashReceipt == null)
+            {
+                throw new ArgumentNullException("deferredCashReceipt is a required property for NavSettlementConfiguration and cannot be null");
+            }
             this.DeferredCashReceipt = deferredCashReceipt;
         }
 
         /// <summary>
         /// Gets or Sets CashSettlement
         /// </summary>
-        [DataMember(Name = "cashSettlement", EmitDefaultValue = false)]
+        [DataMember(Name = "cashSettlement", IsRequired = true, EmitDefaultValue = true)]
         public NavSettlementConfigurationCategory CashSettlement { get; set; }
 
         /// <summary>
         /// Gets or Sets DeferredCashReceipt
         /// </summary>
-        [DataMember(Name = "deferredCashReceipt", EmitDefaultValue = false)]
+        [DataMember(Name = "deferredCashReceipt", IsRequired = true, EmitDefaultValue = true)]
         public NavSettlementConfigurationCategory DeferredCashReceipt { get; set; }
 
         /// <summary>

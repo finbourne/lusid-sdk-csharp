@@ -4,27 +4,27 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AddDiaryEntry**](AborApi.md#adddiaryentry) | **POST** /api/abor/{scope}/{code}/accountingdiary | [EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type &#39;Other&#39;. |
-| [**ClosePeriod**](AborApi.md#closeperiod) | **POST** /api/abor/{scope}/{code}/accountingdiary/$closeperiod | [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor. |
-| [**CreateAbor**](AborApi.md#createabor) | **POST** /api/abor/{scope} | [EXPERIMENTAL] CreateAbor: Create an Abor. |
-| [**DeleteAbor**](AborApi.md#deleteabor) | **DELETE** /api/abor/{scope}/{code} | [EXPERIMENTAL] DeleteAbor: Delete an Abor. |
-| [**DeleteDiaryEntry**](AborApi.md#deletediaryentry) | **DELETE** /api/abor/{scope}/{code}/accountingdiary/{diaryEntryCode} | [EXPERIMENTAL] DeleteDiaryEntry: Delete a diary entry type &#39;Other&#39; from the specified Abor. |
-| [**GetAbor**](AborApi.md#getabor) | **GET** /api/abor/{scope}/{code} | [EXPERIMENTAL] GetAbor: Get Abor. |
-| [**GetAborProperties**](AborApi.md#getaborproperties) | **GET** /api/abor/{scope}/{code}/properties | [EXPERIMENTAL] GetAborProperties: Get Abor properties |
-| [**GetJournalEntryLines**](AborApi.md#getjournalentrylines) | **POST** /api/abor/{scope}/{code}/journalentrylines/$query | [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. |
-| [**GetTrialBalance**](AborApi.md#gettrialbalance) | **POST** /api/abor/{scope}/{code}/trialbalance/$query | [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor. |
-| [**ListAbors**](AborApi.md#listabors) | **GET** /api/abor | [EXPERIMENTAL] ListAbors: List Abors. |
-| [**ListDiaryEntries**](AborApi.md#listdiaryentries) | **GET** /api/abor/{scope}/{code}/accountingdiary | [EXPERIMENTAL] ListDiaryEntries: List diary entries. |
-| [**LockPeriod**](AborApi.md#lockperiod) | **POST** /api/abor/{scope}/{code}/accountingdiary/$lockperiod | [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period. |
-| [**PatchAbor**](AborApi.md#patchabor) | **PATCH** /api/abor/{scope}/{code} | [EXPERIMENTAL] PatchAbor: Patch Abor. |
-| [**ReOpenPeriods**](AborApi.md#reopenperiods) | **POST** /api/abor/{scope}/{code}/accountingdiary/$reopenperiods | [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. |
-| [**UpsertAborProperties**](AborApi.md#upsertaborproperties) | **POST** /api/abor/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties |
+| [**AddDiaryEntry**](AborApi.md#adddiaryentry) | **POST** /api/abor/{scope}/{code}/accountingdiary | [EARLY ACCESS] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type &#39;Other&#39;. |
+| [**ClosePeriod**](AborApi.md#closeperiod) | **POST** /api/abor/{scope}/{code}/accountingdiary/$closeperiod | [EARLY ACCESS] ClosePeriod: Closes or locks the current period for the given Abor. |
+| [**CreateAbor**](AborApi.md#createabor) | **POST** /api/abor/{scope} | [EARLY ACCESS] CreateAbor: Create an Abor. |
+| [**DeleteAbor**](AborApi.md#deleteabor) | **DELETE** /api/abor/{scope}/{code} | [EARLY ACCESS] DeleteAbor: Delete an Abor. |
+| [**DeleteDiaryEntry**](AborApi.md#deletediaryentry) | **DELETE** /api/abor/{scope}/{code}/accountingdiary/{diaryEntryCode} | [EARLY ACCESS] DeleteDiaryEntry: Delete a diary entry type &#39;Other&#39; from the specified Abor. |
+| [**GetAbor**](AborApi.md#getabor) | **GET** /api/abor/{scope}/{code} | [EARLY ACCESS] GetAbor: Get Abor. |
+| [**GetAborProperties**](AborApi.md#getaborproperties) | **GET** /api/abor/{scope}/{code}/properties | [EARLY ACCESS] GetAborProperties: Get Abor properties |
+| [**GetJournalEntryLines**](AborApi.md#getjournalentrylines) | **POST** /api/abor/{scope}/{code}/journalentrylines/$query | [EARLY ACCESS] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. |
+| [**GetTrialBalance**](AborApi.md#gettrialbalance) | **POST** /api/abor/{scope}/{code}/trialbalance/$query | [EARLY ACCESS] GetTrialBalance: Get the Trial Balance for the given Abor. |
+| [**ListAbors**](AborApi.md#listabors) | **GET** /api/abor | [EARLY ACCESS] ListAbors: List Abors. |
+| [**ListDiaryEntries**](AborApi.md#listdiaryentries) | **GET** /api/abor/{scope}/{code}/accountingdiary | [EARLY ACCESS] ListDiaryEntries: List diary entries. |
+| [**LockPeriod**](AborApi.md#lockperiod) | **POST** /api/abor/{scope}/{code}/accountingdiary/$lockperiod | [EARLY ACCESS] LockPeriod: Locks the last Closed or given Closed Period. |
+| [**PatchAbor**](AborApi.md#patchabor) | **PATCH** /api/abor/{scope}/{code} | [EARLY ACCESS] PatchAbor: Patch Abor. |
+| [**ReOpenPeriods**](AborApi.md#reopenperiods) | **POST** /api/abor/{scope}/{code}/accountingdiary/$reopenperiods | [EARLY ACCESS] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. |
+| [**UpsertAborProperties**](AborApi.md#upsertaborproperties) | **POST** /api/abor/{scope}/{code}/properties/$upsert | [EARLY ACCESS] UpsertAborProperties: Upsert Abor properties |
 
 <a id="adddiaryentry"></a>
 # **AddDiaryEntry**
 > DiaryEntry AddDiaryEntry (string scope, string code, DiaryEntryRequest diaryEntryRequest)
 
-[EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type 'Other'.
+[EARLY ACCESS] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type 'Other'.
 
 Adds a new diary entry to the specified Abor
 
@@ -76,7 +76,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DiaryEntry result = apiInstance.AddDiaryEntry(scope, code, diaryEntryRequest, opts: opts);
 
-                // [EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type 'Other'.
+                // [EARLY ACCESS] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type 'Other'.
                 DiaryEntry result = apiInstance.AddDiaryEntry(scope, code, diaryEntryRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -97,7 +97,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type 'Other'.
+    // [EARLY ACCESS] AddDiaryEntry: Add a diary entry to the specified Abor. This would be type 'Other'.
     ApiResponse<DiaryEntry> response = apiInstance.AddDiaryEntryWithHttpInfo(scope, code, diaryEntryRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -142,7 +142,7 @@ catch (ApiException e)
 # **ClosePeriod**
 > DiaryEntry ClosePeriod (string scope, string code, ClosePeriodDiaryEntryRequest closePeriodDiaryEntryRequest)
 
-[EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
+[EARLY ACCESS] ClosePeriod: Closes or locks the current period for the given Abor.
 
 Closes or Locks the current open period for the given Abor.
 
@@ -194,7 +194,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DiaryEntry result = apiInstance.ClosePeriod(scope, code, closePeriodDiaryEntryRequest, opts: opts);
 
-                // [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
+                // [EARLY ACCESS] ClosePeriod: Closes or locks the current period for the given Abor.
                 DiaryEntry result = apiInstance.ClosePeriod(scope, code, closePeriodDiaryEntryRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -215,7 +215,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
+    // [EARLY ACCESS] ClosePeriod: Closes or locks the current period for the given Abor.
     ApiResponse<DiaryEntry> response = apiInstance.ClosePeriodWithHttpInfo(scope, code, closePeriodDiaryEntryRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -260,7 +260,7 @@ catch (ApiException e)
 # **CreateAbor**
 > Abor CreateAbor (string scope, AborRequest aborRequest)
 
-[EXPERIMENTAL] CreateAbor: Create an Abor.
+[EARLY ACCESS] CreateAbor: Create an Abor.
 
 Create the given Abor.
 
@@ -311,7 +311,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Abor result = apiInstance.CreateAbor(scope, aborRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreateAbor: Create an Abor.
+                // [EARLY ACCESS] CreateAbor: Create an Abor.
                 Abor result = apiInstance.CreateAbor(scope, aborRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -332,7 +332,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateAbor: Create an Abor.
+    // [EARLY ACCESS] CreateAbor: Create an Abor.
     ApiResponse<Abor> response = apiInstance.CreateAborWithHttpInfo(scope, aborRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -376,7 +376,7 @@ catch (ApiException e)
 # **DeleteAbor**
 > DeletedEntityResponse DeleteAbor (string scope, string code)
 
-[EXPERIMENTAL] DeleteAbor: Delete an Abor.
+[EARLY ACCESS] DeleteAbor: Delete an Abor.
 
 Delete the given Abor.
 
@@ -427,7 +427,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteAbor(scope, code, opts: opts);
 
-                // [EXPERIMENTAL] DeleteAbor: Delete an Abor.
+                // [EARLY ACCESS] DeleteAbor: Delete an Abor.
                 DeletedEntityResponse result = apiInstance.DeleteAbor(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -448,7 +448,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteAbor: Delete an Abor.
+    // [EARLY ACCESS] DeleteAbor: Delete an Abor.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteAborWithHttpInfo(scope, code);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -492,7 +492,7 @@ catch (ApiException e)
 # **DeleteDiaryEntry**
 > DeletedEntityResponse DeleteDiaryEntry (string scope, string code, string diaryEntryCode)
 
-[EXPERIMENTAL] DeleteDiaryEntry: Delete a diary entry type 'Other' from the specified Abor.
+[EARLY ACCESS] DeleteDiaryEntry: Delete a diary entry type 'Other' from the specified Abor.
 
 Delete a diary entry type 'Other' from the specified Abor.
 
@@ -544,7 +544,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteDiaryEntry(scope, code, diaryEntryCode, opts: opts);
 
-                // [EXPERIMENTAL] DeleteDiaryEntry: Delete a diary entry type 'Other' from the specified Abor.
+                // [EARLY ACCESS] DeleteDiaryEntry: Delete a diary entry type 'Other' from the specified Abor.
                 DeletedEntityResponse result = apiInstance.DeleteDiaryEntry(scope, code, diaryEntryCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -565,7 +565,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteDiaryEntry: Delete a diary entry type 'Other' from the specified Abor.
+    // [EARLY ACCESS] DeleteDiaryEntry: Delete a diary entry type 'Other' from the specified Abor.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteDiaryEntryWithHttpInfo(scope, code, diaryEntryCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -610,7 +610,7 @@ catch (ApiException e)
 # **GetAbor**
 > Abor GetAbor (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] GetAbor: Get Abor.
+[EARLY ACCESS] GetAbor: Get Abor.
 
 Retrieve the definition of a particular Abor.
 
@@ -664,7 +664,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Abor result = apiInstance.GetAbor(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] GetAbor: Get Abor.
+                // [EARLY ACCESS] GetAbor: Get Abor.
                 Abor result = apiInstance.GetAbor(scope, code, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -685,7 +685,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetAbor: Get Abor.
+    // [EARLY ACCESS] GetAbor: Get Abor.
     ApiResponse<Abor> response = apiInstance.GetAborWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -732,7 +732,7 @@ catch (ApiException e)
 # **GetAborProperties**
 > AborProperties GetAborProperties (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetAborProperties: Get Abor properties
+[EARLY ACCESS] GetAborProperties: Get Abor properties
 
 Get all the properties of a single abor.
 
@@ -785,7 +785,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AborProperties result = apiInstance.GetAborProperties(scope, code, effectiveAt, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetAborProperties: Get Abor properties
+                // [EARLY ACCESS] GetAborProperties: Get Abor properties
                 AborProperties result = apiInstance.GetAborProperties(scope, code, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -806,7 +806,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetAborProperties: Get Abor properties
+    // [EARLY ACCESS] GetAborProperties: Get Abor properties
     ApiResponse<AborProperties> response = apiInstance.GetAborPropertiesWithHttpInfo(scope, code, effectiveAt, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -852,7 +852,7 @@ catch (ApiException e)
 # **GetJournalEntryLines**
 > VersionedResourceListOfJournalEntryLine GetJournalEntryLines (string scope, string code, JournalEntryLinesQueryParameters journalEntryLinesQueryParameters, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null)
 
-[EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
+[EARLY ACCESS] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
 
 Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
 
@@ -908,7 +908,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // VersionedResourceListOfJournalEntryLine result = apiInstance.GetJournalEntryLines(scope, code, journalEntryLinesQueryParameters, asAt, filter, limit, page, opts: opts);
 
-                // [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
+                // [EARLY ACCESS] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
                 VersionedResourceListOfJournalEntryLine result = apiInstance.GetJournalEntryLines(scope, code, journalEntryLinesQueryParameters, asAt, filter, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -929,7 +929,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
+    // [EARLY ACCESS] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
     ApiResponse<VersionedResourceListOfJournalEntryLine> response = apiInstance.GetJournalEntryLinesWithHttpInfo(scope, code, journalEntryLinesQueryParameters, asAt, filter, limit, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -978,9 +978,9 @@ catch (ApiException e)
 # **GetTrialBalance**
 > VersionedResourceListOfTrialBalance GetTrialBalance (string scope, string code, TrialBalanceQueryParameters trialBalanceQueryParameters, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null)
 
-[EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor.
+[EARLY ACCESS] GetTrialBalance: Get the Trial Balance for the given Abor.
 
-Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
+Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).                Supplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.  Any caller with access to this endpoint may use it; it is not role-restricted.
 
 ### Example
 ```csharp
@@ -1024,17 +1024,17 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Abor.
             var code = "code_example";  // string | The code of the Abor. Together with the scope this uniquely identifies the Abor.
             var trialBalanceQueryParameters = new TrialBalanceQueryParameters(); // TrialBalanceQueryParameters | The query parameters used in running the generation of the Trial Balance.
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
-            var limit = 56;  // int? | When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var limit = 56;  // int? | When paginating, limit the number of returned results to this many.               Defaults to 100 if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
                 // VersionedResourceListOfTrialBalance result = apiInstance.GetTrialBalance(scope, code, trialBalanceQueryParameters, asAt, filter, limit, page, opts: opts);
 
-                // [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor.
+                // [EARLY ACCESS] GetTrialBalance: Get the Trial Balance for the given Abor.
                 VersionedResourceListOfTrialBalance result = apiInstance.GetTrialBalance(scope, code, trialBalanceQueryParameters, asAt, filter, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1055,7 +1055,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor.
+    // [EARLY ACCESS] GetTrialBalance: Get the Trial Balance for the given Abor.
     ApiResponse<VersionedResourceListOfTrialBalance> response = apiInstance.GetTrialBalanceWithHttpInfo(scope, code, trialBalanceQueryParameters, asAt, filter, limit, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1076,10 +1076,10 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Abor. |  |
 | **code** | **string** | The code of the Abor. Together with the scope this uniquely identifies the Abor. |  |
 | **trialBalanceQueryParameters** | [**TrialBalanceQueryParameters**](TrialBalanceQueryParameters.md) | The query parameters used in running the generation of the Trial Balance. |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
-| **limit** | **int?** | When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **limit** | **int?** | When paginating, limit the number of returned results to this many.               Defaults to 100 if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. | [optional]  |
 
 ### Return type
 
@@ -1104,7 +1104,7 @@ catch (ApiException e)
 # **ListAbors**
 > PagedResourceListOfAbor ListAbors (DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] ListAbors: List Abors.
+[EARLY ACCESS] ListAbors: List Abors.
 
 List all the Abors matching particular criteria.
 
@@ -1160,7 +1160,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfAbor result = apiInstance.ListAbors(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] ListAbors: List Abors.
+                // [EARLY ACCESS] ListAbors: List Abors.
                 PagedResourceListOfAbor result = apiInstance.ListAbors(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1181,7 +1181,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListAbors: List Abors.
+    // [EARLY ACCESS] ListAbors: List Abors.
     ApiResponse<PagedResourceListOfAbor> response = apiInstance.ListAborsWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1230,7 +1230,7 @@ catch (ApiException e)
 # **ListDiaryEntries**
 > PagedResourceListOfDiaryEntry ListDiaryEntries (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] ListDiaryEntries: List diary entries.
+[EARLY ACCESS] ListDiaryEntries: List diary entries.
 
 List all the diary entries matching particular criteria.
 
@@ -1288,7 +1288,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfDiaryEntry result = apiInstance.ListDiaryEntries(scope, code, effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] ListDiaryEntries: List diary entries.
+                // [EARLY ACCESS] ListDiaryEntries: List diary entries.
                 PagedResourceListOfDiaryEntry result = apiInstance.ListDiaryEntries(scope, code, effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1309,7 +1309,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListDiaryEntries: List diary entries.
+    // [EARLY ACCESS] ListDiaryEntries: List diary entries.
     ApiResponse<PagedResourceListOfDiaryEntry> response = apiInstance.ListDiaryEntriesWithHttpInfo(scope, code, effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1360,7 +1360,7 @@ catch (ApiException e)
 # **LockPeriod**
 > DiaryEntry LockPeriod (string scope, string code, LockPeriodDiaryEntryRequest? lockPeriodDiaryEntryRequest = null)
 
-[EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period.
+[EARLY ACCESS] LockPeriod: Locks the last Closed or given Closed Period.
 
 Locks the specified or last locked period for the given Abor.
 
@@ -1412,7 +1412,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DiaryEntry result = apiInstance.LockPeriod(scope, code, lockPeriodDiaryEntryRequest, opts: opts);
 
-                // [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period.
+                // [EARLY ACCESS] LockPeriod: Locks the last Closed or given Closed Period.
                 DiaryEntry result = apiInstance.LockPeriod(scope, code, lockPeriodDiaryEntryRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1433,7 +1433,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period.
+    // [EARLY ACCESS] LockPeriod: Locks the last Closed or given Closed Period.
     ApiResponse<DiaryEntry> response = apiInstance.LockPeriodWithHttpInfo(scope, code, lockPeriodDiaryEntryRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1478,7 +1478,7 @@ catch (ApiException e)
 # **PatchAbor**
 > Abor PatchAbor (string scope, string code, List<Operation> operation)
 
-[EXPERIMENTAL] PatchAbor: Patch Abor.
+[EARLY ACCESS] PatchAbor: Patch Abor.
 
 Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
 
@@ -1530,7 +1530,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Abor result = apiInstance.PatchAbor(scope, code, operation, opts: opts);
 
-                // [EXPERIMENTAL] PatchAbor: Patch Abor.
+                // [EARLY ACCESS] PatchAbor: Patch Abor.
                 Abor result = apiInstance.PatchAbor(scope, code, operation);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1551,7 +1551,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PatchAbor: Patch Abor.
+    // [EARLY ACCESS] PatchAbor: Patch Abor.
     ApiResponse<Abor> response = apiInstance.PatchAborWithHttpInfo(scope, code, operation);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1596,7 +1596,7 @@ catch (ApiException e)
 # **ReOpenPeriods**
 > PeriodDiaryEntriesReopenedResponse ReOpenPeriods (string scope, string code, ReOpenPeriodDiaryEntryRequest? reOpenPeriodDiaryEntryRequest = null)
 
-[EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
+[EARLY ACCESS] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
 
 Reopens one or more periods.
 
@@ -1648,7 +1648,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PeriodDiaryEntriesReopenedResponse result = apiInstance.ReOpenPeriods(scope, code, reOpenPeriodDiaryEntryRequest, opts: opts);
 
-                // [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
+                // [EARLY ACCESS] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
                 PeriodDiaryEntriesReopenedResponse result = apiInstance.ReOpenPeriods(scope, code, reOpenPeriodDiaryEntryRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1669,7 +1669,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
+    // [EARLY ACCESS] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
     ApiResponse<PeriodDiaryEntriesReopenedResponse> response = apiInstance.ReOpenPeriodsWithHttpInfo(scope, code, reOpenPeriodDiaryEntryRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1714,7 +1714,7 @@ catch (ApiException e)
 # **UpsertAborProperties**
 > AborProperties UpsertAborProperties (string scope, string code, Dictionary<string, Property>? requestBody = null)
 
-[EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties
+[EARLY ACCESS] UpsertAborProperties: Upsert Abor properties
 
 Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'Abor'.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
@@ -1766,7 +1766,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AborProperties result = apiInstance.UpsertAborProperties(scope, code, requestBody, opts: opts);
 
-                // [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties
+                // [EARLY ACCESS] UpsertAborProperties: Upsert Abor properties
                 AborProperties result = apiInstance.UpsertAborProperties(scope, code, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1787,7 +1787,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties
+    // [EARLY ACCESS] UpsertAborProperties: Upsert Abor properties
     ApiResponse<AborProperties> response = apiInstance.UpsertAborPropertiesWithHttpInfo(scope, code, requestBody);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

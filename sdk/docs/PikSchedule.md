@@ -5,7 +5,7 @@ A PikSchedule represents Payment-in-Kind features for a ComplexBond.  It works i
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ScheduleType** | **string** | Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, Invalid. | 
+**ScheduleType** | **string** | Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, Invalid, CancelSchedule. | 
 **StartDate** | **DateTimeOffset** | The start date of the PIK schedule period. | 
 **MaturityDate** | **DateTimeOffset** | The end date of the PIK schedule period. | 
 **IsPikFractionElectable** | **bool** | If true, the PIK fraction is electable at each payment date.  Defaults to false. | [optional] 

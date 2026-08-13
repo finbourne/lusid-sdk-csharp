@@ -31,9 +31,14 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NavSettlementConfigurationCategory" /> class.
         /// </summary>
-        /// <param name="calculateInstructionToPortfolioRate">An optional flag that allows for the calculation of the instruction to portfolio rate for instructions with settlement category CashSettlement or DeferredCashReceipt, if it is not provided on the settlement instruction..</param>
-        /// <param name="calculateTradeDateToSettlementFxPnL">An optional flag that allows for the calculation of FxPnL between Trade and Settlement Date..</param>
-        public NavSettlementConfigurationCategory(bool? calculateInstructionToPortfolioRate = default(bool?), bool? calculateTradeDateToSettlementFxPnL = default(bool?))
+        [JsonConstructorAttribute]
+        protected NavSettlementConfigurationCategory() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NavSettlementConfigurationCategory" /> class.
+        /// </summary>
+        /// <param name="calculateInstructionToPortfolioRate">An optional flag that allows for the calculation of the instruction to portfolio rate for instructions with settlement category CashSettlement or DeferredCashReceipt, if it is not provided on the settlement instruction. (required).</param>
+        /// <param name="calculateTradeDateToSettlementFxPnL">An optional flag that allows for the calculation of FxPnL between Trade and Settlement Date. (required).</param>
+        public NavSettlementConfigurationCategory(bool calculateInstructionToPortfolioRate = default(bool), bool calculateTradeDateToSettlementFxPnL = default(bool))
         {
             this.CalculateInstructionToPortfolioRate = calculateInstructionToPortfolioRate;
             this.CalculateTradeDateToSettlementFxPnL = calculateTradeDateToSettlementFxPnL;
@@ -43,15 +48,15 @@ namespace Lusid.Sdk.Model
         /// An optional flag that allows for the calculation of the instruction to portfolio rate for instructions with settlement category CashSettlement or DeferredCashReceipt, if it is not provided on the settlement instruction.
         /// </summary>
         /// <value>An optional flag that allows for the calculation of the instruction to portfolio rate for instructions with settlement category CashSettlement or DeferredCashReceipt, if it is not provided on the settlement instruction.</value>
-        [DataMember(Name = "calculateInstructionToPortfolioRate", EmitDefaultValue = true)]
-        public bool? CalculateInstructionToPortfolioRate { get; set; }
+        [DataMember(Name = "calculateInstructionToPortfolioRate", IsRequired = true, EmitDefaultValue = true)]
+        public bool CalculateInstructionToPortfolioRate { get; set; }
 
         /// <summary>
         /// An optional flag that allows for the calculation of FxPnL between Trade and Settlement Date.
         /// </summary>
         /// <value>An optional flag that allows for the calculation of FxPnL between Trade and Settlement Date.</value>
-        [DataMember(Name = "calculateTradeDateToSettlementFxPnL", EmitDefaultValue = true)]
-        public bool? CalculateTradeDateToSettlementFxPnL { get; set; }
+        [DataMember(Name = "calculateTradeDateToSettlementFxPnL", IsRequired = true, EmitDefaultValue = true)]
+        public bool CalculateTradeDateToSettlementFxPnL { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -100,13 +105,11 @@ namespace Lusid.Sdk.Model
             return 
                 (
                     this.CalculateInstructionToPortfolioRate == input.CalculateInstructionToPortfolioRate ||
-                    (this.CalculateInstructionToPortfolioRate != null &&
-                    this.CalculateInstructionToPortfolioRate.Equals(input.CalculateInstructionToPortfolioRate))
+                    this.CalculateInstructionToPortfolioRate.Equals(input.CalculateInstructionToPortfolioRate)
                 ) && 
                 (
                     this.CalculateTradeDateToSettlementFxPnL == input.CalculateTradeDateToSettlementFxPnL ||
-                    (this.CalculateTradeDateToSettlementFxPnL != null &&
-                    this.CalculateTradeDateToSettlementFxPnL.Equals(input.CalculateTradeDateToSettlementFxPnL))
+                    this.CalculateTradeDateToSettlementFxPnL.Equals(input.CalculateTradeDateToSettlementFxPnL)
                 );
         }
 
@@ -119,14 +122,8 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.CalculateInstructionToPortfolioRate != null)
-                {
-                    hashCode = (hashCode * 59) + this.CalculateInstructionToPortfolioRate.GetHashCode();
-                }
-                if (this.CalculateTradeDateToSettlementFxPnL != null)
-                {
-                    hashCode = (hashCode * 59) + this.CalculateTradeDateToSettlementFxPnL.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.CalculateInstructionToPortfolioRate.GetHashCode();
+                hashCode = (hashCode * 59) + this.CalculateTradeDateToSettlementFxPnL.GetHashCode();
                 return hashCode;
             }
         }

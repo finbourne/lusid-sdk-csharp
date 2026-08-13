@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
         /// <param name="postingModuleCodes">The Posting Module Codes from which the rules to be applied are retrieved..</param>
         /// <param name="cleardownModuleCodes">The Cleardown Module Codes from which the rules to be applied are retrieved..</param>
-        /// <param name="settlementConfiguration">settlementConfiguration.</param>
+        /// <param name="settlementConfiguration">settlementConfiguration (required).</param>
         /// <param name="valuationRecipeId">valuationRecipeId (required).</param>
         /// <param name="holdingRecipeId">holdingRecipeId (required).</param>
         /// <param name="accountingMethod">Determines the accounting treatment given to the simple position portfolio&#39;s tax lots. A non-default value is required. Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency. (required).</param>
@@ -68,6 +68,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("chartOfAccountsId is a required property for NavType and cannot be null");
             }
             this.ChartOfAccountsId = chartOfAccountsId;
+            // to ensure "settlementConfiguration" is required (not null)
+            if (settlementConfiguration == null)
+            {
+                throw new ArgumentNullException("settlementConfiguration is a required property for NavType and cannot be null");
+            }
+            this.SettlementConfiguration = settlementConfiguration;
             // to ensure "valuationRecipeId" is required (not null)
             if (valuationRecipeId == null)
             {
@@ -115,7 +121,6 @@ namespace Lusid.Sdk.Model
             this.Description = description;
             this.PostingModuleCodes = postingModuleCodes;
             this.CleardownModuleCodes = cleardownModuleCodes;
-            this.SettlementConfiguration = settlementConfiguration;
             this.SubHoldingKeys = subHoldingKeys;
             this.AmortisationRuleSetId = amortisationRuleSetId;
             this.LeaderNavTypeCode = leaderNavTypeCode;
@@ -172,7 +177,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets SettlementConfiguration
         /// </summary>
-        [DataMember(Name = "settlementConfiguration", EmitDefaultValue = false)]
+        [DataMember(Name = "settlementConfiguration", IsRequired = true, EmitDefaultValue = true)]
         public NavSettlementConfiguration SettlementConfiguration { get; set; }
 
         /// <summary>

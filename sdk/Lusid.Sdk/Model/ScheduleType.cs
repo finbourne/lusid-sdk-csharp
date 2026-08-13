@@ -86,7 +86,13 @@ namespace Lusid.Sdk.Model
         /// Enum Invalid for value: Invalid
         /// </summary>
         [EnumMember(Value = "Invalid")]
-        Invalid = 10
+        Invalid = 10,
+
+        /// <summary>
+        /// Enum CancelSchedule for value: CancelSchedule
+        /// </summary>
+        [EnumMember(Value = "CancelSchedule")]
+        CancelSchedule = 11
     }
 
 }

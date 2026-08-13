@@ -4,17 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CashSettlement** | [**NavSettlementConfigurationCategory**](NavSettlementConfigurationCategory.md) |  | [optional] 
-**DeferredCashReceipt** | [**NavSettlementConfigurationCategory**](NavSettlementConfigurationCategory.md) |  | [optional] 
+**CashSettlement** | [**NavSettlementConfigurationCategory**](NavSettlementConfigurationCategory.md) |  | 
+**DeferredCashReceipt** | [**NavSettlementConfigurationCategory**](NavSettlementConfigurationCategory.md) |  | 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 
-NavSettlementConfigurationCategory? cashSettlement = new NavSettlementConfigurationCategory();
-
-NavSettlementConfigurationCategory? deferredCashReceipt = new NavSettlementConfigurationCategory();
-
+NavSettlementConfigurationCategory cashSettlement = new NavSettlementConfigurationCategory();
+NavSettlementConfigurationCategory deferredCashReceipt = new NavSettlementConfigurationCategory();
 
 NavSettlementConfiguration navSettlementConfigurationInstance = new NavSettlementConfiguration(
     cashSettlement: cashSettlement,

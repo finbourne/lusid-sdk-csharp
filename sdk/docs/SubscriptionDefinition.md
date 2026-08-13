@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **SubscriptionType** | **string** | The kind of data the subscription streams (holdings or transactions), defaulting to holdings.  Address keys and byTaxLots are not valid for a transactions subscription. Available values: Holdings, Transactions. | [optional] 
 **StartEffectiveAt** | **DateTimeOffset?** |  | [optional] 
 **EndEffectiveAt** | **DateTimeOffset?** |  | [optional] 
-**StartAsAt** | **DateTimeOffset?** |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -43,8 +42,7 @@ SubscriptionDefinition subscriptionDefinitionInstance = new SubscriptionDefiniti
     byTaxLots: byTaxLots,
     subscriptionType: subscriptionType,
     startEffectiveAt: startEffectiveAt,
-    endEffectiveAt: endEffectiveAt,
-    startAsAt: startAsAt);
+    endEffectiveAt: endEffectiveAt);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

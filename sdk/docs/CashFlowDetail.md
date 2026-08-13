@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **HaircutFraction** | **decimal?** | The fraction of the gross amount removed by the haircut, in the range [0, 1]. Zero for outflows and for cashflows no rule matched. Only populated when haircut rules were supplied on the request. | [optional] 
 **NetAmount** | **decimal?** | The signed amount of the cashflow net of the haircut. Only populated when haircut rules were supplied on the request. | [optional] 
 **HaircutRuleApplied** | **string** | The identifier of the haircut rule that was applied to the cashflow, or not present when no rule matched or no haircut rules were supplied on the request. | [optional] 
+**Error** | **string** | Only present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. When set, the amount is null rather than zero. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -32,6 +33,7 @@ ResourceId portfolioId = new ResourceId();
 string flowType = "example flowType";
 string payReceive = "example payReceive";
 string haircutRuleApplied = "example haircutRuleApplied";
+string error = "example error";
 List<Link> links = new List<Link>();
 
 CashFlowDetail cashFlowDetailInstance = new CashFlowDetail(
@@ -48,6 +50,7 @@ CashFlowDetail cashFlowDetailInstance = new CashFlowDetail(
     haircutFraction: haircutFraction,
     netAmount: netAmount,
     haircutRuleApplied: haircutRuleApplied,
+    error: error,
     links: links);
 ```
 

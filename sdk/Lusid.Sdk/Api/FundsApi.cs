@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
+        /// [EARLY ACCESS] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
         /// </summary>
         /// <remarks>
         /// Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Api
         AcceptEstimateValuationPointResponse AcceptEstimateValuationPoint(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
+        /// [EARLY ACCESS] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
         /// </summary>
         /// <remarks>
         /// Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
@@ -63,7 +63,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of AcceptEstimateValuationPointResponse</returns>
         Lusid.Sdk.Client.ApiResponse<AcceptEstimateValuationPointResponse> AcceptEstimateValuationPointWithHttpInfo(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] AddAllocationGroups: Add Allocation Groups to a Fund.
+        /// [EARLY ACCESS] AddAllocationGroups: Add Allocation Groups to a Fund.
         /// </summary>
         /// <remarks>
         /// Add the given Allocation Group definitions to the Fund.
@@ -78,7 +78,7 @@ namespace Lusid.Sdk.Api
         Fund AddAllocationGroups(string scope, string code, List<AllocationGroupDefinition> allocationGroupDefinition, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] AddAllocationGroups: Add Allocation Groups to a Fund.
+        /// [EARLY ACCESS] AddAllocationGroups: Add Allocation Groups to a Fund.
         /// </summary>
         /// <remarks>
         /// Add the given Allocation Group definitions to the Fund.
@@ -92,7 +92,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Fund</returns>
         Lusid.Sdk.Client.ApiResponse<Fund> AddAllocationGroupsWithHttpInfo(string scope, string code, List<AllocationGroupDefinition> allocationGroupDefinition, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] AddSeries: Add Series to a Fund.
+        /// [EARLY ACCESS] AddSeries: Add Series to a Fund.
         /// </summary>
         /// <remarks>
         /// Add the given Series definitions to the specified Share Classes of the Fund.
@@ -107,7 +107,7 @@ namespace Lusid.Sdk.Api
         Fund AddSeries(string scope, string code, List<SeriesDefinitionRequest> seriesDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] AddSeries: Add Series to a Fund.
+        /// [EARLY ACCESS] AddSeries: Add Series to a Fund.
         /// </summary>
         /// <remarks>
         /// Add the given Series definitions to the specified Share Classes of the Fund.
@@ -121,7 +121,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Fund</returns>
         Lusid.Sdk.Client.ApiResponse<Fund> AddSeriesWithHttpInfo(string scope, string code, List<SeriesDefinitionRequest> seriesDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] CreateFee: Create a Fee.
+        /// [EARLY ACCESS] CreateFee: Create a Fee.
         /// </summary>
         /// <remarks>
         /// Create the given Fee.
@@ -137,7 +137,7 @@ namespace Lusid.Sdk.Api
         Fee CreateFee(string scope, string code, FeeRequest feeRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateFee: Create a Fee.
+        /// [EARLY ACCESS] CreateFee: Create a Fee.
         /// </summary>
         /// <remarks>
         /// Create the given Fee.
@@ -152,7 +152,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Fee</returns>
         Lusid.Sdk.Client.ApiResponse<Fee> CreateFeeWithHttpInfo(string scope, string code, FeeRequest feeRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] CreateFund: Create a Fund.
+        /// [EARLY ACCESS] CreateFund: Create a Fund.
         /// </summary>
         /// <remarks>
         /// Create the given Fund.
@@ -166,7 +166,7 @@ namespace Lusid.Sdk.Api
         Fund CreateFund(string scope, FundRequest fundRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateFund: Create a Fund.
+        /// [EARLY ACCESS] CreateFund: Create a Fund.
         /// </summary>
         /// <remarks>
         /// Create the given Fund.
@@ -179,7 +179,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Fund</returns>
         Lusid.Sdk.Client.ApiResponse<Fund> CreateFundWithHttpInfo(string scope, FundRequest fundRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] CreateFundV2: Create a Fund V2 (Preview).
+        /// [EARLY ACCESS] CreateFundV2: Create a Fund V2 (Preview).
         /// </summary>
         /// <remarks>
         /// Create the given V2 Fund.
@@ -193,7 +193,7 @@ namespace Lusid.Sdk.Api
         Fund CreateFundV2(string scope, FundDefinitionRequest fundDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateFundV2: Create a Fund V2 (Preview).
+        /// [EARLY ACCESS] CreateFundV2: Create a Fund V2 (Preview).
         /// </summary>
         /// <remarks>
         /// Create the given V2 Fund.
@@ -206,7 +206,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Fund</returns>
         Lusid.Sdk.Client.ApiResponse<Fund> CreateFundV2WithHttpInfo(string scope, FundDefinitionRequest fundDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] CreateValuationPoint: Create a Valuation Point.
+        /// [EARLY ACCESS] CreateValuationPoint: Create a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Insert the estimate Valuation Point.
@@ -222,7 +222,7 @@ namespace Lusid.Sdk.Api
         ValuationPoint CreateValuationPoint(string scope, string code, CreateValuationPointRequest createValuationPointRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateValuationPoint: Create a Valuation Point.
+        /// [EARLY ACCESS] CreateValuationPoint: Create a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Insert the estimate Valuation Point.
@@ -237,7 +237,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ValuationPoint</returns>
         Lusid.Sdk.Client.ApiResponse<ValuationPoint> CreateValuationPointWithHttpInfo(string scope, string code, CreateValuationPointRequest createValuationPointRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeactivateNavTypes: Deactivate NAV types on a Fund.
+        /// [EARLY ACCESS] DeactivateNavTypes: Deactivate NAV types on a Fund.
         /// </summary>
         /// <remarks>
         /// Deactivate the given NAV types on the Fund.
@@ -253,7 +253,7 @@ namespace Lusid.Sdk.Api
         Fund DeactivateNavTypes(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeactivateNavTypes: Deactivate NAV types on a Fund.
+        /// [EARLY ACCESS] DeactivateNavTypes: Deactivate NAV types on a Fund.
         /// </summary>
         /// <remarks>
         /// Deactivate the given NAV types on the Fund.
@@ -268,7 +268,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Fund</returns>
         Lusid.Sdk.Client.ApiResponse<Fund> DeactivateNavTypesWithHttpInfo(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark.
+        /// [EARLY ACCESS] DeleteBookmark: Delete a Bookmark.
         /// </summary>
         /// <remarks>
         /// Deletes the given Bookmark.
@@ -284,7 +284,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteBookmark(string scope, string code, string bookmarkCode, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark.
+        /// [EARLY ACCESS] DeleteBookmark: Delete a Bookmark.
         /// </summary>
         /// <remarks>
         /// Deletes the given Bookmark.
@@ -299,7 +299,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteBookmarkWithHttpInfo(string scope, string code, string bookmarkCode, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteFee: Delete a Fee.
+        /// [EARLY ACCESS] DeleteFee: Delete a Fee.
         /// </summary>
         /// <remarks>
         /// Delete the given Fee.
@@ -314,7 +314,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteFee(string scope, string code, string feeCode, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteFee: Delete a Fee.
+        /// [EARLY ACCESS] DeleteFee: Delete a Fee.
         /// </summary>
         /// <remarks>
         /// Delete the given Fee.
@@ -328,7 +328,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteFeeWithHttpInfo(string scope, string code, string feeCode, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteFund: Delete a Fund.
+        /// [EARLY ACCESS] DeleteFund: Delete a Fund.
         /// </summary>
         /// <remarks>
         /// Delete the given Fund.
@@ -342,7 +342,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteFund(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteFund: Delete a Fund.
+        /// [EARLY ACCESS] DeleteFund: Delete a Fund.
         /// </summary>
         /// <remarks>
         /// Delete the given Fund.
@@ -355,7 +355,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteFundWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
+        /// [EARLY ACCESS] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
         /// </summary>
         /// <remarks>
         /// Delete Nav activity adjustments on a Valuation Point.
@@ -373,7 +373,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteNavActivityAdjustments(string scope, string code, string valuationPointCode, List<NavActivityAdjustmentResponse> navActivityAdjustmentResponse, string? navTypeCode = default(string?), string? valuationPointCodeVariant = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
+        /// [EARLY ACCESS] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
         /// </summary>
         /// <remarks>
         /// Delete Nav activity adjustments on a Valuation Point.
@@ -390,7 +390,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteNavActivityAdjustmentsWithHttpInfo(string scope, string code, string valuationPointCode, List<NavActivityAdjustmentResponse> navActivityAdjustmentResponse, string? navTypeCode = default(string?), string? valuationPointCodeVariant = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point.
+        /// [EARLY ACCESS] DeleteValuationPoint: Delete a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Deletes the given Valuation Point.
@@ -407,7 +407,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteValuationPoint(string scope, string code, string diaryEntryCode, string? diaryEntryCodeVariant = default(string?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point.
+        /// [EARLY ACCESS] DeleteValuationPoint: Delete a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Deletes the given Valuation Point.
@@ -423,7 +423,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteValuationPointWithHttpInfo(string scope, string code, string diaryEntryCode, string? diaryEntryCodeVariant = default(string?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
+        /// [EARLY ACCESS] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
         /// </summary>
         /// <remarks>
         /// Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
@@ -439,7 +439,7 @@ namespace Lusid.Sdk.Api
         ValuationPointDataResponse FinaliseCandidateValuationPoint(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
+        /// [EARLY ACCESS] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
         /// </summary>
         /// <remarks>
         /// Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
@@ -454,7 +454,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ValuationPointDataResponse</returns>
         Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse> FinaliseCandidateValuationPointWithHttpInfo(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetA2BDataForFund: Get A2B data for a Fund.
+        /// [EARLY ACCESS] GetA2BDataForFund: Get A2B data for a Fund.
         /// </summary>
         /// <remarks>
         /// Get the A2B data for transaction portfolios in a specified Fund.
@@ -473,7 +473,7 @@ namespace Lusid.Sdk.Api
         VersionedResourceListOfFundA2BDataRecord GetA2BDataForFund(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetA2BDataForFund: Get A2B data for a Fund.
+        /// [EARLY ACCESS] GetA2BDataForFund: Get A2B data for a Fund.
         /// </summary>
         /// <remarks>
         /// Get the A2B data for transaction portfolios in a specified Fund.
@@ -491,7 +491,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of VersionedResourceListOfFundA2BDataRecord</returns>
         Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfFundA2BDataRecord> GetA2BDataForFundWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund.
+        /// [EARLY ACCESS] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund.
         /// </summary>
         /// <remarks>
         /// Get the A2B movement records of transaction portfolios in a specified Fund.
@@ -510,7 +510,7 @@ namespace Lusid.Sdk.Api
         VersionedResourceListOfFundA2BMovementRecord GetA2BMovementsForFund(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund.
+        /// [EARLY ACCESS] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund.
         /// </summary>
         /// <remarks>
         /// Get the A2B movement records of transaction portfolios in a specified Fund.
@@ -528,7 +528,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of VersionedResourceListOfFundA2BMovementRecord</returns>
         Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfFundA2BMovementRecord> GetA2BMovementsForFundWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund.
+        /// [EARLY ACCESS] GetFee: Get a Fee for a specified Fund.
         /// </summary>
         /// <remarks>
         /// Retrieve a fee for a specified Fund.
@@ -546,7 +546,7 @@ namespace Lusid.Sdk.Api
         Fee GetFee(string scope, string code, string feeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund.
+        /// [EARLY ACCESS] GetFee: Get a Fee for a specified Fund.
         /// </summary>
         /// <remarks>
         /// Retrieve a fee for a specified Fund.
@@ -563,7 +563,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Fee</returns>
         Lusid.Sdk.Client.ApiResponse<Fee> GetFeeWithHttpInfo(string scope, string code, string feeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties.
+        /// [EARLY ACCESS] GetFeeProperties: Get Fee properties.
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single fee.
@@ -580,7 +580,7 @@ namespace Lusid.Sdk.Api
         FeeProperties GetFeeProperties(string scope, string code, string feeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties.
+        /// [EARLY ACCESS] GetFeeProperties: Get Fee properties.
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single fee.
@@ -596,7 +596,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of FeeProperties</returns>
         Lusid.Sdk.Client.ApiResponse<FeeProperties> GetFeePropertiesWithHttpInfo(string scope, string code, string feeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetFund: Get a Fund.
+        /// [EARLY ACCESS] GetFund: Get a Fund.
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a particular Fund.
@@ -613,7 +613,7 @@ namespace Lusid.Sdk.Api
         Fund GetFund(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFund: Get a Fund.
+        /// [EARLY ACCESS] GetFund: Get a Fund.
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a particular Fund.
@@ -629,7 +629,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Fund</returns>
         Lusid.Sdk.Client.ApiResponse<Fund> GetFundWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties.
+        /// [EARLY ACCESS] GetFundProperties: Get Fund properties.
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single fund.
@@ -645,7 +645,7 @@ namespace Lusid.Sdk.Api
         FundProperties GetFundProperties(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties.
+        /// [EARLY ACCESS] GetFundProperties: Get Fund properties.
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single fund.
@@ -660,7 +660,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of FundProperties</returns>
         Lusid.Sdk.Client.ApiResponse<FundProperties> GetFundPropertiesWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
+        /// [EARLY ACCESS] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
         /// </summary>
         /// <remarks>
         /// Get the holdings of transaction portfolios in a specified Fund.
@@ -683,7 +683,7 @@ namespace Lusid.Sdk.Api
         VersionedResourceListOfHoldingContributor GetHoldingContributorsForFund(string scope, string code, long holdingId, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? navTypeCode = default(string?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
+        /// [EARLY ACCESS] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
         /// </summary>
         /// <remarks>
         /// Get the holdings of transaction portfolios in a specified Fund.
@@ -705,7 +705,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of VersionedResourceListOfHoldingContributor</returns>
         Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> GetHoldingContributorsForFundWithHttpInfo(string scope, string code, long holdingId, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? navTypeCode = default(string?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund.
+        /// [EARLY ACCESS] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund.
         /// </summary>
         /// <remarks>
         /// Get the holdings of transaction portfolios in a specified Fund.
@@ -726,7 +726,7 @@ namespace Lusid.Sdk.Api
         VersionedResourceListOfPortfolioHolding GetHoldingsForFund(string scope, string code, SingleValuationPointQueryParameters singleValuationPointQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund.
+        /// [EARLY ACCESS] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund.
         /// </summary>
         /// <remarks>
         /// Get the holdings of transaction portfolios in a specified Fund.
@@ -746,7 +746,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of VersionedResourceListOfPortfolioHolding</returns>
         Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfPortfolioHolding> GetHoldingsForFundWithHttpInfo(string scope, string code, SingleValuationPointQueryParameters singleValuationPointQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund.
+        /// [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund.
         /// </summary>
         /// <remarks>
         /// Perform valuation on a specified Fund.
@@ -762,7 +762,7 @@ namespace Lusid.Sdk.Api
         ListAggregationResponse GetValuationForFund(string scope, string code, string? navTypeCode = default(string?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund.
+        /// [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund.
         /// </summary>
         /// <remarks>
         /// Perform valuation on a specified Fund.
@@ -777,7 +777,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ListAggregationResponse</returns>
         Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> GetValuationForFundWithHttpInfo(string scope, string code, string? navTypeCode = default(string?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
+        /// [EARLY ACCESS] GetValuationPointData: Get Valuation Point Data for a Fund.
         /// </summary>
         /// <remarks>
         /// Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
@@ -794,7 +794,7 @@ namespace Lusid.Sdk.Api
         ValuationPointDataResponse GetValuationPointData(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
+        /// [EARLY ACCESS] GetValuationPointData: Get Valuation Point Data for a Fund.
         /// </summary>
         /// <remarks>
         /// Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
@@ -810,7 +810,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ValuationPointDataResponse</returns>
         Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse> GetValuationPointDataWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
+        /// [EARLY ACCESS] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
         /// </summary>
         /// <remarks>
         /// Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
@@ -832,7 +832,7 @@ namespace Lusid.Sdk.Api
         ValuationPointResourceListOfFundJournalEntryLine GetValuationPointJournalEntryLines(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
+        /// [EARLY ACCESS] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
         /// </summary>
         /// <remarks>
         /// Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
@@ -853,7 +853,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ValuationPointResourceListOfFundJournalEntryLine</returns>
         Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfFundJournalEntryLine> GetValuationPointJournalEntryLinesWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
+        /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
         /// </summary>
         /// <remarks>
         /// Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
@@ -874,7 +874,7 @@ namespace Lusid.Sdk.Api
         ValuationPointResourceListOfPnlJournalEntryLine GetValuationPointPnlSummary(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
+        /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
         /// </summary>
         /// <remarks>
         /// Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
@@ -894,7 +894,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ValuationPointResourceListOfPnlJournalEntryLine</returns>
         Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfPnlJournalEntryLine> GetValuationPointPnlSummaryWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point.
+        /// [EARLY ACCESS] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point.
         /// </summary>
         /// <remarks>
         /// Gets all quotes within the effective date range of the specified Valuation Point for a Fund,  including any quotes added via a Complex Close (Post-Close Activity).
@@ -913,7 +913,7 @@ namespace Lusid.Sdk.Api
         ValuationPointResourceListOfAccountedQuote GetValuationPointQuotes(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point.
+        /// [EARLY ACCESS] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point.
         /// </summary>
         /// <remarks>
         /// Gets all quotes within the effective date range of the specified Valuation Point for a Fund,  including any quotes added via a Complex Close (Post-Close Activity).
@@ -931,7 +931,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ValuationPointResourceListOfAccountedQuote</returns>
         Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedQuote> GetValuationPointQuotesWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
+        /// [EARLY ACCESS] GetValuationPointTransactions: Get the Transactions for the given Fund.
         /// </summary>
         /// <remarks>
         /// Gets the Transactions for the given Valuation Point for a Fund.
@@ -956,7 +956,7 @@ namespace Lusid.Sdk.Api
         ValuationPointResourceListOfAccountedTransaction GetValuationPointTransactions(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), string? membershipType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
+        /// [EARLY ACCESS] GetValuationPointTransactions: Get the Transactions for the given Fund.
         /// </summary>
         /// <remarks>
         /// Gets the Transactions for the given Valuation Point for a Fund.
@@ -980,10 +980,10 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ValuationPointResourceListOfAccountedTransaction</returns>
         Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction> GetValuationPointTransactionsWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), string? membershipType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
+        /// [EARLY ACCESS] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the Trial Balance for the given Valuation Point for a Fund.                The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
+        /// Gets the Trial Balance for the given Valuation Point for a Fund.                The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).                Supplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.  Any caller with access to this endpoint may use it; it is not role-restricted.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -1003,10 +1003,10 @@ namespace Lusid.Sdk.Api
         ValuationPointResourceListOfTrialBalance GetValuationPointTrialBalance(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), bool? excludeCleardownModule = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
+        /// [EARLY ACCESS] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the Trial Balance for the given Valuation Point for a Fund.                The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
+        /// Gets the Trial Balance for the given Valuation Point for a Fund.                The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).                Supplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.  Any caller with access to this endpoint may use it; it is not role-restricted.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -1025,7 +1025,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ValuationPointResourceListOfTrialBalance</returns>
         Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfTrialBalance> GetValuationPointTrialBalanceWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), bool? excludeCleardownModule = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
+        /// [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
         /// </summary>
         /// <remarks>
         /// Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,  looking back from inception. Settlement status is point-in-time: post-cutoff settlement  activity does not alter the result.
@@ -1045,7 +1045,7 @@ namespace Lusid.Sdk.Api
         ValuationPointResourceListOfUnsettledTransaction GetValuationPointUnsettledTransactions(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
+        /// [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
         /// </summary>
         /// <remarks>
         /// Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,  looking back from inception. Settlement status is point-in-time: post-cutoff settlement  activity does not alter the result.
@@ -1064,7 +1064,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ValuationPointResourceListOfUnsettledTransaction</returns>
         Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfUnsettledTransaction> GetValuationPointUnsettledTransactionsWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListFees: List Fees for a specified Fund.
+        /// [EARLY ACCESS] ListFees: List Fees for a specified Fund.
         /// </summary>
         /// <remarks>
         /// List all the Fees matching a particular criteria.
@@ -1085,7 +1085,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfFee ListFees(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFees: List Fees for a specified Fund.
+        /// [EARLY ACCESS] ListFees: List Fees for a specified Fund.
         /// </summary>
         /// <remarks>
         /// List all the Fees matching a particular criteria.
@@ -1105,7 +1105,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfFee</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfFee> ListFeesWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListFundCalendar: List Fund Calendar.
+        /// [EARLY ACCESS] ListFundCalendar: List Fund Calendar.
         /// </summary>
         /// <remarks>
         /// List all the Calendar Entries associated with the Fund.
@@ -1125,7 +1125,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfFundCalendarEntry ListFundCalendar(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFundCalendar: List Fund Calendar.
+        /// [EARLY ACCESS] ListFundCalendar: List Fund Calendar.
         /// </summary>
         /// <remarks>
         /// List all the Calendar Entries associated with the Fund.
@@ -1144,7 +1144,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfFundCalendarEntry</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfFundCalendarEntry> ListFundCalendarWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListFundCalendarEntries: List Fund Calendar Entries.
+        /// [EARLY ACCESS] ListFundCalendarEntries: List Fund Calendar Entries.
         /// </summary>
         /// <remarks>
         /// List all the Calendar Entries associated with the Fund.
@@ -1164,7 +1164,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfFundCalendarEntries ListFundCalendarEntries(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFundCalendarEntries: List Fund Calendar Entries.
+        /// [EARLY ACCESS] ListFundCalendarEntries: List Fund Calendar Entries.
         /// </summary>
         /// <remarks>
         /// List all the Calendar Entries associated with the Fund.
@@ -1183,7 +1183,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfFundCalendarEntries</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfFundCalendarEntries> ListFundCalendarEntriesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListFunds: List Funds.
+        /// [EARLY ACCESS] ListFunds: List Funds.
         /// </summary>
         /// <remarks>
         /// List all the Funds matching particular criteria.
@@ -1202,7 +1202,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfFund ListFunds(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFunds: List Funds.
+        /// [EARLY ACCESS] ListFunds: List Funds.
         /// </summary>
         /// <remarks>
         /// List all the Funds matching particular criteria.
@@ -1220,7 +1220,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfFund</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfFund> ListFundsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
+        /// [EARLY ACCESS] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
         /// </summary>
         /// <remarks>
         /// Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
@@ -1241,7 +1241,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfNavActivityAdjustmentResponse ListNavActivityAdjustments(string scope, string code, string valuationPointCode, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), string? valuationPointCodeVariant = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
+        /// [EARLY ACCESS] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
         /// </summary>
         /// <remarks>
         /// Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
@@ -1261,7 +1261,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfNavActivityAdjustmentResponse</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfNavActivityAdjustmentResponse> ListNavActivityAdjustmentsWithHttpInfo(string scope, string code, string valuationPointCode, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), string? valuationPointCodeVariant = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
+        /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
         /// </summary>
         /// <remarks>
         /// Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
@@ -1280,7 +1280,7 @@ namespace Lusid.Sdk.Api
         ValuationPointResourceListOfAccountedComplexMarketData ListValuationPointComplexMarketData(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
+        /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
         /// </summary>
         /// <remarks>
         /// Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
@@ -1298,7 +1298,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ValuationPointResourceListOfAccountedComplexMarketData</returns>
         Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedComplexMarketData> ListValuationPointComplexMarketDataWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointInstruments: List Instruments inside a valuation point
+        /// [EARLY ACCESS] ListValuationPointInstruments: List Instruments inside a valuation point
         /// </summary>
         /// <remarks>
         /// Lists the Instruments linked to Transactions within a Valuation Point for a Fund.
@@ -1321,7 +1321,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfValuationPointInstrument ListValuationPointInstruments(string scope, string code, string valuationPointCode, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? instrumentPropertyKeys = default(List<string>?), string? valuationPointCodeVariant = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointInstruments: List Instruments inside a valuation point
+        /// [EARLY ACCESS] ListValuationPointInstruments: List Instruments inside a valuation point
         /// </summary>
         /// <remarks>
         /// Lists the Instruments linked to Transactions within a Valuation Point for a Fund.
@@ -1343,7 +1343,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfValuationPointInstrument</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfValuationPointInstrument> ListValuationPointInstrumentsWithHttpInfo(string scope, string code, string valuationPointCode, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? instrumentPropertyKeys = default(List<string>?), string? valuationPointCodeVariant = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
+        /// [EARLY ACCESS] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
         /// </summary>
         /// <remarks>
         /// List the overview of all the Valuation Points that match the given criteria for a given Fund.
@@ -1364,7 +1364,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfValuationPointOverview ListValuationPointOverview(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
+        /// [EARLY ACCESS] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
         /// </summary>
         /// <remarks>
         /// List the overview of all the Valuation Points that match the given criteria for a given Fund.
@@ -1384,7 +1384,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfValuationPointOverview</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfValuationPointOverview> ListValuationPointOverviewWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PatchFee: Patch Fee.
+        /// [EARLY ACCESS] PatchFee: Patch Fee.
         /// </summary>
         /// <remarks>
         /// Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
@@ -1400,7 +1400,7 @@ namespace Lusid.Sdk.Api
         Fee PatchFee(string scope, string code, string feeCode, List<Operation> operation, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFee: Patch Fee.
+        /// [EARLY ACCESS] PatchFee: Patch Fee.
         /// </summary>
         /// <remarks>
         /// Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
@@ -1415,7 +1415,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Fee</returns>
         Lusid.Sdk.Client.ApiResponse<Fee> PatchFeeWithHttpInfo(string scope, string code, string feeCode, List<Operation> operation, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PatchFund: Patch a Fund.
+        /// [EARLY ACCESS] PatchFund: Patch a Fund.
         /// </summary>
         /// <remarks>
         /// Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, BaseCurrency, PortfolioIds, FundConfigurationId, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, PrimaryNavType, AdditionalNavTypes, AborId, YearEndDate.
@@ -1430,7 +1430,7 @@ namespace Lusid.Sdk.Api
         Fund PatchFund(string scope, string code, List<Operation> operation, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFund: Patch a Fund.
+        /// [EARLY ACCESS] PatchFund: Patch a Fund.
         /// </summary>
         /// <remarks>
         /// Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, BaseCurrency, PortfolioIds, FundConfigurationId, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, PrimaryNavType, AdditionalNavTypes, AborId, YearEndDate.
@@ -1485,7 +1485,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ValuationPointResourceListOfFundCashStatementRow</returns>
         Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfFundCashStatementRow> QueryCashStatementWithHttpInfo(string scope, string code, QueryFundCashStatementParameters queryFundCashStatementParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point.
+        /// [EARLY ACCESS] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point.
         /// </summary>
         /// <remarks>
         /// Returns settled cash movements with a running balance in local currency for the specified Fund  valuation point period. The cash statement is derived from Journal Entry Lines filtered to  settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter on the  request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses system-generated zero-net reversal/TrueUp pairs into SystemCorrection rows). Base  currency columns are out of scope for this variant and are not returned.
@@ -1506,7 +1506,7 @@ namespace Lusid.Sdk.Api
         ValuationPointResourceListOfFundCashStatementLocalCurrency QueryCashStatementLocalCurrency(string scope, string code, QueryFundCashStatementParameters queryFundCashStatementParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point.
+        /// [EARLY ACCESS] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point.
         /// </summary>
         /// <remarks>
         /// Returns settled cash movements with a running balance in local currency for the specified Fund  valuation point period. The cash statement is derived from Journal Entry Lines filtered to  settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter on the  request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses system-generated zero-net reversal/TrueUp pairs into SystemCorrection rows). Base  currency columns are out of scope for this variant and are not returned.
@@ -1526,7 +1526,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ValuationPointResourceListOfFundCashStatementLocalCurrency</returns>
         Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfFundCashStatementLocalCurrency> QueryCashStatementLocalCurrencyWithHttpInfo(string scope, string code, QueryFundCashStatementParameters queryFundCashStatementParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
+        /// [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
         /// </summary>
         /// <remarks>
         /// Moves a &#39;Final&#39; status Valuation Point to status &#39;Estimate&#39;.
@@ -1542,7 +1542,7 @@ namespace Lusid.Sdk.Api
         ValuationPointDataResponse RevertValuationPointToEstimate(string scope, string code, RevertValuationPointDataRequest revertValuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
+        /// [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
         /// </summary>
         /// <remarks>
         /// Moves a &#39;Final&#39; status Valuation Point to status &#39;Estimate&#39;.
@@ -1557,7 +1557,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ValuationPointDataResponse</returns>
         Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse> RevertValuationPointToEstimateWithHttpInfo(string scope, string code, RevertValuationPointDataRequest revertValuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
+        /// [EARLY ACCESS] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
         /// </summary>
         /// <remarks>
         /// Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
@@ -1572,7 +1572,7 @@ namespace Lusid.Sdk.Api
         Fund SetShareClassInstruments(string scope, string code, SetShareClassInstrumentsRequest setShareClassInstrumentsRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
+        /// [EARLY ACCESS] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
         /// </summary>
         /// <remarks>
         /// Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
@@ -1586,7 +1586,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Fund</returns>
         Lusid.Sdk.Client.ApiResponse<Fund> SetShareClassInstrumentsWithHttpInfo(string scope, string code, SetShareClassInstrumentsRequest setShareClassInstrumentsRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateValuationPoint: Update a Valuation Point.
+        /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Updates an existing Valuation Point.
@@ -1602,7 +1602,7 @@ namespace Lusid.Sdk.Api
         ValuationPoint UpdateValuationPoint(string scope, string code, UpdateValuationPointRequest updateValuationPointRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateValuationPoint: Update a Valuation Point.
+        /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Updates an existing Valuation Point.
@@ -1617,7 +1617,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ValuationPoint</returns>
         Lusid.Sdk.Client.ApiResponse<ValuationPoint> UpdateValuationPointWithHttpInfo(string scope, string code, UpdateValuationPointRequest updateValuationPointRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark.
+        /// [EARLY ACCESS] UpsertBookmark: Upsert a bookmark.
         /// </summary>
         /// <remarks>
         /// This method will update or upsert a Bookmark for the Fund.
@@ -1633,7 +1633,7 @@ namespace Lusid.Sdk.Api
         FundCalendarEntry UpsertBookmark(string scope, string code, UpsertFundBookmarkRequest upsertFundBookmarkRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark.
+        /// [EARLY ACCESS] UpsertBookmark: Upsert a bookmark.
         /// </summary>
         /// <remarks>
         /// This method will update or upsert a Bookmark for the Fund.
@@ -1648,7 +1648,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of FundCalendarEntry</returns>
         Lusid.Sdk.Client.ApiResponse<FundCalendarEntry> UpsertBookmarkWithHttpInfo(string scope, string code, UpsertFundBookmarkRequest upsertFundBookmarkRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
+        /// [EARLY ACCESS] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.
@@ -1664,7 +1664,7 @@ namespace Lusid.Sdk.Api
         DiaryEntry UpsertDiaryEntryTypeValuationPoint(string scope, string code, UpsertValuationPointRequest upsertValuationPointRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
+        /// [EARLY ACCESS] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.
@@ -1679,7 +1679,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DiaryEntry</returns>
         Lusid.Sdk.Client.ApiResponse<DiaryEntry> UpsertDiaryEntryTypeValuationPointWithHttpInfo(string scope, string code, UpsertValuationPointRequest upsertValuationPointRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties.
+        /// [EARLY ACCESS] UpsertFeeProperties: Upsert Fee properties.
         /// </summary>
         /// <remarks>
         /// Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -1695,7 +1695,7 @@ namespace Lusid.Sdk.Api
         FeeProperties UpsertFeeProperties(string scope, string code, string feeCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties.
+        /// [EARLY ACCESS] UpsertFeeProperties: Upsert Fee properties.
         /// </summary>
         /// <remarks>
         /// Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -1710,7 +1710,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of FeeProperties</returns>
         Lusid.Sdk.Client.ApiResponse<FeeProperties> UpsertFeePropertiesWithHttpInfo(string scope, string code, string feeCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties.
+        /// [EARLY ACCESS] UpsertFundProperties: Upsert Fund properties.
         /// </summary>
         /// <remarks>
         /// Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -1725,7 +1725,7 @@ namespace Lusid.Sdk.Api
         FundProperties UpsertFundProperties(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties.
+        /// [EARLY ACCESS] UpsertFundProperties: Upsert Fund properties.
         /// </summary>
         /// <remarks>
         /// Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -1739,7 +1739,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of FundProperties</returns>
         Lusid.Sdk.Client.ApiResponse<FundProperties> UpsertFundPropertiesWithHttpInfo(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
+        /// [EARLY ACCESS] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
         /// </summary>
         /// <remarks>
         /// Upserts the NAV adjustment activities to the specified valuation point for a Fund.
@@ -1757,7 +1757,7 @@ namespace Lusid.Sdk.Api
         DateTimeOffset UpsertNavActivityAdjustments(string scope, string code, string valuationPointCode, List<NavActivityAdjustment> navActivityAdjustment, string? navTypeCode = default(string?), string? valuationPointCodeVariant = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
+        /// [EARLY ACCESS] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
         /// </summary>
         /// <remarks>
         /// Upserts the NAV adjustment activities to the specified valuation point for a Fund.
@@ -1783,7 +1783,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
+        /// [EARLY ACCESS] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
         /// </summary>
         /// <remarks>
         /// Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
@@ -1800,7 +1800,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<AcceptEstimateValuationPointResponse> AcceptEstimateValuationPointAsync(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
+        /// [EARLY ACCESS] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
         /// </summary>
         /// <remarks>
         /// Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
@@ -1816,7 +1816,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (AcceptEstimateValuationPointResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AcceptEstimateValuationPointResponse>> AcceptEstimateValuationPointWithHttpInfoAsync(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] AddAllocationGroups: Add Allocation Groups to a Fund.
+        /// [EARLY ACCESS] AddAllocationGroups: Add Allocation Groups to a Fund.
         /// </summary>
         /// <remarks>
         /// Add the given Allocation Group definitions to the Fund.
@@ -1832,7 +1832,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Fund> AddAllocationGroupsAsync(string scope, string code, List<AllocationGroupDefinition> allocationGroupDefinition, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] AddAllocationGroups: Add Allocation Groups to a Fund.
+        /// [EARLY ACCESS] AddAllocationGroups: Add Allocation Groups to a Fund.
         /// </summary>
         /// <remarks>
         /// Add the given Allocation Group definitions to the Fund.
@@ -1847,7 +1847,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Fund)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fund>> AddAllocationGroupsWithHttpInfoAsync(string scope, string code, List<AllocationGroupDefinition> allocationGroupDefinition, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] AddSeries: Add Series to a Fund.
+        /// [EARLY ACCESS] AddSeries: Add Series to a Fund.
         /// </summary>
         /// <remarks>
         /// Add the given Series definitions to the specified Share Classes of the Fund.
@@ -1863,7 +1863,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Fund> AddSeriesAsync(string scope, string code, List<SeriesDefinitionRequest> seriesDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] AddSeries: Add Series to a Fund.
+        /// [EARLY ACCESS] AddSeries: Add Series to a Fund.
         /// </summary>
         /// <remarks>
         /// Add the given Series definitions to the specified Share Classes of the Fund.
@@ -1878,7 +1878,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Fund)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fund>> AddSeriesWithHttpInfoAsync(string scope, string code, List<SeriesDefinitionRequest> seriesDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] CreateFee: Create a Fee.
+        /// [EARLY ACCESS] CreateFee: Create a Fee.
         /// </summary>
         /// <remarks>
         /// Create the given Fee.
@@ -1895,7 +1895,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Fee> CreateFeeAsync(string scope, string code, FeeRequest feeRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateFee: Create a Fee.
+        /// [EARLY ACCESS] CreateFee: Create a Fee.
         /// </summary>
         /// <remarks>
         /// Create the given Fee.
@@ -1911,7 +1911,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Fee)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fee>> CreateFeeWithHttpInfoAsync(string scope, string code, FeeRequest feeRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] CreateFund: Create a Fund.
+        /// [EARLY ACCESS] CreateFund: Create a Fund.
         /// </summary>
         /// <remarks>
         /// Create the given Fund.
@@ -1926,7 +1926,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Fund> CreateFundAsync(string scope, FundRequest fundRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateFund: Create a Fund.
+        /// [EARLY ACCESS] CreateFund: Create a Fund.
         /// </summary>
         /// <remarks>
         /// Create the given Fund.
@@ -1940,7 +1940,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Fund)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fund>> CreateFundWithHttpInfoAsync(string scope, FundRequest fundRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] CreateFundV2: Create a Fund V2 (Preview).
+        /// [EARLY ACCESS] CreateFundV2: Create a Fund V2 (Preview).
         /// </summary>
         /// <remarks>
         /// Create the given V2 Fund.
@@ -1955,7 +1955,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Fund> CreateFundV2Async(string scope, FundDefinitionRequest fundDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateFundV2: Create a Fund V2 (Preview).
+        /// [EARLY ACCESS] CreateFundV2: Create a Fund V2 (Preview).
         /// </summary>
         /// <remarks>
         /// Create the given V2 Fund.
@@ -1969,7 +1969,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Fund)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fund>> CreateFundV2WithHttpInfoAsync(string scope, FundDefinitionRequest fundDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] CreateValuationPoint: Create a Valuation Point.
+        /// [EARLY ACCESS] CreateValuationPoint: Create a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Insert the estimate Valuation Point.
@@ -1986,7 +1986,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ValuationPoint> CreateValuationPointAsync(string scope, string code, CreateValuationPointRequest createValuationPointRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateValuationPoint: Create a Valuation Point.
+        /// [EARLY ACCESS] CreateValuationPoint: Create a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Insert the estimate Valuation Point.
@@ -2002,7 +2002,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ValuationPoint)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPoint>> CreateValuationPointWithHttpInfoAsync(string scope, string code, CreateValuationPointRequest createValuationPointRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeactivateNavTypes: Deactivate NAV types on a Fund.
+        /// [EARLY ACCESS] DeactivateNavTypes: Deactivate NAV types on a Fund.
         /// </summary>
         /// <remarks>
         /// Deactivate the given NAV types on the Fund.
@@ -2019,7 +2019,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Fund> DeactivateNavTypesAsync(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeactivateNavTypes: Deactivate NAV types on a Fund.
+        /// [EARLY ACCESS] DeactivateNavTypes: Deactivate NAV types on a Fund.
         /// </summary>
         /// <remarks>
         /// Deactivate the given NAV types on the Fund.
@@ -2035,7 +2035,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Fund)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fund>> DeactivateNavTypesWithHttpInfoAsync(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark.
+        /// [EARLY ACCESS] DeleteBookmark: Delete a Bookmark.
         /// </summary>
         /// <remarks>
         /// Deletes the given Bookmark.
@@ -2052,7 +2052,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteBookmarkAsync(string scope, string code, string bookmarkCode, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark.
+        /// [EARLY ACCESS] DeleteBookmark: Delete a Bookmark.
         /// </summary>
         /// <remarks>
         /// Deletes the given Bookmark.
@@ -2068,7 +2068,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteBookmarkWithHttpInfoAsync(string scope, string code, string bookmarkCode, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteFee: Delete a Fee.
+        /// [EARLY ACCESS] DeleteFee: Delete a Fee.
         /// </summary>
         /// <remarks>
         /// Delete the given Fee.
@@ -2084,7 +2084,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteFeeAsync(string scope, string code, string feeCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteFee: Delete a Fee.
+        /// [EARLY ACCESS] DeleteFee: Delete a Fee.
         /// </summary>
         /// <remarks>
         /// Delete the given Fee.
@@ -2099,7 +2099,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteFeeWithHttpInfoAsync(string scope, string code, string feeCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteFund: Delete a Fund.
+        /// [EARLY ACCESS] DeleteFund: Delete a Fund.
         /// </summary>
         /// <remarks>
         /// Delete the given Fund.
@@ -2114,7 +2114,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteFundAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteFund: Delete a Fund.
+        /// [EARLY ACCESS] DeleteFund: Delete a Fund.
         /// </summary>
         /// <remarks>
         /// Delete the given Fund.
@@ -2128,7 +2128,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteFundWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
+        /// [EARLY ACCESS] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
         /// </summary>
         /// <remarks>
         /// Delete Nav activity adjustments on a Valuation Point.
@@ -2147,7 +2147,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteNavActivityAdjustmentsAsync(string scope, string code, string valuationPointCode, List<NavActivityAdjustmentResponse> navActivityAdjustmentResponse, string? navTypeCode = default(string?), string? valuationPointCodeVariant = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
+        /// [EARLY ACCESS] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
         /// </summary>
         /// <remarks>
         /// Delete Nav activity adjustments on a Valuation Point.
@@ -2165,7 +2165,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteNavActivityAdjustmentsWithHttpInfoAsync(string scope, string code, string valuationPointCode, List<NavActivityAdjustmentResponse> navActivityAdjustmentResponse, string? navTypeCode = default(string?), string? valuationPointCodeVariant = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point.
+        /// [EARLY ACCESS] DeleteValuationPoint: Delete a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Deletes the given Valuation Point.
@@ -2183,7 +2183,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteValuationPointAsync(string scope, string code, string diaryEntryCode, string? diaryEntryCodeVariant = default(string?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point.
+        /// [EARLY ACCESS] DeleteValuationPoint: Delete a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Deletes the given Valuation Point.
@@ -2200,7 +2200,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteValuationPointWithHttpInfoAsync(string scope, string code, string diaryEntryCode, string? diaryEntryCodeVariant = default(string?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
+        /// [EARLY ACCESS] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
         /// </summary>
         /// <remarks>
         /// Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
@@ -2217,7 +2217,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ValuationPointDataResponse> FinaliseCandidateValuationPointAsync(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
+        /// [EARLY ACCESS] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
         /// </summary>
         /// <remarks>
         /// Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
@@ -2233,7 +2233,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ValuationPointDataResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse>> FinaliseCandidateValuationPointWithHttpInfoAsync(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetA2BDataForFund: Get A2B data for a Fund.
+        /// [EARLY ACCESS] GetA2BDataForFund: Get A2B data for a Fund.
         /// </summary>
         /// <remarks>
         /// Get the A2B data for transaction portfolios in a specified Fund.
@@ -2253,7 +2253,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<VersionedResourceListOfFundA2BDataRecord> GetA2BDataForFundAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetA2BDataForFund: Get A2B data for a Fund.
+        /// [EARLY ACCESS] GetA2BDataForFund: Get A2B data for a Fund.
         /// </summary>
         /// <remarks>
         /// Get the A2B data for transaction portfolios in a specified Fund.
@@ -2272,7 +2272,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (VersionedResourceListOfFundA2BDataRecord)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfFundA2BDataRecord>> GetA2BDataForFundWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund.
+        /// [EARLY ACCESS] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund.
         /// </summary>
         /// <remarks>
         /// Get the A2B movement records of transaction portfolios in a specified Fund.
@@ -2292,7 +2292,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<VersionedResourceListOfFundA2BMovementRecord> GetA2BMovementsForFundAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund.
+        /// [EARLY ACCESS] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund.
         /// </summary>
         /// <remarks>
         /// Get the A2B movement records of transaction portfolios in a specified Fund.
@@ -2311,7 +2311,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (VersionedResourceListOfFundA2BMovementRecord)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfFundA2BMovementRecord>> GetA2BMovementsForFundWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund.
+        /// [EARLY ACCESS] GetFee: Get a Fee for a specified Fund.
         /// </summary>
         /// <remarks>
         /// Retrieve a fee for a specified Fund.
@@ -2330,7 +2330,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Fee> GetFeeAsync(string scope, string code, string feeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund.
+        /// [EARLY ACCESS] GetFee: Get a Fee for a specified Fund.
         /// </summary>
         /// <remarks>
         /// Retrieve a fee for a specified Fund.
@@ -2348,7 +2348,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Fee)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fee>> GetFeeWithHttpInfoAsync(string scope, string code, string feeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties.
+        /// [EARLY ACCESS] GetFeeProperties: Get Fee properties.
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single fee.
@@ -2366,7 +2366,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<FeeProperties> GetFeePropertiesAsync(string scope, string code, string feeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties.
+        /// [EARLY ACCESS] GetFeeProperties: Get Fee properties.
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single fee.
@@ -2383,7 +2383,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (FeeProperties)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<FeeProperties>> GetFeePropertiesWithHttpInfoAsync(string scope, string code, string feeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetFund: Get a Fund.
+        /// [EARLY ACCESS] GetFund: Get a Fund.
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a particular Fund.
@@ -2401,7 +2401,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Fund> GetFundAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFund: Get a Fund.
+        /// [EARLY ACCESS] GetFund: Get a Fund.
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a particular Fund.
@@ -2418,7 +2418,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Fund)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fund>> GetFundWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties.
+        /// [EARLY ACCESS] GetFundProperties: Get Fund properties.
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single fund.
@@ -2435,7 +2435,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<FundProperties> GetFundPropertiesAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties.
+        /// [EARLY ACCESS] GetFundProperties: Get Fund properties.
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single fund.
@@ -2451,7 +2451,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (FundProperties)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<FundProperties>> GetFundPropertiesWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
+        /// [EARLY ACCESS] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
         /// </summary>
         /// <remarks>
         /// Get the holdings of transaction portfolios in a specified Fund.
@@ -2475,7 +2475,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<VersionedResourceListOfHoldingContributor> GetHoldingContributorsForFundAsync(string scope, string code, long holdingId, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? navTypeCode = default(string?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
+        /// [EARLY ACCESS] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
         /// </summary>
         /// <remarks>
         /// Get the holdings of transaction portfolios in a specified Fund.
@@ -2498,7 +2498,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (VersionedResourceListOfHoldingContributor)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor>> GetHoldingContributorsForFundWithHttpInfoAsync(string scope, string code, long holdingId, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? navTypeCode = default(string?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund.
+        /// [EARLY ACCESS] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund.
         /// </summary>
         /// <remarks>
         /// Get the holdings of transaction portfolios in a specified Fund.
@@ -2520,7 +2520,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<VersionedResourceListOfPortfolioHolding> GetHoldingsForFundAsync(string scope, string code, SingleValuationPointQueryParameters singleValuationPointQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund.
+        /// [EARLY ACCESS] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund.
         /// </summary>
         /// <remarks>
         /// Get the holdings of transaction portfolios in a specified Fund.
@@ -2541,7 +2541,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (VersionedResourceListOfPortfolioHolding)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfPortfolioHolding>> GetHoldingsForFundWithHttpInfoAsync(string scope, string code, SingleValuationPointQueryParameters singleValuationPointQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund.
+        /// [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund.
         /// </summary>
         /// <remarks>
         /// Perform valuation on a specified Fund.
@@ -2558,7 +2558,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ListAggregationResponse> GetValuationForFundAsync(string scope, string code, string? navTypeCode = default(string?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund.
+        /// [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund.
         /// </summary>
         /// <remarks>
         /// Perform valuation on a specified Fund.
@@ -2574,7 +2574,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ListAggregationResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ListAggregationResponse>> GetValuationForFundWithHttpInfoAsync(string scope, string code, string? navTypeCode = default(string?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
+        /// [EARLY ACCESS] GetValuationPointData: Get Valuation Point Data for a Fund.
         /// </summary>
         /// <remarks>
         /// Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
@@ -2592,7 +2592,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ValuationPointDataResponse> GetValuationPointDataAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
+        /// [EARLY ACCESS] GetValuationPointData: Get Valuation Point Data for a Fund.
         /// </summary>
         /// <remarks>
         /// Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
@@ -2609,7 +2609,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ValuationPointDataResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse>> GetValuationPointDataWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
+        /// [EARLY ACCESS] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
         /// </summary>
         /// <remarks>
         /// Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
@@ -2632,7 +2632,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ValuationPointResourceListOfFundJournalEntryLine> GetValuationPointJournalEntryLinesAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
+        /// [EARLY ACCESS] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
         /// </summary>
         /// <remarks>
         /// Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
@@ -2654,7 +2654,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ValuationPointResourceListOfFundJournalEntryLine)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfFundJournalEntryLine>> GetValuationPointJournalEntryLinesWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
+        /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
         /// </summary>
         /// <remarks>
         /// Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
@@ -2676,7 +2676,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ValuationPointResourceListOfPnlJournalEntryLine> GetValuationPointPnlSummaryAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
+        /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
         /// </summary>
         /// <remarks>
         /// Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
@@ -2697,7 +2697,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ValuationPointResourceListOfPnlJournalEntryLine)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfPnlJournalEntryLine>> GetValuationPointPnlSummaryWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point.
+        /// [EARLY ACCESS] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point.
         /// </summary>
         /// <remarks>
         /// Gets all quotes within the effective date range of the specified Valuation Point for a Fund,  including any quotes added via a Complex Close (Post-Close Activity).
@@ -2717,7 +2717,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ValuationPointResourceListOfAccountedQuote> GetValuationPointQuotesAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point.
+        /// [EARLY ACCESS] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point.
         /// </summary>
         /// <remarks>
         /// Gets all quotes within the effective date range of the specified Valuation Point for a Fund,  including any quotes added via a Complex Close (Post-Close Activity).
@@ -2736,7 +2736,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ValuationPointResourceListOfAccountedQuote)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedQuote>> GetValuationPointQuotesWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
+        /// [EARLY ACCESS] GetValuationPointTransactions: Get the Transactions for the given Fund.
         /// </summary>
         /// <remarks>
         /// Gets the Transactions for the given Valuation Point for a Fund.
@@ -2762,7 +2762,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ValuationPointResourceListOfAccountedTransaction> GetValuationPointTransactionsAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), string? membershipType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
+        /// [EARLY ACCESS] GetValuationPointTransactions: Get the Transactions for the given Fund.
         /// </summary>
         /// <remarks>
         /// Gets the Transactions for the given Valuation Point for a Fund.
@@ -2787,10 +2787,10 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ValuationPointResourceListOfAccountedTransaction)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction>> GetValuationPointTransactionsWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), string? membershipType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
+        /// [EARLY ACCESS] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the Trial Balance for the given Valuation Point for a Fund.                The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
+        /// Gets the Trial Balance for the given Valuation Point for a Fund.                The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).                Supplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.  Any caller with access to this endpoint may use it; it is not role-restricted.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -2811,10 +2811,10 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ValuationPointResourceListOfTrialBalance> GetValuationPointTrialBalanceAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), bool? excludeCleardownModule = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
+        /// [EARLY ACCESS] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the Trial Balance for the given Valuation Point for a Fund.                The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
+        /// Gets the Trial Balance for the given Valuation Point for a Fund.                The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).                Supplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.  Any caller with access to this endpoint may use it; it is not role-restricted.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -2834,7 +2834,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ValuationPointResourceListOfTrialBalance)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfTrialBalance>> GetValuationPointTrialBalanceWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), bool? excludeCleardownModule = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
+        /// [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
         /// </summary>
         /// <remarks>
         /// Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,  looking back from inception. Settlement status is point-in-time: post-cutoff settlement  activity does not alter the result.
@@ -2855,7 +2855,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ValuationPointResourceListOfUnsettledTransaction> GetValuationPointUnsettledTransactionsAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
+        /// [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
         /// </summary>
         /// <remarks>
         /// Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,  looking back from inception. Settlement status is point-in-time: post-cutoff settlement  activity does not alter the result.
@@ -2875,7 +2875,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ValuationPointResourceListOfUnsettledTransaction)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfUnsettledTransaction>> GetValuationPointUnsettledTransactionsWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListFees: List Fees for a specified Fund.
+        /// [EARLY ACCESS] ListFees: List Fees for a specified Fund.
         /// </summary>
         /// <remarks>
         /// List all the Fees matching a particular criteria.
@@ -2897,7 +2897,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfFee> ListFeesAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFees: List Fees for a specified Fund.
+        /// [EARLY ACCESS] ListFees: List Fees for a specified Fund.
         /// </summary>
         /// <remarks>
         /// List all the Fees matching a particular criteria.
@@ -2918,7 +2918,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfFee)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfFee>> ListFeesWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListFundCalendar: List Fund Calendar.
+        /// [EARLY ACCESS] ListFundCalendar: List Fund Calendar.
         /// </summary>
         /// <remarks>
         /// List all the Calendar Entries associated with the Fund.
@@ -2939,7 +2939,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfFundCalendarEntry> ListFundCalendarAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFundCalendar: List Fund Calendar.
+        /// [EARLY ACCESS] ListFundCalendar: List Fund Calendar.
         /// </summary>
         /// <remarks>
         /// List all the Calendar Entries associated with the Fund.
@@ -2959,7 +2959,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfFundCalendarEntry)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfFundCalendarEntry>> ListFundCalendarWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListFundCalendarEntries: List Fund Calendar Entries.
+        /// [EARLY ACCESS] ListFundCalendarEntries: List Fund Calendar Entries.
         /// </summary>
         /// <remarks>
         /// List all the Calendar Entries associated with the Fund.
@@ -2980,7 +2980,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfFundCalendarEntries> ListFundCalendarEntriesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFundCalendarEntries: List Fund Calendar Entries.
+        /// [EARLY ACCESS] ListFundCalendarEntries: List Fund Calendar Entries.
         /// </summary>
         /// <remarks>
         /// List all the Calendar Entries associated with the Fund.
@@ -3000,7 +3000,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfFundCalendarEntries)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfFundCalendarEntries>> ListFundCalendarEntriesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListFunds: List Funds.
+        /// [EARLY ACCESS] ListFunds: List Funds.
         /// </summary>
         /// <remarks>
         /// List all the Funds matching particular criteria.
@@ -3020,7 +3020,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfFund> ListFundsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFunds: List Funds.
+        /// [EARLY ACCESS] ListFunds: List Funds.
         /// </summary>
         /// <remarks>
         /// List all the Funds matching particular criteria.
@@ -3039,7 +3039,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfFund)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfFund>> ListFundsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
+        /// [EARLY ACCESS] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
         /// </summary>
         /// <remarks>
         /// Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
@@ -3061,7 +3061,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfNavActivityAdjustmentResponse> ListNavActivityAdjustmentsAsync(string scope, string code, string valuationPointCode, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), string? valuationPointCodeVariant = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
+        /// [EARLY ACCESS] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
         /// </summary>
         /// <remarks>
         /// Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
@@ -3082,7 +3082,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfNavActivityAdjustmentResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfNavActivityAdjustmentResponse>> ListNavActivityAdjustmentsWithHttpInfoAsync(string scope, string code, string valuationPointCode, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), string? valuationPointCodeVariant = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
+        /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
         /// </summary>
         /// <remarks>
         /// Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
@@ -3102,7 +3102,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ValuationPointResourceListOfAccountedComplexMarketData> ListValuationPointComplexMarketDataAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
+        /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
         /// </summary>
         /// <remarks>
         /// Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
@@ -3121,7 +3121,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ValuationPointResourceListOfAccountedComplexMarketData)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedComplexMarketData>> ListValuationPointComplexMarketDataWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointInstruments: List Instruments inside a valuation point
+        /// [EARLY ACCESS] ListValuationPointInstruments: List Instruments inside a valuation point
         /// </summary>
         /// <remarks>
         /// Lists the Instruments linked to Transactions within a Valuation Point for a Fund.
@@ -3145,7 +3145,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfValuationPointInstrument> ListValuationPointInstrumentsAsync(string scope, string code, string valuationPointCode, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? instrumentPropertyKeys = default(List<string>?), string? valuationPointCodeVariant = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointInstruments: List Instruments inside a valuation point
+        /// [EARLY ACCESS] ListValuationPointInstruments: List Instruments inside a valuation point
         /// </summary>
         /// <remarks>
         /// Lists the Instruments linked to Transactions within a Valuation Point for a Fund.
@@ -3168,7 +3168,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfValuationPointInstrument)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfValuationPointInstrument>> ListValuationPointInstrumentsWithHttpInfoAsync(string scope, string code, string valuationPointCode, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? instrumentPropertyKeys = default(List<string>?), string? valuationPointCodeVariant = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
+        /// [EARLY ACCESS] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
         /// </summary>
         /// <remarks>
         /// List the overview of all the Valuation Points that match the given criteria for a given Fund.
@@ -3190,7 +3190,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfValuationPointOverview> ListValuationPointOverviewAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
+        /// [EARLY ACCESS] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
         /// </summary>
         /// <remarks>
         /// List the overview of all the Valuation Points that match the given criteria for a given Fund.
@@ -3211,7 +3211,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfValuationPointOverview)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfValuationPointOverview>> ListValuationPointOverviewWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PatchFee: Patch Fee.
+        /// [EARLY ACCESS] PatchFee: Patch Fee.
         /// </summary>
         /// <remarks>
         /// Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
@@ -3228,7 +3228,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Fee> PatchFeeAsync(string scope, string code, string feeCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFee: Patch Fee.
+        /// [EARLY ACCESS] PatchFee: Patch Fee.
         /// </summary>
         /// <remarks>
         /// Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
@@ -3244,7 +3244,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Fee)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fee>> PatchFeeWithHttpInfoAsync(string scope, string code, string feeCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PatchFund: Patch a Fund.
+        /// [EARLY ACCESS] PatchFund: Patch a Fund.
         /// </summary>
         /// <remarks>
         /// Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, BaseCurrency, PortfolioIds, FundConfigurationId, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, PrimaryNavType, AdditionalNavTypes, AborId, YearEndDate.
@@ -3260,7 +3260,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Fund> PatchFundAsync(string scope, string code, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFund: Patch a Fund.
+        /// [EARLY ACCESS] PatchFund: Patch a Fund.
         /// </summary>
         /// <remarks>
         /// Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, BaseCurrency, PortfolioIds, FundConfigurationId, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, PrimaryNavType, AdditionalNavTypes, AborId, YearEndDate.
@@ -3318,7 +3318,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ValuationPointResourceListOfFundCashStatementRow)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfFundCashStatementRow>> QueryCashStatementWithHttpInfoAsync(string scope, string code, QueryFundCashStatementParameters queryFundCashStatementParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point.
+        /// [EARLY ACCESS] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point.
         /// </summary>
         /// <remarks>
         /// Returns settled cash movements with a running balance in local currency for the specified Fund  valuation point period. The cash statement is derived from Journal Entry Lines filtered to  settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter on the  request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses system-generated zero-net reversal/TrueUp pairs into SystemCorrection rows). Base  currency columns are out of scope for this variant and are not returned.
@@ -3340,7 +3340,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ValuationPointResourceListOfFundCashStatementLocalCurrency> QueryCashStatementLocalCurrencyAsync(string scope, string code, QueryFundCashStatementParameters queryFundCashStatementParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point.
+        /// [EARLY ACCESS] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point.
         /// </summary>
         /// <remarks>
         /// Returns settled cash movements with a running balance in local currency for the specified Fund  valuation point period. The cash statement is derived from Journal Entry Lines filtered to  settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter on the  request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses system-generated zero-net reversal/TrueUp pairs into SystemCorrection rows). Base  currency columns are out of scope for this variant and are not returned.
@@ -3361,7 +3361,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ValuationPointResourceListOfFundCashStatementLocalCurrency)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfFundCashStatementLocalCurrency>> QueryCashStatementLocalCurrencyWithHttpInfoAsync(string scope, string code, QueryFundCashStatementParameters queryFundCashStatementParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
+        /// [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
         /// </summary>
         /// <remarks>
         /// Moves a &#39;Final&#39; status Valuation Point to status &#39;Estimate&#39;.
@@ -3378,7 +3378,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ValuationPointDataResponse> RevertValuationPointToEstimateAsync(string scope, string code, RevertValuationPointDataRequest revertValuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
+        /// [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
         /// </summary>
         /// <remarks>
         /// Moves a &#39;Final&#39; status Valuation Point to status &#39;Estimate&#39;.
@@ -3394,7 +3394,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ValuationPointDataResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse>> RevertValuationPointToEstimateWithHttpInfoAsync(string scope, string code, RevertValuationPointDataRequest revertValuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
+        /// [EARLY ACCESS] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
         /// </summary>
         /// <remarks>
         /// Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
@@ -3410,7 +3410,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Fund> SetShareClassInstrumentsAsync(string scope, string code, SetShareClassInstrumentsRequest setShareClassInstrumentsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
+        /// [EARLY ACCESS] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
         /// </summary>
         /// <remarks>
         /// Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
@@ -3425,7 +3425,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Fund)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fund>> SetShareClassInstrumentsWithHttpInfoAsync(string scope, string code, SetShareClassInstrumentsRequest setShareClassInstrumentsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateValuationPoint: Update a Valuation Point.
+        /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Updates an existing Valuation Point.
@@ -3442,7 +3442,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ValuationPoint> UpdateValuationPointAsync(string scope, string code, UpdateValuationPointRequest updateValuationPointRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateValuationPoint: Update a Valuation Point.
+        /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Updates an existing Valuation Point.
@@ -3458,7 +3458,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ValuationPoint)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPoint>> UpdateValuationPointWithHttpInfoAsync(string scope, string code, UpdateValuationPointRequest updateValuationPointRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark.
+        /// [EARLY ACCESS] UpsertBookmark: Upsert a bookmark.
         /// </summary>
         /// <remarks>
         /// This method will update or upsert a Bookmark for the Fund.
@@ -3475,7 +3475,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<FundCalendarEntry> UpsertBookmarkAsync(string scope, string code, UpsertFundBookmarkRequest upsertFundBookmarkRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark.
+        /// [EARLY ACCESS] UpsertBookmark: Upsert a bookmark.
         /// </summary>
         /// <remarks>
         /// This method will update or upsert a Bookmark for the Fund.
@@ -3491,7 +3491,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (FundCalendarEntry)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<FundCalendarEntry>> UpsertBookmarkWithHttpInfoAsync(string scope, string code, UpsertFundBookmarkRequest upsertFundBookmarkRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
+        /// [EARLY ACCESS] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.
@@ -3508,7 +3508,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DiaryEntry> UpsertDiaryEntryTypeValuationPointAsync(string scope, string code, UpsertValuationPointRequest upsertValuationPointRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
+        /// [EARLY ACCESS] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.
@@ -3524,7 +3524,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DiaryEntry)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DiaryEntry>> UpsertDiaryEntryTypeValuationPointWithHttpInfoAsync(string scope, string code, UpsertValuationPointRequest upsertValuationPointRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties.
+        /// [EARLY ACCESS] UpsertFeeProperties: Upsert Fee properties.
         /// </summary>
         /// <remarks>
         /// Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -3541,7 +3541,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<FeeProperties> UpsertFeePropertiesAsync(string scope, string code, string feeCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties.
+        /// [EARLY ACCESS] UpsertFeeProperties: Upsert Fee properties.
         /// </summary>
         /// <remarks>
         /// Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -3557,7 +3557,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (FeeProperties)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<FeeProperties>> UpsertFeePropertiesWithHttpInfoAsync(string scope, string code, string feeCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties.
+        /// [EARLY ACCESS] UpsertFundProperties: Upsert Fund properties.
         /// </summary>
         /// <remarks>
         /// Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -3573,7 +3573,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<FundProperties> UpsertFundPropertiesAsync(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties.
+        /// [EARLY ACCESS] UpsertFundProperties: Upsert Fund properties.
         /// </summary>
         /// <remarks>
         /// Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -3588,7 +3588,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (FundProperties)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<FundProperties>> UpsertFundPropertiesWithHttpInfoAsync(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
+        /// [EARLY ACCESS] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
         /// </summary>
         /// <remarks>
         /// Upserts the NAV adjustment activities to the specified valuation point for a Fund.
@@ -3607,7 +3607,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DateTimeOffset> UpsertNavActivityAdjustmentsAsync(string scope, string code, string valuationPointCode, List<NavActivityAdjustment> navActivityAdjustment, string? navTypeCode = default(string?), string? valuationPointCodeVariant = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
+        /// [EARLY ACCESS] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
         /// </summary>
         /// <remarks>
         /// Upserts the NAV adjustment activities to the specified valuation point for a Fund.
@@ -3748,7 +3748,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
+        /// [EARLY ACCESS] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -3765,7 +3765,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
+        /// [EARLY ACCESS] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -3877,7 +3877,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
+        /// [EARLY ACCESS] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -3895,7 +3895,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
+        /// [EARLY ACCESS] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4009,7 +4009,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddAllocationGroups: Add Allocation Groups to a Fund. Add the given Allocation Group definitions to the Fund.
+        /// [EARLY ACCESS] AddAllocationGroups: Add Allocation Groups to a Fund. Add the given Allocation Group definitions to the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4025,7 +4025,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddAllocationGroups: Add Allocation Groups to a Fund. Add the given Allocation Group definitions to the Fund.
+        /// [EARLY ACCESS] AddAllocationGroups: Add Allocation Groups to a Fund. Add the given Allocation Group definitions to the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4131,7 +4131,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddAllocationGroups: Add Allocation Groups to a Fund. Add the given Allocation Group definitions to the Fund.
+        /// [EARLY ACCESS] AddAllocationGroups: Add Allocation Groups to a Fund. Add the given Allocation Group definitions to the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4148,7 +4148,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddAllocationGroups: Add Allocation Groups to a Fund. Add the given Allocation Group definitions to the Fund.
+        /// [EARLY ACCESS] AddAllocationGroups: Add Allocation Groups to a Fund. Add the given Allocation Group definitions to the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4257,7 +4257,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddSeries: Add Series to a Fund. Add the given Series definitions to the specified Share Classes of the Fund.
+        /// [EARLY ACCESS] AddSeries: Add Series to a Fund. Add the given Series definitions to the specified Share Classes of the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4273,7 +4273,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddSeries: Add Series to a Fund. Add the given Series definitions to the specified Share Classes of the Fund.
+        /// [EARLY ACCESS] AddSeries: Add Series to a Fund. Add the given Series definitions to the specified Share Classes of the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4379,7 +4379,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddSeries: Add Series to a Fund. Add the given Series definitions to the specified Share Classes of the Fund.
+        /// [EARLY ACCESS] AddSeries: Add Series to a Fund. Add the given Series definitions to the specified Share Classes of the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4396,7 +4396,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddSeries: Add Series to a Fund. Add the given Series definitions to the specified Share Classes of the Fund.
+        /// [EARLY ACCESS] AddSeries: Add Series to a Fund. Add the given Series definitions to the specified Share Classes of the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4505,7 +4505,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateFee: Create a Fee. Create the given Fee.
+        /// [EARLY ACCESS] CreateFee: Create a Fee. Create the given Fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4522,7 +4522,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateFee: Create a Fee. Create the given Fee.
+        /// [EARLY ACCESS] CreateFee: Create a Fee. Create the given Fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4634,7 +4634,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateFee: Create a Fee. Create the given Fee.
+        /// [EARLY ACCESS] CreateFee: Create a Fee. Create the given Fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4652,7 +4652,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateFee: Create a Fee. Create the given Fee.
+        /// [EARLY ACCESS] CreateFee: Create a Fee. Create the given Fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4766,7 +4766,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateFund: Create a Fund. Create the given Fund.
+        /// [EARLY ACCESS] CreateFund: Create a Fund. Create the given Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4781,7 +4781,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateFund: Create a Fund. Create the given Fund.
+        /// [EARLY ACCESS] CreateFund: Create a Fund. Create the given Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4879,7 +4879,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateFund: Create a Fund. Create the given Fund.
+        /// [EARLY ACCESS] CreateFund: Create a Fund. Create the given Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4895,7 +4895,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateFund: Create a Fund. Create the given Fund.
+        /// [EARLY ACCESS] CreateFund: Create a Fund. Create the given Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4996,7 +4996,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateFundV2: Create a Fund V2 (Preview). Create the given V2 Fund.
+        /// [EARLY ACCESS] CreateFundV2: Create a Fund V2 (Preview). Create the given V2 Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -5011,7 +5011,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateFundV2: Create a Fund V2 (Preview). Create the given V2 Fund.
+        /// [EARLY ACCESS] CreateFundV2: Create a Fund V2 (Preview). Create the given V2 Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -5109,7 +5109,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateFundV2: Create a Fund V2 (Preview). Create the given V2 Fund.
+        /// [EARLY ACCESS] CreateFundV2: Create a Fund V2 (Preview). Create the given V2 Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -5125,7 +5125,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateFundV2: Create a Fund V2 (Preview). Create the given V2 Fund.
+        /// [EARLY ACCESS] CreateFundV2: Create a Fund V2 (Preview). Create the given V2 Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -5226,7 +5226,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateValuationPoint: Create a Valuation Point. Insert the estimate Valuation Point.
+        /// [EARLY ACCESS] CreateValuationPoint: Create a Valuation Point. Insert the estimate Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -5243,7 +5243,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateValuationPoint: Create a Valuation Point. Insert the estimate Valuation Point.
+        /// [EARLY ACCESS] CreateValuationPoint: Create a Valuation Point. Insert the estimate Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -5355,7 +5355,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateValuationPoint: Create a Valuation Point. Insert the estimate Valuation Point.
+        /// [EARLY ACCESS] CreateValuationPoint: Create a Valuation Point. Insert the estimate Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -5373,7 +5373,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateValuationPoint: Create a Valuation Point. Insert the estimate Valuation Point.
+        /// [EARLY ACCESS] CreateValuationPoint: Create a Valuation Point. Insert the estimate Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -5487,7 +5487,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeactivateNavTypes: Deactivate NAV types on a Fund. Deactivate the given NAV types on the Fund.
+        /// [EARLY ACCESS] DeactivateNavTypes: Deactivate NAV types on a Fund. Deactivate the given NAV types on the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -5504,7 +5504,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeactivateNavTypes: Deactivate NAV types on a Fund. Deactivate the given NAV types on the Fund.
+        /// [EARLY ACCESS] DeactivateNavTypes: Deactivate NAV types on a Fund. Deactivate the given NAV types on the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -5616,7 +5616,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeactivateNavTypes: Deactivate NAV types on a Fund. Deactivate the given NAV types on the Fund.
+        /// [EARLY ACCESS] DeactivateNavTypes: Deactivate NAV types on a Fund. Deactivate the given NAV types on the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -5634,7 +5634,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeactivateNavTypes: Deactivate NAV types on a Fund. Deactivate the given NAV types on the Fund.
+        /// [EARLY ACCESS] DeactivateNavTypes: Deactivate NAV types on a Fund. Deactivate the given NAV types on the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -5748,7 +5748,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark. Deletes the given Bookmark.
+        /// [EARLY ACCESS] DeleteBookmark: Delete a Bookmark. Deletes the given Bookmark.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -5765,7 +5765,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark. Deletes the given Bookmark.
+        /// [EARLY ACCESS] DeleteBookmark: Delete a Bookmark. Deletes the given Bookmark.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -5873,7 +5873,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark. Deletes the given Bookmark.
+        /// [EARLY ACCESS] DeleteBookmark: Delete a Bookmark. Deletes the given Bookmark.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -5891,7 +5891,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark. Deletes the given Bookmark.
+        /// [EARLY ACCESS] DeleteBookmark: Delete a Bookmark. Deletes the given Bookmark.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -6001,7 +6001,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteFee: Delete a Fee. Delete the given Fee.
+        /// [EARLY ACCESS] DeleteFee: Delete a Fee. Delete the given Fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -6017,7 +6017,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteFee: Delete a Fee. Delete the given Fee.
+        /// [EARLY ACCESS] DeleteFee: Delete a Fee. Delete the given Fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -6119,7 +6119,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteFee: Delete a Fee. Delete the given Fee.
+        /// [EARLY ACCESS] DeleteFee: Delete a Fee. Delete the given Fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -6136,7 +6136,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteFee: Delete a Fee. Delete the given Fee.
+        /// [EARLY ACCESS] DeleteFee: Delete a Fee. Delete the given Fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -6241,7 +6241,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteFund: Delete a Fund. Delete the given Fund.
+        /// [EARLY ACCESS] DeleteFund: Delete a Fund. Delete the given Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund to be deleted.</param>
@@ -6256,7 +6256,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteFund: Delete a Fund. Delete the given Fund.
+        /// [EARLY ACCESS] DeleteFund: Delete a Fund. Delete the given Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund to be deleted.</param>
@@ -6350,7 +6350,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteFund: Delete a Fund. Delete the given Fund.
+        /// [EARLY ACCESS] DeleteFund: Delete a Fund. Delete the given Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund to be deleted.</param>
@@ -6366,7 +6366,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteFund: Delete a Fund. Delete the given Fund.
+        /// [EARLY ACCESS] DeleteFund: Delete a Fund. Delete the given Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund to be deleted.</param>
@@ -6463,7 +6463,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments. Delete Nav activity adjustments on a Valuation Point.
+        /// [EARLY ACCESS] DeleteNavActivityAdjustments: Delete Nav activity adjustments. Delete Nav activity adjustments on a Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -6482,7 +6482,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments. Delete Nav activity adjustments on a Valuation Point.
+        /// [EARLY ACCESS] DeleteNavActivityAdjustments: Delete Nav activity adjustments. Delete Nav activity adjustments on a Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -6608,7 +6608,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments. Delete Nav activity adjustments on a Valuation Point.
+        /// [EARLY ACCESS] DeleteNavActivityAdjustments: Delete Nav activity adjustments. Delete Nav activity adjustments on a Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -6628,7 +6628,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments. Delete Nav activity adjustments on a Valuation Point.
+        /// [EARLY ACCESS] DeleteNavActivityAdjustments: Delete Nav activity adjustments. Delete Nav activity adjustments on a Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -6755,7 +6755,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point. Deletes the given Valuation Point.
+        /// [EARLY ACCESS] DeleteValuationPoint: Delete a Valuation Point. Deletes the given Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -6773,7 +6773,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point. Deletes the given Valuation Point.
+        /// [EARLY ACCESS] DeleteValuationPoint: Delete a Valuation Point. Deletes the given Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -6887,7 +6887,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point. Deletes the given Valuation Point.
+        /// [EARLY ACCESS] DeleteValuationPoint: Delete a Valuation Point. Deletes the given Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -6906,7 +6906,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point. Deletes the given Valuation Point.
+        /// [EARLY ACCESS] DeleteValuationPoint: Delete a Valuation Point. Deletes the given Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7021,7 +7021,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point. Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
+        /// [EARLY ACCESS] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point. Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7038,7 +7038,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point. Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
+        /// [EARLY ACCESS] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point. Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7150,7 +7150,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point. Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
+        /// [EARLY ACCESS] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point. Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7168,7 +7168,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point. Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
+        /// [EARLY ACCESS] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point. Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7282,7 +7282,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetA2BDataForFund: Get A2B data for a Fund. Get the A2B data for transaction portfolios in a specified Fund.
+        /// [EARLY ACCESS] GetA2BDataForFund: Get A2B data for a Fund. Get the A2B data for transaction portfolios in a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7302,7 +7302,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetA2BDataForFund: Get A2B data for a Fund. Get the A2B data for transaction portfolios in a specified Fund.
+        /// [EARLY ACCESS] GetA2BDataForFund: Get A2B data for a Fund. Get the A2B data for transaction portfolios in a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7432,7 +7432,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetA2BDataForFund: Get A2B data for a Fund. Get the A2B data for transaction portfolios in a specified Fund.
+        /// [EARLY ACCESS] GetA2BDataForFund: Get A2B data for a Fund. Get the A2B data for transaction portfolios in a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7453,7 +7453,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetA2BDataForFund: Get A2B data for a Fund. Get the A2B data for transaction portfolios in a specified Fund.
+        /// [EARLY ACCESS] GetA2BDataForFund: Get A2B data for a Fund. Get the A2B data for transaction portfolios in a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7582,7 +7582,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund. Get the A2B movement records of transaction portfolios in a specified Fund.
+        /// [EARLY ACCESS] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund. Get the A2B movement records of transaction portfolios in a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7602,7 +7602,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund. Get the A2B movement records of transaction portfolios in a specified Fund.
+        /// [EARLY ACCESS] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund. Get the A2B movement records of transaction portfolios in a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7732,7 +7732,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund. Get the A2B movement records of transaction portfolios in a specified Fund.
+        /// [EARLY ACCESS] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund. Get the A2B movement records of transaction portfolios in a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7753,7 +7753,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund. Get the A2B movement records of transaction portfolios in a specified Fund.
+        /// [EARLY ACCESS] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund. Get the A2B movement records of transaction portfolios in a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7882,7 +7882,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund. Retrieve a fee for a specified Fund.
+        /// [EARLY ACCESS] GetFee: Get a Fee for a specified Fund. Retrieve a fee for a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7901,7 +7901,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund. Retrieve a fee for a specified Fund.
+        /// [EARLY ACCESS] GetFee: Get a Fee for a specified Fund. Retrieve a fee for a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -8021,7 +8021,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund. Retrieve a fee for a specified Fund.
+        /// [EARLY ACCESS] GetFee: Get a Fee for a specified Fund. Retrieve a fee for a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -8041,7 +8041,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund. Retrieve a fee for a specified Fund.
+        /// [EARLY ACCESS] GetFee: Get a Fee for a specified Fund. Retrieve a fee for a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -8161,7 +8161,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties. Get all the properties of a single fee.
+        /// [EARLY ACCESS] GetFeeProperties: Get Fee properties. Get all the properties of a single fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -8179,7 +8179,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties. Get all the properties of a single fee.
+        /// [EARLY ACCESS] GetFeeProperties: Get Fee properties. Get all the properties of a single fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -8293,7 +8293,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties. Get all the properties of a single fee.
+        /// [EARLY ACCESS] GetFeeProperties: Get Fee properties. Get all the properties of a single fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -8312,7 +8312,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties. Get all the properties of a single fee.
+        /// [EARLY ACCESS] GetFeeProperties: Get Fee properties. Get all the properties of a single fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -8427,7 +8427,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFund: Get a Fund. Retrieve the definition of a particular Fund.
+        /// [EARLY ACCESS] GetFund: Get a Fund. Retrieve the definition of a particular Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -8445,7 +8445,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFund: Get a Fund. Retrieve the definition of a particular Fund.
+        /// [EARLY ACCESS] GetFund: Get a Fund. Retrieve the definition of a particular Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -8557,7 +8557,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFund: Get a Fund. Retrieve the definition of a particular Fund.
+        /// [EARLY ACCESS] GetFund: Get a Fund. Retrieve the definition of a particular Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -8576,7 +8576,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFund: Get a Fund. Retrieve the definition of a particular Fund.
+        /// [EARLY ACCESS] GetFund: Get a Fund. Retrieve the definition of a particular Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -8688,7 +8688,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties. Get all the properties of a single fund.
+        /// [EARLY ACCESS] GetFundProperties: Get Fund properties. Get all the properties of a single fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund to list the properties for.</param>
@@ -8705,7 +8705,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties. Get all the properties of a single fund.
+        /// [EARLY ACCESS] GetFundProperties: Get Fund properties. Get all the properties of a single fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund to list the properties for.</param>
@@ -8811,7 +8811,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties. Get all the properties of a single fund.
+        /// [EARLY ACCESS] GetFundProperties: Get Fund properties. Get all the properties of a single fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund to list the properties for.</param>
@@ -8829,7 +8829,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties. Get all the properties of a single fund.
+        /// [EARLY ACCESS] GetFundProperties: Get Fund properties. Get all the properties of a single fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund to list the properties for.</param>
@@ -8936,7 +8936,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
+        /// [EARLY ACCESS] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -8960,7 +8960,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
+        /// [EARLY ACCESS] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -9110,7 +9110,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
+        /// [EARLY ACCESS] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -9135,7 +9135,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
+        /// [EARLY ACCESS] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -9281,7 +9281,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
+        /// [EARLY ACCESS] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -9303,7 +9303,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
+        /// [EARLY ACCESS] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -9445,7 +9445,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
+        /// [EARLY ACCESS] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -9468,7 +9468,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
+        /// [EARLY ACCESS] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -9607,7 +9607,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund. Perform valuation on a specified Fund.
+        /// [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund. Perform valuation on a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -9624,7 +9624,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund. Perform valuation on a specified Fund.
+        /// [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund. Perform valuation on a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -9730,7 +9730,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund. Perform valuation on a specified Fund.
+        /// [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund. Perform valuation on a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -9748,7 +9748,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund. Perform valuation on a specified Fund.
+        /// [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund. Perform valuation on a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -9856,7 +9856,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund. Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
+        /// [EARLY ACCESS] GetValuationPointData: Get Valuation Point Data for a Fund. Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -9874,7 +9874,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund. Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
+        /// [EARLY ACCESS] GetValuationPointData: Get Valuation Point Data for a Fund. Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -9992,7 +9992,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund. Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
+        /// [EARLY ACCESS] GetValuationPointData: Get Valuation Point Data for a Fund. Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -10011,7 +10011,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund. Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
+        /// [EARLY ACCESS] GetValuationPointData: Get Valuation Point Data for a Fund. Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -10130,7 +10130,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund. Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
+        /// [EARLY ACCESS] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund. Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -10153,7 +10153,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund. Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
+        /// [EARLY ACCESS] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund. Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -10301,7 +10301,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund. Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
+        /// [EARLY ACCESS] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund. Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -10325,7 +10325,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund. Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
+        /// [EARLY ACCESS] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund. Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -10469,7 +10469,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
+        /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -10491,7 +10491,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
+        /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -10633,7 +10633,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
+        /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -10656,7 +10656,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
+        /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -10795,7 +10795,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point. Gets all quotes within the effective date range of the specified Valuation Point for a Fund,  including any quotes added via a Complex Close (Post-Close Activity).
+        /// [EARLY ACCESS] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point. Gets all quotes within the effective date range of the specified Valuation Point for a Fund,  including any quotes added via a Complex Close (Post-Close Activity).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -10815,7 +10815,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point. Gets all quotes within the effective date range of the specified Valuation Point for a Fund,  including any quotes added via a Complex Close (Post-Close Activity).
+        /// [EARLY ACCESS] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point. Gets all quotes within the effective date range of the specified Valuation Point for a Fund,  including any quotes added via a Complex Close (Post-Close Activity).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -10945,7 +10945,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point. Gets all quotes within the effective date range of the specified Valuation Point for a Fund,  including any quotes added via a Complex Close (Post-Close Activity).
+        /// [EARLY ACCESS] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point. Gets all quotes within the effective date range of the specified Valuation Point for a Fund,  including any quotes added via a Complex Close (Post-Close Activity).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -10966,7 +10966,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point. Gets all quotes within the effective date range of the specified Valuation Point for a Fund,  including any quotes added via a Complex Close (Post-Close Activity).
+        /// [EARLY ACCESS] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point. Gets all quotes within the effective date range of the specified Valuation Point for a Fund,  including any quotes added via a Complex Close (Post-Close Activity).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -11095,7 +11095,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund. Gets the Transactions for the given Valuation Point for a Fund.
+        /// [EARLY ACCESS] GetValuationPointTransactions: Get the Transactions for the given Fund. Gets the Transactions for the given Valuation Point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -11121,7 +11121,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund. Gets the Transactions for the given Valuation Point for a Fund.
+        /// [EARLY ACCESS] GetValuationPointTransactions: Get the Transactions for the given Fund. Gets the Transactions for the given Valuation Point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -11287,7 +11287,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund. Gets the Transactions for the given Valuation Point for a Fund.
+        /// [EARLY ACCESS] GetValuationPointTransactions: Get the Transactions for the given Fund. Gets the Transactions for the given Valuation Point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -11314,7 +11314,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund. Gets the Transactions for the given Valuation Point for a Fund.
+        /// [EARLY ACCESS] GetValuationPointTransactions: Get the Transactions for the given Fund. Gets the Transactions for the given Valuation Point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -11473,7 +11473,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund. Gets the Trial Balance for the given Valuation Point for a Fund.                The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
+        /// [EARLY ACCESS] GetValuationPointTrialBalance: Get Trial Balance for the given Fund. Gets the Trial Balance for the given Valuation Point for a Fund.                The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).                Supplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.  Any caller with access to this endpoint may use it; it is not role-restricted.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -11497,7 +11497,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund. Gets the Trial Balance for the given Valuation Point for a Fund.                The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
+        /// [EARLY ACCESS] GetValuationPointTrialBalance: Get Trial Balance for the given Fund. Gets the Trial Balance for the given Valuation Point for a Fund.                The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).                Supplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.  Any caller with access to this endpoint may use it; it is not role-restricted.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -11651,7 +11651,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund. Gets the Trial Balance for the given Valuation Point for a Fund.                The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
+        /// [EARLY ACCESS] GetValuationPointTrialBalance: Get Trial Balance for the given Fund. Gets the Trial Balance for the given Valuation Point for a Fund.                The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).                Supplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.  Any caller with access to this endpoint may use it; it is not role-restricted.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -11676,7 +11676,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund. Gets the Trial Balance for the given Valuation Point for a Fund.                The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
+        /// [EARLY ACCESS] GetValuationPointTrialBalance: Get Trial Balance for the given Fund. Gets the Trial Balance for the given Valuation Point for a Fund.                The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).                Supplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.  Any caller with access to this endpoint may use it; it is not role-restricted.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -11825,7 +11825,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund. Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,  looking back from inception. Settlement status is point-in-time: post-cutoff settlement  activity does not alter the result.
+        /// [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund. Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,  looking back from inception. Settlement status is point-in-time: post-cutoff settlement  activity does not alter the result.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -11846,7 +11846,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund. Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,  looking back from inception. Settlement status is point-in-time: post-cutoff settlement  activity does not alter the result.
+        /// [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund. Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,  looking back from inception. Settlement status is point-in-time: post-cutoff settlement  activity does not alter the result.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -11982,7 +11982,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund. Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,  looking back from inception. Settlement status is point-in-time: post-cutoff settlement  activity does not alter the result.
+        /// [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund. Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,  looking back from inception. Settlement status is point-in-time: post-cutoff settlement  activity does not alter the result.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -12004,7 +12004,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund. Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,  looking back from inception. Settlement status is point-in-time: post-cutoff settlement  activity does not alter the result.
+        /// [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund. Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,  looking back from inception. Settlement status is point-in-time: post-cutoff settlement  activity does not alter the result.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -12138,7 +12138,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFees: List Fees for a specified Fund. List all the Fees matching a particular criteria.
+        /// [EARLY ACCESS] ListFees: List Fees for a specified Fund. List all the Fees matching a particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -12160,7 +12160,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFees: List Fees for a specified Fund. List all the Fees matching a particular criteria.
+        /// [EARLY ACCESS] ListFees: List Fees for a specified Fund. List all the Fees matching a particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -12296,7 +12296,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFees: List Fees for a specified Fund. List all the Fees matching a particular criteria.
+        /// [EARLY ACCESS] ListFees: List Fees for a specified Fund. List all the Fees matching a particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -12319,7 +12319,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFees: List Fees for a specified Fund. List all the Fees matching a particular criteria.
+        /// [EARLY ACCESS] ListFees: List Fees for a specified Fund. List all the Fees matching a particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -12451,7 +12451,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFundCalendar: List Fund Calendar. List all the Calendar Entries associated with the Fund.
+        /// [EARLY ACCESS] ListFundCalendar: List Fund Calendar. List all the Calendar Entries associated with the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -12472,7 +12472,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFundCalendar: List Fund Calendar. List all the Calendar Entries associated with the Fund.
+        /// [EARLY ACCESS] ListFundCalendar: List Fund Calendar. List all the Calendar Entries associated with the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -12602,7 +12602,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFundCalendar: List Fund Calendar. List all the Calendar Entries associated with the Fund.
+        /// [EARLY ACCESS] ListFundCalendar: List Fund Calendar. List all the Calendar Entries associated with the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -12624,7 +12624,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFundCalendar: List Fund Calendar. List all the Calendar Entries associated with the Fund.
+        /// [EARLY ACCESS] ListFundCalendar: List Fund Calendar. List all the Calendar Entries associated with the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -12751,7 +12751,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFundCalendarEntries: List Fund Calendar Entries. List all the Calendar Entries associated with the Fund.
+        /// [EARLY ACCESS] ListFundCalendarEntries: List Fund Calendar Entries. List all the Calendar Entries associated with the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -12772,7 +12772,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFundCalendarEntries: List Fund Calendar Entries. List all the Calendar Entries associated with the Fund.
+        /// [EARLY ACCESS] ListFundCalendarEntries: List Fund Calendar Entries. List all the Calendar Entries associated with the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -12902,7 +12902,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFundCalendarEntries: List Fund Calendar Entries. List all the Calendar Entries associated with the Fund.
+        /// [EARLY ACCESS] ListFundCalendarEntries: List Fund Calendar Entries. List all the Calendar Entries associated with the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -12924,7 +12924,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFundCalendarEntries: List Fund Calendar Entries. List all the Calendar Entries associated with the Fund.
+        /// [EARLY ACCESS] ListFundCalendarEntries: List Fund Calendar Entries. List all the Calendar Entries associated with the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -13051,7 +13051,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFunds: List Funds. List all the Funds matching particular criteria.
+        /// [EARLY ACCESS] ListFunds: List Funds. List all the Funds matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Funds. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
@@ -13071,7 +13071,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFunds: List Funds. List all the Funds matching particular criteria.
+        /// [EARLY ACCESS] ListFunds: List Funds. List all the Funds matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Funds. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
@@ -13191,7 +13191,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFunds: List Funds. List all the Funds matching particular criteria.
+        /// [EARLY ACCESS] ListFunds: List Funds. List all the Funds matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Funds. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
@@ -13212,7 +13212,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListFunds: List Funds. List all the Funds matching particular criteria.
+        /// [EARLY ACCESS] ListFunds: List Funds. List all the Funds matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Funds. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
@@ -13328,7 +13328,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
+        /// [EARLY ACCESS] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -13350,7 +13350,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
+        /// [EARLY ACCESS] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -13488,7 +13488,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
+        /// [EARLY ACCESS] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -13511,7 +13511,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
+        /// [EARLY ACCESS] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -13646,7 +13646,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point. Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
+        /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point. Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -13666,7 +13666,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point. Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
+        /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point. Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -13796,7 +13796,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point. Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
+        /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point. Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -13817,7 +13817,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point. Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
+        /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point. Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -13946,7 +13946,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointInstruments: List Instruments inside a valuation point Lists the Instruments linked to Transactions within a Valuation Point for a Fund.
+        /// [EARLY ACCESS] ListValuationPointInstruments: List Instruments inside a valuation point Lists the Instruments linked to Transactions within a Valuation Point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -13970,7 +13970,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointInstruments: List Instruments inside a valuation point Lists the Instruments linked to Transactions within a Valuation Point for a Fund.
+        /// [EARLY ACCESS] ListValuationPointInstruments: List Instruments inside a valuation point Lists the Instruments linked to Transactions within a Valuation Point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -14120,7 +14120,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointInstruments: List Instruments inside a valuation point Lists the Instruments linked to Transactions within a Valuation Point for a Fund.
+        /// [EARLY ACCESS] ListValuationPointInstruments: List Instruments inside a valuation point Lists the Instruments linked to Transactions within a Valuation Point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -14145,7 +14145,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointInstruments: List Instruments inside a valuation point Lists the Instruments linked to Transactions within a Valuation Point for a Fund.
+        /// [EARLY ACCESS] ListValuationPointInstruments: List Instruments inside a valuation point Lists the Instruments linked to Transactions within a Valuation Point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -14290,7 +14290,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List the overview of all the Valuation Points that match the given criteria for a given Fund.
+        /// [EARLY ACCESS] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List the overview of all the Valuation Points that match the given criteria for a given Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -14312,7 +14312,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List the overview of all the Valuation Points that match the given criteria for a given Fund.
+        /// [EARLY ACCESS] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List the overview of all the Valuation Points that match the given criteria for a given Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -14448,7 +14448,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List the overview of all the Valuation Points that match the given criteria for a given Fund.
+        /// [EARLY ACCESS] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List the overview of all the Valuation Points that match the given criteria for a given Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -14471,7 +14471,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List the overview of all the Valuation Points that match the given criteria for a given Fund.
+        /// [EARLY ACCESS] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List the overview of all the Valuation Points that match the given criteria for a given Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -14603,7 +14603,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFee: Patch Fee. Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
+        /// [EARLY ACCESS] PatchFee: Patch Fee. Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -14620,7 +14620,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFee: Patch Fee. Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
+        /// [EARLY ACCESS] PatchFee: Patch Fee. Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -14734,7 +14734,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFee: Patch Fee. Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
+        /// [EARLY ACCESS] PatchFee: Patch Fee. Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -14752,7 +14752,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFee: Patch Fee. Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
+        /// [EARLY ACCESS] PatchFee: Patch Fee. Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -14869,7 +14869,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFund: Patch a Fund. Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, BaseCurrency, PortfolioIds, FundConfigurationId, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, PrimaryNavType, AdditionalNavTypes, AborId, YearEndDate.
+        /// [EARLY ACCESS] PatchFund: Patch a Fund. Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, BaseCurrency, PortfolioIds, FundConfigurationId, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, PrimaryNavType, AdditionalNavTypes, AborId, YearEndDate.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -14885,7 +14885,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFund: Patch a Fund. Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, BaseCurrency, PortfolioIds, FundConfigurationId, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, PrimaryNavType, AdditionalNavTypes, AborId, YearEndDate.
+        /// [EARLY ACCESS] PatchFund: Patch a Fund. Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, BaseCurrency, PortfolioIds, FundConfigurationId, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, PrimaryNavType, AdditionalNavTypes, AborId, YearEndDate.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -14991,7 +14991,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFund: Patch a Fund. Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, BaseCurrency, PortfolioIds, FundConfigurationId, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, PrimaryNavType, AdditionalNavTypes, AborId, YearEndDate.
+        /// [EARLY ACCESS] PatchFund: Patch a Fund. Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, BaseCurrency, PortfolioIds, FundConfigurationId, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, PrimaryNavType, AdditionalNavTypes, AborId, YearEndDate.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -15008,7 +15008,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFund: Patch a Fund. Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, BaseCurrency, PortfolioIds, FundConfigurationId, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, PrimaryNavType, AdditionalNavTypes, AborId, YearEndDate.
+        /// [EARLY ACCESS] PatchFund: Patch a Fund. Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, BaseCurrency, PortfolioIds, FundConfigurationId, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, PrimaryNavType, AdditionalNavTypes, AborId, YearEndDate.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -15443,7 +15443,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point. Returns settled cash movements with a running balance in local currency for the specified Fund  valuation point period. The cash statement is derived from Journal Entry Lines filtered to  settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter on the  request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses system-generated zero-net reversal/TrueUp pairs into SystemCorrection rows). Base  currency columns are out of scope for this variant and are not returned.
+        /// [EARLY ACCESS] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point. Returns settled cash movements with a running balance in local currency for the specified Fund  valuation point period. The cash statement is derived from Journal Entry Lines filtered to  settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter on the  request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses system-generated zero-net reversal/TrueUp pairs into SystemCorrection rows). Base  currency columns are out of scope for this variant and are not returned.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -15465,7 +15465,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point. Returns settled cash movements with a running balance in local currency for the specified Fund  valuation point period. The cash statement is derived from Journal Entry Lines filtered to  settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter on the  request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses system-generated zero-net reversal/TrueUp pairs into SystemCorrection rows). Base  currency columns are out of scope for this variant and are not returned.
+        /// [EARLY ACCESS] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point. Returns settled cash movements with a running balance in local currency for the specified Fund  valuation point period. The cash statement is derived from Journal Entry Lines filtered to  settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter on the  request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses system-generated zero-net reversal/TrueUp pairs into SystemCorrection rows). Base  currency columns are out of scope for this variant and are not returned.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -15607,7 +15607,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point. Returns settled cash movements with a running balance in local currency for the specified Fund  valuation point period. The cash statement is derived from Journal Entry Lines filtered to  settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter on the  request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses system-generated zero-net reversal/TrueUp pairs into SystemCorrection rows). Base  currency columns are out of scope for this variant and are not returned.
+        /// [EARLY ACCESS] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point. Returns settled cash movements with a running balance in local currency for the specified Fund  valuation point period. The cash statement is derived from Journal Entry Lines filtered to  settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter on the  request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses system-generated zero-net reversal/TrueUp pairs into SystemCorrection rows). Base  currency columns are out of scope for this variant and are not returned.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -15630,7 +15630,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point. Returns settled cash movements with a running balance in local currency for the specified Fund  valuation point period. The cash statement is derived from Journal Entry Lines filtered to  settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter on the  request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses system-generated zero-net reversal/TrueUp pairs into SystemCorrection rows). Base  currency columns are out of scope for this variant and are not returned.
+        /// [EARLY ACCESS] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point. Returns settled cash movements with a running balance in local currency for the specified Fund  valuation point period. The cash statement is derived from Journal Entry Lines filtered to  settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter on the  request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses system-generated zero-net reversal/TrueUp pairs into SystemCorrection rows). Base  currency columns are out of scope for this variant and are not returned.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -15769,7 +15769,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate. Moves a &#39;Final&#39; status Valuation Point to status &#39;Estimate&#39;.
+        /// [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate. Moves a &#39;Final&#39; status Valuation Point to status &#39;Estimate&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -15786,7 +15786,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate. Moves a &#39;Final&#39; status Valuation Point to status &#39;Estimate&#39;.
+        /// [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate. Moves a &#39;Final&#39; status Valuation Point to status &#39;Estimate&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -15898,7 +15898,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate. Moves a &#39;Final&#39; status Valuation Point to status &#39;Estimate&#39;.
+        /// [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate. Moves a &#39;Final&#39; status Valuation Point to status &#39;Estimate&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -15916,7 +15916,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate. Moves a &#39;Final&#39; status Valuation Point to status &#39;Estimate&#39;.
+        /// [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate. Moves a &#39;Final&#39; status Valuation Point to status &#39;Estimate&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -16030,7 +16030,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund. Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
+        /// [EARLY ACCESS] SetShareClassInstruments: Set the ShareClass Instruments on a Fund. Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -16046,7 +16046,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund. Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
+        /// [EARLY ACCESS] SetShareClassInstruments: Set the ShareClass Instruments on a Fund. Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -16152,7 +16152,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund. Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
+        /// [EARLY ACCESS] SetShareClassInstruments: Set the ShareClass Instruments on a Fund. Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -16169,7 +16169,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund. Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
+        /// [EARLY ACCESS] SetShareClassInstruments: Set the ShareClass Instruments on a Fund. Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -16278,7 +16278,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateValuationPoint: Update a Valuation Point. Updates an existing Valuation Point.
+        /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point. Updates an existing Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -16295,7 +16295,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateValuationPoint: Update a Valuation Point. Updates an existing Valuation Point.
+        /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point. Updates an existing Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -16407,7 +16407,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateValuationPoint: Update a Valuation Point. Updates an existing Valuation Point.
+        /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point. Updates an existing Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -16425,7 +16425,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateValuationPoint: Update a Valuation Point. Updates an existing Valuation Point.
+        /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point. Updates an existing Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -16539,7 +16539,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark. This method will update or upsert a Bookmark for the Fund.
+        /// [EARLY ACCESS] UpsertBookmark: Upsert a bookmark. This method will update or upsert a Bookmark for the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -16556,7 +16556,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark. This method will update or upsert a Bookmark for the Fund.
+        /// [EARLY ACCESS] UpsertBookmark: Upsert a bookmark. This method will update or upsert a Bookmark for the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -16668,7 +16668,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark. This method will update or upsert a Bookmark for the Fund.
+        /// [EARLY ACCESS] UpsertBookmark: Upsert a bookmark. This method will update or upsert a Bookmark for the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -16686,7 +16686,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark. This method will update or upsert a Bookmark for the Fund.
+        /// [EARLY ACCESS] UpsertBookmark: Upsert a bookmark. This method will update or upsert a Bookmark for the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -16800,7 +16800,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.
+        /// [EARLY ACCESS] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -16817,7 +16817,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.
+        /// [EARLY ACCESS] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -16929,7 +16929,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.
+        /// [EARLY ACCESS] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -16947,7 +16947,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.
+        /// [EARLY ACCESS] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -17061,7 +17061,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties. Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EARLY ACCESS] UpsertFeeProperties: Upsert Fee properties. Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -17078,7 +17078,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties. Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EARLY ACCESS] UpsertFeeProperties: Upsert Fee properties. Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -17186,7 +17186,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties. Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EARLY ACCESS] UpsertFeeProperties: Upsert Fee properties. Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -17204,7 +17204,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties. Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EARLY ACCESS] UpsertFeeProperties: Upsert Fee properties. Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -17315,7 +17315,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties. Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EARLY ACCESS] UpsertFundProperties: Upsert Fund properties. Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -17331,7 +17331,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties. Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EARLY ACCESS] UpsertFundProperties: Upsert Fund properties. Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -17431,7 +17431,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties. Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EARLY ACCESS] UpsertFundProperties: Upsert Fund properties. Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -17448,7 +17448,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties. Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EARLY ACCESS] UpsertFundProperties: Upsert Fund properties. Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -17551,7 +17551,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point Upserts the NAV adjustment activities to the specified valuation point for a Fund.
+        /// [EARLY ACCESS] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point Upserts the NAV adjustment activities to the specified valuation point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -17570,7 +17570,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point Upserts the NAV adjustment activities to the specified valuation point for a Fund.
+        /// [EARLY ACCESS] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point Upserts the NAV adjustment activities to the specified valuation point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -17696,7 +17696,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point Upserts the NAV adjustment activities to the specified valuation point for a Fund.
+        /// [EARLY ACCESS] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point Upserts the NAV adjustment activities to the specified valuation point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -17716,7 +17716,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point Upserts the NAV adjustment activities to the specified valuation point for a Fund.
+        /// [EARLY ACCESS] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point Upserts the NAV adjustment activities to the specified valuation point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>

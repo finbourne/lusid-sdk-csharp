@@ -5,11 +5,15 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**AddRecResultSetApprovalDecision**](RecsApi.md#addrecresultsetapprovaldecision) | **POST** /api/recs/resultsets/{entityUniqueId}/$decide | [EXPERIMENTAL] AddRecResultSetApprovalDecision: AddRecResultSetApprovalDecision |
+| [**BatchManageRecResultComments**](RecsApi.md#batchmanagerecresultcomments) | **POST** /api/recs/results/$batchManageComments | [EXPERIMENTAL] BatchManageRecResultComments: BatchManageRecResultComments |
+| [**BatchReviewRecResults**](RecsApi.md#batchreviewrecresults) | **POST** /api/recs/results/$batchReview | [EXPERIMENTAL] BatchReviewRecResults: BatchReviewRecResults |
 | [**GetRecInstance**](RecsApi.md#getrecinstance) | **GET** /api/recs/instances/{instanceIdType}/{instanceIdValue} | [EXPERIMENTAL] GetRecInstance: GetRecInstance |
+| [**GetRecResult**](RecsApi.md#getrecresult) | **GET** /api/recs/results/{id} | [EXPERIMENTAL] GetRecResult: GetRecResult |
 | [**GetRecResultSet**](RecsApi.md#getrecresultset) | **GET** /api/recs/resultsets/{entityUniqueId} | [EXPERIMENTAL] GetRecResultSet: GetRecResultSet |
 | [**InstantiateRec**](RecsApi.md#instantiaterec) | **POST** /api/recs/instances | [EXPERIMENTAL] InstantiateRec: InstantiateRec |
 | [**ListRecInstances**](RecsApi.md#listrecinstances) | **GET** /api/recs/instances | [EXPERIMENTAL] ListRecInstances: ListRecInstances |
 | [**ListRecResultSets**](RecsApi.md#listrecresultsets) | **GET** /api/recs/resultsets | [EXPERIMENTAL] ListRecResultSets: ListRecResultSets |
+| [**ListRecResults**](RecsApi.md#listrecresults) | **GET** /api/recs/results | [EXPERIMENTAL] ListRecResults: ListRecResults |
 | [**SubmitRecResultSetReview**](RecsApi.md#submitrecresultsetreview) | **POST** /api/recs/resultsets/{entityUniqueId}/$submit | [EXPERIMENTAL] SubmitRecResultSetReview: Submit a rec result set review for approval, or resubmit after addressing requested revisions. |
 | [**TransitionRecInstance**](RecsApi.md#transitionrecinstance) | **POST** /api/recs/instances/{instanceIdType}/{instanceIdValue}/$transition | [EXPERIMENTAL] TransitionRecInstance: TransitionRecInstance |
 
@@ -129,6 +133,238 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
+<a id="batchmanagerecresultcomments"></a>
+# **BatchManageRecResultComments**
+> BatchManageCommentResponse BatchManageRecResultComments (Dictionary<string, BatchManageCommentRequest> requestBody, string? successMode = null)
+
+[EXPERIMENTAL] BatchManageRecResultComments: BatchManageRecResultComments
+
+Add, edit or delete comments on rec results in a batch.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RecsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RecsApi>();
+            var requestBody = new Dictionary<string, BatchManageCommentRequest>(); // Dictionary<string, BatchManageCommentRequest> | The batch of comment operations, keyed by a client-supplied correlation key.
+            var successMode = "\"Partial\"";  // string? | Whether the batch fails Atomically or in a Partial fashion. Allowed values: Atomic, Partial. (optional)  (default to "Partial")
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // BatchManageCommentResponse result = apiInstance.BatchManageRecResultComments(requestBody, successMode, opts: opts);
+
+                // [EXPERIMENTAL] BatchManageRecResultComments: BatchManageRecResultComments
+                BatchManageCommentResponse result = apiInstance.BatchManageRecResultComments(requestBody, successMode);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling RecsApi.BatchManageRecResultComments: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the BatchManageRecResultCommentsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] BatchManageRecResultComments: BatchManageRecResultComments
+    ApiResponse<BatchManageCommentResponse> response = apiInstance.BatchManageRecResultCommentsWithHttpInfo(requestBody, successMode);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling RecsApi.BatchManageRecResultCommentsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **requestBody** | [**Dictionary&lt;string, BatchManageCommentRequest&gt;**](BatchManageCommentRequest.md) | The batch of comment operations, keyed by a client-supplied correlation key. |  |
+| **successMode** | **string?** | Whether the batch fails Atomically or in a Partial fashion. Allowed values: Atomic, Partial. | [optional] [default to &quot;Partial&quot;] |
+
+### Return type
+
+[**BatchManageCommentResponse**](BatchManageCommentResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The updated rec results, keyed by batch item key. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="batchreviewrecresults"></a>
+# **BatchReviewRecResults**
+> BatchReviewRecResultResponse BatchReviewRecResults (Dictionary<string, BatchReviewRecResultRequest> requestBody, string? successMode = null)
+
+[EXPERIMENTAL] BatchReviewRecResults: BatchReviewRecResults
+
+Apply a batch of review actions (decisions, assignments, comments, properties) to rec results.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RecsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RecsApi>();
+            var requestBody = new Dictionary<string, BatchReviewRecResultRequest>(); // Dictionary<string, BatchReviewRecResultRequest> | The batch of review items, keyed by a client-supplied correlation key.
+            var successMode = "\"Partial\"";  // string? | Whether the batch fails Atomically or in a Partial fashion. Allowed values: Atomic, Partial. (optional)  (default to "Partial")
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // BatchReviewRecResultResponse result = apiInstance.BatchReviewRecResults(requestBody, successMode, opts: opts);
+
+                // [EXPERIMENTAL] BatchReviewRecResults: BatchReviewRecResults
+                BatchReviewRecResultResponse result = apiInstance.BatchReviewRecResults(requestBody, successMode);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling RecsApi.BatchReviewRecResults: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the BatchReviewRecResultsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] BatchReviewRecResults: BatchReviewRecResults
+    ApiResponse<BatchReviewRecResultResponse> response = apiInstance.BatchReviewRecResultsWithHttpInfo(requestBody, successMode);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling RecsApi.BatchReviewRecResultsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **requestBody** | [**Dictionary&lt;string, BatchReviewRecResultRequest&gt;**](BatchReviewRecResultRequest.md) | The batch of review items, keyed by a client-supplied correlation key. |  |
+| **successMode** | **string?** | Whether the batch fails Atomically or in a Partial fashion. Allowed values: Atomic, Partial. | [optional] [default to &quot;Partial&quot;] |
+
+### Return type
+
+[**BatchReviewRecResultResponse**](BatchReviewRecResultResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The results affected by each batch item. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
 <a id="getrecinstance"></a>
 # **GetRecInstance**
 > RecInstance GetRecInstance (string instanceIdType, string instanceIdValue, DateTimeOffset? asAt = null)
@@ -242,6 +478,124 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The requested rec instance. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getrecresult"></a>
+# **GetRecResult**
+> RecResult GetRecResult (string id, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
+
+[EXPERIMENTAL] GetRecResult: GetRecResult
+
+Retrieve a single rec result by its id.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RecsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RecsApi>();
+            var id = "id_example";  // string | The system-generated id of the rec result.
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | The property keys to decorate onto the result. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // RecResult result = apiInstance.GetRecResult(id, asAt, propertyKeys, opts: opts);
+
+                // [EXPERIMENTAL] GetRecResult: GetRecResult
+                RecResult result = apiInstance.GetRecResult(id, asAt, propertyKeys);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling RecsApi.GetRecResult: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetRecResultWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetRecResult: GetRecResult
+    ApiResponse<RecResult> response = apiInstance.GetRecResultWithHttpInfo(id, asAt, propertyKeys);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling RecsApi.GetRecResultWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | The system-generated id of the rec result. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the result. Defaults to latest if not specified. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The property keys to decorate onto the result. | [optional]  |
+
+### Return type
+
+[**RecResult**](RecResult.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The requested rec result. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -720,6 +1074,130 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The rec result sets. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="listrecresults"></a>
+# **ListRecResults**
+> PagedResourceListOfRecResult ListRecResults (DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null)
+
+[EXPERIMENTAL] ListRecResults: ListRecResults
+
+List rec results.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RecsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RecsApi>();
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list results. Defaults to latest if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing results from a previous call. If a pagination token is provided the filter and asAt fields must not have changed since the original request. (optional) 
+            var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names suffixed by \" ASC\" or \" DESC\". (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | The property keys to decorate onto each result. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfRecResult result = apiInstance.ListRecResults(asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
+
+                // [EXPERIMENTAL] ListRecResults: ListRecResults
+                PagedResourceListOfRecResult result = apiInstance.ListRecResults(asAt, page, limit, filter, sortBy, propertyKeys);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling RecsApi.ListRecResults: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListRecResultsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ListRecResults: ListRecResults
+    ApiResponse<PagedResourceListOfRecResult> response = apiInstance.ListRecResultsWithHttpInfo(asAt, page, limit, filter, sortBy, propertyKeys);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling RecsApi.ListRecResultsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list results. Defaults to latest if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing results from a previous call. If a pagination token is provided the filter and asAt fields must not have changed since the original request. | [optional]  |
+| **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The property keys to decorate onto each result. | [optional]  |
+
+### Return type
+
+[**PagedResourceListOfRecResult**](PagedResourceListOfRecResult.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The rec results. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

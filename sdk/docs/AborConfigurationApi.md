@@ -4,19 +4,19 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateAborConfiguration**](AborConfigurationApi.md#createaborconfiguration) | **POST** /api/aborconfiguration/{scope} | [EXPERIMENTAL] CreateAborConfiguration: Create an AborConfiguration. |
-| [**DeleteAborConfiguration**](AborConfigurationApi.md#deleteaborconfiguration) | **DELETE** /api/aborconfiguration/{scope}/{code} | [EXPERIMENTAL] DeleteAborConfiguration: Delete an AborConfiguration. |
-| [**GetAborConfiguration**](AborConfigurationApi.md#getaborconfiguration) | **GET** /api/aborconfiguration/{scope}/{code} | [EXPERIMENTAL] GetAborConfiguration: Get AborConfiguration. |
-| [**GetAborConfigurationProperties**](AborConfigurationApi.md#getaborconfigurationproperties) | **GET** /api/aborconfiguration/{scope}/{code}/properties | [EXPERIMENTAL] GetAborConfigurationProperties: Get Abor Configuration properties |
-| [**ListAborConfigurations**](AborConfigurationApi.md#listaborconfigurations) | **GET** /api/aborconfiguration | [EXPERIMENTAL] ListAborConfigurations: List AborConfiguration. |
-| [**PatchAborConfiguration**](AborConfigurationApi.md#patchaborconfiguration) | **PATCH** /api/aborconfiguration/{scope}/{code} | [EXPERIMENTAL] PatchAborConfiguration: Patch Abor Configuration. |
-| [**UpsertAborConfigurationProperties**](AborConfigurationApi.md#upsertaborconfigurationproperties) | **POST** /api/aborconfiguration/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertAborConfigurationProperties: Upsert AborConfiguration properties |
+| [**CreateAborConfiguration**](AborConfigurationApi.md#createaborconfiguration) | **POST** /api/aborconfiguration/{scope} | [EARLY ACCESS] CreateAborConfiguration: Create an AborConfiguration. |
+| [**DeleteAborConfiguration**](AborConfigurationApi.md#deleteaborconfiguration) | **DELETE** /api/aborconfiguration/{scope}/{code} | [EARLY ACCESS] DeleteAborConfiguration: Delete an AborConfiguration. |
+| [**GetAborConfiguration**](AborConfigurationApi.md#getaborconfiguration) | **GET** /api/aborconfiguration/{scope}/{code} | [EARLY ACCESS] GetAborConfiguration: Get AborConfiguration. |
+| [**GetAborConfigurationProperties**](AborConfigurationApi.md#getaborconfigurationproperties) | **GET** /api/aborconfiguration/{scope}/{code}/properties | [EARLY ACCESS] GetAborConfigurationProperties: Get Abor Configuration properties |
+| [**ListAborConfigurations**](AborConfigurationApi.md#listaborconfigurations) | **GET** /api/aborconfiguration | [EARLY ACCESS] ListAborConfigurations: List AborConfiguration. |
+| [**PatchAborConfiguration**](AborConfigurationApi.md#patchaborconfiguration) | **PATCH** /api/aborconfiguration/{scope}/{code} | [EARLY ACCESS] PatchAborConfiguration: Patch Abor Configuration. |
+| [**UpsertAborConfigurationProperties**](AborConfigurationApi.md#upsertaborconfigurationproperties) | **POST** /api/aborconfiguration/{scope}/{code}/properties/$upsert | [EARLY ACCESS] UpsertAborConfigurationProperties: Upsert AborConfiguration properties |
 
 <a id="createaborconfiguration"></a>
 # **CreateAborConfiguration**
 > AborConfiguration CreateAborConfiguration (string scope, AborConfigurationRequest aborConfigurationRequest)
 
-[EXPERIMENTAL] CreateAborConfiguration: Create an AborConfiguration.
+[EARLY ACCESS] CreateAborConfiguration: Create an AborConfiguration.
 
 Create the given AborConfiguration.
 
@@ -67,7 +67,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AborConfiguration result = apiInstance.CreateAborConfiguration(scope, aborConfigurationRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreateAborConfiguration: Create an AborConfiguration.
+                // [EARLY ACCESS] CreateAborConfiguration: Create an AborConfiguration.
                 AborConfiguration result = apiInstance.CreateAborConfiguration(scope, aborConfigurationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -88,7 +88,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateAborConfiguration: Create an AborConfiguration.
+    // [EARLY ACCESS] CreateAborConfiguration: Create an AborConfiguration.
     ApiResponse<AborConfiguration> response = apiInstance.CreateAborConfigurationWithHttpInfo(scope, aborConfigurationRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -132,7 +132,7 @@ catch (ApiException e)
 # **DeleteAborConfiguration**
 > DeletedEntityResponse DeleteAborConfiguration (string scope, string code)
 
-[EXPERIMENTAL] DeleteAborConfiguration: Delete an AborConfiguration.
+[EARLY ACCESS] DeleteAborConfiguration: Delete an AborConfiguration.
 
 Delete the given AborConfiguration.
 
@@ -183,7 +183,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteAborConfiguration(scope, code, opts: opts);
 
-                // [EXPERIMENTAL] DeleteAborConfiguration: Delete an AborConfiguration.
+                // [EARLY ACCESS] DeleteAborConfiguration: Delete an AborConfiguration.
                 DeletedEntityResponse result = apiInstance.DeleteAborConfiguration(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -204,7 +204,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteAborConfiguration: Delete an AborConfiguration.
+    // [EARLY ACCESS] DeleteAborConfiguration: Delete an AborConfiguration.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteAborConfigurationWithHttpInfo(scope, code);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -248,7 +248,7 @@ catch (ApiException e)
 # **GetAborConfiguration**
 > AborConfiguration GetAborConfiguration (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] GetAborConfiguration: Get AborConfiguration.
+[EARLY ACCESS] GetAborConfiguration: Get AborConfiguration.
 
 Retrieve the definition of a particular AborConfiguration.
 
@@ -302,7 +302,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AborConfiguration result = apiInstance.GetAborConfiguration(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] GetAborConfiguration: Get AborConfiguration.
+                // [EARLY ACCESS] GetAborConfiguration: Get AborConfiguration.
                 AborConfiguration result = apiInstance.GetAborConfiguration(scope, code, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -323,7 +323,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetAborConfiguration: Get AborConfiguration.
+    // [EARLY ACCESS] GetAborConfiguration: Get AborConfiguration.
     ApiResponse<AborConfiguration> response = apiInstance.GetAborConfigurationWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -370,7 +370,7 @@ catch (ApiException e)
 # **GetAborConfigurationProperties**
 > AborConfigurationProperties GetAborConfigurationProperties (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetAborConfigurationProperties: Get Abor Configuration properties
+[EARLY ACCESS] GetAborConfigurationProperties: Get Abor Configuration properties
 
 Get all the properties of a single abor Configuration.
 
@@ -423,7 +423,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AborConfigurationProperties result = apiInstance.GetAborConfigurationProperties(scope, code, effectiveAt, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetAborConfigurationProperties: Get Abor Configuration properties
+                // [EARLY ACCESS] GetAborConfigurationProperties: Get Abor Configuration properties
                 AborConfigurationProperties result = apiInstance.GetAborConfigurationProperties(scope, code, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -444,7 +444,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetAborConfigurationProperties: Get Abor Configuration properties
+    // [EARLY ACCESS] GetAborConfigurationProperties: Get Abor Configuration properties
     ApiResponse<AborConfigurationProperties> response = apiInstance.GetAborConfigurationPropertiesWithHttpInfo(scope, code, effectiveAt, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -490,7 +490,7 @@ catch (ApiException e)
 # **ListAborConfigurations**
 > PagedResourceListOfAborConfiguration ListAborConfigurations (DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] ListAborConfigurations: List AborConfiguration.
+[EARLY ACCESS] ListAborConfigurations: List AborConfiguration.
 
 List all the AborConfiguration matching particular criteria.
 
@@ -546,7 +546,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfAborConfiguration result = apiInstance.ListAborConfigurations(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] ListAborConfigurations: List AborConfiguration.
+                // [EARLY ACCESS] ListAborConfigurations: List AborConfiguration.
                 PagedResourceListOfAborConfiguration result = apiInstance.ListAborConfigurations(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -567,7 +567,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListAborConfigurations: List AborConfiguration.
+    // [EARLY ACCESS] ListAborConfigurations: List AborConfiguration.
     ApiResponse<PagedResourceListOfAborConfiguration> response = apiInstance.ListAborConfigurationsWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -616,7 +616,7 @@ catch (ApiException e)
 # **PatchAborConfiguration**
 > AborConfiguration PatchAborConfiguration (string scope, string code, List<Operation> operation)
 
-[EXPERIMENTAL] PatchAborConfiguration: Patch Abor Configuration.
+[EARLY ACCESS] PatchAborConfiguration: Patch Abor Configuration.
 
 Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
 
@@ -668,7 +668,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AborConfiguration result = apiInstance.PatchAborConfiguration(scope, code, operation, opts: opts);
 
-                // [EXPERIMENTAL] PatchAborConfiguration: Patch Abor Configuration.
+                // [EARLY ACCESS] PatchAborConfiguration: Patch Abor Configuration.
                 AborConfiguration result = apiInstance.PatchAborConfiguration(scope, code, operation);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -689,7 +689,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PatchAborConfiguration: Patch Abor Configuration.
+    // [EARLY ACCESS] PatchAborConfiguration: Patch Abor Configuration.
     ApiResponse<AborConfiguration> response = apiInstance.PatchAborConfigurationWithHttpInfo(scope, code, operation);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -734,7 +734,7 @@ catch (ApiException e)
 # **UpsertAborConfigurationProperties**
 > AborConfigurationProperties UpsertAborConfigurationProperties (string scope, string code, Dictionary<string, Property>? requestBody = null)
 
-[EXPERIMENTAL] UpsertAborConfigurationProperties: Upsert AborConfiguration properties
+[EARLY ACCESS] UpsertAborConfigurationProperties: Upsert AborConfiguration properties
 
 Update or insert one or more properties onto a single AborConfiguration. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'AborConfiguration'.                Upserting a property that exists for an AborConfiguration, with a null value, will delete the instance of the property for that group.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
@@ -786,7 +786,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AborConfigurationProperties result = apiInstance.UpsertAborConfigurationProperties(scope, code, requestBody, opts: opts);
 
-                // [EXPERIMENTAL] UpsertAborConfigurationProperties: Upsert AborConfiguration properties
+                // [EARLY ACCESS] UpsertAborConfigurationProperties: Upsert AborConfiguration properties
                 AborConfigurationProperties result = apiInstance.UpsertAborConfigurationProperties(scope, code, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -807,7 +807,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertAborConfigurationProperties: Upsert AborConfiguration properties
+    // [EARLY ACCESS] UpsertAborConfigurationProperties: Upsert AborConfiguration properties
     ApiResponse<AborConfigurationProperties> response = apiInstance.UpsertAborConfigurationPropertiesWithHttpInfo(scope, code, requestBody);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

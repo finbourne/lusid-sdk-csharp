@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **UseInstrumentTypeToDeterminePricer** | **bool** | If true then use the instrument type to set the default instrument pricer  This applies where no more specific set of overrides are provided on a per-vendor and instrument basis. | [optional] 
 **AllowAnyInstrumentsWithSecUidToPriceOffLookup** | **bool** | By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated  instrument definition simply through looking up a price as there should be a better way of evaluating it.  To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true. | [optional] 
 **AllowPartiallySuccessfulEvaluation** | **bool** | If true then a failure in task evaluation doesn&#39;t cause overall failure.  results will be returned where they succeeded and annotation elsewhere | [optional] 
+**RiskEngine** | **string** | Which engine computes first-order Risk/_* measures. One of \&quot;Bump\&quot; (default: central  finite differences by bump-and-revalue - the historical behaviour, used when this is  absent), \&quot;Parity\&quot; (bump computes and is reported, the adjoint engine independently checks  every calculator and any disagreement fails the measure loudly - the recommended  enablement gate), or \&quot;Adjoint\&quot; (algorithmic differentiation where an evaluator exists,  with silent fallback to Bump elsewhere - selecting it can never reduce coverage). Available values: Bump, Adjoint, Parity. | [optional] 
 **ProduceSeparateResultForLinearOtcLegs** | **bool** | If true (default), when pricing an Fx-Forward or Interest Rate Swap, Future and other linearly separable products, product two results, one for each leg  rather than a single line result with the amalgamated/summed pv from both legs. | [optional] 
 **FxForwardContractsAsUnitsInBothLegs** | **bool** | When true, Holding/Units on both legs of an instrument-booked FxForward valued with  ProduceSeparateResultForLinearOtcLegs reports the number of forward contracts held (the  non-split holding units), so that Holding/Units * Valuation/InstrumentPV &#x3D;&#x3D; Valuation/PV  holds on each leg. When false (default), the foreign leg reports  &lt;non-split units&gt; * (fgnAmount / domAmount). | [optional] 
 **EnableUseOfCachedUnitResults** | **bool** | If true, when pricing using a model or for an instrument that supports use of intermediate cached-results, use them.  Default is that this caching is turned off. | [optional] 
@@ -33,6 +34,7 @@ ModelSelection? modelSelection = new ModelSelection();
 bool useInstrumentTypeToDeterminePricer = //"True";
 bool allowAnyInstrumentsWithSecUidToPriceOffLookup = //"True";
 bool allowPartiallySuccessfulEvaluation = //"True";
+string riskEngine = "example riskEngine";
 bool produceSeparateResultForLinearOtcLegs = //"True";
 bool fxForwardContractsAsUnitsInBothLegs = //"True";
 bool enableUseOfCachedUnitResults = //"True";
@@ -54,6 +56,7 @@ PricingOptions pricingOptionsInstance = new PricingOptions(
     useInstrumentTypeToDeterminePricer: useInstrumentTypeToDeterminePricer,
     allowAnyInstrumentsWithSecUidToPriceOffLookup: allowAnyInstrumentsWithSecUidToPriceOffLookup,
     allowPartiallySuccessfulEvaluation: allowPartiallySuccessfulEvaluation,
+    riskEngine: riskEngine,
     produceSeparateResultForLinearOtcLegs: produceSeparateResultForLinearOtcLegs,
     fxForwardContractsAsUnitsInBothLegs: fxForwardContractsAsUnitsInBothLegs,
     enableUseOfCachedUnitResults: enableUseOfCachedUnitResults,
