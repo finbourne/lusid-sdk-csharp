@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
 **OriginalIssuePrice** | **decimal?** | The price the bond was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
+**AmortisationSchedule** | [**StepSchedule**](StepSchedule.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -41,6 +42,8 @@ List<RoundingConvention> roundingConventions = new List<RoundingConvention>();
 TradingConventions? tradingConventions = new TradingConventions();
 
 TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+StepSchedule? amortisationSchedule = new StepSchedule();
 
 
 InflationLinkedBond inflationLinkedBondInstance = new InflationLinkedBond(
@@ -61,7 +64,8 @@ InflationLinkedBond inflationLinkedBondInstance = new InflationLinkedBond(
     roundingConventions: roundingConventions,
     tradingConventions: tradingConventions,
     originalIssuePrice: originalIssuePrice,
-    timeZoneConventions: timeZoneConventions);
+    timeZoneConventions: timeZoneConventions,
+    amortisationSchedule: amortisationSchedule);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
