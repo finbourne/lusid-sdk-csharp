@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | 
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime. | [optional] 
 **LeaderNavTypeCode** | **string** | The code of the Nav Type that this Nav Type will follow when set. | [optional] 
+**StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -42,6 +43,8 @@ Dictionary<string, Property> properties = new Dictionary<string, Property>();
 ModelVersion varVersion = new ModelVersion();
 string href = "example href";
 string leaderNavTypeCode = "example leaderNavTypeCode";
+StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
+
 
 FundBookmark fundBookmarkInstance = new FundBookmark(
     code: code,
@@ -60,7 +63,8 @@ FundBookmark fundBookmarkInstance = new FundBookmark(
     properties: properties,
     varVersion: varVersion,
     href: href,
-    leaderNavTypeCode: leaderNavTypeCode);
+    leaderNavTypeCode: leaderNavTypeCode,
+    stagedModifications: stagedModifications);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

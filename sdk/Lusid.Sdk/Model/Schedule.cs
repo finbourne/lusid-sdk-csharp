@@ -30,6 +30,7 @@ namespace Lusid.Sdk.Model
     [JsonConverter(typeof(JsonSubtypes), "ScheduleType")]
     [JsonSubtypes.KnownSubType(typeof(BondConversionSchedule), "BondConversionSchedule")]
     [JsonSubtypes.KnownSubType(typeof(CancelSchedule), "CancelSchedule")]
+    [JsonSubtypes.KnownSubType(typeof(CommodityCalendarSchedule), "CommodityCalendarSchedule")]
     [JsonSubtypes.KnownSubType(typeof(FixedSchedule), "FixedSchedule")]
     [JsonSubtypes.KnownSubType(typeof(FloatSchedule), "FloatSchedule")]
     [JsonSubtypes.KnownSubType(typeof(FxLinkedNotionalSchedule), "FxLinkedNotionalSchedule")]
@@ -40,9 +41,9 @@ namespace Lusid.Sdk.Model
     public partial class Schedule : IEquatable<Schedule>, IValidatableObject
     {
         /// <summary>
-        /// Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, Invalid, CancelSchedule.
+        /// Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, CommodityCalendarSchedule, Invalid, CancelSchedule.
         /// </summary>
-        /// <value>Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, Invalid, CancelSchedule.</value>
+        /// <value>Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, CommodityCalendarSchedule, Invalid, CancelSchedule.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ScheduleTypeEnum
         {
@@ -101,23 +102,29 @@ namespace Lusid.Sdk.Model
             PikSchedule = 9,
 
             /// <summary>
+            /// Enum CommodityCalendarSchedule for value: CommodityCalendarSchedule
+            /// </summary>
+            [EnumMember(Value = "CommodityCalendarSchedule")]
+            CommodityCalendarSchedule = 10,
+
+            /// <summary>
             /// Enum Invalid for value: Invalid
             /// </summary>
             [EnumMember(Value = "Invalid")]
-            Invalid = 10,
+            Invalid = 11,
 
             /// <summary>
             /// Enum CancelSchedule for value: CancelSchedule
             /// </summary>
             [EnumMember(Value = "CancelSchedule")]
-            CancelSchedule = 11
+            CancelSchedule = 12
         }
 
 
         /// <summary>
-        /// Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, Invalid, CancelSchedule.
+        /// Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, CommodityCalendarSchedule, Invalid, CancelSchedule.
         /// </summary>
-        /// <value>Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, Invalid, CancelSchedule.</value>
+        /// <value>Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, CommodityCalendarSchedule, Invalid, CancelSchedule.</value>
         [DataMember(Name = "scheduleType", IsRequired = true, EmitDefaultValue = true)]
         public ScheduleTypeEnum ScheduleType { get; set; }
         /// <summary>
@@ -128,7 +135,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Schedule" /> class.
         /// </summary>
-        /// <param name="scheduleType">Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, Invalid, CancelSchedule. (required).</param>
+        /// <param name="scheduleType">Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, CommodityCalendarSchedule, Invalid, CancelSchedule. (required).</param>
         public Schedule(ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum))
         {
             this.ScheduleType = scheduleType;

@@ -320,7 +320,19 @@ namespace Lusid.Sdk.Model
         /// Enum BondOption for value: BondOption
         /// </summary>
         [EnumMember(Value = "BondOption")]
-        BondOption = 49
+        BondOption = 49,
+
+        /// <summary>
+        /// Enum CdsOption for value: CdsOption
+        /// </summary>
+        [EnumMember(Value = "CdsOption")]
+        CdsOption = 50,
+
+        /// <summary>
+        /// Enum CommodityCalendarSwap for value: CommodityCalendarSwap
+        /// </summary>
+        [EnumMember(Value = "CommodityCalendarSwap")]
+        CommodityCalendarSwap = 51
     }
 
 }

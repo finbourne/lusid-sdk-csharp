@@ -38,14 +38,16 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="windowStart">The start date of the window. (required).</param>
         /// <param name="windowEnd">The end date of the window. (required).</param>
-        /// <param name="effectiveAt">The Effective date that splits query window into two parts: factual period and forecast period (required).</param>
+        /// <param name="effectiveAt">The Effective date that splits query window into two parts: factual period and forecast period. Optional - a timeline (with an optional closed period) may be supplied instead to derive the effective date..</param>
         /// <param name="portfolioEntityIds">The set of portfolios and portfolio groups to which the instrument events must belong. (required).</param>
         /// <param name="forecastingRecipeId">forecastingRecipeId (required).</param>
-        public QueryApplicableInstrumentEventsRequest(DateTimeOffset windowStart = default(DateTimeOffset), DateTimeOffset windowEnd = default(DateTimeOffset), DateTimeOffset effectiveAt = default(DateTimeOffset), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), ResourceId forecastingRecipeId = default(ResourceId))
+        /// <param name="timelineScope">The scope of the timeline to be used when building the instrument events..</param>
+        /// <param name="timelineCode">The code of the timeline to be used when building the instrument events. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods..</param>
+        /// <param name="closedPeriodId">The id of the closed period, on the given timeline, to be used when building the instrument events..</param>
+        public QueryApplicableInstrumentEventsRequest(DateTimeOffset windowStart = default(DateTimeOffset), DateTimeOffset windowEnd = default(DateTimeOffset), DateTimeOffset? effectiveAt = default(DateTimeOffset?), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), ResourceId forecastingRecipeId = default(ResourceId), string timelineScope = default(string), string timelineCode = default(string), string closedPeriodId = default(string))
         {
             this.WindowStart = windowStart;
             this.WindowEnd = windowEnd;
-            this.EffectiveAt = effectiveAt;
             // to ensure "portfolioEntityIds" is required (not null)
             if (portfolioEntityIds == null)
             {
@@ -58,6 +60,10 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("forecastingRecipeId is a required property for QueryApplicableInstrumentEventsRequest and cannot be null");
             }
             this.ForecastingRecipeId = forecastingRecipeId;
+            this.EffectiveAt = effectiveAt;
+            this.TimelineScope = timelineScope;
+            this.TimelineCode = timelineCode;
+            this.ClosedPeriodId = closedPeriodId;
         }
 
         /// <summary>
@@ -75,11 +81,11 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset WindowEnd { get; set; }
 
         /// <summary>
-        /// The Effective date that splits query window into two parts: factual period and forecast period
+        /// The Effective date that splits query window into two parts: factual period and forecast period. Optional - a timeline (with an optional closed period) may be supplied instead to derive the effective date.
         /// </summary>
-        /// <value>The Effective date that splits query window into two parts: factual period and forecast period</value>
-        [DataMember(Name = "effectiveAt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset EffectiveAt { get; set; }
+        /// <value>The Effective date that splits query window into two parts: factual period and forecast period. Optional - a timeline (with an optional closed period) may be supplied instead to derive the effective date.</value>
+        [DataMember(Name = "effectiveAt", EmitDefaultValue = true)]
+        public DateTimeOffset? EffectiveAt { get; set; }
 
         /// <summary>
         /// The set of portfolios and portfolio groups to which the instrument events must belong.
@@ -95,6 +101,27 @@ namespace Lusid.Sdk.Model
         public ResourceId ForecastingRecipeId { get; set; }
 
         /// <summary>
+        /// The scope of the timeline to be used when building the instrument events.
+        /// </summary>
+        /// <value>The scope of the timeline to be used when building the instrument events.</value>
+        [DataMember(Name = "timelineScope", EmitDefaultValue = true)]
+        public string TimelineScope { get; set; }
+
+        /// <summary>
+        /// The code of the timeline to be used when building the instrument events. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods.
+        /// </summary>
+        /// <value>The code of the timeline to be used when building the instrument events. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods.</value>
+        [DataMember(Name = "timelineCode", EmitDefaultValue = true)]
+        public string TimelineCode { get; set; }
+
+        /// <summary>
+        /// The id of the closed period, on the given timeline, to be used when building the instrument events.
+        /// </summary>
+        /// <value>The id of the closed period, on the given timeline, to be used when building the instrument events.</value>
+        [DataMember(Name = "closedPeriodId", EmitDefaultValue = true)]
+        public string ClosedPeriodId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -107,6 +134,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("  PortfolioEntityIds: ").Append(PortfolioEntityIds).Append("\n");
             sb.Append("  ForecastingRecipeId: ").Append(ForecastingRecipeId).Append("\n");
+            sb.Append("  TimelineScope: ").Append(TimelineScope).Append("\n");
+            sb.Append("  TimelineCode: ").Append(TimelineCode).Append("\n");
+            sb.Append("  ClosedPeriodId: ").Append(ClosedPeriodId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -167,6 +197,21 @@ namespace Lusid.Sdk.Model
                     this.ForecastingRecipeId == input.ForecastingRecipeId ||
                     (this.ForecastingRecipeId != null &&
                     this.ForecastingRecipeId.Equals(input.ForecastingRecipeId))
+                ) && 
+                (
+                    this.TimelineScope == input.TimelineScope ||
+                    (this.TimelineScope != null &&
+                    this.TimelineScope.Equals(input.TimelineScope))
+                ) && 
+                (
+                    this.TimelineCode == input.TimelineCode ||
+                    (this.TimelineCode != null &&
+                    this.TimelineCode.Equals(input.TimelineCode))
+                ) && 
+                (
+                    this.ClosedPeriodId == input.ClosedPeriodId ||
+                    (this.ClosedPeriodId != null &&
+                    this.ClosedPeriodId.Equals(input.ClosedPeriodId))
                 );
         }
 
@@ -199,6 +244,18 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ForecastingRecipeId.GetHashCode();
                 }
+                if (this.TimelineScope != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimelineScope.GetHashCode();
+                }
+                if (this.TimelineCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimelineCode.GetHashCode();
+                }
+                if (this.ClosedPeriodId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ClosedPeriodId.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -210,6 +267,63 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // TimelineScope (string) maxLength
+            if (this.TimelineScope != null && this.TimelineScope.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineScope, length must be less than 64.", new [] { "TimelineScope" });
+            }
+
+            // TimelineScope (string) minLength
+            if (this.TimelineScope != null && this.TimelineScope.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineScope, length must be greater than 1.", new [] { "TimelineScope" });
+            }
+
+            // TimelineScope (string) pattern
+            Regex regexTimelineScope = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexTimelineScope.Match(this.TimelineScope).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineScope, must match a pattern of " + regexTimelineScope, new [] { "TimelineScope" });
+            }
+
+            // TimelineCode (string) maxLength
+            if (this.TimelineCode != null && this.TimelineCode.Length > 1025)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineCode, length must be less than 1025.", new [] { "TimelineCode" });
+            }
+
+            // TimelineCode (string) minLength
+            if (this.TimelineCode != null && this.TimelineCode.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineCode, length must be greater than 1.", new [] { "TimelineCode" });
+            }
+
+            // TimelineCode (string) pattern
+            Regex regexTimelineCode = new Regex(@"^[a-zA-Z0-9\-_]+(:[a-zA-Z0-9\-_]+)?$", RegexOptions.CultureInvariant);
+            if (false == regexTimelineCode.Match(this.TimelineCode).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineCode, must match a pattern of " + regexTimelineCode, new [] { "TimelineCode" });
+            }
+
+            // ClosedPeriodId (string) maxLength
+            if (this.ClosedPeriodId != null && this.ClosedPeriodId.Length > 512)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClosedPeriodId, length must be less than 512.", new [] { "ClosedPeriodId" });
+            }
+
+            // ClosedPeriodId (string) minLength
+            if (this.ClosedPeriodId != null && this.ClosedPeriodId.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClosedPeriodId, length must be greater than 1.", new [] { "ClosedPeriodId" });
+            }
+
+            // ClosedPeriodId (string) pattern
+            Regex regexClosedPeriodId = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexClosedPeriodId.Match(this.ClosedPeriodId).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClosedPeriodId, must match a pattern of " + regexClosedPeriodId, new [] { "ClosedPeriodId" });
+            }
+
             yield break;
         }
     }

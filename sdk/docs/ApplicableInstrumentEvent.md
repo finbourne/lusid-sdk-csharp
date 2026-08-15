@@ -20,6 +20,8 @@ Name | Type | Description | Notes
 **TransactionDiagnostics** | [**TransactionDiagnostics**](TransactionDiagnostics.md) |  | [optional] 
 **AppliedInstrumentEventInstruction** | [**InstrumentEventInstruction**](InstrumentEventInstruction.md) |  | [optional] 
 **EligibleBalance** | **decimal?** |  | [optional] 
+**InstrumentEventStatus** | **string** | Available values: Active, ActiveReversal, ActiveTrueUp. | [optional] 
+**AccountingDate** | **DateTimeOffset?** |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -43,6 +45,7 @@ TransactionDiagnostics? transactionDiagnostics = new TransactionDiagnostics();
 
 InstrumentEventInstruction? appliedInstrumentEventInstruction = new InstrumentEventInstruction();
 
+string instrumentEventStatus = "example instrumentEventStatus";
 
 ApplicableInstrumentEvent applicableInstrumentEventInstance = new ApplicableInstrumentEvent(
     portfolioId: portfolioId,
@@ -59,7 +62,9 @@ ApplicableInstrumentEvent applicableInstrumentEventInstance = new ApplicableInst
     transactions: transactions,
     transactionDiagnostics: transactionDiagnostics,
     appliedInstrumentEventInstruction: appliedInstrumentEventInstruction,
-    eligibleBalance: eligibleBalance);
+    eligibleBalance: eligibleBalance,
+    instrumentEventStatus: instrumentEventStatus,
+    accountingDate: accountingDate);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

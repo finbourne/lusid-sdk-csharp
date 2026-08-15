@@ -609,7 +609,13 @@ namespace Lusid.Sdk.Model
         /// Enum PaymentInKindEvent for value: PaymentInKindEvent
         /// </summary>
         [EnumMember(Value = "PaymentInKindEvent")]
-        PaymentInKindEvent = 97
+        PaymentInKindEvent = 97,
+
+        /// <summary>
+        /// Enum CommodityForwardPhysicalSettlementEvent for value: CommodityForwardPhysicalSettlementEvent
+        /// </summary>
+        [EnumMember(Value = "CommodityForwardPhysicalSettlementEvent")]
+        CommodityForwardPhysicalSettlementEvent = 98
     }
 
 }

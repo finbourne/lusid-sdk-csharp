@@ -51,7 +51,9 @@ namespace Lusid.Sdk.Model
         /// <param name="transactionDiagnostics">transactionDiagnostics.</param>
         /// <param name="appliedInstrumentEventInstruction">appliedInstrumentEventInstruction.</param>
         /// <param name="eligibleBalance">eligibleBalance.</param>
-        public ApplicableInstrumentEvent(ResourceId portfolioId = default(ResourceId), long holdingId = default(long), string lusidInstrumentId = default(string), string instrumentScope = default(string), string instrumentType = default(string), string instrumentEventType = default(string), string instrumentEventId = default(string), InstrumentEventHolder generatedEvent = default(InstrumentEventHolder), GeneratedEventDiagnostics generatedEventDiagnostics = default(GeneratedEventDiagnostics), InstrumentEventHolder loadedEvent = default(InstrumentEventHolder), string appliedInstrumentEventInstructionId = default(string), List<Transaction> transactions = default(List<Transaction>), TransactionDiagnostics transactionDiagnostics = default(TransactionDiagnostics), InstrumentEventInstruction appliedInstrumentEventInstruction = default(InstrumentEventInstruction), decimal? eligibleBalance = default(decimal?))
+        /// <param name="instrumentEventStatus">Available values: Active, ActiveReversal, ActiveTrueUp..</param>
+        /// <param name="accountingDate">accountingDate.</param>
+        public ApplicableInstrumentEvent(ResourceId portfolioId = default(ResourceId), long holdingId = default(long), string lusidInstrumentId = default(string), string instrumentScope = default(string), string instrumentType = default(string), string instrumentEventType = default(string), string instrumentEventId = default(string), InstrumentEventHolder generatedEvent = default(InstrumentEventHolder), GeneratedEventDiagnostics generatedEventDiagnostics = default(GeneratedEventDiagnostics), InstrumentEventHolder loadedEvent = default(InstrumentEventHolder), string appliedInstrumentEventInstructionId = default(string), List<Transaction> transactions = default(List<Transaction>), TransactionDiagnostics transactionDiagnostics = default(TransactionDiagnostics), InstrumentEventInstruction appliedInstrumentEventInstruction = default(InstrumentEventInstruction), decimal? eligibleBalance = default(decimal?), string instrumentEventStatus = default(string), DateTimeOffset? accountingDate = default(DateTimeOffset?))
         {
             // to ensure "portfolioId" is required (not null)
             if (portfolioId == null)
@@ -98,6 +100,8 @@ namespace Lusid.Sdk.Model
             this.TransactionDiagnostics = transactionDiagnostics;
             this.AppliedInstrumentEventInstruction = appliedInstrumentEventInstruction;
             this.EligibleBalance = eligibleBalance;
+            this.InstrumentEventStatus = instrumentEventStatus;
+            this.AccountingDate = accountingDate;
         }
 
         /// <summary>
@@ -191,6 +195,19 @@ namespace Lusid.Sdk.Model
         public decimal? EligibleBalance { get; set; }
 
         /// <summary>
+        /// Available values: Active, ActiveReversal, ActiveTrueUp.
+        /// </summary>
+        /// <value>Available values: Active, ActiveReversal, ActiveTrueUp.</value>
+        [DataMember(Name = "instrumentEventStatus", EmitDefaultValue = true)]
+        public string InstrumentEventStatus { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AccountingDate
+        /// </summary>
+        [DataMember(Name = "accountingDate", EmitDefaultValue = true)]
+        public DateTimeOffset? AccountingDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -213,6 +230,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  TransactionDiagnostics: ").Append(TransactionDiagnostics).Append("\n");
             sb.Append("  AppliedInstrumentEventInstruction: ").Append(AppliedInstrumentEventInstruction).Append("\n");
             sb.Append("  EligibleBalance: ").Append(EligibleBalance).Append("\n");
+            sb.Append("  InstrumentEventStatus: ").Append(InstrumentEventStatus).Append("\n");
+            sb.Append("  AccountingDate: ").Append(AccountingDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -322,6 +341,16 @@ namespace Lusid.Sdk.Model
                     this.EligibleBalance == input.EligibleBalance ||
                     (this.EligibleBalance != null &&
                     this.EligibleBalance.Equals(input.EligibleBalance))
+                ) && 
+                (
+                    this.InstrumentEventStatus == input.InstrumentEventStatus ||
+                    (this.InstrumentEventStatus != null &&
+                    this.InstrumentEventStatus.Equals(input.InstrumentEventStatus))
+                ) && 
+                (
+                    this.AccountingDate == input.AccountingDate ||
+                    (this.AccountingDate != null &&
+                    this.AccountingDate.Equals(input.AccountingDate))
                 );
         }
 
@@ -390,6 +419,14 @@ namespace Lusid.Sdk.Model
                 if (this.EligibleBalance != null)
                 {
                     hashCode = (hashCode * 59) + this.EligibleBalance.GetHashCode();
+                }
+                if (this.InstrumentEventStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstrumentEventStatus.GetHashCode();
+                }
+                if (this.AccountingDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccountingDate.GetHashCode();
                 }
                 return hashCode;
             }

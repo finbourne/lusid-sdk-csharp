@@ -48,8 +48,13 @@ namespace Lusid.Sdk.Model
         /// <param name="deliveryDays">Number of business days between exercise date and settlement of the option payoff or underlying.                Defaults to 0..</param>
         /// <param name="businessDayConvention">Business day convention for option exercise date to settlement date calculation.  Default value: F. Available values: NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest, Invalid..</param>
         /// <param name="settlementCalendars">Holiday calendars for option exercise date to settlement date calculation..</param>
-        /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption. (required) (default to &quot;InterestRateSwaption&quot;).</param>
-        public InterestRateSwaption(DateTimeOffset startDate = default(DateTimeOffset), string payOrReceiveFixed = default(string), Premium premium = default(Premium), string deliveryMethod = default(string), InterestRateSwap swap = default(InterestRateSwap), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), LusidInstrument underlying = default(LusidInstrument), int deliveryDays = default(int), string businessDayConvention = default(string), List<string> settlementCalendars = default(List<string>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        /// <param name="domCcy">The currency the option settles in.                If not specified, the currency of the underlying swap is used. When specified it must be one of  the currencies of the underlying swap..</param>
+        /// <param name="exerciseDate">The date the option expires, and for European exercise the date it is exercised.                If not specified, the start date of the underlying swap is used..</param>
+        /// <param name="exerciseType">Type of optionality that is present; European, American.                Supported string (enumeration) values are: [European, American].  Defaults to \&quot;European\&quot; if not set.                A European option is exercised on its exercise date, so its exercise event is generated with  that date already set. An American option may be exercised at any point in its life, so it  carries no scheduled date and the exercise date is supplied on the exercise event instead.                The swap delivered on exercise keeps the start date it was defined with, so exercising early  or late leaves it aged or forward-starting relative to the exercise. Keeping that swap  correct for the intended exercise is the responsibility of whoever defines it..</param>
+        /// <param name="strike">The rate the option strikes against.                May only be specified when the underlying swap has no single fixed leg, as otherwise that leg&#39;s  fixed rate is the strike. It must be specified when the underlying swap has two fixed legs, as  there is then no single rate to strike against..</param>
+        /// <param name="tradingConventions">tradingConventions.</param>
+        /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap. (required) (default to &quot;InterestRateSwaption&quot;).</param>
+        public InterestRateSwaption(DateTimeOffset startDate = default(DateTimeOffset), string payOrReceiveFixed = default(string), Premium premium = default(Premium), string deliveryMethod = default(string), InterestRateSwap swap = default(InterestRateSwap), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), LusidInstrument underlying = default(LusidInstrument), int deliveryDays = default(int), string businessDayConvention = default(string), List<string> settlementCalendars = default(List<string>), string domCcy = default(string), DateTimeOffset? exerciseDate = default(DateTimeOffset?), string exerciseType = default(string), decimal? strike = default(decimal?), TradingConventions tradingConventions = default(TradingConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             // to ensure "payOrReceiveFixed" is required (not null)
@@ -71,6 +76,11 @@ namespace Lusid.Sdk.Model
             this.DeliveryDays = deliveryDays;
             this.BusinessDayConvention = businessDayConvention;
             this.SettlementCalendars = settlementCalendars;
+            this.DomCcy = domCcy;
+            this.ExerciseDate = exerciseDate;
+            this.ExerciseType = exerciseType;
+            this.Strike = strike;
+            this.TradingConventions = tradingConventions;
         }
 
         /// <summary>
@@ -140,6 +150,40 @@ namespace Lusid.Sdk.Model
         public List<string> SettlementCalendars { get; set; }
 
         /// <summary>
+        /// The currency the option settles in.                If not specified, the currency of the underlying swap is used. When specified it must be one of  the currencies of the underlying swap.
+        /// </summary>
+        /// <value>The currency the option settles in.                If not specified, the currency of the underlying swap is used. When specified it must be one of  the currencies of the underlying swap.</value>
+        [DataMember(Name = "domCcy", EmitDefaultValue = true)]
+        public string DomCcy { get; set; }
+
+        /// <summary>
+        /// The date the option expires, and for European exercise the date it is exercised.                If not specified, the start date of the underlying swap is used.
+        /// </summary>
+        /// <value>The date the option expires, and for European exercise the date it is exercised.                If not specified, the start date of the underlying swap is used.</value>
+        [DataMember(Name = "exerciseDate", EmitDefaultValue = true)]
+        public DateTimeOffset? ExerciseDate { get; set; }
+
+        /// <summary>
+        /// Type of optionality that is present; European, American.                Supported string (enumeration) values are: [European, American].  Defaults to \&quot;European\&quot; if not set.                A European option is exercised on its exercise date, so its exercise event is generated with  that date already set. An American option may be exercised at any point in its life, so it  carries no scheduled date and the exercise date is supplied on the exercise event instead.                The swap delivered on exercise keeps the start date it was defined with, so exercising early  or late leaves it aged or forward-starting relative to the exercise. Keeping that swap  correct for the intended exercise is the responsibility of whoever defines it.
+        /// </summary>
+        /// <value>Type of optionality that is present; European, American.                Supported string (enumeration) values are: [European, American].  Defaults to \&quot;European\&quot; if not set.                A European option is exercised on its exercise date, so its exercise event is generated with  that date already set. An American option may be exercised at any point in its life, so it  carries no scheduled date and the exercise date is supplied on the exercise event instead.                The swap delivered on exercise keeps the start date it was defined with, so exercising early  or late leaves it aged or forward-starting relative to the exercise. Keeping that swap  correct for the intended exercise is the responsibility of whoever defines it.</value>
+        [DataMember(Name = "exerciseType", EmitDefaultValue = true)]
+        public string ExerciseType { get; set; }
+
+        /// <summary>
+        /// The rate the option strikes against.                May only be specified when the underlying swap has no single fixed leg, as otherwise that leg&#39;s  fixed rate is the strike. It must be specified when the underlying swap has two fixed legs, as  there is then no single rate to strike against.
+        /// </summary>
+        /// <value>The rate the option strikes against.                May only be specified when the underlying swap has no single fixed leg, as otherwise that leg&#39;s  fixed rate is the strike. It must be specified when the underlying swap has two fixed legs, as  there is then no single rate to strike against.</value>
+        [DataMember(Name = "strike", EmitDefaultValue = true)]
+        public decimal? Strike { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TradingConventions
+        /// </summary>
+        [DataMember(Name = "tradingConventions", EmitDefaultValue = false)]
+        public TradingConventions TradingConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -158,6 +202,11 @@ namespace Lusid.Sdk.Model
             sb.Append("  DeliveryDays: ").Append(DeliveryDays).Append("\n");
             sb.Append("  BusinessDayConvention: ").Append(BusinessDayConvention).Append("\n");
             sb.Append("  SettlementCalendars: ").Append(SettlementCalendars).Append("\n");
+            sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
+            sb.Append("  ExerciseDate: ").Append(ExerciseDate).Append("\n");
+            sb.Append("  ExerciseType: ").Append(ExerciseType).Append("\n");
+            sb.Append("  Strike: ").Append(Strike).Append("\n");
+            sb.Append("  TradingConventions: ").Append(TradingConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -242,6 +291,31 @@ namespace Lusid.Sdk.Model
                     this.SettlementCalendars != null &&
                     input.SettlementCalendars != null &&
                     this.SettlementCalendars.SequenceEqual(input.SettlementCalendars)
+                ) && base.Equals(input) && 
+                (
+                    this.DomCcy == input.DomCcy ||
+                    (this.DomCcy != null &&
+                    this.DomCcy.Equals(input.DomCcy))
+                ) && base.Equals(input) && 
+                (
+                    this.ExerciseDate == input.ExerciseDate ||
+                    (this.ExerciseDate != null &&
+                    this.ExerciseDate.Equals(input.ExerciseDate))
+                ) && base.Equals(input) && 
+                (
+                    this.ExerciseType == input.ExerciseType ||
+                    (this.ExerciseType != null &&
+                    this.ExerciseType.Equals(input.ExerciseType))
+                ) && base.Equals(input) && 
+                (
+                    this.Strike == input.Strike ||
+                    (this.Strike != null &&
+                    this.Strike.Equals(input.Strike))
+                ) && base.Equals(input) && 
+                (
+                    this.TradingConventions == input.TradingConventions ||
+                    (this.TradingConventions != null &&
+                    this.TradingConventions.Equals(input.TradingConventions))
                 );
         }
 
@@ -290,6 +364,26 @@ namespace Lusid.Sdk.Model
                 if (this.SettlementCalendars != null)
                 {
                     hashCode = (hashCode * 59) + this.SettlementCalendars.GetHashCode();
+                }
+                if (this.DomCcy != null)
+                {
+                    hashCode = (hashCode * 59) + this.DomCcy.GetHashCode();
+                }
+                if (this.ExerciseDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExerciseDate.GetHashCode();
+                }
+                if (this.ExerciseType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExerciseType.GetHashCode();
+                }
+                if (this.Strike != null)
+                {
+                    hashCode = (hashCode * 59) + this.Strike.GetHashCode();
+                }
+                if (this.TradingConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TradingConventions.GetHashCode();
                 }
                 return hashCode;
             }

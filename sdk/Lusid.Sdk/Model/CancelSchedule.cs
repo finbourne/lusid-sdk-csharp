@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="cancelDates">The dates on which cancellation may be elected. (required).</param>
         /// <param name="cancelType">The type of cancellation option: European (single cancel date) or Bermudan (two or more).                Supported string (enumeration) values are: [European, Bermudan]. Available values: European, Bermudan. (required).</param>
         /// <param name="noticeConvention">noticeConvention (required).</param>
-        /// <param name="scheduleType">Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, Invalid, CancelSchedule. (required) (default to &quot;CancelSchedule&quot;).</param>
+        /// <param name="scheduleType">Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, CommodityCalendarSchedule, Invalid, CancelSchedule. (required) (default to &quot;CancelSchedule&quot;).</param>
         public CancelSchedule(List<DateTimeOffset> cancelDates = default(List<DateTimeOffset>), string cancelType = default(string), NoticeConvention noticeConvention = default(NoticeConvention), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
         {
             // to ensure "cancelDates" is required (not null)

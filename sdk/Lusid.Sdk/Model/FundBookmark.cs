@@ -82,8 +82,9 @@ namespace Lusid.Sdk.Model
         /// <param name="varVersion">varVersion (required).</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
         /// <param name="leaderNavTypeCode">The code of the Nav Type that this Nav Type will follow when set..</param>
+        /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="fundCalendarEntriesType">The type of the Calendar Entry. Available values: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark. (required) (default to &quot;FundBookmark&quot;).</param>
-        public FundBookmark(string code = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), ResourceId timelineId = default(ResourceId), PreviousFundCalendarEntry previousEntry = default(PreviousFundCalendarEntry), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), string status = default(string), bool applyClearDown = default(bool), DateTimeOffset? holdingsAsAtOverride = default(DateTimeOffset?), DateTimeOffset? valuationsAsAtOverride = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string), string leaderNavTypeCode = default(string), FundCalendarEntriesTypeEnum fundCalendarEntriesType = default(FundCalendarEntriesTypeEnum)) : base(fundCalendarEntriesType)
+        public FundBookmark(string code = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), ResourceId timelineId = default(ResourceId), PreviousFundCalendarEntry previousEntry = default(PreviousFundCalendarEntry), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), string status = default(string), bool applyClearDown = default(bool), DateTimeOffset? holdingsAsAtOverride = default(DateTimeOffset?), DateTimeOffset? valuationsAsAtOverride = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string), string leaderNavTypeCode = default(string), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), FundCalendarEntriesTypeEnum fundCalendarEntriesType = default(FundCalendarEntriesTypeEnum)) : base(fundCalendarEntriesType)
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -122,6 +123,7 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this.Href = href;
             this.LeaderNavTypeCode = leaderNavTypeCode;
+            this.StagedModifications = stagedModifications;
         }
 
         /// <summary>
@@ -234,6 +236,12 @@ namespace Lusid.Sdk.Model
         public string LeaderNavTypeCode { get; set; }
 
         /// <summary>
+        /// Gets or Sets StagedModifications
+        /// </summary>
+        [DataMember(Name = "stagedModifications", EmitDefaultValue = false)]
+        public StagedModificationsInfo StagedModifications { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -259,6 +267,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  LeaderNavTypeCode: ").Append(LeaderNavTypeCode).Append("\n");
+            sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -377,6 +386,11 @@ namespace Lusid.Sdk.Model
                     this.LeaderNavTypeCode == input.LeaderNavTypeCode ||
                     (this.LeaderNavTypeCode != null &&
                     this.LeaderNavTypeCode.Equals(input.LeaderNavTypeCode))
+                ) && base.Equals(input) && 
+                (
+                    this.StagedModifications == input.StagedModifications ||
+                    (this.StagedModifications != null &&
+                    this.StagedModifications.Equals(input.StagedModifications))
                 );
         }
 
@@ -450,6 +464,10 @@ namespace Lusid.Sdk.Model
                 if (this.LeaderNavTypeCode != null)
                 {
                     hashCode = (hashCode * 59) + this.LeaderNavTypeCode.GetHashCode();
+                }
+                if (this.StagedModifications != null)
+                {
+                    hashCode = (hashCode * 59) + this.StagedModifications.GetHashCode();
                 }
                 return hashCode;
             }
