@@ -1,29 +1,25 @@
-# Lusid.Sdk.Model.CommodityForwardCashSettlementEvent
-Cash settlement of a cash-delivery CommodityForward at maturity. The cash flow per unit is the  pre-netted settlement price (forward price minus strike) supplied externally via the quote store;  LUSID does not compute the difference itself. A negative cash flow per unit is valid and means the  position was out of the money at settlement.
+# Lusid.Sdk.Model.CancelSwapEvent
+A cancel opportunity on a cancellable InterestRateSwap, generated once per date in the swap's cancel  schedule. The holder submits the SubscribeElection by the NoticeDueDate to cancel  the swap, and the opportunity lapses if no election is made. When the swap is cancelled, the current  period's coupon still settles and the position then closes at zero cost and proceeds.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InstrumentEventType** | **string** | The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent. | 
-**MaturityDate** | **DateTimeOffset** | The single settlement / maturity date of the forward. Required. | [optional] 
-**DomCcy** | **string** | Settlement currency of the forward. Required. | 
-**CashFlowPerUnit** | **decimal?** | The pre-netted settlement amount per unit (current forward price minus strike), supplied  externally via the quote store. Optional — absent until the settlement price has been loaded.  Negative when the position is out of the money. | [optional] 
-**CashFlowAmount** | **decimal?** | The realised cash amount, calculated as CashFlowPerUnit multiplied by the eligible balance.  Optional — it needs holdings-level data so it is never populated by the instrument layer.  Carries the sign of CashFlowPerUnit. | [optional] 
-**Strike** | **decimal?** | Agreed forward price at trade inception. Optional, and reference only — it is not used in the  settlement calculation; it is carried for auditability. | [optional] 
+**CancelDate** | **DateTimeOffset** | The date on which the swap terminates if cancellation is elected. Always a date from the swap&#39;s cancel  schedule. | [optional] 
+**NoticeDueDate** | **DateTimeOffset** | The date by which the election must be made, else the cancel opportunity lapses. Derived from the  CancelDate and the swap&#39;s notice convention. Must be &lt;&#x3D; CancelDate. | [optional] 
+**SubscribeElections** | [**List&lt;SubscribeElection&gt;**](SubscribeElection.md) | The elections available on this cancel opportunity: exactly one SubscribeElection, keyed &#39;Cancel&#39;.  A chosen election cancels the swap. No chosen election means the opportunity lapsed and the swap  continues unchanged. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 
-string domCcy = "domCcy";
+List<SubscribeElection> subscribeElections = new List<SubscribeElection>();
 
-CommodityForwardCashSettlementEvent commodityForwardCashSettlementEventInstance = new CommodityForwardCashSettlementEvent(
-    maturityDate: maturityDate,
-    domCcy: domCcy,
-    cashFlowPerUnit: cashFlowPerUnit,
-    cashFlowAmount: cashFlowAmount,
-    strike: strike);
+CancelSwapEvent cancelSwapEventInstance = new CancelSwapEvent(
+    cancelDate: cancelDate,
+    noticeDueDate: noticeDueDate,
+    subscribeElections: subscribeElections);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

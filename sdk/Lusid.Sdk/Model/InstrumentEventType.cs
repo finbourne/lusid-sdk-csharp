@@ -615,7 +615,19 @@ namespace Lusid.Sdk.Model
         /// Enum CommodityForwardPhysicalSettlementEvent for value: CommodityForwardPhysicalSettlementEvent
         /// </summary>
         [EnumMember(Value = "CommodityForwardPhysicalSettlementEvent")]
-        CommodityForwardPhysicalSettlementEvent = 98
+        CommodityForwardPhysicalSettlementEvent = 98,
+
+        /// <summary>
+        /// Enum CancelSwapEvent for value: CancelSwapEvent
+        /// </summary>
+        [EnumMember(Value = "CancelSwapEvent")]
+        CancelSwapEvent = 99,
+
+        /// <summary>
+        /// Enum BondOptionTerminationEvent for value: BondOptionTerminationEvent
+        /// </summary>
+        [EnumMember(Value = "BondOptionTerminationEvent")]
+        BondOptionTerminationEvent = 100
     }
 
 }

@@ -164,7 +164,13 @@ namespace Lusid.Sdk.Model
         /// Enum FlexibleRepoSimplePricer for value: FlexibleRepoSimplePricer
         /// </summary>
         [EnumMember(Value = "FlexibleRepoSimplePricer")]
-        FlexibleRepoSimplePricer = 23
+        FlexibleRepoSimplePricer = 23,
+
+        /// <summary>
+        /// Enum InflationForward for value: InflationForward
+        /// </summary>
+        [EnumMember(Value = "InflationForward")]
+        InflationForward = 24
     }
 
 }

@@ -1,29 +1,31 @@
-# Lusid.Sdk.Model.CommodityForwardCashSettlementEvent
-Cash settlement of a cash-delivery CommodityForward at maturity. The cash flow per unit is the  pre-netted settlement price (forward price minus strike) supplied externally via the quote store;  LUSID does not compute the difference itself. A negative cash flow per unit is valid and means the  position was out of the money at settlement.
+# Lusid.Sdk.Model.BondOptionTerminationEvent
+Bond option termination — the underlying bond of a BondOption was redeemed early (called), which  terminates the option and settles its residual intrinsic value against the price the underlying was  actually called at. Posted against the option's own instrument by the feed or orchestration layer:  LUSID does not derive it from the underlying's own EarlyRedemptionEvent, because the corporate action  dependency graph is self-keyed by LUID.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InstrumentEventType** | **string** | The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent. | 
-**MaturityDate** | **DateTimeOffset** | The single settlement / maturity date of the forward. Required. | [optional] 
-**DomCcy** | **string** | Settlement currency of the forward. Required. | 
-**CashFlowPerUnit** | **decimal?** | The pre-netted settlement amount per unit (current forward price minus strike), supplied  externally via the quote store. Optional — absent until the settlement price has been loaded.  Negative when the position is out of the money. | [optional] 
-**CashFlowAmount** | **decimal?** | The realised cash amount, calculated as CashFlowPerUnit multiplied by the eligible balance.  Optional — it needs holdings-level data so it is never populated by the instrument layer.  Carries the sign of CashFlowPerUnit. | [optional] 
-**Strike** | **decimal?** | Agreed forward price at trade inception. Optional, and reference only — it is not used in the  settlement calculation; it is carried for auditability. | [optional] 
+**TerminationDate** | **DateTimeOffset** | The date the option terminates, being the effective date of the underlying bond&#39;s early redemption. | [optional] 
+**CallPrice** | **decimal** | The price the underlying bond was actually redeemed at, as a percentage of par. Must be supplied:  it comes from the underlying&#39;s own redemption and cannot be inferred from the option. | 
+**SettlementCurrency** | **string** | The currency the residual settlement is paid in, being the option&#39;s domestic currency. | 
+**DomCcy** | **string** | The domestic currency of the option. | 
+**SettlementAmountPerUnit** | **decimal?** | The residual intrinsic value settled per contract. Computed by LUSID from the call price and the  option&#39;s strike and contract size, so it is not supplied on the request; zero is a legitimate value  when the option terminates worthless. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
+decimal callPrice = "callPrice";
 
+string settlementCurrency = "settlementCurrency";
 string domCcy = "domCcy";
 
-CommodityForwardCashSettlementEvent commodityForwardCashSettlementEventInstance = new CommodityForwardCashSettlementEvent(
-    maturityDate: maturityDate,
+BondOptionTerminationEvent bondOptionTerminationEventInstance = new BondOptionTerminationEvent(
+    terminationDate: terminationDate,
+    callPrice: callPrice,
+    settlementCurrency: settlementCurrency,
     domCcy: domCcy,
-    cashFlowPerUnit: cashFlowPerUnit,
-    cashFlowAmount: cashFlowAmount,
-    strike: strike);
+    settlementAmountPerUnit: settlementAmountPerUnit);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

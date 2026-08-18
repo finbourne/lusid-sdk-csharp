@@ -49,8 +49,9 @@ namespace Lusid.Sdk.Model
         /// <param name="securityOfferElections">Possible SecurityElections for this Bonus Issue event, if any..</param>
         /// <param name="cashOfferElections">Possible CashOfferElections for this Bonus Issue event, if any..</param>
         /// <param name="lapseElections">Possible LapseElections for this Bonus Issue event, if any..</param>
-        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent. (required) (default to &quot;BonusIssueEvent&quot;).</param>
-        public BonusIssueEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset paymentDate = default(DateTimeOffset), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), string fractionalUnitsRoundingConvention = default(string), int? fractionalUnitsDecimalPlaces = default(int?), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), List<LapseElection> lapseElections = default(List<LapseElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="mixedLotConstituentsElections">Possible MixedLotConstituentsElections for this Bonus Issue event, if any. Each election carries one or more  new securities credited alongside the retained original position (retain-and-add)..</param>
+        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent. (required) (default to &quot;BonusIssueEvent&quot;).</param>
+        public BonusIssueEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset paymentDate = default(DateTimeOffset), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), string fractionalUnitsRoundingConvention = default(string), int? fractionalUnitsDecimalPlaces = default(int?), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), List<LapseElection> lapseElections = default(List<LapseElection>), List<MixedLotConstituentsElection> mixedLotConstituentsElections = default(List<MixedLotConstituentsElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.AnnouncementDate = announcementDate;
             this.ExDate = exDate;
@@ -63,6 +64,7 @@ namespace Lusid.Sdk.Model
             this.SecurityOfferElections = securityOfferElections;
             this.CashOfferElections = cashOfferElections;
             this.LapseElections = lapseElections;
+            this.MixedLotConstituentsElections = mixedLotConstituentsElections;
         }
 
         /// <summary>
@@ -143,6 +145,13 @@ namespace Lusid.Sdk.Model
         public List<LapseElection> LapseElections { get; set; }
 
         /// <summary>
+        /// Possible MixedLotConstituentsElections for this Bonus Issue event, if any. Each election carries one or more  new securities credited alongside the retained original position (retain-and-add).
+        /// </summary>
+        /// <value>Possible MixedLotConstituentsElections for this Bonus Issue event, if any. Each election carries one or more  new securities credited alongside the retained original position (retain-and-add).</value>
+        [DataMember(Name = "mixedLotConstituentsElections", EmitDefaultValue = true)]
+        public List<MixedLotConstituentsElection> MixedLotConstituentsElections { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -162,6 +171,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  SecurityOfferElections: ").Append(SecurityOfferElections).Append("\n");
             sb.Append("  CashOfferElections: ").Append(CashOfferElections).Append("\n");
             sb.Append("  LapseElections: ").Append(LapseElections).Append("\n");
+            sb.Append("  MixedLotConstituentsElections: ").Append(MixedLotConstituentsElections).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -254,6 +264,12 @@ namespace Lusid.Sdk.Model
                     this.LapseElections != null &&
                     input.LapseElections != null &&
                     this.LapseElections.SequenceEqual(input.LapseElections)
+                ) && base.Equals(input) && 
+                (
+                    this.MixedLotConstituentsElections == input.MixedLotConstituentsElections ||
+                    this.MixedLotConstituentsElections != null &&
+                    input.MixedLotConstituentsElections != null &&
+                    this.MixedLotConstituentsElections.SequenceEqual(input.MixedLotConstituentsElections)
                 );
         }
 
@@ -309,6 +325,10 @@ namespace Lusid.Sdk.Model
                 if (this.LapseElections != null)
                 {
                     hashCode = (hashCode * 59) + this.LapseElections.GetHashCode();
+                }
+                if (this.MixedLotConstituentsElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.MixedLotConstituentsElections.GetHashCode();
                 }
                 return hashCode;
             }
