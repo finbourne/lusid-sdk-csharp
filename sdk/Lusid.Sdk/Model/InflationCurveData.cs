@@ -24,65 +24,85 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Market Data for an equity vol surface, represented by a list of instruments and corresponding market quotes
+    /// Market data for an inflation curve, represented by a list of zero-coupon inflation swap  instruments and corresponding market quotes.
     /// </summary>
-    [DataContract(Name = "EquityVolSurfaceData")]
+    [DataContract(Name = "InflationCurveData")]
     [JsonConverter(typeof(JsonSubtypes), "MarketDataType")]
-    public partial class EquityVolSurfaceData : ComplexMarketData, IEquatable<EquityVolSurfaceData>, IValidatableObject
+    public partial class InflationCurveData : ComplexMarketData, IEquatable<InflationCurveData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EquityVolSurfaceData" /> class.
+        /// Initializes a new instance of the <see cref="InflationCurveData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected EquityVolSurfaceData() { }
+        protected InflationCurveData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="EquityVolSurfaceData" /> class.
+        /// Initializes a new instance of the <see cref="InflationCurveData" /> class.
         /// </summary>
-        /// <param name="baseDate">Base date of the surface (required).</param>
-        /// <param name="instruments">The set of instruments that define the surface. (required).</param>
-        /// <param name="quotes">The set of market quotes that define the surface, in NormalVol or LogNormalVol terms. (required).</param>
+        /// <param name="buildDate">Build date of the curve - this is the reference date for resolution of the swap constituents. (required).</param>
+        /// <param name="instruments">The set of instruments that define the curve.  The only supported instrument type is: [InflationSwap]. (required).</param>
+        /// <param name="quotes">The market quotes corresponding to the the instruments used to define the curve (required).</param>
+        /// <param name="seasonalFactors">Optional multiplicative seasonal adjustment factors, one per calendar month starting from January.  If provided there must be exactly 12 factors..</param>
+        /// <param name="outputType">What the values of the built curve represent.  Supported string (enumeration) values are: [Level, Ratio].  Defaults to \&quot;Level\&quot; if not provided..</param>
         /// <param name="lineage">Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;..</param>
+        /// <param name="marketDataOptions">marketDataOptions.</param>
         /// <param name="varVersion">varVersion.</param>
-        /// <param name="marketDataType">Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData. (required) (default to &quot;EquityVolSurfaceData&quot;).</param>
-        public EquityVolSurfaceData(DateTimeOffset baseDate = default(DateTimeOffset), List<LusidInstrument> instruments = default(List<LusidInstrument>), List<MarketQuote> quotes = default(List<MarketQuote>), string lineage = default(string), ModelVersion varVersion = default(ModelVersion), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
+        /// <param name="marketDataType">Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData. (required) (default to &quot;InflationCurveData&quot;).</param>
+        public InflationCurveData(DateTimeOffset buildDate = default(DateTimeOffset), List<LusidInstrument> instruments = default(List<LusidInstrument>), List<MarketQuote> quotes = default(List<MarketQuote>), List<decimal> seasonalFactors = default(List<decimal>), string outputType = default(string), string lineage = default(string), MarketDataOptions marketDataOptions = default(MarketDataOptions), ModelVersion varVersion = default(ModelVersion), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
         {
-            this.BaseDate = baseDate;
+            this.BuildDate = buildDate;
             // to ensure "instruments" is required (not null)
             if (instruments == null)
             {
-                throw new ArgumentNullException("instruments is a required property for EquityVolSurfaceData and cannot be null");
+                throw new ArgumentNullException("instruments is a required property for InflationCurveData and cannot be null");
             }
             this.Instruments = instruments;
             // to ensure "quotes" is required (not null)
             if (quotes == null)
             {
-                throw new ArgumentNullException("quotes is a required property for EquityVolSurfaceData and cannot be null");
+                throw new ArgumentNullException("quotes is a required property for InflationCurveData and cannot be null");
             }
             this.Quotes = quotes;
+            this.SeasonalFactors = seasonalFactors;
+            this.OutputType = outputType;
             this.Lineage = lineage;
+            this.MarketDataOptions = marketDataOptions;
             this.VarVersion = varVersion;
         }
 
         /// <summary>
-        /// Base date of the surface
+        /// Build date of the curve - this is the reference date for resolution of the swap constituents.
         /// </summary>
-        /// <value>Base date of the surface</value>
-        [DataMember(Name = "baseDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset BaseDate { get; set; }
+        /// <value>Build date of the curve - this is the reference date for resolution of the swap constituents.</value>
+        [DataMember(Name = "buildDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset BuildDate { get; set; }
 
         /// <summary>
-        /// The set of instruments that define the surface.
+        /// The set of instruments that define the curve.  The only supported instrument type is: [InflationSwap].
         /// </summary>
-        /// <value>The set of instruments that define the surface.</value>
+        /// <value>The set of instruments that define the curve.  The only supported instrument type is: [InflationSwap].</value>
         [DataMember(Name = "instruments", IsRequired = true, EmitDefaultValue = true)]
         public List<LusidInstrument> Instruments { get; set; }
 
         /// <summary>
-        /// The set of market quotes that define the surface, in NormalVol or LogNormalVol terms.
+        /// The market quotes corresponding to the the instruments used to define the curve
         /// </summary>
-        /// <value>The set of market quotes that define the surface, in NormalVol or LogNormalVol terms.</value>
+        /// <value>The market quotes corresponding to the the instruments used to define the curve</value>
         [DataMember(Name = "quotes", IsRequired = true, EmitDefaultValue = true)]
         public List<MarketQuote> Quotes { get; set; }
+
+        /// <summary>
+        /// Optional multiplicative seasonal adjustment factors, one per calendar month starting from January.  If provided there must be exactly 12 factors.
+        /// </summary>
+        /// <value>Optional multiplicative seasonal adjustment factors, one per calendar month starting from January.  If provided there must be exactly 12 factors.</value>
+        [DataMember(Name = "seasonalFactors", EmitDefaultValue = true)]
+        public List<decimal> SeasonalFactors { get; set; }
+
+        /// <summary>
+        /// What the values of the built curve represent.  Supported string (enumeration) values are: [Level, Ratio].  Defaults to \&quot;Level\&quot; if not provided.
+        /// </summary>
+        /// <value>What the values of the built curve represent.  Supported string (enumeration) values are: [Level, Ratio].  Defaults to \&quot;Level\&quot; if not provided.</value>
+        [DataMember(Name = "outputType", EmitDefaultValue = true)]
+        public string OutputType { get; set; }
 
         /// <summary>
         /// Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;.
@@ -90,6 +110,12 @@ namespace Lusid.Sdk.Model
         /// <value>Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;.</value>
         [DataMember(Name = "lineage", EmitDefaultValue = true)]
         public string Lineage { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MarketDataOptions
+        /// </summary>
+        [DataMember(Name = "marketDataOptions", EmitDefaultValue = false)]
+        public MarketDataOptions MarketDataOptions { get; set; }
 
         /// <summary>
         /// Gets or Sets VarVersion
@@ -104,12 +130,15 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class EquityVolSurfaceData {\n");
+            sb.Append("class InflationCurveData {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  BaseDate: ").Append(BaseDate).Append("\n");
+            sb.Append("  BuildDate: ").Append(BuildDate).Append("\n");
             sb.Append("  Instruments: ").Append(Instruments).Append("\n");
             sb.Append("  Quotes: ").Append(Quotes).Append("\n");
+            sb.Append("  SeasonalFactors: ").Append(SeasonalFactors).Append("\n");
+            sb.Append("  OutputType: ").Append(OutputType).Append("\n");
             sb.Append("  Lineage: ").Append(Lineage).Append("\n");
+            sb.Append("  MarketDataOptions: ").Append(MarketDataOptions).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -131,15 +160,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as EquityVolSurfaceData);
+            return this.Equals(input as InflationCurveData);
         }
 
         /// <summary>
-        /// Returns true if EquityVolSurfaceData instances are equal
+        /// Returns true if InflationCurveData instances are equal
         /// </summary>
-        /// <param name="input">Instance of EquityVolSurfaceData to be compared</param>
+        /// <param name="input">Instance of InflationCurveData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(EquityVolSurfaceData input)
+        public bool Equals(InflationCurveData input)
         {
             if (input == null)
             {
@@ -147,9 +176,9 @@ namespace Lusid.Sdk.Model
             }
             return base.Equals(input) && 
                 (
-                    this.BaseDate == input.BaseDate ||
-                    (this.BaseDate != null &&
-                    this.BaseDate.Equals(input.BaseDate))
+                    this.BuildDate == input.BuildDate ||
+                    (this.BuildDate != null &&
+                    this.BuildDate.Equals(input.BuildDate))
                 ) && base.Equals(input) && 
                 (
                     this.Instruments == input.Instruments ||
@@ -164,9 +193,25 @@ namespace Lusid.Sdk.Model
                     this.Quotes.SequenceEqual(input.Quotes)
                 ) && base.Equals(input) && 
                 (
+                    this.SeasonalFactors == input.SeasonalFactors ||
+                    this.SeasonalFactors != null &&
+                    input.SeasonalFactors != null &&
+                    this.SeasonalFactors.SequenceEqual(input.SeasonalFactors)
+                ) && base.Equals(input) && 
+                (
+                    this.OutputType == input.OutputType ||
+                    (this.OutputType != null &&
+                    this.OutputType.Equals(input.OutputType))
+                ) && base.Equals(input) && 
+                (
                     this.Lineage == input.Lineage ||
                     (this.Lineage != null &&
                     this.Lineage.Equals(input.Lineage))
+                ) && base.Equals(input) && 
+                (
+                    this.MarketDataOptions == input.MarketDataOptions ||
+                    (this.MarketDataOptions != null &&
+                    this.MarketDataOptions.Equals(input.MarketDataOptions))
                 ) && base.Equals(input) && 
                 (
                     this.VarVersion == input.VarVersion ||
@@ -184,9 +229,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
-                if (this.BaseDate != null)
+                if (this.BuildDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.BaseDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.BuildDate.GetHashCode();
                 }
                 if (this.Instruments != null)
                 {
@@ -196,9 +241,21 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Quotes.GetHashCode();
                 }
+                if (this.SeasonalFactors != null)
+                {
+                    hashCode = (hashCode * 59) + this.SeasonalFactors.GetHashCode();
+                }
+                if (this.OutputType != null)
+                {
+                    hashCode = (hashCode * 59) + this.OutputType.GetHashCode();
+                }
                 if (this.Lineage != null)
                 {
                     hashCode = (hashCode * 59) + this.Lineage.GetHashCode();
+                }
+                if (this.MarketDataOptions != null)
+                {
+                    hashCode = (hashCode * 59) + this.MarketDataOptions.GetHashCode();
                 }
                 if (this.VarVersion != null)
                 {

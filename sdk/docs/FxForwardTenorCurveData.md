@@ -5,7 +5,7 @@ Contains data (i.e. tenors and rates + metadata) for building fx forward curves 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MarketDataType** | **string** | Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface. | 
+**MarketDataType** | **string** | Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData. | 
 **BaseDate** | **DateTimeOffset** | EffectiveAt date of the quoted rates | 
 **DomCcy** | **string** | Domestic currency of the fx forward | 
 **FgnCcy** | **string** | Foreign currency of the fx forward | 
