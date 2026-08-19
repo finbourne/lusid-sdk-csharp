@@ -39,15 +39,17 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="FundShareClass" /> class.
         /// </summary>
         /// <param name="shortCode">A short identifier, unique across a single fund, usually made up of the ShareClass components. Eg \&quot;A Accumulation Euro Hedged Class\&quot; could become \&quot;A Acc H EUR\&quot;. (required).</param>
-        /// <param name="fundShareClassType">The type of distribution that the ShareClass will calculate. Can be either &#39;Income&#39; or &#39;Accumulation&#39; - Income classes will pay out and Accumulation classes will retain their ShareClass attributable income. Available values: Income, Accumulation. (required).</param>
-        /// <param name="distributionPaymentType">The tax treatment applied to any distributions calculated within the ShareClass. Can be either &#39;Net&#39; (Distribution Calculated net of tax) or &#39;Gross&#39; (Distribution calculated gross of tax). Available values: Invalid, Gross, Net. (required).</param>
-        /// <param name="hedging">A flag to indicate the ShareClass is operating currency hedging as a means to limit currency risk as part of its investment strategy. Available values: Invalid, None, ApplyHedging. (required).</param>
+        /// <param name="fundShareClassType">The type of distribution that the ShareClass will calculate. Can be either &#39;Income&#39; or &#39;Accumulation&#39; - Income classes will pay out and Accumulation classes will retain their ShareClass attributable income. Available values: Income, Accumulation..</param>
+        /// <param name="distributionPaymentType">The tax treatment applied to any distributions calculated within the ShareClass. Can be either &#39;Net&#39; (Distribution Calculated net of tax) or &#39;Gross&#39; (Distribution calculated gross of tax). Available values: Invalid, Gross, Net..</param>
+        /// <param name="distributionType">The type of distribution calculated for the ShareClass. Can be either &#39;Income&#39; or &#39;Accumulation&#39;. Available values: Income, Accumulation..</param>
+        /// <param name="hedging">A flag to indicate the ShareClass is operating currency hedging as a means to limit currency risk as part of its investment strategy. Available values: Invalid, None, ApplyHedging..</param>
         /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
         /// <param name="roundingConventions">Rounding Convention used for the FundShareClass quotes.</param>
+        /// <param name="roundingConventionUnits">Rounding Conventions used for the FundShareClass units.</param>
         /// <param name="tradingConventions">tradingConventions.</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap. (required) (default to &quot;FundShareClass&quot;).</param>
-        public FundShareClass(string shortCode = default(string), string fundShareClassType = default(string), string distributionPaymentType = default(string), string hedging = default(string), string domCcy = default(string), List<SimpleRoundingConvention> roundingConventions = default(List<SimpleRoundingConvention>), TradingConventions tradingConventions = default(TradingConventions), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public FundShareClass(string shortCode = default(string), string fundShareClassType = default(string), string distributionPaymentType = default(string), string distributionType = default(string), string hedging = default(string), string domCcy = default(string), List<SimpleRoundingConvention> roundingConventions = default(List<SimpleRoundingConvention>), List<SimpleRoundingConvention> roundingConventionUnits = default(List<SimpleRoundingConvention>), TradingConventions tradingConventions = default(TradingConventions), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             // to ensure "shortCode" is required (not null)
             if (shortCode == null)
@@ -55,31 +57,18 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("shortCode is a required property for FundShareClass and cannot be null");
             }
             this.ShortCode = shortCode;
-            // to ensure "fundShareClassType" is required (not null)
-            if (fundShareClassType == null)
-            {
-                throw new ArgumentNullException("fundShareClassType is a required property for FundShareClass and cannot be null");
-            }
-            this.FundShareClassType = fundShareClassType;
-            // to ensure "distributionPaymentType" is required (not null)
-            if (distributionPaymentType == null)
-            {
-                throw new ArgumentNullException("distributionPaymentType is a required property for FundShareClass and cannot be null");
-            }
-            this.DistributionPaymentType = distributionPaymentType;
-            // to ensure "hedging" is required (not null)
-            if (hedging == null)
-            {
-                throw new ArgumentNullException("hedging is a required property for FundShareClass and cannot be null");
-            }
-            this.Hedging = hedging;
             // to ensure "domCcy" is required (not null)
             if (domCcy == null)
             {
                 throw new ArgumentNullException("domCcy is a required property for FundShareClass and cannot be null");
             }
             this.DomCcy = domCcy;
+            this.FundShareClassType = fundShareClassType;
+            this.DistributionPaymentType = distributionPaymentType;
+            this.DistributionType = distributionType;
+            this.Hedging = hedging;
             this.RoundingConventions = roundingConventions;
+            this.RoundingConventionUnits = roundingConventionUnits;
             this.TradingConventions = tradingConventions;
             this.TimeZoneConventions = timeZoneConventions;
         }
@@ -95,21 +84,28 @@ namespace Lusid.Sdk.Model
         /// The type of distribution that the ShareClass will calculate. Can be either &#39;Income&#39; or &#39;Accumulation&#39; - Income classes will pay out and Accumulation classes will retain their ShareClass attributable income. Available values: Income, Accumulation.
         /// </summary>
         /// <value>The type of distribution that the ShareClass will calculate. Can be either &#39;Income&#39; or &#39;Accumulation&#39; - Income classes will pay out and Accumulation classes will retain their ShareClass attributable income. Available values: Income, Accumulation.</value>
-        [DataMember(Name = "fundShareClassType", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "fundShareClassType", EmitDefaultValue = true)]
         public string FundShareClassType { get; set; }
 
         /// <summary>
         /// The tax treatment applied to any distributions calculated within the ShareClass. Can be either &#39;Net&#39; (Distribution Calculated net of tax) or &#39;Gross&#39; (Distribution calculated gross of tax). Available values: Invalid, Gross, Net.
         /// </summary>
         /// <value>The tax treatment applied to any distributions calculated within the ShareClass. Can be either &#39;Net&#39; (Distribution Calculated net of tax) or &#39;Gross&#39; (Distribution calculated gross of tax). Available values: Invalid, Gross, Net.</value>
-        [DataMember(Name = "distributionPaymentType", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "distributionPaymentType", EmitDefaultValue = true)]
         public string DistributionPaymentType { get; set; }
+
+        /// <summary>
+        /// The type of distribution calculated for the ShareClass. Can be either &#39;Income&#39; or &#39;Accumulation&#39;. Available values: Income, Accumulation.
+        /// </summary>
+        /// <value>The type of distribution calculated for the ShareClass. Can be either &#39;Income&#39; or &#39;Accumulation&#39;. Available values: Income, Accumulation.</value>
+        [DataMember(Name = "distributionType", EmitDefaultValue = true)]
+        public string DistributionType { get; set; }
 
         /// <summary>
         /// A flag to indicate the ShareClass is operating currency hedging as a means to limit currency risk as part of its investment strategy. Available values: Invalid, None, ApplyHedging.
         /// </summary>
         /// <value>A flag to indicate the ShareClass is operating currency hedging as a means to limit currency risk as part of its investment strategy. Available values: Invalid, None, ApplyHedging.</value>
-        [DataMember(Name = "hedging", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "hedging", EmitDefaultValue = true)]
         public string Hedging { get; set; }
 
         /// <summary>
@@ -125,6 +121,13 @@ namespace Lusid.Sdk.Model
         /// <value>Rounding Convention used for the FundShareClass quotes</value>
         [DataMember(Name = "roundingConventions", EmitDefaultValue = true)]
         public List<SimpleRoundingConvention> RoundingConventions { get; set; }
+
+        /// <summary>
+        /// Rounding Conventions used for the FundShareClass units
+        /// </summary>
+        /// <value>Rounding Conventions used for the FundShareClass units</value>
+        [DataMember(Name = "roundingConventionUnits", EmitDefaultValue = true)]
+        public List<SimpleRoundingConvention> RoundingConventionUnits { get; set; }
 
         /// <summary>
         /// Gets or Sets TradingConventions
@@ -150,9 +153,11 @@ namespace Lusid.Sdk.Model
             sb.Append("  ShortCode: ").Append(ShortCode).Append("\n");
             sb.Append("  FundShareClassType: ").Append(FundShareClassType).Append("\n");
             sb.Append("  DistributionPaymentType: ").Append(DistributionPaymentType).Append("\n");
+            sb.Append("  DistributionType: ").Append(DistributionType).Append("\n");
             sb.Append("  Hedging: ").Append(Hedging).Append("\n");
             sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
             sb.Append("  RoundingConventions: ").Append(RoundingConventions).Append("\n");
+            sb.Append("  RoundingConventionUnits: ").Append(RoundingConventionUnits).Append("\n");
             sb.Append("  TradingConventions: ").Append(TradingConventions).Append("\n");
             sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
@@ -206,6 +211,11 @@ namespace Lusid.Sdk.Model
                     this.DistributionPaymentType.Equals(input.DistributionPaymentType))
                 ) && base.Equals(input) && 
                 (
+                    this.DistributionType == input.DistributionType ||
+                    (this.DistributionType != null &&
+                    this.DistributionType.Equals(input.DistributionType))
+                ) && base.Equals(input) && 
+                (
                     this.Hedging == input.Hedging ||
                     (this.Hedging != null &&
                     this.Hedging.Equals(input.Hedging))
@@ -220,6 +230,12 @@ namespace Lusid.Sdk.Model
                     this.RoundingConventions != null &&
                     input.RoundingConventions != null &&
                     this.RoundingConventions.SequenceEqual(input.RoundingConventions)
+                ) && base.Equals(input) && 
+                (
+                    this.RoundingConventionUnits == input.RoundingConventionUnits ||
+                    this.RoundingConventionUnits != null &&
+                    input.RoundingConventionUnits != null &&
+                    this.RoundingConventionUnits.SequenceEqual(input.RoundingConventionUnits)
                 ) && base.Equals(input) && 
                 (
                     this.TradingConventions == input.TradingConventions ||
@@ -254,6 +270,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.DistributionPaymentType.GetHashCode();
                 }
+                if (this.DistributionType != null)
+                {
+                    hashCode = (hashCode * 59) + this.DistributionType.GetHashCode();
+                }
                 if (this.Hedging != null)
                 {
                     hashCode = (hashCode * 59) + this.Hedging.GetHashCode();
@@ -265,6 +285,10 @@ namespace Lusid.Sdk.Model
                 if (this.RoundingConventions != null)
                 {
                     hashCode = (hashCode * 59) + this.RoundingConventions.GetHashCode();
+                }
+                if (this.RoundingConventionUnits != null)
+                {
+                    hashCode = (hashCode * 59) + this.RoundingConventionUnits.GetHashCode();
                 }
                 if (this.TradingConventions != null)
                 {
@@ -303,24 +327,6 @@ namespace Lusid.Sdk.Model
             if (this.ShortCode != null && this.ShortCode.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortCode, length must be greater than 1.", new [] { "ShortCode" });
-            }
-
-            // FundShareClassType (string) minLength
-            if (this.FundShareClassType != null && this.FundShareClassType.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FundShareClassType, length must be greater than 1.", new [] { "FundShareClassType" });
-            }
-
-            // DistributionPaymentType (string) minLength
-            if (this.DistributionPaymentType != null && this.DistributionPaymentType.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DistributionPaymentType, length must be greater than 1.", new [] { "DistributionPaymentType" });
-            }
-
-            // Hedging (string) minLength
-            if (this.Hedging != null && this.Hedging.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Hedging, length must be greater than 1.", new [] { "Hedging" });
             }
 
             yield break;

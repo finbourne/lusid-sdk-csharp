@@ -37,8 +37,8 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="OrderGraphPlacementPlacementSynopsis" /> class.
         /// </summary>
         /// <param name="details">Identifiers for each child placement for this placement. (required).</param>
-        /// <param name="quantity">Total number of units placed..</param>
-        /// <param name="amount">Total monetary value placed, in the block currency..</param>
+        /// <param name="quantity">Total number of units placed. Null where the placement is sized by amount..</param>
+        /// <param name="amount">Total monetary value placed, in the block currency. Null where the placement has no amount..</param>
         public OrderGraphPlacementPlacementSynopsis(List<OrderGraphPlacementChildPlacementDetail> details = default(List<OrderGraphPlacementChildPlacementDetail>), decimal? quantity = default(decimal?), decimal? amount = default(decimal?))
         {
             // to ensure "details" is required (not null)
@@ -59,16 +59,16 @@ namespace Lusid.Sdk.Model
         public List<OrderGraphPlacementChildPlacementDetail> Details { get; set; }
 
         /// <summary>
-        /// Total number of units placed.
+        /// Total number of units placed. Null where the placement is sized by amount.
         /// </summary>
-        /// <value>Total number of units placed.</value>
+        /// <value>Total number of units placed. Null where the placement is sized by amount.</value>
         [DataMember(Name = "quantity", EmitDefaultValue = true)]
         public decimal? Quantity { get; set; }
 
         /// <summary>
-        /// Total monetary value placed, in the block currency.
+        /// Total monetary value placed, in the block currency. Null where the placement has no amount.
         /// </summary>
-        /// <value>Total monetary value placed, in the block currency.</value>
+        /// <value>Total monetary value placed, in the block currency. Null where the placement has no amount.</value>
         [DataMember(Name = "amount", EmitDefaultValue = true)]
         public decimal? Amount { get; set; }
 

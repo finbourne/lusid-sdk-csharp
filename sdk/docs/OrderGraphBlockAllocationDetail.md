@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Id** | [**ResourceId**](ResourceId.md) |  | 
 **AllocatedOrderId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Quantity** | **decimal** | The quantity of this allocation, with direction relative to the containing block. | 
+**Amount** | **decimal?** | The amount of this allocation, derived from the quantity and price of the allocation. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -20,7 +21,8 @@ decimal quantity = "quantity";
 OrderGraphBlockAllocationDetail orderGraphBlockAllocationDetailInstance = new OrderGraphBlockAllocationDetail(
     id: id,
     allocatedOrderId: allocatedOrderId,
-    quantity: quantity);
+    quantity: quantity,
+    amount: amount);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

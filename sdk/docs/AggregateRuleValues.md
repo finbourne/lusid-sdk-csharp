@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **LeftValue** | **string** | The left-side value. | [optional] 
 **RightValue** | **string** | The right-side value. | [optional] 
 **Difference** | **string** | The measured magnitude of the difference, ToString(ABS(leftValue - rightValue)). | 
-**AppliedTolerance** | [**AggregateToleranceBase**](AggregateToleranceBase.md) |  | [optional] 
+**AppliedTolerance** | [**ToleranceBase**](ToleranceBase.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -19,7 +19,7 @@ string ruleName = "ruleName";
 string leftValue = "example leftValue";
 string rightValue = "example rightValue";
 string difference = "difference";
-AggregateToleranceBase? appliedTolerance = new AggregateToleranceBase();
+ToleranceBase? appliedTolerance = new ToleranceBase();
 
 
 AggregateRuleValues aggregateRuleValuesInstance = new AggregateRuleValues(

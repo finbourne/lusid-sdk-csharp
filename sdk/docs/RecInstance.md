@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **Id** | [**RecInstanceId**](RecInstanceId.md) |  | 
 **RecDefinitionId** | [**ResourceId**](ResourceId.md) |  | 
 **AsAtInstantiated** | **DateTimeOffset** | The asAt datetime at which the instance was first created. | 
-**WorkflowTaskInstantiated** | [**RecWorkflowTask**](RecWorkflowTask.md) |  | [optional] 
 **Status** | **string** | The instance-level lifecycle rollup. Available values: Running, Failures, ReviewAndApproval, AllApproved, Locked. | 
 **AsAtLocked** | **DateTimeOffset?** | The wall-clock time the lock action was performed. Null when the instance has not been locked. | [optional] 
 **DatesLocked** | [**RecDatesReconciled**](RecDatesReconciled.md) |  | [optional] 
@@ -24,8 +23,6 @@ using System;
 
 RecInstanceId id = new RecInstanceId();
 ResourceId recDefinitionId = new ResourceId();
-RecWorkflowTask? workflowTaskInstantiated = new RecWorkflowTask();
-
 string status = "status";
 RecDatesReconciled? datesLocked = new RecDatesReconciled();
 
@@ -41,7 +38,6 @@ RecInstance recInstanceInstance = new RecInstance(
     id: id,
     recDefinitionId: recDefinitionId,
     asAtInstantiated: asAtInstantiated,
-    workflowTaskInstantiated: workflowTaskInstantiated,
     status: status,
     asAtLocked: asAtLocked,
     datesLocked: datesLocked,

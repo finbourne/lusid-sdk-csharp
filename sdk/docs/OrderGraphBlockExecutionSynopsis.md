@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Quantity** | **decimal** | Total number of units executed. | 
+**Amount** | **decimal?** | Total monetary value executed, derived from the quantity and price of each execution. | [optional] 
 **Details** | [**List&lt;OrderGraphBlockExecutionDetail&gt;**](OrderGraphBlockExecutionDetail.md) | Identifiers for each execution in this block. | 
 
 ```csharp
@@ -16,6 +17,7 @@ List<OrderGraphBlockExecutionDetail> details = new List<OrderGraphBlockExecution
 
 OrderGraphBlockExecutionSynopsis orderGraphBlockExecutionSynopsisInstance = new OrderGraphBlockExecutionSynopsis(
     quantity: quantity,
+    amount: amount,
     details: details);
 ```
 

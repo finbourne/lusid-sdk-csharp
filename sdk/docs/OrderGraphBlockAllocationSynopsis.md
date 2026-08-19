@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Quantity** | **decimal** | Total number of units allocated. | 
+**Amount** | **decimal?** | Total monetary value allocated, derived from the quantity and price of each allocation. | [optional] 
 **Details** | [**List&lt;OrderGraphBlockAllocationDetail&gt;**](OrderGraphBlockAllocationDetail.md) | Identifiers for each allocation in this block. | 
 
 ```csharp
@@ -16,6 +17,7 @@ List<OrderGraphBlockAllocationDetail> details = new List<OrderGraphBlockAllocati
 
 OrderGraphBlockAllocationSynopsis orderGraphBlockAllocationSynopsisInstance = new OrderGraphBlockAllocationSynopsis(
     quantity: quantity,
+    amount: amount,
     details: details);
 ```
 

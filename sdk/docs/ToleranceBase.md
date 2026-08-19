@@ -1,5 +1,5 @@
-# Lusid.Sdk.Model.CoreToleranceBase
-Abstract base for tolerances that apply to core matching rules. Distinguishes core tolerances from  aggregate tolerances at the type level (both share a common tolerance base).
+# Lusid.Sdk.Model.ToleranceBase
+Base class for the tolerances that relax how strictly a matching rule compares its two sides. Polymorphic  by ToleranceType; each supported type has a corresponding inherited class.
 
 ## Properties
 
@@ -15,7 +15,7 @@ using System;
 string toleranceType = "toleranceType";
 string ruleName = "ruleName";
 
-CoreToleranceBase coreToleranceBaseInstance = new CoreToleranceBase(
+ToleranceBase toleranceBaseInstance = new ToleranceBase(
     toleranceType: toleranceType,
     ruleName: ruleName);
 ```

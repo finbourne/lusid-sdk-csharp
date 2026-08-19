@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="leftValue">The left-side value..</param>
         /// <param name="rightValue">The right-side value..</param>
         /// <param name="appliedTolerance">appliedTolerance.</param>
-        public CoreRuleValues(string ruleName = default(string), string leftValue = default(string), string rightValue = default(string), CoreToleranceBase appliedTolerance = default(CoreToleranceBase))
+        public CoreRuleValues(string ruleName = default(string), string leftValue = default(string), string rightValue = default(string), ToleranceBase appliedTolerance = default(ToleranceBase))
         {
             // to ensure "ruleName" is required (not null)
             if (ruleName == null)
@@ -78,7 +78,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets AppliedTolerance
         /// </summary>
         [DataMember(Name = "appliedTolerance", EmitDefaultValue = false)]
-        public CoreToleranceBase AppliedTolerance { get; set; }
+        public ToleranceBase AppliedTolerance { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

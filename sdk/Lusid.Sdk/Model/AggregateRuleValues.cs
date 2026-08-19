@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="rightValue">The right-side value..</param>
         /// <param name="difference">The measured magnitude of the difference, ToString(ABS(leftValue - rightValue)). (required).</param>
         /// <param name="appliedTolerance">appliedTolerance.</param>
-        public AggregateRuleValues(string ruleName = default(string), string leftValue = default(string), string rightValue = default(string), string difference = default(string), AggregateToleranceBase appliedTolerance = default(AggregateToleranceBase))
+        public AggregateRuleValues(string ruleName = default(string), string leftValue = default(string), string rightValue = default(string), string difference = default(string), ToleranceBase appliedTolerance = default(ToleranceBase))
         {
             // to ensure "ruleName" is required (not null)
             if (ruleName == null)
@@ -92,7 +92,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets AppliedTolerance
         /// </summary>
         [DataMember(Name = "appliedTolerance", EmitDefaultValue = false)]
-        public AggregateToleranceBase AppliedTolerance { get; set; }
+        public ToleranceBase AppliedTolerance { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

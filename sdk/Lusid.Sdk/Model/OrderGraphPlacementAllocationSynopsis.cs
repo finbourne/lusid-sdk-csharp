@@ -37,8 +37,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="OrderGraphPlacementAllocationSynopsis" /> class.
         /// </summary>
         /// <param name="quantity">Total number of units allocated. (required).</param>
+        /// <param name="amount">Total monetary value allocated, derived from the quantity and price of each allocation, in the placement&#39;s amount currency. Null where the placement has no amount, or where an allocation cannot be expressed in that currency..</param>
         /// <param name="details">Identifiers for each allocation in this placement. (required).</param>
-        public OrderGraphPlacementAllocationSynopsis(decimal quantity = default(decimal), List<OrderGraphPlacementAllocationDetail> details = default(List<OrderGraphPlacementAllocationDetail>))
+        public OrderGraphPlacementAllocationSynopsis(decimal quantity = default(decimal), decimal? amount = default(decimal?), List<OrderGraphPlacementAllocationDetail> details = default(List<OrderGraphPlacementAllocationDetail>))
         {
             this.Quantity = quantity;
             // to ensure "details" is required (not null)
@@ -47,6 +48,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("details is a required property for OrderGraphPlacementAllocationSynopsis and cannot be null");
             }
             this.Details = details;
+            this.Amount = amount;
         }
 
         /// <summary>
@@ -55,6 +57,13 @@ namespace Lusid.Sdk.Model
         /// <value>Total number of units allocated.</value>
         [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]
         public decimal Quantity { get; set; }
+
+        /// <summary>
+        /// Total monetary value allocated, derived from the quantity and price of each allocation, in the placement&#39;s amount currency. Null where the placement has no amount, or where an allocation cannot be expressed in that currency.
+        /// </summary>
+        /// <value>Total monetary value allocated, derived from the quantity and price of each allocation, in the placement&#39;s amount currency. Null where the placement has no amount, or where an allocation cannot be expressed in that currency.</value>
+        [DataMember(Name = "amount", EmitDefaultValue = true)]
+        public decimal? Amount { get; set; }
 
         /// <summary>
         /// Identifiers for each allocation in this placement.
@@ -72,6 +81,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class OrderGraphPlacementAllocationSynopsis {\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -113,6 +123,11 @@ namespace Lusid.Sdk.Model
                     this.Quantity.Equals(input.Quantity)
                 ) && 
                 (
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
+                ) && 
+                (
                     this.Details == input.Details ||
                     this.Details != null &&
                     input.Details != null &&
@@ -130,6 +145,10 @@ namespace Lusid.Sdk.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                if (this.Amount != null)
+                {
+                    hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                }
                 if (this.Details != null)
                 {
                     hashCode = (hashCode * 59) + this.Details.GetHashCode();

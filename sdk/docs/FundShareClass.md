@@ -7,11 +7,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InstrumentType** | **string** | Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap. | 
 **ShortCode** | **string** | A short identifier, unique across a single fund, usually made up of the ShareClass components. Eg \&quot;A Accumulation Euro Hedged Class\&quot; could become \&quot;A Acc H EUR\&quot;. | 
-**FundShareClassType** | **string** | The type of distribution that the ShareClass will calculate. Can be either &#39;Income&#39; or &#39;Accumulation&#39; - Income classes will pay out and Accumulation classes will retain their ShareClass attributable income. Available values: Income, Accumulation. | 
-**DistributionPaymentType** | **string** | The tax treatment applied to any distributions calculated within the ShareClass. Can be either &#39;Net&#39; (Distribution Calculated net of tax) or &#39;Gross&#39; (Distribution calculated gross of tax). Available values: Invalid, Gross, Net. | 
-**Hedging** | **string** | A flag to indicate the ShareClass is operating currency hedging as a means to limit currency risk as part of its investment strategy. Available values: Invalid, None, ApplyHedging. | 
+**FundShareClassType** | **string** | The type of distribution that the ShareClass will calculate. Can be either &#39;Income&#39; or &#39;Accumulation&#39; - Income classes will pay out and Accumulation classes will retain their ShareClass attributable income. Available values: Income, Accumulation. | [optional] 
+**DistributionPaymentType** | **string** | The tax treatment applied to any distributions calculated within the ShareClass. Can be either &#39;Net&#39; (Distribution Calculated net of tax) or &#39;Gross&#39; (Distribution calculated gross of tax). Available values: Invalid, Gross, Net. | [optional] 
+**DistributionType** | **string** | The type of distribution calculated for the ShareClass. Can be either &#39;Income&#39; or &#39;Accumulation&#39;. Available values: Income, Accumulation. | [optional] 
+**Hedging** | **string** | A flag to indicate the ShareClass is operating currency hedging as a means to limit currency risk as part of its investment strategy. Available values: Invalid, None, ApplyHedging. | [optional] 
 **DomCcy** | **string** | The domestic currency of the instrument. | 
 **RoundingConventions** | [**List&lt;SimpleRoundingConvention&gt;**](SimpleRoundingConvention.md) | Rounding Convention used for the FundShareClass quotes | [optional] 
+**RoundingConventionUnits** | [**List&lt;SimpleRoundingConvention&gt;**](SimpleRoundingConvention.md) | Rounding Conventions used for the FundShareClass units | [optional] 
 **TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
@@ -20,11 +22,13 @@ using Lusid.Sdk.Model;
 using System;
 
 string shortCode = "shortCode";
-string fundShareClassType = "fundShareClassType";
-string distributionPaymentType = "distributionPaymentType";
-string hedging = "hedging";
+string fundShareClassType = "example fundShareClassType";
+string distributionPaymentType = "example distributionPaymentType";
+string distributionType = "example distributionType";
+string hedging = "example hedging";
 string domCcy = "domCcy";
 List<SimpleRoundingConvention> roundingConventions = new List<SimpleRoundingConvention>();
+List<SimpleRoundingConvention> roundingConventionUnits = new List<SimpleRoundingConvention>();
 TradingConventions? tradingConventions = new TradingConventions();
 
 TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
@@ -34,9 +38,11 @@ FundShareClass fundShareClassInstance = new FundShareClass(
     shortCode: shortCode,
     fundShareClassType: fundShareClassType,
     distributionPaymentType: distributionPaymentType,
+    distributionType: distributionType,
     hedging: hedging,
     domCcy: domCcy,
     roundingConventions: roundingConventions,
+    roundingConventionUnits: roundingConventionUnits,
     tradingConventions: tradingConventions,
     timeZoneConventions: timeZoneConventions);
 ```

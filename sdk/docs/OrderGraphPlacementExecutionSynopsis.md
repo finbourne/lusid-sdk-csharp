@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Quantity** | **decimal** | Total number of units executed. | 
+**Amount** | **decimal?** | Total monetary value executed, derived from the quantity and price of each execution, in the placement&#39;s amount currency. Null where the placement has no amount, or where an execution cannot be expressed in that currency. | [optional] 
 **Details** | [**List&lt;OrderGraphPlacementExecutionDetail&gt;**](OrderGraphPlacementExecutionDetail.md) | Identifiers info for each execution against this placement. | 
 
 ```csharp
@@ -16,6 +17,7 @@ List<OrderGraphPlacementExecutionDetail> details = new List<OrderGraphPlacementE
 
 OrderGraphPlacementExecutionSynopsis orderGraphPlacementExecutionSynopsisInstance = new OrderGraphPlacementExecutionSynopsis(
     quantity: quantity,
+    amount: amount,
     details: details);
 ```
 

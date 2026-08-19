@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Quantity** | **decimal** | Total number of units allocated. | 
+**Amount** | **decimal?** | Total monetary value allocated, derived from the quantity and price of each allocation, in the placement&#39;s amount currency. Null where the placement has no amount, or where an allocation cannot be expressed in that currency. | [optional] 
 **Details** | [**List&lt;OrderGraphPlacementAllocationDetail&gt;**](OrderGraphPlacementAllocationDetail.md) | Identifiers for each allocation in this placement. | 
 
 ```csharp
@@ -16,6 +17,7 @@ List<OrderGraphPlacementAllocationDetail> details = new List<OrderGraphPlacement
 
 OrderGraphPlacementAllocationSynopsis orderGraphPlacementAllocationSynopsisInstance = new OrderGraphPlacementAllocationSynopsis(
     quantity: quantity,
+    amount: amount,
     details: details);
 ```
 

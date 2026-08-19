@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Quantity** | **decimal** | Total number of units booked. | 
+**Amount** | **decimal?** | Total consideration booked, in the block currency. | [optional] 
 **Details** | [**List&lt;OrderGraphBlockTransactionDetail&gt;**](OrderGraphBlockTransactionDetail.md) | Identifiers for each transaction in this block. | 
 
 ```csharp
@@ -16,6 +17,7 @@ List<OrderGraphBlockTransactionDetail> details = new List<OrderGraphBlockTransac
 
 OrderGraphBlockTransactionSynopsis orderGraphBlockTransactionSynopsisInstance = new OrderGraphBlockTransactionSynopsis(
     quantity: quantity,
+    amount: amount,
     details: details);
 ```
 

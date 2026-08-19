@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **RuleName** | **string** | The name of the rule. | 
 **LeftValue** | **string** | The left-side value. | [optional] 
 **RightValue** | **string** | The right-side value. | [optional] 
-**AppliedTolerance** | [**CoreToleranceBase**](CoreToleranceBase.md) |  | [optional] 
+**AppliedTolerance** | [**ToleranceBase**](ToleranceBase.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -17,7 +17,7 @@ using System;
 string ruleName = "ruleName";
 string leftValue = "example leftValue";
 string rightValue = "example rightValue";
-CoreToleranceBase? appliedTolerance = new CoreToleranceBase();
+ToleranceBase? appliedTolerance = new ToleranceBase();
 
 
 CoreRuleValues coreRuleValuesInstance = new CoreRuleValues(
