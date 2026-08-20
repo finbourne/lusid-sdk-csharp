@@ -72,10 +72,22 @@ namespace Lusid.Sdk.Model
         Result0D = 7,
 
         /// <summary>
+        /// Enum Result1D for value: Result1D
+        /// </summary>
+        [EnumMember(Value = "Result1D")]
+        Result1D = 8,
+
+        /// <summary>
+        /// Enum Result2D for value: Result2D
+        /// </summary>
+        [EnumMember(Value = "Result2D")]
+        Result2D = 9,
+
+        /// <summary>
         /// Enum Json for value: Json
         /// </summary>
         [EnumMember(Value = "Json")]
-        Json = 8
+        Json = 10
     }
 
 }

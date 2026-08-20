@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **OrderInstruction** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Package** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Side** | **string** | The client&#39;s representation of the order&#39;s side (buy, sell, short, etc) | [optional] 
+**CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -37,6 +38,8 @@ ResourceId? orderInstruction = new ResourceId();
 ResourceId? package = new ResourceId();
 
 string side = "example side";
+ResourceId? custodianAccountId = new ResourceId();
+
 
 BlockedOrderRequest blockedOrderRequestInstance = new BlockedOrderRequest(
     properties: properties,
@@ -50,7 +53,8 @@ BlockedOrderRequest blockedOrderRequestInstance = new BlockedOrderRequest(
     price: price,
     orderInstruction: orderInstruction,
     package: package,
-    side: side);
+    side: side,
+    custodianAccountId: custodianAccountId);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -57,11 +57,12 @@ namespace Lusid.Sdk.Model
         /// <param name="packageId">packageId.</param>
         /// <param name="weight">The proportion of the total portfolio value ordered for the given instrument ordered..</param>
         /// <param name="amount">amount.</param>
+        /// <param name="custodianAccountId">custodianAccountId.</param>
         /// <param name="dataModelMembership">dataModelMembership.</param>
         /// <param name="derivedComplianceState">The compliance state of the order, derived from pre-trade compliance runs..</param>
         /// <param name="derivedApprovalState">The approval state of the order..</param>
         /// <param name="links">links.</param>
-        public Order(Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), string side = default(string), ResourceId orderBookId = default(ResourceId), ResourceId portfolioId = default(ResourceId), ResourceId id = default(ResourceId), string instrumentScope = default(string), string lusidInstrumentId = default(string), string state = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), ResourceId orderInstructionId = default(ResourceId), ResourceId packageId = default(ResourceId), decimal? weight = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount), DataModelMembership dataModelMembership = default(DataModelMembership), string derivedComplianceState = default(string), string derivedApprovalState = default(string), List<Link> links = default(List<Link>))
+        public Order(Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), string side = default(string), ResourceId orderBookId = default(ResourceId), ResourceId portfolioId = default(ResourceId), ResourceId id = default(ResourceId), string instrumentScope = default(string), string lusidInstrumentId = default(string), string state = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), ResourceId orderInstructionId = default(ResourceId), ResourceId packageId = default(ResourceId), decimal? weight = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount), ResourceId custodianAccountId = default(ResourceId), DataModelMembership dataModelMembership = default(DataModelMembership), string derivedComplianceState = default(string), string derivedApprovalState = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "instrumentIdentifiers" is required (not null)
             if (instrumentIdentifiers == null)
@@ -104,6 +105,7 @@ namespace Lusid.Sdk.Model
             this.PackageId = packageId;
             this.Weight = weight;
             this.Amount = amount;
+            this.CustodianAccountId = custodianAccountId;
             this.DataModelMembership = dataModelMembership;
             this.DerivedComplianceState = derivedComplianceState;
             this.DerivedApprovalState = derivedApprovalState;
@@ -248,6 +250,12 @@ namespace Lusid.Sdk.Model
         public CurrencyAndAmount Amount { get; set; }
 
         /// <summary>
+        /// Gets or Sets CustodianAccountId
+        /// </summary>
+        [DataMember(Name = "custodianAccountId", EmitDefaultValue = false)]
+        public ResourceId CustodianAccountId { get; set; }
+
+        /// <summary>
         /// Gets or Sets DataModelMembership
         /// </summary>
         [DataMember(Name = "dataModelMembership", EmitDefaultValue = false)]
@@ -302,6 +310,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PackageId: ").Append(PackageId).Append("\n");
             sb.Append("  Weight: ").Append(Weight).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  CustodianAccountId: ").Append(CustodianAccountId).Append("\n");
             sb.Append("  DataModelMembership: ").Append(DataModelMembership).Append("\n");
             sb.Append("  DerivedComplianceState: ").Append(DerivedComplianceState).Append("\n");
             sb.Append("  DerivedApprovalState: ").Append(DerivedApprovalState).Append("\n");
@@ -449,6 +458,11 @@ namespace Lusid.Sdk.Model
                     this.Amount.Equals(input.Amount))
                 ) && 
                 (
+                    this.CustodianAccountId == input.CustodianAccountId ||
+                    (this.CustodianAccountId != null &&
+                    this.CustodianAccountId.Equals(input.CustodianAccountId))
+                ) && 
+                (
                     this.DataModelMembership == input.DataModelMembership ||
                     (this.DataModelMembership != null &&
                     this.DataModelMembership.Equals(input.DataModelMembership))
@@ -563,6 +577,10 @@ namespace Lusid.Sdk.Model
                 if (this.Amount != null)
                 {
                     hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                }
+                if (this.CustodianAccountId != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustodianAccountId.GetHashCode();
                 }
                 if (this.DataModelMembership != null)
                 {

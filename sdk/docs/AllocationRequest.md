@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **SettlementCurrencyFxRate** | **decimal?** | The settlement currency to allocation currency FX rate. | [optional] 
 **Counterparty** | **string** | The counterparty for this allocation. | [optional] 
 **ExecutionIds** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The executions associated with this allocation | [optional] 
+**CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -42,6 +43,8 @@ CurrencyAndAmount? price = new CurrencyAndAmount();
 string settlementCurrency = "example settlementCurrency";
 string counterparty = "example counterparty";
 List<ResourceId> executionIds = new List<ResourceId>();
+ResourceId? custodianAccountId = new ResourceId();
+
 
 AllocationRequest allocationRequestInstance = new AllocationRequest(
     properties: properties,
@@ -60,7 +63,8 @@ AllocationRequest allocationRequestInstance = new AllocationRequest(
     settlementCurrency: settlementCurrency,
     settlementCurrencyFxRate: settlementCurrencyFxRate,
     counterparty: counterparty,
-    executionIds: executionIds);
+    executionIds: executionIds,
+    custodianAccountId: custodianAccountId);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -46,10 +46,11 @@ namespace Lusid.Sdk.Model
         /// <param name="basket">basket.</param>
         /// <param name="conventionName">conventionName.</param>
         /// <param name="notional">The notional quantity that applies to both the premium and protection legs. (required).</param>
+        /// <param name="isNonStandard">By default IsNonStandard is false, and the contract follows the IMM convention: the roll and payment  frequencies must be 3M or 6M, and the start and maturity dates are rolled onto IMM dates  (the 20th of March, June, September or December).  If IsNonStandard&#x3D;true, the premium schedule uses the stated start and maturity dates and any payment  frequency is accepted. The payment dates roll back from the maturity, so a term that is not a whole  number of payment periods has a short first period..</param>
         /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven swap.  The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap. (required) (default to &quot;CdsIndex&quot;).</param>
-        public CdsIndex(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), CdsFlowConventions flowConventions = default(CdsFlowConventions), decimal couponRate = default(decimal), Dictionary<string, string> identifiers = default(Dictionary<string, string>), Basket basket = default(Basket), FlowConventionName conventionName = default(FlowConventionName), decimal notional = default(decimal), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public CdsIndex(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), CdsFlowConventions flowConventions = default(CdsFlowConventions), decimal couponRate = default(decimal), Dictionary<string, string> identifiers = default(Dictionary<string, string>), Basket basket = default(Basket), FlowConventionName conventionName = default(FlowConventionName), decimal notional = default(decimal), bool isNonStandard = default(bool), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -64,6 +65,7 @@ namespace Lusid.Sdk.Model
             this.FlowConventions = flowConventions;
             this.Basket = basket;
             this.ConventionName = conventionName;
+            this.IsNonStandard = isNonStandard;
             this.AdditionalPayments = additionalPayments;
             this.TimeZoneConventions = timeZoneConventions;
         }
@@ -122,6 +124,13 @@ namespace Lusid.Sdk.Model
         public decimal Notional { get; set; }
 
         /// <summary>
+        /// By default IsNonStandard is false, and the contract follows the IMM convention: the roll and payment  frequencies must be 3M or 6M, and the start and maturity dates are rolled onto IMM dates  (the 20th of March, June, September or December).  If IsNonStandard&#x3D;true, the premium schedule uses the stated start and maturity dates and any payment  frequency is accepted. The payment dates roll back from the maturity, so a term that is not a whole  number of payment periods has a short first period.
+        /// </summary>
+        /// <value>By default IsNonStandard is false, and the contract follows the IMM convention: the roll and payment  frequencies must be 3M or 6M, and the start and maturity dates are rolled onto IMM dates  (the 20th of March, June, September or December).  If IsNonStandard&#x3D;true, the premium schedule uses the stated start and maturity dates and any payment  frequency is accepted. The payment dates roll back from the maturity, so a term that is not a whole  number of payment periods has a short first period.</value>
+        [DataMember(Name = "isNonStandard", EmitDefaultValue = true)]
+        public bool IsNonStandard { get; set; }
+
+        /// <summary>
         /// Optional additional payments at a given date e.g. to level off an uneven swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.
         /// </summary>
         /// <value>Optional additional payments at a given date e.g. to level off an uneven swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.</value>
@@ -151,6 +160,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Basket: ").Append(Basket).Append("\n");
             sb.Append("  ConventionName: ").Append(ConventionName).Append("\n");
             sb.Append("  Notional: ").Append(Notional).Append("\n");
+            sb.Append("  IsNonStandard: ").Append(IsNonStandard).Append("\n");
             sb.Append("  AdditionalPayments: ").Append(AdditionalPayments).Append("\n");
             sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
@@ -228,6 +238,10 @@ namespace Lusid.Sdk.Model
                     this.Notional.Equals(input.Notional)
                 ) && base.Equals(input) && 
                 (
+                    this.IsNonStandard == input.IsNonStandard ||
+                    this.IsNonStandard.Equals(input.IsNonStandard)
+                ) && base.Equals(input) && 
+                (
                     this.AdditionalPayments == input.AdditionalPayments ||
                     this.AdditionalPayments != null &&
                     input.AdditionalPayments != null &&
@@ -275,6 +289,7 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.ConventionName.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Notional.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsNonStandard.GetHashCode();
                 if (this.AdditionalPayments != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalPayments.GetHashCode();

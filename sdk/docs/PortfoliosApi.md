@@ -19,7 +19,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**GetPortfolioCommands**](PortfoliosApi.md#getportfoliocommands) | **GET** /api/portfolios/{scope}/{code}/commands | GetPortfolioCommands: Get portfolio commands |
 | [**GetPortfolioMetadata**](PortfoliosApi.md#getportfoliometadata) | **GET** /api/portfolios/{scope}/{code}/metadata | GetPortfolioMetadata: Get access metadata rules for a portfolio |
 | [**GetPortfolioProperties**](PortfoliosApi.md#getportfolioproperties) | **GET** /api/portfolios/{scope}/{code}/properties | GetPortfolioProperties: Get portfolio properties |
-| [**GetPortfolioPropertiesTimeSeries**](PortfoliosApi.md#getportfoliopropertiestimeseries) | **GET** /api/portfolios/{scope}/{code}/properties/time-series/batch | [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series |
+| [**GetPortfolioPropertiesTimeSeries**](PortfoliosApi.md#getportfoliopropertiestimeseries) | **GET** /api/portfolios/{scope}/{code}/properties/time-series/batch | GetPortfolioPropertiesTimeSeries: Get portfolio properties time series |
 | [**GetPortfolioPropertyTimeSeries**](PortfoliosApi.md#getportfoliopropertytimeseries) | **GET** /api/portfolios/{scope}/{code}/properties/time-series | GetPortfolioPropertyTimeSeries: Get portfolio property time series |
 | [**GetPortfolioRelations**](PortfoliosApi.md#getportfoliorelations) | **GET** /api/portfolios/{scope}/{code}/relations | [EXPERIMENTAL] GetPortfolioRelations: Get portfolio relations |
 | [**GetPortfolioRelationships**](PortfoliosApi.md#getportfoliorelationships) | **GET** /api/portfolios/{scope}/{code}/relationships | GetPortfolioRelationships: Get portfolio relationships |
@@ -1889,7 +1889,7 @@ catch (ApiException e)
 # **GetPortfolioPropertiesTimeSeries**
 > ResourceListOfPropertyIntervalTimeSeries GetPortfolioPropertiesTimeSeries (string scope, string code, List<string> propertyKeys, string? portfolioEffectiveAt = null, DateTimeOffset? asAt = null, string? filter = null, string? page = null, int? limit = null)
 
-[BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
+GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
 
 Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
 
@@ -1946,7 +1946,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfPropertyIntervalTimeSeries result = apiInstance.GetPortfolioPropertiesTimeSeries(scope, code, propertyKeys, portfolioEffectiveAt, asAt, filter, page, limit, opts: opts);
 
-                // [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
+                // GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
                 ResourceListOfPropertyIntervalTimeSeries result = apiInstance.GetPortfolioPropertiesTimeSeries(scope, code, propertyKeys, portfolioEffectiveAt, asAt, filter, page, limit);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1967,7 +1967,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
+    // GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
     ApiResponse<ResourceListOfPropertyIntervalTimeSeries> response = apiInstance.GetPortfolioPropertiesTimeSeriesWithHttpInfo(scope, code, propertyKeys, portfolioEffectiveAt, asAt, filter, page, limit);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

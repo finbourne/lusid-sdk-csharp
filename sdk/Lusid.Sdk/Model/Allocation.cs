@@ -56,9 +56,10 @@ namespace Lusid.Sdk.Model
         /// <param name="settlementCurrencyFxRate">The settlement currency to allocation currency FX rate..</param>
         /// <param name="counterparty">The counterparty for this allocation..</param>
         /// <param name="executionIds">The executions associated with this allocation.</param>
+        /// <param name="custodianAccountId">custodianAccountId.</param>
         /// <param name="dataModelMembership">dataModelMembership.</param>
         /// <param name="links">links.</param>
-        public Allocation(ResourceId id = default(ResourceId), ResourceId allocatedOrderId = default(ResourceId), ResourceId portfolioId = default(ResourceId), decimal quantity = default(decimal), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string instrumentScope = default(string), string lusidInstrumentId = default(string), List<ResourceId> placementIds = default(List<ResourceId>), string state = default(string), string side = default(string), string type = default(string), DateTimeOffset? settlementDate = default(DateTimeOffset?), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), string settlementCurrency = default(string), decimal? settlementCurrencyFxRate = default(decimal?), string counterparty = default(string), List<ResourceId> executionIds = default(List<ResourceId>), DataModelMembership dataModelMembership = default(DataModelMembership), List<Link> links = default(List<Link>))
+        public Allocation(ResourceId id = default(ResourceId), ResourceId allocatedOrderId = default(ResourceId), ResourceId portfolioId = default(ResourceId), decimal quantity = default(decimal), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string instrumentScope = default(string), string lusidInstrumentId = default(string), List<ResourceId> placementIds = default(List<ResourceId>), string state = default(string), string side = default(string), string type = default(string), DateTimeOffset? settlementDate = default(DateTimeOffset?), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), string settlementCurrency = default(string), decimal? settlementCurrencyFxRate = default(decimal?), string counterparty = default(string), List<ResourceId> executionIds = default(List<ResourceId>), ResourceId custodianAccountId = default(ResourceId), DataModelMembership dataModelMembership = default(DataModelMembership), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -105,6 +106,7 @@ namespace Lusid.Sdk.Model
             this.SettlementCurrencyFxRate = settlementCurrencyFxRate;
             this.Counterparty = counterparty;
             this.ExecutionIds = executionIds;
+            this.CustodianAccountId = custodianAccountId;
             this.DataModelMembership = dataModelMembership;
             this.Links = links;
         }
@@ -245,6 +247,12 @@ namespace Lusid.Sdk.Model
         public List<ResourceId> ExecutionIds { get; set; }
 
         /// <summary>
+        /// Gets or Sets CustodianAccountId
+        /// </summary>
+        [DataMember(Name = "custodianAccountId", EmitDefaultValue = false)]
+        public ResourceId CustodianAccountId { get; set; }
+
+        /// <summary>
         /// Gets or Sets DataModelMembership
         /// </summary>
         [DataMember(Name = "dataModelMembership", EmitDefaultValue = false)]
@@ -284,6 +292,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  SettlementCurrencyFxRate: ").Append(SettlementCurrencyFxRate).Append("\n");
             sb.Append("  Counterparty: ").Append(Counterparty).Append("\n");
             sb.Append("  ExecutionIds: ").Append(ExecutionIds).Append("\n");
+            sb.Append("  CustodianAccountId: ").Append(CustodianAccountId).Append("\n");
             sb.Append("  DataModelMembership: ").Append(DataModelMembership).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -425,6 +434,11 @@ namespace Lusid.Sdk.Model
                     this.ExecutionIds.SequenceEqual(input.ExecutionIds)
                 ) && 
                 (
+                    this.CustodianAccountId == input.CustodianAccountId ||
+                    (this.CustodianAccountId != null &&
+                    this.CustodianAccountId.Equals(input.CustodianAccountId))
+                ) && 
+                (
                     this.DataModelMembership == input.DataModelMembership ||
                     (this.DataModelMembership != null &&
                     this.DataModelMembership.Equals(input.DataModelMembership))
@@ -522,6 +536,10 @@ namespace Lusid.Sdk.Model
                 if (this.ExecutionIds != null)
                 {
                     hashCode = (hashCode * 59) + this.ExecutionIds.GetHashCode();
+                }
+                if (this.CustodianAccountId != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustodianAccountId.GetHashCode();
                 }
                 if (this.DataModelMembership != null)
                 {

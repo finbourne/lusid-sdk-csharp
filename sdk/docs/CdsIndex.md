@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Basket** | [**Basket**](Basket.md) |  | [optional] 
 **ConventionName** | [**FlowConventionName**](FlowConventionName.md) |  | [optional] 
 **Notional** | **decimal** | The notional quantity that applies to both the premium and protection legs. | 
+**IsNonStandard** | **bool** | By default IsNonStandard is false, and the contract follows the IMM convention: the roll and payment  frequencies must be 3M or 6M, and the start and maturity dates are rolled onto IMM dates  (the 20th of March, June, September or December).  If IsNonStandard&#x3D;true, the premium schedule uses the stated start and maturity dates and any payment  frequency is accepted. The payment dates roll back from the maturity, so a term that is not a whole  number of payment periods has a short first period. | [optional] 
 **AdditionalPayments** | [**List&lt;AdditionalPayment&gt;**](AdditionalPayment.md) | Optional additional payments at a given date e.g. to level off an uneven swap.  The dates must be distinct and either all payments are Pay or all payments are Receive. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
@@ -30,6 +31,7 @@ Basket? basket = new Basket();
 FlowConventionName? conventionName = new FlowConventionName();
 decimal notional = "notional";
 
+bool isNonStandard = //"True";
 List<AdditionalPayment> additionalPayments = new List<AdditionalPayment>();
 TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
 
@@ -43,6 +45,7 @@ CdsIndex cdsIndexInstance = new CdsIndex(
     basket: basket,
     conventionName: conventionName,
     notional: notional,
+    isNonStandard: isNonStandard,
     additionalPayments: additionalPayments,
     timeZoneConventions: timeZoneConventions);
 ```

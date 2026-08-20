@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **Package** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Weight** | **decimal?** | The proportion of the total portfolio value ordered for the given instrument ordered. | [optional] 
 **Amount** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -51,6 +52,8 @@ ResourceId? package = new ResourceId();
 
 CurrencyAndAmount? amount = new CurrencyAndAmount();
 
+ResourceId? custodianAccountId = new ResourceId();
+
 
 OrderRequest orderRequestInstance = new OrderRequest(
     properties: properties,
@@ -70,7 +73,8 @@ OrderRequest orderRequestInstance = new OrderRequest(
     orderInstruction: orderInstruction,
     package: package,
     weight: weight,
-    amount: amount);
+    amount: amount,
+    custodianAccountId: custodianAccountId);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -6,7 +6,6 @@ An individual item that makes up (one side of) a rec result. Polymorphic by rec 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ItemType** | **string** | The polymorphic item-type discriminator (e.g. SettlementActivity, Holding, Transaction). Available values: SettlementActivity, Holding, Transaction. | 
-**PortfolioId** | [**ResourceId**](ResourceId.md) |  | 
 **RuleAndAttributeValues** | **Dictionary&lt;string, string&gt;** | The core rule, aggregate rule and supplemental attribute values for the item, keyed by name. | [optional] [readonly] 
 
 ```csharp
@@ -14,12 +13,10 @@ using Lusid.Sdk.Model;
 using System;
 
 string itemType = "itemType";
-ResourceId portfolioId = new ResourceId();
 Dictionary<string, string> ruleAndAttributeValues = new Dictionary<string, string>();
 
 RecResultItem recResultItemInstance = new RecResultItem(
     itemType: itemType,
-    portfolioId: portfolioId,
     ruleAndAttributeValues: ruleAndAttributeValues);
 ```
 

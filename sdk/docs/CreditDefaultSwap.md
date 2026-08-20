@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **CouponRate** | **decimal** | The coupon rate paid on each payment date of the premium leg as a fraction of 100 percent, e.g. \&quot;0.05\&quot; meaning 500 basis points or 5%.  For a standard corporate CDS (North American) this must be either 100bps or 500bps. | 
 **ConventionName** | [**FlowConventionName**](FlowConventionName.md) |  | [optional] 
 **Notional** | **decimal?** | The notional protected by the Credit Default Swap | [optional] 
+**IsNonStandard** | **bool** | By default IsNonStandard is false, and the contract follows the IMM convention: the roll and payment  frequencies must be 3M or 6M, and the start and maturity dates are rolled onto IMM dates  (the 20th of March, June, September or December).  If IsNonStandard&#x3D;true, the premium schedule uses the stated start and maturity dates and any payment  frequency is accepted. The payment dates roll back from the maturity, so a term that is not a whole  number of payment periods has a short first period. | [optional] 
 **ProtectionDetailSpecification** | [**CdsProtectionDetailSpecification**](CdsProtectionDetailSpecification.md) |  | [optional] 
 **AdditionalPayments** | [**List&lt;AdditionalPayment&gt;**](AdditionalPayment.md) | Optional additional payments at a given date e.g. to level off an uneven swap.  The dates must be distinct and either all payments are Pay or all payments are Receive. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
@@ -27,6 +28,7 @@ decimal couponRate = "couponRate";
 
 FlowConventionName? conventionName = new FlowConventionName();
 
+bool isNonStandard = //"True";
 CdsProtectionDetailSpecification? protectionDetailSpecification = new CdsProtectionDetailSpecification();
 
 List<AdditionalPayment> additionalPayments = new List<AdditionalPayment>();
@@ -41,6 +43,7 @@ CreditDefaultSwap creditDefaultSwapInstance = new CreditDefaultSwap(
     couponRate: couponRate,
     conventionName: conventionName,
     notional: notional,
+    isNonStandard: isNonStandard,
     protectionDetailSpecification: protectionDetailSpecification,
     additionalPayments: additionalPayments,
     timeZoneConventions: timeZoneConventions);

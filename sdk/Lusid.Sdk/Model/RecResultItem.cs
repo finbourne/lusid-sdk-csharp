@@ -37,8 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="RecResultItem" /> class.
         /// </summary>
         /// <param name="itemType">The polymorphic item-type discriminator (e.g. SettlementActivity, Holding, Transaction). Available values: SettlementActivity, Holding, Transaction. (required).</param>
-        /// <param name="portfolioId">portfolioId (required).</param>
-        public RecResultItem(string itemType = default(string), ResourceId portfolioId = default(ResourceId))
+        public RecResultItem(string itemType = default(string))
         {
             // to ensure "itemType" is required (not null)
             if (itemType == null)
@@ -46,12 +45,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("itemType is a required property for RecResultItem and cannot be null");
             }
             this.ItemType = itemType;
-            // to ensure "portfolioId" is required (not null)
-            if (portfolioId == null)
-            {
-                throw new ArgumentNullException("portfolioId is a required property for RecResultItem and cannot be null");
-            }
-            this.PortfolioId = portfolioId;
         }
 
         /// <summary>
@@ -60,12 +53,6 @@ namespace Lusid.Sdk.Model
         /// <value>The polymorphic item-type discriminator (e.g. SettlementActivity, Holding, Transaction). Available values: SettlementActivity, Holding, Transaction.</value>
         [DataMember(Name = "itemType", IsRequired = true, EmitDefaultValue = true)]
         public string ItemType { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PortfolioId
-        /// </summary>
-        [DataMember(Name = "portfolioId", IsRequired = true, EmitDefaultValue = true)]
-        public ResourceId PortfolioId { get; set; }
 
         /// <summary>
         /// The core rule, aggregate rule and supplemental attribute values for the item, keyed by name.
@@ -91,7 +78,6 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class RecResultItem {\n");
             sb.Append("  ItemType: ").Append(ItemType).Append("\n");
-            sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
             sb.Append("  RuleAndAttributeValues: ").Append(RuleAndAttributeValues).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -134,11 +120,6 @@ namespace Lusid.Sdk.Model
                     this.ItemType.Equals(input.ItemType))
                 ) && 
                 (
-                    this.PortfolioId == input.PortfolioId ||
-                    (this.PortfolioId != null &&
-                    this.PortfolioId.Equals(input.PortfolioId))
-                ) && 
-                (
                     this.RuleAndAttributeValues == input.RuleAndAttributeValues ||
                     this.RuleAndAttributeValues != null &&
                     input.RuleAndAttributeValues != null &&
@@ -158,10 +139,6 @@ namespace Lusid.Sdk.Model
                 if (this.ItemType != null)
                 {
                     hashCode = (hashCode * 59) + this.ItemType.GetHashCode();
-                }
-                if (this.PortfolioId != null)
-                {
-                    hashCode = (hashCode * 59) + this.PortfolioId.GetHashCode();
                 }
                 if (this.RuleAndAttributeValues != null)
                 {

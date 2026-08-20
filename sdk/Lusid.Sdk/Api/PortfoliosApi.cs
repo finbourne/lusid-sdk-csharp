@@ -545,7 +545,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PortfolioProperties</returns>
         Lusid.Sdk.Client.ApiResponse<PortfolioProperties> GetPortfolioPropertiesWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
+        /// GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
         /// </summary>
         /// <remarks>
         /// Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
@@ -565,7 +565,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfPropertyIntervalTimeSeries GetPortfolioPropertiesTimeSeries(string scope, string code, List<string> propertyKeys, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
+        /// GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
         /// </summary>
         /// <remarks>
         /// Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
@@ -1702,7 +1702,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PortfolioProperties)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PortfolioProperties>> GetPortfolioPropertiesWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
+        /// GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
         /// </summary>
         /// <remarks>
         /// Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
@@ -1723,7 +1723,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfPropertyIntervalTimeSeries> GetPortfolioPropertiesTimeSeriesAsync(string scope, string code, List<string> propertyKeys, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
+        /// GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
         /// </summary>
         /// <remarks>
         /// Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
@@ -6588,7 +6588,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
+        /// GetPortfolioPropertiesTimeSeries: Get portfolio properties time series Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -6609,7 +6609,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
+        /// GetPortfolioPropertiesTimeSeries: Get portfolio properties time series Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -6741,7 +6741,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
+        /// GetPortfolioPropertiesTimeSeries: Get portfolio properties time series Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -6763,7 +6763,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
+        /// GetPortfolioPropertiesTimeSeries: Get portfolio properties time series Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>

@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **SettlementCurrencyFxRate** | **decimal?** | The settlement currency to allocation currency FX rate. | [optional] 
 **Counterparty** | **string** | The counterparty for this allocation. | [optional] 
 **ExecutionIds** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The executions associated with this allocation | [optional] 
+**CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
@@ -51,6 +52,8 @@ CurrencyAndAmount? price = new CurrencyAndAmount();
 string settlementCurrency = "example settlementCurrency";
 string counterparty = "example counterparty";
 List<ResourceId> executionIds = new List<ResourceId>();
+ResourceId? custodianAccountId = new ResourceId();
+
 DataModelMembership? dataModelMembership = new DataModelMembership();
 
 List<Link> links = new List<Link>();
@@ -76,6 +79,7 @@ Allocation allocationInstance = new Allocation(
     settlementCurrencyFxRate: settlementCurrencyFxRate,
     counterparty: counterparty,
     executionIds: executionIds,
+    custodianAccountId: custodianAccountId,
     dataModelMembership: dataModelMembership,
     links: links);
 ```

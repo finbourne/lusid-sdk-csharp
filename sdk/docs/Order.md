@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **PackageId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Weight** | **decimal?** | The proportion of the total portfolio value ordered for the given instrument ordered. | [optional] 
 **Amount** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
 **DerivedComplianceState** | **string** | The compliance state of the order, derived from pre-trade compliance runs. | [optional] 
 **DerivedApprovalState** | **string** | The approval state of the order. | [optional] 
@@ -62,6 +63,8 @@ ResourceId? packageId = new ResourceId();
 
 CurrencyAndAmount? amount = new CurrencyAndAmount();
 
+ResourceId? custodianAccountId = new ResourceId();
+
 DataModelMembership? dataModelMembership = new DataModelMembership();
 
 string derivedComplianceState = "example derivedComplianceState";
@@ -90,6 +93,7 @@ Order orderInstance = new Order(
     packageId: packageId,
     weight: weight,
     amount: amount,
+    custodianAccountId: custodianAccountId,
     dataModelMembership: dataModelMembership,
     derivedComplianceState: derivedComplianceState,
     derivedApprovalState: derivedApprovalState,
