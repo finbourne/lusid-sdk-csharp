@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **AllocationGroups** | [**List&lt;AllocationGroup&gt;**](AllocationGroup.md) | An optional list of Allocation Groups that can apply across a Fund Structure. Only classes and feeder funds linked to the master fund specified are allowed. | [optional] 
 **Nodes** | [**List&lt;FundStructureNode&gt;**](FundStructureNode.md) | The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role. | 
 **Edges** | [**List&lt;FundStructureEdge&gt;**](FundStructureEdge.md) | The list of edges that define the relationships between feeder and master nodes in the structure. | 
+**Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties to decorate onto the Fund Structure. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -26,6 +27,7 @@ List<FundDefinitionRequest> newFunds = new List<FundDefinitionRequest>();
 List<AllocationGroup> allocationGroups = new List<AllocationGroup>();
 List<FundStructureNode> nodes = new List<FundStructureNode>();
 List<FundStructureEdge> edges = new List<FundStructureEdge>();
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
 
 FundStructureRequest fundStructureRequestInstance = new FundStructureRequest(
     code: code,
@@ -35,7 +37,8 @@ FundStructureRequest fundStructureRequestInstance = new FundStructureRequest(
     newFunds: newFunds,
     allocationGroups: allocationGroups,
     nodes: nodes,
-    edges: edges);
+    edges: edges,
+    properties: properties);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -44,7 +44,8 @@ namespace Lusid.Sdk.Model
         /// <param name="allocationGroups">An optional list of Allocation Groups that can apply across a Fund Structure. Only classes and feeder funds linked to the master fund specified are allowed..</param>
         /// <param name="nodes">The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role. (required).</param>
         /// <param name="edges">The list of edges that define the relationships between feeder and master nodes in the structure. (required).</param>
-        public FundStructureRequest(string code = default(string), string name = default(string), string description = default(string), List<ResourceId> existingFunds = default(List<ResourceId>), List<FundDefinitionRequest> newFunds = default(List<FundDefinitionRequest>), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<FundStructureNode> nodes = default(List<FundStructureNode>), List<FundStructureEdge> edges = default(List<FundStructureEdge>))
+        /// <param name="properties">A set of properties to decorate onto the Fund Structure..</param>
+        public FundStructureRequest(string code = default(string), string name = default(string), string description = default(string), List<ResourceId> existingFunds = default(List<ResourceId>), List<FundDefinitionRequest> newFunds = default(List<FundDefinitionRequest>), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<FundStructureNode> nodes = default(List<FundStructureNode>), List<FundStructureEdge> edges = default(List<FundStructureEdge>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -74,6 +75,7 @@ namespace Lusid.Sdk.Model
             this.ExistingFunds = existingFunds;
             this.NewFunds = newFunds;
             this.AllocationGroups = allocationGroups;
+            this.Properties = properties;
         }
 
         /// <summary>
@@ -133,6 +135,13 @@ namespace Lusid.Sdk.Model
         public List<FundStructureEdge> Edges { get; set; }
 
         /// <summary>
+        /// A set of properties to decorate onto the Fund Structure.
+        /// </summary>
+        /// <value>A set of properties to decorate onto the Fund Structure.</value>
+        [DataMember(Name = "properties", EmitDefaultValue = true)]
+        public Dictionary<string, Property> Properties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -148,6 +157,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AllocationGroups: ").Append(AllocationGroups).Append("\n");
             sb.Append("  Nodes: ").Append(Nodes).Append("\n");
             sb.Append("  Edges: ").Append(Edges).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -227,6 +237,12 @@ namespace Lusid.Sdk.Model
                     this.Edges != null &&
                     input.Edges != null &&
                     this.Edges.SequenceEqual(input.Edges)
+                ) && 
+                (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
                 );
         }
 
@@ -270,6 +286,10 @@ namespace Lusid.Sdk.Model
                 if (this.Edges != null)
                 {
                     hashCode = (hashCode * 59) + this.Edges.GetHashCode();
+                }
+                if (this.Properties != null)
+                {
+                    hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
                 return hashCode;
             }

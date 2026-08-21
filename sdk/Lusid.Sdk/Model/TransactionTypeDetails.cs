@@ -39,7 +39,8 @@ namespace Lusid.Sdk.Model
         /// <param name="scope">The scope in which the TransactionType was resolved. If the portfolio has a TransactionTypeScope, this will have been used. Otherwise the default scope will have been used. (required).</param>
         /// <param name="source">The source in which the TransactionType was resolved. (required).</param>
         /// <param name="type">The resolved TransactionType. More information on TransactionType resolution can be found at https://support.lusid.com/docs/how-does-lusid-resolve-transactions-to-transaction-types (required).</param>
-        public TransactionTypeDetails(string scope = default(string), string source = default(string), string type = default(string))
+        /// <param name="movementConditionMatches">One entry for each movement on the resolved TransactionType, in the order the movements are configured, recording whether that movement&#39;s condition was satisfied by this transaction. Empty for transaction versions that generate no movements, such as cancelled and amended versions..</param>
+        public TransactionTypeDetails(string scope = default(string), string source = default(string), string type = default(string), List<MovementConditionMatch> movementConditionMatches = default(List<MovementConditionMatch>))
         {
             // to ensure "scope" is required (not null)
             if (scope == null)
@@ -59,6 +60,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("type is a required property for TransactionTypeDetails and cannot be null");
             }
             this.Type = type;
+            this.MovementConditionMatches = movementConditionMatches;
         }
 
         /// <summary>
@@ -83,6 +85,13 @@ namespace Lusid.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
+        /// One entry for each movement on the resolved TransactionType, in the order the movements are configured, recording whether that movement&#39;s condition was satisfied by this transaction. Empty for transaction versions that generate no movements, such as cancelled and amended versions.
+        /// </summary>
+        /// <value>One entry for each movement on the resolved TransactionType, in the order the movements are configured, recording whether that movement&#39;s condition was satisfied by this transaction. Empty for transaction versions that generate no movements, such as cancelled and amended versions.</value>
+        [DataMember(Name = "movementConditionMatches", EmitDefaultValue = true)]
+        public List<MovementConditionMatch> MovementConditionMatches { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -93,6 +102,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  MovementConditionMatches: ").Append(MovementConditionMatches).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,6 +152,12 @@ namespace Lusid.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
+                ) && 
+                (
+                    this.MovementConditionMatches == input.MovementConditionMatches ||
+                    this.MovementConditionMatches != null &&
+                    input.MovementConditionMatches != null &&
+                    this.MovementConditionMatches.SequenceEqual(input.MovementConditionMatches)
                 );
         }
 
@@ -165,6 +181,10 @@ namespace Lusid.Sdk.Model
                 if (this.Type != null)
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
+                if (this.MovementConditionMatches != null)
+                {
+                    hashCode = (hashCode * 59) + this.MovementConditionMatches.GetHashCode();
                 }
                 return hashCode;
             }
