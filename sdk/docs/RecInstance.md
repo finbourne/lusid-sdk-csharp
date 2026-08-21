@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | [**RecInstanceId**](RecInstanceId.md) |  | 
 **RecDefinitionId** | [**ResourceId**](ResourceId.md) |  | 
+**RecDefinitionDisplayName** | **string** | The display name of the rec definition the rec was instantiated for, as it stood as-at instantiation. Not re-synchronised if the definition is later renamed. | 
 **AsAtInstantiated** | **DateTimeOffset** | The asAt datetime at which the instance was first created. | 
 **Status** | **string** | The instance-level lifecycle rollup. Available values: Running, Failures, ReviewAndApproval, AllApproved, Locked. | 
 **AsAtLocked** | **DateTimeOffset?** | The wall-clock time the lock action was performed. Null when the instance has not been locked. | [optional] 
@@ -23,6 +24,7 @@ using System;
 
 RecInstanceId id = new RecInstanceId();
 ResourceId recDefinitionId = new ResourceId();
+string recDefinitionDisplayName = "recDefinitionDisplayName";
 string status = "status";
 RecDatesReconciled? datesLocked = new RecDatesReconciled();
 
@@ -37,6 +39,7 @@ List<Link> links = new List<Link>();
 RecInstance recInstanceInstance = new RecInstance(
     id: id,
     recDefinitionId: recDefinitionId,
+    recDefinitionDisplayName: recDefinitionDisplayName,
     asAtInstantiated: asAtInstantiated,
     status: status,
     asAtLocked: asAtLocked,

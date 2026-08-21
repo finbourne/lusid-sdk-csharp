@@ -38,6 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="recDefinitionId">recDefinitionId (required).</param>
+        /// <param name="recDefinitionDisplayName">The display name of the rec definition the rec was instantiated for, as it stood as-at instantiation. Not re-synchronised if the definition is later renamed. (required).</param>
         /// <param name="asAtInstantiated">The asAt datetime at which the instance was first created. (required).</param>
         /// <param name="status">The instance-level lifecycle rollup. Available values: Running, Failures, ReviewAndApproval, AllApproved, Locked. (required).</param>
         /// <param name="asAtLocked">The wall-clock time the lock action was performed. Null when the instance has not been locked..</param>
@@ -47,7 +48,7 @@ namespace Lusid.Sdk.Model
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public RecInstance(RecInstanceId id = default(RecInstanceId), ResourceId recDefinitionId = default(ResourceId), DateTimeOffset asAtInstantiated = default(DateTimeOffset), string status = default(string), DateTimeOffset? asAtLocked = default(DateTimeOffset?), RecDatesReconciled datesLocked = default(RecDatesReconciled), RecClosedPeriods closedPeriods = default(RecClosedPeriods), List<RecRunLogEntry> runLog = default(List<RecRunLogEntry>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public RecInstance(RecInstanceId id = default(RecInstanceId), ResourceId recDefinitionId = default(ResourceId), string recDefinitionDisplayName = default(string), DateTimeOffset asAtInstantiated = default(DateTimeOffset), string status = default(string), DateTimeOffset? asAtLocked = default(DateTimeOffset?), RecDatesReconciled datesLocked = default(RecDatesReconciled), RecClosedPeriods closedPeriods = default(RecClosedPeriods), List<RecRunLogEntry> runLog = default(List<RecRunLogEntry>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -61,6 +62,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("recDefinitionId is a required property for RecInstance and cannot be null");
             }
             this.RecDefinitionId = recDefinitionId;
+            // to ensure "recDefinitionDisplayName" is required (not null)
+            if (recDefinitionDisplayName == null)
+            {
+                throw new ArgumentNullException("recDefinitionDisplayName is a required property for RecInstance and cannot be null");
+            }
+            this.RecDefinitionDisplayName = recDefinitionDisplayName;
             this.AsAtInstantiated = asAtInstantiated;
             // to ensure "status" is required (not null)
             if (status == null)
@@ -93,6 +100,13 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "recDefinitionId", IsRequired = true, EmitDefaultValue = true)]
         public ResourceId RecDefinitionId { get; set; }
+
+        /// <summary>
+        /// The display name of the rec definition the rec was instantiated for, as it stood as-at instantiation. Not re-synchronised if the definition is later renamed.
+        /// </summary>
+        /// <value>The display name of the rec definition the rec was instantiated for, as it stood as-at instantiation. Not re-synchronised if the definition is later renamed.</value>
+        [DataMember(Name = "recDefinitionDisplayName", IsRequired = true, EmitDefaultValue = true)]
+        public string RecDefinitionDisplayName { get; set; }
 
         /// <summary>
         /// The asAt datetime at which the instance was first created.
@@ -163,6 +177,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class RecInstance {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  RecDefinitionId: ").Append(RecDefinitionId).Append("\n");
+            sb.Append("  RecDefinitionDisplayName: ").Append(RecDefinitionDisplayName).Append("\n");
             sb.Append("  AsAtInstantiated: ").Append(AsAtInstantiated).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  AsAtLocked: ").Append(AsAtLocked).Append("\n");
@@ -216,6 +231,11 @@ namespace Lusid.Sdk.Model
                     this.RecDefinitionId == input.RecDefinitionId ||
                     (this.RecDefinitionId != null &&
                     this.RecDefinitionId.Equals(input.RecDefinitionId))
+                ) && 
+                (
+                    this.RecDefinitionDisplayName == input.RecDefinitionDisplayName ||
+                    (this.RecDefinitionDisplayName != null &&
+                    this.RecDefinitionDisplayName.Equals(input.RecDefinitionDisplayName))
                 ) && 
                 (
                     this.AsAtInstantiated == input.AsAtInstantiated ||
@@ -283,6 +303,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.RecDefinitionId.GetHashCode();
                 }
+                if (this.RecDefinitionDisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.RecDefinitionDisplayName.GetHashCode();
+                }
                 if (this.AsAtInstantiated != null)
                 {
                     hashCode = (hashCode * 59) + this.AsAtInstantiated.GetHashCode();
@@ -330,6 +354,12 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // RecDefinitionDisplayName (string) minLength
+            if (this.RecDefinitionDisplayName != null && this.RecDefinitionDisplayName.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RecDefinitionDisplayName, length must be greater than 1.", new [] { "RecDefinitionDisplayName" });
+            }
+
             // Status (string) minLength
             if (this.Status != null && this.Status.Length < 1)
             {
