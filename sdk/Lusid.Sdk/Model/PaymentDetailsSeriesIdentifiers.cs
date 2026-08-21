@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentDetailsSeriesIdentifiers" /> class.
         /// </summary>
-        /// <param name="paymentType">The type of payment series. One of \&quot;Dividend\&quot;, \&quot;Fee\&quot;, \&quot;Rebate\&quot;, \&quot;Redemption\&quot;, \&quot;Subscription\&quot;. (required).</param>
+        /// <param name="paymentType">The type of payment series. (required).</param>
         /// <param name="currency">ISO 4217 currency code identifying the currency-specific series row. Must match the top-level currency field. (required).</param>
         /// <param name="custodianAccountScope">Optional. The scope of the custodian account on the portfolio. Only permitted when the applicable entity is a Portfolio..</param>
         /// <param name="custodianAccountCode">Optional. The code of the custodian account on the portfolio. Only permitted when the applicable entity is a Portfolio..</param>
@@ -59,9 +59,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The type of payment series. One of \&quot;Dividend\&quot;, \&quot;Fee\&quot;, \&quot;Rebate\&quot;, \&quot;Redemption\&quot;, \&quot;Subscription\&quot;.
+        /// The type of payment series.
         /// </summary>
-        /// <value>The type of payment series. One of \&quot;Dividend\&quot;, \&quot;Fee\&quot;, \&quot;Rebate\&quot;, \&quot;Redemption\&quot;, \&quot;Subscription\&quot;.</value>
+        /// <value>The type of payment series.</value>
         [DataMember(Name = "paymentType", IsRequired = true, EmitDefaultValue = true)]
         public string PaymentType { get; set; }
 

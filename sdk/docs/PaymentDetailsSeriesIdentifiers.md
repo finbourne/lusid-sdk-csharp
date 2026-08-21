@@ -5,7 +5,7 @@ The two hardcoded series identifier keys that uniquely identify a Payment Detail
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PaymentType** | **string** | The type of payment series. One of \&quot;Dividend\&quot;, \&quot;Fee\&quot;, \&quot;Rebate\&quot;, \&quot;Redemption\&quot;, \&quot;Subscription\&quot;. | 
+**PaymentType** | **string** | The type of payment series. | 
 **Currency** | **string** | ISO 4217 currency code identifying the currency-specific series row. Must match the top-level currency field. | 
 **CustodianAccountScope** | **string** | Optional. The scope of the custodian account on the portfolio. Only permitted when the applicable entity is a Portfolio. | [optional] 
 **CustodianAccountCode** | **string** | Optional. The code of the custodian account on the portfolio. Only permitted when the applicable entity is a Portfolio. | [optional] 

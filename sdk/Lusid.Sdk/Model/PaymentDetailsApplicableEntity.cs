@@ -37,9 +37,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="PaymentDetailsApplicableEntity" /> class.
         /// </summary>
         /// <param name="entityType">The type of the LUSID entity holding the payment details. e.g. \&quot;InvestorRecord\&quot;, \&quot;InvestmentAccount\&quot;, \&quot;Portfolio\&quot;. (required).</param>
-        /// <param name="entityScope">The scope of the entity. Optional — required depends on the entity type..</param>
+        /// <param name="entityScope">The scope of the entity. Optional, and narrows the match when supplied. Required for a Portfolio..</param>
         /// <param name="identifierType">The identifier type used to identify the entity. e.g. \&quot;lusidInvestmentAccountId\&quot;. (required).</param>
-        /// <param name="identifierScope">The scope of the identifier used to identify the entity. Optional — null for native LUSID identifiers such as code..</param>
+        /// <param name="identifierScope">The scope of the identifier used to identify the entity. Optional, and narrows the match when supplied..</param>
         /// <param name="identifierValue">The identifier value for the entity. e.g. \&quot;LUID_00003DNL\&quot;. (required).</param>
         public PaymentDetailsApplicableEntity(string entityType = default(string), string entityScope = default(string), string identifierType = default(string), string identifierScope = default(string), string identifierValue = default(string))
         {
@@ -73,9 +73,9 @@ namespace Lusid.Sdk.Model
         public string EntityType { get; set; }
 
         /// <summary>
-        /// The scope of the entity. Optional — required depends on the entity type.
+        /// The scope of the entity. Optional, and narrows the match when supplied. Required for a Portfolio.
         /// </summary>
-        /// <value>The scope of the entity. Optional — required depends on the entity type.</value>
+        /// <value>The scope of the entity. Optional, and narrows the match when supplied. Required for a Portfolio.</value>
         [DataMember(Name = "entityScope", EmitDefaultValue = true)]
         public string EntityScope { get; set; }
 
@@ -87,9 +87,9 @@ namespace Lusid.Sdk.Model
         public string IdentifierType { get; set; }
 
         /// <summary>
-        /// The scope of the identifier used to identify the entity. Optional — null for native LUSID identifiers such as code.
+        /// The scope of the identifier used to identify the entity. Optional, and narrows the match when supplied.
         /// </summary>
-        /// <value>The scope of the identifier used to identify the entity. Optional — null for native LUSID identifiers such as code.</value>
+        /// <value>The scope of the identifier used to identify the entity. Optional, and narrows the match when supplied.</value>
         [DataMember(Name = "identifierScope", EmitDefaultValue = true)]
         public string IdentifierScope { get; set; }
 

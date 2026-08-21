@@ -39,10 +39,9 @@ namespace Lusid.Sdk.Model
         /// <param name="id">id (required).</param>
         /// <param name="recDefinitionId">recDefinitionId (required).</param>
         /// <param name="asAtInstantiated">The asAt datetime at which the instance was first created. (required).</param>
-        /// <param name="workflowTaskInstantiated">workflowTaskInstantiated.</param>
         /// <param name="status">The instance-level lifecycle rollup. Available values: Running, Failures, ReviewAndApproval, AllApproved, Locked. (required).</param>
         /// <param name="asAtLocked">The wall-clock time the lock action was performed. Null when the instance has not been locked..</param>
-        public RecInstanceSummary(RecInstanceId id = default(RecInstanceId), ResourceId recDefinitionId = default(ResourceId), DateTimeOffset asAtInstantiated = default(DateTimeOffset), RecWorkflowTask workflowTaskInstantiated = default(RecWorkflowTask), string status = default(string), DateTimeOffset? asAtLocked = default(DateTimeOffset?))
+        public RecInstanceSummary(RecInstanceId id = default(RecInstanceId), ResourceId recDefinitionId = default(ResourceId), DateTimeOffset asAtInstantiated = default(DateTimeOffset), string status = default(string), DateTimeOffset? asAtLocked = default(DateTimeOffset?))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -63,7 +62,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("status is a required property for RecInstanceSummary and cannot be null");
             }
             this.Status = status;
-            this.WorkflowTaskInstantiated = workflowTaskInstantiated;
             this.AsAtLocked = asAtLocked;
         }
 
@@ -85,12 +83,6 @@ namespace Lusid.Sdk.Model
         /// <value>The asAt datetime at which the instance was first created.</value>
         [DataMember(Name = "asAtInstantiated", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset AsAtInstantiated { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WorkflowTaskInstantiated
-        /// </summary>
-        [DataMember(Name = "workflowTaskInstantiated", EmitDefaultValue = false)]
-        public RecWorkflowTask WorkflowTaskInstantiated { get; set; }
 
         /// <summary>
         /// The instance-level lifecycle rollup. Available values: Running, Failures, ReviewAndApproval, AllApproved, Locked.
@@ -117,7 +109,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  RecDefinitionId: ").Append(RecDefinitionId).Append("\n");
             sb.Append("  AsAtInstantiated: ").Append(AsAtInstantiated).Append("\n");
-            sb.Append("  WorkflowTaskInstantiated: ").Append(WorkflowTaskInstantiated).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  AsAtLocked: ").Append(AsAtLocked).Append("\n");
             sb.Append("}\n");
@@ -171,11 +162,6 @@ namespace Lusid.Sdk.Model
                     this.AsAtInstantiated.Equals(input.AsAtInstantiated))
                 ) && 
                 (
-                    this.WorkflowTaskInstantiated == input.WorkflowTaskInstantiated ||
-                    (this.WorkflowTaskInstantiated != null &&
-                    this.WorkflowTaskInstantiated.Equals(input.WorkflowTaskInstantiated))
-                ) && 
-                (
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
@@ -207,10 +193,6 @@ namespace Lusid.Sdk.Model
                 if (this.AsAtInstantiated != null)
                 {
                     hashCode = (hashCode * 59) + this.AsAtInstantiated.GetHashCode();
-                }
-                if (this.WorkflowTaskInstantiated != null)
-                {
-                    hashCode = (hashCode * 59) + this.WorkflowTaskInstantiated.GetHashCode();
                 }
                 if (this.Status != null)
                 {
