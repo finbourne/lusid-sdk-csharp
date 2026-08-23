@@ -66,8 +66,10 @@ namespace Lusid.Sdk.Model
         /// <param name="ledgerColumn">Indicates if the Journal Entry Line is credit or debit. Available values: Debit, Credit..</param>
         /// <param name="journalEntryLineType">Indicates the Journal Entry Line type. Available values: Default, Reversal, TrueUp..</param>
         /// <param name="shareClassBreakdowns">Share Class breakdown data for this Journal Entry Line..</param>
+        /// <param name="custodianAccountId">custodianAccountId.</param>
+        /// <param name="custodianAccountType">Indicates the Account Type of the resolved Custodian Account for this Journal Entry Line..</param>
         /// <param name="links">links.</param>
-        public FundJournalEntryLine(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string generalLedgerAccountCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount varBase = default(CurrencyAndAmount), decimal units = default(decimal), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), string economicBucketComponent = default(string), string economicBucketVariant = default(string), List<string> levels = default(List<string>), List<string> sourceLevels = default(List<string>), string movementSign = default(string), string holdingSign = default(string), string ledgerColumn = default(string), string journalEntryLineType = default(string), List<JournalEntryLineShareClassBreakdown> shareClassBreakdowns = default(List<JournalEntryLineShareClassBreakdown>), List<Link> links = default(List<Link>))
+        public FundJournalEntryLine(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string generalLedgerAccountCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount varBase = default(CurrencyAndAmount), decimal units = default(decimal), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), string economicBucketComponent = default(string), string economicBucketVariant = default(string), List<string> levels = default(List<string>), List<string> sourceLevels = default(List<string>), string movementSign = default(string), string holdingSign = default(string), string ledgerColumn = default(string), string journalEntryLineType = default(string), List<JournalEntryLineShareClassBreakdown> shareClassBreakdowns = default(List<JournalEntryLineShareClassBreakdown>), ResourceId custodianAccountId = default(ResourceId), string custodianAccountType = default(string), List<Link> links = default(List<Link>))
         {
             this.AccountingDate = accountingDate;
             this.ActivityDate = activityDate;
@@ -154,6 +156,8 @@ namespace Lusid.Sdk.Model
             this.LedgerColumn = ledgerColumn;
             this.JournalEntryLineType = journalEntryLineType;
             this.ShareClassBreakdowns = shareClassBreakdowns;
+            this.CustodianAccountId = custodianAccountId;
+            this.CustodianAccountType = custodianAccountType;
             this.Links = links;
         }
 
@@ -365,6 +369,19 @@ namespace Lusid.Sdk.Model
         public List<JournalEntryLineShareClassBreakdown> ShareClassBreakdowns { get; set; }
 
         /// <summary>
+        /// Gets or Sets CustodianAccountId
+        /// </summary>
+        [DataMember(Name = "custodianAccountId", EmitDefaultValue = false)]
+        public ResourceId CustodianAccountId { get; set; }
+
+        /// <summary>
+        /// Indicates the Account Type of the resolved Custodian Account for this Journal Entry Line.
+        /// </summary>
+        /// <value>Indicates the Account Type of the resolved Custodian Account for this Journal Entry Line.</value>
+        [DataMember(Name = "custodianAccountType", EmitDefaultValue = true)]
+        public string CustodianAccountType { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -408,6 +425,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  LedgerColumn: ").Append(LedgerColumn).Append("\n");
             sb.Append("  JournalEntryLineType: ").Append(JournalEntryLineType).Append("\n");
             sb.Append("  ShareClassBreakdowns: ").Append(ShareClassBreakdowns).Append("\n");
+            sb.Append("  CustodianAccountId: ").Append(CustodianAccountId).Append("\n");
+            sb.Append("  CustodianAccountType: ").Append(CustodianAccountType).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -599,6 +618,16 @@ namespace Lusid.Sdk.Model
                     this.ShareClassBreakdowns.SequenceEqual(input.ShareClassBreakdowns)
                 ) && 
                 (
+                    this.CustodianAccountId == input.CustodianAccountId ||
+                    (this.CustodianAccountId != null &&
+                    this.CustodianAccountId.Equals(input.CustodianAccountId))
+                ) && 
+                (
+                    this.CustodianAccountType == input.CustodianAccountType ||
+                    (this.CustodianAccountType != null &&
+                    this.CustodianAccountType.Equals(input.CustodianAccountType))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -731,6 +760,14 @@ namespace Lusid.Sdk.Model
                 if (this.ShareClassBreakdowns != null)
                 {
                     hashCode = (hashCode * 59) + this.ShareClassBreakdowns.GetHashCode();
+                }
+                if (this.CustodianAccountId != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustodianAccountId.GetHashCode();
+                }
+                if (this.CustodianAccountType != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustodianAccountType.GetHashCode();
                 }
                 if (this.Links != null)
                 {
