@@ -46,8 +46,9 @@ namespace Lusid.Sdk.Model
         /// <param name="lusidEntity">lusidEntity.</param>
         /// <param name="countRuleBreaches">The count of rule breaches (1 for RuleBreached, multiple for RuleBreachesOverLimit).</param>
         /// <param name="errorDetail">Error details (for RulesetInvalid, RuleInvalid).</param>
-        /// <param name="resultId">Unique identifier for the result in format: {{GUID of Check Definition}}-{{resultType}}-{{rulesetKey}}-{{ruleKey}}-{{entity GUID}}.</param>
-        public DataQualityCheckResult(string checkDefinitionScope = default(string), string checkDefinitionCode = default(string), string checkDefinitionDisplayName = default(string), DateTimeOffset checkRunAsAt = default(DateTimeOffset), string resultType = default(string), string ruleSetKey = default(string), string ruleSetDisplayName = default(string), string ruleKey = default(string), string ruleDisplayName = default(string), string ruleDescription = default(string), string ruleFormula = default(string), int? severity = default(int?), LusidEntityResult lusidEntity = default(LusidEntityResult), int? countRuleBreaches = default(int?), string errorDetail = default(string), string resultId = default(string))
+        /// <param name="resultId">Unique identifier for the result in format: {{GUID of Check Definition}}-{{resultType}}-{{rulesetKey}}-{{ruleKey}}-{{entity GUID}}.  For holdings the trailing segment is {{source portfolio GUID}}-{{subEntityId}}, since a holding id only  identifies a holding within its own portfolio..</param>
+        /// <param name="portfolioHolding">portfolioHolding.</param>
+        public DataQualityCheckResult(string checkDefinitionScope = default(string), string checkDefinitionCode = default(string), string checkDefinitionDisplayName = default(string), DateTimeOffset checkRunAsAt = default(DateTimeOffset), string resultType = default(string), string ruleSetKey = default(string), string ruleSetDisplayName = default(string), string ruleKey = default(string), string ruleDisplayName = default(string), string ruleDescription = default(string), string ruleFormula = default(string), int? severity = default(int?), LusidEntityResult lusidEntity = default(LusidEntityResult), int? countRuleBreaches = default(int?), string errorDetail = default(string), string resultId = default(string), PortfolioHoldingResult portfolioHolding = default(PortfolioHoldingResult))
         {
             this.CheckDefinitionScope = checkDefinitionScope;
             this.CheckDefinitionCode = checkDefinitionCode;
@@ -65,6 +66,7 @@ namespace Lusid.Sdk.Model
             this.CountRuleBreaches = countRuleBreaches;
             this.ErrorDetail = errorDetail;
             this.ResultId = resultId;
+            this.PortfolioHolding = portfolioHolding;
         }
 
         /// <summary>
@@ -172,11 +174,17 @@ namespace Lusid.Sdk.Model
         public string ErrorDetail { get; set; }
 
         /// <summary>
-        /// Unique identifier for the result in format: {{GUID of Check Definition}}-{{resultType}}-{{rulesetKey}}-{{ruleKey}}-{{entity GUID}}
+        /// Unique identifier for the result in format: {{GUID of Check Definition}}-{{resultType}}-{{rulesetKey}}-{{ruleKey}}-{{entity GUID}}.  For holdings the trailing segment is {{source portfolio GUID}}-{{subEntityId}}, since a holding id only  identifies a holding within its own portfolio.
         /// </summary>
-        /// <value>Unique identifier for the result in format: {{GUID of Check Definition}}-{{resultType}}-{{rulesetKey}}-{{ruleKey}}-{{entity GUID}}</value>
+        /// <value>Unique identifier for the result in format: {{GUID of Check Definition}}-{{resultType}}-{{rulesetKey}}-{{ruleKey}}-{{entity GUID}}.  For holdings the trailing segment is {{source portfolio GUID}}-{{subEntityId}}, since a holding id only  identifies a holding within its own portfolio.</value>
         [DataMember(Name = "resultId", EmitDefaultValue = true)]
         public string ResultId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PortfolioHolding
+        /// </summary>
+        [DataMember(Name = "portfolioHolding", EmitDefaultValue = false)]
+        public PortfolioHoldingResult PortfolioHolding { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -202,6 +210,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CountRuleBreaches: ").Append(CountRuleBreaches).Append("\n");
             sb.Append("  ErrorDetail: ").Append(ErrorDetail).Append("\n");
             sb.Append("  ResultId: ").Append(ResultId).Append("\n");
+            sb.Append("  PortfolioHolding: ").Append(PortfolioHolding).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -316,6 +325,11 @@ namespace Lusid.Sdk.Model
                     this.ResultId == input.ResultId ||
                     (this.ResultId != null &&
                     this.ResultId.Equals(input.ResultId))
+                ) && 
+                (
+                    this.PortfolioHolding == input.PortfolioHolding ||
+                    (this.PortfolioHolding != null &&
+                    this.PortfolioHolding.Equals(input.PortfolioHolding))
                 );
         }
 
@@ -391,6 +405,10 @@ namespace Lusid.Sdk.Model
                 if (this.ResultId != null)
                 {
                     hashCode = (hashCode * 59) + this.ResultId.GetHashCode();
+                }
+                if (this.PortfolioHolding != null)
+                {
+                    hashCode = (hashCode * 59) + this.PortfolioHolding.GetHashCode();
                 }
                 return hashCode;
             }

@@ -20,6 +20,10 @@ Name | Type | Description | Notes
 **UnitValue** | **decimal** | The value in the currency of a 1 unit change in the contract price. | [optional] 
 **Calendars** | **List&lt;string&gt;** | Holiday calendars that apply to yield-to-price conversions (i.e. for BRL futures). | [optional] 
 **DeliveryType** | **string** | Delivery type to be used on settling the contract.  Default value: Physical. Available values: Cash, Physical. | [optional] 
+**DeliverableMinMaturityYears** | **decimal?** | For physically-delivered bond futures: the minimum remaining maturity, in years, measured from the first  day of the delivery month, for a bond to be eligible for delivery against this contract.  Optional: if not set, no lower bound is applied when matching eligible bonds. | [optional] 
+**DeliverableMaxMaturityYears** | **decimal?** | For physically-delivered bond futures: the maximum remaining maturity, in years, measured from the first  day of the delivery month, for a bond to be eligible for delivery against this contract.  Optional: if not set, no upper bound is applied when matching eligible bonds. | [optional] 
+**ExcludeCallableBonds** | **bool** | For physically-delivered bond futures: whether callable bonds are excluded from delivery against this  contract. Optional: defaults to false (callable bonds are not excluded). | [optional] 
+**DeliverableMinAmountOutstanding** | **decimal?** | For physically-delivered bond futures: the minimum amount outstanding, in the domestic currency of the  contract, for a bond issue to be eligible for delivery against this contract.  Optional: if not set, no minimum is applied when matching eligible bonds. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -38,6 +42,7 @@ string exchangeCode = "exchangeCode";
 string exchangeName = "example exchangeName";decimal? tickerStep = "example tickerStep";decimal? unitValue = "example unitValue";
 List<string> calendars = new List<string>();
 string deliveryType = "example deliveryType";
+bool excludeCallableBonds = //"True";
 
 FuturesContractDetails futuresContractDetailsInstance = new FuturesContractDetails(
     domCcy: domCcy,
@@ -54,7 +59,11 @@ FuturesContractDetails futuresContractDetailsInstance = new FuturesContractDetai
     tickerStep: tickerStep,
     unitValue: unitValue,
     calendars: calendars,
-    deliveryType: deliveryType);
+    deliveryType: deliveryType,
+    deliverableMinMaturityYears: deliverableMinMaturityYears,
+    deliverableMaxMaturityYears: deliverableMaxMaturityYears,
+    excludeCallableBonds: excludeCallableBonds,
+    deliverableMinAmountOutstanding: deliverableMinAmountOutstanding);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -20,7 +20,8 @@ Name | Type | Description | Notes
 **LusidEntity** | [**LusidEntityResult**](LusidEntityResult.md) |  | [optional] 
 **CountRuleBreaches** | **int?** | The count of rule breaches (1 for RuleBreached, multiple for RuleBreachesOverLimit) | [optional] 
 **ErrorDetail** | **string** | Error details (for RulesetInvalid, RuleInvalid) | [optional] 
-**ResultId** | **string** | Unique identifier for the result in format: {{GUID of Check Definition}}-{{resultType}}-{{rulesetKey}}-{{ruleKey}}-{{entity GUID}} | [optional] 
+**ResultId** | **string** | Unique identifier for the result in format: {{GUID of Check Definition}}-{{resultType}}-{{rulesetKey}}-{{ruleKey}}-{{entity GUID}}.  For holdings the trailing segment is {{source portfolio GUID}}-{{subEntityId}}, since a holding id only  identifies a holding within its own portfolio. | [optional] 
+**PortfolioHolding** | [**PortfolioHoldingResult**](PortfolioHoldingResult.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -40,6 +41,8 @@ LusidEntityResult? lusidEntity = new LusidEntityResult();
 
 string errorDetail = "example errorDetail";
 string resultId = "example resultId";
+PortfolioHoldingResult? portfolioHolding = new PortfolioHoldingResult();
+
 
 DataQualityCheckResult dataQualityCheckResultInstance = new DataQualityCheckResult(
     checkDefinitionScope: checkDefinitionScope,
@@ -57,7 +60,8 @@ DataQualityCheckResult dataQualityCheckResultInstance = new DataQualityCheckResu
     lusidEntity: lusidEntity,
     countRuleBreaches: countRuleBreaches,
     errorDetail: errorDetail,
-    resultId: resultId);
+    resultId: resultId,
+    portfolioHolding: portfolioHolding);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

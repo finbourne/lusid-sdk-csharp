@@ -51,7 +51,11 @@ namespace Lusid.Sdk.Model
         /// <param name="unitValue">The value in the currency of a 1 unit change in the contract price..</param>
         /// <param name="calendars">Holiday calendars that apply to yield-to-price conversions (i.e. for BRL futures)..</param>
         /// <param name="deliveryType">Delivery type to be used on settling the contract.  Default value: Physical. Available values: Cash, Physical..</param>
-        public FuturesContractDetails(string domCcy = default(string), string fgnCcy = default(string), string assetClass = default(string), string contractCode = default(string), string contractMonth = default(string), decimal contractSize = default(decimal), string convention = default(string), string country = default(string), string description = default(string), string exchangeCode = default(string), string exchangeName = default(string), decimal tickerStep = default(decimal), decimal unitValue = default(decimal), List<string> calendars = default(List<string>), string deliveryType = default(string))
+        /// <param name="deliverableMinMaturityYears">For physically-delivered bond futures: the minimum remaining maturity, in years, measured from the first  day of the delivery month, for a bond to be eligible for delivery against this contract.  Optional: if not set, no lower bound is applied when matching eligible bonds..</param>
+        /// <param name="deliverableMaxMaturityYears">For physically-delivered bond futures: the maximum remaining maturity, in years, measured from the first  day of the delivery month, for a bond to be eligible for delivery against this contract.  Optional: if not set, no upper bound is applied when matching eligible bonds..</param>
+        /// <param name="excludeCallableBonds">For physically-delivered bond futures: whether callable bonds are excluded from delivery against this  contract. Optional: defaults to false (callable bonds are not excluded)..</param>
+        /// <param name="deliverableMinAmountOutstanding">For physically-delivered bond futures: the minimum amount outstanding, in the domestic currency of the  contract, for a bond issue to be eligible for delivery against this contract.  Optional: if not set, no minimum is applied when matching eligible bonds..</param>
+        public FuturesContractDetails(string domCcy = default(string), string fgnCcy = default(string), string assetClass = default(string), string contractCode = default(string), string contractMonth = default(string), decimal contractSize = default(decimal), string convention = default(string), string country = default(string), string description = default(string), string exchangeCode = default(string), string exchangeName = default(string), decimal tickerStep = default(decimal), decimal unitValue = default(decimal), List<string> calendars = default(List<string>), string deliveryType = default(string), decimal? deliverableMinMaturityYears = default(decimal?), decimal? deliverableMaxMaturityYears = default(decimal?), bool excludeCallableBonds = default(bool), decimal? deliverableMinAmountOutstanding = default(decimal?))
         {
             // to ensure "domCcy" is required (not null)
             if (domCcy == null)
@@ -83,6 +87,10 @@ namespace Lusid.Sdk.Model
             this.UnitValue = unitValue;
             this.Calendars = calendars;
             this.DeliveryType = deliveryType;
+            this.DeliverableMinMaturityYears = deliverableMinMaturityYears;
+            this.DeliverableMaxMaturityYears = deliverableMaxMaturityYears;
+            this.ExcludeCallableBonds = excludeCallableBonds;
+            this.DeliverableMinAmountOutstanding = deliverableMinAmountOutstanding;
         }
 
         /// <summary>
@@ -191,6 +199,34 @@ namespace Lusid.Sdk.Model
         public string DeliveryType { get; set; }
 
         /// <summary>
+        /// For physically-delivered bond futures: the minimum remaining maturity, in years, measured from the first  day of the delivery month, for a bond to be eligible for delivery against this contract.  Optional: if not set, no lower bound is applied when matching eligible bonds.
+        /// </summary>
+        /// <value>For physically-delivered bond futures: the minimum remaining maturity, in years, measured from the first  day of the delivery month, for a bond to be eligible for delivery against this contract.  Optional: if not set, no lower bound is applied when matching eligible bonds.</value>
+        [DataMember(Name = "deliverableMinMaturityYears", EmitDefaultValue = true)]
+        public decimal? DeliverableMinMaturityYears { get; set; }
+
+        /// <summary>
+        /// For physically-delivered bond futures: the maximum remaining maturity, in years, measured from the first  day of the delivery month, for a bond to be eligible for delivery against this contract.  Optional: if not set, no upper bound is applied when matching eligible bonds.
+        /// </summary>
+        /// <value>For physically-delivered bond futures: the maximum remaining maturity, in years, measured from the first  day of the delivery month, for a bond to be eligible for delivery against this contract.  Optional: if not set, no upper bound is applied when matching eligible bonds.</value>
+        [DataMember(Name = "deliverableMaxMaturityYears", EmitDefaultValue = true)]
+        public decimal? DeliverableMaxMaturityYears { get; set; }
+
+        /// <summary>
+        /// For physically-delivered bond futures: whether callable bonds are excluded from delivery against this  contract. Optional: defaults to false (callable bonds are not excluded).
+        /// </summary>
+        /// <value>For physically-delivered bond futures: whether callable bonds are excluded from delivery against this  contract. Optional: defaults to false (callable bonds are not excluded).</value>
+        [DataMember(Name = "excludeCallableBonds", EmitDefaultValue = true)]
+        public bool ExcludeCallableBonds { get; set; }
+
+        /// <summary>
+        /// For physically-delivered bond futures: the minimum amount outstanding, in the domestic currency of the  contract, for a bond issue to be eligible for delivery against this contract.  Optional: if not set, no minimum is applied when matching eligible bonds.
+        /// </summary>
+        /// <value>For physically-delivered bond futures: the minimum amount outstanding, in the domestic currency of the  contract, for a bond issue to be eligible for delivery against this contract.  Optional: if not set, no minimum is applied when matching eligible bonds.</value>
+        [DataMember(Name = "deliverableMinAmountOutstanding", EmitDefaultValue = true)]
+        public decimal? DeliverableMinAmountOutstanding { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -213,6 +249,10 @@ namespace Lusid.Sdk.Model
             sb.Append("  UnitValue: ").Append(UnitValue).Append("\n");
             sb.Append("  Calendars: ").Append(Calendars).Append("\n");
             sb.Append("  DeliveryType: ").Append(DeliveryType).Append("\n");
+            sb.Append("  DeliverableMinMaturityYears: ").Append(DeliverableMinMaturityYears).Append("\n");
+            sb.Append("  DeliverableMaxMaturityYears: ").Append(DeliverableMaxMaturityYears).Append("\n");
+            sb.Append("  ExcludeCallableBonds: ").Append(ExcludeCallableBonds).Append("\n");
+            sb.Append("  DeliverableMinAmountOutstanding: ").Append(DeliverableMinAmountOutstanding).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -320,6 +360,25 @@ namespace Lusid.Sdk.Model
                     this.DeliveryType == input.DeliveryType ||
                     (this.DeliveryType != null &&
                     this.DeliveryType.Equals(input.DeliveryType))
+                ) && 
+                (
+                    this.DeliverableMinMaturityYears == input.DeliverableMinMaturityYears ||
+                    (this.DeliverableMinMaturityYears != null &&
+                    this.DeliverableMinMaturityYears.Equals(input.DeliverableMinMaturityYears))
+                ) && 
+                (
+                    this.DeliverableMaxMaturityYears == input.DeliverableMaxMaturityYears ||
+                    (this.DeliverableMaxMaturityYears != null &&
+                    this.DeliverableMaxMaturityYears.Equals(input.DeliverableMaxMaturityYears))
+                ) && 
+                (
+                    this.ExcludeCallableBonds == input.ExcludeCallableBonds ||
+                    this.ExcludeCallableBonds.Equals(input.ExcludeCallableBonds)
+                ) && 
+                (
+                    this.DeliverableMinAmountOutstanding == input.DeliverableMinAmountOutstanding ||
+                    (this.DeliverableMinAmountOutstanding != null &&
+                    this.DeliverableMinAmountOutstanding.Equals(input.DeliverableMinAmountOutstanding))
                 );
         }
 
@@ -382,6 +441,19 @@ namespace Lusid.Sdk.Model
                 if (this.DeliveryType != null)
                 {
                     hashCode = (hashCode * 59) + this.DeliveryType.GetHashCode();
+                }
+                if (this.DeliverableMinMaturityYears != null)
+                {
+                    hashCode = (hashCode * 59) + this.DeliverableMinMaturityYears.GetHashCode();
+                }
+                if (this.DeliverableMaxMaturityYears != null)
+                {
+                    hashCode = (hashCode * 59) + this.DeliverableMaxMaturityYears.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ExcludeCallableBonds.GetHashCode();
+                if (this.DeliverableMinAmountOutstanding != null)
+                {
+                    hashCode = (hashCode * 59) + this.DeliverableMinAmountOutstanding.GetHashCode();
                 }
                 return hashCode;
             }
