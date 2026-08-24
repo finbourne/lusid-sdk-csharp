@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **UnsettledUnits** | **decimal** | The number of unsettled units for the holding. | [optional] 
 **OverdueUnits** | **decimal** | The number of unsettled units for the holding that are beyond their contractual settlement date. | [optional] 
+**CustodianAccount** | [**CustodianAccount**](CustodianAccount.md) |  | [optional] 
 **ResolvedCustodianAccount** | [**ResolvedCustodianAccount**](ResolvedCustodianAccount.md) |  | [optional] 
 
 ```csharp
@@ -60,6 +61,8 @@ CurrencyAndAmount? variationMarginPortfolioCcy = new CurrencyAndAmount();
 List<SettlementSchedule> settlementSchedule = new List<SettlementSchedule>();
 ResourceId? custodianAccountId = new ResourceId();
 decimal? unsettledUnits = "example unsettledUnits";decimal? overdueUnits = "example overdueUnits";
+CustodianAccount? custodianAccount = new CustodianAccount();
+
 ResolvedCustodianAccount? resolvedCustodianAccount = new ResolvedCustodianAccount();
 
 
@@ -87,6 +90,7 @@ PortfolioHolding portfolioHoldingInstance = new PortfolioHolding(
     custodianAccountId: custodianAccountId,
     unsettledUnits: unsettledUnits,
     overdueUnits: overdueUnits,
+    custodianAccount: custodianAccount,
     resolvedCustodianAccount: resolvedCustodianAccount);
 ```
 

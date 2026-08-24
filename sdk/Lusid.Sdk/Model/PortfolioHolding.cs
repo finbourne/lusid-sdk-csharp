@@ -59,8 +59,9 @@ namespace Lusid.Sdk.Model
         /// <param name="custodianAccountId">custodianAccountId.</param>
         /// <param name="unsettledUnits">The number of unsettled units for the holding..</param>
         /// <param name="overdueUnits">The number of unsettled units for the holding that are beyond their contractual settlement date..</param>
+        /// <param name="custodianAccount">custodianAccount.</param>
         /// <param name="resolvedCustodianAccount">resolvedCustodianAccount.</param>
-        public PortfolioHolding(string instrumentScope = default(string), string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string holdingType = default(string), decimal units = default(decimal), decimal settledUnits = default(decimal), CurrencyAndAmount cost = default(CurrencyAndAmount), CurrencyAndAmount costPortfolioCcy = default(CurrencyAndAmount), Transaction transaction = default(Transaction), string currency = default(string), string holdingTypeName = default(string), long? holdingId = default(long?), CurrencyAndAmount notionalCost = default(CurrencyAndAmount), CurrencyAndAmount amortisedCost = default(CurrencyAndAmount), CurrencyAndAmount amortisedCostPortfolioCcy = default(CurrencyAndAmount), CurrencyAndAmount variationMargin = default(CurrencyAndAmount), CurrencyAndAmount variationMarginPortfolioCcy = default(CurrencyAndAmount), List<SettlementSchedule> settlementSchedule = default(List<SettlementSchedule>), decimal? currentFace = default(decimal?), ResourceId custodianAccountId = default(ResourceId), decimal unsettledUnits = default(decimal), decimal overdueUnits = default(decimal), ResolvedCustodianAccount resolvedCustodianAccount = default(ResolvedCustodianAccount))
+        public PortfolioHolding(string instrumentScope = default(string), string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string holdingType = default(string), decimal units = default(decimal), decimal settledUnits = default(decimal), CurrencyAndAmount cost = default(CurrencyAndAmount), CurrencyAndAmount costPortfolioCcy = default(CurrencyAndAmount), Transaction transaction = default(Transaction), string currency = default(string), string holdingTypeName = default(string), long? holdingId = default(long?), CurrencyAndAmount notionalCost = default(CurrencyAndAmount), CurrencyAndAmount amortisedCost = default(CurrencyAndAmount), CurrencyAndAmount amortisedCostPortfolioCcy = default(CurrencyAndAmount), CurrencyAndAmount variationMargin = default(CurrencyAndAmount), CurrencyAndAmount variationMarginPortfolioCcy = default(CurrencyAndAmount), List<SettlementSchedule> settlementSchedule = default(List<SettlementSchedule>), decimal? currentFace = default(decimal?), ResourceId custodianAccountId = default(ResourceId), decimal unsettledUnits = default(decimal), decimal overdueUnits = default(decimal), CustodianAccount custodianAccount = default(CustodianAccount), ResolvedCustodianAccount resolvedCustodianAccount = default(ResolvedCustodianAccount))
         {
             // to ensure "instrumentUid" is required (not null)
             if (instrumentUid == null)
@@ -105,6 +106,7 @@ namespace Lusid.Sdk.Model
             this.CustodianAccountId = custodianAccountId;
             this.UnsettledUnits = unsettledUnits;
             this.OverdueUnits = overdueUnits;
+            this.CustodianAccount = custodianAccount;
             this.ResolvedCustodianAccount = resolvedCustodianAccount;
         }
 
@@ -261,6 +263,12 @@ namespace Lusid.Sdk.Model
         public decimal OverdueUnits { get; set; }
 
         /// <summary>
+        /// Gets or Sets CustodianAccount
+        /// </summary>
+        [DataMember(Name = "custodianAccount", EmitDefaultValue = false)]
+        public CustodianAccount CustodianAccount { get; set; }
+
+        /// <summary>
         /// Gets or Sets ResolvedCustodianAccount
         /// </summary>
         [DataMember(Name = "resolvedCustodianAccount", EmitDefaultValue = false)]
@@ -297,6 +305,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CustodianAccountId: ").Append(CustodianAccountId).Append("\n");
             sb.Append("  UnsettledUnits: ").Append(UnsettledUnits).Append("\n");
             sb.Append("  OverdueUnits: ").Append(OverdueUnits).Append("\n");
+            sb.Append("  CustodianAccount: ").Append(CustodianAccount).Append("\n");
             sb.Append("  ResolvedCustodianAccount: ").Append(ResolvedCustodianAccount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -448,6 +457,11 @@ namespace Lusid.Sdk.Model
                     this.OverdueUnits.Equals(input.OverdueUnits)
                 ) && 
                 (
+                    this.CustodianAccount == input.CustodianAccount ||
+                    (this.CustodianAccount != null &&
+                    this.CustodianAccount.Equals(input.CustodianAccount))
+                ) && 
+                (
                     this.ResolvedCustodianAccount == input.ResolvedCustodianAccount ||
                     (this.ResolvedCustodianAccount != null &&
                     this.ResolvedCustodianAccount.Equals(input.ResolvedCustodianAccount))
@@ -543,6 +557,10 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.UnsettledUnits.GetHashCode();
                 hashCode = (hashCode * 59) + this.OverdueUnits.GetHashCode();
+                if (this.CustodianAccount != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustodianAccount.GetHashCode();
+                }
                 if (this.ResolvedCustodianAccount != null)
                 {
                     hashCode = (hashCode * 59) + this.ResolvedCustodianAccount.GetHashCode();
