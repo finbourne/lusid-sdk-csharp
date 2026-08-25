@@ -34,6 +34,8 @@ Name | Type | Description | Notes
 **HoldingSign** | **string** | Indicates if the Journal Entry Line is operating against a Long or Short holding. Available values: NA, Long, Short. | [optional] 
 **LedgerColumn** | **string** | Indicates if the Journal Entry Line is credit or debit. Available values: Debit, Credit. | [optional] 
 **JournalEntryLineType** | **string** | Indicates the Journal Entry Line type. Available values: Default, Reversal, TrueUp. | [optional] 
+**CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**CustodianAccountType** | **string** | Indicates the Account Type of the resolved Custodian Account for this Journal Entry Line. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -66,6 +68,9 @@ string movementSign = "example movementSign";
 string holdingSign = "example holdingSign";
 string ledgerColumn = "example ledgerColumn";
 string journalEntryLineType = "example journalEntryLineType";
+ResourceId? custodianAccountId = new ResourceId();
+
+string custodianAccountType = "example custodianAccountType";
 List<Link> links = new List<Link>();
 
 JournalEntryLine journalEntryLineInstance = new JournalEntryLine(
@@ -98,6 +103,8 @@ JournalEntryLine journalEntryLineInstance = new JournalEntryLine(
     holdingSign: holdingSign,
     ledgerColumn: ledgerColumn,
     journalEntryLineType: journalEntryLineType,
+    custodianAccountId: custodianAccountId,
+    custodianAccountType: custodianAccountType,
     links: links);
 ```
 
