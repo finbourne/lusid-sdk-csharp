@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **LusidInstrumentId** | **string** | The LUSID instrument id for the instrument ordered. | 
 **Quantity** | **decimal?** | The total quantity of given instrument ordered. | [optional] 
 **Amount** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**Basis** | **string** | The measure in which the block was instructed. Expected values are &#39;Quantity&#39; or &#39;Amount&#39;; null when the block carries no size measure. Read-only; derived from the populated size measures, taking quantity first, then amount. | [optional] [readonly] 
 **Side** | **string** | The client&#39;s representation of the block&#39;s side (buy, sell, short, etc) | 
 **Type** | **string** | The block order&#39;s type (examples: Limit, Market, ...) | [optional] 
 **TimeInForce** | **string** | The block orders&#39; time in force (examples: Day, GoodTilCancel, ...) | [optional] 
@@ -34,6 +35,7 @@ Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string
 string lusidInstrumentId = "lusidInstrumentId";
 CurrencyAndAmount? amount = new CurrencyAndAmount();
 
+string basis = "example basis";
 string side = "side";
 string type = "example type";
 string timeInForce = "example timeInForce";
@@ -56,6 +58,7 @@ Block blockInstance = new Block(
     lusidInstrumentId: lusidInstrumentId,
     quantity: quantity,
     amount: amount,
+    basis: basis,
     side: side,
     type: type,
     timeInForce: timeInForce,

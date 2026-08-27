@@ -176,6 +176,21 @@ namespace Lusid.Sdk.Model
         public CurrencyAndAmount Amount { get; set; }
 
         /// <summary>
+        /// The measure in which the placement was instructed. Expected values are &#39;Quantity&#39; or &#39;Amount&#39;; null when the placement carries no size measure. Read-only; derived from the populated size measures, taking quantity first, then amount.
+        /// </summary>
+        /// <value>The measure in which the placement was instructed. Expected values are &#39;Quantity&#39; or &#39;Amount&#39;; null when the placement carries no size measure. Read-only; derived from the populated size measures, taking quantity first, then amount.</value>
+        [DataMember(Name = "basis", EmitDefaultValue = true)]
+        public string Basis { get; private set; }
+
+        /// <summary>
+        /// Returns false as Basis should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeBasis()
+        {
+            return false;
+        }
+        /// <summary>
         /// The state of this placement (typically a FIX state; Open, Filled, etc).
         /// </summary>
         /// <value>The state of this placement (typically a FIX state; Open, Filled, etc).</value>
@@ -277,6 +292,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  LusidInstrumentId: ").Append(LusidInstrumentId).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  Basis: ").Append(Basis).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Side: ").Append(Side).Append("\n");
             sb.Append("  TimeInForce: ").Append(TimeInForce).Append("\n");
@@ -367,6 +383,11 @@ namespace Lusid.Sdk.Model
                     this.Amount == input.Amount ||
                     (this.Amount != null &&
                     this.Amount.Equals(input.Amount))
+                ) && 
+                (
+                    this.Basis == input.Basis ||
+                    (this.Basis != null &&
+                    this.Basis.Equals(input.Basis))
                 ) && 
                 (
                     this.State == input.State ||
@@ -476,6 +497,10 @@ namespace Lusid.Sdk.Model
                 if (this.Amount != null)
                 {
                     hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                }
+                if (this.Basis != null)
+                {
+                    hashCode = (hashCode * 59) + this.Basis.GetHashCode();
                 }
                 if (this.State != null)
                 {

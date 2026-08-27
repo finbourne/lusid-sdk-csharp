@@ -250,6 +250,21 @@ namespace Lusid.Sdk.Model
         public CurrencyAndAmount Amount { get; set; }
 
         /// <summary>
+        /// The measure in which the order was instructed. Expected values are &#39;Quantity&#39;, &#39;Amount&#39; or &#39;Weight&#39;; null when the order carries no size measure. Read-only; derived from the populated size measures, taking quantity first, then amount, then weight.
+        /// </summary>
+        /// <value>The measure in which the order was instructed. Expected values are &#39;Quantity&#39;, &#39;Amount&#39; or &#39;Weight&#39;; null when the order carries no size measure. Read-only; derived from the populated size measures, taking quantity first, then amount, then weight.</value>
+        [DataMember(Name = "basis", EmitDefaultValue = true)]
+        public string Basis { get; private set; }
+
+        /// <summary>
+        /// Returns false as Basis should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeBasis()
+        {
+            return false;
+        }
+        /// <summary>
         /// Gets or Sets CustodianAccountId
         /// </summary>
         [DataMember(Name = "custodianAccountId", EmitDefaultValue = false)]
@@ -310,6 +325,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PackageId: ").Append(PackageId).Append("\n");
             sb.Append("  Weight: ").Append(Weight).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  Basis: ").Append(Basis).Append("\n");
             sb.Append("  CustodianAccountId: ").Append(CustodianAccountId).Append("\n");
             sb.Append("  DataModelMembership: ").Append(DataModelMembership).Append("\n");
             sb.Append("  DerivedComplianceState: ").Append(DerivedComplianceState).Append("\n");
@@ -458,6 +474,11 @@ namespace Lusid.Sdk.Model
                     this.Amount.Equals(input.Amount))
                 ) && 
                 (
+                    this.Basis == input.Basis ||
+                    (this.Basis != null &&
+                    this.Basis.Equals(input.Basis))
+                ) && 
+                (
                     this.CustodianAccountId == input.CustodianAccountId ||
                     (this.CustodianAccountId != null &&
                     this.CustodianAccountId.Equals(input.CustodianAccountId))
@@ -577,6 +598,10 @@ namespace Lusid.Sdk.Model
                 if (this.Amount != null)
                 {
                     hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                }
+                if (this.Basis != null)
+                {
+                    hashCode = (hashCode * 59) + this.Basis.GetHashCode();
                 }
                 if (this.CustodianAccountId != null)
                 {

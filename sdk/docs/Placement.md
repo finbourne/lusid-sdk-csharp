@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **LusidInstrumentId** | **string** | The LUSID instrument id for the instrument placement. | 
 **Quantity** | **decimal?** | The quantity of given instrument ordered. | [optional] 
 **Amount** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**Basis** | **string** | The measure in which the placement was instructed. Expected values are &#39;Quantity&#39; or &#39;Amount&#39;; null when the placement carries no size measure. Read-only; derived from the populated size measures, taking quantity first, then amount. | [optional] [readonly] 
 **State** | **string** | The state of this placement (typically a FIX state; Open, Filled, etc). | 
 **Side** | **string** | The side (Buy, Sell, ...) of this placement. | 
 **TimeInForce** | **string** | The time in force applicable to this placement (GTC, FOK, Day, etc) | 
@@ -40,6 +41,7 @@ Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string
 string lusidInstrumentId = "lusidInstrumentId";
 CurrencyAndAmount? amount = new CurrencyAndAmount();
 
+string basis = "example basis";
 string state = "state";
 string side = "side";
 string timeInForce = "timeInForce";
@@ -66,6 +68,7 @@ Placement placementInstance = new Placement(
     lusidInstrumentId: lusidInstrumentId,
     quantity: quantity,
     amount: amount,
+    basis: basis,
     state: state,
     side: side,
     timeInForce: timeInForce,

@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **Previous** | [**PreviousValuationPoint**](PreviousValuationPoint.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The Valuation Point properties. These are from the &#39;DiaryEntry&#39; domain. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -34,6 +35,8 @@ PreviousValuationPoint? previous = new PreviousValuationPoint();
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 ModelVersion? varVersion = new ModelVersion();
 
+StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
+
 List<Link> links = new List<Link>();
 
 ValuationPoint valuationPointInstance = new ValuationPoint(
@@ -50,6 +53,7 @@ ValuationPoint valuationPointInstance = new ValuationPoint(
     previous: previous,
     properties: properties,
     varVersion: varVersion,
+    stagedModifications: stagedModifications,
     links: links);
 ```
 

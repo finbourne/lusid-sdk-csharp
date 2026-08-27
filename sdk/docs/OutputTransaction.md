@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **CustodianEntries** | [**List&lt;CustodianEntry&gt;**](CustodianEntry.md) | Set of of Custodian Entries associated with the transaction. | [optional] 
 **ResolvedCustodianAccounts** | [**List&lt;ResolvedCustodianAccount&gt;**](ResolvedCustodianAccount.md) | Set of Custodian Accounts resolved from each movement on the Transaction. | [optional] 
+**UnresolvedCustodianAccounts** | [**List&lt;CustodianEntry&gt;**](CustodianEntry.md) | Set of Custodian Entries on the Transaction that no movement was booked against, i.e. those which did not match a movement&#39;s account type and selector. | [optional] 
 **IsExcluded** | **bool** | Whether the transaction was excluded from the portfolio&#39;s holdings by the portfolio&#39;s transaction exclusion filter. | [optional] 
 
 ```csharp
@@ -95,6 +96,7 @@ StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
 
 List<CustodianEntry> custodianEntries = new List<CustodianEntry>();
 List<ResolvedCustodianAccount> resolvedCustodianAccounts = new List<ResolvedCustodianAccount>();
+List<CustodianEntry> unresolvedCustodianAccounts = new List<CustodianEntry>();
 bool isExcluded = //"True";
 
 OutputTransaction outputTransactionInstance = new OutputTransaction(
@@ -140,6 +142,7 @@ OutputTransaction outputTransactionInstance = new OutputTransaction(
     stagedModifications: stagedModifications,
     custodianEntries: custodianEntries,
     resolvedCustodianAccounts: resolvedCustodianAccounts,
+    unresolvedCustodianAccounts: unresolvedCustodianAccounts,
     isExcluded: isExcluded);
 ```
 

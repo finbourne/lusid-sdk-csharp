@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **PackageId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Weight** | **decimal?** | The proportion of the total portfolio value ordered for the given instrument ordered. | [optional] 
 **Amount** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**Basis** | **string** | The measure in which the order was instructed. Expected values are &#39;Quantity&#39;, &#39;Amount&#39; or &#39;Weight&#39;; null when the order carries no size measure. Read-only; derived from the populated size measures, taking quantity first, then amount, then weight. | [optional] [readonly] 
 **CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
 **DerivedComplianceState** | **string** | The compliance state of the order, derived from pre-trade compliance runs. | [optional] 
@@ -63,6 +64,7 @@ ResourceId? packageId = new ResourceId();
 
 CurrencyAndAmount? amount = new CurrencyAndAmount();
 
+string basis = "example basis";
 ResourceId? custodianAccountId = new ResourceId();
 
 DataModelMembership? dataModelMembership = new DataModelMembership();
@@ -93,6 +95,7 @@ Order orderInstance = new Order(
     packageId: packageId,
     weight: weight,
     amount: amount,
+    basis: basis,
     custodianAccountId: custodianAccountId,
     dataModelMembership: dataModelMembership,
     derivedComplianceState: derivedComplianceState,

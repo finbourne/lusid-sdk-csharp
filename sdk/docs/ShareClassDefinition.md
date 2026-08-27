@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **LaunchDate** | **DateTimeOffset?** | The launch date set when a shareclass is added to the fund. Defaults to Fund Inception Date. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | An optional set of properties to attach to the auto-created Instrument. Only applied when createInstrument is true. | [optional] 
 **FundShareClassType** | **string** | The Type of Share Class. Available values: Unitised, Inactive, Series, PrivateEquity, Partnership. | 
-**DistributionType** | **string** | The type of distribution the ShareClass will calculate. Available values: Income, Accumulation. | 
+**DistributionType** | **string** | The type of distribution the ShareClass will calculate. Available values: Income, Accumulation. | [optional] 
 **DomCcy** | **string** | The domestic currency of the ShareClass instrument. | 
 **TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
 **UnitsPrecision** | **int?** | Decimal places for the share class units. | [optional] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **RoundingConventionsUnits** | [**List&lt;SimpleRoundingConvention&gt;**](SimpleRoundingConvention.md) | Rounding conventions used for the ShareClass units. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 **DistributionPaymentType** | **string** | The tax treatment applied to distributions. Available values: Invalid, Gross, Net. | [optional] 
-**Hedging** | **string** | Indicates whether the ShareClass applies currency hedging. Available values: Invalid, None, ApplyHedging. | 
+**Hedging** | **string** | Indicates whether the ShareClass applies currency hedging. Available values: Invalid, None, ApplyHedging. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -33,7 +33,7 @@ string description = "example description";
 string shareClassShortCode = "shareClassShortCode";
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 string fundShareClassType = "fundShareClassType";
-string distributionType = "distributionType";
+string distributionType = "example distributionType";
 string domCcy = "domCcy";
 TradingConventions? tradingConventions = new TradingConventions();
 
@@ -42,7 +42,7 @@ List<SimpleRoundingConvention> roundingConventionsUnits = new List<SimpleRoundin
 TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
 
 string distributionPaymentType = "example distributionPaymentType";
-string hedging = "hedging";
+string hedging = "example hedging";
 
 ShareClassDefinition shareClassDefinitionInstance = new ShareClassDefinition(
     instrumentIdentifiers: instrumentIdentifiers,

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **PreviousEntryTime** | **DateTimeOffset** | The entry time of the previous diary entry. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the diary entry. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -33,6 +34,8 @@ bool applyClearDown = //"True";
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 ModelVersion? varVersion = new ModelVersion();
 
+StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
+
 List<Link> links = new List<Link>();
 
 DiaryEntry diaryEntryInstance = new DiaryEntry(
@@ -48,6 +51,7 @@ DiaryEntry diaryEntryInstance = new DiaryEntry(
     previousEntryTime: previousEntryTime,
     properties: properties,
     varVersion: varVersion,
+    stagedModifications: stagedModifications,
     links: links);
 ```
 

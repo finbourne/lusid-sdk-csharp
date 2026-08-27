@@ -48,8 +48,9 @@ namespace Lusid.Sdk.Model
         /// <param name="previousEntryTime">The entry time of the previous diary entry..</param>
         /// <param name="properties">A set of properties for the diary entry..</param>
         /// <param name="varVersion">varVersion.</param>
+        /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="links">links.</param>
-        public DiaryEntry(string href = default(string), ResourceId aborId = default(ResourceId), string diaryEntryCode = default(string), string type = default(string), string name = default(string), string status = default(string), bool applyClearDown = default(bool), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset queryAsAt = default(DateTimeOffset), DateTimeOffset previousEntryTime = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public DiaryEntry(string href = default(string), ResourceId aborId = default(ResourceId), string diaryEntryCode = default(string), string type = default(string), string name = default(string), string status = default(string), bool applyClearDown = default(bool), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset queryAsAt = default(DateTimeOffset), DateTimeOffset previousEntryTime = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<Link> links = default(List<Link>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -73,6 +74,7 @@ namespace Lusid.Sdk.Model
             this.PreviousEntryTime = previousEntryTime;
             this.Properties = properties;
             this.VarVersion = varVersion;
+            this.StagedModifications = stagedModifications;
             this.Links = links;
         }
 
@@ -159,6 +161,12 @@ namespace Lusid.Sdk.Model
         public ModelVersion VarVersion { get; set; }
 
         /// <summary>
+        /// Gets or Sets StagedModifications
+        /// </summary>
+        [DataMember(Name = "stagedModifications", EmitDefaultValue = false)]
+        public StagedModificationsInfo StagedModifications { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -184,6 +192,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PreviousEntryTime: ").Append(PreviousEntryTime).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -281,6 +290,11 @@ namespace Lusid.Sdk.Model
                     this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
+                    this.StagedModifications == input.StagedModifications ||
+                    (this.StagedModifications != null &&
+                    this.StagedModifications.Equals(input.StagedModifications))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -341,6 +355,10 @@ namespace Lusid.Sdk.Model
                 if (this.VarVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                }
+                if (this.StagedModifications != null)
+                {
+                    hashCode = (hashCode * 59) + this.StagedModifications.GetHashCode();
                 }
                 if (this.Links != null)
                 {

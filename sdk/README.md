@@ -1003,6 +1003,7 @@ Class | Method | HTTP request | Description
  - [CollateralInstrument](docs/CollateralInstrument.md)
  - [CommodityCalendarSchedule](docs/CommodityCalendarSchedule.md)
  - [CommodityCalendarSwap](docs/CommodityCalendarSwap.md)
+ - [CommodityCalendarSwapCashFlowEvent](docs/CommodityCalendarSwapCashFlowEvent.md)
  - [CommodityForward](docs/CommodityForward.md)
  - [CommodityForwardCashSettlementEvent](docs/CommodityForwardCashSettlementEvent.md)
  - [CommodityForwardPhysicalSettlementEvent](docs/CommodityForwardPhysicalSettlementEvent.md)
