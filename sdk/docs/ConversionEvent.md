@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **CashAndSecurityOfferElections** | [**List&lt;CashAndSecurityOfferElection&gt;**](CashAndSecurityOfferElection.md) | List of possible cash and security offers for this conversion event. There must be at most one election of this type.    If the ParticipationType is Mandatory:    This list &lt;b&gt; must be null or empty&lt;/b&gt;.    If the ParticipationType is Voluntary:    This list can be empty,  so long as SecurityOfferElections or CashOfferElections  has at least one election. None of these elections have to be chosen or default. | [optional] 
 **CashOfferElections** | [**List&lt;CashOfferElection&gt;**](CashOfferElection.md) | List of possible cash offers for this conversion event. There must be at most one election of this type.    If the ParticipationType is Mandatory:    This list &lt;b&gt; must be null or empty&lt;/b&gt;.    If the ParticipationType is Voluntary:    This list can be empty,  so long as SecurityOfferElections or CashAndSecurityOfferElections  has at least one election. None of these elections have to be chosen or default. | [optional] 
 **LapseElections** | [**List&lt;LapseElection&gt;**](LapseElection.md) | List of possible lapse elections for this conversion event. There must be at most one election of this type.    If provided, the holder is not entitled to receive anything for the conversion. | [optional] 
+**MixedLotConstituentsElections** | [**List&lt;MixedLotConstituentsElection&gt;**](MixedLotConstituentsElection.md) | List of possible mixed lot offers for this conversion event, if any. Each election converts the parent position  into one or more distinct new securities and/or cash legs, taking the place of the single event-level  NewInstrument that the other security-bearing elections resolve to.    A conversion may carry more than one of these, describing mutually exclusive multi-destination options.  Only supported when ConversionType is Regular. | [optional] 
 **ConversionType** | **string** | The type of conversion. Regular for standard conversions; Exchange144A for SEC Rule 144A exchanges.                Supported string (enumeration) values are: [Regular, Exchange144A]. Available values: Regular, Exchange144A. | [optional] 
 
 ```csharp
@@ -36,6 +37,7 @@ List<SecurityOfferElection> securityOfferElections = new List<SecurityOfferElect
 List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = new List<CashAndSecurityOfferElection>();
 List<CashOfferElection> cashOfferElections = new List<CashOfferElection>();
 List<LapseElection> lapseElections = new List<LapseElection>();
+List<MixedLotConstituentsElection> mixedLotConstituentsElections = new List<MixedLotConstituentsElection>();
 string conversionType = "example conversionType";
 
 ConversionEvent conversionEventInstance = new ConversionEvent(
@@ -54,6 +56,7 @@ ConversionEvent conversionEventInstance = new ConversionEvent(
     cashAndSecurityOfferElections: cashAndSecurityOfferElections,
     cashOfferElections: cashOfferElections,
     lapseElections: lapseElections,
+    mixedLotConstituentsElections: mixedLotConstituentsElections,
     conversionType: conversionType);
 ```
 

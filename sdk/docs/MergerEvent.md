@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **AnnouncementDate** | **DateTimeOffset?** | The date the merger is announced. | [optional] 
 **CashAndSecurityOfferElections** | [**List&lt;CashAndSecurityOfferElection&gt;**](CashAndSecurityOfferElection.md) | List of possible CashAndSecurityOfferElections for this merger event | [optional] 
 **CashOfferElections** | [**List&lt;CashOfferElection&gt;**](CashOfferElection.md) | List of possible CashOfferElections for this merger event | [optional] 
+**MixedLotConstituentsElections** | [**List&lt;MixedLotConstituentsElection&gt;**](MixedLotConstituentsElection.md) | List of possible mixed lot offers for this merger event, if any. Each election replaces the parent position  with one or more distinct new securities and/or cash legs of its own, taking the place of the single  event-level NewInstrument that the other security-bearing elections resolve to.    A merger may carry more than one of these, describing mutually exclusive multi-destination options. | [optional] 
 **ExDate** | **DateTimeOffset** | The first date on which the holder of record of the original shares has entitled ownership of the new shares. | [optional] 
 **FractionalUnitsCashCurrency** | **string** | Optional. Used in calculating cash-in-lieu of fractional shares. | [optional] 
 **FractionalUnitsCashPrice** | **decimal?** | Optional. Used in calculating cash-in-lieu of fractional shares. | [optional] 
@@ -25,6 +26,7 @@ using System;
 
 List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = new List<CashAndSecurityOfferElection>();
 List<CashOfferElection> cashOfferElections = new List<CashOfferElection>();
+List<MixedLotConstituentsElection> mixedLotConstituentsElections = new List<MixedLotConstituentsElection>();
 string fractionalUnitsCashCurrency = "example fractionalUnitsCashCurrency";
 string fractionalUnitsRoundingConvention = "example fractionalUnitsRoundingConvention";
 NewInstrument newInstrument = new NewInstrument();
@@ -34,6 +36,7 @@ MergerEvent mergerEventInstance = new MergerEvent(
     announcementDate: announcementDate,
     cashAndSecurityOfferElections: cashAndSecurityOfferElections,
     cashOfferElections: cashOfferElections,
+    mixedLotConstituentsElections: mixedLotConstituentsElections,
     exDate: exDate,
     fractionalUnitsCashCurrency: fractionalUnitsCashCurrency,
     fractionalUnitsCashPrice: fractionalUnitsCashPrice,

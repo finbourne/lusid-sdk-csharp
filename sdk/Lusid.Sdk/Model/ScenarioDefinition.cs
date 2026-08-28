@@ -40,8 +40,10 @@ namespace Lusid.Sdk.Model
         /// <param name="code">code (required).</param>
         /// <param name="displayName">displayName.</param>
         /// <param name="description">description.</param>
+        /// <param name="shortCode">A short, memorable identifier for the scenario, for use in reporting. Optional on upsert:  when omitted, reads return a value inferred from the display name (falling back to the  code) rather than null; the inferred value is computed fresh on every read and is never  persisted. When supplied, the value is stored and returned verbatim. Independent of  scenarioType..</param>
+        /// <param name="scenarioType">Classifies the scenario. Required on upsert; supported string (enumeration) values are:  [Historical, Regulatory, Hypothetical]. Independent of shortCode. Available values: Historical, Regulatory, Hypothetical. (required).</param>
         /// <param name="shifts">shifts.</param>
-        public ScenarioDefinition(string scope = default(string), string code = default(string), string displayName = default(string), string description = default(string), List<ScenarioShiftDefinition> shifts = default(List<ScenarioShiftDefinition>))
+        public ScenarioDefinition(string scope = default(string), string code = default(string), string displayName = default(string), string description = default(string), string shortCode = default(string), string scenarioType = default(string), List<ScenarioShiftDefinition> shifts = default(List<ScenarioShiftDefinition>))
         {
             // to ensure "scope" is required (not null)
             if (scope == null)
@@ -55,8 +57,15 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("code is a required property for ScenarioDefinition and cannot be null");
             }
             this.Code = code;
+            // to ensure "scenarioType" is required (not null)
+            if (scenarioType == null)
+            {
+                throw new ArgumentNullException("scenarioType is a required property for ScenarioDefinition and cannot be null");
+            }
+            this.ScenarioType = scenarioType;
             this.DisplayName = displayName;
             this.Description = description;
+            this.ShortCode = shortCode;
             this.Shifts = shifts;
         }
 
@@ -85,6 +94,20 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
+        /// A short, memorable identifier for the scenario, for use in reporting. Optional on upsert:  when omitted, reads return a value inferred from the display name (falling back to the  code) rather than null; the inferred value is computed fresh on every read and is never  persisted. When supplied, the value is stored and returned verbatim. Independent of  scenarioType.
+        /// </summary>
+        /// <value>A short, memorable identifier for the scenario, for use in reporting. Optional on upsert:  when omitted, reads return a value inferred from the display name (falling back to the  code) rather than null; the inferred value is computed fresh on every read and is never  persisted. When supplied, the value is stored and returned verbatim. Independent of  scenarioType.</value>
+        [DataMember(Name = "shortCode", EmitDefaultValue = true)]
+        public string ShortCode { get; set; }
+
+        /// <summary>
+        /// Classifies the scenario. Required on upsert; supported string (enumeration) values are:  [Historical, Regulatory, Hypothetical]. Independent of shortCode. Available values: Historical, Regulatory, Hypothetical.
+        /// </summary>
+        /// <value>Classifies the scenario. Required on upsert; supported string (enumeration) values are:  [Historical, Regulatory, Hypothetical]. Independent of shortCode. Available values: Historical, Regulatory, Hypothetical.</value>
+        [DataMember(Name = "scenarioType", IsRequired = true, EmitDefaultValue = true)]
+        public string ScenarioType { get; set; }
+
+        /// <summary>
         /// Gets or Sets Shifts
         /// </summary>
         [DataMember(Name = "shifts", EmitDefaultValue = true)]
@@ -102,6 +125,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  ShortCode: ").Append(ShortCode).Append("\n");
+            sb.Append("  ScenarioType: ").Append(ScenarioType).Append("\n");
             sb.Append("  Shifts: ").Append(Shifts).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -159,6 +184,16 @@ namespace Lusid.Sdk.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
+                    this.ShortCode == input.ShortCode ||
+                    (this.ShortCode != null &&
+                    this.ShortCode.Equals(input.ShortCode))
+                ) && 
+                (
+                    this.ScenarioType == input.ScenarioType ||
+                    (this.ScenarioType != null &&
+                    this.ScenarioType.Equals(input.ScenarioType))
+                ) && 
+                (
                     this.Shifts == input.Shifts ||
                     this.Shifts != null &&
                     input.Shifts != null &&
@@ -190,6 +225,14 @@ namespace Lusid.Sdk.Model
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.ShortCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShortCode.GetHashCode();
+                }
+                if (this.ScenarioType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ScenarioType.GetHashCode();
                 }
                 if (this.Shifts != null)
                 {
@@ -273,6 +316,31 @@ namespace Lusid.Sdk.Model
             if (false == regexDescription.Match(this.Description).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
+            }
+
+            // ShortCode (string) maxLength
+            if (this.ShortCode != null && this.ShortCode.Length > 10)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortCode, length must be less than 10.", new [] { "ShortCode" });
+            }
+
+            // ShortCode (string) minLength
+            if (this.ShortCode != null && this.ShortCode.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortCode, length must be greater than 0.", new [] { "ShortCode" });
+            }
+
+            // ShortCode (string) pattern
+            Regex regexShortCode = new Regex(@"^[A-Za-z0-9\-_]*$", RegexOptions.CultureInvariant);
+            if (false == regexShortCode.Match(this.ShortCode).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortCode, must match a pattern of " + regexShortCode, new [] { "ShortCode" });
+            }
+
+            // ScenarioType (string) minLength
+            if (this.ScenarioType != null && this.ScenarioType.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ScenarioType, length must be greater than 1.", new [] { "ScenarioType" });
             }
 
             yield break;

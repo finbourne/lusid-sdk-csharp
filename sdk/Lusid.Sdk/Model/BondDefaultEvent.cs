@@ -39,10 +39,16 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="BondDefaultEvent" /> class.
         /// </summary>
         /// <param name="effectiveDate">The date the bond default occurred..</param>
+        /// <param name="defaultReason">Why the issuer defaulted, in the client&#39;s own words. Free text, with no effect on any calculation.  This field is optional..</param>
+        /// <param name="suppressionDetails">suppressionDetails.</param>
+        /// <param name="suppressionDetailsSpecified">Whether SuppressionDetails was supplied at all, which an absent section and an empty one cannot  otherwise be told apart by when the percentages are read as separate columns. An absent section  suppresses coupons and principal outright; an empty one suppresses nothing.  Setting this to false while also supplying a percentage is contradictory. The percentages win and  the section is treated as present, because honouring the false would silently discard values the  caller explicitly sent..</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent. (required) (default to &quot;BondDefaultEvent&quot;).</param>
-        public BondDefaultEvent(DateTimeOffset effectiveDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public BondDefaultEvent(DateTimeOffset effectiveDate = default(DateTimeOffset), string defaultReason = default(string), BondDefaultSuppressionDetails suppressionDetails = default(BondDefaultSuppressionDetails), bool? suppressionDetailsSpecified = default(bool?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.EffectiveDate = effectiveDate;
+            this.DefaultReason = defaultReason;
+            this.SuppressionDetails = suppressionDetails;
+            this.SuppressionDetailsSpecified = suppressionDetailsSpecified;
         }
 
         /// <summary>
@@ -51,6 +57,26 @@ namespace Lusid.Sdk.Model
         /// <value>The date the bond default occurred.</value>
         [DataMember(Name = "effectiveDate", EmitDefaultValue = false)]
         public DateTimeOffset EffectiveDate { get; set; }
+
+        /// <summary>
+        /// Why the issuer defaulted, in the client&#39;s own words. Free text, with no effect on any calculation.  This field is optional.
+        /// </summary>
+        /// <value>Why the issuer defaulted, in the client&#39;s own words. Free text, with no effect on any calculation.  This field is optional.</value>
+        [DataMember(Name = "defaultReason", EmitDefaultValue = true)]
+        public string DefaultReason { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SuppressionDetails
+        /// </summary>
+        [DataMember(Name = "suppressionDetails", EmitDefaultValue = false)]
+        public BondDefaultSuppressionDetails SuppressionDetails { get; set; }
+
+        /// <summary>
+        /// Whether SuppressionDetails was supplied at all, which an absent section and an empty one cannot  otherwise be told apart by when the percentages are read as separate columns. An absent section  suppresses coupons and principal outright; an empty one suppresses nothing.  Setting this to false while also supplying a percentage is contradictory. The percentages win and  the section is treated as present, because honouring the false would silently discard values the  caller explicitly sent.
+        /// </summary>
+        /// <value>Whether SuppressionDetails was supplied at all, which an absent section and an empty one cannot  otherwise be told apart by when the percentages are read as separate columns. An absent section  suppresses coupons and principal outright; an empty one suppresses nothing.  Setting this to false while also supplying a percentage is contradictory. The percentages win and  the section is treated as present, because honouring the false would silently discard values the  caller explicitly sent.</value>
+        [DataMember(Name = "suppressionDetailsSpecified", EmitDefaultValue = true)]
+        public bool? SuppressionDetailsSpecified { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,6 +88,9 @@ namespace Lusid.Sdk.Model
             sb.Append("class BondDefaultEvent {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  EffectiveDate: ").Append(EffectiveDate).Append("\n");
+            sb.Append("  DefaultReason: ").Append(DefaultReason).Append("\n");
+            sb.Append("  SuppressionDetails: ").Append(SuppressionDetails).Append("\n");
+            sb.Append("  SuppressionDetailsSpecified: ").Append(SuppressionDetailsSpecified).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,6 +130,21 @@ namespace Lusid.Sdk.Model
                     this.EffectiveDate == input.EffectiveDate ||
                     (this.EffectiveDate != null &&
                     this.EffectiveDate.Equals(input.EffectiveDate))
+                ) && base.Equals(input) && 
+                (
+                    this.DefaultReason == input.DefaultReason ||
+                    (this.DefaultReason != null &&
+                    this.DefaultReason.Equals(input.DefaultReason))
+                ) && base.Equals(input) && 
+                (
+                    this.SuppressionDetails == input.SuppressionDetails ||
+                    (this.SuppressionDetails != null &&
+                    this.SuppressionDetails.Equals(input.SuppressionDetails))
+                ) && base.Equals(input) && 
+                (
+                    this.SuppressionDetailsSpecified == input.SuppressionDetailsSpecified ||
+                    (this.SuppressionDetailsSpecified != null &&
+                    this.SuppressionDetailsSpecified.Equals(input.SuppressionDetailsSpecified))
                 );
         }
 
@@ -116,6 +160,18 @@ namespace Lusid.Sdk.Model
                 if (this.EffectiveDate != null)
                 {
                     hashCode = (hashCode * 59) + this.EffectiveDate.GetHashCode();
+                }
+                if (this.DefaultReason != null)
+                {
+                    hashCode = (hashCode * 59) + this.DefaultReason.GetHashCode();
+                }
+                if (this.SuppressionDetails != null)
+                {
+                    hashCode = (hashCode * 59) + this.SuppressionDetails.GetHashCode();
+                }
+                if (this.SuppressionDetailsSpecified != null)
+                {
+                    hashCode = (hashCode * 59) + this.SuppressionDetailsSpecified.GetHashCode();
                 }
                 return hashCode;
             }
@@ -142,6 +198,18 @@ namespace Lusid.Sdk.Model
             {
                 yield return x;
             }
+            // DefaultReason (string) maxLength
+            if (this.DefaultReason != null && this.DefaultReason.Length > 512)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DefaultReason, length must be less than 512.", new [] { "DefaultReason" });
+            }
+
+            // DefaultReason (string) minLength
+            if (this.DefaultReason != null && this.DefaultReason.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DefaultReason, length must be greater than 0.", new [] { "DefaultReason" });
+            }
+
             yield break;
         }
     }

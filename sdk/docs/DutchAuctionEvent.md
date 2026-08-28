@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **SecurityOfferElections** | [**List&lt;SecurityOfferElection&gt;**](SecurityOfferElection.md) | List of possible SecurityOfferElections for this event. Populated on the SECU path (Count &#x3D;&#x3D; 1);  empty on the CASH and CASE paths. | [optional] 
 **CashAndSecurityOfferElections** | [**List&lt;CashAndSecurityOfferElection&gt;**](CashAndSecurityOfferElection.md) | List of possible CashAndSecurityOfferElections for this event. Populated on the CASE path  (Count &#x3D;&#x3D; 1); empty on the CASH and SECU paths. | [optional] 
 **LapseElections** | [**List&lt;LapseElection&gt;**](LapseElection.md) | List of possible LapseElections for this event. Required on all three paths (Count &#x3D;&#x3D; 1).  Allows the holder to opt out of the offer (NOAC). | [optional] 
+**MixedLotConstituentsElections** | [**List&lt;MixedLotConstituentsElection&gt;**](MixedLotConstituentsElection.md) | List of possible MixedLotConstituentsElections for this event, if any. Each election settles into one or more  distinct new securities and/or cash legs of its own, in place of the single event-level NewInstrument the  SecurityOffer and CashAndSecurityOffer paths resolve to.    Several may be present: a Dutch Auction commonly offers a number of mutually exclusive destinations, and each  is described by its own election. Not applicable to the CASH path, which has no security leg to multiply. | [optional] 
 **ResponseDeadlineDate** | **DateTimeOffset?** | Account-servicer response deadline. Defaults to MarketDeadlineDate when not supplied.  When provided, must be on or before MarketDeadlineDate. | [optional] 
 **EarlyResponseDeadline** | **DateTimeOffset?** | Early-participation deadline. When provided, must be on or before ResponseDeadlineDate. | [optional] 
 **ExDate** | **DateTimeOffset?** | The ex date of the event. Optional; carried for cross-event consistency. | [optional] 
@@ -33,7 +34,8 @@ string currency = "currency";
 List<TenderOfferElection> tenderOfferElections = new List<TenderOfferElection>();
 List<SecurityOfferElection> securityOfferElections = new List<SecurityOfferElection>();
 List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = new List<CashAndSecurityOfferElection>();
-List<LapseElection> lapseElections = new List<LapseElection>();decimal? prorationRate = "example prorationRate";
+List<LapseElection> lapseElections = new List<LapseElection>();
+List<MixedLotConstituentsElection> mixedLotConstituentsElections = new List<MixedLotConstituentsElection>();decimal? prorationRate = "example prorationRate";
 NewInstrument? newInstrument = new NewInstrument();
 
 string fractionalUnitsCashCurrency = "example fractionalUnitsCashCurrency";
@@ -46,6 +48,7 @@ DutchAuctionEvent dutchAuctionEventInstance = new DutchAuctionEvent(
     securityOfferElections: securityOfferElections,
     cashAndSecurityOfferElections: cashAndSecurityOfferElections,
     lapseElections: lapseElections,
+    mixedLotConstituentsElections: mixedLotConstituentsElections,
     responseDeadlineDate: responseDeadlineDate,
     earlyResponseDeadline: earlyResponseDeadline,
     exDate: exDate,

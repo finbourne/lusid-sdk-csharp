@@ -5,6 +5,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**CalculateOrderDates**](TransferAgencyApi.md#calculateorderdates) | **POST** /api/transferagency/orderdates | [EXPERIMENTAL] CalculateOrderDates: Calculate the key dates associated with transfer agency orders |
+| [**DeleteTransferAgencyOrders**](TransferAgencyApi.md#deletetransferagencyorders) | **POST** /api/transferagency/orders/$delete | [EXPERIMENTAL] DeleteTransferAgencyOrders: Delete transfer agency orders |
 | [**UpsertTransferAgencyOrders**](TransferAgencyApi.md#upserttransferagencyorders) | **POST** /api/transferagency/orders | [EXPERIMENTAL] UpsertTransferAgencyOrders: Upsert transfer agency orders |
 
 <a id="calculateorderdates"></a>
@@ -116,6 +117,120 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully calculated dates and any failed calculations. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="deletetransferagencyorders"></a>
+# **DeleteTransferAgencyOrders**
+> DeleteTransferAgencyOrdersResponse DeleteTransferAgencyOrders (Dictionary<string, DeleteTransferAgencyOrderRequest> requestBody)
+
+[EXPERIMENTAL] DeleteTransferAgencyOrders: Delete transfer agency orders
+
+Deletes each order supplied, cancelling any cash transaction(s) already booked for it. Only an order in  'New' or 'Pending' can be deleted. A priced order must be un-priced first. An order with no cash transaction  booked against it is deleted successfully and reports no cancelled transactions. Transaction staging rules are not applied to these  cancellations.  The response contains both successfully deleted orders and any failures, each in the form of a  dictionary keyed by the request's keys. For each failure, a reason is provided. It is important to  check the failed set for unsuccessful results.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransferAgencyApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransferAgencyApi>();
+            var requestBody = new Dictionary<string, DeleteTransferAgencyOrderRequest>(); // Dictionary<string, DeleteTransferAgencyOrderRequest> | The transfer agency orders to delete, keyed by a unique request identifier.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // DeleteTransferAgencyOrdersResponse result = apiInstance.DeleteTransferAgencyOrders(requestBody, opts: opts);
+
+                // [EXPERIMENTAL] DeleteTransferAgencyOrders: Delete transfer agency orders
+                DeleteTransferAgencyOrdersResponse result = apiInstance.DeleteTransferAgencyOrders(requestBody);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TransferAgencyApi.DeleteTransferAgencyOrders: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DeleteTransferAgencyOrdersWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] DeleteTransferAgencyOrders: Delete transfer agency orders
+    ApiResponse<DeleteTransferAgencyOrdersResponse> response = apiInstance.DeleteTransferAgencyOrdersWithHttpInfo(requestBody);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TransferAgencyApi.DeleteTransferAgencyOrdersWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **requestBody** | [**Dictionary&lt;string, DeleteTransferAgencyOrderRequest&gt;**](DeleteTransferAgencyOrderRequest.md) | The transfer agency orders to delete, keyed by a unique request identifier. |  |
+
+### Return type
+
+[**DeleteTransferAgencyOrdersResponse**](DeleteTransferAgencyOrdersResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully deleted orders and any failures. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

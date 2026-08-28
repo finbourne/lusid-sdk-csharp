@@ -346,36 +346,36 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ClosedPeriod</returns>
         Lusid.Sdk.Client.ApiResponse<ClosedPeriod> SetPostCloseActivityWithHttpInfo(string scope, string code, string closedPeriodId, PostCloseActivitiesRequest? postCloseActivitiesRequest = default(PostCloseActivitiesRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm the last confirmed Closed Period against a Timeline Entity
+        /// [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm a confirmed Closed Period against a Timeline Entity
         /// </summary>
         /// <remarks>
-        /// Unconfirm the last confirmed Closed Period against a Timeline Entity
+        /// Unconfirm a confirmed Closed Period against a Timeline Entity. By default only the latest confirmed  Closed Period may be unconfirmed. Setting deleteSubsequentPeriods on the request body allows any  confirmed Closed Period to be unconfirmed, deleting every Closed Period after it on the Timeline.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
         /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. The closed period must be the last closed period on the Timeline.</param>
-        /// <param name="body">Not in use at the moment (optional)</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. Must be the latest confirmed Closed Period unless              deleteSubsequentPeriods is set on the request body.</param>
+        /// <param name="unconfirmClosedPeriodRequest">Controls whether a non-latest confirmed Closed Period may be unconfirmed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ClosedPeriod</returns>
-        ClosedPeriod UnconfirmClosedPeriod(string scope, string code, string closedPeriodId, Object? body = default(Object?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ClosedPeriod UnconfirmClosedPeriod(string scope, string code, string closedPeriodId, UnconfirmClosedPeriodRequest? unconfirmClosedPeriodRequest = default(UnconfirmClosedPeriodRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm the last confirmed Closed Period against a Timeline Entity
+        /// [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm a confirmed Closed Period against a Timeline Entity
         /// </summary>
         /// <remarks>
-        /// Unconfirm the last confirmed Closed Period against a Timeline Entity
+        /// Unconfirm a confirmed Closed Period against a Timeline Entity. By default only the latest confirmed  Closed Period may be unconfirmed. Setting deleteSubsequentPeriods on the request body allows any  confirmed Closed Period to be unconfirmed, deleting every Closed Period after it on the Timeline.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
         /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. The closed period must be the last closed period on the Timeline.</param>
-        /// <param name="body">Not in use at the moment (optional)</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. Must be the latest confirmed Closed Period unless              deleteSubsequentPeriods is set on the request body.</param>
+        /// <param name="unconfirmClosedPeriodRequest">Controls whether a non-latest confirmed Closed Period may be unconfirmed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ClosedPeriod</returns>
-        Lusid.Sdk.Client.ApiResponse<ClosedPeriod> UnconfirmClosedPeriodWithHttpInfo(string scope, string code, string closedPeriodId, Object? body = default(Object?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ClosedPeriod> UnconfirmClosedPeriodWithHttpInfo(string scope, string code, string closedPeriodId, UnconfirmClosedPeriodRequest? unconfirmClosedPeriodRequest = default(UnconfirmClosedPeriodRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code
         /// </summary>
@@ -749,38 +749,38 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ClosedPeriod)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ClosedPeriod>> SetPostCloseActivityWithHttpInfoAsync(string scope, string code, string closedPeriodId, PostCloseActivitiesRequest? postCloseActivitiesRequest = default(PostCloseActivitiesRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm the last confirmed Closed Period against a Timeline Entity
+        /// [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm a confirmed Closed Period against a Timeline Entity
         /// </summary>
         /// <remarks>
-        /// Unconfirm the last confirmed Closed Period against a Timeline Entity
+        /// Unconfirm a confirmed Closed Period against a Timeline Entity. By default only the latest confirmed  Closed Period may be unconfirmed. Setting deleteSubsequentPeriods on the request body allows any  confirmed Closed Period to be unconfirmed, deleting every Closed Period after it on the Timeline.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
         /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. The closed period must be the last closed period on the Timeline.</param>
-        /// <param name="body">Not in use at the moment (optional)</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. Must be the latest confirmed Closed Period unless              deleteSubsequentPeriods is set on the request body.</param>
+        /// <param name="unconfirmClosedPeriodRequest">Controls whether a non-latest confirmed Closed Period may be unconfirmed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ClosedPeriod</returns>
-        System.Threading.Tasks.Task<ClosedPeriod> UnconfirmClosedPeriodAsync(string scope, string code, string closedPeriodId, Object? body = default(Object?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ClosedPeriod> UnconfirmClosedPeriodAsync(string scope, string code, string closedPeriodId, UnconfirmClosedPeriodRequest? unconfirmClosedPeriodRequest = default(UnconfirmClosedPeriodRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm the last confirmed Closed Period against a Timeline Entity
+        /// [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm a confirmed Closed Period against a Timeline Entity
         /// </summary>
         /// <remarks>
-        /// Unconfirm the last confirmed Closed Period against a Timeline Entity
+        /// Unconfirm a confirmed Closed Period against a Timeline Entity. By default only the latest confirmed  Closed Period may be unconfirmed. Setting deleteSubsequentPeriods on the request body allows any  confirmed Closed Period to be unconfirmed, deleting every Closed Period after it on the Timeline.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
         /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. The closed period must be the last closed period on the Timeline.</param>
-        /// <param name="body">Not in use at the moment (optional)</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. Must be the latest confirmed Closed Period unless              deleteSubsequentPeriods is set on the request body.</param>
+        /// <param name="unconfirmClosedPeriodRequest">Controls whether a non-latest confirmed Closed Period may be unconfirmed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ClosedPeriod)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ClosedPeriod>> UnconfirmClosedPeriodWithHttpInfoAsync(string scope, string code, string closedPeriodId, Object? body = default(Object?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ClosedPeriod>> UnconfirmClosedPeriodWithHttpInfoAsync(string scope, string code, string closedPeriodId, UnconfirmClosedPeriodRequest? unconfirmClosedPeriodRequest = default(UnconfirmClosedPeriodRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code
         /// </summary>
@@ -3442,34 +3442,34 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm the last confirmed Closed Period against a Timeline Entity Unconfirm the last confirmed Closed Period against a Timeline Entity
+        /// [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm a confirmed Closed Period against a Timeline Entity Unconfirm a confirmed Closed Period against a Timeline Entity. By default only the latest confirmed  Closed Period may be unconfirmed. Setting deleteSubsequentPeriods on the request body allows any  confirmed Closed Period to be unconfirmed, deleting every Closed Period after it on the Timeline.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
         /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. The closed period must be the last closed period on the Timeline.</param>
-        /// <param name="body">Not in use at the moment (optional)</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. Must be the latest confirmed Closed Period unless              deleteSubsequentPeriods is set on the request body.</param>
+        /// <param name="unconfirmClosedPeriodRequest">Controls whether a non-latest confirmed Closed Period may be unconfirmed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ClosedPeriod</returns>
-        public ClosedPeriod UnconfirmClosedPeriod(string scope, string code, string closedPeriodId, Object? body = default(Object?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ClosedPeriod UnconfirmClosedPeriod(string scope, string code, string closedPeriodId, UnconfirmClosedPeriodRequest? unconfirmClosedPeriodRequest = default(UnconfirmClosedPeriodRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ClosedPeriod> localVarResponse = UnconfirmClosedPeriodWithHttpInfo(scope, code, closedPeriodId, body, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ClosedPeriod> localVarResponse = UnconfirmClosedPeriodWithHttpInfo(scope, code, closedPeriodId, unconfirmClosedPeriodRequest, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm the last confirmed Closed Period against a Timeline Entity Unconfirm the last confirmed Closed Period against a Timeline Entity
+        /// [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm a confirmed Closed Period against a Timeline Entity Unconfirm a confirmed Closed Period against a Timeline Entity. By default only the latest confirmed  Closed Period may be unconfirmed. Setting deleteSubsequentPeriods on the request body allows any  confirmed Closed Period to be unconfirmed, deleting every Closed Period after it on the Timeline.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
         /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. The closed period must be the last closed period on the Timeline.</param>
-        /// <param name="body">Not in use at the moment (optional)</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. Must be the latest confirmed Closed Period unless              deleteSubsequentPeriods is set on the request body.</param>
+        /// <param name="unconfirmClosedPeriodRequest">Controls whether a non-latest confirmed Closed Period may be unconfirmed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ClosedPeriod</returns>
-        public Lusid.Sdk.Client.ApiResponse<ClosedPeriod> UnconfirmClosedPeriodWithHttpInfo(string scope, string code, string closedPeriodId, Object? body = default(Object?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ClosedPeriod> UnconfirmClosedPeriodWithHttpInfo(string scope, string code, string closedPeriodId, UnconfirmClosedPeriodRequest? unconfirmClosedPeriodRequest = default(UnconfirmClosedPeriodRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3530,7 +3530,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             localVarRequestOptions.PathParameters.Add("closedPeriodId", Lusid.Sdk.Client.ClientUtils.ParameterToString(closedPeriodId)); // path parameter
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = unconfirmClosedPeriodRequest;
 
             localVarRequestOptions.Operation = "TimelinesApi.UnconfirmClosedPeriod";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -3567,36 +3567,36 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm the last confirmed Closed Period against a Timeline Entity Unconfirm the last confirmed Closed Period against a Timeline Entity
+        /// [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm a confirmed Closed Period against a Timeline Entity Unconfirm a confirmed Closed Period against a Timeline Entity. By default only the latest confirmed  Closed Period may be unconfirmed. Setting deleteSubsequentPeriods on the request body allows any  confirmed Closed Period to be unconfirmed, deleting every Closed Period after it on the Timeline.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
         /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. The closed period must be the last closed period on the Timeline.</param>
-        /// <param name="body">Not in use at the moment (optional)</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. Must be the latest confirmed Closed Period unless              deleteSubsequentPeriods is set on the request body.</param>
+        /// <param name="unconfirmClosedPeriodRequest">Controls whether a non-latest confirmed Closed Period may be unconfirmed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ClosedPeriod</returns>
-        public async System.Threading.Tasks.Task<ClosedPeriod> UnconfirmClosedPeriodAsync(string scope, string code, string closedPeriodId, Object? body = default(Object?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ClosedPeriod> UnconfirmClosedPeriodAsync(string scope, string code, string closedPeriodId, UnconfirmClosedPeriodRequest? unconfirmClosedPeriodRequest = default(UnconfirmClosedPeriodRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ClosedPeriod> localVarResponse = await UnconfirmClosedPeriodWithHttpInfoAsync(scope, code, closedPeriodId, body, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ClosedPeriod> localVarResponse = await UnconfirmClosedPeriodWithHttpInfoAsync(scope, code, closedPeriodId, unconfirmClosedPeriodRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm the last confirmed Closed Period against a Timeline Entity Unconfirm the last confirmed Closed Period against a Timeline Entity
+        /// [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm a confirmed Closed Period against a Timeline Entity Unconfirm a confirmed Closed Period against a Timeline Entity. By default only the latest confirmed  Closed Period may be unconfirmed. Setting deleteSubsequentPeriods on the request body allows any  confirmed Closed Period to be unconfirmed, deleting every Closed Period after it on the Timeline.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
         /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. The closed period must be the last closed period on the Timeline.</param>
-        /// <param name="body">Not in use at the moment (optional)</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. Must be the latest confirmed Closed Period unless              deleteSubsequentPeriods is set on the request body.</param>
+        /// <param name="unconfirmClosedPeriodRequest">Controls whether a non-latest confirmed Closed Period may be unconfirmed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ClosedPeriod)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ClosedPeriod>> UnconfirmClosedPeriodWithHttpInfoAsync(string scope, string code, string closedPeriodId, Object? body = default(Object?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ClosedPeriod>> UnconfirmClosedPeriodWithHttpInfoAsync(string scope, string code, string closedPeriodId, UnconfirmClosedPeriodRequest? unconfirmClosedPeriodRequest = default(UnconfirmClosedPeriodRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3658,7 +3658,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             localVarRequestOptions.PathParameters.Add("closedPeriodId", Lusid.Sdk.Client.ClientUtils.ParameterToString(closedPeriodId)); // path parameter
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = unconfirmClosedPeriodRequest;
 
             localVarRequestOptions.Operation = "TimelinesApi.UnconfirmClosedPeriod";
             localVarRequestOptions.OperationIndex = operationIndex;

@@ -50,6 +50,7 @@ namespace Lusid.Sdk.Model
         /// <param name="securityOfferElections">List of possible SecurityOfferElections for this event..</param>
         /// <param name="cashAndSecurityOfferElections">List of possible CashAndSecurityOfferElections for this event..</param>
         /// <param name="cashOfferElections">List of possible CashOfferElections for this event..</param>
+        /// <param name="mixedLotConstituentsElections">List of possible mixed lot offers for this tender event, if any. Each election replaces the tendered  position with one or more distinct new securities and/or cash legs of its own, taking the place of the  single event-level NewInstrument that the other security-bearing elections resolve to.    A tender may carry more than one of these, describing mutually exclusive multi-destination options..</param>
         /// <param name="offerType">Informational ISO 20022 OfferTp indicator (e.g. \&quot;ACPR\&quot;). Optional. No calculation impact..</param>
         /// <param name="accruedInterestPerUnit">Optional per-unit accrued interest on the tendered face, from the last coupon date up to  (but excluding) PaymentDate. Bond instrument types only. If left empty, analytics-core  resolves it at event time from the bond&#39;s coupon schedule and market data..</param>
         /// <param name="minPieceSize">Bond-specific minimum instructable face amount. Optional. Must be strictly positive when set..</param>
@@ -59,7 +60,7 @@ namespace Lusid.Sdk.Model
         /// <param name="marketDeadlineDate">Offeror&#39;s-agent deadline for holder instruction. Optional at the DTO layer;  required under Voluntary participation on bond instrument types..</param>
         /// <param name="earlyResponseDeadline">Optional early-tender deadline. When set, must be on or before ResponseDeadlineDate..</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent. (required) (default to &quot;TenderEvent&quot;).</param>
-        public TenderEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset paymentDate = default(DateTimeOffset), NewInstrument newInstrument = default(NewInstrument), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), string fractionalUnitsRoundingConvention = default(string), int? fractionalUnitsDecimalPlaces = default(int?), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), string offerType = default(string), decimal? accruedInterestPerUnit = default(decimal?), decimal? minPieceSize = default(decimal?), decimal? minIncrement = default(decimal?), decimal prorationRate = (decimal)1D, DateTimeOffset? responseDeadlineDate = default(DateTimeOffset?), DateTimeOffset? marketDeadlineDate = default(DateTimeOffset?), DateTimeOffset? earlyResponseDeadline = default(DateTimeOffset?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public TenderEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset paymentDate = default(DateTimeOffset), NewInstrument newInstrument = default(NewInstrument), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), string fractionalUnitsRoundingConvention = default(string), int? fractionalUnitsDecimalPlaces = default(int?), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), List<MixedLotConstituentsElection> mixedLotConstituentsElections = default(List<MixedLotConstituentsElection>), string offerType = default(string), decimal? accruedInterestPerUnit = default(decimal?), decimal? minPieceSize = default(decimal?), decimal? minIncrement = default(decimal?), decimal prorationRate = (decimal)1D, DateTimeOffset? responseDeadlineDate = default(DateTimeOffset?), DateTimeOffset? marketDeadlineDate = default(DateTimeOffset?), DateTimeOffset? earlyResponseDeadline = default(DateTimeOffset?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "newInstrument" is required (not null)
             if (newInstrument == null)
@@ -78,6 +79,7 @@ namespace Lusid.Sdk.Model
             this.SecurityOfferElections = securityOfferElections;
             this.CashAndSecurityOfferElections = cashAndSecurityOfferElections;
             this.CashOfferElections = cashOfferElections;
+            this.MixedLotConstituentsElections = mixedLotConstituentsElections;
             this.OfferType = offerType;
             this.AccruedInterestPerUnit = accruedInterestPerUnit;
             this.MinPieceSize = minPieceSize;
@@ -172,6 +174,13 @@ namespace Lusid.Sdk.Model
         public List<CashOfferElection> CashOfferElections { get; set; }
 
         /// <summary>
+        /// List of possible mixed lot offers for this tender event, if any. Each election replaces the tendered  position with one or more distinct new securities and/or cash legs of its own, taking the place of the  single event-level NewInstrument that the other security-bearing elections resolve to.    A tender may carry more than one of these, describing mutually exclusive multi-destination options.
+        /// </summary>
+        /// <value>List of possible mixed lot offers for this tender event, if any. Each election replaces the tendered  position with one or more distinct new securities and/or cash legs of its own, taking the place of the  single event-level NewInstrument that the other security-bearing elections resolve to.    A tender may carry more than one of these, describing mutually exclusive multi-destination options.</value>
+        [DataMember(Name = "mixedLotConstituentsElections", EmitDefaultValue = true)]
+        public List<MixedLotConstituentsElection> MixedLotConstituentsElections { get; set; }
+
+        /// <summary>
         /// Informational ISO 20022 OfferTp indicator (e.g. \&quot;ACPR\&quot;). Optional. No calculation impact.
         /// </summary>
         /// <value>Informational ISO 20022 OfferTp indicator (e.g. \&quot;ACPR\&quot;). Optional. No calculation impact.</value>
@@ -248,6 +257,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  SecurityOfferElections: ").Append(SecurityOfferElections).Append("\n");
             sb.Append("  CashAndSecurityOfferElections: ").Append(CashAndSecurityOfferElections).Append("\n");
             sb.Append("  CashOfferElections: ").Append(CashOfferElections).Append("\n");
+            sb.Append("  MixedLotConstituentsElections: ").Append(MixedLotConstituentsElections).Append("\n");
             sb.Append("  OfferType: ").Append(OfferType).Append("\n");
             sb.Append("  AccruedInterestPerUnit: ").Append(AccruedInterestPerUnit).Append("\n");
             sb.Append("  MinPieceSize: ").Append(MinPieceSize).Append("\n");
@@ -355,6 +365,12 @@ namespace Lusid.Sdk.Model
                     this.CashOfferElections.SequenceEqual(input.CashOfferElections)
                 ) && base.Equals(input) && 
                 (
+                    this.MixedLotConstituentsElections == input.MixedLotConstituentsElections ||
+                    this.MixedLotConstituentsElections != null &&
+                    input.MixedLotConstituentsElections != null &&
+                    this.MixedLotConstituentsElections.SequenceEqual(input.MixedLotConstituentsElections)
+                ) && base.Equals(input) && 
+                (
                     this.OfferType == input.OfferType ||
                     (this.OfferType != null &&
                     this.OfferType.Equals(input.OfferType))
@@ -451,6 +467,10 @@ namespace Lusid.Sdk.Model
                 if (this.CashOfferElections != null)
                 {
                     hashCode = (hashCode * 59) + this.CashOfferElections.GetHashCode();
+                }
+                if (this.MixedLotConstituentsElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.MixedLotConstituentsElections.GetHashCode();
                 }
                 if (this.OfferType != null)
                 {

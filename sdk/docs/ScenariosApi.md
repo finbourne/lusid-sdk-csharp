@@ -8,7 +8,8 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**DeleteScenario**](ScenariosApi.md#deletescenario) | **DELETE** /api/scenarios/{scope}/{code} | [EARLY ACCESS] DeleteScenario: Delete a Scenario, assuming that it is present. |
 | [**GetScenario**](ScenariosApi.md#getscenario) | **GET** /api/scenarios/{scope}/{code} | [EARLY ACCESS] GetScenario: Get Scenario |
 | [**ListScenarioVersions**](ScenariosApi.md#listscenarioversions) | **GET** /api/scenarios/{scope}/{code}/versions | [EARLY ACCESS] ListScenarioVersions: List the versions of a Scenario |
-| [**ListScenarios**](ScenariosApi.md#listscenarios) | **GET** /api/scenarios/{scope} | [EARLY ACCESS] ListScenarios: List the set of Scenario definitions |
+| [**ListScenarios**](ScenariosApi.md#listscenarios) | **GET** /api/scenarios | [EARLY ACCESS] ListScenarios: List Scenarios |
+| [**ListScenariosForScope**](ScenariosApi.md#listscenariosforscope) | **GET** /api/scenarios/{scope} | [EARLY ACCESS] ListScenariosForScope: List Scenarios for a scope |
 | [**PreviewScenario**](ScenariosApi.md#previewscenario) | **POST** /api/scenarios/$preview | [EARLY ACCESS] PreviewScenario: Preview a Scenario |
 | [**UpsertScenario**](ScenariosApi.md#upsertscenario) | **POST** /api/scenarios | [EARLY ACCESS] UpsertScenario: Upsert a Scenario. This creates or updates the scenario definition in LUSID. |
 
@@ -356,7 +357,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The successfully retrieved Scenario or any failure |  -  |
+| **200** | The successfully retrieved Scenario |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -486,11 +487,131 @@ catch (ApiException e)
 
 <a id="listscenarios"></a>
 # **ListScenarios**
-> PagedResourceListOfGetScenarioResponse ListScenarios (string scope, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null)
+> PagedResourceListOfGetScenarioResponse ListScenarios (DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null)
 
-[EARLY ACCESS] ListScenarios: List the set of Scenario definitions
+[EARLY ACCESS] ListScenarios: List Scenarios
 
-List the set of scenario definitions at the specified date/time and scope.
+List scenario definitions across all scopes at the specified date/time. Each item carries  its scope and code. Scenarios the caller is not entitled to read are omitted.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ScenariosApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ScenariosApi>();
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the scenarios. Defaults to latest if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set, e.g. \"scope eq 'MyScope'\". (optional) 
+            var limit = 56;  // int? | Maximum number of results to return. Defaults to 100. (optional) 
+            var page = "page_example";  // string? | Pagination token from a previous result to fetch the next page. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfGetScenarioResponse result = apiInstance.ListScenarios(asAt, filter, limit, page, opts: opts);
+
+                // [EARLY ACCESS] ListScenarios: List Scenarios
+                PagedResourceListOfGetScenarioResponse result = apiInstance.ListScenarios(asAt, filter, limit, page);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling ScenariosApi.ListScenarios: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListScenariosWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ListScenarios: List Scenarios
+    ApiResponse<PagedResourceListOfGetScenarioResponse> response = apiInstance.ListScenariosWithHttpInfo(asAt, filter, limit, page);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling ScenariosApi.ListScenariosWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the scenarios. Defaults to latest if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set, e.g. \&quot;scope eq &#39;MyScope&#39;\&quot;. | [optional]  |
+| **limit** | **int?** | Maximum number of results to return. Defaults to 100. | [optional]  |
+| **page** | **string?** | Pagination token from a previous result to fetch the next page. | [optional]  |
+
+### Return type
+
+[**PagedResourceListOfGetScenarioResponse**](PagedResourceListOfGetScenarioResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The requested scenarios |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="listscenariosforscope"></a>
+# **ListScenariosForScope**
+> PagedResourceListOfGetScenarioResponse ListScenariosForScope (string scope, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null)
+
+[EARLY ACCESS] ListScenariosForScope: List Scenarios for a scope
+
+List the set of scenario definitions in a single scope at the specified date/time.
 
 ### Example
 ```csharp
@@ -540,15 +661,15 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfGetScenarioResponse result = apiInstance.ListScenarios(scope, asAt, filter, limit, page, opts: opts);
+                // PagedResourceListOfGetScenarioResponse result = apiInstance.ListScenariosForScope(scope, asAt, filter, limit, page, opts: opts);
 
-                // [EARLY ACCESS] ListScenarios: List the set of Scenario definitions
-                PagedResourceListOfGetScenarioResponse result = apiInstance.ListScenarios(scope, asAt, filter, limit, page);
+                // [EARLY ACCESS] ListScenariosForScope: List Scenarios for a scope
+                PagedResourceListOfGetScenarioResponse result = apiInstance.ListScenariosForScope(scope, asAt, filter, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
             {
-                Console.WriteLine("Exception when calling ScenariosApi.ListScenarios: " + e.Message);
+                Console.WriteLine("Exception when calling ScenariosApi.ListScenariosForScope: " + e.Message);
                 Console.WriteLine("Status Code: " + e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -557,21 +678,21 @@ namespace Examples
 }
 ```
 
-#### Using the ListScenariosWithHttpInfo variant
+#### Using the ListScenariosForScopeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // [EARLY ACCESS] ListScenarios: List the set of Scenario definitions
-    ApiResponse<PagedResourceListOfGetScenarioResponse> response = apiInstance.ListScenariosWithHttpInfo(scope, asAt, filter, limit, page);
+    // [EARLY ACCESS] ListScenariosForScope: List Scenarios for a scope
+    ApiResponse<PagedResourceListOfGetScenarioResponse> response = apiInstance.ListScenariosForScopeWithHttpInfo(scope, asAt, filter, limit, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Console.WriteLine("Exception when calling ScenariosApi.ListScenariosWithHttpInfo: " + e.Message);
+    Console.WriteLine("Exception when calling ScenariosApi.ListScenariosForScopeWithHttpInfo: " + e.Message);
     Console.WriteLine("Status Code: " + e.ErrorCode);
     Console.WriteLine(e.StackTrace);
 }

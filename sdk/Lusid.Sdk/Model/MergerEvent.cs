@@ -41,6 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="announcementDate">The date the merger is announced..</param>
         /// <param name="cashAndSecurityOfferElections">List of possible CashAndSecurityOfferElections for this merger event.</param>
         /// <param name="cashOfferElections">List of possible CashOfferElections for this merger event.</param>
+        /// <param name="mixedLotConstituentsElections">List of possible mixed lot offers for this merger event, if any. Each election replaces the parent position  with one or more distinct new securities and/or cash legs of its own, taking the place of the single  event-level NewInstrument that the other security-bearing elections resolve to.    A merger may carry more than one of these, describing mutually exclusive multi-destination options..</param>
         /// <param name="exDate">The first date on which the holder of record of the original shares has entitled ownership of the new shares..</param>
         /// <param name="fractionalUnitsCashCurrency">Optional. Used in calculating cash-in-lieu of fractional shares..</param>
         /// <param name="fractionalUnitsCashPrice">Optional. Used in calculating cash-in-lieu of fractional shares..</param>
@@ -51,7 +52,7 @@ namespace Lusid.Sdk.Model
         /// <param name="recordDate">Optional. Date you have to be the holder of record of the original shares in order to receive the new shares..</param>
         /// <param name="securityOfferElections">List of possible SecurityOfferElections for this merger event.</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent. (required) (default to &quot;MergerEvent&quot;).</param>
-        public MergerEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), DateTimeOffset exDate = default(DateTimeOffset), string fractionalUnitsCashCurrency = default(string), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsRoundingConvention = default(string), int? fractionalUnitsDecimalPlaces = default(int?), NewInstrument newInstrument = default(NewInstrument), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public MergerEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), List<MixedLotConstituentsElection> mixedLotConstituentsElections = default(List<MixedLotConstituentsElection>), DateTimeOffset exDate = default(DateTimeOffset), string fractionalUnitsCashCurrency = default(string), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsRoundingConvention = default(string), int? fractionalUnitsDecimalPlaces = default(int?), NewInstrument newInstrument = default(NewInstrument), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "newInstrument" is required (not null)
             if (newInstrument == null)
@@ -62,6 +63,7 @@ namespace Lusid.Sdk.Model
             this.AnnouncementDate = announcementDate;
             this.CashAndSecurityOfferElections = cashAndSecurityOfferElections;
             this.CashOfferElections = cashOfferElections;
+            this.MixedLotConstituentsElections = mixedLotConstituentsElections;
             this.ExDate = exDate;
             this.FractionalUnitsCashCurrency = fractionalUnitsCashCurrency;
             this.FractionalUnitsCashPrice = fractionalUnitsCashPrice;
@@ -92,6 +94,13 @@ namespace Lusid.Sdk.Model
         /// <value>List of possible CashOfferElections for this merger event</value>
         [DataMember(Name = "cashOfferElections", EmitDefaultValue = true)]
         public List<CashOfferElection> CashOfferElections { get; set; }
+
+        /// <summary>
+        /// List of possible mixed lot offers for this merger event, if any. Each election replaces the parent position  with one or more distinct new securities and/or cash legs of its own, taking the place of the single  event-level NewInstrument that the other security-bearing elections resolve to.    A merger may carry more than one of these, describing mutually exclusive multi-destination options.
+        /// </summary>
+        /// <value>List of possible mixed lot offers for this merger event, if any. Each election replaces the parent position  with one or more distinct new securities and/or cash legs of its own, taking the place of the single  event-level NewInstrument that the other security-bearing elections resolve to.    A merger may carry more than one of these, describing mutually exclusive multi-destination options.</value>
+        [DataMember(Name = "mixedLotConstituentsElections", EmitDefaultValue = true)]
+        public List<MixedLotConstituentsElection> MixedLotConstituentsElections { get; set; }
 
         /// <summary>
         /// The first date on which the holder of record of the original shares has entitled ownership of the new shares.
@@ -167,6 +176,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AnnouncementDate: ").Append(AnnouncementDate).Append("\n");
             sb.Append("  CashAndSecurityOfferElections: ").Append(CashAndSecurityOfferElections).Append("\n");
             sb.Append("  CashOfferElections: ").Append(CashOfferElections).Append("\n");
+            sb.Append("  MixedLotConstituentsElections: ").Append(MixedLotConstituentsElections).Append("\n");
             sb.Append("  ExDate: ").Append(ExDate).Append("\n");
             sb.Append("  FractionalUnitsCashCurrency: ").Append(FractionalUnitsCashCurrency).Append("\n");
             sb.Append("  FractionalUnitsCashPrice: ").Append(FractionalUnitsCashPrice).Append("\n");
@@ -227,6 +237,12 @@ namespace Lusid.Sdk.Model
                     this.CashOfferElections != null &&
                     input.CashOfferElections != null &&
                     this.CashOfferElections.SequenceEqual(input.CashOfferElections)
+                ) && base.Equals(input) && 
+                (
+                    this.MixedLotConstituentsElections == input.MixedLotConstituentsElections ||
+                    this.MixedLotConstituentsElections != null &&
+                    input.MixedLotConstituentsElections != null &&
+                    this.MixedLotConstituentsElections.SequenceEqual(input.MixedLotConstituentsElections)
                 ) && base.Equals(input) && 
                 (
                     this.ExDate == input.ExDate ||
@@ -296,6 +312,10 @@ namespace Lusid.Sdk.Model
                 if (this.CashOfferElections != null)
                 {
                     hashCode = (hashCode * 59) + this.CashOfferElections.GetHashCode();
+                }
+                if (this.MixedLotConstituentsElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.MixedLotConstituentsElections.GetHashCode();
                 }
                 if (this.ExDate != null)
                 {

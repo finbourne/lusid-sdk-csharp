@@ -11,13 +11,11 @@ Name | Type | Description | Notes
 **LaunchPrice** | **decimal?** | The launch price set when a shareclass is added to the fund. Defaults to 1. | [optional] 
 **LaunchDate** | **DateTimeOffset?** | The launch date set when a shareclass is added to the fund. Defaults to Fund Inception Date. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | An optional set of properties to attach to the auto-created Instrument. Only applied when createInstrument is true. | [optional] 
-**FundShareClassType** | **string** | The Type of Share Class. Available values: Unitised, Inactive, Series, PrivateEquity, Partnership. | 
+**InvestorType** | **string** | The Type of Share Class. Available values: Unitised. | 
 **DistributionType** | **string** | The type of distribution the ShareClass will calculate. Available values: Income, Accumulation. | [optional] 
 **DomCcy** | **string** | The domestic currency of the ShareClass instrument. | 
 **TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
-**UnitsPrecision** | **int?** | Decimal places for the share class units. | [optional] 
-**PricePrecision** | **int?** | Decimal places for the share class price. | [optional] 
-**RoundingConventions** | [**List&lt;SimpleRoundingConvention&gt;**](SimpleRoundingConvention.md) | Rounding conventions used for the ShareClass quotes. | [optional] 
+**RoundingConventionsPrice** | [**List&lt;SimpleRoundingConvention&gt;**](SimpleRoundingConvention.md) | Rounding conventions used for the ShareClass quotes. | [optional] 
 **RoundingConventionsUnits** | [**List&lt;SimpleRoundingConvention&gt;**](SimpleRoundingConvention.md) | Rounding conventions used for the ShareClass units. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 **DistributionPaymentType** | **string** | The tax treatment applied to distributions. Available values: Invalid, Gross, Net. | [optional] 
@@ -32,12 +30,12 @@ string name = "name";
 string description = "example description";
 string shareClassShortCode = "shareClassShortCode";
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
-string fundShareClassType = "fundShareClassType";
+string investorType = "investorType";
 string distributionType = "example distributionType";
 string domCcy = "domCcy";
 TradingConventions? tradingConventions = new TradingConventions();
 
-List<SimpleRoundingConvention> roundingConventions = new List<SimpleRoundingConvention>();
+List<SimpleRoundingConvention> roundingConventionsPrice = new List<SimpleRoundingConvention>();
 List<SimpleRoundingConvention> roundingConventionsUnits = new List<SimpleRoundingConvention>();
 TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
 
@@ -52,13 +50,11 @@ ShareClassDefinition shareClassDefinitionInstance = new ShareClassDefinition(
     launchPrice: launchPrice,
     launchDate: launchDate,
     properties: properties,
-    fundShareClassType: fundShareClassType,
+    investorType: investorType,
     distributionType: distributionType,
     domCcy: domCcy,
     tradingConventions: tradingConventions,
-    unitsPrecision: unitsPrecision,
-    pricePrecision: pricePrecision,
-    roundingConventions: roundingConventions,
+    roundingConventionsPrice: roundingConventionsPrice,
     roundingConventionsUnits: roundingConventionsUnits,
     timeZoneConventions: timeZoneConventions,
     distributionPaymentType: distributionPaymentType,

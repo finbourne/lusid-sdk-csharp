@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **CreateInstrument** | **bool** | Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false. | [optional] 
 **AllocationGroups** | [**List&lt;AllocationGroup&gt;**](AllocationGroup.md) | An optional list of Allocation Group definitions for the Fund. | [optional] 
 **ShareClasses** | [**List&lt;ShareClass&gt;**](ShareClass.md) | An optional list of Share Class definitions for the Fund. | [optional] 
+**FundInstrument** | [**FundInstrument**](FundInstrument.md) |  | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
@@ -54,6 +55,8 @@ Dictionary<string, Property> properties = new Dictionary<string, Property>();
 bool createInstrument = //"True";
 List<AllocationGroup> allocationGroups = new List<AllocationGroup>();
 List<ShareClass> shareClasses = new List<ShareClass>();
+FundInstrument? fundInstrument = new FundInstrument();
+
 ModelVersion? varVersion = new ModelVersion();
 
 List<Link> links = new List<Link>();
@@ -79,6 +82,7 @@ Fund fundInstance = new Fund(
     createInstrument: createInstrument,
     allocationGroups: allocationGroups,
     shareClasses: shareClasses,
+    fundInstrument: fundInstrument,
     varVersion: varVersion,
     links: links);
 ```

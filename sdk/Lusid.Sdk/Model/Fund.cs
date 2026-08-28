@@ -56,9 +56,10 @@ namespace Lusid.Sdk.Model
         /// <param name="createInstrument">Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false..</param>
         /// <param name="allocationGroups">An optional list of Allocation Group definitions for the Fund..</param>
         /// <param name="shareClasses">An optional list of Share Class definitions for the Fund..</param>
+        /// <param name="fundInstrument">fundInstrument.</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavType primaryNavType = default(NavType), List<NavType> additionalNavTypes = default(List<NavType>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<ShareClass> shareClasses = default(List<ShareClass>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavType primaryNavType = default(NavType), List<NavType> additionalNavTypes = default(List<NavType>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<ShareClass> shareClasses = default(List<ShareClass>), FundInstrument fundInstrument = default(FundInstrument), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -90,6 +91,7 @@ namespace Lusid.Sdk.Model
             this.CreateInstrument = createInstrument;
             this.AllocationGroups = allocationGroups;
             this.ShareClasses = shareClasses;
+            this.FundInstrument = fundInstrument;
             this.VarVersion = varVersion;
             this.Links = links;
         }
@@ -230,6 +232,12 @@ namespace Lusid.Sdk.Model
         public List<ShareClass> ShareClasses { get; set; }
 
         /// <summary>
+        /// Gets or Sets FundInstrument
+        /// </summary>
+        [DataMember(Name = "fundInstrument", EmitDefaultValue = false)]
+        public FundInstrument FundInstrument { get; set; }
+
+        /// <summary>
         /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
@@ -269,6 +277,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CreateInstrument: ").Append(CreateInstrument).Append("\n");
             sb.Append("  AllocationGroups: ").Append(AllocationGroups).Append("\n");
             sb.Append("  ShareClasses: ").Append(ShareClasses).Append("\n");
+            sb.Append("  FundInstrument: ").Append(FundInstrument).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -412,6 +421,11 @@ namespace Lusid.Sdk.Model
                     this.ShareClasses.SequenceEqual(input.ShareClasses)
                 ) && 
                 (
+                    this.FundInstrument == input.FundInstrument ||
+                    (this.FundInstrument != null &&
+                    this.FundInstrument.Equals(input.FundInstrument))
+                ) && 
+                (
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
@@ -509,6 +523,10 @@ namespace Lusid.Sdk.Model
                 if (this.ShareClasses != null)
                 {
                     hashCode = (hashCode * 59) + this.ShareClasses.GetHashCode();
+                }
+                if (this.FundInstrument != null)
+                {
+                    hashCode = (hashCode * 59) + this.FundInstrument.GetHashCode();
                 }
                 if (this.VarVersion != null)
                 {

@@ -36,10 +36,17 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BucketSetResult" /> class.
         /// </summary>
+        /// <param name="bucketSetCode">The code of the fund configuration&#39;s bucket set definition these results were produced from. Empty for a fund valued from component filters, which has no bucket set definition to name. (required).</param>
         /// <param name="isApportionment">Whether this bucket set is the apportionment set (apportioning non-class-specific P&amp;L across share classes). (required).</param>
         /// <param name="nodes">The nodes making up the bucket set: the fund aggregate and one per share class. (required).</param>
-        public BucketSetResult(bool isApportionment = default(bool), List<BucketSetNode> nodes = default(List<BucketSetNode>))
+        public BucketSetResult(string bucketSetCode = default(string), bool isApportionment = default(bool), List<BucketSetNode> nodes = default(List<BucketSetNode>))
         {
+            // to ensure "bucketSetCode" is required (not null)
+            if (bucketSetCode == null)
+            {
+                throw new ArgumentNullException("bucketSetCode is a required property for BucketSetResult and cannot be null");
+            }
+            this.BucketSetCode = bucketSetCode;
             this.IsApportionment = isApportionment;
             // to ensure "nodes" is required (not null)
             if (nodes == null)
@@ -48,6 +55,13 @@ namespace Lusid.Sdk.Model
             }
             this.Nodes = nodes;
         }
+
+        /// <summary>
+        /// The code of the fund configuration&#39;s bucket set definition these results were produced from. Empty for a fund valued from component filters, which has no bucket set definition to name.
+        /// </summary>
+        /// <value>The code of the fund configuration&#39;s bucket set definition these results were produced from. Empty for a fund valued from component filters, which has no bucket set definition to name.</value>
+        [DataMember(Name = "bucketSetCode", IsRequired = true, EmitDefaultValue = true)]
+        public string BucketSetCode { get; set; }
 
         /// <summary>
         /// Whether this bucket set is the apportionment set (apportioning non-class-specific P&amp;L across share classes).
@@ -71,6 +85,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class BucketSetResult {\n");
+            sb.Append("  BucketSetCode: ").Append(BucketSetCode).Append("\n");
             sb.Append("  IsApportionment: ").Append(IsApportionment).Append("\n");
             sb.Append("  Nodes: ").Append(Nodes).Append("\n");
             sb.Append("}\n");
@@ -109,6 +124,11 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
+                    this.BucketSetCode == input.BucketSetCode ||
+                    (this.BucketSetCode != null &&
+                    this.BucketSetCode.Equals(input.BucketSetCode))
+                ) && 
+                (
                     this.IsApportionment == input.IsApportionment ||
                     this.IsApportionment.Equals(input.IsApportionment)
                 ) && 
@@ -129,6 +149,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.BucketSetCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.BucketSetCode.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.IsApportionment.GetHashCode();
                 if (this.Nodes != null)
                 {

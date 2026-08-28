@@ -23,35 +23,37 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The response to a singular address key alias read. There is deliberately no failure block on this  type: every route returning it is a singular (or list-of-singular) read, never a batch keyed  lookup, so there is no per-key error to report - an invalid entity is rejected at upsert and  a failed read fails the whole request. The IGetResponse batch members below throw for the  same reason; do not reintroduce a Failed property when copying this shape.
+    /// DeleteTransferAgencyOrdersResponse
     /// </summary>
-    [DataContract(Name = "GetAddressKeyAliasResponse")]
-    public partial class GetAddressKeyAliasResponse : IEquatable<GetAddressKeyAliasResponse>, IValidatableObject
+    [DataContract(Name = "DeleteTransferAgencyOrdersResponse")]
+    public partial class DeleteTransferAgencyOrdersResponse : IEquatable<DeleteTransferAgencyOrdersResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetAddressKeyAliasResponse" /> class.
+        /// Initializes a new instance of the <see cref="DeleteTransferAgencyOrdersResponse" /> class.
         /// </summary>
-        /// <param name="href">href.</param>
-        /// <param name="value">value.</param>
+        /// <param name="successes">A dictionary of successfully deleted orders, keyed by the request key..</param>
+        /// <param name="failed">A dictionary of failed order deletion attempts, keyed by the request key, containing error details..</param>
         /// <param name="links">links.</param>
-        public GetAddressKeyAliasResponse(string href = default(string), AddressKeyAlias value = default(AddressKeyAlias), List<Link> links = default(List<Link>))
+        public DeleteTransferAgencyOrdersResponse(Dictionary<string, DeleteTransferAgencyOrderResult> successes = default(Dictionary<string, DeleteTransferAgencyOrderResult>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), List<Link> links = default(List<Link>))
         {
-            this.Href = href;
-            this.Value = value;
+            this.Successes = successes;
+            this.Failed = failed;
             this.Links = links;
         }
 
         /// <summary>
-        /// Gets or Sets Href
+        /// A dictionary of successfully deleted orders, keyed by the request key.
         /// </summary>
-        [DataMember(Name = "href", EmitDefaultValue = true)]
-        public string Href { get; set; }
+        /// <value>A dictionary of successfully deleted orders, keyed by the request key.</value>
+        [DataMember(Name = "successes", EmitDefaultValue = true)]
+        public Dictionary<string, DeleteTransferAgencyOrderResult> Successes { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// A dictionary of failed order deletion attempts, keyed by the request key, containing error details.
         /// </summary>
-        [DataMember(Name = "value", EmitDefaultValue = false)]
-        public AddressKeyAlias Value { get; set; }
+        /// <value>A dictionary of failed order deletion attempts, keyed by the request key, containing error details.</value>
+        [DataMember(Name = "failed", EmitDefaultValue = true)]
+        public Dictionary<string, ErrorDetail> Failed { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -66,9 +68,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class GetAddressKeyAliasResponse {\n");
-            sb.Append("  Href: ").Append(Href).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("class DeleteTransferAgencyOrdersResponse {\n");
+            sb.Append("  Successes: ").Append(Successes).Append("\n");
+            sb.Append("  Failed: ").Append(Failed).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -90,15 +92,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GetAddressKeyAliasResponse);
+            return this.Equals(input as DeleteTransferAgencyOrdersResponse);
         }
 
         /// <summary>
-        /// Returns true if GetAddressKeyAliasResponse instances are equal
+        /// Returns true if DeleteTransferAgencyOrdersResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of GetAddressKeyAliasResponse to be compared</param>
+        /// <param name="input">Instance of DeleteTransferAgencyOrdersResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GetAddressKeyAliasResponse input)
+        public bool Equals(DeleteTransferAgencyOrdersResponse input)
         {
             if (input == null)
             {
@@ -106,14 +108,16 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Href == input.Href ||
-                    (this.Href != null &&
-                    this.Href.Equals(input.Href))
+                    this.Successes == input.Successes ||
+                    this.Successes != null &&
+                    input.Successes != null &&
+                    this.Successes.SequenceEqual(input.Successes)
                 ) && 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this.Failed == input.Failed ||
+                    this.Failed != null &&
+                    input.Failed != null &&
+                    this.Failed.SequenceEqual(input.Failed)
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -132,13 +136,13 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Href != null)
+                if (this.Successes != null)
                 {
-                    hashCode = (hashCode * 59) + this.Href.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Successes.GetHashCode();
                 }
-                if (this.Value != null)
+                if (this.Failed != null)
                 {
-                    hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Failed.GetHashCode();
                 }
                 if (this.Links != null)
                 {

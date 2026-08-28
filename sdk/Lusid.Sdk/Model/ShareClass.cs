@@ -43,18 +43,16 @@ namespace Lusid.Sdk.Model
         /// <param name="launchPrice">The launch price set when a shareclass is added to the fund. Defaults to 1..</param>
         /// <param name="launchDate">The launch date set when a shareclass is added to the fund. Defaults to Fund Inception Date..</param>
         /// <param name="properties">An optional set of properties to attach to the auto-created Instrument. Only applied when createInstrument is true..</param>
-        /// <param name="fundShareClassType">The Type of Share Class. Available values: Unitised, Inactive, Series, PrivateEquity, Partnership. (required).</param>
+        /// <param name="investorType">The Type of Share Class. Available values: Unitised. (required).</param>
         /// <param name="distributionType">The type of distribution the ShareClass will calculate. Available values: Income, Accumulation..</param>
         /// <param name="domCcy">The domestic currency of the ShareClass instrument. (required).</param>
         /// <param name="tradingConventions">tradingConventions.</param>
-        /// <param name="unitsPrecision">Decimal places for the share class units..</param>
-        /// <param name="pricePrecision">Decimal places for the share class price..</param>
-        /// <param name="roundingConventions">Rounding conventions used for the ShareClass quotes..</param>
+        /// <param name="roundingConventionsPrice">Rounding conventions used for the ShareClass quotes..</param>
         /// <param name="roundingConventionsUnits">Rounding conventions used for the ShareClass units..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="distributionPaymentType">The tax treatment applied to distributions. Available values: Invalid, Gross, Net..</param>
         /// <param name="hedging">Indicates whether the ShareClass applies currency hedging. Available values: Invalid, None, ApplyHedging..</param>
-        public ShareClass(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string name = default(string), string description = default(string), string shareClassShortCode = default(string), decimal? launchPrice = default(decimal?), DateTimeOffset? launchDate = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string fundShareClassType = default(string), string distributionType = default(string), string domCcy = default(string), TradingConventions tradingConventions = default(TradingConventions), int? unitsPrecision = default(int?), int? pricePrecision = default(int?), List<SimpleRoundingConvention> roundingConventions = default(List<SimpleRoundingConvention>), List<SimpleRoundingConvention> roundingConventionsUnits = default(List<SimpleRoundingConvention>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), string distributionPaymentType = default(string), string hedging = default(string))
+        public ShareClass(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string name = default(string), string description = default(string), string shareClassShortCode = default(string), decimal? launchPrice = default(decimal?), DateTimeOffset? launchDate = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string investorType = default(string), string distributionType = default(string), string domCcy = default(string), TradingConventions tradingConventions = default(TradingConventions), List<SimpleRoundingConvention> roundingConventionsPrice = default(List<SimpleRoundingConvention>), List<SimpleRoundingConvention> roundingConventionsUnits = default(List<SimpleRoundingConvention>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), string distributionPaymentType = default(string), string hedging = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -68,12 +66,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("shareClassShortCode is a required property for ShareClass and cannot be null");
             }
             this.ShareClassShortCode = shareClassShortCode;
-            // to ensure "fundShareClassType" is required (not null)
-            if (fundShareClassType == null)
+            // to ensure "investorType" is required (not null)
+            if (investorType == null)
             {
-                throw new ArgumentNullException("fundShareClassType is a required property for ShareClass and cannot be null");
+                throw new ArgumentNullException("investorType is a required property for ShareClass and cannot be null");
             }
-            this.FundShareClassType = fundShareClassType;
+            this.InvestorType = investorType;
             // to ensure "domCcy" is required (not null)
             if (domCcy == null)
             {
@@ -87,9 +85,7 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this.DistributionType = distributionType;
             this.TradingConventions = tradingConventions;
-            this.UnitsPrecision = unitsPrecision;
-            this.PricePrecision = pricePrecision;
-            this.RoundingConventions = roundingConventions;
+            this.RoundingConventionsPrice = roundingConventionsPrice;
             this.RoundingConventionsUnits = roundingConventionsUnits;
             this.TimeZoneConventions = timeZoneConventions;
             this.DistributionPaymentType = distributionPaymentType;
@@ -146,11 +142,11 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
-        /// The Type of Share Class. Available values: Unitised, Inactive, Series, PrivateEquity, Partnership.
+        /// The Type of Share Class. Available values: Unitised.
         /// </summary>
-        /// <value>The Type of Share Class. Available values: Unitised, Inactive, Series, PrivateEquity, Partnership.</value>
-        [DataMember(Name = "fundShareClassType", IsRequired = true, EmitDefaultValue = true)]
-        public string FundShareClassType { get; set; }
+        /// <value>The Type of Share Class. Available values: Unitised.</value>
+        [DataMember(Name = "investorType", IsRequired = true, EmitDefaultValue = true)]
+        public string InvestorType { get; set; }
 
         /// <summary>
         /// The type of distribution the ShareClass will calculate. Available values: Income, Accumulation.
@@ -173,25 +169,11 @@ namespace Lusid.Sdk.Model
         public TradingConventions TradingConventions { get; set; }
 
         /// <summary>
-        /// Decimal places for the share class units.
-        /// </summary>
-        /// <value>Decimal places for the share class units.</value>
-        [DataMember(Name = "unitsPrecision", EmitDefaultValue = true)]
-        public int? UnitsPrecision { get; set; }
-
-        /// <summary>
-        /// Decimal places for the share class price.
-        /// </summary>
-        /// <value>Decimal places for the share class price.</value>
-        [DataMember(Name = "pricePrecision", EmitDefaultValue = true)]
-        public int? PricePrecision { get; set; }
-
-        /// <summary>
         /// Rounding conventions used for the ShareClass quotes.
         /// </summary>
         /// <value>Rounding conventions used for the ShareClass quotes.</value>
-        [DataMember(Name = "roundingConventions", EmitDefaultValue = true)]
-        public List<SimpleRoundingConvention> RoundingConventions { get; set; }
+        [DataMember(Name = "roundingConventionsPrice", EmitDefaultValue = true)]
+        public List<SimpleRoundingConvention> RoundingConventionsPrice { get; set; }
 
         /// <summary>
         /// Rounding conventions used for the ShareClass units.
@@ -235,13 +217,11 @@ namespace Lusid.Sdk.Model
             sb.Append("  LaunchPrice: ").Append(LaunchPrice).Append("\n");
             sb.Append("  LaunchDate: ").Append(LaunchDate).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
-            sb.Append("  FundShareClassType: ").Append(FundShareClassType).Append("\n");
+            sb.Append("  InvestorType: ").Append(InvestorType).Append("\n");
             sb.Append("  DistributionType: ").Append(DistributionType).Append("\n");
             sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
             sb.Append("  TradingConventions: ").Append(TradingConventions).Append("\n");
-            sb.Append("  UnitsPrecision: ").Append(UnitsPrecision).Append("\n");
-            sb.Append("  PricePrecision: ").Append(PricePrecision).Append("\n");
-            sb.Append("  RoundingConventions: ").Append(RoundingConventions).Append("\n");
+            sb.Append("  RoundingConventionsPrice: ").Append(RoundingConventionsPrice).Append("\n");
             sb.Append("  RoundingConventionsUnits: ").Append(RoundingConventionsUnits).Append("\n");
             sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("  DistributionPaymentType: ").Append(DistributionPaymentType).Append("\n");
@@ -319,9 +299,9 @@ namespace Lusid.Sdk.Model
                     this.Properties.SequenceEqual(input.Properties)
                 ) && 
                 (
-                    this.FundShareClassType == input.FundShareClassType ||
-                    (this.FundShareClassType != null &&
-                    this.FundShareClassType.Equals(input.FundShareClassType))
+                    this.InvestorType == input.InvestorType ||
+                    (this.InvestorType != null &&
+                    this.InvestorType.Equals(input.InvestorType))
                 ) && 
                 (
                     this.DistributionType == input.DistributionType ||
@@ -339,20 +319,10 @@ namespace Lusid.Sdk.Model
                     this.TradingConventions.Equals(input.TradingConventions))
                 ) && 
                 (
-                    this.UnitsPrecision == input.UnitsPrecision ||
-                    (this.UnitsPrecision != null &&
-                    this.UnitsPrecision.Equals(input.UnitsPrecision))
-                ) && 
-                (
-                    this.PricePrecision == input.PricePrecision ||
-                    (this.PricePrecision != null &&
-                    this.PricePrecision.Equals(input.PricePrecision))
-                ) && 
-                (
-                    this.RoundingConventions == input.RoundingConventions ||
-                    this.RoundingConventions != null &&
-                    input.RoundingConventions != null &&
-                    this.RoundingConventions.SequenceEqual(input.RoundingConventions)
+                    this.RoundingConventionsPrice == input.RoundingConventionsPrice ||
+                    this.RoundingConventionsPrice != null &&
+                    input.RoundingConventionsPrice != null &&
+                    this.RoundingConventionsPrice.SequenceEqual(input.RoundingConventionsPrice)
                 ) && 
                 (
                     this.RoundingConventionsUnits == input.RoundingConventionsUnits ||
@@ -414,9 +384,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
-                if (this.FundShareClassType != null)
+                if (this.InvestorType != null)
                 {
-                    hashCode = (hashCode * 59) + this.FundShareClassType.GetHashCode();
+                    hashCode = (hashCode * 59) + this.InvestorType.GetHashCode();
                 }
                 if (this.DistributionType != null)
                 {
@@ -430,17 +400,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.TradingConventions.GetHashCode();
                 }
-                if (this.UnitsPrecision != null)
+                if (this.RoundingConventionsPrice != null)
                 {
-                    hashCode = (hashCode * 59) + this.UnitsPrecision.GetHashCode();
-                }
-                if (this.PricePrecision != null)
-                {
-                    hashCode = (hashCode * 59) + this.PricePrecision.GetHashCode();
-                }
-                if (this.RoundingConventions != null)
-                {
-                    hashCode = (hashCode * 59) + this.RoundingConventions.GetHashCode();
+                    hashCode = (hashCode * 59) + this.RoundingConventionsPrice.GetHashCode();
                 }
                 if (this.RoundingConventionsUnits != null)
                 {
@@ -519,10 +481,10 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShareClassShortCode, must match a pattern of " + regexShareClassShortCode, new [] { "ShareClassShortCode" });
             }
 
-            // FundShareClassType (string) minLength
-            if (this.FundShareClassType != null && this.FundShareClassType.Length < 1)
+            // InvestorType (string) minLength
+            if (this.InvestorType != null && this.InvestorType.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FundShareClassType, length must be greater than 1.", new [] { "FundShareClassType" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InvestorType, length must be greater than 1.", new [] { "InvestorType" });
             }
 
             yield break;

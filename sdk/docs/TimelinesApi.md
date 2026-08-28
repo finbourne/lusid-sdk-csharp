@@ -14,7 +14,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**ListClosedPeriods**](TimelinesApi.md#listclosedperiods) | **GET** /api/timelines/{scope}/{code}/closedperiods | [EXPERIMENTAL] ListClosedPeriods: List ClosedPeriods for a specified Timeline. |
 | [**ListTimelines**](TimelinesApi.md#listtimelines) | **GET** /api/timelines | [EXPERIMENTAL] ListTimelines: List Timelines |
 | [**SetPostCloseActivity**](TimelinesApi.md#setpostcloseactivity) | **POST** /api/timelines/{scope}/{code}/closedperiods/{closedPeriodId}/postcloseactivity | [EXPERIMENTAL] SetPostCloseActivity: Sets post-close activities to a Closed Period. |
-| [**UnconfirmClosedPeriod**](TimelinesApi.md#unconfirmclosedperiod) | **POST** /api/timelines/{scope}/{code}/closedperiods/{closedPeriodId}/$unconfirm | [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm the last confirmed Closed Period against a Timeline Entity |
+| [**UnconfirmClosedPeriod**](TimelinesApi.md#unconfirmclosedperiod) | **POST** /api/timelines/{scope}/{code}/closedperiods/{closedPeriodId}/$unconfirm | [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm a confirmed Closed Period against a Timeline Entity |
 | [**UpdateTimeline**](TimelinesApi.md#updatetimeline) | **PUT** /api/timelines/{scope}/{code} | [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code |
 
 <a id="confirmclosedperiod"></a>
@@ -1223,11 +1223,11 @@ catch (ApiException e)
 
 <a id="unconfirmclosedperiod"></a>
 # **UnconfirmClosedPeriod**
-> ClosedPeriod UnconfirmClosedPeriod (string scope, string code, string closedPeriodId, Object? body = null)
+> ClosedPeriod UnconfirmClosedPeriod (string scope, string code, string closedPeriodId, UnconfirmClosedPeriodRequest? unconfirmClosedPeriodRequest = null)
 
-[EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm the last confirmed Closed Period against a Timeline Entity
+[EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm a confirmed Closed Period against a Timeline Entity
 
-Unconfirm the last confirmed Closed Period against a Timeline Entity
+Unconfirm a confirmed Closed Period against a Timeline Entity. By default only the latest confirmed  Closed Period may be unconfirmed. Setting deleteSubsequentPeriods on the request body allows any  confirmed Closed Period to be unconfirmed, deleting every Closed Period after it on the Timeline.
 
 ### Example
 ```csharp
@@ -1270,16 +1270,16 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TimelinesApi>();
             var scope = "scope_example";  // string | The scope of the specified Timeline.
             var code = "code_example";  // string | The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.
-            var closedPeriodId = "closedPeriodId_example";  // string | The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. The closed period must be the last closed period on the Timeline.
-            var body = {};  // Object? | Not in use at the moment (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string | The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. Must be the latest confirmed Closed Period unless              deleteSubsequentPeriods is set on the request body.
+            var unconfirmClosedPeriodRequest = new UnconfirmClosedPeriodRequest?(); // UnconfirmClosedPeriodRequest? | Controls whether a non-latest confirmed Closed Period may be unconfirmed. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ClosedPeriod result = apiInstance.UnconfirmClosedPeriod(scope, code, closedPeriodId, body, opts: opts);
+                // ClosedPeriod result = apiInstance.UnconfirmClosedPeriod(scope, code, closedPeriodId, unconfirmClosedPeriodRequest, opts: opts);
 
-                // [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm the last confirmed Closed Period against a Timeline Entity
-                ClosedPeriod result = apiInstance.UnconfirmClosedPeriod(scope, code, closedPeriodId, body);
+                // [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm a confirmed Closed Period against a Timeline Entity
+                ClosedPeriod result = apiInstance.UnconfirmClosedPeriod(scope, code, closedPeriodId, unconfirmClosedPeriodRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1299,8 +1299,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm the last confirmed Closed Period against a Timeline Entity
-    ApiResponse<ClosedPeriod> response = apiInstance.UnconfirmClosedPeriodWithHttpInfo(scope, code, closedPeriodId, body);
+    // [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm a confirmed Closed Period against a Timeline Entity
+    ApiResponse<ClosedPeriod> response = apiInstance.UnconfirmClosedPeriodWithHttpInfo(scope, code, closedPeriodId, unconfirmClosedPeriodRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1319,8 +1319,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the specified Timeline. |  |
 | **code** | **string** | The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline. |  |
-| **closedPeriodId** | **string** | The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. The closed period must be the last closed period on the Timeline. |  |
-| **body** | **Object?** | Not in use at the moment | [optional]  |
+| **closedPeriodId** | **string** | The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. Must be the latest confirmed Closed Period unless              deleteSubsequentPeriods is set on the request body. |  |
+| **unconfirmClosedPeriodRequest** | [**UnconfirmClosedPeriodRequest?**](UnconfirmClosedPeriodRequest?.md) | Controls whether a non-latest confirmed Closed Period may be unconfirmed. | [optional]  |
 
 ### Return type
 

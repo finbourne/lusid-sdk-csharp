@@ -212,6 +212,12 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // ElectionKey (string) minLength
+            if (this.ElectionKey != null && this.ElectionKey.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ElectionKey, length must be greater than 1.", new [] { "ElectionKey" });
+            }
+
             yield break;
         }
     }

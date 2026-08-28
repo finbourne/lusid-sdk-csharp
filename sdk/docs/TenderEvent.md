@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **SecurityOfferElections** | [**List&lt;SecurityOfferElection&gt;**](SecurityOfferElection.md) | List of possible SecurityOfferElections for this event. | [optional] 
 **CashAndSecurityOfferElections** | [**List&lt;CashAndSecurityOfferElection&gt;**](CashAndSecurityOfferElection.md) | List of possible CashAndSecurityOfferElections for this event. | [optional] 
 **CashOfferElections** | [**List&lt;CashOfferElection&gt;**](CashOfferElection.md) | List of possible CashOfferElections for this event. | [optional] 
+**MixedLotConstituentsElections** | [**List&lt;MixedLotConstituentsElection&gt;**](MixedLotConstituentsElection.md) | List of possible mixed lot offers for this tender event, if any. Each election replaces the tendered  position with one or more distinct new securities and/or cash legs of its own, taking the place of the  single event-level NewInstrument that the other security-bearing elections resolve to.    A tender may carry more than one of these, describing mutually exclusive multi-destination options. | [optional] 
 **OfferType** | **string** | Informational ISO 20022 OfferTp indicator (e.g. \&quot;ACPR\&quot;). Optional. No calculation impact. | [optional] 
 **AccruedInterestPerUnit** | **decimal?** | Optional per-unit accrued interest on the tendered face, from the last coupon date up to  (but excluding) PaymentDate. Bond instrument types only. If left empty, analytics-core  resolves it at event time from the bond&#39;s coupon schedule and market data. | [optional] 
 **MinPieceSize** | **decimal?** | Bond-specific minimum instructable face amount. Optional. Must be strictly positive when set. | [optional] 
@@ -37,6 +38,7 @@ string fractionalUnitsRoundingConvention = "example fractionalUnitsRoundingConve
 List<SecurityOfferElection> securityOfferElections = new List<SecurityOfferElection>();
 List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = new List<CashAndSecurityOfferElection>();
 List<CashOfferElection> cashOfferElections = new List<CashOfferElection>();
+List<MixedLotConstituentsElection> mixedLotConstituentsElections = new List<MixedLotConstituentsElection>();
 string offerType = "example offerType";decimal? prorationRate = "example prorationRate";
 
 TenderEvent tenderEventInstance = new TenderEvent(
@@ -52,6 +54,7 @@ TenderEvent tenderEventInstance = new TenderEvent(
     securityOfferElections: securityOfferElections,
     cashAndSecurityOfferElections: cashAndSecurityOfferElections,
     cashOfferElections: cashOfferElections,
+    mixedLotConstituentsElections: mixedLotConstituentsElections,
     offerType: offerType,
     accruedInterestPerUnit: accruedInterestPerUnit,
     minPieceSize: minPieceSize,
