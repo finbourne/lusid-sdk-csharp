@@ -170,7 +170,13 @@ namespace Lusid.Sdk.Model
         /// Enum InflationForward for value: InflationForward
         /// </summary>
         [EnumMember(Value = "InflationForward")]
-        InflationForward = 24
+        InflationForward = 24,
+
+        /// <summary>
+        /// Enum HullWhite1F for value: HullWhite1F
+        /// </summary>
+        [EnumMember(Value = "HullWhite1F")]
+        HullWhite1F = 25
     }
 
 }

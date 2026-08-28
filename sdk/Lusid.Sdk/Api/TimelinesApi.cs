@@ -32,6 +32,64 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// [EXPERIMENTAL] BatchCreateClosedPeriodCandidates: Atomically create an ordered series of confirmed closed period candidates against a timeline entity
+        /// </summary>
+        /// <remarks>
+        /// Creates an ordered series of closed period candidates against a timeline entity in a single transaction.  AsAtClosed is required on every item; unlike the single closed period endpoints it is not defaulted.  Any failure rolls back the whole batch - either every closed period is created, or none are.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.</param>
+        /// <param name="batchCreateClosedPeriodsRequest">The ordered set of Closed Periods to create (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfClosedPeriod</returns>
+        ResourceListOfClosedPeriod BatchCreateClosedPeriodCandidates(string scope, string code, BatchCreateClosedPeriodsRequest? batchCreateClosedPeriodsRequest = default(BatchCreateClosedPeriodsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchCreateClosedPeriodCandidates: Atomically create an ordered series of confirmed closed period candidates against a timeline entity
+        /// </summary>
+        /// <remarks>
+        /// Creates an ordered series of closed period candidates against a timeline entity in a single transaction.  AsAtClosed is required on every item; unlike the single closed period endpoints it is not defaulted.  Any failure rolls back the whole batch - either every closed period is created, or none are.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.</param>
+        /// <param name="batchCreateClosedPeriodsRequest">The ordered set of Closed Periods to create (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfClosedPeriod</returns>
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfClosedPeriod> BatchCreateClosedPeriodCandidatesWithHttpInfo(string scope, string code, BatchCreateClosedPeriodsRequest? batchCreateClosedPeriodsRequest = default(BatchCreateClosedPeriodsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] BatchCreateClosedPeriods: Atomically create an ordered series of confirmed closed periods against a timeline entity
+        /// </summary>
+        /// <remarks>
+        /// Creates an ordered series of confirmed closed periods against a timeline entity in a single transaction.  Each closed period&#39;s EffectiveStart is derived from the previous closed period&#39;s EffectiveEnd (or the  current chain tail for the first item), so EffectiveEnd must be strictly increasing across the batch.  AsAtClosed is required on every item and must be strictly increasing across the batch too; unlike the  single closed period endpoints it is not defaulted, since defaulting it per item would leave the  batch&#39;s AsAtClosed ordering to the wall clock rather than to the request.  Any failure rolls back the whole batch - either every closed period is created, or none are.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely identifies the Timeline.</param>
+        /// <param name="batchCreateClosedPeriodsRequest">The ordered set of Closed Periods to create (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfClosedPeriod</returns>
+        ResourceListOfClosedPeriod BatchCreateClosedPeriods(string scope, string code, BatchCreateClosedPeriodsRequest? batchCreateClosedPeriodsRequest = default(BatchCreateClosedPeriodsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchCreateClosedPeriods: Atomically create an ordered series of confirmed closed periods against a timeline entity
+        /// </summary>
+        /// <remarks>
+        /// Creates an ordered series of confirmed closed periods against a timeline entity in a single transaction.  Each closed period&#39;s EffectiveStart is derived from the previous closed period&#39;s EffectiveEnd (or the  current chain tail for the first item), so EffectiveEnd must be strictly increasing across the batch.  AsAtClosed is required on every item and must be strictly increasing across the batch too; unlike the  single closed period endpoints it is not defaulted, since defaulting it per item would leave the  batch&#39;s AsAtClosed ordering to the wall clock rather than to the request.  Any failure rolls back the whole batch - either every closed period is created, or none are.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely identifies the Timeline.</param>
+        /// <param name="batchCreateClosedPeriodsRequest">The ordered set of Closed Periods to create (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfClosedPeriod</returns>
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfClosedPeriod> BatchCreateClosedPeriodsWithHttpInfo(string scope, string code, BatchCreateClosedPeriodsRequest? batchCreateClosedPeriodsRequest = default(BatchCreateClosedPeriodsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] ConfirmClosedPeriod: Confirm a Closed Period against a Timeline Entity
         /// </summary>
         /// <remarks>
@@ -414,6 +472,68 @@ namespace Lusid.Sdk.Api
     public interface ITimelinesApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// [EXPERIMENTAL] BatchCreateClosedPeriodCandidates: Atomically create an ordered series of confirmed closed period candidates against a timeline entity
+        /// </summary>
+        /// <remarks>
+        /// Creates an ordered series of closed period candidates against a timeline entity in a single transaction.  AsAtClosed is required on every item; unlike the single closed period endpoints it is not defaulted.  Any failure rolls back the whole batch - either every closed period is created, or none are.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.</param>
+        /// <param name="batchCreateClosedPeriodsRequest">The ordered set of Closed Periods to create (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfClosedPeriod</returns>
+        System.Threading.Tasks.Task<ResourceListOfClosedPeriod> BatchCreateClosedPeriodCandidatesAsync(string scope, string code, BatchCreateClosedPeriodsRequest? batchCreateClosedPeriodsRequest = default(BatchCreateClosedPeriodsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchCreateClosedPeriodCandidates: Atomically create an ordered series of confirmed closed period candidates against a timeline entity
+        /// </summary>
+        /// <remarks>
+        /// Creates an ordered series of closed period candidates against a timeline entity in a single transaction.  AsAtClosed is required on every item; unlike the single closed period endpoints it is not defaulted.  Any failure rolls back the whole batch - either every closed period is created, or none are.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.</param>
+        /// <param name="batchCreateClosedPeriodsRequest">The ordered set of Closed Periods to create (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfClosedPeriod)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfClosedPeriod>> BatchCreateClosedPeriodCandidatesWithHttpInfoAsync(string scope, string code, BatchCreateClosedPeriodsRequest? batchCreateClosedPeriodsRequest = default(BatchCreateClosedPeriodsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] BatchCreateClosedPeriods: Atomically create an ordered series of confirmed closed periods against a timeline entity
+        /// </summary>
+        /// <remarks>
+        /// Creates an ordered series of confirmed closed periods against a timeline entity in a single transaction.  Each closed period&#39;s EffectiveStart is derived from the previous closed period&#39;s EffectiveEnd (or the  current chain tail for the first item), so EffectiveEnd must be strictly increasing across the batch.  AsAtClosed is required on every item and must be strictly increasing across the batch too; unlike the  single closed period endpoints it is not defaulted, since defaulting it per item would leave the  batch&#39;s AsAtClosed ordering to the wall clock rather than to the request.  Any failure rolls back the whole batch - either every closed period is created, or none are.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely identifies the Timeline.</param>
+        /// <param name="batchCreateClosedPeriodsRequest">The ordered set of Closed Periods to create (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfClosedPeriod</returns>
+        System.Threading.Tasks.Task<ResourceListOfClosedPeriod> BatchCreateClosedPeriodsAsync(string scope, string code, BatchCreateClosedPeriodsRequest? batchCreateClosedPeriodsRequest = default(BatchCreateClosedPeriodsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchCreateClosedPeriods: Atomically create an ordered series of confirmed closed periods against a timeline entity
+        /// </summary>
+        /// <remarks>
+        /// Creates an ordered series of confirmed closed periods against a timeline entity in a single transaction.  Each closed period&#39;s EffectiveStart is derived from the previous closed period&#39;s EffectiveEnd (or the  current chain tail for the first item), so EffectiveEnd must be strictly increasing across the batch.  AsAtClosed is required on every item and must be strictly increasing across the batch too; unlike the  single closed period endpoints it is not defaulted, since defaulting it per item would leave the  batch&#39;s AsAtClosed ordering to the wall clock rather than to the request.  Any failure rolls back the whole batch - either every closed period is created, or none are.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely identifies the Timeline.</param>
+        /// <param name="batchCreateClosedPeriodsRequest">The ordered set of Closed Periods to create (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfClosedPeriod)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfClosedPeriod>> BatchCreateClosedPeriodsWithHttpInfoAsync(string scope, string code, BatchCreateClosedPeriodsRequest? batchCreateClosedPeriodsRequest = default(BatchCreateClosedPeriodsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ConfirmClosedPeriod: Confirm a Closed Period against a Timeline Entity
         /// </summary>
@@ -933,6 +1053,478 @@ namespace Lusid.Sdk.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchCreateClosedPeriodCandidates: Atomically create an ordered series of confirmed closed period candidates against a timeline entity Creates an ordered series of closed period candidates against a timeline entity in a single transaction.  AsAtClosed is required on every item; unlike the single closed period endpoints it is not defaulted.  Any failure rolls back the whole batch - either every closed period is created, or none are.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.</param>
+        /// <param name="batchCreateClosedPeriodsRequest">The ordered set of Closed Periods to create (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfClosedPeriod</returns>
+        public ResourceListOfClosedPeriod BatchCreateClosedPeriodCandidates(string scope, string code, BatchCreateClosedPeriodsRequest? batchCreateClosedPeriodsRequest = default(BatchCreateClosedPeriodsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfClosedPeriod> localVarResponse = BatchCreateClosedPeriodCandidatesWithHttpInfo(scope, code, batchCreateClosedPeriodsRequest, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchCreateClosedPeriodCandidates: Atomically create an ordered series of confirmed closed period candidates against a timeline entity Creates an ordered series of closed period candidates against a timeline entity in a single transaction.  AsAtClosed is required on every item; unlike the single closed period endpoints it is not defaulted.  Any failure rolls back the whole batch - either every closed period is created, or none are.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.</param>
+        /// <param name="batchCreateClosedPeriodsRequest">The ordered set of Closed Periods to create (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfClosedPeriod</returns>
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfClosedPeriod> BatchCreateClosedPeriodCandidatesWithHttpInfo(string scope, string code, BatchCreateClosedPeriodsRequest? batchCreateClosedPeriodsRequest = default(BatchCreateClosedPeriodsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TimelinesApi->BatchCreateClosedPeriodCandidates");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TimelinesApi->BatchCreateClosedPeriodCandidates");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = batchCreateClosedPeriodsRequest;
+
+            localVarRequestOptions.Operation = "TimelinesApi.BatchCreateClosedPeriodCandidates";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ResourceListOfClosedPeriod>("/api/timelines/{scope}/{code}/closedperiods/candidate/$batchCreate", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BatchCreateClosedPeriodCandidates", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchCreateClosedPeriodCandidates: Atomically create an ordered series of confirmed closed period candidates against a timeline entity Creates an ordered series of closed period candidates against a timeline entity in a single transaction.  AsAtClosed is required on every item; unlike the single closed period endpoints it is not defaulted.  Any failure rolls back the whole batch - either every closed period is created, or none are.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.</param>
+        /// <param name="batchCreateClosedPeriodsRequest">The ordered set of Closed Periods to create (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfClosedPeriod</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfClosedPeriod> BatchCreateClosedPeriodCandidatesAsync(string scope, string code, BatchCreateClosedPeriodsRequest? batchCreateClosedPeriodsRequest = default(BatchCreateClosedPeriodsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfClosedPeriod> localVarResponse = await BatchCreateClosedPeriodCandidatesWithHttpInfoAsync(scope, code, batchCreateClosedPeriodsRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchCreateClosedPeriodCandidates: Atomically create an ordered series of confirmed closed period candidates against a timeline entity Creates an ordered series of closed period candidates against a timeline entity in a single transaction.  AsAtClosed is required on every item; unlike the single closed period endpoints it is not defaulted.  Any failure rolls back the whole batch - either every closed period is created, or none are.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.</param>
+        /// <param name="batchCreateClosedPeriodsRequest">The ordered set of Closed Periods to create (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfClosedPeriod)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfClosedPeriod>> BatchCreateClosedPeriodCandidatesWithHttpInfoAsync(string scope, string code, BatchCreateClosedPeriodsRequest? batchCreateClosedPeriodsRequest = default(BatchCreateClosedPeriodsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TimelinesApi->BatchCreateClosedPeriodCandidates");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TimelinesApi->BatchCreateClosedPeriodCandidates");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = batchCreateClosedPeriodsRequest;
+
+            localVarRequestOptions.Operation = "TimelinesApi.BatchCreateClosedPeriodCandidates";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ResourceListOfClosedPeriod>("/api/timelines/{scope}/{code}/closedperiods/candidate/$batchCreate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BatchCreateClosedPeriodCandidates", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchCreateClosedPeriods: Atomically create an ordered series of confirmed closed periods against a timeline entity Creates an ordered series of confirmed closed periods against a timeline entity in a single transaction.  Each closed period&#39;s EffectiveStart is derived from the previous closed period&#39;s EffectiveEnd (or the  current chain tail for the first item), so EffectiveEnd must be strictly increasing across the batch.  AsAtClosed is required on every item and must be strictly increasing across the batch too; unlike the  single closed period endpoints it is not defaulted, since defaulting it per item would leave the  batch&#39;s AsAtClosed ordering to the wall clock rather than to the request.  Any failure rolls back the whole batch - either every closed period is created, or none are.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely identifies the Timeline.</param>
+        /// <param name="batchCreateClosedPeriodsRequest">The ordered set of Closed Periods to create (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfClosedPeriod</returns>
+        public ResourceListOfClosedPeriod BatchCreateClosedPeriods(string scope, string code, BatchCreateClosedPeriodsRequest? batchCreateClosedPeriodsRequest = default(BatchCreateClosedPeriodsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfClosedPeriod> localVarResponse = BatchCreateClosedPeriodsWithHttpInfo(scope, code, batchCreateClosedPeriodsRequest, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchCreateClosedPeriods: Atomically create an ordered series of confirmed closed periods against a timeline entity Creates an ordered series of confirmed closed periods against a timeline entity in a single transaction.  Each closed period&#39;s EffectiveStart is derived from the previous closed period&#39;s EffectiveEnd (or the  current chain tail for the first item), so EffectiveEnd must be strictly increasing across the batch.  AsAtClosed is required on every item and must be strictly increasing across the batch too; unlike the  single closed period endpoints it is not defaulted, since defaulting it per item would leave the  batch&#39;s AsAtClosed ordering to the wall clock rather than to the request.  Any failure rolls back the whole batch - either every closed period is created, or none are.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely identifies the Timeline.</param>
+        /// <param name="batchCreateClosedPeriodsRequest">The ordered set of Closed Periods to create (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfClosedPeriod</returns>
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfClosedPeriod> BatchCreateClosedPeriodsWithHttpInfo(string scope, string code, BatchCreateClosedPeriodsRequest? batchCreateClosedPeriodsRequest = default(BatchCreateClosedPeriodsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TimelinesApi->BatchCreateClosedPeriods");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TimelinesApi->BatchCreateClosedPeriods");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = batchCreateClosedPeriodsRequest;
+
+            localVarRequestOptions.Operation = "TimelinesApi.BatchCreateClosedPeriods";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ResourceListOfClosedPeriod>("/api/timelines/{scope}/{code}/closedperiods/$batchCreate", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BatchCreateClosedPeriods", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchCreateClosedPeriods: Atomically create an ordered series of confirmed closed periods against a timeline entity Creates an ordered series of confirmed closed periods against a timeline entity in a single transaction.  Each closed period&#39;s EffectiveStart is derived from the previous closed period&#39;s EffectiveEnd (or the  current chain tail for the first item), so EffectiveEnd must be strictly increasing across the batch.  AsAtClosed is required on every item and must be strictly increasing across the batch too; unlike the  single closed period endpoints it is not defaulted, since defaulting it per item would leave the  batch&#39;s AsAtClosed ordering to the wall clock rather than to the request.  Any failure rolls back the whole batch - either every closed period is created, or none are.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely identifies the Timeline.</param>
+        /// <param name="batchCreateClosedPeriodsRequest">The ordered set of Closed Periods to create (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfClosedPeriod</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfClosedPeriod> BatchCreateClosedPeriodsAsync(string scope, string code, BatchCreateClosedPeriodsRequest? batchCreateClosedPeriodsRequest = default(BatchCreateClosedPeriodsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfClosedPeriod> localVarResponse = await BatchCreateClosedPeriodsWithHttpInfoAsync(scope, code, batchCreateClosedPeriodsRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchCreateClosedPeriods: Atomically create an ordered series of confirmed closed periods against a timeline entity Creates an ordered series of confirmed closed periods against a timeline entity in a single transaction.  Each closed period&#39;s EffectiveStart is derived from the previous closed period&#39;s EffectiveEnd (or the  current chain tail for the first item), so EffectiveEnd must be strictly increasing across the batch.  AsAtClosed is required on every item and must be strictly increasing across the batch too; unlike the  single closed period endpoints it is not defaulted, since defaulting it per item would leave the  batch&#39;s AsAtClosed ordering to the wall clock rather than to the request.  Any failure rolls back the whole batch - either every closed period is created, or none are.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely identifies the Timeline.</param>
+        /// <param name="batchCreateClosedPeriodsRequest">The ordered set of Closed Periods to create (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfClosedPeriod)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfClosedPeriod>> BatchCreateClosedPeriodsWithHttpInfoAsync(string scope, string code, BatchCreateClosedPeriodsRequest? batchCreateClosedPeriodsRequest = default(BatchCreateClosedPeriodsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TimelinesApi->BatchCreateClosedPeriods");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TimelinesApi->BatchCreateClosedPeriods");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = batchCreateClosedPeriodsRequest;
+
+            localVarRequestOptions.Operation = "TimelinesApi.BatchCreateClosedPeriods";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ResourceListOfClosedPeriod>("/api/timelines/{scope}/{code}/closedperiods/$batchCreate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BatchCreateClosedPeriods", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

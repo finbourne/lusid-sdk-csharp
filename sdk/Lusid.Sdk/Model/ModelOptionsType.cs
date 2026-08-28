@@ -80,7 +80,19 @@ namespace Lusid.Sdk.Model
         /// Enum FlexibleLoanPricerOptions for value: FlexibleLoanPricerOptions
         /// </summary>
         [EnumMember(Value = "FlexibleLoanPricerOptions")]
-        FlexibleLoanPricerOptions = 9
+        FlexibleLoanPricerOptions = 9,
+
+        /// <summary>
+        /// Enum HullWhiteModelOptions for value: HullWhiteModelOptions
+        /// </summary>
+        [EnumMember(Value = "HullWhiteModelOptions")]
+        HullWhiteModelOptions = 10,
+
+        /// <summary>
+        /// Enum BondLookupModelOptions for value: BondLookupModelOptions
+        /// </summary>
+        [EnumMember(Value = "BondLookupModelOptions")]
+        BondLookupModelOptions = 11
     }
 
 }

@@ -1040,11 +1040,12 @@ namespace Lusid.Sdk.Api
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="date">The optional date of the Valuation Point to report against, as an alternative to supplying              it in the request body. Must not be supplied together with diaryEntry. (optional)</param>
         /// <param name="diaryEntry">The optional diary entry code of the Valuation Point to report against, as an              alternative to supplying it in the request body. Must not be supplied together with date. (optional)</param>
+        /// <param name="variant">The optional variant code of the Valuation Point to report against, as an alternative to              supplying it in the request body. Only required when it is necessary to choose between scenarios with multiple              estimates. (optional)</param>
         /// <param name="valuationPointDataQueryParameters">The optional arguments to use for querying the unsettled transactions. Can be              omitted when the Valuation Point is identified by the date or diaryEntry query parameters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointResourceListOfUnsettledTransaction</returns>
-        ValuationPointResourceListOfUnsettledTransaction GetValuationPointUnsettledTransactions(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), DateTimeOrCutLabel? date = default(DateTimeOrCutLabel?), string? diaryEntry = default(string?), ValuationPointDataQueryParameters? valuationPointDataQueryParameters = default(ValuationPointDataQueryParameters?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ValuationPointResourceListOfUnsettledTransaction GetValuationPointUnsettledTransactions(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), DateTimeOrCutLabel? date = default(DateTimeOrCutLabel?), string? diaryEntry = default(string?), string? variant = default(string?), ValuationPointDataQueryParameters? valuationPointDataQueryParameters = default(ValuationPointDataQueryParameters?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
@@ -1062,11 +1063,12 @@ namespace Lusid.Sdk.Api
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="date">The optional date of the Valuation Point to report against, as an alternative to supplying              it in the request body. Must not be supplied together with diaryEntry. (optional)</param>
         /// <param name="diaryEntry">The optional diary entry code of the Valuation Point to report against, as an              alternative to supplying it in the request body. Must not be supplied together with date. (optional)</param>
+        /// <param name="variant">The optional variant code of the Valuation Point to report against, as an alternative to              supplying it in the request body. Only required when it is necessary to choose between scenarios with multiple              estimates. (optional)</param>
         /// <param name="valuationPointDataQueryParameters">The optional arguments to use for querying the unsettled transactions. Can be              omitted when the Valuation Point is identified by the date or diaryEntry query parameters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointResourceListOfUnsettledTransaction</returns>
-        Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfUnsettledTransaction> GetValuationPointUnsettledTransactionsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), DateTimeOrCutLabel? date = default(DateTimeOrCutLabel?), string? diaryEntry = default(string?), ValuationPointDataQueryParameters? valuationPointDataQueryParameters = default(ValuationPointDataQueryParameters?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfUnsettledTransaction> GetValuationPointUnsettledTransactionsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), DateTimeOrCutLabel? date = default(DateTimeOrCutLabel?), string? diaryEntry = default(string?), string? variant = default(string?), ValuationPointDataQueryParameters? valuationPointDataQueryParameters = default(ValuationPointDataQueryParameters?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListFees: List Fees for a specified Fund.
         /// </summary>
@@ -2853,12 +2855,13 @@ namespace Lusid.Sdk.Api
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="date">The optional date of the Valuation Point to report against, as an alternative to supplying              it in the request body. Must not be supplied together with diaryEntry. (optional)</param>
         /// <param name="diaryEntry">The optional diary entry code of the Valuation Point to report against, as an              alternative to supplying it in the request body. Must not be supplied together with date. (optional)</param>
+        /// <param name="variant">The optional variant code of the Valuation Point to report against, as an alternative to              supplying it in the request body. Only required when it is necessary to choose between scenarios with multiple              estimates. (optional)</param>
         /// <param name="valuationPointDataQueryParameters">The optional arguments to use for querying the unsettled transactions. Can be              omitted when the Valuation Point is identified by the date or diaryEntry query parameters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ValuationPointResourceListOfUnsettledTransaction</returns>
-        System.Threading.Tasks.Task<ValuationPointResourceListOfUnsettledTransaction> GetValuationPointUnsettledTransactionsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), DateTimeOrCutLabel? date = default(DateTimeOrCutLabel?), string? diaryEntry = default(string?), ValuationPointDataQueryParameters? valuationPointDataQueryParameters = default(ValuationPointDataQueryParameters?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ValuationPointResourceListOfUnsettledTransaction> GetValuationPointUnsettledTransactionsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), DateTimeOrCutLabel? date = default(DateTimeOrCutLabel?), string? diaryEntry = default(string?), string? variant = default(string?), ValuationPointDataQueryParameters? valuationPointDataQueryParameters = default(ValuationPointDataQueryParameters?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
@@ -2876,12 +2879,13 @@ namespace Lusid.Sdk.Api
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="date">The optional date of the Valuation Point to report against, as an alternative to supplying              it in the request body. Must not be supplied together with diaryEntry. (optional)</param>
         /// <param name="diaryEntry">The optional diary entry code of the Valuation Point to report against, as an              alternative to supplying it in the request body. Must not be supplied together with date. (optional)</param>
+        /// <param name="variant">The optional variant code of the Valuation Point to report against, as an alternative to              supplying it in the request body. Only required when it is necessary to choose between scenarios with multiple              estimates. (optional)</param>
         /// <param name="valuationPointDataQueryParameters">The optional arguments to use for querying the unsettled transactions. Can be              omitted when the Valuation Point is identified by the date or diaryEntry query parameters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ValuationPointResourceListOfUnsettledTransaction)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfUnsettledTransaction>> GetValuationPointUnsettledTransactionsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), DateTimeOrCutLabel? date = default(DateTimeOrCutLabel?), string? diaryEntry = default(string?), ValuationPointDataQueryParameters? valuationPointDataQueryParameters = default(ValuationPointDataQueryParameters?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfUnsettledTransaction>> GetValuationPointUnsettledTransactionsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), DateTimeOrCutLabel? date = default(DateTimeOrCutLabel?), string? diaryEntry = default(string?), string? variant = default(string?), ValuationPointDataQueryParameters? valuationPointDataQueryParameters = default(ValuationPointDataQueryParameters?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListFees: List Fees for a specified Fund.
         /// </summary>
@@ -11845,13 +11849,14 @@ namespace Lusid.Sdk.Api
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="date">The optional date of the Valuation Point to report against, as an alternative to supplying              it in the request body. Must not be supplied together with diaryEntry. (optional)</param>
         /// <param name="diaryEntry">The optional diary entry code of the Valuation Point to report against, as an              alternative to supplying it in the request body. Must not be supplied together with date. (optional)</param>
+        /// <param name="variant">The optional variant code of the Valuation Point to report against, as an alternative to              supplying it in the request body. Only required when it is necessary to choose between scenarios with multiple              estimates. (optional)</param>
         /// <param name="valuationPointDataQueryParameters">The optional arguments to use for querying the unsettled transactions. Can be              omitted when the Valuation Point is identified by the date or diaryEntry query parameters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointResourceListOfUnsettledTransaction</returns>
-        public ValuationPointResourceListOfUnsettledTransaction GetValuationPointUnsettledTransactions(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), DateTimeOrCutLabel? date = default(DateTimeOrCutLabel?), string? diaryEntry = default(string?), ValuationPointDataQueryParameters? valuationPointDataQueryParameters = default(ValuationPointDataQueryParameters?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ValuationPointResourceListOfUnsettledTransaction GetValuationPointUnsettledTransactions(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), DateTimeOrCutLabel? date = default(DateTimeOrCutLabel?), string? diaryEntry = default(string?), string? variant = default(string?), ValuationPointDataQueryParameters? valuationPointDataQueryParameters = default(ValuationPointDataQueryParameters?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfUnsettledTransaction> localVarResponse = GetValuationPointUnsettledTransactionsWithHttpInfo(scope, code, asAt, limit, page, propertyKeys, navTypeCode, date, diaryEntry, valuationPointDataQueryParameters, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfUnsettledTransaction> localVarResponse = GetValuationPointUnsettledTransactionsWithHttpInfo(scope, code, asAt, limit, page, propertyKeys, navTypeCode, date, diaryEntry, variant, valuationPointDataQueryParameters, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -11868,11 +11873,12 @@ namespace Lusid.Sdk.Api
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="date">The optional date of the Valuation Point to report against, as an alternative to supplying              it in the request body. Must not be supplied together with diaryEntry. (optional)</param>
         /// <param name="diaryEntry">The optional diary entry code of the Valuation Point to report against, as an              alternative to supplying it in the request body. Must not be supplied together with date. (optional)</param>
+        /// <param name="variant">The optional variant code of the Valuation Point to report against, as an alternative to              supplying it in the request body. Only required when it is necessary to choose between scenarios with multiple              estimates. (optional)</param>
         /// <param name="valuationPointDataQueryParameters">The optional arguments to use for querying the unsettled transactions. Can be              omitted when the Valuation Point is identified by the date or diaryEntry query parameters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointResourceListOfUnsettledTransaction</returns>
-        public Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfUnsettledTransaction> GetValuationPointUnsettledTransactionsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), DateTimeOrCutLabel? date = default(DateTimeOrCutLabel?), string? diaryEntry = default(string?), ValuationPointDataQueryParameters? valuationPointDataQueryParameters = default(ValuationPointDataQueryParameters?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfUnsettledTransaction> GetValuationPointUnsettledTransactionsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), DateTimeOrCutLabel? date = default(DateTimeOrCutLabel?), string? diaryEntry = default(string?), string? variant = default(string?), ValuationPointDataQueryParameters? valuationPointDataQueryParameters = default(ValuationPointDataQueryParameters?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -11961,6 +11967,11 @@ namespace Lusid.Sdk.Api
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "diaryEntry", diaryEntry));
             }
+            if (variant != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "variant", variant));
+            }
             localVarRequestOptions.Data = valuationPointDataQueryParameters;
 
             localVarRequestOptions.Operation = "FundsApi.GetValuationPointUnsettledTransactions";
@@ -12010,14 +12021,15 @@ namespace Lusid.Sdk.Api
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="date">The optional date of the Valuation Point to report against, as an alternative to supplying              it in the request body. Must not be supplied together with diaryEntry. (optional)</param>
         /// <param name="diaryEntry">The optional diary entry code of the Valuation Point to report against, as an              alternative to supplying it in the request body. Must not be supplied together with date. (optional)</param>
+        /// <param name="variant">The optional variant code of the Valuation Point to report against, as an alternative to              supplying it in the request body. Only required when it is necessary to choose between scenarios with multiple              estimates. (optional)</param>
         /// <param name="valuationPointDataQueryParameters">The optional arguments to use for querying the unsettled transactions. Can be              omitted when the Valuation Point is identified by the date or diaryEntry query parameters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ValuationPointResourceListOfUnsettledTransaction</returns>
-        public async System.Threading.Tasks.Task<ValuationPointResourceListOfUnsettledTransaction> GetValuationPointUnsettledTransactionsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), DateTimeOrCutLabel? date = default(DateTimeOrCutLabel?), string? diaryEntry = default(string?), ValuationPointDataQueryParameters? valuationPointDataQueryParameters = default(ValuationPointDataQueryParameters?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ValuationPointResourceListOfUnsettledTransaction> GetValuationPointUnsettledTransactionsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), DateTimeOrCutLabel? date = default(DateTimeOrCutLabel?), string? diaryEntry = default(string?), string? variant = default(string?), ValuationPointDataQueryParameters? valuationPointDataQueryParameters = default(ValuationPointDataQueryParameters?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfUnsettledTransaction> localVarResponse = await GetValuationPointUnsettledTransactionsWithHttpInfoAsync(scope, code, asAt, limit, page, propertyKeys, navTypeCode, date, diaryEntry, valuationPointDataQueryParameters, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfUnsettledTransaction> localVarResponse = await GetValuationPointUnsettledTransactionsWithHttpInfoAsync(scope, code, asAt, limit, page, propertyKeys, navTypeCode, date, diaryEntry, variant, valuationPointDataQueryParameters, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -12034,12 +12046,13 @@ namespace Lusid.Sdk.Api
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="date">The optional date of the Valuation Point to report against, as an alternative to supplying              it in the request body. Must not be supplied together with diaryEntry. (optional)</param>
         /// <param name="diaryEntry">The optional diary entry code of the Valuation Point to report against, as an              alternative to supplying it in the request body. Must not be supplied together with date. (optional)</param>
+        /// <param name="variant">The optional variant code of the Valuation Point to report against, as an alternative to              supplying it in the request body. Only required when it is necessary to choose between scenarios with multiple              estimates. (optional)</param>
         /// <param name="valuationPointDataQueryParameters">The optional arguments to use for querying the unsettled transactions. Can be              omitted when the Valuation Point is identified by the date or diaryEntry query parameters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ValuationPointResourceListOfUnsettledTransaction)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfUnsettledTransaction>> GetValuationPointUnsettledTransactionsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), DateTimeOrCutLabel? date = default(DateTimeOrCutLabel?), string? diaryEntry = default(string?), ValuationPointDataQueryParameters? valuationPointDataQueryParameters = default(ValuationPointDataQueryParameters?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfUnsettledTransaction>> GetValuationPointUnsettledTransactionsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), DateTimeOrCutLabel? date = default(DateTimeOrCutLabel?), string? diaryEntry = default(string?), string? variant = default(string?), ValuationPointDataQueryParameters? valuationPointDataQueryParameters = default(ValuationPointDataQueryParameters?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -12121,6 +12134,10 @@ namespace Lusid.Sdk.Api
             if (diaryEntry != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "diaryEntry", diaryEntry));
+            }
+            if (variant != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "variant", variant));
             }
             localVarRequestOptions.Data = valuationPointDataQueryParameters;
 

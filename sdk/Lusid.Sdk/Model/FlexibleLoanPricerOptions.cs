@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="FlexibleLoanPricerOptions" /> class.
         /// </summary>
         /// <param name="setCleanPVToZero">If set to true the CleanPV will be set to zero in valuations and PV will effectively just be the Accrual. (required).</param>
-        /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions. (required) (default to &quot;FlexibleLoanPricerOptions&quot;).</param>
+        /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions. (required) (default to &quot;FlexibleLoanPricerOptions&quot;).</param>
         public FlexibleLoanPricerOptions(bool setCleanPVToZero = default(bool), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             this.SetCleanPVToZero = setCleanPVToZero;

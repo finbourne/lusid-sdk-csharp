@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **CustodianEntries** | [**List&lt;CustodianEntry&gt;**](CustodianEntry.md) | A list of Custodian Entries associated with the transaction. | [optional] 
+**EntityLinks** | [**List&lt;TransactionEntityLink&gt;**](TransactionEntityLink.md) | Links to the entities related to this transaction. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -72,6 +73,7 @@ ModelVersion? varVersion = new ModelVersion();
 StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
 
 List<CustodianEntry> custodianEntries = new List<CustodianEntry>();
+List<TransactionEntityLink> entityLinks = new List<TransactionEntityLink>();
 
 Transaction transactionInstance = new Transaction(
     transactionId: transactionId,
@@ -102,7 +104,8 @@ Transaction transactionInstance = new Transaction(
     dataModelMembership: dataModelMembership,
     varVersion: varVersion,
     stagedModifications: stagedModifications,
-    custodianEntries: custodianEntries);
+    custodianEntries: custodianEntries,
+    entityLinks: entityLinks);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
