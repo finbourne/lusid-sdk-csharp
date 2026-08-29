@@ -41,11 +41,12 @@ namespace Lusid.Sdk.Model
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
         /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
+        /// <param name="isStifSweep">Indicates this FlexibleDeposit represents a Short Term Investment Fund (STIF) sweep vehicle.  Its balance is derived daily from the portfolio&#39;s eligible cash rather than loaded via manual  events..</param>
         /// <param name="schedules">Repayment schedules for the deposit instrument. (required).</param>
         /// <param name="tradingConventions">tradingConventions.</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap. (required) (default to &quot;FlexibleDeposit&quot;).</param>
-        public FlexibleDeposit(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), List<Schedule> schedules = default(List<Schedule>), TradingConventions tradingConventions = default(TradingConventions), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public FlexibleDeposit(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), bool? isStifSweep = default(bool?), List<Schedule> schedules = default(List<Schedule>), TradingConventions tradingConventions = default(TradingConventions), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -61,6 +62,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("schedules is a required property for FlexibleDeposit and cannot be null");
             }
             this.Schedules = schedules;
+            this.IsStifSweep = isStifSweep;
             this.TradingConventions = tradingConventions;
             this.TimeZoneConventions = timeZoneConventions;
         }
@@ -85,6 +87,13 @@ namespace Lusid.Sdk.Model
         /// <value>The domestic currency of the instrument.</value>
         [DataMember(Name = "domCcy", IsRequired = true, EmitDefaultValue = true)]
         public string DomCcy { get; set; }
+
+        /// <summary>
+        /// Indicates this FlexibleDeposit represents a Short Term Investment Fund (STIF) sweep vehicle.  Its balance is derived daily from the portfolio&#39;s eligible cash rather than loaded via manual  events.
+        /// </summary>
+        /// <value>Indicates this FlexibleDeposit represents a Short Term Investment Fund (STIF) sweep vehicle.  Its balance is derived daily from the portfolio&#39;s eligible cash rather than loaded via manual  events.</value>
+        [DataMember(Name = "isStifSweep", EmitDefaultValue = true)]
+        public bool? IsStifSweep { get; set; }
 
         /// <summary>
         /// Repayment schedules for the deposit instrument.
@@ -117,6 +126,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
             sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
+            sb.Append("  IsStifSweep: ").Append(IsStifSweep).Append("\n");
             sb.Append("  Schedules: ").Append(Schedules).Append("\n");
             sb.Append("  TradingConventions: ").Append(TradingConventions).Append("\n");
             sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
@@ -171,6 +181,11 @@ namespace Lusid.Sdk.Model
                     this.DomCcy.Equals(input.DomCcy))
                 ) && base.Equals(input) && 
                 (
+                    this.IsStifSweep == input.IsStifSweep ||
+                    (this.IsStifSweep != null &&
+                    this.IsStifSweep.Equals(input.IsStifSweep))
+                ) && base.Equals(input) && 
+                (
                     this.Schedules == input.Schedules ||
                     this.Schedules != null &&
                     input.Schedules != null &&
@@ -208,6 +223,10 @@ namespace Lusid.Sdk.Model
                 if (this.DomCcy != null)
                 {
                     hashCode = (hashCode * 59) + this.DomCcy.GetHashCode();
+                }
+                if (this.IsStifSweep != null)
+                {
+                    hashCode = (hashCode * 59) + this.IsStifSweep.GetHashCode();
                 }
                 if (this.Schedules != null)
                 {

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **StartDate** | **DateTimeOffset** | The start date of the instrument. This is normally synonymous with the trade-date. | 
 **MaturityDate** | **DateTimeOffset** | The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. | 
 **DomCcy** | **string** | The domestic currency of the instrument. | 
+**IsStifSweep** | **bool?** | Indicates this FlexibleDeposit represents a Short Term Investment Fund (STIF) sweep vehicle.  Its balance is derived daily from the portfolio&#39;s eligible cash rather than loaded via manual  events. | [optional] 
 **Schedules** | [**List&lt;Schedule&gt;**](Schedule.md) | Repayment schedules for the deposit instrument. | 
 **TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
@@ -18,6 +19,7 @@ using Lusid.Sdk.Model;
 using System;
 
 string domCcy = "domCcy";
+bool? isStifSweep = //"True";
 List<Schedule> schedules = new List<Schedule>();
 TradingConventions? tradingConventions = new TradingConventions();
 
@@ -28,6 +30,7 @@ FlexibleDeposit flexibleDepositInstance = new FlexibleDeposit(
     startDate: startDate,
     maturityDate: maturityDate,
     domCcy: domCcy,
+    isStifSweep: isStifSweep,
     schedules: schedules,
     tradingConventions: tradingConventions,
     timeZoneConventions: timeZoneConventions);

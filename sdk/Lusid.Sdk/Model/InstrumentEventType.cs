@@ -639,7 +639,13 @@ namespace Lusid.Sdk.Model
         /// Enum CommodityCalendarSwapCashFlowEvent for value: CommodityCalendarSwapCashFlowEvent
         /// </summary>
         [EnumMember(Value = "CommodityCalendarSwapCashFlowEvent")]
-        CommodityCalendarSwapCashFlowEvent = 102
+        CommodityCalendarSwapCashFlowEvent = 102,
+
+        /// <summary>
+        /// Enum DepositSweepEvent for value: DepositSweepEvent
+        /// </summary>
+        [EnumMember(Value = "DepositSweepEvent")]
+        DepositSweepEvent = 103
     }
 
 }
