@@ -163,7 +163,8 @@ namespace Lusid.Sdk.Model
         /// <param name="cashGainLossCalculationDate">The option when the Cash Gain Loss to be calulated. Default value: SettlementDate. Available values: Default, SettlementDate, TransactionDate..</param>
         /// <param name="instrumentEventConfiguration">instrumentEventConfiguration.</param>
         /// <param name="amortisationRuleSetId">amortisationRuleSetId.</param>
-        public CreateSimplePositionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), DateTimeOffset? created = default(DateTimeOffset?), DateTimeOffset? enablementDate = default(DateTimeOffset?), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId))
+        /// <param name="taxLotSelectionCostBasis">The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Available values: Cost, AmortisedCost..</param>
+        public CreateSimplePositionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), DateTimeOffset? created = default(DateTimeOffset?), DateTimeOffset? enablementDate = default(DateTimeOffset?), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), string taxLotSelectionCostBasis = default(string))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -196,6 +197,7 @@ namespace Lusid.Sdk.Model
             this.CashGainLossCalculationDate = cashGainLossCalculationDate;
             this.InstrumentEventConfiguration = instrumentEventConfiguration;
             this.AmortisationRuleSetId = amortisationRuleSetId;
+            this.TaxLotSelectionCostBasis = taxLotSelectionCostBasis;
         }
 
         /// <summary>
@@ -301,6 +303,13 @@ namespace Lusid.Sdk.Model
         public ResourceId AmortisationRuleSetId { get; set; }
 
         /// <summary>
+        /// The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Available values: Cost, AmortisedCost.
+        /// </summary>
+        /// <value>The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Available values: Cost, AmortisedCost.</value>
+        [DataMember(Name = "taxLotSelectionCostBasis", EmitDefaultValue = true)]
+        public string TaxLotSelectionCostBasis { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -324,6 +333,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CashGainLossCalculationDate: ").Append(CashGainLossCalculationDate).Append("\n");
             sb.Append("  InstrumentEventConfiguration: ").Append(InstrumentEventConfiguration).Append("\n");
             sb.Append("  AmortisationRuleSetId: ").Append(AmortisationRuleSetId).Append("\n");
+            sb.Append("  TaxLotSelectionCostBasis: ").Append(TaxLotSelectionCostBasis).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -440,6 +450,11 @@ namespace Lusid.Sdk.Model
                     this.AmortisationRuleSetId == input.AmortisationRuleSetId ||
                     (this.AmortisationRuleSetId != null &&
                     this.AmortisationRuleSetId.Equals(input.AmortisationRuleSetId))
+                ) && 
+                (
+                    this.TaxLotSelectionCostBasis == input.TaxLotSelectionCostBasis ||
+                    (this.TaxLotSelectionCostBasis != null &&
+                    this.TaxLotSelectionCostBasis.Equals(input.TaxLotSelectionCostBasis))
                 );
         }
 
@@ -512,6 +527,10 @@ namespace Lusid.Sdk.Model
                 if (this.AmortisationRuleSetId != null)
                 {
                     hashCode = (hashCode * 59) + this.AmortisationRuleSetId.GetHashCode();
+                }
+                if (this.TaxLotSelectionCostBasis != null)
+                {
+                    hashCode = (hashCode * 59) + this.TaxLotSelectionCostBasis.GetHashCode();
                 }
                 return hashCode;
             }

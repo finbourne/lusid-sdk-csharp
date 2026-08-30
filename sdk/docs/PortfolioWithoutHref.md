@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **TaxRuleSetScope** | **string** | The scope of the tax rule sets for this portfolio. | [optional] 
 **SettlementConfiguration** | [**PortfolioSettlementConfiguration**](PortfolioSettlementConfiguration.md) |  | [optional] 
 **TransactionExclusionFilter** | **string** | A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded. | [optional] 
+**TaxLotSelectionCostBasis** | **string** | The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Available values: Cost, AmortisedCost. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -61,6 +62,7 @@ string taxRuleSetScope = "example taxRuleSetScope";
 PortfolioSettlementConfiguration? settlementConfiguration = new PortfolioSettlementConfiguration();
 
 string transactionExclusionFilter = "example transactionExclusionFilter";
+string taxLotSelectionCostBasis = "example taxLotSelectionCostBasis";
 List<Link> links = new List<Link>();
 
 PortfolioWithoutHref portfolioWithoutHrefInstance = new PortfolioWithoutHref(
@@ -87,6 +89,7 @@ PortfolioWithoutHref portfolioWithoutHrefInstance = new PortfolioWithoutHref(
     taxRuleSetScope: taxRuleSetScope,
     settlementConfiguration: settlementConfiguration,
     transactionExclusionFilter: transactionExclusionFilter,
+    taxLotSelectionCostBasis: taxLotSelectionCostBasis,
     links: links);
 ```
 

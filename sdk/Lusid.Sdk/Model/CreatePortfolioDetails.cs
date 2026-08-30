@@ -32,9 +32,11 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="CreatePortfolioDetails" /> class.
         /// </summary>
         /// <param name="corporateActionSourceId">corporateActionSourceId.</param>
-        public CreatePortfolioDetails(ResourceId corporateActionSourceId = default(ResourceId))
+        /// <param name="taxLotSelectionCostBasis">The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. Available values: Cost, AmortisedCost..</param>
+        public CreatePortfolioDetails(ResourceId corporateActionSourceId = default(ResourceId), string taxLotSelectionCostBasis = default(string))
         {
             this.CorporateActionSourceId = corporateActionSourceId;
+            this.TaxLotSelectionCostBasis = taxLotSelectionCostBasis;
         }
 
         /// <summary>
@@ -42,6 +44,13 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "corporateActionSourceId", EmitDefaultValue = false)]
         public ResourceId CorporateActionSourceId { get; set; }
+
+        /// <summary>
+        /// The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. Available values: Cost, AmortisedCost.
+        /// </summary>
+        /// <value>The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. Available values: Cost, AmortisedCost.</value>
+        [DataMember(Name = "taxLotSelectionCostBasis", EmitDefaultValue = true)]
+        public string TaxLotSelectionCostBasis { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,6 +61,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class CreatePortfolioDetails {\n");
             sb.Append("  CorporateActionSourceId: ").Append(CorporateActionSourceId).Append("\n");
+            sb.Append("  TaxLotSelectionCostBasis: ").Append(TaxLotSelectionCostBasis).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,6 +101,11 @@ namespace Lusid.Sdk.Model
                     this.CorporateActionSourceId == input.CorporateActionSourceId ||
                     (this.CorporateActionSourceId != null &&
                     this.CorporateActionSourceId.Equals(input.CorporateActionSourceId))
+                ) && 
+                (
+                    this.TaxLotSelectionCostBasis == input.TaxLotSelectionCostBasis ||
+                    (this.TaxLotSelectionCostBasis != null &&
+                    this.TaxLotSelectionCostBasis.Equals(input.TaxLotSelectionCostBasis))
                 );
         }
 
@@ -106,6 +121,10 @@ namespace Lusid.Sdk.Model
                 if (this.CorporateActionSourceId != null)
                 {
                     hashCode = (hashCode * 59) + this.CorporateActionSourceId.GetHashCode();
+                }
+                if (this.TaxLotSelectionCostBasis != null)
+                {
+                    hashCode = (hashCode * 59) + this.TaxLotSelectionCostBasis.GetHashCode();
                 }
                 return hashCode;
             }

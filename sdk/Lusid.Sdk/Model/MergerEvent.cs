@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="announcementDate">The date the merger is announced..</param>
         /// <param name="cashAndSecurityOfferElections">List of possible CashAndSecurityOfferElections for this merger event.</param>
-        /// <param name="cashOfferElections">List of possible CashOfferElections for this merger event.</param>
+        /// <param name="cashOfferElections">List of possible CashOfferElections for this merger event. Under ParticipationType.Mandatory  a single CashOfferElection may be the event&#39;s only election — a cash-only merger — in which  case no NewInstrument is required. Under ParticipationType.MandatoryWithChoices cash offers  are provided alongside the other elections on the event..</param>
         /// <param name="mixedLotConstituentsElections">List of possible mixed lot offers for this merger event, if any. Each election replaces the parent position  with one or more distinct new securities and/or cash legs of its own, taking the place of the single  event-level NewInstrument that the other security-bearing elections resolve to.    A merger may carry more than one of these, describing mutually exclusive multi-destination options..</param>
         /// <param name="exDate">The first date on which the holder of record of the original shares has entitled ownership of the new shares..</param>
         /// <param name="fractionalUnitsCashCurrency">Optional. Used in calculating cash-in-lieu of fractional shares..</param>
@@ -84,9 +84,9 @@ namespace Lusid.Sdk.Model
         public List<CashAndSecurityOfferElection> CashAndSecurityOfferElections { get; set; }
 
         /// <summary>
-        /// List of possible CashOfferElections for this merger event
+        /// List of possible CashOfferElections for this merger event. Under ParticipationType.Mandatory  a single CashOfferElection may be the event&#39;s only election — a cash-only merger — in which  case no NewInstrument is required. Under ParticipationType.MandatoryWithChoices cash offers  are provided alongside the other elections on the event.
         /// </summary>
-        /// <value>List of possible CashOfferElections for this merger event</value>
+        /// <value>List of possible CashOfferElections for this merger event. Under ParticipationType.Mandatory  a single CashOfferElection may be the event&#39;s only election — a cash-only merger — in which  case no NewInstrument is required. Under ParticipationType.MandatoryWithChoices cash offers  are provided alongside the other elections on the event.</value>
         [DataMember(Name = "cashOfferElections", EmitDefaultValue = true)]
         public List<CashOfferElection> CashOfferElections { get; set; }
 

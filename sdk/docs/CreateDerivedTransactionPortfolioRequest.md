@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **InstrumentEventConfiguration** | [**InstrumentEventConfiguration**](InstrumentEventConfiguration.md) |  | [optional] 
 **SettlementConfiguration** | [**PortfolioSettlementConfiguration**](PortfolioSettlementConfiguration.md) |  | [optional] 
 **TransactionExclusionFilter** | **string** | A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded. | [optional] 
+**TaxLotSelectionCostBasis** | **string** | The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Available values: Cost, AmortisedCost. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -45,6 +46,7 @@ InstrumentEventConfiguration? instrumentEventConfiguration = new InstrumentEvent
 PortfolioSettlementConfiguration? settlementConfiguration = new PortfolioSettlementConfiguration();
 
 string transactionExclusionFilter = "example transactionExclusionFilter";
+string taxLotSelectionCostBasis = "example taxLotSelectionCostBasis";
 
 CreateDerivedTransactionPortfolioRequest createDerivedTransactionPortfolioRequestInstance = new CreateDerivedTransactionPortfolioRequest(
     displayName: displayName,
@@ -63,7 +65,8 @@ CreateDerivedTransactionPortfolioRequest createDerivedTransactionPortfolioReques
     amortisationRuleSetId: amortisationRuleSetId,
     instrumentEventConfiguration: instrumentEventConfiguration,
     settlementConfiguration: settlementConfiguration,
-    transactionExclusionFilter: transactionExclusionFilter);
+    transactionExclusionFilter: transactionExclusionFilter,
+    taxLotSelectionCostBasis: taxLotSelectionCostBasis);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

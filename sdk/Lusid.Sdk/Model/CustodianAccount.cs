@@ -45,7 +45,8 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">Set of unique Custodian Account properties and associated values to store with the Custodian Account. Each property must be from the &#39;CustodianAccount&#39; domain..</param>
         /// <param name="custodian">custodian (required).</param>
         /// <param name="accountType">The type of the Custodian Account. This is a free-text field that accepts any value. Optional, with no default..</param>
-        public CustodianAccount(ResourceId custodianAccountId = default(ResourceId), string status = default(string), string accountNumber = default(string), string accountName = default(string), string accountingMethod = default(string), string currency = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), LegalEntity custodian = default(LegalEntity), string accountType = default(string))
+        /// <param name="taxLotSelectionCostBasis">The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for disposals from this account. This can be: Cost or AmortisedCost. If not specified, resolution falls through to the transaction type and then the portfolio&#39;s default. Available values: Cost, AmortisedCost..</param>
+        public CustodianAccount(ResourceId custodianAccountId = default(ResourceId), string status = default(string), string accountNumber = default(string), string accountName = default(string), string accountingMethod = default(string), string currency = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), LegalEntity custodian = default(LegalEntity), string accountType = default(string), string taxLotSelectionCostBasis = default(string))
         {
             // to ensure "custodianAccountId" is required (not null)
             if (custodianAccountId == null)
@@ -91,6 +92,7 @@ namespace Lusid.Sdk.Model
             this.Custodian = custodian;
             this.Properties = properties;
             this.AccountType = accountType;
+            this.TaxLotSelectionCostBasis = taxLotSelectionCostBasis;
         }
 
         /// <summary>
@@ -155,6 +157,13 @@ namespace Lusid.Sdk.Model
         public string AccountType { get; set; }
 
         /// <summary>
+        /// The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for disposals from this account. This can be: Cost or AmortisedCost. If not specified, resolution falls through to the transaction type and then the portfolio&#39;s default. Available values: Cost, AmortisedCost.
+        /// </summary>
+        /// <value>The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for disposals from this account. This can be: Cost or AmortisedCost. If not specified, resolution falls through to the transaction type and then the portfolio&#39;s default. Available values: Cost, AmortisedCost.</value>
+        [DataMember(Name = "taxLotSelectionCostBasis", EmitDefaultValue = true)]
+        public string TaxLotSelectionCostBasis { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -171,6 +180,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Custodian: ").Append(Custodian).Append("\n");
             sb.Append("  AccountType: ").Append(AccountType).Append("\n");
+            sb.Append("  TaxLotSelectionCostBasis: ").Append(TaxLotSelectionCostBasis).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -251,6 +261,11 @@ namespace Lusid.Sdk.Model
                     this.AccountType == input.AccountType ||
                     (this.AccountType != null &&
                     this.AccountType.Equals(input.AccountType))
+                ) && 
+                (
+                    this.TaxLotSelectionCostBasis == input.TaxLotSelectionCostBasis ||
+                    (this.TaxLotSelectionCostBasis != null &&
+                    this.TaxLotSelectionCostBasis.Equals(input.TaxLotSelectionCostBasis))
                 );
         }
 
@@ -298,6 +313,10 @@ namespace Lusid.Sdk.Model
                 if (this.AccountType != null)
                 {
                     hashCode = (hashCode * 59) + this.AccountType.GetHashCode();
+                }
+                if (this.TaxLotSelectionCostBasis != null)
+                {
+                    hashCode = (hashCode * 59) + this.TaxLotSelectionCostBasis.GetHashCode();
                 }
                 return hashCode;
             }

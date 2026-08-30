@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **CashGainLossCalculationDate** | **string** | The option when the Cash Gain Loss to be calulated. Default value: SettlementDate. Available values: Default, SettlementDate, TransactionDate. | [optional] 
 **InstrumentEventConfiguration** | [**InstrumentEventConfiguration**](InstrumentEventConfiguration.md) |  | [optional] 
 **AmortisationRuleSetId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**TaxLotSelectionCostBasis** | **string** | The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Available values: Cost, AmortisedCost. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -42,6 +43,7 @@ InstrumentEventConfiguration? instrumentEventConfiguration = new InstrumentEvent
 
 ResourceId? amortisationRuleSetId = new ResourceId();
 
+string taxLotSelectionCostBasis = "example taxLotSelectionCostBasis";
 
 CreateSimplePositionPortfolioRequest createSimplePositionPortfolioRequestInstance = new CreateSimplePositionPortfolioRequest(
     displayName: displayName,
@@ -59,7 +61,8 @@ CreateSimplePositionPortfolioRequest createSimplePositionPortfolioRequestInstanc
     transactionTypeScope: transactionTypeScope,
     cashGainLossCalculationDate: cashGainLossCalculationDate,
     instrumentEventConfiguration: instrumentEventConfiguration,
-    amortisationRuleSetId: amortisationRuleSetId);
+    amortisationRuleSetId: amortisationRuleSetId,
+    taxLotSelectionCostBasis: taxLotSelectionCostBasis);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -209,8 +209,9 @@ namespace Lusid.Sdk.Model
         /// <param name="taxRuleSetScope">The scope of the tax rule sets for this portfolio..</param>
         /// <param name="settlementConfiguration">settlementConfiguration.</param>
         /// <param name="transactionExclusionFilter">A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded..</param>
+        /// <param name="taxLotSelectionCostBasis">The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Available values: Cost, AmortisedCost..</param>
         /// <param name="links">links.</param>
-        public PortfolioWithoutHref(ResourceId id = default(ResourceId), TypeEnum type = default(TypeEnum), string displayName = default(string), string description = default(string), DateTimeOffset created = default(DateTimeOffset), DateTimeOffset? enablementDate = default(DateTimeOffset?), ResourceId parentPortfolioId = default(ResourceId), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isDerived = default(bool), string baseCurrency = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), List<string> instrumentScopes = default(List<string>), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), string taxRuleSetScope = default(string), PortfolioSettlementConfiguration settlementConfiguration = default(PortfolioSettlementConfiguration), string transactionExclusionFilter = default(string), List<Link> links = default(List<Link>))
+        public PortfolioWithoutHref(ResourceId id = default(ResourceId), TypeEnum type = default(TypeEnum), string displayName = default(string), string description = default(string), DateTimeOffset created = default(DateTimeOffset), DateTimeOffset? enablementDate = default(DateTimeOffset?), ResourceId parentPortfolioId = default(ResourceId), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isDerived = default(bool), string baseCurrency = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), List<string> instrumentScopes = default(List<string>), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), string taxRuleSetScope = default(string), PortfolioSettlementConfiguration settlementConfiguration = default(PortfolioSettlementConfiguration), string transactionExclusionFilter = default(string), string taxLotSelectionCostBasis = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -245,6 +246,7 @@ namespace Lusid.Sdk.Model
             this.TaxRuleSetScope = taxRuleSetScope;
             this.SettlementConfiguration = settlementConfiguration;
             this.TransactionExclusionFilter = transactionExclusionFilter;
+            this.TaxLotSelectionCostBasis = taxLotSelectionCostBasis;
             this.Links = links;
         }
 
@@ -389,6 +391,13 @@ namespace Lusid.Sdk.Model
         public string TransactionExclusionFilter { get; set; }
 
         /// <summary>
+        /// The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Available values: Cost, AmortisedCost.
+        /// </summary>
+        /// <value>The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Available values: Cost, AmortisedCost.</value>
+        [DataMember(Name = "taxLotSelectionCostBasis", EmitDefaultValue = true)]
+        public string TaxLotSelectionCostBasis { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -425,6 +434,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  TaxRuleSetScope: ").Append(TaxRuleSetScope).Append("\n");
             sb.Append("  SettlementConfiguration: ").Append(SettlementConfiguration).Append("\n");
             sb.Append("  TransactionExclusionFilter: ").Append(TransactionExclusionFilter).Append("\n");
+            sb.Append("  TaxLotSelectionCostBasis: ").Append(TaxLotSelectionCostBasis).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -577,6 +587,11 @@ namespace Lusid.Sdk.Model
                     this.TransactionExclusionFilter.Equals(input.TransactionExclusionFilter))
                 ) && 
                 (
+                    this.TaxLotSelectionCostBasis == input.TaxLotSelectionCostBasis ||
+                    (this.TaxLotSelectionCostBasis != null &&
+                    this.TaxLotSelectionCostBasis.Equals(input.TaxLotSelectionCostBasis))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -675,6 +690,10 @@ namespace Lusid.Sdk.Model
                 if (this.TransactionExclusionFilter != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionExclusionFilter.GetHashCode();
+                }
+                if (this.TaxLotSelectionCostBasis != null)
+                {
+                    hashCode = (hashCode * 59) + this.TaxLotSelectionCostBasis.GetHashCode();
                 }
                 if (this.Links != null)
                 {
