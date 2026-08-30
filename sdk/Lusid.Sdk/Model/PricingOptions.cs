@@ -36,6 +36,7 @@ namespace Lusid.Sdk.Model
         /// <param name="allowAnyInstrumentsWithSecUidToPriceOffLookup">By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated  instrument definition simply through looking up a price as there should be a better way of evaluating it.  To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true..</param>
         /// <param name="allowPartiallySuccessfulEvaluation">If true then a failure in task evaluation doesn&#39;t cause overall failure.  results will be returned where they succeeded and annotation elsewhere.</param>
         /// <param name="riskEngine">Which engine computes first-order Risk/_* measures. One of \&quot;Bump\&quot; (default: central  finite differences by bump-and-revalue - the historical behaviour, used when this is  absent), \&quot;Parity\&quot; (bump computes and is reported, the adjoint engine independently checks  every calculator and any disagreement fails the measure loudly - the recommended  enablement gate), or \&quot;Adjoint\&quot; (algorithmic differentiation where an evaluator exists,  with silent fallback to Bump elsewhere - selecting it can never reduce coverage). Available values: Bump, Adjoint, Parity..</param>
+        /// <param name="findOrCalculate">Whether Risk/_* measures may be served from stored results instead of being recomputed.  A stored result is used only when the identity it was computed under (instrument version,  recipe, model and bump configuration, measure options, analytics version, and the content  of every market data dependency) exactly matches the identity computed fresh for this  request - a stale stored result is simply never matched. One of \&quot;Off\&quot; (default: compute  everything - the historical behaviour, used when this is absent), \&quot;Parity\&quot; (look up and  verify stored results but still compute everything, logging any divergence between stored  and computed values - the recommended enablement gate), or \&quot;Enabled\&quot; (serve verified  stored values and recompute only the measures with no verified stored result). Available values: Off, Parity, Enabled..</param>
         /// <param name="produceSeparateResultForLinearOtcLegs">If true (default), when pricing an Fx-Forward or Interest Rate Swap, Future and other linearly separable products, product two results, one for each leg  rather than a single line result with the amalgamated/summed pv from both legs..</param>
         /// <param name="fxForwardContractsAsUnitsInBothLegs">When true, Holding/Units on both legs of an instrument-booked FxForward valued with  ProduceSeparateResultForLinearOtcLegs reports the number of forward contracts held (the  non-split holding units), so that Holding/Units * Valuation/InstrumentPV &#x3D;&#x3D; Valuation/PV  holds on each leg. When false (default), the foreign leg reports  &lt;non-split units&gt; * (fgnAmount / domAmount)..</param>
         /// <param name="enableUseOfCachedUnitResults">If true, when pricing using a model or for an instrument that supports use of intermediate cached-results, use them.  Default is that this caching is turned off..</param>
@@ -50,13 +51,14 @@ namespace Lusid.Sdk.Model
         /// <param name="enableLegLevelInferenceForCustomSrsColumns">When enabled, allows inference between leg-level and  instrument-level data during portfolio valuation. If  data is missing at one level, it may be inferred from  the other level. For example, missing leg-level data   may be inferred from existing leg-level and instrument-  level data when ProduceSeparateResultForLinearOtcLegs  is enabled, and vice versa. Explicitly provided data  always takes precedence..</param>
         /// <param name="useInstrumentScaleFactorAsDefault">When enabled, priceScaleFactor defined at the instrument level will  be used in the absence of quote scaleFactor when resolving quotes..</param>
         /// <param name="scaleInstrumentAccruedOverrideByContractSize">When enabled, an SRS InstrumentAccrued override is multiplied by the instrument contractSize (legacy behaviour).  By default this is disabled, and the override is treated as the accrued for a single unit, keeping the  holding-level identity PV &#x3D; CleanPv + Accrued consistent..</param>
-        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), string riskEngine = default(string), bool produceSeparateResultForLinearOtcLegs = default(bool), bool fxForwardContractsAsUnitsInBothLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool), bool useInstrumentScaleFactorAsDefault = default(bool), bool scaleInstrumentAccruedOverrideByContractSize = default(bool))
+        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), string riskEngine = default(string), string findOrCalculate = default(string), bool produceSeparateResultForLinearOtcLegs = default(bool), bool fxForwardContractsAsUnitsInBothLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool), bool useInstrumentScaleFactorAsDefault = default(bool), bool scaleInstrumentAccruedOverrideByContractSize = default(bool))
         {
             this.ModelSelection = modelSelection;
             this.UseInstrumentTypeToDeterminePricer = useInstrumentTypeToDeterminePricer;
             this.AllowAnyInstrumentsWithSecUidToPriceOffLookup = allowAnyInstrumentsWithSecUidToPriceOffLookup;
             this.AllowPartiallySuccessfulEvaluation = allowPartiallySuccessfulEvaluation;
             this.RiskEngine = riskEngine;
+            this.FindOrCalculate = findOrCalculate;
             this.ProduceSeparateResultForLinearOtcLegs = produceSeparateResultForLinearOtcLegs;
             this.FxForwardContractsAsUnitsInBothLegs = fxForwardContractsAsUnitsInBothLegs;
             this.EnableUseOfCachedUnitResults = enableUseOfCachedUnitResults;
@@ -106,6 +108,13 @@ namespace Lusid.Sdk.Model
         /// <value>Which engine computes first-order Risk/_* measures. One of \&quot;Bump\&quot; (default: central  finite differences by bump-and-revalue - the historical behaviour, used when this is  absent), \&quot;Parity\&quot; (bump computes and is reported, the adjoint engine independently checks  every calculator and any disagreement fails the measure loudly - the recommended  enablement gate), or \&quot;Adjoint\&quot; (algorithmic differentiation where an evaluator exists,  with silent fallback to Bump elsewhere - selecting it can never reduce coverage). Available values: Bump, Adjoint, Parity.</value>
         [DataMember(Name = "riskEngine", EmitDefaultValue = true)]
         public string RiskEngine { get; set; }
+
+        /// <summary>
+        /// Whether Risk/_* measures may be served from stored results instead of being recomputed.  A stored result is used only when the identity it was computed under (instrument version,  recipe, model and bump configuration, measure options, analytics version, and the content  of every market data dependency) exactly matches the identity computed fresh for this  request - a stale stored result is simply never matched. One of \&quot;Off\&quot; (default: compute  everything - the historical behaviour, used when this is absent), \&quot;Parity\&quot; (look up and  verify stored results but still compute everything, logging any divergence between stored  and computed values - the recommended enablement gate), or \&quot;Enabled\&quot; (serve verified  stored values and recompute only the measures with no verified stored result). Available values: Off, Parity, Enabled.
+        /// </summary>
+        /// <value>Whether Risk/_* measures may be served from stored results instead of being recomputed.  A stored result is used only when the identity it was computed under (instrument version,  recipe, model and bump configuration, measure options, analytics version, and the content  of every market data dependency) exactly matches the identity computed fresh for this  request - a stale stored result is simply never matched. One of \&quot;Off\&quot; (default: compute  everything - the historical behaviour, used when this is absent), \&quot;Parity\&quot; (look up and  verify stored results but still compute everything, logging any divergence between stored  and computed values - the recommended enablement gate), or \&quot;Enabled\&quot; (serve verified  stored values and recompute only the measures with no verified stored result). Available values: Off, Parity, Enabled.</value>
+        [DataMember(Name = "findOrCalculate", EmitDefaultValue = true)]
+        public string FindOrCalculate { get; set; }
 
         /// <summary>
         /// If true (default), when pricing an Fx-Forward or Interest Rate Swap, Future and other linearly separable products, product two results, one for each leg  rather than a single line result with the amalgamated/summed pv from both legs.
@@ -216,6 +225,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AllowAnyInstrumentsWithSecUidToPriceOffLookup: ").Append(AllowAnyInstrumentsWithSecUidToPriceOffLookup).Append("\n");
             sb.Append("  AllowPartiallySuccessfulEvaluation: ").Append(AllowPartiallySuccessfulEvaluation).Append("\n");
             sb.Append("  RiskEngine: ").Append(RiskEngine).Append("\n");
+            sb.Append("  FindOrCalculate: ").Append(FindOrCalculate).Append("\n");
             sb.Append("  ProduceSeparateResultForLinearOtcLegs: ").Append(ProduceSeparateResultForLinearOtcLegs).Append("\n");
             sb.Append("  FxForwardContractsAsUnitsInBothLegs: ").Append(FxForwardContractsAsUnitsInBothLegs).Append("\n");
             sb.Append("  EnableUseOfCachedUnitResults: ").Append(EnableUseOfCachedUnitResults).Append("\n");
@@ -286,6 +296,11 @@ namespace Lusid.Sdk.Model
                     this.RiskEngine == input.RiskEngine ||
                     (this.RiskEngine != null &&
                     this.RiskEngine.Equals(input.RiskEngine))
+                ) && 
+                (
+                    this.FindOrCalculate == input.FindOrCalculate ||
+                    (this.FindOrCalculate != null &&
+                    this.FindOrCalculate.Equals(input.FindOrCalculate))
                 ) && 
                 (
                     this.ProduceSeparateResultForLinearOtcLegs == input.ProduceSeparateResultForLinearOtcLegs ||
@@ -366,6 +381,10 @@ namespace Lusid.Sdk.Model
                 if (this.RiskEngine != null)
                 {
                     hashCode = (hashCode * 59) + this.RiskEngine.GetHashCode();
+                }
+                if (this.FindOrCalculate != null)
+                {
+                    hashCode = (hashCode * 59) + this.FindOrCalculate.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ProduceSeparateResultForLinearOtcLegs.GetHashCode();
                 hashCode = (hashCode * 59) + this.FxForwardContractsAsUnitsInBothLegs.GetHashCode();

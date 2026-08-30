@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **AllowAnyInstrumentsWithSecUidToPriceOffLookup** | **bool** | By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated  instrument definition simply through looking up a price as there should be a better way of evaluating it.  To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true. | [optional] 
 **AllowPartiallySuccessfulEvaluation** | **bool** | If true then a failure in task evaluation doesn&#39;t cause overall failure.  results will be returned where they succeeded and annotation elsewhere | [optional] 
 **RiskEngine** | **string** | Which engine computes first-order Risk/_* measures. One of \&quot;Bump\&quot; (default: central  finite differences by bump-and-revalue - the historical behaviour, used when this is  absent), \&quot;Parity\&quot; (bump computes and is reported, the adjoint engine independently checks  every calculator and any disagreement fails the measure loudly - the recommended  enablement gate), or \&quot;Adjoint\&quot; (algorithmic differentiation where an evaluator exists,  with silent fallback to Bump elsewhere - selecting it can never reduce coverage). Available values: Bump, Adjoint, Parity. | [optional] 
+**FindOrCalculate** | **string** | Whether Risk/_* measures may be served from stored results instead of being recomputed.  A stored result is used only when the identity it was computed under (instrument version,  recipe, model and bump configuration, measure options, analytics version, and the content  of every market data dependency) exactly matches the identity computed fresh for this  request - a stale stored result is simply never matched. One of \&quot;Off\&quot; (default: compute  everything - the historical behaviour, used when this is absent), \&quot;Parity\&quot; (look up and  verify stored results but still compute everything, logging any divergence between stored  and computed values - the recommended enablement gate), or \&quot;Enabled\&quot; (serve verified  stored values and recompute only the measures with no verified stored result). Available values: Off, Parity, Enabled. | [optional] 
 **ProduceSeparateResultForLinearOtcLegs** | **bool** | If true (default), when pricing an Fx-Forward or Interest Rate Swap, Future and other linearly separable products, product two results, one for each leg  rather than a single line result with the amalgamated/summed pv from both legs. | [optional] 
 **FxForwardContractsAsUnitsInBothLegs** | **bool** | When true, Holding/Units on both legs of an instrument-booked FxForward valued with  ProduceSeparateResultForLinearOtcLegs reports the number of forward contracts held (the  non-split holding units), so that Holding/Units * Valuation/InstrumentPV &#x3D;&#x3D; Valuation/PV  holds on each leg. When false (default), the foreign leg reports  &lt;non-split units&gt; * (fgnAmount / domAmount). | [optional] 
 **EnableUseOfCachedUnitResults** | **bool** | If true, when pricing using a model or for an instrument that supports use of intermediate cached-results, use them.  Default is that this caching is turned off. | [optional] 
@@ -35,6 +36,7 @@ bool useInstrumentTypeToDeterminePricer = //"True";
 bool allowAnyInstrumentsWithSecUidToPriceOffLookup = //"True";
 bool allowPartiallySuccessfulEvaluation = //"True";
 string riskEngine = "example riskEngine";
+string findOrCalculate = "example findOrCalculate";
 bool produceSeparateResultForLinearOtcLegs = //"True";
 bool fxForwardContractsAsUnitsInBothLegs = //"True";
 bool enableUseOfCachedUnitResults = //"True";
@@ -57,6 +59,7 @@ PricingOptions pricingOptionsInstance = new PricingOptions(
     allowAnyInstrumentsWithSecUidToPriceOffLookup: allowAnyInstrumentsWithSecUidToPriceOffLookup,
     allowPartiallySuccessfulEvaluation: allowPartiallySuccessfulEvaluation,
     riskEngine: riskEngine,
+    findOrCalculate: findOrCalculate,
     produceSeparateResultForLinearOtcLegs: produceSeparateResultForLinearOtcLegs,
     fxForwardContractsAsUnitsInBothLegs: fxForwardContractsAsUnitsInBothLegs,
     enableUseOfCachedUnitResults: enableUseOfCachedUnitResults,
