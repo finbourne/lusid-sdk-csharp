@@ -332,7 +332,13 @@ namespace Lusid.Sdk.Model
         /// Enum CommodityCalendarSwap for value: CommodityCalendarSwap
         /// </summary>
         [EnumMember(Value = "CommodityCalendarSwap")]
-        CommodityCalendarSwap = 51
+        CommodityCalendarSwap = 51,
+
+        /// <summary>
+        /// Enum BondForward for value: BondForward
+        /// </summary>
+        [EnumMember(Value = "BondForward")]
+        BondForward = 52
     }
 
 }

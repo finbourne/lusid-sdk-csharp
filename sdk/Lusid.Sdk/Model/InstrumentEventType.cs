@@ -645,7 +645,19 @@ namespace Lusid.Sdk.Model
         /// Enum DepositSweepEvent for value: DepositSweepEvent
         /// </summary>
         [EnumMember(Value = "DepositSweepEvent")]
-        DepositSweepEvent = 103
+        DepositSweepEvent = 103,
+
+        /// <summary>
+        /// Enum BondForwardCashSettlementEvent for value: BondForwardCashSettlementEvent
+        /// </summary>
+        [EnumMember(Value = "BondForwardCashSettlementEvent")]
+        BondForwardCashSettlementEvent = 104,
+
+        /// <summary>
+        /// Enum BondForwardTerminationEvent for value: BondForwardTerminationEvent
+        /// </summary>
+        [EnumMember(Value = "BondForwardTerminationEvent")]
+        BondForwardTerminationEvent = 105
     }
 
 }
