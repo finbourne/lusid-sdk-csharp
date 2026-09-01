@@ -29,6 +29,7 @@ namespace Lusid.Sdk.Model
     [DataContract(Name = "ScenarioShiftDefinition")]
     [JsonConverter(typeof(JsonSubtypes), "ScenarioShiftType")]
     [JsonSubtypes.KnownSubType(typeof(FxShiftDefinition), "FxShiftDefinition")]
+    [JsonSubtypes.KnownSubType(typeof(InflationCurveShiftDefinition), "InflationCurveShiftDefinition")]
     [JsonSubtypes.KnownSubType(typeof(MdkrGroupShiftDefinition), "MdkrGroupShiftDefinition")]
     [JsonSubtypes.KnownSubType(typeof(PriceShiftDefinition), "PriceShiftDefinition")]
     [JsonSubtypes.KnownSubType(typeof(RateCurveShiftDefinition), "RateCurveShiftDefinition")]
@@ -36,9 +37,9 @@ namespace Lusid.Sdk.Model
     public partial class ScenarioShiftDefinition : IEquatable<ScenarioShiftDefinition>, IValidatableObject
     {
         /// <summary>
-        /// Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition.
+        /// Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition.
         /// </summary>
-        /// <value>Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition.</value>
+        /// <value>Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ScenarioShiftTypeEnum
         {
@@ -70,14 +71,20 @@ namespace Lusid.Sdk.Model
             /// Enum MdkrGroupShiftDefinition for value: MdkrGroupShiftDefinition
             /// </summary>
             [EnumMember(Value = "MdkrGroupShiftDefinition")]
-            MdkrGroupShiftDefinition = 5
+            MdkrGroupShiftDefinition = 5,
+
+            /// <summary>
+            /// Enum InflationCurveShiftDefinition for value: InflationCurveShiftDefinition
+            /// </summary>
+            [EnumMember(Value = "InflationCurveShiftDefinition")]
+            InflationCurveShiftDefinition = 6
         }
 
 
         /// <summary>
-        /// Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition.
+        /// Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition.
         /// </summary>
-        /// <value>Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition.</value>
+        /// <value>Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition.</value>
         [DataMember(Name = "scenarioShiftType", IsRequired = true, EmitDefaultValue = true)]
         public ScenarioShiftTypeEnum ScenarioShiftType { get; set; }
         /// <summary>
@@ -88,7 +95,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScenarioShiftDefinition" /> class.
         /// </summary>
-        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition. (required).</param>
+        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition. (required).</param>
         public ScenarioShiftDefinition(ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum))
         {
             this.ScenarioShiftType = scenarioShiftType;

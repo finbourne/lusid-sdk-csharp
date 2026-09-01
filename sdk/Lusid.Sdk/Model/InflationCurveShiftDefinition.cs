@@ -24,11 +24,11 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// RateCurveShiftDefinition
+    /// A shift of an inflation curve, targeted by inflation index name. The shift applies to the  zero-coupon inflation swap quotes the curve was solved from and the curve re-solves with  the same seasonal factors and resolved fixings, so seasonality and the historic index path  survive the shift. Shift shapes, tenor windows, scales and the Tent pivot behave exactly  as they do on a rate curve shift.
     /// </summary>
-    [DataContract(Name = "RateCurveShiftDefinition")]
+    [DataContract(Name = "InflationCurveShiftDefinition")]
     [JsonConverter(typeof(JsonSubtypes), "ScenarioShiftType")]
-    public partial class RateCurveShiftDefinition : ScenarioShiftDefinition, IEquatable<RateCurveShiftDefinition>, IValidatableObject
+    public partial class InflationCurveShiftDefinition : ScenarioShiftDefinition, IEquatable<InflationCurveShiftDefinition>, IValidatableObject
     {
         /// <summary>
         /// Available values: Parallel, Steepen, Flatten, Twist, Tent.
@@ -103,49 +103,48 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "scale", EmitDefaultValue = false)]
         public ScaleEnum? Scale { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="RateCurveShiftDefinition" /> class.
+        /// Initializes a new instance of the <see cref="InflationCurveShiftDefinition" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected RateCurveShiftDefinition() { }
+        protected InflationCurveShiftDefinition() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="RateCurveShiftDefinition" /> class.
+        /// Initializes a new instance of the <see cref="InflationCurveShiftDefinition" /> class.
         /// </summary>
-        /// <param name="ccy">ccy (required).</param>
-        /// <param name="amount">The size of the shift, in the units given by Scale: basis points by default (50 means +50bps),  or a percentage of each rate when Scale is Percentage (1 means rates scaled by 1.01)..</param>
+        /// <param name="index">The inflation index name the curve is keyed by, e.g. UKRPI or EUHICPXT. (required).</param>
+        /// <param name="amount">The size of the shift, in the units given by Scale: basis points on the zero-coupon  rates by default (50 means +50bps), or a percentage of each rate when Scale is  Percentage (1 means rates scaled by 1.01)..</param>
         /// <param name="startTenor">startTenor.</param>
         /// <param name="endTenor">endTenor.</param>
         /// <param name="shiftType">Available values: Parallel, Steepen, Flatten, Twist, Tent. (required).</param>
         /// <param name="scale">Available values: Bps, Percentage..</param>
-        /// <param name="applyTo">A LUSID filter expression over the instrument entity scoping which instruments this shift is  for, e.g. \&quot;properties[Instrument/default/CountryOfIssue] eq &#39;Italy&#39;\&quot;. The shifted market data  is used by the whole valuation run, but when the scenario is requested as a result column the  column is only populated for matching instruments. Only usable when the scenario is applied as  a per-metric column. Note that with a scope set, the base and scenario columns cover different  instrument populations: an aggregate (e.g. Sum) of the scenario column totals only the matching  instruments, so it is not directly comparable to the same aggregate of the base column..</param>
-        /// <param name="pivotTenor">The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape, whose  asymmetry matters because key-rate buckets are rarely evenly spaced. Only valid with  ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. Declared last on  purpose: generated SDKs emit their positional constructor in property-declaration order,  and this property must not shift the parameters of the ones before it.  Over a window containing a single curve point, that point takes the full Amount regardless  of where the pivot lands: a one-point window has no slope to express, and every shift  shape degenerates the same way there..</param>
-        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition. (required) (default to &quot;RateCurveShiftDefinition&quot;).</param>
-        public RateCurveShiftDefinition(string ccy = default(string), decimal? amount = default(decimal?), string startTenor = default(string), string endTenor = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScaleEnum ?scale = default(ScaleEnum?), string applyTo = default(string), string pivotTenor = default(string), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
+        /// <param name="pivotTenor">The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape. Only  valid with ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. Declared  last on purpose: generated SDKs emit their positional constructor in property-declaration  order, and this property must not shift the parameters of the ones before it..</param>
+        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition. (required) (default to &quot;InflationCurveShiftDefinition&quot;).</param>
+        public InflationCurveShiftDefinition(string index = default(string), decimal? amount = default(decimal?), string startTenor = default(string), string endTenor = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScaleEnum ?scale = default(ScaleEnum?), string pivotTenor = default(string), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
-            // to ensure "ccy" is required (not null)
-            if (ccy == null)
+            // to ensure "index" is required (not null)
+            if (index == null)
             {
-                throw new ArgumentNullException("ccy is a required property for RateCurveShiftDefinition and cannot be null");
+                throw new ArgumentNullException("index is a required property for InflationCurveShiftDefinition and cannot be null");
             }
-            this.Ccy = ccy;
+            this.Index = index;
             this.ShiftType = shiftType;
             this.Amount = amount;
             this.StartTenor = startTenor;
             this.EndTenor = endTenor;
             this.Scale = scale;
-            this.ApplyTo = applyTo;
             this.PivotTenor = pivotTenor;
         }
 
         /// <summary>
-        /// Gets or Sets Ccy
+        /// The inflation index name the curve is keyed by, e.g. UKRPI or EUHICPXT.
         /// </summary>
-        [DataMember(Name = "ccy", IsRequired = true, EmitDefaultValue = true)]
-        public string Ccy { get; set; }
+        /// <value>The inflation index name the curve is keyed by, e.g. UKRPI or EUHICPXT.</value>
+        [DataMember(Name = "index", IsRequired = true, EmitDefaultValue = true)]
+        public string Index { get; set; }
 
         /// <summary>
-        /// The size of the shift, in the units given by Scale: basis points by default (50 means +50bps),  or a percentage of each rate when Scale is Percentage (1 means rates scaled by 1.01).
+        /// The size of the shift, in the units given by Scale: basis points on the zero-coupon  rates by default (50 means +50bps), or a percentage of each rate when Scale is  Percentage (1 means rates scaled by 1.01).
         /// </summary>
-        /// <value>The size of the shift, in the units given by Scale: basis points by default (50 means +50bps),  or a percentage of each rate when Scale is Percentage (1 means rates scaled by 1.01).</value>
+        /// <value>The size of the shift, in the units given by Scale: basis points on the zero-coupon  rates by default (50 means +50bps), or a percentage of each rate when Scale is  Percentage (1 means rates scaled by 1.01).</value>
         [DataMember(Name = "amount", EmitDefaultValue = true)]
         public decimal? Amount { get; set; }
 
@@ -162,16 +161,9 @@ namespace Lusid.Sdk.Model
         public string EndTenor { get; set; }
 
         /// <summary>
-        /// A LUSID filter expression over the instrument entity scoping which instruments this shift is  for, e.g. \&quot;properties[Instrument/default/CountryOfIssue] eq &#39;Italy&#39;\&quot;. The shifted market data  is used by the whole valuation run, but when the scenario is requested as a result column the  column is only populated for matching instruments. Only usable when the scenario is applied as  a per-metric column. Note that with a scope set, the base and scenario columns cover different  instrument populations: an aggregate (e.g. Sum) of the scenario column totals only the matching  instruments, so it is not directly comparable to the same aggregate of the base column.
+        /// The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape. Only  valid with ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. Declared  last on purpose: generated SDKs emit their positional constructor in property-declaration  order, and this property must not shift the parameters of the ones before it.
         /// </summary>
-        /// <value>A LUSID filter expression over the instrument entity scoping which instruments this shift is  for, e.g. \&quot;properties[Instrument/default/CountryOfIssue] eq &#39;Italy&#39;\&quot;. The shifted market data  is used by the whole valuation run, but when the scenario is requested as a result column the  column is only populated for matching instruments. Only usable when the scenario is applied as  a per-metric column. Note that with a scope set, the base and scenario columns cover different  instrument populations: an aggregate (e.g. Sum) of the scenario column totals only the matching  instruments, so it is not directly comparable to the same aggregate of the base column.</value>
-        [DataMember(Name = "applyTo", EmitDefaultValue = true)]
-        public string ApplyTo { get; set; }
-
-        /// <summary>
-        /// The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape, whose  asymmetry matters because key-rate buckets are rarely evenly spaced. Only valid with  ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. Declared last on  purpose: generated SDKs emit their positional constructor in property-declaration order,  and this property must not shift the parameters of the ones before it.  Over a window containing a single curve point, that point takes the full Amount regardless  of where the pivot lands: a one-point window has no slope to express, and every shift  shape degenerates the same way there.
-        /// </summary>
-        /// <value>The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape, whose  asymmetry matters because key-rate buckets are rarely evenly spaced. Only valid with  ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. Declared last on  purpose: generated SDKs emit their positional constructor in property-declaration order,  and this property must not shift the parameters of the ones before it.  Over a window containing a single curve point, that point takes the full Amount regardless  of where the pivot lands: a one-point window has no slope to express, and every shift  shape degenerates the same way there.</value>
+        /// <value>The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape. Only  valid with ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. Declared  last on purpose: generated SDKs emit their positional constructor in property-declaration  order, and this property must not shift the parameters of the ones before it.</value>
         [DataMember(Name = "pivotTenor", EmitDefaultValue = true)]
         public string PivotTenor { get; set; }
 
@@ -182,15 +174,14 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class RateCurveShiftDefinition {\n");
+            sb.Append("class InflationCurveShiftDefinition {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  Ccy: ").Append(Ccy).Append("\n");
+            sb.Append("  Index: ").Append(Index).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  StartTenor: ").Append(StartTenor).Append("\n");
             sb.Append("  EndTenor: ").Append(EndTenor).Append("\n");
             sb.Append("  ShiftType: ").Append(ShiftType).Append("\n");
             sb.Append("  Scale: ").Append(Scale).Append("\n");
-            sb.Append("  ApplyTo: ").Append(ApplyTo).Append("\n");
             sb.Append("  PivotTenor: ").Append(PivotTenor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -212,15 +203,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as RateCurveShiftDefinition);
+            return this.Equals(input as InflationCurveShiftDefinition);
         }
 
         /// <summary>
-        /// Returns true if RateCurveShiftDefinition instances are equal
+        /// Returns true if InflationCurveShiftDefinition instances are equal
         /// </summary>
-        /// <param name="input">Instance of RateCurveShiftDefinition to be compared</param>
+        /// <param name="input">Instance of InflationCurveShiftDefinition to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RateCurveShiftDefinition input)
+        public bool Equals(InflationCurveShiftDefinition input)
         {
             if (input == null)
             {
@@ -228,9 +219,9 @@ namespace Lusid.Sdk.Model
             }
             return base.Equals(input) && 
                 (
-                    this.Ccy == input.Ccy ||
-                    (this.Ccy != null &&
-                    this.Ccy.Equals(input.Ccy))
+                    this.Index == input.Index ||
+                    (this.Index != null &&
+                    this.Index.Equals(input.Index))
                 ) && base.Equals(input) && 
                 (
                     this.Amount == input.Amount ||
@@ -256,11 +247,6 @@ namespace Lusid.Sdk.Model
                     this.Scale.Equals(input.Scale)
                 ) && base.Equals(input) && 
                 (
-                    this.ApplyTo == input.ApplyTo ||
-                    (this.ApplyTo != null &&
-                    this.ApplyTo.Equals(input.ApplyTo))
-                ) && base.Equals(input) && 
-                (
                     this.PivotTenor == input.PivotTenor ||
                     (this.PivotTenor != null &&
                     this.PivotTenor.Equals(input.PivotTenor))
@@ -276,9 +262,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
-                if (this.Ccy != null)
+                if (this.Index != null)
                 {
-                    hashCode = (hashCode * 59) + this.Ccy.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Index.GetHashCode();
                 }
                 if (this.Amount != null)
                 {
@@ -294,10 +280,6 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.ShiftType.GetHashCode();
                 hashCode = (hashCode * 59) + this.Scale.GetHashCode();
-                if (this.ApplyTo != null)
-                {
-                    hashCode = (hashCode * 59) + this.ApplyTo.GetHashCode();
-                }
                 if (this.PivotTenor != null)
                 {
                     hashCode = (hashCode * 59) + this.PivotTenor.GetHashCode();
@@ -327,16 +309,16 @@ namespace Lusid.Sdk.Model
             {
                 yield return x;
             }
-            // Ccy (string) maxLength
-            if (this.Ccy != null && this.Ccy.Length > 3)
+            // Index (string) maxLength
+            if (this.Index != null && this.Index.Length > 50)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ccy, length must be less than 3.", new [] { "Ccy" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Index, length must be less than 50.", new [] { "Index" });
             }
 
-            // Ccy (string) minLength
-            if (this.Ccy != null && this.Ccy.Length < 3)
+            // Index (string) minLength
+            if (this.Index != null && this.Index.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ccy, length must be greater than 3.", new [] { "Ccy" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Index, length must be greater than 1.", new [] { "Index" });
             }
 
             // Amount (decimal?) maximum
@@ -387,18 +369,6 @@ namespace Lusid.Sdk.Model
             if (false == regexEndTenor.Match(this.EndTenor).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EndTenor, must match a pattern of " + regexEndTenor, new [] { "EndTenor" });
-            }
-
-            // ApplyTo (string) maxLength
-            if (this.ApplyTo != null && this.ApplyTo.Length > 2000)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApplyTo, length must be less than 2000.", new [] { "ApplyTo" });
-            }
-
-            // ApplyTo (string) minLength
-            if (this.ApplyTo != null && this.ApplyTo.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApplyTo, length must be greater than 1.", new [] { "ApplyTo" });
             }
 
             // PivotTenor (string) maxLength
