@@ -50,7 +50,13 @@ namespace Lusid.Sdk.Model
         /// Enum Twist for value: twist
         /// </summary>
         [EnumMember(Value = "twist")]
-        Twist = 4
+        Twist = 4,
+
+        /// <summary>
+        /// Enum Tent for value: tent
+        /// </summary>
+        [EnumMember(Value = "tent")]
+        Tent = 5
     }
 
 }
