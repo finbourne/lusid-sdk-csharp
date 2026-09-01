@@ -41,14 +41,16 @@ namespace Lusid.Sdk.Model
         /// <param name="meanReversion">The mean reversion speed of the short rate. Must be strictly positive. Defaults to 0.03..</param>
         /// <param name="volatility">The normal (absolute) volatility of the short rate, e.g. 0.008 for 80bp per year. Defaults to 0.008..</param>
         /// <param name="latticeSteps">The number of uniform time steps in the lattice. More steps give a finer discretisation  of the short-rate process at greater computational cost. Defaults to 200..</param>
+        /// <param name="effectiveRateBumpSize">The parallel curve shift, as an absolute rate, used for the central-difference effective  duration and convexity, e.g. 0.0001 for a 1bp bump. Must be strictly positive.  Defaults to 0.0025 (25bp, the market convention for option-adjusted risk) when not supplied..</param>
         /// <param name="meanReversionByCurrency">Per-currency mean-reversion overrides, keyed by ISO currency code.  A currency absent from this map uses MeanReversion..</param>
         /// <param name="volatilityByCurrency">Per-currency short-rate volatility overrides, keyed by ISO currency code.  A currency absent from this map uses Volatility. Short-rate volatility is a per-currency  quantity in practice, so a book spanning several currencies can calibrate each currency  separately instead of sharing a single global figure..</param>
         /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions. (required) (default to &quot;HullWhiteModelOptions&quot;).</param>
-        public HullWhiteModelOptions(decimal meanReversion = default(decimal), decimal volatility = default(decimal), int latticeSteps = default(int), Dictionary<string, decimal> meanReversionByCurrency = default(Dictionary<string, decimal>), Dictionary<string, decimal> volatilityByCurrency = default(Dictionary<string, decimal>), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
+        public HullWhiteModelOptions(decimal meanReversion = default(decimal), decimal volatility = default(decimal), int latticeSteps = default(int), decimal? effectiveRateBumpSize = default(decimal?), Dictionary<string, decimal> meanReversionByCurrency = default(Dictionary<string, decimal>), Dictionary<string, decimal> volatilityByCurrency = default(Dictionary<string, decimal>), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             this.MeanReversion = meanReversion;
             this.Volatility = volatility;
             this.LatticeSteps = latticeSteps;
+            this.EffectiveRateBumpSize = effectiveRateBumpSize;
             this.MeanReversionByCurrency = meanReversionByCurrency;
             this.VolatilityByCurrency = volatilityByCurrency;
         }
@@ -73,6 +75,13 @@ namespace Lusid.Sdk.Model
         /// <value>The number of uniform time steps in the lattice. More steps give a finer discretisation  of the short-rate process at greater computational cost. Defaults to 200.</value>
         [DataMember(Name = "latticeSteps", EmitDefaultValue = true)]
         public int LatticeSteps { get; set; }
+
+        /// <summary>
+        /// The parallel curve shift, as an absolute rate, used for the central-difference effective  duration and convexity, e.g. 0.0001 for a 1bp bump. Must be strictly positive.  Defaults to 0.0025 (25bp, the market convention for option-adjusted risk) when not supplied.
+        /// </summary>
+        /// <value>The parallel curve shift, as an absolute rate, used for the central-difference effective  duration and convexity, e.g. 0.0001 for a 1bp bump. Must be strictly positive.  Defaults to 0.0025 (25bp, the market convention for option-adjusted risk) when not supplied.</value>
+        [DataMember(Name = "effectiveRateBumpSize", EmitDefaultValue = true)]
+        public decimal? EffectiveRateBumpSize { get; set; }
 
         /// <summary>
         /// Per-currency mean-reversion overrides, keyed by ISO currency code.  A currency absent from this map uses MeanReversion.
@@ -100,6 +109,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  MeanReversion: ").Append(MeanReversion).Append("\n");
             sb.Append("  Volatility: ").Append(Volatility).Append("\n");
             sb.Append("  LatticeSteps: ").Append(LatticeSteps).Append("\n");
+            sb.Append("  EffectiveRateBumpSize: ").Append(EffectiveRateBumpSize).Append("\n");
             sb.Append("  MeanReversionByCurrency: ").Append(MeanReversionByCurrency).Append("\n");
             sb.Append("  VolatilityByCurrency: ").Append(VolatilityByCurrency).Append("\n");
             sb.Append("}\n");
@@ -150,6 +160,11 @@ namespace Lusid.Sdk.Model
                     this.LatticeSteps.Equals(input.LatticeSteps)
                 ) && base.Equals(input) && 
                 (
+                    this.EffectiveRateBumpSize == input.EffectiveRateBumpSize ||
+                    (this.EffectiveRateBumpSize != null &&
+                    this.EffectiveRateBumpSize.Equals(input.EffectiveRateBumpSize))
+                ) && base.Equals(input) && 
+                (
                     this.MeanReversionByCurrency == input.MeanReversionByCurrency ||
                     this.MeanReversionByCurrency != null &&
                     input.MeanReversionByCurrency != null &&
@@ -175,6 +190,10 @@ namespace Lusid.Sdk.Model
                 hashCode = (hashCode * 59) + this.MeanReversion.GetHashCode();
                 hashCode = (hashCode * 59) + this.Volatility.GetHashCode();
                 hashCode = (hashCode * 59) + this.LatticeSteps.GetHashCode();
+                if (this.EffectiveRateBumpSize != null)
+                {
+                    hashCode = (hashCode * 59) + this.EffectiveRateBumpSize.GetHashCode();
+                }
                 if (this.MeanReversionByCurrency != null)
                 {
                     hashCode = (hashCode * 59) + this.MeanReversionByCurrency.GetHashCode();

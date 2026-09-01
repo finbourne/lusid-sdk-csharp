@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **StartTenor** | **string** |  | [optional] 
 **EndTenor** | **string** |  | [optional] 
 **ShiftType** | **string** | Available values: Parallel, Steepen, Flatten, Twist, Tent. | 
-**PivotTenor** | **string** | The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape, whose  asymmetry matters because key-rate buckets are rarely evenly spaced. Only valid with  ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. | [optional] 
 **Scale** | **string** | Available values: Bps, Percentage. | [optional] 
 **ApplyTo** | **string** | A LUSID filter expression over the instrument entity scoping which instruments this shift is  for, e.g. \&quot;properties[Instrument/default/CountryOfIssue] eq &#39;Italy&#39;\&quot;. The shifted market data  is used by the whole valuation run, but when the scenario is requested as a result column the  column is only populated for matching instruments. Only usable when the scenario is applied as  a per-metric column. Note that with a scope set, the base and scenario columns cover different  instrument populations: an aggregate (e.g. Sum) of the scenario column totals only the matching  instruments, so it is not directly comparable to the same aggregate of the base column. | [optional] 
+**PivotTenor** | **string** | The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape, whose  asymmetry matters because key-rate buckets are rarely evenly spaced. Only valid with  ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. Declared last on  purpose: generated SDKs emit their positional constructor in property-declaration order,  and this property must not shift the parameters of the ones before it. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -22,9 +22,9 @@ string ccy = "ccy";
 string startTenor = "example startTenor";
 string endTenor = "example endTenor";
 string shiftType = "shiftType";
-string pivotTenor = "example pivotTenor";
 string scale = "example scale";
 string applyTo = "example applyTo";
+string pivotTenor = "example pivotTenor";
 
 RateCurveShiftDefinition rateCurveShiftDefinitionInstance = new RateCurveShiftDefinition(
     ccy: ccy,
@@ -32,9 +32,9 @@ RateCurveShiftDefinition rateCurveShiftDefinitionInstance = new RateCurveShiftDe
     startTenor: startTenor,
     endTenor: endTenor,
     shiftType: shiftType,
-    pivotTenor: pivotTenor,
     scale: scale,
-    applyTo: applyTo);
+    applyTo: applyTo,
+    pivotTenor: pivotTenor);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

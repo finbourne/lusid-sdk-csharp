@@ -115,11 +115,11 @@ namespace Lusid.Sdk.Model
         /// <param name="startTenor">startTenor.</param>
         /// <param name="endTenor">endTenor.</param>
         /// <param name="shiftType">Available values: Parallel, Steepen, Flatten, Twist, Tent. (required).</param>
-        /// <param name="pivotTenor">The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape, whose  asymmetry matters because key-rate buckets are rarely evenly spaced. Only valid with  ShiftType Tent; omitted, a Tent peaks at the midpoint of the window..</param>
         /// <param name="scale">Available values: Bps, Percentage..</param>
         /// <param name="applyTo">A LUSID filter expression over the instrument entity scoping which instruments this shift is  for, e.g. \&quot;properties[Instrument/default/CountryOfIssue] eq &#39;Italy&#39;\&quot;. The shifted market data  is used by the whole valuation run, but when the scenario is requested as a result column the  column is only populated for matching instruments. Only usable when the scenario is applied as  a per-metric column. Note that with a scope set, the base and scenario columns cover different  instrument populations: an aggregate (e.g. Sum) of the scenario column totals only the matching  instruments, so it is not directly comparable to the same aggregate of the base column..</param>
+        /// <param name="pivotTenor">The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape, whose  asymmetry matters because key-rate buckets are rarely evenly spaced. Only valid with  ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. Declared last on  purpose: generated SDKs emit their positional constructor in property-declaration order,  and this property must not shift the parameters of the ones before it..</param>
         /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition. (required) (default to &quot;RateCurveShiftDefinition&quot;).</param>
-        public RateCurveShiftDefinition(string ccy = default(string), decimal? amount = default(decimal?), string startTenor = default(string), string endTenor = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), string pivotTenor = default(string), ScaleEnum ?scale = default(ScaleEnum?), string applyTo = default(string), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
+        public RateCurveShiftDefinition(string ccy = default(string), decimal? amount = default(decimal?), string startTenor = default(string), string endTenor = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScaleEnum ?scale = default(ScaleEnum?), string applyTo = default(string), string pivotTenor = default(string), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
             // to ensure "ccy" is required (not null)
             if (ccy == null)
@@ -131,9 +131,9 @@ namespace Lusid.Sdk.Model
             this.Amount = amount;
             this.StartTenor = startTenor;
             this.EndTenor = endTenor;
-            this.PivotTenor = pivotTenor;
             this.Scale = scale;
             this.ApplyTo = applyTo;
+            this.PivotTenor = pivotTenor;
         }
 
         /// <summary>
@@ -162,18 +162,18 @@ namespace Lusid.Sdk.Model
         public string EndTenor { get; set; }
 
         /// <summary>
-        /// The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape, whose  asymmetry matters because key-rate buckets are rarely evenly spaced. Only valid with  ShiftType Tent; omitted, a Tent peaks at the midpoint of the window.
-        /// </summary>
-        /// <value>The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape, whose  asymmetry matters because key-rate buckets are rarely evenly spaced. Only valid with  ShiftType Tent; omitted, a Tent peaks at the midpoint of the window.</value>
-        [DataMember(Name = "pivotTenor", EmitDefaultValue = true)]
-        public string PivotTenor { get; set; }
-
-        /// <summary>
         /// A LUSID filter expression over the instrument entity scoping which instruments this shift is  for, e.g. \&quot;properties[Instrument/default/CountryOfIssue] eq &#39;Italy&#39;\&quot;. The shifted market data  is used by the whole valuation run, but when the scenario is requested as a result column the  column is only populated for matching instruments. Only usable when the scenario is applied as  a per-metric column. Note that with a scope set, the base and scenario columns cover different  instrument populations: an aggregate (e.g. Sum) of the scenario column totals only the matching  instruments, so it is not directly comparable to the same aggregate of the base column.
         /// </summary>
         /// <value>A LUSID filter expression over the instrument entity scoping which instruments this shift is  for, e.g. \&quot;properties[Instrument/default/CountryOfIssue] eq &#39;Italy&#39;\&quot;. The shifted market data  is used by the whole valuation run, but when the scenario is requested as a result column the  column is only populated for matching instruments. Only usable when the scenario is applied as  a per-metric column. Note that with a scope set, the base and scenario columns cover different  instrument populations: an aggregate (e.g. Sum) of the scenario column totals only the matching  instruments, so it is not directly comparable to the same aggregate of the base column.</value>
         [DataMember(Name = "applyTo", EmitDefaultValue = true)]
         public string ApplyTo { get; set; }
+
+        /// <summary>
+        /// The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape, whose  asymmetry matters because key-rate buckets are rarely evenly spaced. Only valid with  ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. Declared last on  purpose: generated SDKs emit their positional constructor in property-declaration order,  and this property must not shift the parameters of the ones before it.
+        /// </summary>
+        /// <value>The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape, whose  asymmetry matters because key-rate buckets are rarely evenly spaced. Only valid with  ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. Declared last on  purpose: generated SDKs emit their positional constructor in property-declaration order,  and this property must not shift the parameters of the ones before it.</value>
+        [DataMember(Name = "pivotTenor", EmitDefaultValue = true)]
+        public string PivotTenor { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -189,9 +189,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  StartTenor: ").Append(StartTenor).Append("\n");
             sb.Append("  EndTenor: ").Append(EndTenor).Append("\n");
             sb.Append("  ShiftType: ").Append(ShiftType).Append("\n");
-            sb.Append("  PivotTenor: ").Append(PivotTenor).Append("\n");
             sb.Append("  Scale: ").Append(Scale).Append("\n");
             sb.Append("  ApplyTo: ").Append(ApplyTo).Append("\n");
+            sb.Append("  PivotTenor: ").Append(PivotTenor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -252,11 +252,6 @@ namespace Lusid.Sdk.Model
                     this.ShiftType.Equals(input.ShiftType)
                 ) && base.Equals(input) && 
                 (
-                    this.PivotTenor == input.PivotTenor ||
-                    (this.PivotTenor != null &&
-                    this.PivotTenor.Equals(input.PivotTenor))
-                ) && base.Equals(input) && 
-                (
                     this.Scale == input.Scale ||
                     this.Scale.Equals(input.Scale)
                 ) && base.Equals(input) && 
@@ -264,6 +259,11 @@ namespace Lusid.Sdk.Model
                     this.ApplyTo == input.ApplyTo ||
                     (this.ApplyTo != null &&
                     this.ApplyTo.Equals(input.ApplyTo))
+                ) && base.Equals(input) && 
+                (
+                    this.PivotTenor == input.PivotTenor ||
+                    (this.PivotTenor != null &&
+                    this.PivotTenor.Equals(input.PivotTenor))
                 );
         }
 
@@ -293,14 +293,14 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.EndTenor.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ShiftType.GetHashCode();
-                if (this.PivotTenor != null)
-                {
-                    hashCode = (hashCode * 59) + this.PivotTenor.GetHashCode();
-                }
                 hashCode = (hashCode * 59) + this.Scale.GetHashCode();
                 if (this.ApplyTo != null)
                 {
                     hashCode = (hashCode * 59) + this.ApplyTo.GetHashCode();
+                }
+                if (this.PivotTenor != null)
+                {
+                    hashCode = (hashCode * 59) + this.PivotTenor.GetHashCode();
                 }
                 return hashCode;
             }
@@ -389,6 +389,18 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EndTenor, must match a pattern of " + regexEndTenor, new [] { "EndTenor" });
             }
 
+            // ApplyTo (string) maxLength
+            if (this.ApplyTo != null && this.ApplyTo.Length > 2000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApplyTo, length must be less than 2000.", new [] { "ApplyTo" });
+            }
+
+            // ApplyTo (string) minLength
+            if (this.ApplyTo != null && this.ApplyTo.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApplyTo, length must be greater than 1.", new [] { "ApplyTo" });
+            }
+
             // PivotTenor (string) maxLength
             if (this.PivotTenor != null && this.PivotTenor.Length > 10)
             {
@@ -406,18 +418,6 @@ namespace Lusid.Sdk.Model
             if (false == regexPivotTenor.Match(this.PivotTenor).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PivotTenor, must match a pattern of " + regexPivotTenor, new [] { "PivotTenor" });
-            }
-
-            // ApplyTo (string) maxLength
-            if (this.ApplyTo != null && this.ApplyTo.Length > 2000)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApplyTo, length must be less than 2000.", new [] { "ApplyTo" });
-            }
-
-            // ApplyTo (string) minLength
-            if (this.ApplyTo != null && this.ApplyTo.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApplyTo, length must be greater than 1.", new [] { "ApplyTo" });
             }
 
             yield break;
