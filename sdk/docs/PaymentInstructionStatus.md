@@ -5,7 +5,7 @@ The current status of a Payment Instruction. Managed exclusively via the dedicat
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CurrentValue** | **string** | The current status value. One of: Created, Staged, Released, Instructed, Sent, Cancelled. | 
+**CurrentValue** | **string** | The current status value. One of: Created, Staged, Released, Instructed, Sent, Cancelled, Failed. | 
 **AsAtLastTransition** | **DateTimeOffset** | The as-at timestamp of the most recent status transition. | 
 **UserIdLastTransition** | **string** | The ID of the user who made the most recent status transition. | 
 

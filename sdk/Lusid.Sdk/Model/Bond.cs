@@ -52,10 +52,11 @@ namespace Lusid.Sdk.Model
         /// <param name="roundingConventions">Rounding conventions for analytics, if any..</param>
         /// <param name="exDividendConfiguration">exDividendConfiguration.</param>
         /// <param name="originalIssuePrice">The price the bond was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%..</param>
+        /// <param name="parPerUnit">Optional value used to scale accrued interest and coupon amounts only (not CleanPV), in addition to  currentNotional and units. If you do not set this field, the value is 1 and no amount changes.  A model that calculates the price from the cash flows, for example Discounting, includes the scaled coupons  in the PV and thus in the CleanPV. The CleanPV exclusion applies to a quoted price..</param>
         /// <param name="tradingConventions">tradingConventions.</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
-        /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap, BondForward. (required) (default to &quot;Bond&quot;).</param>
-        public Bond(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), FlowConventions flowConventions = default(FlowConventions), decimal principal = default(decimal), decimal couponRate = default(decimal), Dictionary<string, string> identifiers = default(Dictionary<string, string>), int? exDividendDays = default(int?), DateTimeOffset? initialCouponDate = default(DateTimeOffset?), DateTimeOffset? firstCouponPayDate = default(DateTimeOffset?), string calculationType = default(string), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), decimal? originalIssuePrice = default(decimal?), TradingConventions tradingConventions = default(TradingConventions), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap, BondForward, PreferredShare. (required) (default to &quot;Bond&quot;).</param>
+        public Bond(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), FlowConventions flowConventions = default(FlowConventions), decimal principal = default(decimal), decimal couponRate = default(decimal), Dictionary<string, string> identifiers = default(Dictionary<string, string>), int? exDividendDays = default(int?), DateTimeOffset? initialCouponDate = default(DateTimeOffset?), DateTimeOffset? firstCouponPayDate = default(DateTimeOffset?), string calculationType = default(string), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), decimal? originalIssuePrice = default(decimal?), decimal? parPerUnit = default(decimal?), TradingConventions tradingConventions = default(TradingConventions), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -81,6 +82,7 @@ namespace Lusid.Sdk.Model
             this.RoundingConventions = roundingConventions;
             this.ExDividendConfiguration = exDividendConfiguration;
             this.OriginalIssuePrice = originalIssuePrice;
+            this.ParPerUnit = parPerUnit;
             this.TradingConventions = tradingConventions;
             this.TimeZoneConventions = timeZoneConventions;
         }
@@ -182,6 +184,13 @@ namespace Lusid.Sdk.Model
         public decimal? OriginalIssuePrice { get; set; }
 
         /// <summary>
+        /// Optional value used to scale accrued interest and coupon amounts only (not CleanPV), in addition to  currentNotional and units. If you do not set this field, the value is 1 and no amount changes.  A model that calculates the price from the cash flows, for example Discounting, includes the scaled coupons  in the PV and thus in the CleanPV. The CleanPV exclusion applies to a quoted price.
+        /// </summary>
+        /// <value>Optional value used to scale accrued interest and coupon amounts only (not CleanPV), in addition to  currentNotional and units. If you do not set this field, the value is 1 and no amount changes.  A model that calculates the price from the cash flows, for example Discounting, includes the scaled coupons  in the PV and thus in the CleanPV. The CleanPV exclusion applies to a quoted price.</value>
+        [DataMember(Name = "parPerUnit", EmitDefaultValue = true)]
+        public decimal? ParPerUnit { get; set; }
+
+        /// <summary>
         /// Gets or Sets TradingConventions
         /// </summary>
         [DataMember(Name = "tradingConventions", EmitDefaultValue = false)]
@@ -216,6 +225,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  RoundingConventions: ").Append(RoundingConventions).Append("\n");
             sb.Append("  ExDividendConfiguration: ").Append(ExDividendConfiguration).Append("\n");
             sb.Append("  OriginalIssuePrice: ").Append(OriginalIssuePrice).Append("\n");
+            sb.Append("  ParPerUnit: ").Append(ParPerUnit).Append("\n");
             sb.Append("  TradingConventions: ").Append(TradingConventions).Append("\n");
             sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
@@ -324,6 +334,11 @@ namespace Lusid.Sdk.Model
                     this.OriginalIssuePrice.Equals(input.OriginalIssuePrice))
                 ) && base.Equals(input) && 
                 (
+                    this.ParPerUnit == input.ParPerUnit ||
+                    (this.ParPerUnit != null &&
+                    this.ParPerUnit.Equals(input.ParPerUnit))
+                ) && base.Equals(input) && 
+                (
                     this.TradingConventions == input.TradingConventions ||
                     (this.TradingConventions != null &&
                     this.TradingConventions.Equals(input.TradingConventions))
@@ -393,6 +408,10 @@ namespace Lusid.Sdk.Model
                 if (this.OriginalIssuePrice != null)
                 {
                     hashCode = (hashCode * 59) + this.OriginalIssuePrice.GetHashCode();
+                }
+                if (this.ParPerUnit != null)
+                {
+                    hashCode = (hashCode * 59) + this.ParPerUnit.GetHashCode();
                 }
                 if (this.TradingConventions != null)
                 {

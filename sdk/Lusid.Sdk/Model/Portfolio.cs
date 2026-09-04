@@ -210,7 +210,7 @@ namespace Lusid.Sdk.Model
         /// <param name="taxRuleSetScope">The scope of the tax rule sets for this portfolio..</param>
         /// <param name="settlementConfiguration">settlementConfiguration.</param>
         /// <param name="transactionExclusionFilter">A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded..</param>
-        /// <param name="taxLotSelectionCostBasis">The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Available values: Cost, AmortisedCost..</param>
+        /// <param name="taxLotSelectionCostBasis">The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Supply Default to explicitly reset it; a reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost..</param>
         /// <param name="links">links.</param>
         public Portfolio(string href = default(string), ResourceId id = default(ResourceId), TypeEnum type = default(TypeEnum), string displayName = default(string), string description = default(string), DateTimeOffset created = default(DateTimeOffset), DateTimeOffset? enablementDate = default(DateTimeOffset?), ResourceId parentPortfolioId = default(ResourceId), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isDerived = default(bool), string baseCurrency = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), List<string> instrumentScopes = default(List<string>), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), string taxRuleSetScope = default(string), PortfolioSettlementConfiguration settlementConfiguration = default(PortfolioSettlementConfiguration), string transactionExclusionFilter = default(string), string taxLotSelectionCostBasis = default(string), List<Link> links = default(List<Link>))
         {
@@ -400,9 +400,9 @@ namespace Lusid.Sdk.Model
         public string TransactionExclusionFilter { get; set; }
 
         /// <summary>
-        /// The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Available values: Cost, AmortisedCost.
+        /// The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Supply Default to explicitly reset it; a reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost.
         /// </summary>
-        /// <value>The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Available values: Cost, AmortisedCost.</value>
+        /// <value>The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Supply Default to explicitly reset it; a reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost.</value>
         [DataMember(Name = "taxLotSelectionCostBasis", EmitDefaultValue = true)]
         public string TaxLotSelectionCostBasis { get; set; }
 

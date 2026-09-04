@@ -41,12 +41,16 @@ namespace Lusid.Sdk.Model
         /// <param name="dayCountConvention">Day count convention of the curve. Default value: Act360. Available values: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM, Invalid..</param>
         /// <param name="frontExtrapolationType">What type of extrapolation is used to build the curve  Imagine that the curve is facing the observer(you), then the \&quot;front\&quot; direction is the closest point on the curve onward.    example: 0D tenor to past  Default value: Flat. Available values: None, Flat, Linear..</param>
         /// <param name="backExtrapolationType">What type of extrapolation is used to build the curve.    Imagine that the curve is facing the observer(you), then the \&quot;back\&quot; direction is the furthest point on the curve onward.  example: 30Y tenor to infinity    Default value: Flat. Available values: None, Flat, Linear..</param>
+        /// <param name="interpolationType">What type of interpolation is used to build the curve. Default value: LinearOnRates. Available values: LinearOnRates, LinearOnLogOfRates, LinearOnDiscountFactors, LinearOnLogDiscountFactors, PiecewiseLinearForward, MonotoneConvex, LinearOnLogProbability..</param>
+        /// <param name="originAnchor">How the curve builder anchors the origin of a bootstrapped curve, i.e. the value the curve  carries in front of its shortest calibration instrument. Default value: ZeroRate, the  historical anchor, under which existing curves are unchanged. Available values: ZeroRate, FirstInstrumentRate..</param>
         /// <param name="marketDataOptionsType">Available values: CurveOptions. Available values: CurveOptions. (required) (default to &quot;CurveOptions&quot;).</param>
-        public CurveOptions(string dayCountConvention = default(string), string frontExtrapolationType = default(string), string backExtrapolationType = default(string), MarketDataOptionsTypeEnum marketDataOptionsType = default(MarketDataOptionsTypeEnum)) : base(marketDataOptionsType)
+        public CurveOptions(string dayCountConvention = default(string), string frontExtrapolationType = default(string), string backExtrapolationType = default(string), string interpolationType = default(string), string originAnchor = default(string), MarketDataOptionsTypeEnum marketDataOptionsType = default(MarketDataOptionsTypeEnum)) : base(marketDataOptionsType)
         {
             this.DayCountConvention = dayCountConvention;
             this.FrontExtrapolationType = frontExtrapolationType;
             this.BackExtrapolationType = backExtrapolationType;
+            this.InterpolationType = interpolationType;
+            this.OriginAnchor = originAnchor;
         }
 
         /// <summary>
@@ -71,6 +75,20 @@ namespace Lusid.Sdk.Model
         public string BackExtrapolationType { get; set; }
 
         /// <summary>
+        /// What type of interpolation is used to build the curve. Default value: LinearOnRates. Available values: LinearOnRates, LinearOnLogOfRates, LinearOnDiscountFactors, LinearOnLogDiscountFactors, PiecewiseLinearForward, MonotoneConvex, LinearOnLogProbability.
+        /// </summary>
+        /// <value>What type of interpolation is used to build the curve. Default value: LinearOnRates. Available values: LinearOnRates, LinearOnLogOfRates, LinearOnDiscountFactors, LinearOnLogDiscountFactors, PiecewiseLinearForward, MonotoneConvex, LinearOnLogProbability.</value>
+        [DataMember(Name = "interpolationType", EmitDefaultValue = true)]
+        public string InterpolationType { get; set; }
+
+        /// <summary>
+        /// How the curve builder anchors the origin of a bootstrapped curve, i.e. the value the curve  carries in front of its shortest calibration instrument. Default value: ZeroRate, the  historical anchor, under which existing curves are unchanged. Available values: ZeroRate, FirstInstrumentRate.
+        /// </summary>
+        /// <value>How the curve builder anchors the origin of a bootstrapped curve, i.e. the value the curve  carries in front of its shortest calibration instrument. Default value: ZeroRate, the  historical anchor, under which existing curves are unchanged. Available values: ZeroRate, FirstInstrumentRate.</value>
+        [DataMember(Name = "originAnchor", EmitDefaultValue = true)]
+        public string OriginAnchor { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +100,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  DayCountConvention: ").Append(DayCountConvention).Append("\n");
             sb.Append("  FrontExtrapolationType: ").Append(FrontExtrapolationType).Append("\n");
             sb.Append("  BackExtrapolationType: ").Append(BackExtrapolationType).Append("\n");
+            sb.Append("  InterpolationType: ").Append(InterpolationType).Append("\n");
+            sb.Append("  OriginAnchor: ").Append(OriginAnchor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,6 +151,16 @@ namespace Lusid.Sdk.Model
                     this.BackExtrapolationType == input.BackExtrapolationType ||
                     (this.BackExtrapolationType != null &&
                     this.BackExtrapolationType.Equals(input.BackExtrapolationType))
+                ) && base.Equals(input) && 
+                (
+                    this.InterpolationType == input.InterpolationType ||
+                    (this.InterpolationType != null &&
+                    this.InterpolationType.Equals(input.InterpolationType))
+                ) && base.Equals(input) && 
+                (
+                    this.OriginAnchor == input.OriginAnchor ||
+                    (this.OriginAnchor != null &&
+                    this.OriginAnchor.Equals(input.OriginAnchor))
                 );
         }
 
@@ -154,6 +184,14 @@ namespace Lusid.Sdk.Model
                 if (this.BackExtrapolationType != null)
                 {
                     hashCode = (hashCode * 59) + this.BackExtrapolationType.GetHashCode();
+                }
+                if (this.InterpolationType != null)
+                {
+                    hashCode = (hashCode * 59) + this.InterpolationType.GetHashCode();
+                }
+                if (this.OriginAnchor != null)
+                {
+                    hashCode = (hashCode * 59) + this.OriginAnchor.GetHashCode();
                 }
                 return hashCode;
             }
@@ -214,6 +252,30 @@ namespace Lusid.Sdk.Model
             if (this.BackExtrapolationType != null && this.BackExtrapolationType.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BackExtrapolationType, length must be greater than 0.", new [] { "BackExtrapolationType" });
+            }
+
+            // InterpolationType (string) maxLength
+            if (this.InterpolationType != null && this.InterpolationType.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InterpolationType, length must be less than 50.", new [] { "InterpolationType" });
+            }
+
+            // InterpolationType (string) minLength
+            if (this.InterpolationType != null && this.InterpolationType.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InterpolationType, length must be greater than 0.", new [] { "InterpolationType" });
+            }
+
+            // OriginAnchor (string) maxLength
+            if (this.OriginAnchor != null && this.OriginAnchor.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OriginAnchor, length must be less than 50.", new [] { "OriginAnchor" });
+            }
+
+            // OriginAnchor (string) minLength
+            if (this.OriginAnchor != null && this.OriginAnchor.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OriginAnchor, length must be greater than 0.", new [] { "OriginAnchor" });
             }
 
             yield break;

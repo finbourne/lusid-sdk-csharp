@@ -32,7 +32,34 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] GetPaymentInstruction: Get Payment Instruction
+        /// [EXPERIMENTAL] DeletePaymentInstruction: Delete Payment Instruction
+        /// </summary>
+        /// <remarks>
+        /// Delete a Payment Instruction. Deletion will be valid from the payment instruction&#39;s creation datetime.  This means that the payment instruction will no longer exist at any effective datetime from the asAt datetime  of deletion. Any payment records the instruction owns are released and become available to another instruction.  A payment instruction that has been released, instructed, sent, cancelled or failed cannot be deleted.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the payment instruction.</param>
+        /// <param name="code">The code of the payment instruction.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        DeletedEntityResponse DeletePaymentInstruction(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeletePaymentInstruction: Delete Payment Instruction
+        /// </summary>
+        /// <remarks>
+        /// Delete a Payment Instruction. Deletion will be valid from the payment instruction&#39;s creation datetime.  This means that the payment instruction will no longer exist at any effective datetime from the asAt datetime  of deletion. Any payment records the instruction owns are released and become available to another instruction.  A payment instruction that has been released, instructed, sent, cancelled or failed cannot be deleted.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the payment instruction.</param>
+        /// <param name="code">The code of the payment instruction.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeletePaymentInstructionWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] GetPaymentInstruction: Get Payment Instruction
         /// </summary>
         /// <remarks>
         /// Retrieve a single Payment Instruction.
@@ -49,7 +76,7 @@ namespace Lusid.Sdk.Api
         PaymentInstruction GetPaymentInstruction(string scope, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetPaymentInstruction: Get Payment Instruction
+        /// [EXPERIMENTAL] GetPaymentInstruction: Get Payment Instruction
         /// </summary>
         /// <remarks>
         /// Retrieve a single Payment Instruction.
@@ -65,7 +92,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PaymentInstruction</returns>
         Lusid.Sdk.Client.ApiResponse<PaymentInstruction> GetPaymentInstructionWithHttpInfo(string scope, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] UpsertPaymentInstructions: Upsert Payment Instructions
+        /// [EXPERIMENTAL] UpsertPaymentInstructions: Upsert Payment Instructions
         /// </summary>
         /// <remarks>
         /// Create or update a collection of Payment Instructions.
@@ -78,7 +105,7 @@ namespace Lusid.Sdk.Api
         PaymentInstructionsResponse UpsertPaymentInstructions(Dictionary<string, PaymentInstructionRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPaymentInstructions: Upsert Payment Instructions
+        /// [EXPERIMENTAL] UpsertPaymentInstructions: Upsert Payment Instructions
         /// </summary>
         /// <remarks>
         /// Create or update a collection of Payment Instructions.
@@ -99,7 +126,36 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] GetPaymentInstruction: Get Payment Instruction
+        /// [EXPERIMENTAL] DeletePaymentInstruction: Delete Payment Instruction
+        /// </summary>
+        /// <remarks>
+        /// Delete a Payment Instruction. Deletion will be valid from the payment instruction&#39;s creation datetime.  This means that the payment instruction will no longer exist at any effective datetime from the asAt datetime  of deletion. Any payment records the instruction owns are released and become available to another instruction.  A payment instruction that has been released, instructed, sent, cancelled or failed cannot be deleted.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the payment instruction.</param>
+        /// <param name="code">The code of the payment instruction.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeletePaymentInstructionAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeletePaymentInstruction: Delete Payment Instruction
+        /// </summary>
+        /// <remarks>
+        /// Delete a Payment Instruction. Deletion will be valid from the payment instruction&#39;s creation datetime.  This means that the payment instruction will no longer exist at any effective datetime from the asAt datetime  of deletion. Any payment records the instruction owns are released and become available to another instruction.  A payment instruction that has been released, instructed, sent, cancelled or failed cannot be deleted.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the payment instruction.</param>
+        /// <param name="code">The code of the payment instruction.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeletePaymentInstructionWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] GetPaymentInstruction: Get Payment Instruction
         /// </summary>
         /// <remarks>
         /// Retrieve a single Payment Instruction.
@@ -117,7 +173,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PaymentInstruction> GetPaymentInstructionAsync(string scope, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetPaymentInstruction: Get Payment Instruction
+        /// [EXPERIMENTAL] GetPaymentInstruction: Get Payment Instruction
         /// </summary>
         /// <remarks>
         /// Retrieve a single Payment Instruction.
@@ -134,7 +190,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PaymentInstruction)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PaymentInstruction>> GetPaymentInstructionWithHttpInfoAsync(string scope, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] UpsertPaymentInstructions: Upsert Payment Instructions
+        /// [EXPERIMENTAL] UpsertPaymentInstructions: Upsert Payment Instructions
         /// </summary>
         /// <remarks>
         /// Create or update a collection of Payment Instructions.
@@ -148,7 +204,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PaymentInstructionsResponse> UpsertPaymentInstructionsAsync(Dictionary<string, PaymentInstructionRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPaymentInstructions: Upsert Payment Instructions
+        /// [EXPERIMENTAL] UpsertPaymentInstructions: Upsert Payment Instructions
         /// </summary>
         /// <remarks>
         /// Create or update a collection of Payment Instructions.
@@ -284,7 +340,229 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPaymentInstruction: Get Payment Instruction Retrieve a single Payment Instruction.
+        /// [EXPERIMENTAL] DeletePaymentInstruction: Delete Payment Instruction Delete a Payment Instruction. Deletion will be valid from the payment instruction&#39;s creation datetime.  This means that the payment instruction will no longer exist at any effective datetime from the asAt datetime  of deletion. Any payment records the instruction owns are released and become available to another instruction.  A payment instruction that has been released, instructed, sent, cancelled or failed cannot be deleted.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the payment instruction.</param>
+        /// <param name="code">The code of the payment instruction.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        public DeletedEntityResponse DeletePaymentInstruction(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeletePaymentInstructionWithHttpInfo(scope, code, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeletePaymentInstruction: Delete Payment Instruction Delete a Payment Instruction. Deletion will be valid from the payment instruction&#39;s creation datetime.  This means that the payment instruction will no longer exist at any effective datetime from the asAt datetime  of deletion. Any payment records the instruction owns are released and become available to another instruction.  A payment instruction that has been released, instructed, sent, cancelled or failed cannot be deleted.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the payment instruction.</param>
+        /// <param name="code">The code of the payment instruction.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeletePaymentInstructionWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PaymentInstructionsApi->DeletePaymentInstruction");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PaymentInstructionsApi->DeletePaymentInstruction");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+
+            localVarRequestOptions.Operation = "PaymentInstructionsApi.DeletePaymentInstruction";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/paymentinstructions/{scope}/{code}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeletePaymentInstruction", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeletePaymentInstruction: Delete Payment Instruction Delete a Payment Instruction. Deletion will be valid from the payment instruction&#39;s creation datetime.  This means that the payment instruction will no longer exist at any effective datetime from the asAt datetime  of deletion. Any payment records the instruction owns are released and become available to another instruction.  A payment instruction that has been released, instructed, sent, cancelled or failed cannot be deleted.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the payment instruction.</param>
+        /// <param name="code">The code of the payment instruction.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeletePaymentInstructionAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeletePaymentInstructionWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeletePaymentInstruction: Delete Payment Instruction Delete a Payment Instruction. Deletion will be valid from the payment instruction&#39;s creation datetime.  This means that the payment instruction will no longer exist at any effective datetime from the asAt datetime  of deletion. Any payment records the instruction owns are released and become available to another instruction.  A payment instruction that has been released, instructed, sent, cancelled or failed cannot be deleted.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the payment instruction.</param>
+        /// <param name="code">The code of the payment instruction.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeletePaymentInstructionWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PaymentInstructionsApi->DeletePaymentInstruction");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PaymentInstructionsApi->DeletePaymentInstruction");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+
+            localVarRequestOptions.Operation = "PaymentInstructionsApi.DeletePaymentInstruction";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/paymentinstructions/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeletePaymentInstruction", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetPaymentInstruction: Get Payment Instruction Retrieve a single Payment Instruction.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the payment instruction.</param>
@@ -302,7 +580,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPaymentInstruction: Get Payment Instruction Retrieve a single Payment Instruction.
+        /// [EXPERIMENTAL] GetPaymentInstruction: Get Payment Instruction Retrieve a single Payment Instruction.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the payment instruction.</param>
@@ -414,7 +692,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPaymentInstruction: Get Payment Instruction Retrieve a single Payment Instruction.
+        /// [EXPERIMENTAL] GetPaymentInstruction: Get Payment Instruction Retrieve a single Payment Instruction.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the payment instruction.</param>
@@ -433,7 +711,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPaymentInstruction: Get Payment Instruction Retrieve a single Payment Instruction.
+        /// [EXPERIMENTAL] GetPaymentInstruction: Get Payment Instruction Retrieve a single Payment Instruction.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the payment instruction.</param>
@@ -545,7 +823,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPaymentInstructions: Upsert Payment Instructions Create or update a collection of Payment Instructions.
+        /// [EXPERIMENTAL] UpsertPaymentInstructions: Upsert Payment Instructions Create or update a collection of Payment Instructions.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A collection of requests to create or update Payment Instructions.</param>
@@ -559,7 +837,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPaymentInstructions: Upsert Payment Instructions Create or update a collection of Payment Instructions.
+        /// [EXPERIMENTAL] UpsertPaymentInstructions: Upsert Payment Instructions Create or update a collection of Payment Instructions.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A collection of requests to create or update Payment Instructions.</param>
@@ -649,7 +927,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPaymentInstructions: Upsert Payment Instructions Create or update a collection of Payment Instructions.
+        /// [EXPERIMENTAL] UpsertPaymentInstructions: Upsert Payment Instructions Create or update a collection of Payment Instructions.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A collection of requests to create or update Payment Instructions.</param>
@@ -664,7 +942,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPaymentInstructions: Upsert Payment Instructions Create or update a collection of Payment Instructions.
+        /// [EXPERIMENTAL] UpsertPaymentInstructions: Upsert Payment Instructions Create or update a collection of Payment Instructions.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A collection of requests to create or update Payment Instructions.</param>

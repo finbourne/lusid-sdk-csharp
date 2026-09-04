@@ -103,6 +103,78 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "scale", EmitDefaultValue = false)]
         public ScaleEnum? Scale { get; set; }
         /// <summary>
+        /// Available values: Inclusive, StartExclusive, EndExclusive, Exclusive.
+        /// </summary>
+        /// <value>Available values: Inclusive, StartExclusive, EndExclusive, Exclusive.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum WindowBoundsEnum
+        {
+            /// <summary>
+            /// Enum Inclusive for value: Inclusive
+            /// </summary>
+            [EnumMember(Value = "Inclusive")]
+            Inclusive = 1,
+
+            /// <summary>
+            /// Enum StartExclusive for value: StartExclusive
+            /// </summary>
+            [EnumMember(Value = "StartExclusive")]
+            StartExclusive = 2,
+
+            /// <summary>
+            /// Enum EndExclusive for value: EndExclusive
+            /// </summary>
+            [EnumMember(Value = "EndExclusive")]
+            EndExclusive = 3,
+
+            /// <summary>
+            /// Enum Exclusive for value: Exclusive
+            /// </summary>
+            [EnumMember(Value = "Exclusive")]
+            Exclusive = 4
+        }
+
+
+        /// <summary>
+        /// Available values: Inclusive, StartExclusive, EndExclusive, Exclusive.
+        /// </summary>
+        /// <value>Available values: Inclusive, StartExclusive, EndExclusive, Exclusive.</value>
+        [DataMember(Name = "windowBounds", EmitDefaultValue = false)]
+        public WindowBoundsEnum? WindowBounds { get; set; }
+        /// <summary>
+        /// Available values: Any, Positive, Negative.
+        /// </summary>
+        /// <value>Available values: Any, Positive, Negative.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ApplyWhenValueEnum
+        {
+            /// <summary>
+            /// Enum Any for value: Any
+            /// </summary>
+            [EnumMember(Value = "Any")]
+            Any = 1,
+
+            /// <summary>
+            /// Enum Positive for value: Positive
+            /// </summary>
+            [EnumMember(Value = "Positive")]
+            Positive = 2,
+
+            /// <summary>
+            /// Enum Negative for value: Negative
+            /// </summary>
+            [EnumMember(Value = "Negative")]
+            Negative = 3
+        }
+
+
+        /// <summary>
+        /// Available values: Any, Positive, Negative.
+        /// </summary>
+        /// <value>Available values: Any, Positive, Negative.</value>
+        [DataMember(Name = "applyWhenValue", EmitDefaultValue = false)]
+        public ApplyWhenValueEnum? ApplyWhenValue { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="RateCurveShiftDefinition" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -118,8 +190,12 @@ namespace Lusid.Sdk.Model
         /// <param name="scale">Available values: Bps, Percentage..</param>
         /// <param name="applyTo">A LUSID filter expression over the instrument entity scoping which instruments this shift is  for, e.g. \&quot;properties[Instrument/default/CountryOfIssue] eq &#39;Italy&#39;\&quot;. The shifted market data  is used by the whole valuation run, but when the scenario is requested as a result column the  column is only populated for matching instruments. Only usable when the scenario is applied as  a per-metric column. Note that with a scope set, the base and scenario columns cover different  instrument populations: an aggregate (e.g. Sum) of the scenario column totals only the matching  instruments, so it is not directly comparable to the same aggregate of the base column..</param>
         /// <param name="pivotTenor">The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape, whose  asymmetry matters because key-rate buckets are rarely evenly spaced. Only valid with  ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. Declared last on  purpose: generated SDKs emit their positional constructor in property-declaration order,  and this property must not shift the parameters of the ones before it.  Over a window containing a single curve point, that point takes the full Amount regardless  of where the pivot lands: a one-point window has no slope to express, and every shift  shape degenerates the same way there..</param>
-        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition. (required) (default to &quot;RateCurveShiftDefinition&quot;).</param>
-        public RateCurveShiftDefinition(string ccy = default(string), decimal? amount = default(decimal?), string startTenor = default(string), string endTenor = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScaleEnum ?scale = default(ScaleEnum?), string applyTo = default(string), string pivotTenor = default(string), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
+        /// <param name="windowBounds">Available values: Inclusive, StartExclusive, EndExclusive, Exclusive..</param>
+        /// <param name="curveName">The funding identifier of the one curve in the currency this shift targets, letting a  scenario shock a named curve (say, an issuer discounting curve) without also moving the  risk-free curve mastered in the same currency. Omitted - as on every scenario stored  before this field existed - the shift matches every rate curve in the currency, exactly  as before. Declared last on purpose: generated SDKs emit their positional constructor in  property-declaration order, and this property must not shift the parameters of the ones  before it..</param>
+        /// <param name="minimumAmountBps">The smallest magnitude, in basis points, of the shift finally applied at each curve point.  Evaluated per point AFTER the shape weight, in the direction the shift acts there (the sign  of Amount times the shape weight): the applied move becomes at least the minimum in that  direction, even where a Percentage shift on a negative rate would have pointed the other  way - the Solvency II up-shock&#39;s \&quot;at least one percentage point at any maturity\&quot; is  MinimumAmountBps &#x3D; 100 on the relative shift the regulation states. A point whose shape  weight is exactly zero stays unshifted: the floor strengthens a shock where the shape  applies one, it does not extend the shock to points the shape excludes (a Tent&#39;s window  ends remain unmoved). Deliberately in basis points rather than in Scale units, because the  floor and the shift are in different units by construction: the regulation states a  relative shock with an absolute floor. Omitted, no floor applies - today&#39;s behaviour.  Declared after PivotTenor on purpose, for the constructor-ordering reason given there..</param>
+        /// <param name="applyWhenValue">Available values: Any, Positive, Negative..</param>
+        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition, CreditSpreadShiftDefinition, ModelOptionShiftDefinition. (required) (default to &quot;RateCurveShiftDefinition&quot;).</param>
+        public RateCurveShiftDefinition(string ccy = default(string), decimal? amount = default(decimal?), string startTenor = default(string), string endTenor = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScaleEnum ?scale = default(ScaleEnum?), string applyTo = default(string), string pivotTenor = default(string), WindowBoundsEnum ?windowBounds = default(WindowBoundsEnum?), string curveName = default(string), decimal? minimumAmountBps = default(decimal?), ApplyWhenValueEnum ?applyWhenValue = default(ApplyWhenValueEnum?), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
             // to ensure "ccy" is required (not null)
             if (ccy == null)
@@ -134,6 +210,10 @@ namespace Lusid.Sdk.Model
             this.Scale = scale;
             this.ApplyTo = applyTo;
             this.PivotTenor = pivotTenor;
+            this.WindowBounds = windowBounds;
+            this.CurveName = curveName;
+            this.MinimumAmountBps = minimumAmountBps;
+            this.ApplyWhenValue = applyWhenValue;
         }
 
         /// <summary>
@@ -176,6 +256,20 @@ namespace Lusid.Sdk.Model
         public string PivotTenor { get; set; }
 
         /// <summary>
+        /// The funding identifier of the one curve in the currency this shift targets, letting a  scenario shock a named curve (say, an issuer discounting curve) without also moving the  risk-free curve mastered in the same currency. Omitted - as on every scenario stored  before this field existed - the shift matches every rate curve in the currency, exactly  as before. Declared last on purpose: generated SDKs emit their positional constructor in  property-declaration order, and this property must not shift the parameters of the ones  before it.
+        /// </summary>
+        /// <value>The funding identifier of the one curve in the currency this shift targets, letting a  scenario shock a named curve (say, an issuer discounting curve) without also moving the  risk-free curve mastered in the same currency. Omitted - as on every scenario stored  before this field existed - the shift matches every rate curve in the currency, exactly  as before. Declared last on purpose: generated SDKs emit their positional constructor in  property-declaration order, and this property must not shift the parameters of the ones  before it.</value>
+        [DataMember(Name = "curveName", EmitDefaultValue = true)]
+        public string CurveName { get; set; }
+
+        /// <summary>
+        /// The smallest magnitude, in basis points, of the shift finally applied at each curve point.  Evaluated per point AFTER the shape weight, in the direction the shift acts there (the sign  of Amount times the shape weight): the applied move becomes at least the minimum in that  direction, even where a Percentage shift on a negative rate would have pointed the other  way - the Solvency II up-shock&#39;s \&quot;at least one percentage point at any maturity\&quot; is  MinimumAmountBps &#x3D; 100 on the relative shift the regulation states. A point whose shape  weight is exactly zero stays unshifted: the floor strengthens a shock where the shape  applies one, it does not extend the shock to points the shape excludes (a Tent&#39;s window  ends remain unmoved). Deliberately in basis points rather than in Scale units, because the  floor and the shift are in different units by construction: the regulation states a  relative shock with an absolute floor. Omitted, no floor applies - today&#39;s behaviour.  Declared after PivotTenor on purpose, for the constructor-ordering reason given there.
+        /// </summary>
+        /// <value>The smallest magnitude, in basis points, of the shift finally applied at each curve point.  Evaluated per point AFTER the shape weight, in the direction the shift acts there (the sign  of Amount times the shape weight): the applied move becomes at least the minimum in that  direction, even where a Percentage shift on a negative rate would have pointed the other  way - the Solvency II up-shock&#39;s \&quot;at least one percentage point at any maturity\&quot; is  MinimumAmountBps &#x3D; 100 on the relative shift the regulation states. A point whose shape  weight is exactly zero stays unshifted: the floor strengthens a shock where the shape  applies one, it does not extend the shock to points the shape excludes (a Tent&#39;s window  ends remain unmoved). Deliberately in basis points rather than in Scale units, because the  floor and the shift are in different units by construction: the regulation states a  relative shock with an absolute floor. Omitted, no floor applies - today&#39;s behaviour.  Declared after PivotTenor on purpose, for the constructor-ordering reason given there.</value>
+        [DataMember(Name = "minimumAmountBps", EmitDefaultValue = true)]
+        public decimal? MinimumAmountBps { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -192,6 +286,10 @@ namespace Lusid.Sdk.Model
             sb.Append("  Scale: ").Append(Scale).Append("\n");
             sb.Append("  ApplyTo: ").Append(ApplyTo).Append("\n");
             sb.Append("  PivotTenor: ").Append(PivotTenor).Append("\n");
+            sb.Append("  WindowBounds: ").Append(WindowBounds).Append("\n");
+            sb.Append("  CurveName: ").Append(CurveName).Append("\n");
+            sb.Append("  MinimumAmountBps: ").Append(MinimumAmountBps).Append("\n");
+            sb.Append("  ApplyWhenValue: ").Append(ApplyWhenValue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -264,6 +362,24 @@ namespace Lusid.Sdk.Model
                     this.PivotTenor == input.PivotTenor ||
                     (this.PivotTenor != null &&
                     this.PivotTenor.Equals(input.PivotTenor))
+                ) && base.Equals(input) && 
+                (
+                    this.WindowBounds == input.WindowBounds ||
+                    this.WindowBounds.Equals(input.WindowBounds)
+                ) && base.Equals(input) && 
+                (
+                    this.CurveName == input.CurveName ||
+                    (this.CurveName != null &&
+                    this.CurveName.Equals(input.CurveName))
+                ) && base.Equals(input) && 
+                (
+                    this.MinimumAmountBps == input.MinimumAmountBps ||
+                    (this.MinimumAmountBps != null &&
+                    this.MinimumAmountBps.Equals(input.MinimumAmountBps))
+                ) && base.Equals(input) && 
+                (
+                    this.ApplyWhenValue == input.ApplyWhenValue ||
+                    this.ApplyWhenValue.Equals(input.ApplyWhenValue)
                 );
         }
 
@@ -302,6 +418,16 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PivotTenor.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.WindowBounds.GetHashCode();
+                if (this.CurveName != null)
+                {
+                    hashCode = (hashCode * 59) + this.CurveName.GetHashCode();
+                }
+                if (this.MinimumAmountBps != null)
+                {
+                    hashCode = (hashCode * 59) + this.MinimumAmountBps.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ApplyWhenValue.GetHashCode();
                 return hashCode;
             }
         }
@@ -418,6 +544,30 @@ namespace Lusid.Sdk.Model
             if (false == regexPivotTenor.Match(this.PivotTenor).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PivotTenor, must match a pattern of " + regexPivotTenor, new [] { "PivotTenor" });
+            }
+
+            // CurveName (string) maxLength
+            if (this.CurveName != null && this.CurveName.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CurveName, length must be less than 50.", new [] { "CurveName" });
+            }
+
+            // CurveName (string) minLength
+            if (this.CurveName != null && this.CurveName.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CurveName, length must be greater than 1.", new [] { "CurveName" });
+            }
+
+            // MinimumAmountBps (decimal?) maximum
+            if (this.MinimumAmountBps > (decimal?)1000000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinimumAmountBps, must be a value less than or equal to 1000000.", new [] { "MinimumAmountBps" });
+            }
+
+            // MinimumAmountBps (decimal?) minimum
+            if (this.MinimumAmountBps < (decimal?)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinimumAmountBps, must be a value greater than or equal to 0.", new [] { "MinimumAmountBps" });
             }
 
             yield break;

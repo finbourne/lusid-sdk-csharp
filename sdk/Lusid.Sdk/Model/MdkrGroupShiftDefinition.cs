@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="MdkrGroupShiftDefinition" /> class.
         /// </summary>
         /// <param name="rules">The keyed rules of the group. Keys must be unique within the group; each key produces one  result column. (required).</param>
-        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition. (required) (default to &quot;MdkrGroupShiftDefinition&quot;).</param>
+        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition, CreditSpreadShiftDefinition, ModelOptionShiftDefinition. (required) (default to &quot;MdkrGroupShiftDefinition&quot;).</param>
         public MdkrGroupShiftDefinition(List<KeyedMarketDataKeyRule> rules = default(List<KeyedMarketDataKeyRule>), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
             // to ensure "rules" is required (not null)

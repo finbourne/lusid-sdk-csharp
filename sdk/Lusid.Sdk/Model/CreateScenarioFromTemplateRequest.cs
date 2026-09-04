@@ -36,11 +36,11 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateScenarioFromTemplateRequest" /> class.
         /// </summary>
-        /// <param name="template">The template to build the scenario from. Available templates: RatesUp, RatesDown, CurveSteepener,  CurveFlattener, VolSpike, EquityCrash, FxShock, RiskOff. (required).</param>
+        /// <param name="template">The template to build the scenario from. Use ListScenarioTemplates to discover the available  templates and the parameters each accepts. (required).</param>
         /// <param name="code">The code of the scenario to create. (required).</param>
         /// <param name="displayName">The display name of the created scenario. Defaults to a name derived from the template..</param>
         /// <param name="description">The description of the created scenario. Defaults to a description derived from the template..</param>
-        /// <param name="parameters">Template parameters. Which parameters are required depends on the template: &#39;ccy&#39; for rate curve  templates, &#39;instrument&#39; for equity and vol templates, &#39;currencyPair&#39; for FX templates; RiskOff  requires &#39;ccy&#39; and &#39;instrument&#39;. All templates accept an optional &#39;amount&#39; override of the  template&#39;s default shift size..</param>
+        /// <param name="parameters">Template parameters. Which parameters each template requires and accepts - with defaults and  units for the numeric ones - is listed by ListScenarioTemplates. A parameter the template does  not read is rejected rather than ignored, and parameter names are case-sensitive..</param>
         public CreateScenarioFromTemplateRequest(string template = default(string), string code = default(string), string displayName = default(string), string description = default(string), Dictionary<string, string> parameters = default(Dictionary<string, string>))
         {
             // to ensure "template" is required (not null)
@@ -61,9 +61,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The template to build the scenario from. Available templates: RatesUp, RatesDown, CurveSteepener,  CurveFlattener, VolSpike, EquityCrash, FxShock, RiskOff.
+        /// The template to build the scenario from. Use ListScenarioTemplates to discover the available  templates and the parameters each accepts.
         /// </summary>
-        /// <value>The template to build the scenario from. Available templates: RatesUp, RatesDown, CurveSteepener,  CurveFlattener, VolSpike, EquityCrash, FxShock, RiskOff.</value>
+        /// <value>The template to build the scenario from. Use ListScenarioTemplates to discover the available  templates and the parameters each accepts.</value>
         [DataMember(Name = "template", IsRequired = true, EmitDefaultValue = true)]
         public string Template { get; set; }
 
@@ -89,9 +89,9 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Template parameters. Which parameters are required depends on the template: &#39;ccy&#39; for rate curve  templates, &#39;instrument&#39; for equity and vol templates, &#39;currencyPair&#39; for FX templates; RiskOff  requires &#39;ccy&#39; and &#39;instrument&#39;. All templates accept an optional &#39;amount&#39; override of the  template&#39;s default shift size.
+        /// Template parameters. Which parameters each template requires and accepts - with defaults and  units for the numeric ones - is listed by ListScenarioTemplates. A parameter the template does  not read is rejected rather than ignored, and parameter names are case-sensitive.
         /// </summary>
-        /// <value>Template parameters. Which parameters are required depends on the template: &#39;ccy&#39; for rate curve  templates, &#39;instrument&#39; for equity and vol templates, &#39;currencyPair&#39; for FX templates; RiskOff  requires &#39;ccy&#39; and &#39;instrument&#39;. All templates accept an optional &#39;amount&#39; override of the  template&#39;s default shift size.</value>
+        /// <value>Template parameters. Which parameters each template requires and accepts - with defaults and  units for the numeric ones - is listed by ListScenarioTemplates. A parameter the template does  not read is rejected rather than ignored, and parameter names are case-sensitive.</value>
         [DataMember(Name = "parameters", EmitDefaultValue = true)]
         public Dictionary<string, string> Parameters { get; set; }
 

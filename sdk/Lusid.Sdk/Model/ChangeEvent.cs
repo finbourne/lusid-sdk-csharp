@@ -46,8 +46,9 @@ namespace Lusid.Sdk.Model
         /// <param name="termTarget">The target of a terms change — one of \&quot;InstrumentDefinitionField\&quot; or  \&quot;InstrumentProperty\&quot;. Only applicable when ChangeType is \&quot;Terms\&quot;. Available values: InstrumentDefinitionField, InstrumentProperty..</param>
         /// <param name="termTargetIdentifier">The identifier of the term target being changed. Must be paired with TermTarget..</param>
         /// <param name="additionalInformation">Free-text additional information describing the change..</param>
+        /// <param name="carryRelationships">Whether, and in which direction, the old instrument&#39;s Relationships are carried onto the new  instrument. One of \&quot;None\&quot;, \&quot;Outward\&quot; or \&quot;Both\&quot;; defaults to \&quot;Outward\&quot; when omitted.                Relationships resolve to the instrument entity, so nothing pointing at the old instrument  applies to the new one. This is a caller choice because relationship meaning is client-authored:  an index-to-constituent link should usually follow a rename, a historical order-to-instrument  link should not. Available values: None, Outward, Both..</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent. (required) (default to &quot;ChangeEvent&quot;).</param>
-        public ChangeEvent(DateTimeOffset recordDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), NewInstrument newInstrument = default(NewInstrument), UnitsRatio unitsRatio = default(UnitsRatio), string changeType = default(string), string termTarget = default(string), string termTargetIdentifier = default(string), string additionalInformation = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public ChangeEvent(DateTimeOffset recordDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), NewInstrument newInstrument = default(NewInstrument), UnitsRatio unitsRatio = default(UnitsRatio), string changeType = default(string), string termTarget = default(string), string termTargetIdentifier = default(string), string additionalInformation = default(string), string carryRelationships = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "newInstrument" is required (not null)
             if (newInstrument == null)
@@ -72,6 +73,7 @@ namespace Lusid.Sdk.Model
             this.TermTarget = termTarget;
             this.TermTargetIdentifier = termTargetIdentifier;
             this.AdditionalInformation = additionalInformation;
+            this.CarryRelationships = carryRelationships;
         }
 
         /// <summary>
@@ -129,6 +131,13 @@ namespace Lusid.Sdk.Model
         public string AdditionalInformation { get; set; }
 
         /// <summary>
+        /// Whether, and in which direction, the old instrument&#39;s Relationships are carried onto the new  instrument. One of \&quot;None\&quot;, \&quot;Outward\&quot; or \&quot;Both\&quot;; defaults to \&quot;Outward\&quot; when omitted.                Relationships resolve to the instrument entity, so nothing pointing at the old instrument  applies to the new one. This is a caller choice because relationship meaning is client-authored:  an index-to-constituent link should usually follow a rename, a historical order-to-instrument  link should not. Available values: None, Outward, Both.
+        /// </summary>
+        /// <value>Whether, and in which direction, the old instrument&#39;s Relationships are carried onto the new  instrument. One of \&quot;None\&quot;, \&quot;Outward\&quot; or \&quot;Both\&quot;; defaults to \&quot;Outward\&quot; when omitted.                Relationships resolve to the instrument entity, so nothing pointing at the old instrument  applies to the new one. This is a caller choice because relationship meaning is client-authored:  an index-to-constituent link should usually follow a rename, a historical order-to-instrument  link should not. Available values: None, Outward, Both.</value>
+        [DataMember(Name = "carryRelationships", EmitDefaultValue = true)]
+        public string CarryRelationships { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -145,6 +154,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  TermTarget: ").Append(TermTarget).Append("\n");
             sb.Append("  TermTargetIdentifier: ").Append(TermTargetIdentifier).Append("\n");
             sb.Append("  AdditionalInformation: ").Append(AdditionalInformation).Append("\n");
+            sb.Append("  CarryRelationships: ").Append(CarryRelationships).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -219,6 +229,11 @@ namespace Lusid.Sdk.Model
                     this.AdditionalInformation == input.AdditionalInformation ||
                     (this.AdditionalInformation != null &&
                     this.AdditionalInformation.Equals(input.AdditionalInformation))
+                ) && base.Equals(input) && 
+                (
+                    this.CarryRelationships == input.CarryRelationships ||
+                    (this.CarryRelationships != null &&
+                    this.CarryRelationships.Equals(input.CarryRelationships))
                 );
         }
 
@@ -262,6 +277,10 @@ namespace Lusid.Sdk.Model
                 if (this.AdditionalInformation != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalInformation.GetHashCode();
+                }
+                if (this.CarryRelationships != null)
+                {
+                    hashCode = (hashCode * 59) + this.CarryRelationships.GetHashCode();
                 }
                 return hashCode;
             }

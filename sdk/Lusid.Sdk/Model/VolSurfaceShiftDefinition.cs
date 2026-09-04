@@ -70,7 +70,7 @@ namespace Lusid.Sdk.Model
         /// <param name="strike">strike.</param>
         /// <param name="expiry">expiry.</param>
         /// <param name="shiftType">Available values: Absolute, Relative. (required).</param>
-        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition. (required) (default to &quot;VolSurfaceShiftDefinition&quot;).</param>
+        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition, CreditSpreadShiftDefinition, ModelOptionShiftDefinition. (required) (default to &quot;VolSurfaceShiftDefinition&quot;).</param>
         public VolSurfaceShiftDefinition(string instrument = default(string), decimal? amount = default(decimal?), decimal? strike = default(decimal?), string expiry = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
             // to ensure "instrument" is required (not null)

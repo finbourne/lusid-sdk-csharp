@@ -103,6 +103,78 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "scale", EmitDefaultValue = false)]
         public ScaleEnum? Scale { get; set; }
         /// <summary>
+        /// Available values: Inclusive, StartExclusive, EndExclusive, Exclusive.
+        /// </summary>
+        /// <value>Available values: Inclusive, StartExclusive, EndExclusive, Exclusive.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum WindowBoundsEnum
+        {
+            /// <summary>
+            /// Enum Inclusive for value: Inclusive
+            /// </summary>
+            [EnumMember(Value = "Inclusive")]
+            Inclusive = 1,
+
+            /// <summary>
+            /// Enum StartExclusive for value: StartExclusive
+            /// </summary>
+            [EnumMember(Value = "StartExclusive")]
+            StartExclusive = 2,
+
+            /// <summary>
+            /// Enum EndExclusive for value: EndExclusive
+            /// </summary>
+            [EnumMember(Value = "EndExclusive")]
+            EndExclusive = 3,
+
+            /// <summary>
+            /// Enum Exclusive for value: Exclusive
+            /// </summary>
+            [EnumMember(Value = "Exclusive")]
+            Exclusive = 4
+        }
+
+
+        /// <summary>
+        /// Available values: Inclusive, StartExclusive, EndExclusive, Exclusive.
+        /// </summary>
+        /// <value>Available values: Inclusive, StartExclusive, EndExclusive, Exclusive.</value>
+        [DataMember(Name = "windowBounds", EmitDefaultValue = false)]
+        public WindowBoundsEnum? WindowBounds { get; set; }
+        /// <summary>
+        /// Available values: Any, Positive, Negative.
+        /// </summary>
+        /// <value>Available values: Any, Positive, Negative.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ApplyWhenValueEnum
+        {
+            /// <summary>
+            /// Enum Any for value: Any
+            /// </summary>
+            [EnumMember(Value = "Any")]
+            Any = 1,
+
+            /// <summary>
+            /// Enum Positive for value: Positive
+            /// </summary>
+            [EnumMember(Value = "Positive")]
+            Positive = 2,
+
+            /// <summary>
+            /// Enum Negative for value: Negative
+            /// </summary>
+            [EnumMember(Value = "Negative")]
+            Negative = 3
+        }
+
+
+        /// <summary>
+        /// Available values: Any, Positive, Negative.
+        /// </summary>
+        /// <value>Available values: Any, Positive, Negative.</value>
+        [DataMember(Name = "applyWhenValue", EmitDefaultValue = false)]
+        public ApplyWhenValueEnum? ApplyWhenValue { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="InflationCurveShiftDefinition" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -117,8 +189,11 @@ namespace Lusid.Sdk.Model
         /// <param name="shiftType">Available values: Parallel, Steepen, Flatten, Twist, Tent. (required).</param>
         /// <param name="scale">Available values: Bps, Percentage..</param>
         /// <param name="pivotTenor">The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape. Only  valid with ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. Declared  last on purpose: generated SDKs emit their positional constructor in property-declaration  order, and this property must not shift the parameters of the ones before it..</param>
-        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition. (required) (default to &quot;InflationCurveShiftDefinition&quot;).</param>
-        public InflationCurveShiftDefinition(string index = default(string), decimal? amount = default(decimal?), string startTenor = default(string), string endTenor = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScaleEnum ?scale = default(ScaleEnum?), string pivotTenor = default(string), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
+        /// <param name="windowBounds">Available values: Inclusive, StartExclusive, EndExclusive, Exclusive..</param>
+        /// <param name="minimumAmountBps">The smallest magnitude, in basis points, of the shift finally applied at each curve point,  evaluated per point AFTER the shape weight, in the direction the shift acts there. Exactly  the rate curve shift&#39;s MinimumAmountBps - see that field for the full semantics; the two  curve shifts keep one vocabulary. Omitted, no floor applies - today&#39;s behaviour.  Declared after PivotTenor on purpose, for the constructor-ordering reason given there..</param>
+        /// <param name="applyWhenValue">Available values: Any, Positive, Negative..</param>
+        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition, CreditSpreadShiftDefinition, ModelOptionShiftDefinition. (required) (default to &quot;InflationCurveShiftDefinition&quot;).</param>
+        public InflationCurveShiftDefinition(string index = default(string), decimal? amount = default(decimal?), string startTenor = default(string), string endTenor = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScaleEnum ?scale = default(ScaleEnum?), string pivotTenor = default(string), WindowBoundsEnum ?windowBounds = default(WindowBoundsEnum?), decimal? minimumAmountBps = default(decimal?), ApplyWhenValueEnum ?applyWhenValue = default(ApplyWhenValueEnum?), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
             // to ensure "index" is required (not null)
             if (index == null)
@@ -132,6 +207,9 @@ namespace Lusid.Sdk.Model
             this.EndTenor = endTenor;
             this.Scale = scale;
             this.PivotTenor = pivotTenor;
+            this.WindowBounds = windowBounds;
+            this.MinimumAmountBps = minimumAmountBps;
+            this.ApplyWhenValue = applyWhenValue;
         }
 
         /// <summary>
@@ -168,6 +246,13 @@ namespace Lusid.Sdk.Model
         public string PivotTenor { get; set; }
 
         /// <summary>
+        /// The smallest magnitude, in basis points, of the shift finally applied at each curve point,  evaluated per point AFTER the shape weight, in the direction the shift acts there. Exactly  the rate curve shift&#39;s MinimumAmountBps - see that field for the full semantics; the two  curve shifts keep one vocabulary. Omitted, no floor applies - today&#39;s behaviour.  Declared after PivotTenor on purpose, for the constructor-ordering reason given there.
+        /// </summary>
+        /// <value>The smallest magnitude, in basis points, of the shift finally applied at each curve point,  evaluated per point AFTER the shape weight, in the direction the shift acts there. Exactly  the rate curve shift&#39;s MinimumAmountBps - see that field for the full semantics; the two  curve shifts keep one vocabulary. Omitted, no floor applies - today&#39;s behaviour.  Declared after PivotTenor on purpose, for the constructor-ordering reason given there.</value>
+        [DataMember(Name = "minimumAmountBps", EmitDefaultValue = true)]
+        public decimal? MinimumAmountBps { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -183,6 +268,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  ShiftType: ").Append(ShiftType).Append("\n");
             sb.Append("  Scale: ").Append(Scale).Append("\n");
             sb.Append("  PivotTenor: ").Append(PivotTenor).Append("\n");
+            sb.Append("  WindowBounds: ").Append(WindowBounds).Append("\n");
+            sb.Append("  MinimumAmountBps: ").Append(MinimumAmountBps).Append("\n");
+            sb.Append("  ApplyWhenValue: ").Append(ApplyWhenValue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -250,6 +338,19 @@ namespace Lusid.Sdk.Model
                     this.PivotTenor == input.PivotTenor ||
                     (this.PivotTenor != null &&
                     this.PivotTenor.Equals(input.PivotTenor))
+                ) && base.Equals(input) && 
+                (
+                    this.WindowBounds == input.WindowBounds ||
+                    this.WindowBounds.Equals(input.WindowBounds)
+                ) && base.Equals(input) && 
+                (
+                    this.MinimumAmountBps == input.MinimumAmountBps ||
+                    (this.MinimumAmountBps != null &&
+                    this.MinimumAmountBps.Equals(input.MinimumAmountBps))
+                ) && base.Equals(input) && 
+                (
+                    this.ApplyWhenValue == input.ApplyWhenValue ||
+                    this.ApplyWhenValue.Equals(input.ApplyWhenValue)
                 );
         }
 
@@ -284,6 +385,12 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PivotTenor.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.WindowBounds.GetHashCode();
+                if (this.MinimumAmountBps != null)
+                {
+                    hashCode = (hashCode * 59) + this.MinimumAmountBps.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ApplyWhenValue.GetHashCode();
                 return hashCode;
             }
         }
@@ -388,6 +495,18 @@ namespace Lusid.Sdk.Model
             if (false == regexPivotTenor.Match(this.PivotTenor).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PivotTenor, must match a pattern of " + regexPivotTenor, new [] { "PivotTenor" });
+            }
+
+            // MinimumAmountBps (decimal?) maximum
+            if (this.MinimumAmountBps > (decimal?)1000000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinimumAmountBps, must be a value less than or equal to 1000000.", new [] { "MinimumAmountBps" });
+            }
+
+            // MinimumAmountBps (decimal?) minimum
+            if (this.MinimumAmountBps < (decimal?)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinimumAmountBps, must be a value greater than or equal to 0.", new [] { "MinimumAmountBps" });
             }
 
             yield break;

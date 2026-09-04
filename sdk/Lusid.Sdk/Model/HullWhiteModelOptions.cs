@@ -39,13 +39,14 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="HullWhiteModelOptions" /> class.
         /// </summary>
         /// <param name="meanReversion">The mean reversion speed of the short rate. Must be strictly positive. Defaults to 0.03..</param>
-        /// <param name="volatility">The normal (absolute) volatility of the short rate, e.g. 0.008 for 80bp per year. Defaults to 0.008..</param>
+        /// <param name="volatility">The normal (absolute) volatility of the short rate, e.g. 0.008 for 80bp per year. Must not  be negative; zero is allowed and prices with a deterministic short rate. Defaults to 0.008..</param>
         /// <param name="latticeSteps">The number of uniform time steps in the lattice. More steps give a finer discretisation  of the short-rate process at greater computational cost. Defaults to 200..</param>
         /// <param name="effectiveRateBumpSize">The parallel curve shift, as an absolute rate, used for the central-difference effective  duration and convexity, e.g. 0.0001 for a 1bp bump. Must be strictly positive.  Defaults to 0.0025 (25bp, the market convention for option-adjusted risk) when not supplied..</param>
         /// <param name="meanReversionByCurrency">Per-currency mean-reversion overrides, keyed by ISO currency code.  A currency absent from this map uses MeanReversion..</param>
         /// <param name="volatilityByCurrency">Per-currency short-rate volatility overrides, keyed by ISO currency code.  A currency absent from this map uses Volatility. Short-rate volatility is a per-currency  quantity in practice, so a book spanning several currencies can calibrate each currency  separately instead of sharing a single global figure..</param>
-        /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions. (required) (default to &quot;HullWhiteModelOptions&quot;).</param>
-        public HullWhiteModelOptions(decimal meanReversion = default(decimal), decimal volatility = default(decimal), int latticeSteps = default(int), decimal? effectiveRateBumpSize = default(decimal?), Dictionary<string, decimal> meanReversionByCurrency = default(Dictionary<string, decimal>), Dictionary<string, decimal> volatilityByCurrency = default(Dictionary<string, decimal>), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
+        /// <param name="volatilityMultiplier">A multiplicative scaling applied to the resolved short-rate volatility - the scalar  Volatility or its per-currency override, whichever applies - at the point of use, e.g. 1.1  prices with the configured volatility raised by ten percent. A single multiplier scales  every per-currency calibration coherently, so a shocked set of options can differ from its  base by this one field rather than a hand-rebuilt volatility (or map of volatilities).  Must not be negative; zero is allowed and prices with a deterministic short rate.  Defaults to 1, which reproduces the configured volatility exactly, when not supplied..</param>
+        /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions. (required) (default to &quot;HullWhiteModelOptions&quot;).</param>
+        public HullWhiteModelOptions(decimal meanReversion = default(decimal), decimal volatility = default(decimal), int latticeSteps = default(int), decimal? effectiveRateBumpSize = default(decimal?), Dictionary<string, decimal> meanReversionByCurrency = default(Dictionary<string, decimal>), Dictionary<string, decimal> volatilityByCurrency = default(Dictionary<string, decimal>), decimal? volatilityMultiplier = default(decimal?), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             this.MeanReversion = meanReversion;
             this.Volatility = volatility;
@@ -53,6 +54,7 @@ namespace Lusid.Sdk.Model
             this.EffectiveRateBumpSize = effectiveRateBumpSize;
             this.MeanReversionByCurrency = meanReversionByCurrency;
             this.VolatilityByCurrency = volatilityByCurrency;
+            this.VolatilityMultiplier = volatilityMultiplier;
         }
 
         /// <summary>
@@ -63,9 +65,9 @@ namespace Lusid.Sdk.Model
         public decimal MeanReversion { get; set; }
 
         /// <summary>
-        /// The normal (absolute) volatility of the short rate, e.g. 0.008 for 80bp per year. Defaults to 0.008.
+        /// The normal (absolute) volatility of the short rate, e.g. 0.008 for 80bp per year. Must not  be negative; zero is allowed and prices with a deterministic short rate. Defaults to 0.008.
         /// </summary>
-        /// <value>The normal (absolute) volatility of the short rate, e.g. 0.008 for 80bp per year. Defaults to 0.008.</value>
+        /// <value>The normal (absolute) volatility of the short rate, e.g. 0.008 for 80bp per year. Must not  be negative; zero is allowed and prices with a deterministic short rate. Defaults to 0.008.</value>
         [DataMember(Name = "volatility", EmitDefaultValue = true)]
         public decimal Volatility { get; set; }
 
@@ -98,6 +100,13 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, decimal> VolatilityByCurrency { get; set; }
 
         /// <summary>
+        /// A multiplicative scaling applied to the resolved short-rate volatility - the scalar  Volatility or its per-currency override, whichever applies - at the point of use, e.g. 1.1  prices with the configured volatility raised by ten percent. A single multiplier scales  every per-currency calibration coherently, so a shocked set of options can differ from its  base by this one field rather than a hand-rebuilt volatility (or map of volatilities).  Must not be negative; zero is allowed and prices with a deterministic short rate.  Defaults to 1, which reproduces the configured volatility exactly, when not supplied.
+        /// </summary>
+        /// <value>A multiplicative scaling applied to the resolved short-rate volatility - the scalar  Volatility or its per-currency override, whichever applies - at the point of use, e.g. 1.1  prices with the configured volatility raised by ten percent. A single multiplier scales  every per-currency calibration coherently, so a shocked set of options can differ from its  base by this one field rather than a hand-rebuilt volatility (or map of volatilities).  Must not be negative; zero is allowed and prices with a deterministic short rate.  Defaults to 1, which reproduces the configured volatility exactly, when not supplied.</value>
+        [DataMember(Name = "volatilityMultiplier", EmitDefaultValue = true)]
+        public decimal? VolatilityMultiplier { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -112,6 +121,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EffectiveRateBumpSize: ").Append(EffectiveRateBumpSize).Append("\n");
             sb.Append("  MeanReversionByCurrency: ").Append(MeanReversionByCurrency).Append("\n");
             sb.Append("  VolatilityByCurrency: ").Append(VolatilityByCurrency).Append("\n");
+            sb.Append("  VolatilityMultiplier: ").Append(VolatilityMultiplier).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -175,6 +185,11 @@ namespace Lusid.Sdk.Model
                     this.VolatilityByCurrency != null &&
                     input.VolatilityByCurrency != null &&
                     this.VolatilityByCurrency.SequenceEqual(input.VolatilityByCurrency)
+                ) && base.Equals(input) && 
+                (
+                    this.VolatilityMultiplier == input.VolatilityMultiplier ||
+                    (this.VolatilityMultiplier != null &&
+                    this.VolatilityMultiplier.Equals(input.VolatilityMultiplier))
                 );
         }
 
@@ -201,6 +216,10 @@ namespace Lusid.Sdk.Model
                 if (this.VolatilityByCurrency != null)
                 {
                     hashCode = (hashCode * 59) + this.VolatilityByCurrency.GetHashCode();
+                }
+                if (this.VolatilityMultiplier != null)
+                {
+                    hashCode = (hashCode * 59) + this.VolatilityMultiplier.GetHashCode();
                 }
                 return hashCode;
             }

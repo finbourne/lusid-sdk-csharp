@@ -92,7 +92,13 @@ namespace Lusid.Sdk.Model
         /// Enum BondLookupModelOptions for value: BondLookupModelOptions
         /// </summary>
         [EnumMember(Value = "BondLookupModelOptions")]
-        BondLookupModelOptions = 11
+        BondLookupModelOptions = 11,
+
+        /// <summary>
+        /// Enum BondForwardModelOptions for value: BondForwardModelOptions
+        /// </summary>
+        [EnumMember(Value = "BondForwardModelOptions")]
+        BondForwardModelOptions = 12
     }
 
 }

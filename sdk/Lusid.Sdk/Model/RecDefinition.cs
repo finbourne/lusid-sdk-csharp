@@ -46,10 +46,11 @@ namespace Lusid.Sdk.Model
         /// <param name="valuationRecipes">valuationRecipes.</param>
         /// <param name="currencies">currencies.</param>
         /// <param name="rulesets">The types of reconciliation included in the group, each naming the matching ruleset that drives it. At least one entry is required, and each rec type may appear at most once. (required).</param>
+        /// <param name="reviewConfiguration">reviewConfiguration (required).</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public RecDefinition(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string definitionType = default(string), RecDefSideNames sideNames = default(RecDefSideNames), List<RecDefSource> leftPortfolioSources = default(List<RecDefSource>), List<RecDefSource> rightPortfolioSources = default(List<RecDefSource>), RecDefRecipeIds valuationRecipes = default(RecDefRecipeIds), RecDefCurrencies currencies = default(RecDefCurrencies), List<RecDefRuleset> rulesets = default(List<RecDefRuleset>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public RecDefinition(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string definitionType = default(string), RecDefSideNames sideNames = default(RecDefSideNames), List<RecDefSource> leftPortfolioSources = default(List<RecDefSource>), List<RecDefSource> rightPortfolioSources = default(List<RecDefSource>), RecDefRecipeIds valuationRecipes = default(RecDefRecipeIds), RecDefCurrencies currencies = default(RecDefCurrencies), List<RecDefRuleset> rulesets = default(List<RecDefRuleset>), RecReviewConfiguration reviewConfiguration = default(RecReviewConfiguration), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -87,6 +88,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("rulesets is a required property for RecDefinition and cannot be null");
             }
             this.Rulesets = rulesets;
+            // to ensure "reviewConfiguration" is required (not null)
+            if (reviewConfiguration == null)
+            {
+                throw new ArgumentNullException("reviewConfiguration is a required property for RecDefinition and cannot be null");
+            }
+            this.ReviewConfiguration = reviewConfiguration;
             this.Description = description;
             this.SideNames = sideNames;
             this.ValuationRecipes = valuationRecipes;
@@ -163,6 +170,12 @@ namespace Lusid.Sdk.Model
         public List<RecDefRuleset> Rulesets { get; set; }
 
         /// <summary>
+        /// Gets or Sets ReviewConfiguration
+        /// </summary>
+        [DataMember(Name = "reviewConfiguration", IsRequired = true, EmitDefaultValue = true)]
+        public RecReviewConfiguration ReviewConfiguration { get; set; }
+
+        /// <summary>
         /// The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
         /// </summary>
         /// <value>The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.</value>
@@ -199,6 +212,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ValuationRecipes: ").Append(ValuationRecipes).Append("\n");
             sb.Append("  Currencies: ").Append(Currencies).Append("\n");
             sb.Append("  Rulesets: ").Append(Rulesets).Append("\n");
+            sb.Append("  ReviewConfiguration: ").Append(ReviewConfiguration).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -291,6 +305,11 @@ namespace Lusid.Sdk.Model
                     this.Rulesets.SequenceEqual(input.Rulesets)
                 ) && 
                 (
+                    this.ReviewConfiguration == input.ReviewConfiguration ||
+                    (this.ReviewConfiguration != null &&
+                    this.ReviewConfiguration.Equals(input.ReviewConfiguration))
+                ) && 
+                (
                     this.Href == input.Href ||
                     (this.Href != null &&
                     this.Href.Equals(input.Href))
@@ -356,6 +375,10 @@ namespace Lusid.Sdk.Model
                 if (this.Rulesets != null)
                 {
                     hashCode = (hashCode * 59) + this.Rulesets.GetHashCode();
+                }
+                if (this.ReviewConfiguration != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReviewConfiguration.GetHashCode();
                 }
                 if (this.Href != null)
                 {

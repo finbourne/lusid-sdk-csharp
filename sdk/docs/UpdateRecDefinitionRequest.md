@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **ValuationRecipes** | [**RecDefRecipeIds**](RecDefRecipeIds.md) |  | [optional] 
 **Currencies** | [**RecDefCurrencies**](RecDefCurrencies.md) |  | [optional] 
 **Rulesets** | [**List&lt;RecDefRuleset&gt;**](RecDefRuleset.md) | The types of reconciliation included in the group, each naming the matching ruleset that drives it. At least one entry is required, and each rec type may appear at most once. | 
+**ReviewConfiguration** | [**RecReviewConfiguration**](RecReviewConfiguration.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -30,6 +31,8 @@ RecDefRecipeIds? valuationRecipes = new RecDefRecipeIds();
 RecDefCurrencies? currencies = new RecDefCurrencies();
 
 List<RecDefRuleset> rulesets = new List<RecDefRuleset>();
+RecReviewConfiguration? reviewConfiguration = new RecReviewConfiguration();
+
 
 UpdateRecDefinitionRequest updateRecDefinitionRequestInstance = new UpdateRecDefinitionRequest(
     displayName: displayName,
@@ -40,7 +43,8 @@ UpdateRecDefinitionRequest updateRecDefinitionRequestInstance = new UpdateRecDef
     rightPortfolioSources: rightPortfolioSources,
     valuationRecipes: valuationRecipes,
     currencies: currencies,
-    rulesets: rulesets);
+    rulesets: rulesets,
+    reviewConfiguration: reviewConfiguration);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

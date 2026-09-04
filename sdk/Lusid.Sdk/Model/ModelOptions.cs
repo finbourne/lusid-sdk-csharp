@@ -28,12 +28,13 @@ namespace Lusid.Sdk.Model
     /// </summary>
     [DataContract(Name = "ModelOptions")]
     [JsonConverter(typeof(JsonSubtypes), "ModelOptionsType")]
+    [JsonSubtypes.KnownSubType(typeof(BondForwardModelOptions), "BondForwardModelOptions")]
     [JsonSubtypes.KnownSubType(typeof(BondLookupModelOptions), "BondLookupModelOptions")]
     [JsonSubtypes.KnownSubType(typeof(CdsModelOptions), "CdsModelOptions")]
     [JsonSubtypes.KnownSubType(typeof(EmptyModelOptions), "EmptyModelOptions")]
     [JsonSubtypes.KnownSubType(typeof(EquityModelOptions), "EquityModelOptions")]
     [JsonSubtypes.KnownSubType(typeof(FlexibleLoanPricerOptions), "FlexibleLoanPricerOptions")]
-    [JsonSubtypes.KnownSubType(typeof(FundingLegOptions), "FundingLegOptions")]
+    [JsonSubtypes.KnownSubType(typeof(FundingLegModelOptions), "FundingLegModelOptions")]
     [JsonSubtypes.KnownSubType(typeof(FxForwardModelOptions), "FxForwardModelOptions")]
     [JsonSubtypes.KnownSubType(typeof(HullWhiteModelOptions), "HullWhiteModelOptions")]
     [JsonSubtypes.KnownSubType(typeof(IndexModelOptions), "IndexModelOptions")]
@@ -41,9 +42,9 @@ namespace Lusid.Sdk.Model
     public partial class ModelOptions : IEquatable<ModelOptions>, IValidatableObject
     {
         /// <summary>
-        /// Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions.
+        /// Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions.
         /// </summary>
-        /// <value>Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions.</value>
+        /// <value>Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ModelOptionsTypeEnum
         {
@@ -111,14 +112,20 @@ namespace Lusid.Sdk.Model
             /// Enum BondLookupModelOptions for value: BondLookupModelOptions
             /// </summary>
             [EnumMember(Value = "BondLookupModelOptions")]
-            BondLookupModelOptions = 11
+            BondLookupModelOptions = 11,
+
+            /// <summary>
+            /// Enum BondForwardModelOptions for value: BondForwardModelOptions
+            /// </summary>
+            [EnumMember(Value = "BondForwardModelOptions")]
+            BondForwardModelOptions = 12
         }
 
 
         /// <summary>
-        /// Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions.
+        /// Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions.
         /// </summary>
-        /// <value>Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions.</value>
+        /// <value>Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions.</value>
         [DataMember(Name = "modelOptionsType", IsRequired = true, EmitDefaultValue = true)]
         public ModelOptionsTypeEnum ModelOptionsType { get; set; }
         /// <summary>
@@ -129,7 +136,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelOptions" /> class.
         /// </summary>
-        /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions. (required).</param>
+        /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions. (required).</param>
         public ModelOptions(ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum))
         {
             this.ModelOptionsType = modelOptionsType;

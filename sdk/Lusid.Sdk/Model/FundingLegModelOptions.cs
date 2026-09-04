@@ -24,28 +24,28 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// FundingLegOptions
+    /// FundingLegModelOptions
     /// </summary>
-    [DataContract(Name = "FundingLegOptions")]
+    [DataContract(Name = "FundingLegModelOptions")]
     [JsonConverter(typeof(JsonSubtypes), "ModelOptionsType")]
-    public partial class FundingLegOptions : ModelOptions, IEquatable<FundingLegOptions>, IValidatableObject
+    public partial class FundingLegModelOptions : ModelOptions, IEquatable<FundingLegModelOptions>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FundingLegOptions" /> class.
+        /// Initializes a new instance of the <see cref="FundingLegModelOptions" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FundingLegOptions() { }
+        protected FundingLegModelOptions() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FundingLegOptions" /> class.
+        /// Initializes a new instance of the <see cref="FundingLegModelOptions" /> class.
         /// </summary>
         /// <param name="expectedFundingLegNotional">Assumption made on future expected notional of the funding leg. (required).</param>
-        /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions. (required) (default to &quot;FundingLegOptions&quot;).</param>
-        public FundingLegOptions(string expectedFundingLegNotional = default(string), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
+        /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions. (required) (default to &quot;FundingLegModelOptions&quot;).</param>
+        public FundingLegModelOptions(string expectedFundingLegNotional = default(string), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             // to ensure "expectedFundingLegNotional" is required (not null)
             if (expectedFundingLegNotional == null)
             {
-                throw new ArgumentNullException("expectedFundingLegNotional is a required property for FundingLegOptions and cannot be null");
+                throw new ArgumentNullException("expectedFundingLegNotional is a required property for FundingLegModelOptions and cannot be null");
             }
             this.ExpectedFundingLegNotional = expectedFundingLegNotional;
         }
@@ -64,7 +64,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class FundingLegOptions {\n");
+            sb.Append("class FundingLegModelOptions {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  ExpectedFundingLegNotional: ").Append(ExpectedFundingLegNotional).Append("\n");
             sb.Append("}\n");
@@ -87,15 +87,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FundingLegOptions);
+            return this.Equals(input as FundingLegModelOptions);
         }
 
         /// <summary>
-        /// Returns true if FundingLegOptions instances are equal
+        /// Returns true if FundingLegModelOptions instances are equal
         /// </summary>
-        /// <param name="input">Instance of FundingLegOptions to be compared</param>
+        /// <param name="input">Instance of FundingLegModelOptions to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FundingLegOptions input)
+        public bool Equals(FundingLegModelOptions input)
         {
             if (input == null)
             {

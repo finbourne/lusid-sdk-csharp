@@ -62,7 +62,19 @@ namespace Lusid.Sdk.Model
         /// Enum InflationCurveShiftDefinition for value: InflationCurveShiftDefinition
         /// </summary>
         [EnumMember(Value = "InflationCurveShiftDefinition")]
-        InflationCurveShiftDefinition = 6
+        InflationCurveShiftDefinition = 6,
+
+        /// <summary>
+        /// Enum CreditSpreadShiftDefinition for value: CreditSpreadShiftDefinition
+        /// </summary>
+        [EnumMember(Value = "CreditSpreadShiftDefinition")]
+        CreditSpreadShiftDefinition = 7,
+
+        /// <summary>
+        /// Enum ModelOptionShiftDefinition for value: ModelOptionShiftDefinition
+        /// </summary>
+        [EnumMember(Value = "ModelOptionShiftDefinition")]
+        ModelOptionShiftDefinition = 8
     }
 
 }

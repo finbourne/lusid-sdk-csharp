@@ -1,10 +1,10 @@
-# Lusid.Sdk.Model.FundingLegOptions
+# Lusid.Sdk.Model.FundingLegModelOptions
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ModelOptionsType** | **string** | Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions. | 
+**ModelOptionsType** | **string** | Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions. | 
 **ExpectedFundingLegNotional** | **string** | Assumption made on future expected notional of the funding leg. | 
 
 ```csharp
@@ -13,7 +13,7 @@ using System;
 
 string expectedFundingLegNotional = "expectedFundingLegNotional";
 
-FundingLegOptions fundingLegOptionsInstance = new FundingLegOptions(
+FundingLegModelOptions fundingLegModelOptionsInstance = new FundingLegModelOptions(
     expectedFundingLegNotional: expectedFundingLegNotional);
 ```
 

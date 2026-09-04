@@ -46,7 +46,7 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">Set of unique Custodian Account properties and associated values to store with the Custodian Account. Each property must be from the &#39;CustodianAccount&#39; domain..</param>
         /// <param name="custodianIdentifier">custodianIdentifier (required).</param>
         /// <param name="accountType">The type of the Custodian Account. This is a free-text field that accepts any value. Optional, with no default..</param>
-        /// <param name="taxLotSelectionCostBasis">The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for disposals from this account. This can be: Cost or AmortisedCost. If not specified, resolution falls through to the transaction type and then the portfolio&#39;s default. Available values: Cost, AmortisedCost..</param>
+        /// <param name="taxLotSelectionCostBasis">The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for disposals from this account. This can be: Cost or AmortisedCost. If not specified or reset with Default, resolution falls through to the transaction type and then the portfolio&#39;s default. Available values: Default, Cost, AmortisedCost..</param>
         public CustodianAccountRequest(string scope = default(string), string code = default(string), string status = default(string), string accountNumber = default(string), string accountName = default(string), string accountingMethod = default(string), string currency = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), TypedResourceId custodianIdentifier = default(TypedResourceId), string accountType = default(string), string taxLotSelectionCostBasis = default(string))
         {
             // to ensure "code" is required (not null)
@@ -162,9 +162,9 @@ namespace Lusid.Sdk.Model
         public string AccountType { get; set; }
 
         /// <summary>
-        /// The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for disposals from this account. This can be: Cost or AmortisedCost. If not specified, resolution falls through to the transaction type and then the portfolio&#39;s default. Available values: Cost, AmortisedCost.
+        /// The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for disposals from this account. This can be: Cost or AmortisedCost. If not specified or reset with Default, resolution falls through to the transaction type and then the portfolio&#39;s default. Available values: Default, Cost, AmortisedCost.
         /// </summary>
-        /// <value>The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for disposals from this account. This can be: Cost or AmortisedCost. If not specified, resolution falls through to the transaction type and then the portfolio&#39;s default. Available values: Cost, AmortisedCost.</value>
+        /// <value>The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for disposals from this account. This can be: Cost or AmortisedCost. If not specified or reset with Default, resolution falls through to the transaction type and then the portfolio&#39;s default. Available values: Default, Cost, AmortisedCost.</value>
         [DataMember(Name = "taxLotSelectionCostBasis", EmitDefaultValue = true)]
         public string TaxLotSelectionCostBasis { get; set; }
 

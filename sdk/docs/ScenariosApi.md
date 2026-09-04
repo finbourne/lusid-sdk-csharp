@@ -7,6 +7,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**CreateScenarioFromTemplate**](ScenariosApi.md#createscenariofromtemplate) | **POST** /api/scenarios/{scope}/$fromTemplate | [EARLY ACCESS] CreateScenarioFromTemplate: [EARLY ACCESS] CreateScenarioFromTemplate: Create a Scenario from a pre-built template. |
 | [**DeleteScenario**](ScenariosApi.md#deletescenario) | **DELETE** /api/scenarios/{scope}/{code} | [EARLY ACCESS] DeleteScenario: Delete a Scenario, assuming that it is present. |
 | [**GetScenario**](ScenariosApi.md#getscenario) | **GET** /api/scenarios/{scope}/{code} | [EARLY ACCESS] GetScenario: Get Scenario |
+| [**ListScenarioTemplates**](ScenariosApi.md#listscenariotemplates) | **GET** /api/scenarios/$templates | [EARLY ACCESS] ListScenarioTemplates: [EARLY ACCESS] ListScenarioTemplates: List the pre-built scenario templates. |
 | [**ListScenarioVersions**](ScenariosApi.md#listscenarioversions) | **GET** /api/scenarios/{scope}/{code}/versions | [EARLY ACCESS] ListScenarioVersions: List the versions of a Scenario |
 | [**ListScenarios**](ScenariosApi.md#listscenarios) | **GET** /api/scenarios | [EARLY ACCESS] ListScenarios: List Scenarios |
 | [**ListScenariosForScope**](ScenariosApi.md#listscenariosforscope) | **GET** /api/scenarios/{scope} | [EARLY ACCESS] ListScenariosForScope: List Scenarios for a scope |
@@ -19,7 +20,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 [EARLY ACCESS] CreateScenarioFromTemplate: [EARLY ACCESS] CreateScenarioFromTemplate: Create a Scenario from a pre-built template.
 
-Creates and stores a scenario built from a pre-defined parameterised template, for example a  parallel rates shift or an equity crash. The template determines the scenario's shifts; the  parameters supply the targets (e.g. currency or instrument) and optionally override the default  shift size. The created scenario is stored in the given scope and behaves exactly like a  hand-built scenario.                Available templates: RatesUp, RatesDown, CurveSteepener, CurveFlattener, VolSpike, EquityCrash,  FxShock, RiskOff.
+Creates and stores a scenario built from a pre-defined parameterised template, for example a  parallel rates shift or an equity crash. The template determines the scenario's shifts; the  parameters supply the targets (e.g. currency or instrument) and optionally override the default  shift size. The created scenario is stored in the given scope and behaves exactly like a  hand-built scenario.                Use ListScenarioTemplates to discover the available templates and, for each, the parameters it  accepts, their defaults and their units. A parameter the template does not read is rejected  rather than ignored, and parameter names are case-sensitive.
 
 ### Example
 ```csharp
@@ -359,6 +360,114 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The successfully retrieved Scenario |  -  |
 | **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="listscenariotemplates"></a>
+# **ListScenarioTemplates**
+> ResourceListOfScenarioTemplateDefinition ListScenarioTemplates ()
+
+[EARLY ACCESS] ListScenarioTemplates: [EARLY ACCESS] ListScenarioTemplates: List the pre-built scenario templates.
+
+Lists every template CreateScenarioFromTemplate accepts, with each template's parameters: the  parameter's name (case-sensitive), whether it is required, what it means, the default used when  it is omitted and the unit a numeric value is read in. The units differ between templates -  basis points, percentage points or a fraction - so read them per template rather than assuming  one convention. The list is static application metadata: it does not vary by tenant, scope or  date, so the endpoint takes no parameters.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ScenariosApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ScenariosApi>();
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfScenarioTemplateDefinition result = apiInstance.ListScenarioTemplates(opts: opts);
+
+                // [EARLY ACCESS] ListScenarioTemplates: [EARLY ACCESS] ListScenarioTemplates: List the pre-built scenario templates.
+                ResourceListOfScenarioTemplateDefinition result = apiInstance.ListScenarioTemplates();
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling ScenariosApi.ListScenarioTemplates: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListScenarioTemplatesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ListScenarioTemplates: [EARLY ACCESS] ListScenarioTemplates: List the pre-built scenario templates.
+    ApiResponse<ResourceListOfScenarioTemplateDefinition> response = apiInstance.ListScenarioTemplatesWithHttpInfo();
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling ScenariosApi.ListScenarioTemplatesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ResourceListOfScenarioTemplateDefinition**](ResourceListOfScenarioTemplateDefinition.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The available scenario templates |  -  |
 | **0** | Error response |  -  |
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)

@@ -51,7 +51,9 @@ namespace Lusid.Sdk.Model
         /// <param name="enableLegLevelInferenceForCustomSrsColumns">When enabled, allows inference between leg-level and  instrument-level data during portfolio valuation. If  data is missing at one level, it may be inferred from  the other level. For example, missing leg-level data   may be inferred from existing leg-level and instrument-  level data when ProduceSeparateResultForLinearOtcLegs  is enabled, and vice versa. Explicitly provided data  always takes precedence..</param>
         /// <param name="useInstrumentScaleFactorAsDefault">When enabled, priceScaleFactor defined at the instrument level will  be used in the absence of quote scaleFactor when resolving quotes..</param>
         /// <param name="scaleInstrumentAccruedOverrideByContractSize">When enabled, an SRS InstrumentAccrued override is multiplied by the instrument contractSize (legacy behaviour).  By default this is disabled, and the override is treated as the accrued for a single unit, keeping the  holding-level identity PV &#x3D; CleanPv + Accrued consistent..</param>
-        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), string riskEngine = default(string), string findOrCalculate = default(string), bool produceSeparateResultForLinearOtcLegs = default(bool), bool fxForwardContractsAsUnitsInBothLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool), bool useInstrumentScaleFactorAsDefault = default(bool), bool scaleInstrumentAccruedOverrideByContractSize = default(bool))
+        /// <param name="riskBumpOptions">riskBumpOptions.</param>
+        /// <param name="fundingCurveByCurrency">Names the funding curve each currency discounts on, keyed by ISO 4217 currency code  (e.g. \&quot;GBP\&quot; -&gt; \&quot;GBPOIS-USDCOLL\&quot;). Keys are case-insensitive. A currency absent from  the map keeps the default funding curve, {CCY}OIS, so an absent or empty map leaves  every valuation unchanged..</param>
+        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), string riskEngine = default(string), string findOrCalculate = default(string), bool produceSeparateResultForLinearOtcLegs = default(bool), bool fxForwardContractsAsUnitsInBothLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool), bool useInstrumentScaleFactorAsDefault = default(bool), bool scaleInstrumentAccruedOverrideByContractSize = default(bool), RiskBumpOptions riskBumpOptions = default(RiskBumpOptions), Dictionary<string, string> fundingCurveByCurrency = default(Dictionary<string, string>))
         {
             this.ModelSelection = modelSelection;
             this.UseInstrumentTypeToDeterminePricer = useInstrumentTypeToDeterminePricer;
@@ -73,6 +75,8 @@ namespace Lusid.Sdk.Model
             this.EnableLegLevelInferenceForCustomSrsColumns = enableLegLevelInferenceForCustomSrsColumns;
             this.UseInstrumentScaleFactorAsDefault = useInstrumentScaleFactorAsDefault;
             this.ScaleInstrumentAccruedOverrideByContractSize = scaleInstrumentAccruedOverrideByContractSize;
+            this.RiskBumpOptions = riskBumpOptions;
+            this.FundingCurveByCurrency = fundingCurveByCurrency;
         }
 
         /// <summary>
@@ -213,6 +217,19 @@ namespace Lusid.Sdk.Model
         public bool ScaleInstrumentAccruedOverrideByContractSize { get; set; }
 
         /// <summary>
+        /// Gets or Sets RiskBumpOptions
+        /// </summary>
+        [DataMember(Name = "riskBumpOptions", EmitDefaultValue = false)]
+        public RiskBumpOptions RiskBumpOptions { get; set; }
+
+        /// <summary>
+        /// Names the funding curve each currency discounts on, keyed by ISO 4217 currency code  (e.g. \&quot;GBP\&quot; -&gt; \&quot;GBPOIS-USDCOLL\&quot;). Keys are case-insensitive. A currency absent from  the map keeps the default funding curve, {CCY}OIS, so an absent or empty map leaves  every valuation unchanged.
+        /// </summary>
+        /// <value>Names the funding curve each currency discounts on, keyed by ISO 4217 currency code  (e.g. \&quot;GBP\&quot; -&gt; \&quot;GBPOIS-USDCOLL\&quot;). Keys are case-insensitive. A currency absent from  the map keeps the default funding curve, {CCY}OIS, so an absent or empty map leaves  every valuation unchanged.</value>
+        [DataMember(Name = "fundingCurveByCurrency", EmitDefaultValue = true)]
+        public Dictionary<string, string> FundingCurveByCurrency { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -240,6 +257,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  EnableLegLevelInferenceForCustomSrsColumns: ").Append(EnableLegLevelInferenceForCustomSrsColumns).Append("\n");
             sb.Append("  UseInstrumentScaleFactorAsDefault: ").Append(UseInstrumentScaleFactorAsDefault).Append("\n");
             sb.Append("  ScaleInstrumentAccruedOverrideByContractSize: ").Append(ScaleInstrumentAccruedOverrideByContractSize).Append("\n");
+            sb.Append("  RiskBumpOptions: ").Append(RiskBumpOptions).Append("\n");
+            sb.Append("  FundingCurveByCurrency: ").Append(FundingCurveByCurrency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -359,6 +378,17 @@ namespace Lusid.Sdk.Model
                 (
                     this.ScaleInstrumentAccruedOverrideByContractSize == input.ScaleInstrumentAccruedOverrideByContractSize ||
                     this.ScaleInstrumentAccruedOverrideByContractSize.Equals(input.ScaleInstrumentAccruedOverrideByContractSize)
+                ) && 
+                (
+                    this.RiskBumpOptions == input.RiskBumpOptions ||
+                    (this.RiskBumpOptions != null &&
+                    this.RiskBumpOptions.Equals(input.RiskBumpOptions))
+                ) && 
+                (
+                    this.FundingCurveByCurrency == input.FundingCurveByCurrency ||
+                    this.FundingCurveByCurrency != null &&
+                    input.FundingCurveByCurrency != null &&
+                    this.FundingCurveByCurrency.SequenceEqual(input.FundingCurveByCurrency)
                 );
         }
 
@@ -406,6 +436,14 @@ namespace Lusid.Sdk.Model
                 hashCode = (hashCode * 59) + this.EnableLegLevelInferenceForCustomSrsColumns.GetHashCode();
                 hashCode = (hashCode * 59) + this.UseInstrumentScaleFactorAsDefault.GetHashCode();
                 hashCode = (hashCode * 59) + this.ScaleInstrumentAccruedOverrideByContractSize.GetHashCode();
+                if (this.RiskBumpOptions != null)
+                {
+                    hashCode = (hashCode * 59) + this.RiskBumpOptions.GetHashCode();
+                }
+                if (this.FundingCurveByCurrency != null)
+                {
+                    hashCode = (hashCode * 59) + this.FundingCurveByCurrency.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **TermTarget** | **string** | The target of a terms change — one of \&quot;InstrumentDefinitionField\&quot; or  \&quot;InstrumentProperty\&quot;. Only applicable when ChangeType is \&quot;Terms\&quot;. Available values: InstrumentDefinitionField, InstrumentProperty. | [optional] 
 **TermTargetIdentifier** | **string** | The identifier of the term target being changed. Must be paired with TermTarget. | [optional] 
 **AdditionalInformation** | **string** | Free-text additional information describing the change. | [optional] 
+**CarryRelationships** | **string** | Whether, and in which direction, the old instrument&#39;s Relationships are carried onto the new  instrument. One of \&quot;None\&quot;, \&quot;Outward\&quot; or \&quot;Both\&quot;; defaults to \&quot;Outward\&quot; when omitted.                Relationships resolve to the instrument entity, so nothing pointing at the old instrument  applies to the new one. This is a caller choice because relationship meaning is client-authored:  an index-to-constituent link should usually follow a rename, a historical order-to-instrument  link should not. Available values: None, Outward, Both. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -25,6 +26,7 @@ string changeType = "changeType";
 string termTarget = "example termTarget";
 string termTargetIdentifier = "example termTargetIdentifier";
 string additionalInformation = "example additionalInformation";
+string carryRelationships = "example carryRelationships";
 
 ChangeEvent changeEventInstance = new ChangeEvent(
     recordDate: recordDate,
@@ -34,7 +36,8 @@ ChangeEvent changeEventInstance = new ChangeEvent(
     changeType: changeType,
     termTarget: termTarget,
     termTargetIdentifier: termTargetIdentifier,
-    additionalInformation: additionalInformation);
+    additionalInformation: additionalInformation,
+    carryRelationships: carryRelationships);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

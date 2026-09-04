@@ -73,7 +73,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="portfolioScaling">Available values: Sum, AbsoluteSum, Unity. (required).</param>
         /// <param name="lookthroughPortfolioRelationshipId">lookthroughPortfolioRelationshipId.</param>
-        /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions. (required) (default to &quot;IndexModelOptions&quot;).</param>
+        /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions. (required) (default to &quot;IndexModelOptions&quot;).</param>
         public IndexModelOptions(PortfolioScalingEnum portfolioScaling = default(PortfolioScalingEnum), ResourceId lookthroughPortfolioRelationshipId = default(ResourceId), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             this.PortfolioScaling = portfolioScaling;

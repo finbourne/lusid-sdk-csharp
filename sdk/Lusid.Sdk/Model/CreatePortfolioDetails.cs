@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="CreatePortfolioDetails" /> class.
         /// </summary>
         /// <param name="corporateActionSourceId">corporateActionSourceId.</param>
-        /// <param name="taxLotSelectionCostBasis">The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. Available values: Cost, AmortisedCost..</param>
+        /// <param name="taxLotSelectionCostBasis">The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. A reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost..</param>
         public CreatePortfolioDetails(ResourceId corporateActionSourceId = default(ResourceId), string taxLotSelectionCostBasis = default(string))
         {
             this.CorporateActionSourceId = corporateActionSourceId;
@@ -46,9 +46,9 @@ namespace Lusid.Sdk.Model
         public ResourceId CorporateActionSourceId { get; set; }
 
         /// <summary>
-        /// The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. Available values: Cost, AmortisedCost.
+        /// The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. A reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost.
         /// </summary>
-        /// <value>The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. Available values: Cost, AmortisedCost.</value>
+        /// <value>The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. A reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost.</value>
         [DataMember(Name = "taxLotSelectionCostBasis", EmitDefaultValue = true)]
         public string TaxLotSelectionCostBasis { get; set; }
 

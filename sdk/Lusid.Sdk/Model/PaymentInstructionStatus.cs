@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentInstructionStatus" /> class.
         /// </summary>
-        /// <param name="currentValue">The current status value. One of: Created, Staged, Released, Instructed, Sent, Cancelled. (required).</param>
+        /// <param name="currentValue">The current status value. One of: Created, Staged, Released, Instructed, Sent, Cancelled, Failed. (required).</param>
         /// <param name="asAtLastTransition">The as-at timestamp of the most recent status transition. (required).</param>
         /// <param name="userIdLastTransition">The ID of the user who made the most recent status transition. (required).</param>
         public PaymentInstructionStatus(string currentValue = default(string), DateTimeOffset asAtLastTransition = default(DateTimeOffset), string userIdLastTransition = default(string))
@@ -57,9 +57,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The current status value. One of: Created, Staged, Released, Instructed, Sent, Cancelled.
+        /// The current status value. One of: Created, Staged, Released, Instructed, Sent, Cancelled, Failed.
         /// </summary>
-        /// <value>The current status value. One of: Created, Staged, Released, Instructed, Sent, Cancelled.</value>
+        /// <value>The current status value. One of: Created, Staged, Released, Instructed, Sent, Cancelled, Failed.</value>
         [DataMember(Name = "currentValue", IsRequired = true, EmitDefaultValue = true)]
         public string CurrentValue { get; set; }
 

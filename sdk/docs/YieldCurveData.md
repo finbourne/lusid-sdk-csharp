@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Lineage** | **string** | Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;. | [optional] 
 **MarketDataOptions** | [**MarketDataOptions**](MarketDataOptions.md) |  | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**FundingCurveName** | **string** | Optional name of the funding curve under which the calibration instruments are discounted,  for projection curves that are bootstrapped under a separate discount curve. This is the  funding identifier of the rates dependency for the calibration instruments&#39; domestic currency,  so a value of &#39;EUROIS&#39; names the discounting dependency Rates/EUR/EUROIS. When omitted the  calibration instruments are discounted on the curve being built, which is the classic  single-curve bootstrap. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -24,6 +25,7 @@ MarketDataOptions? marketDataOptions = new MarketDataOptions();
 
 ModelVersion? varVersion = new ModelVersion();
 
+string fundingCurveName = "example fundingCurveName";
 
 YieldCurveData yieldCurveDataInstance = new YieldCurveData(
     baseDate: baseDate,
@@ -31,7 +33,8 @@ YieldCurveData yieldCurveDataInstance = new YieldCurveData(
     quotes: quotes,
     lineage: lineage,
     marketDataOptions: marketDataOptions,
-    varVersion: varVersion);
+    varVersion: varVersion,
+    fundingCurveName: fundingCurveName);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
