@@ -344,7 +344,13 @@ namespace Lusid.Sdk.Model
         /// Enum PreferredShare for value: PreferredShare
         /// </summary>
         [EnumMember(Value = "PreferredShare")]
-        PreferredShare = 53
+        PreferredShare = 53,
+
+        /// <summary>
+        /// Enum CapitalInterest for value: CapitalInterest
+        /// </summary>
+        [EnumMember(Value = "CapitalInterest")]
+        CapitalInterest = 54
     }
 
 }

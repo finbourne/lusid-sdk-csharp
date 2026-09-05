@@ -767,6 +767,7 @@ Class | Method | HTTP request | Description
 *TransactionPortfoliosApi* | [**UpsertVirtualTransactionOverride**](docs/TransactionPortfoliosApi.md#upsertvirtualtransactionoverride) | **POST** /api/transactionportfolios/{scope}/{code}/overridevirtualtransactions | [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert a virtual transaction override
 *TransferAgencyApi* | [**CalculateOrderDates**](docs/TransferAgencyApi.md#calculateorderdates) | **POST** /api/transferagency/orderdates | [EXPERIMENTAL] CalculateOrderDates: Calculate the key dates associated with transfer agency orders
 *TransferAgencyApi* | [**DeleteTransferAgencyOrders**](docs/TransferAgencyApi.md#deletetransferagencyorders) | **POST** /api/transferagency/orders/$delete | [EXPERIMENTAL] DeleteTransferAgencyOrders: Delete transfer agency orders
+*TransferAgencyApi* | [**EstimateTransferAgencyOrders**](docs/TransferAgencyApi.md#estimatetransferagencyorders) | **POST** /api/transferagency/orders/$estimate | [EXPERIMENTAL] EstimateTransferAgencyOrders: Estimate the values of transfer agency orders
 *TransferAgencyApi* | [**UpsertTransferAgencyOrders**](docs/TransferAgencyApi.md#upserttransferagencyorders) | **POST** /api/transferagency/orders | [EXPERIMENTAL] UpsertTransferAgencyOrders: Upsert transfer agency orders
 *TransfersApi* | [**CreateTransfer**](docs/TransfersApi.md#createtransfer) | **POST** /api/transfers | [EXPERIMENTAL] CreateTransfer: Create a transfer.
 *TranslationApi* | [**TranslateInstrumentDefinitions**](docs/TranslationApi.md#translateinstrumentdefinitions) | **POST** /api/translation/instrumentdefinitions | [EXPERIMENTAL] TranslateInstrumentDefinitions: Translate instruments
@@ -853,6 +854,7 @@ Class | Method | HTTP request | Description
  - [AllocationRequest](docs/AllocationRequest.md)
  - [AllocationServiceRunResponse](docs/AllocationServiceRunResponse.md)
  - [AllocationSetRequest](docs/AllocationSetRequest.md)
+ - [AmendCommitmentEvent](docs/AmendCommitmentEvent.md)
  - [AmortisationEvent](docs/AmortisationEvent.md)
  - [AmortisationRule](docs/AmortisationRule.md)
  - [AmortisationRuleSet](docs/AmortisationRuleSet.md)
@@ -961,8 +963,10 @@ Class | Method | HTTP request | Description
  - [CancelledOrderResult](docs/CancelledOrderResult.md)
  - [CancelledPlacementResult](docs/CancelledPlacementResult.md)
  - [CapFloor](docs/CapFloor.md)
+ - [CapitalCallEvent](docs/CapitalCallEvent.md)
  - [CapitalDistributionEvent](docs/CapitalDistributionEvent.md)
  - [CapitalGainsDistributionEvent](docs/CapitalGainsDistributionEvent.md)
+ - [CapitalInterest](docs/CapitalInterest.md)
  - [CapletFloorletCashFlowEvent](docs/CapletFloorletCashFlowEvent.md)
  - [Cash](docs/Cash.md)
  - [CashAndSecurityOfferElection](docs/CashAndSecurityOfferElection.md)
@@ -1249,6 +1253,8 @@ Class | Method | HTTP request | Description
  - [EquityVolDependency](docs/EquityVolDependency.md)
  - [EquityVolSurfaceData](docs/EquityVolSurfaceData.md)
  - [ErrorDetail](docs/ErrorDetail.md)
+ - [EstimateTransferAgencyOrderRequest](docs/EstimateTransferAgencyOrderRequest.md)
+ - [EstimateTransferAgencyOrdersResponse](docs/EstimateTransferAgencyOrdersResponse.md)
  - [EstimateVariant](docs/EstimateVariant.md)
  - [EventDateRange](docs/EventDateRange.md)
  - [EventInheritance](docs/EventInheritance.md)
@@ -1318,6 +1324,7 @@ Class | Method | HTTP request | Description
  - [FundConfigurationRequest](docs/FundConfigurationRequest.md)
  - [FundDefinitionRequest](docs/FundDefinitionRequest.md)
  - [FundDetails](docs/FundDetails.md)
+ - [FundDistributionEvent](docs/FundDistributionEvent.md)
  - [FundEstimateValuationPoint](docs/FundEstimateValuationPoint.md)
  - [FundIdList](docs/FundIdList.md)
  - [FundInstrument](docs/FundInstrument.md)
@@ -1429,6 +1436,7 @@ Class | Method | HTTP request | Description
  - [HoldingContributor](docs/HoldingContributor.md)
  - [HoldingIdsRequest](docs/HoldingIdsRequest.md)
  - [HoldingPricingInfo](docs/HoldingPricingInfo.md)
+ - [HoldingPropertyDelta](docs/HoldingPropertyDelta.md)
  - [HoldingsAdjustment](docs/HoldingsAdjustment.md)
  - [HoldingsAdjustmentHeader](docs/HoldingsAdjustmentHeader.md)
  - [HullWhiteModelOptions](docs/HullWhiteModelOptions.md)
@@ -1585,6 +1593,7 @@ Class | Method | HTTP request | Description
  - [NavActivityAdjustmentResponse](docs/NavActivityAdjustmentResponse.md)
  - [NavActivityAdjustmentResponseType](docs/NavActivityAdjustmentResponseType.md)
  - [NavActivityAdjustmentType](docs/NavActivityAdjustmentType.md)
+ - [NavReportEvent](docs/NavReportEvent.md)
  - [NavSettlementConfiguration](docs/NavSettlementConfiguration.md)
  - [NavSettlementConfigurationCategory](docs/NavSettlementConfigurationCategory.md)
  - [NavType](docs/NavType.md)
@@ -2255,7 +2264,9 @@ Class | Method | HTTP request | Description
  - [TransactionTypeRequest](docs/TransactionTypeRequest.md)
  - [TransactionsReconciliationsResponse](docs/TransactionsReconciliationsResponse.md)
  - [TransferAgencyDates](docs/TransferAgencyDates.md)
+ - [TransferAgencyOrderEstimateResult](docs/TransferAgencyOrderEstimateResult.md)
  - [TransferAgencyOrderResult](docs/TransferAgencyOrderResult.md)
+ - [TransferAgencyOrderToEstimate](docs/TransferAgencyOrderToEstimate.md)
  - [TransferAgencyOrdersResponse](docs/TransferAgencyOrdersResponse.md)
  - [TransitionEvent](docs/TransitionEvent.md)
  - [TransitionRecInstanceRequest](docs/TransitionRecInstanceRequest.md)

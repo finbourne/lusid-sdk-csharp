@@ -176,7 +176,13 @@ namespace Lusid.Sdk.Model
         /// Enum HullWhite1F for value: HullWhite1F
         /// </summary>
         [EnumMember(Value = "HullWhite1F")]
-        HullWhite1F = 25
+        HullWhite1F = 25,
+
+        /// <summary>
+        /// Enum CapitalInterestPricer for value: CapitalInterestPricer
+        /// </summary>
+        [EnumMember(Value = "CapitalInterestPricer")]
+        CapitalInterestPricer = 26
     }
 
 }

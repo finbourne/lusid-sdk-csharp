@@ -657,7 +657,31 @@ namespace Lusid.Sdk.Model
         /// Enum BondForwardTerminationEvent for value: BondForwardTerminationEvent
         /// </summary>
         [EnumMember(Value = "BondForwardTerminationEvent")]
-        BondForwardTerminationEvent = 105
+        BondForwardTerminationEvent = 105,
+
+        /// <summary>
+        /// Enum AmendCommitmentEvent for value: AmendCommitmentEvent
+        /// </summary>
+        [EnumMember(Value = "AmendCommitmentEvent")]
+        AmendCommitmentEvent = 106,
+
+        /// <summary>
+        /// Enum CapitalCallEvent for value: CapitalCallEvent
+        /// </summary>
+        [EnumMember(Value = "CapitalCallEvent")]
+        CapitalCallEvent = 107,
+
+        /// <summary>
+        /// Enum FundDistributionEvent for value: FundDistributionEvent
+        /// </summary>
+        [EnumMember(Value = "FundDistributionEvent")]
+        FundDistributionEvent = 108,
+
+        /// <summary>
+        /// Enum NavReportEvent for value: NavReportEvent
+        /// </summary>
+        [EnumMember(Value = "NavReportEvent")]
+        NavReportEvent = 109
     }
 
 }

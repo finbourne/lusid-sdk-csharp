@@ -82,6 +82,31 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeleteTransferAgencyOrdersResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeleteTransferAgencyOrdersResponse> DeleteTransferAgencyOrdersWithHttpInfo(Dictionary<string, DeleteTransferAgencyOrderRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] EstimateTransferAgencyOrders: Estimate the values of transfer agency orders
+        /// </summary>
+        /// <remarks>
+        /// Estimates the units and the cash each order supplied would move, from the share class&#39;s most recent price.  Nothing is written.                An order may be named by its identifier, to estimate it as it stands, or supplied whole, to estimate values  that have not been saved yet. Both forms may appear in the same request. Where an order is supplied whole,  those values are estimated in place of the saved order&#39;s.                A switch or a transfer is two orders, and each leg is estimated independently.                The price is reported in the currency the share class is quoted in, which is not necessarily the order&#39;s  currency, so it is returned alongside that currency and the rate used.                The response contains both the successful estimates and any failures, each in the form of a dictionary  keyed by the request&#39;s keys. A share class with no price available fails only its own orders. It is  important to check the failed set for unsuccessful results.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The transfer agency orders to estimate, keyed by a unique request identifier.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>EstimateTransferAgencyOrdersResponse</returns>
+        EstimateTransferAgencyOrdersResponse EstimateTransferAgencyOrders(Dictionary<string, EstimateTransferAgencyOrderRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] EstimateTransferAgencyOrders: Estimate the values of transfer agency orders
+        /// </summary>
+        /// <remarks>
+        /// Estimates the units and the cash each order supplied would move, from the share class&#39;s most recent price.  Nothing is written.                An order may be named by its identifier, to estimate it as it stands, or supplied whole, to estimate values  that have not been saved yet. Both forms may appear in the same request. Where an order is supplied whole,  those values are estimated in place of the saved order&#39;s.                A switch or a transfer is two orders, and each leg is estimated independently.                The price is reported in the currency the share class is quoted in, which is not necessarily the order&#39;s  currency, so it is returned alongside that currency and the rate used.                The response contains both the successful estimates and any failures, each in the form of a dictionary  keyed by the request&#39;s keys. A share class with no price available fails only its own orders. It is  important to check the failed set for unsuccessful results.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The transfer agency orders to estimate, keyed by a unique request identifier.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of EstimateTransferAgencyOrdersResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<EstimateTransferAgencyOrdersResponse> EstimateTransferAgencyOrdersWithHttpInfo(Dictionary<string, EstimateTransferAgencyOrderRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] UpsertTransferAgencyOrders: Upsert transfer agency orders
         /// </summary>
         /// <remarks>
@@ -169,6 +194,33 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeleteTransferAgencyOrdersResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeleteTransferAgencyOrdersResponse>> DeleteTransferAgencyOrdersWithHttpInfoAsync(Dictionary<string, DeleteTransferAgencyOrderRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] EstimateTransferAgencyOrders: Estimate the values of transfer agency orders
+        /// </summary>
+        /// <remarks>
+        /// Estimates the units and the cash each order supplied would move, from the share class&#39;s most recent price.  Nothing is written.                An order may be named by its identifier, to estimate it as it stands, or supplied whole, to estimate values  that have not been saved yet. Both forms may appear in the same request. Where an order is supplied whole,  those values are estimated in place of the saved order&#39;s.                A switch or a transfer is two orders, and each leg is estimated independently.                The price is reported in the currency the share class is quoted in, which is not necessarily the order&#39;s  currency, so it is returned alongside that currency and the rate used.                The response contains both the successful estimates and any failures, each in the form of a dictionary  keyed by the request&#39;s keys. A share class with no price available fails only its own orders. It is  important to check the failed set for unsuccessful results.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The transfer agency orders to estimate, keyed by a unique request identifier.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of EstimateTransferAgencyOrdersResponse</returns>
+        System.Threading.Tasks.Task<EstimateTransferAgencyOrdersResponse> EstimateTransferAgencyOrdersAsync(Dictionary<string, EstimateTransferAgencyOrderRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] EstimateTransferAgencyOrders: Estimate the values of transfer agency orders
+        /// </summary>
+        /// <remarks>
+        /// Estimates the units and the cash each order supplied would move, from the share class&#39;s most recent price.  Nothing is written.                An order may be named by its identifier, to estimate it as it stands, or supplied whole, to estimate values  that have not been saved yet. Both forms may appear in the same request. Where an order is supplied whole,  those values are estimated in place of the saved order&#39;s.                A switch or a transfer is two orders, and each leg is estimated independently.                The price is reported in the currency the share class is quoted in, which is not necessarily the order&#39;s  currency, so it is returned alongside that currency and the rate used.                The response contains both the successful estimates and any failures, each in the form of a dictionary  keyed by the request&#39;s keys. A share class with no price available fails only its own orders. It is  important to check the failed set for unsuccessful results.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The transfer agency orders to estimate, keyed by a unique request identifier.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (EstimateTransferAgencyOrdersResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<EstimateTransferAgencyOrdersResponse>> EstimateTransferAgencyOrdersWithHttpInfoAsync(Dictionary<string, EstimateTransferAgencyOrderRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpsertTransferAgencyOrders: Upsert transfer agency orders
         /// </summary>
@@ -734,6 +786,218 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteTransferAgencyOrders", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] EstimateTransferAgencyOrders: Estimate the values of transfer agency orders Estimates the units and the cash each order supplied would move, from the share class&#39;s most recent price.  Nothing is written.                An order may be named by its identifier, to estimate it as it stands, or supplied whole, to estimate values  that have not been saved yet. Both forms may appear in the same request. Where an order is supplied whole,  those values are estimated in place of the saved order&#39;s.                A switch or a transfer is two orders, and each leg is estimated independently.                The price is reported in the currency the share class is quoted in, which is not necessarily the order&#39;s  currency, so it is returned alongside that currency and the rate used.                The response contains both the successful estimates and any failures, each in the form of a dictionary  keyed by the request&#39;s keys. A share class with no price available fails only its own orders. It is  important to check the failed set for unsuccessful results.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The transfer agency orders to estimate, keyed by a unique request identifier.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>EstimateTransferAgencyOrdersResponse</returns>
+        public EstimateTransferAgencyOrdersResponse EstimateTransferAgencyOrders(Dictionary<string, EstimateTransferAgencyOrderRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<EstimateTransferAgencyOrdersResponse> localVarResponse = EstimateTransferAgencyOrdersWithHttpInfo(requestBody, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] EstimateTransferAgencyOrders: Estimate the values of transfer agency orders Estimates the units and the cash each order supplied would move, from the share class&#39;s most recent price.  Nothing is written.                An order may be named by its identifier, to estimate it as it stands, or supplied whole, to estimate values  that have not been saved yet. Both forms may appear in the same request. Where an order is supplied whole,  those values are estimated in place of the saved order&#39;s.                A switch or a transfer is two orders, and each leg is estimated independently.                The price is reported in the currency the share class is quoted in, which is not necessarily the order&#39;s  currency, so it is returned alongside that currency and the rate used.                The response contains both the successful estimates and any failures, each in the form of a dictionary  keyed by the request&#39;s keys. A share class with no price available fails only its own orders. It is  important to check the failed set for unsuccessful results.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The transfer agency orders to estimate, keyed by a unique request identifier.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of EstimateTransferAgencyOrdersResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<EstimateTransferAgencyOrdersResponse> EstimateTransferAgencyOrdersWithHttpInfo(Dictionary<string, EstimateTransferAgencyOrderRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling TransferAgencyApi->EstimateTransferAgencyOrders");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "TransferAgencyApi.EstimateTransferAgencyOrders";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<EstimateTransferAgencyOrdersResponse>("/api/transferagency/orders/$estimate", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("EstimateTransferAgencyOrders", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] EstimateTransferAgencyOrders: Estimate the values of transfer agency orders Estimates the units and the cash each order supplied would move, from the share class&#39;s most recent price.  Nothing is written.                An order may be named by its identifier, to estimate it as it stands, or supplied whole, to estimate values  that have not been saved yet. Both forms may appear in the same request. Where an order is supplied whole,  those values are estimated in place of the saved order&#39;s.                A switch or a transfer is two orders, and each leg is estimated independently.                The price is reported in the currency the share class is quoted in, which is not necessarily the order&#39;s  currency, so it is returned alongside that currency and the rate used.                The response contains both the successful estimates and any failures, each in the form of a dictionary  keyed by the request&#39;s keys. A share class with no price available fails only its own orders. It is  important to check the failed set for unsuccessful results.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The transfer agency orders to estimate, keyed by a unique request identifier.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of EstimateTransferAgencyOrdersResponse</returns>
+        public async System.Threading.Tasks.Task<EstimateTransferAgencyOrdersResponse> EstimateTransferAgencyOrdersAsync(Dictionary<string, EstimateTransferAgencyOrderRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<EstimateTransferAgencyOrdersResponse> localVarResponse = await EstimateTransferAgencyOrdersWithHttpInfoAsync(requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] EstimateTransferAgencyOrders: Estimate the values of transfer agency orders Estimates the units and the cash each order supplied would move, from the share class&#39;s most recent price.  Nothing is written.                An order may be named by its identifier, to estimate it as it stands, or supplied whole, to estimate values  that have not been saved yet. Both forms may appear in the same request. Where an order is supplied whole,  those values are estimated in place of the saved order&#39;s.                A switch or a transfer is two orders, and each leg is estimated independently.                The price is reported in the currency the share class is quoted in, which is not necessarily the order&#39;s  currency, so it is returned alongside that currency and the rate used.                The response contains both the successful estimates and any failures, each in the form of a dictionary  keyed by the request&#39;s keys. A share class with no price available fails only its own orders. It is  important to check the failed set for unsuccessful results.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The transfer agency orders to estimate, keyed by a unique request identifier.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (EstimateTransferAgencyOrdersResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<EstimateTransferAgencyOrdersResponse>> EstimateTransferAgencyOrdersWithHttpInfoAsync(Dictionary<string, EstimateTransferAgencyOrderRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling TransferAgencyApi->EstimateTransferAgencyOrders");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "TransferAgencyApi.EstimateTransferAgencyOrders";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<EstimateTransferAgencyOrdersResponse>("/api/transferagency/orders/$estimate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("EstimateTransferAgencyOrders", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
