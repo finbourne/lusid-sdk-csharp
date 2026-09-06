@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | Unique instrument identifiers | 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) |  | [optional] 
 **Weight** | **decimal** |  | 
-**Currency** | **string** |  | [optional] 
+**Currency** | **string** |  | 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -16,7 +16,7 @@ using System;
 Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();decimal weight = "weight";
 
-string currency = "example currency";
+string currency = "currency";
 
 ReferencePortfolioConstituentRequest referencePortfolioConstituentRequestInstance = new ReferencePortfolioConstituentRequest(
     instrumentIdentifiers: instrumentIdentifiers,

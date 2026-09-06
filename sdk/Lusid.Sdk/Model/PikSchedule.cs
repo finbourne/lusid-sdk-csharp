@@ -42,16 +42,18 @@ namespace Lusid.Sdk.Model
         /// <param name="maturityDate">The end date of the PIK schedule period. (required).</param>
         /// <param name="isPikFractionElectable">If true, the PIK fraction is electable at each payment date.  Defaults to false..</param>
         /// <param name="pikFraction">The fraction of the coupon that is paid in kind, where 0 means fully cash and 1 means fully PIK.  Required if IsPikFractionElectable is false or null. Must satisfy 0 &lt;&#x3D; pikFraction &lt;&#x3D; 1..</param>
+        /// <param name="pikMargin">The portion of the coupon that is paid in kind, stated in the leg&#39;s own rate units (an annualised  rate on the notional) rather than as a fraction of the coupon. The in-kind leg accrues at this flat  rate and the cash leg accrues the remainder of the coupon, so on a floating leg the in-kind portion  stays constant across fixings — the shape of a loan quoted as \&quot;index + 700bp, of which 250bp paid  in kind\&quot;. On a fixed leg it is equivalent to pikFraction &#x3D; pikMargin / couponRate. Should the  period&#39;s whole coupon fall below the margin, the in-kind portion is capped at the whole  (non-negative) coupon and the cash leg floors at zero.  Mutually exclusive with pikFraction, pikRate, pikSpread and isPikFractionElectable.  Must be greater than or equal to zero. null indicates the split is stated by pikFraction instead..</param>
         /// <param name="pikPaymentType">The type of PIK payment to be used for the duration of this schedule.  InterestCapitalisation adds the paid-in-kind portion to the bond&#39;s current face;  AdditionalSecurities settles it by delivering units of another instrument, named on each  period&#39;s PikBondInterestEvent; Electable leaves the choice to a per-period election.                Supported string (enumeration) values are: [Electable, InterestCapitalisation, AdditionalSecurities]..</param>
         /// <param name="pikRate">The PIK interest rate. Must be greater than or equal to zero.  null indicates no override PIK interest rate..</param>
         /// <param name="pikSpread">The PIK spread to be added to the base rate for the final PIK rate.  null indicates no spread on base rate..</param>
         /// <param name="scheduleType">Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, CommodityCalendarSchedule, Invalid, CancelSchedule. (required) (default to &quot;PikSchedule&quot;).</param>
-        public PikSchedule(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), bool isPikFractionElectable = default(bool), decimal? pikFraction = default(decimal?), string pikPaymentType = default(string), decimal? pikRate = default(decimal?), decimal? pikSpread = default(decimal?), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
+        public PikSchedule(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), bool isPikFractionElectable = default(bool), decimal? pikFraction = default(decimal?), decimal? pikMargin = default(decimal?), string pikPaymentType = default(string), decimal? pikRate = default(decimal?), decimal? pikSpread = default(decimal?), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
             this.IsPikFractionElectable = isPikFractionElectable;
             this.PikFraction = pikFraction;
+            this.PikMargin = pikMargin;
             this.PikPaymentType = pikPaymentType;
             this.PikRate = pikRate;
             this.PikSpread = pikSpread;
@@ -84,6 +86,13 @@ namespace Lusid.Sdk.Model
         /// <value>The fraction of the coupon that is paid in kind, where 0 means fully cash and 1 means fully PIK.  Required if IsPikFractionElectable is false or null. Must satisfy 0 &lt;&#x3D; pikFraction &lt;&#x3D; 1.</value>
         [DataMember(Name = "pikFraction", EmitDefaultValue = true)]
         public decimal? PikFraction { get; set; }
+
+        /// <summary>
+        /// The portion of the coupon that is paid in kind, stated in the leg&#39;s own rate units (an annualised  rate on the notional) rather than as a fraction of the coupon. The in-kind leg accrues at this flat  rate and the cash leg accrues the remainder of the coupon, so on a floating leg the in-kind portion  stays constant across fixings — the shape of a loan quoted as \&quot;index + 700bp, of which 250bp paid  in kind\&quot;. On a fixed leg it is equivalent to pikFraction &#x3D; pikMargin / couponRate. Should the  period&#39;s whole coupon fall below the margin, the in-kind portion is capped at the whole  (non-negative) coupon and the cash leg floors at zero.  Mutually exclusive with pikFraction, pikRate, pikSpread and isPikFractionElectable.  Must be greater than or equal to zero. null indicates the split is stated by pikFraction instead.
+        /// </summary>
+        /// <value>The portion of the coupon that is paid in kind, stated in the leg&#39;s own rate units (an annualised  rate on the notional) rather than as a fraction of the coupon. The in-kind leg accrues at this flat  rate and the cash leg accrues the remainder of the coupon, so on a floating leg the in-kind portion  stays constant across fixings — the shape of a loan quoted as \&quot;index + 700bp, of which 250bp paid  in kind\&quot;. On a fixed leg it is equivalent to pikFraction &#x3D; pikMargin / couponRate. Should the  period&#39;s whole coupon fall below the margin, the in-kind portion is capped at the whole  (non-negative) coupon and the cash leg floors at zero.  Mutually exclusive with pikFraction, pikRate, pikSpread and isPikFractionElectable.  Must be greater than or equal to zero. null indicates the split is stated by pikFraction instead.</value>
+        [DataMember(Name = "pikMargin", EmitDefaultValue = true)]
+        public decimal? PikMargin { get; set; }
 
         /// <summary>
         /// The type of PIK payment to be used for the duration of this schedule.  InterestCapitalisation adds the paid-in-kind portion to the bond&#39;s current face;  AdditionalSecurities settles it by delivering units of another instrument, named on each  period&#39;s PikBondInterestEvent; Electable leaves the choice to a per-period election.                Supported string (enumeration) values are: [Electable, InterestCapitalisation, AdditionalSecurities].
@@ -119,6 +128,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
             sb.Append("  IsPikFractionElectable: ").Append(IsPikFractionElectable).Append("\n");
             sb.Append("  PikFraction: ").Append(PikFraction).Append("\n");
+            sb.Append("  PikMargin: ").Append(PikMargin).Append("\n");
             sb.Append("  PikPaymentType: ").Append(PikPaymentType).Append("\n");
             sb.Append("  PikRate: ").Append(PikRate).Append("\n");
             sb.Append("  PikSpread: ").Append(PikSpread).Append("\n");
@@ -177,6 +187,11 @@ namespace Lusid.Sdk.Model
                     this.PikFraction.Equals(input.PikFraction))
                 ) && base.Equals(input) && 
                 (
+                    this.PikMargin == input.PikMargin ||
+                    (this.PikMargin != null &&
+                    this.PikMargin.Equals(input.PikMargin))
+                ) && base.Equals(input) && 
+                (
                     this.PikPaymentType == input.PikPaymentType ||
                     (this.PikPaymentType != null &&
                     this.PikPaymentType.Equals(input.PikPaymentType))
@@ -214,6 +229,10 @@ namespace Lusid.Sdk.Model
                 if (this.PikFraction != null)
                 {
                     hashCode = (hashCode * 59) + this.PikFraction.GetHashCode();
+                }
+                if (this.PikMargin != null)
+                {
+                    hashCode = (hashCode * 59) + this.PikMargin.GetHashCode();
                 }
                 if (this.PikPaymentType != null)
                 {

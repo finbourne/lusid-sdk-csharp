@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentIdentifiers">Unique instrument identifiers (required).</param>
         /// <param name="properties">properties.</param>
         /// <param name="weight">weight (required).</param>
-        /// <param name="currency">currency.</param>
+        /// <param name="currency">currency (required).</param>
         public ReferencePortfolioConstituentRequest(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), decimal weight = default(decimal), string currency = default(string))
         {
             // to ensure "instrumentIdentifiers" is required (not null)
@@ -49,8 +49,13 @@ namespace Lusid.Sdk.Model
             }
             this.InstrumentIdentifiers = instrumentIdentifiers;
             this.Weight = weight;
-            this.Properties = properties;
+            // to ensure "currency" is required (not null)
+            if (currency == null)
+            {
+                throw new ArgumentNullException("currency is a required property for ReferencePortfolioConstituentRequest and cannot be null");
+            }
             this.Currency = currency;
+            this.Properties = properties;
         }
 
         /// <summary>
@@ -75,7 +80,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets Currency
         /// </summary>
-        [DataMember(Name = "currency", EmitDefaultValue = true)]
+        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>

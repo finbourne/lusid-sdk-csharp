@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **GroupStatus** | **string** | The status of this subset of results. | 
 **ResultsUsed** | **Dictionary&lt;string, decimal&gt;** | Dictionary of AddressKey (as string) and their corresponding decimal values, that were used in this rule. | 
+**FormulaValues** | **Dictionary&lt;string, decimal&gt;** | The value each formula within the check criterion evaluated to for this group. Empty where the criterion  compares a single value or is not numerical, since the operand values already recorded describe those. | [optional] 
 **PropertiesUsed** | **Dictionary&lt;string, List&lt;Property&gt;&gt;** | Dictionary of PropertyKey (as string) and their corresponding Properties, that were used in this rule | 
 **MissingDataInformation** | **List&lt;string&gt;** | List of string information detailing data that was missing from contributions processed in this rule | 
 **Lineage** | [**List&lt;LineageMember&gt;**](LineageMember.md) |  | 
@@ -16,6 +17,7 @@ using System;
 
 string groupStatus = "groupStatus";
 Dictionary<string, decimal> resultsUsed = new Dictionary<string, decimal>();
+Dictionary<string, decimal> formulaValues = new Dictionary<string, decimal>();
 Dictionary<string, List<Property>> propertiesUsed = new Dictionary<string, List<Property>>();
 List<string> missingDataInformation = new List<string>();
 List<LineageMember> lineage = new List<LineageMember>();
@@ -23,6 +25,7 @@ List<LineageMember> lineage = new List<LineageMember>();
 ComplianceRuleBreakdown complianceRuleBreakdownInstance = new ComplianceRuleBreakdown(
     groupStatus: groupStatus,
     resultsUsed: resultsUsed,
+    formulaValues: formulaValues,
     propertiesUsed: propertiesUsed,
     missingDataInformation: missingDataInformation,
     lineage: lineage);

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **GroupStatus** | **string** |  | 
 **ResultsUsed** | **Dictionary&lt;string, decimal&gt;** |  | 
+**FormulaValues** | **Dictionary&lt;string, decimal&gt;** |  | [optional] 
 **PropertiesUsed** | **Dictionary&lt;string, List&lt;Property&gt;&gt;** |  | 
 **MissingDataInformation** | **List&lt;string&gt;** |  | 
 **Lineage** | [**List&lt;LineageMember&gt;**](LineageMember.md) |  | 
@@ -16,6 +17,7 @@ using System;
 
 string groupStatus = "groupStatus";
 Dictionary<string, decimal> resultsUsed = new Dictionary<string, decimal>();
+Dictionary<string, decimal> formulaValues = new Dictionary<string, decimal>();
 Dictionary<string, List<Property>> propertiesUsed = new Dictionary<string, List<Property>>();
 List<string> missingDataInformation = new List<string>();
 List<LineageMember> lineage = new List<LineageMember>();
@@ -23,6 +25,7 @@ List<LineageMember> lineage = new List<LineageMember>();
 ComplianceRuleBreakdownRequest complianceRuleBreakdownRequestInstance = new ComplianceRuleBreakdownRequest(
     groupStatus: groupStatus,
     resultsUsed: resultsUsed,
+    formulaValues: formulaValues,
     propertiesUsed: propertiesUsed,
     missingDataInformation: missingDataInformation,
     lineage: lineage);
