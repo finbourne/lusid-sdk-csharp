@@ -138,7 +138,8 @@ namespace Lusid.Sdk.Model
         /// <param name="key">The key that uniquely identifies a queryable address in Lusid. (required).</param>
         /// <param name="op">Available values: Sum, DefaultSum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears. (required).</param>
         /// <param name="options">Additional options to apply when performing computations. Options that do not apply to the Key will be  ignored. Option values can be boolean, numeric, string or date-time..</param>
-        public AggregateSpec(string key = default(string), OpEnum op = default(OpEnum), Dictionary<string, Object> options = default(Dictionary<string, Object>))
+        /// <param name="returnAs">Optional client-chosen name for this metric. When supplied, the corresponding column in the returned  data is keyed by this name instead of the serialised address key (with options), letting callers  associate each requested metric with its result without reconstructing the key serialisation.  Names must be unique within a request, start with a letter and contain only letters, digits,  underscores or hyphens. When omitted, the column is keyed by the serialised address key as before..</param>
+        public AggregateSpec(string key = default(string), OpEnum op = default(OpEnum), Dictionary<string, Object> options = default(Dictionary<string, Object>), string returnAs = default(string))
         {
             // to ensure "key" is required (not null)
             if (key == null)
@@ -148,6 +149,7 @@ namespace Lusid.Sdk.Model
             this.Key = key;
             this.Op = op;
             this.Options = options;
+            this.ReturnAs = returnAs;
         }
 
         /// <summary>
@@ -165,6 +167,13 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Object> Options { get; set; }
 
         /// <summary>
+        /// Optional client-chosen name for this metric. When supplied, the corresponding column in the returned  data is keyed by this name instead of the serialised address key (with options), letting callers  associate each requested metric with its result without reconstructing the key serialisation.  Names must be unique within a request, start with a letter and contain only letters, digits,  underscores or hyphens. When omitted, the column is keyed by the serialised address key as before.
+        /// </summary>
+        /// <value>Optional client-chosen name for this metric. When supplied, the corresponding column in the returned  data is keyed by this name instead of the serialised address key (with options), letting callers  associate each requested metric with its result without reconstructing the key serialisation.  Names must be unique within a request, start with a letter and contain only letters, digits,  underscores or hyphens. When omitted, the column is keyed by the serialised address key as before.</value>
+        [DataMember(Name = "returnAs", EmitDefaultValue = true)]
+        public string ReturnAs { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -175,6 +184,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  Op: ").Append(Op).Append("\n");
             sb.Append("  Options: ").Append(Options).Append("\n");
+            sb.Append("  ReturnAs: ").Append(ReturnAs).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -224,6 +234,11 @@ namespace Lusid.Sdk.Model
                     this.Options != null &&
                     input.Options != null &&
                     this.Options.SequenceEqual(input.Options)
+                ) && 
+                (
+                    this.ReturnAs == input.ReturnAs ||
+                    (this.ReturnAs != null &&
+                    this.ReturnAs.Equals(input.ReturnAs))
                 );
         }
 
@@ -245,6 +260,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Options.GetHashCode();
                 }
+                if (this.ReturnAs != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReturnAs.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -256,6 +275,18 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // ReturnAs (string) maxLength
+            if (this.ReturnAs != null && this.ReturnAs.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReturnAs, length must be less than 64.", new [] { "ReturnAs" });
+            }
+
+            // ReturnAs (string) minLength
+            if (this.ReturnAs != null && this.ReturnAs.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReturnAs, length must be greater than 0.", new [] { "ReturnAs" });
+            }
+
             yield break;
         }
     }
