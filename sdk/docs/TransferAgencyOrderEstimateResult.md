@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **EstimatedAmount** | **decimal** |  | [optional] 
 **EstimatedAmountCurrency** | **string** |  | [optional] 
 **FxRateUsed** | **decimal** |  | [optional] 
+**ExcludedOrders** | [**List&lt;TransferAgencyExcludedOrder&gt;**](TransferAgencyExcludedOrder.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -22,6 +23,7 @@ ResourceId? orderId = new ResourceId();
 decimal? pricePerShare = "example pricePerShare";
 string priceCurrency = "example priceCurrency";decimal? estimatedUnits = "example estimatedUnits";decimal? estimatedAmount = "example estimatedAmount";
 string estimatedAmountCurrency = "example estimatedAmountCurrency";decimal? fxRateUsed = "example fxRateUsed";
+List<TransferAgencyExcludedOrder> excludedOrders = new List<TransferAgencyExcludedOrder>();
 
 TransferAgencyOrderEstimateResult transferAgencyOrderEstimateResultInstance = new TransferAgencyOrderEstimateResult(
     orderId: orderId,
@@ -31,7 +33,8 @@ TransferAgencyOrderEstimateResult transferAgencyOrderEstimateResultInstance = ne
     estimatedUnits: estimatedUnits,
     estimatedAmount: estimatedAmount,
     estimatedAmountCurrency: estimatedAmountCurrency,
-    fxRateUsed: fxRateUsed);
+    fxRateUsed: fxRateUsed,
+    excludedOrders: excludedOrders);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -53,7 +53,8 @@ namespace Lusid.Sdk.Model
         /// <param name="scaleInstrumentAccruedOverrideByContractSize">When enabled, an SRS InstrumentAccrued override is multiplied by the instrument contractSize (legacy behaviour).  By default this is disabled, and the override is treated as the accrued for a single unit, keeping the  holding-level identity PV &#x3D; CleanPv + Accrued consistent..</param>
         /// <param name="riskBumpOptions">riskBumpOptions.</param>
         /// <param name="fundingCurveByCurrency">Names the funding curve each currency discounts on, keyed by ISO 4217 currency code  (e.g. \&quot;GBP\&quot; -&gt; \&quot;GBPOIS-USDCOLL\&quot;). Keys are case-insensitive. A currency absent from  the map keeps the default funding curve, {CCY}OIS, so an absent or empty map leaves  every valuation unchanged..</param>
-        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), string riskEngine = default(string), string findOrCalculate = default(string), bool produceSeparateResultForLinearOtcLegs = default(bool), bool fxForwardContractsAsUnitsInBothLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool), bool useInstrumentScaleFactorAsDefault = default(bool), bool scaleInstrumentAccruedOverrideByContractSize = default(bool), RiskBumpOptions riskBumpOptions = default(RiskBumpOptions), Dictionary<string, string> fundingCurveByCurrency = default(Dictionary<string, string>))
+        /// <param name="defaultPoolFactorsToUnity">When true, an asset-backed instrument with no pool-factor history defaults the pool  factor to 1.0 (the full original face) instead of 0. When false (default), the factor  defaults to 0 as before, preserving current behaviour..</param>
+        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), string riskEngine = default(string), string findOrCalculate = default(string), bool produceSeparateResultForLinearOtcLegs = default(bool), bool fxForwardContractsAsUnitsInBothLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool), bool useInstrumentScaleFactorAsDefault = default(bool), bool scaleInstrumentAccruedOverrideByContractSize = default(bool), RiskBumpOptions riskBumpOptions = default(RiskBumpOptions), Dictionary<string, string> fundingCurveByCurrency = default(Dictionary<string, string>), bool defaultPoolFactorsToUnity = default(bool))
         {
             this.ModelSelection = modelSelection;
             this.UseInstrumentTypeToDeterminePricer = useInstrumentTypeToDeterminePricer;
@@ -77,6 +78,7 @@ namespace Lusid.Sdk.Model
             this.ScaleInstrumentAccruedOverrideByContractSize = scaleInstrumentAccruedOverrideByContractSize;
             this.RiskBumpOptions = riskBumpOptions;
             this.FundingCurveByCurrency = fundingCurveByCurrency;
+            this.DefaultPoolFactorsToUnity = defaultPoolFactorsToUnity;
         }
 
         /// <summary>
@@ -230,6 +232,13 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, string> FundingCurveByCurrency { get; set; }
 
         /// <summary>
+        /// When true, an asset-backed instrument with no pool-factor history defaults the pool  factor to 1.0 (the full original face) instead of 0. When false (default), the factor  defaults to 0 as before, preserving current behaviour.
+        /// </summary>
+        /// <value>When true, an asset-backed instrument with no pool-factor history defaults the pool  factor to 1.0 (the full original face) instead of 0. When false (default), the factor  defaults to 0 as before, preserving current behaviour.</value>
+        [DataMember(Name = "defaultPoolFactorsToUnity", EmitDefaultValue = true)]
+        public bool DefaultPoolFactorsToUnity { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -259,6 +268,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ScaleInstrumentAccruedOverrideByContractSize: ").Append(ScaleInstrumentAccruedOverrideByContractSize).Append("\n");
             sb.Append("  RiskBumpOptions: ").Append(RiskBumpOptions).Append("\n");
             sb.Append("  FundingCurveByCurrency: ").Append(FundingCurveByCurrency).Append("\n");
+            sb.Append("  DefaultPoolFactorsToUnity: ").Append(DefaultPoolFactorsToUnity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -389,6 +399,10 @@ namespace Lusid.Sdk.Model
                     this.FundingCurveByCurrency != null &&
                     input.FundingCurveByCurrency != null &&
                     this.FundingCurveByCurrency.SequenceEqual(input.FundingCurveByCurrency)
+                ) && 
+                (
+                    this.DefaultPoolFactorsToUnity == input.DefaultPoolFactorsToUnity ||
+                    this.DefaultPoolFactorsToUnity.Equals(input.DefaultPoolFactorsToUnity)
                 );
         }
 
@@ -444,6 +458,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.FundingCurveByCurrency.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.DefaultPoolFactorsToUnity.GetHashCode();
                 return hashCode;
             }
         }

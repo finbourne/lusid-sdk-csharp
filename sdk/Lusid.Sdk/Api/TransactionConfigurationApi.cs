@@ -205,7 +205,7 @@ namespace Lusid.Sdk.Api
         /// ListTransactionTypes: List transaction types
         /// </summary>
         /// <remarks>
-        /// Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/docs/what-built-in-transaction-types-and-sides-are-provided-with-lusid.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
@@ -219,7 +219,7 @@ namespace Lusid.Sdk.Api
         /// ListTransactionTypes: List transaction types
         /// </summary>
         /// <remarks>
-        /// Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/docs/what-built-in-transaction-types-and-sides-are-provided-with-lusid.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
@@ -232,7 +232,7 @@ namespace Lusid.Sdk.Api
         /// SetSideDefinition: Set a side definition
         /// </summary>
         /// <remarks>
-        /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/docs/what-is-a-side.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -247,7 +247,7 @@ namespace Lusid.Sdk.Api
         /// SetSideDefinition: Set a side definition
         /// </summary>
         /// <remarks>
-        /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/docs/what-is-a-side.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -261,7 +261,7 @@ namespace Lusid.Sdk.Api
         /// SetSideDefinitions: Set the given side definitions
         /// </summary>
         /// <remarks>
-        /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/docs/what-is-a-side.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sidesDefinitionRequest">The list of side definitions to create, or replace.</param>
@@ -275,7 +275,7 @@ namespace Lusid.Sdk.Api
         /// SetSideDefinitions: Set the given side definitions
         /// </summary>
         /// <remarks>
-        /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/docs/what-is-a-side.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sidesDefinitionRequest">The list of side definitions to create, or replace.</param>
@@ -539,7 +539,7 @@ namespace Lusid.Sdk.Api
         /// ListTransactionTypes: List transaction types
         /// </summary>
         /// <remarks>
-        /// Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/docs/what-built-in-transaction-types-and-sides-are-provided-with-lusid.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
@@ -554,7 +554,7 @@ namespace Lusid.Sdk.Api
         /// ListTransactionTypes: List transaction types
         /// </summary>
         /// <remarks>
-        /// Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/docs/what-built-in-transaction-types-and-sides-are-provided-with-lusid.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
@@ -568,7 +568,7 @@ namespace Lusid.Sdk.Api
         /// SetSideDefinition: Set a side definition
         /// </summary>
         /// <remarks>
-        /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/docs/what-is-a-side.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -584,7 +584,7 @@ namespace Lusid.Sdk.Api
         /// SetSideDefinition: Set a side definition
         /// </summary>
         /// <remarks>
-        /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/docs/what-is-a-side.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -599,7 +599,7 @@ namespace Lusid.Sdk.Api
         /// SetSideDefinitions: Set the given side definitions
         /// </summary>
         /// <remarks>
-        /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/docs/what-is-a-side.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sidesDefinitionRequest">The list of side definitions to create, or replace.</param>
@@ -614,7 +614,7 @@ namespace Lusid.Sdk.Api
         /// SetSideDefinitions: Set the given side definitions
         /// </summary>
         /// <remarks>
-        /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/docs/what-is-a-side.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sidesDefinitionRequest">The list of side definitions to create, or replace.</param>
@@ -2171,7 +2171,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/docs/what-built-in-transaction-types-and-sides-are-provided-with-lusid.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
@@ -2186,7 +2186,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/docs/what-built-in-transaction-types-and-sides-are-provided-with-lusid.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
@@ -2276,7 +2276,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/docs/what-built-in-transaction-types-and-sides-are-provided-with-lusid.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
@@ -2292,7 +2292,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/docs/what-built-in-transaction-types-and-sides-are-provided-with-lusid.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
@@ -2383,7 +2383,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// SetSideDefinition: Set a side definition Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// SetSideDefinition: Set a side definition Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/docs/what-is-a-side.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -2399,7 +2399,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// SetSideDefinition: Set a side definition Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// SetSideDefinition: Set a side definition Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/docs/what-is-a-side.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -2503,7 +2503,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// SetSideDefinition: Set a side definition Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// SetSideDefinition: Set a side definition Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/docs/what-is-a-side.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -2520,7 +2520,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// SetSideDefinition: Set a side definition Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// SetSideDefinition: Set a side definition Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/docs/what-is-a-side.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -2626,7 +2626,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// SetSideDefinitions: Set the given side definitions Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// SetSideDefinitions: Set the given side definitions Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/docs/what-is-a-side.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sidesDefinitionRequest">The list of side definitions to create, or replace.</param>
@@ -2641,7 +2641,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// SetSideDefinitions: Set the given side definitions Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// SetSideDefinitions: Set the given side definitions Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/docs/what-is-a-side.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sidesDefinitionRequest">The list of side definitions to create, or replace.</param>
@@ -2737,7 +2737,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// SetSideDefinitions: Set the given side definitions Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// SetSideDefinitions: Set the given side definitions Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/docs/what-is-a-side.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sidesDefinitionRequest">The list of side definitions to create, or replace.</param>
@@ -2753,7 +2753,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// SetSideDefinitions: Set the given side definitions Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// SetSideDefinitions: Set the given side definitions Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/docs/what-is-a-side.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sidesDefinitionRequest">The list of side definitions to create, or replace.</param>

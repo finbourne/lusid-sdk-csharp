@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class AddressDefinition : IEquatable<AddressDefinition>, IValidatableObject
     {
         /// <summary>
-        /// Available values: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Result1D, Result2D, Json.
+        /// Available values: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Result1D, Result2D, Json, ResultND.
         /// </summary>
-        /// <value>Available values: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Result1D, Result2D, Json.</value>
+        /// <value>Available values: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Result1D, Result2D, Json, ResultND.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -93,26 +93,32 @@ namespace Lusid.Sdk.Model
             /// Enum Json for value: Json
             /// </summary>
             [EnumMember(Value = "Json")]
-            Json = 10
+            Json = 10,
+
+            /// <summary>
+            /// Enum ResultND for value: ResultND
+            /// </summary>
+            [EnumMember(Value = "ResultND")]
+            ResultND = 11
         }
 
 
         /// <summary>
-        /// Available values: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Result1D, Result2D, Json.
+        /// Available values: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Result1D, Result2D, Json, ResultND.
         /// </summary>
-        /// <value>Available values: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Result1D, Result2D, Json.</value>
+        /// <value>Available values: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Result1D, Result2D, Json, ResultND.</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="AddressDefinition" /> class.
         /// </summary>
         /// <param name="displayName">The display name of the address key..</param>
-        /// <param name="type">Available values: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Result1D, Result2D, Json..</param>
+        /// <param name="type">Available values: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Result1D, Result2D, Json, ResultND..</param>
         /// <param name="description">The description for this result..</param>
         /// <param name="lifeCycleStatus">What is the status of the address path. If it is not Production then it might be removed at some point in the future.  See the removal date for the likely timing of that if any..</param>
         /// <param name="removalDate">If the life-cycle status of the address is Deprecated then this is the date at which support of the address will be suspended.  After that date it will be removed at the earliest possible point subject to any specific contractual support and development constraints..</param>
         /// <param name="documentationLink">Contains a link to the documentation for this AddressDefinition in KnowledgeBase..</param>
-        /// <param name="axes">For keys whose type is a labelled vector or matrix (Result1D/Result2D), describes what the  labels on each axis mean. Null for scalar results and for shaped results whose axes have  not been described..</param>
+        /// <param name="axes">For keys whose type is a labelled vector or matrix (Result1D/Result2D), describes what the  labels on each axis mean. Null for scalar results and for shaped results whose axes have  not been described. Note the constructor below collapses an empty axes list to null, so a  described-but-empty axis set is indistinguishable from an undescribed one..</param>
         public AddressDefinition(string displayName = default(string), TypeEnum ?type = default(TypeEnum?), string description = default(string), string lifeCycleStatus = default(string), DateTimeOffset? removalDate = default(DateTimeOffset?), string documentationLink = default(string), List<ResultAxisDefinition> axes = default(List<ResultAxisDefinition>))
         {
             this.DisplayName = displayName;
@@ -160,9 +166,9 @@ namespace Lusid.Sdk.Model
         public string DocumentationLink { get; set; }
 
         /// <summary>
-        /// For keys whose type is a labelled vector or matrix (Result1D/Result2D), describes what the  labels on each axis mean. Null for scalar results and for shaped results whose axes have  not been described.
+        /// For keys whose type is a labelled vector or matrix (Result1D/Result2D), describes what the  labels on each axis mean. Null for scalar results and for shaped results whose axes have  not been described. Note the constructor below collapses an empty axes list to null, so a  described-but-empty axis set is indistinguishable from an undescribed one.
         /// </summary>
-        /// <value>For keys whose type is a labelled vector or matrix (Result1D/Result2D), describes what the  labels on each axis mean. Null for scalar results and for shaped results whose axes have  not been described.</value>
+        /// <value>For keys whose type is a labelled vector or matrix (Result1D/Result2D), describes what the  labels on each axis mean. Null for scalar results and for shaped results whose axes have  not been described. Note the constructor below collapses an empty axes list to null, so a  described-but-empty axis set is indistinguishable from an undescribed one.</value>
         [DataMember(Name = "axes", EmitDefaultValue = true)]
         public List<ResultAxisDefinition> Axes { get; set; }
 

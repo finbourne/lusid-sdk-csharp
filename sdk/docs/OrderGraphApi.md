@@ -55,12 +55,12 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrderGraphApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderGraphApi>();
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional) 
-            var paginationToken = "paginationToken_example";  // string? | See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional) 
+            var paginationToken = "paginationToken_example";  // string? | See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
-            var limit = 56;  // int? | See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional) 
-            var filter = "\"\"";  // string? | See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional)  (default to "")
-            var propertyKeys = new List<string>?(); // List<string>? | Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional) 
+            var limit = 56;  // int? | See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional) 
+            var filter = "\"\"";  // string? | See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional)  (default to "")
+            var propertyKeys = new List<string>?(); // List<string>? | Must be block-level properties. See https://support.lusid.com/docs/properties (optional) 
             var useComplianceV2 = false;  // bool? | Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional)  (default to false)
 
             try
@@ -107,12 +107,12 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **asAt** | **DateTimeOffset?** | See https://support.lusid.com/knowledgebase/article/KA-01832/ | [optional]  |
-| **paginationToken** | **string?** | See https://support.lusid.com/knowledgebase/article/KA-01915/ | [optional]  |
+| **asAt** | **DateTimeOffset?** | See https://support.lusid.com/docs/what-is-the-asat-timestamp | [optional]  |
+| **paginationToken** | **string?** | See https://support.lusid.com/docs/paging-and-limiting-an-api-request | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
-| **limit** | **int?** | See https://support.lusid.com/knowledgebase/article/KA-01915/ | [optional]  |
-| **filter** | **string?** | See https://support.lusid.com/knowledgebase/article/KA-01914/ | [optional] [default to &quot;&quot;] |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ | [optional]  |
+| **limit** | **int?** | See https://support.lusid.com/docs/paging-and-limiting-an-api-request | [optional]  |
+| **filter** | **string?** | See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid | [optional] [default to &quot;&quot;] |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | Must be block-level properties. See https://support.lusid.com/docs/properties | [optional]  |
 | **useComplianceV2** | **bool?** | Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) | [optional] [default to false] |
 
 ### Return type
@@ -183,11 +183,11 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderGraphApi>();
             var scope = "scope_example";  // string | The parent placement's scope
             var code = "code_example";  // string | The parent placement's code
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional) 
-            var paginationToken = "paginationToken_example";  // string? | See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional) 
+            var paginationToken = "paginationToken_example";  // string? | See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional) 
             var sortBy = new List<string>?(); // List<string>? | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional) 
-            var limit = 56;  // int? | See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional) 
+            var limit = 56;  // int? | See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | Must be placement properties. See https://support.lusid.com/docs/properties (optional) 
 
             try
             {
@@ -235,11 +235,11 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The parent placement&#39;s scope |  |
 | **code** | **string** | The parent placement&#39;s code |  |
-| **asAt** | **DateTimeOffset?** | See https://support.lusid.com/knowledgebase/article/KA-01832/ | [optional]  |
-| **paginationToken** | **string?** | See https://support.lusid.com/knowledgebase/article/KA-01915/ | [optional]  |
+| **asAt** | **DateTimeOffset?** | See https://support.lusid.com/docs/what-is-the-asat-timestamp | [optional]  |
+| **paginationToken** | **string?** | See https://support.lusid.com/docs/paging-and-limiting-an-api-request | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName. | [optional]  |
-| **limit** | **int?** | See https://support.lusid.com/knowledgebase/article/KA-01915/ | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ | [optional]  |
+| **limit** | **int?** | See https://support.lusid.com/docs/paging-and-limiting-an-api-request | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | Must be placement properties. See https://support.lusid.com/docs/properties | [optional]  |
 
 ### Return type
 
@@ -307,12 +307,12 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrderGraphApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderGraphApi>();
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional) 
-            var paginationToken = "paginationToken_example";  // string? | See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional) 
+            var paginationToken = "paginationToken_example";  // string? | See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
-            var limit = 56;  // int? | See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional) 
-            var filter = "\"\"";  // string? | See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional)  (default to "")
-            var propertyKeys = new List<string>?(); // List<string>? | Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional) 
+            var limit = 56;  // int? | See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional) 
+            var filter = "\"\"";  // string? | See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional)  (default to "")
+            var propertyKeys = new List<string>?(); // List<string>? | Must be placement properties. See https://support.lusid.com/docs/properties (optional) 
 
             try
             {
@@ -358,12 +358,12 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **asAt** | **DateTimeOffset?** | See https://support.lusid.com/knowledgebase/article/KA-01832/ | [optional]  |
-| **paginationToken** | **string?** | See https://support.lusid.com/knowledgebase/article/KA-01915/ | [optional]  |
+| **asAt** | **DateTimeOffset?** | See https://support.lusid.com/docs/what-is-the-asat-timestamp | [optional]  |
+| **paginationToken** | **string?** | See https://support.lusid.com/docs/paging-and-limiting-an-api-request | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
-| **limit** | **int?** | See https://support.lusid.com/knowledgebase/article/KA-01915/ | [optional]  |
-| **filter** | **string?** | See https://support.lusid.com/knowledgebase/article/KA-01914/ | [optional] [default to &quot;&quot;] |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ | [optional]  |
+| **limit** | **int?** | See https://support.lusid.com/docs/paging-and-limiting-an-api-request | [optional]  |
+| **filter** | **string?** | See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid | [optional] [default to &quot;&quot;] |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | Must be placement properties. See https://support.lusid.com/docs/properties | [optional]  |
 
 ### Return type
 

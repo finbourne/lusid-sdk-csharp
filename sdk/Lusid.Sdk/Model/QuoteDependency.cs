@@ -41,8 +41,9 @@ namespace Lusid.Sdk.Model
         /// <param name="marketIdentifier">Type of the code identifying the asset, e.g. ISIN or CUSIP (required).</param>
         /// <param name="code">The code identifying the corresponding equity, e.g. US0378331005 if the MarketIdentifier was set to ISIN (required).</param>
         /// <param name="date">The effectiveAt of the quote for the identified entity. (required).</param>
+        /// <param name="descriptor">Optional additional description of the quote being depended upon, e.g. the model or lineage that produced it.  When matching a dependency against supplied market data overrides, the descriptor must match as well as the identifier and code.  If omitted, the dependency has no descriptor..</param>
         /// <param name="dependencyType">Available values: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency. (required) (default to &quot;QuoteDependency&quot;).</param>
-        public QuoteDependency(string marketIdentifier = default(string), string code = default(string), DateTimeOffset date = default(DateTimeOffset), DependencyTypeEnum dependencyType = default(DependencyTypeEnum)) : base(dependencyType)
+        public QuoteDependency(string marketIdentifier = default(string), string code = default(string), DateTimeOffset date = default(DateTimeOffset), List<string> descriptor = default(List<string>), DependencyTypeEnum dependencyType = default(DependencyTypeEnum)) : base(dependencyType)
         {
             // to ensure "marketIdentifier" is required (not null)
             if (marketIdentifier == null)
@@ -57,6 +58,7 @@ namespace Lusid.Sdk.Model
             }
             this.Code = code;
             this.Date = date;
+            this.Descriptor = descriptor;
         }
 
         /// <summary>
@@ -81,6 +83,13 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset Date { get; set; }
 
         /// <summary>
+        /// Optional additional description of the quote being depended upon, e.g. the model or lineage that produced it.  When matching a dependency against supplied market data overrides, the descriptor must match as well as the identifier and code.  If omitted, the dependency has no descriptor.
+        /// </summary>
+        /// <value>Optional additional description of the quote being depended upon, e.g. the model or lineage that produced it.  When matching a dependency against supplied market data overrides, the descriptor must match as well as the identifier and code.  If omitted, the dependency has no descriptor.</value>
+        [DataMember(Name = "descriptor", EmitDefaultValue = true)]
+        public List<string> Descriptor { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,6 +101,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  MarketIdentifier: ").Append(MarketIdentifier).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
+            sb.Append("  Descriptor: ").Append(Descriptor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -141,6 +151,12 @@ namespace Lusid.Sdk.Model
                     this.Date == input.Date ||
                     (this.Date != null &&
                     this.Date.Equals(input.Date))
+                ) && base.Equals(input) && 
+                (
+                    this.Descriptor == input.Descriptor ||
+                    this.Descriptor != null &&
+                    input.Descriptor != null &&
+                    this.Descriptor.SequenceEqual(input.Descriptor)
                 );
         }
 
@@ -164,6 +180,10 @@ namespace Lusid.Sdk.Model
                 if (this.Date != null)
                 {
                     hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
+                if (this.Descriptor != null)
+                {
+                    hashCode = (hashCode * 59) + this.Descriptor.GetHashCode();
                 }
                 return hashCode;
             }

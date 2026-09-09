@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.RecInstance
-The expanded view of a rec instance: its identity, lifecycle status, lock state, closed periods  (for Closed Period windows) and the time-series of runs in the run log.
+The expanded view of a rec instance: its identity, lifecycle status, lock state, closed periods  (for Closed Period windows) and, per rec type, the time-series of runs in that rec type's run log.
 
 ## Properties
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **AsAtLocked** | **DateTimeOffset?** | The wall-clock time the lock action was performed. Null when the instance has not been locked. | [optional] 
 **DatesLocked** | [**RecDatesReconciled**](RecDatesReconciled.md) |  | [optional] 
 **ClosedPeriods** | [**RecClosedPeriods**](RecClosedPeriods.md) |  | [optional] 
-**RunLog** | [**List&lt;RecRunLogEntry&gt;**](RecRunLogEntry.md) | A chronologically ordered list of all runs on the instance. Always contains at least one entry. | 
+**RunLogs** | [**Dictionary&lt;string, RecRunLog&gt;**](RecRunLog.md) | The instance&#39;s run history, keyed by rec type. Contains an entry for each rec type that has produced a result set, so a run appears only once it has completed or failed. Empty while the instance&#39;s first run is still in flight. | 
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
@@ -30,7 +30,7 @@ RecDatesReconciled? datesLocked = new RecDatesReconciled();
 
 RecClosedPeriods? closedPeriods = new RecClosedPeriods();
 
-List<RecRunLogEntry> runLog = new List<RecRunLogEntry>();
+Dictionary<string, RecRunLog> runLogs = new Dictionary<string, RecRunLog>();
 string href = "example href";
 ModelVersion? varVersion = new ModelVersion();
 
@@ -45,7 +45,7 @@ RecInstance recInstanceInstance = new RecInstance(
     asAtLocked: asAtLocked,
     datesLocked: datesLocked,
     closedPeriods: closedPeriods,
-    runLog: runLog,
+    runLogs: runLogs,
     href: href,
     varVersion: varVersion,
     links: links);

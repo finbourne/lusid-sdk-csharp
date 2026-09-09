@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="QueryRelationalDatasetRequest" /> class.
         /// </summary>
         /// <param name="queryMethod">The method used to query data points. Can be either &#39;Latest&#39; or &#39;TimeSeries&#39;..</param>
-        /// <param name="filter">Expression to filter the result set. For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914..</param>
+        /// <param name="filter">Expression to filter the result set. For more information about filtering LUSID results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid..</param>
         /// <param name="customSortBy">A list of fields and values to sort the results by..</param>
         public QueryRelationalDatasetRequest(string queryMethod = default(string), string filter = default(string), List<CustomSortBy> customSortBy = default(List<CustomSortBy>))
         {
@@ -49,9 +49,9 @@ namespace Lusid.Sdk.Model
         public string QueryMethod { get; set; }
 
         /// <summary>
-        /// Expression to filter the result set. For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// Expression to filter the result set. For more information about filtering LUSID results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid.
         /// </summary>
-        /// <value>Expression to filter the result set. For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.</value>
+        /// <value>Expression to filter the result set. For more information about filtering LUSID results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid.</value>
         [DataMember(Name = "filter", EmitDefaultValue = true)]
         public string Filter { get; set; }
 

@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **ScaleInstrumentAccruedOverrideByContractSize** | **bool** | When enabled, an SRS InstrumentAccrued override is multiplied by the instrument contractSize (legacy behaviour).  By default this is disabled, and the override is treated as the accrued for a single unit, keeping the  holding-level identity PV &#x3D; CleanPv + Accrued consistent. | [optional] 
 **RiskBumpOptions** | [**RiskBumpOptions**](RiskBumpOptions.md) |  | [optional] 
 **FundingCurveByCurrency** | **Dictionary&lt;string, string&gt;** | Names the funding curve each currency discounts on, keyed by ISO 4217 currency code  (e.g. \&quot;GBP\&quot; -&gt; \&quot;GBPOIS-USDCOLL\&quot;). Keys are case-insensitive. A currency absent from  the map keeps the default funding curve, {CCY}OIS, so an absent or empty map leaves  every valuation unchanged. | [optional] 
+**DefaultPoolFactorsToUnity** | **bool** | When true, an asset-backed instrument with no pool-factor history defaults the pool  factor to 1.0 (the full original face) instead of 0. When false (default), the factor  defaults to 0 as before, preserving current behaviour. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -57,6 +58,7 @@ bool scaleInstrumentAccruedOverrideByContractSize = //"True";
 RiskBumpOptions? riskBumpOptions = new RiskBumpOptions();
 
 Dictionary<string, string> fundingCurveByCurrency = new Dictionary<string, string>();
+bool defaultPoolFactorsToUnity = //"True";
 
 PricingOptions pricingOptionsInstance = new PricingOptions(
     modelSelection: modelSelection,
@@ -80,7 +82,8 @@ PricingOptions pricingOptionsInstance = new PricingOptions(
     useInstrumentScaleFactorAsDefault: useInstrumentScaleFactorAsDefault,
     scaleInstrumentAccruedOverrideByContractSize: scaleInstrumentAccruedOverrideByContractSize,
     riskBumpOptions: riskBumpOptions,
-    fundingCurveByCurrency: fundingCurveByCurrency);
+    fundingCurveByCurrency: fundingCurveByCurrency,
+    defaultPoolFactorsToUnity: defaultPoolFactorsToUnity);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

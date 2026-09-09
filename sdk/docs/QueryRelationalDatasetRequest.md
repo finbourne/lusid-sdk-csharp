@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **QueryMethod** | **string** | The method used to query data points. Can be either &#39;Latest&#39; or &#39;TimeSeries&#39;. | [optional] 
-**Filter** | **string** | Expression to filter the result set. For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
+**Filter** | **string** | Expression to filter the result set. For more information about filtering LUSID results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. | [optional] 
 **CustomSortBy** | [**List&lt;CustomSortBy&gt;**](CustomSortBy.md) | A list of fields and values to sort the results by. | [optional] 
 
 ```csharp

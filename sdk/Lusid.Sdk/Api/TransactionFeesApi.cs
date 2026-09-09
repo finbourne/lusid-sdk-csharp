@@ -126,7 +126,7 @@ namespace Lusid.Sdk.Api
         /// ListTransactionFeeRules: List fee rules, with optional filtering.
         /// </summary>
         /// <remarks>
-        /// For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// For more information about filtering results,  see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
@@ -143,7 +143,7 @@ namespace Lusid.Sdk.Api
         /// ListTransactionFeeRules: List fee rules, with optional filtering.
         /// </summary>
         /// <remarks>
-        /// For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// For more information about filtering results,  see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
@@ -292,7 +292,7 @@ namespace Lusid.Sdk.Api
         /// ListTransactionFeeRules: List fee rules, with optional filtering.
         /// </summary>
         /// <remarks>
-        /// For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// For more information about filtering results,  see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
@@ -310,7 +310,7 @@ namespace Lusid.Sdk.Api
         /// ListTransactionFeeRules: List fee rules, with optional filtering.
         /// </summary>
         /// <remarks>
-        /// For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// For more information about filtering results,  see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
@@ -1188,7 +1188,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
@@ -1206,7 +1206,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
@@ -1314,7 +1314,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
@@ -1333,7 +1333,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>

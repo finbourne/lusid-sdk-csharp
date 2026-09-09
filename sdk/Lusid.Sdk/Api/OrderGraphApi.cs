@@ -38,12 +38,12 @@ namespace Lusid.Sdk.Api
         /// Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
-        /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
+        /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -57,12 +57,12 @@ namespace Lusid.Sdk.Api
         /// Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
-        /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
+        /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -77,11 +77,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The parent placement&#39;s scope</param>
         /// <param name="code">The parent placement&#39;s code</param>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfOrderGraphPlacement</returns>
@@ -96,11 +96,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The parent placement&#39;s scope</param>
         /// <param name="code">The parent placement&#39;s code</param>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfOrderGraphPlacement</returns>
@@ -112,12 +112,12 @@ namespace Lusid.Sdk.Api
         /// Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
-        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
+        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfOrderGraphPlacement</returns>
@@ -130,12 +130,12 @@ namespace Lusid.Sdk.Api
         /// Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
-        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
+        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfOrderGraphPlacement</returns>
@@ -156,12 +156,12 @@ namespace Lusid.Sdk.Api
         /// Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
-        /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
+        /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -176,12 +176,12 @@ namespace Lusid.Sdk.Api
         /// Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
-        /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
+        /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -197,11 +197,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The parent placement&#39;s scope</param>
         /// <param name="code">The parent placement&#39;s code</param>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -217,11 +217,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The parent placement&#39;s scope</param>
         /// <param name="code">The parent placement&#39;s code</param>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -234,12 +234,12 @@ namespace Lusid.Sdk.Api
         /// Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
-        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
+        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -253,12 +253,12 @@ namespace Lusid.Sdk.Api
         /// Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
-        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
+        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -391,12 +391,12 @@ namespace Lusid.Sdk.Api
         /// ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
-        /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
+        /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -411,12 +411,12 @@ namespace Lusid.Sdk.Api
         /// ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
-        /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
+        /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -531,12 +531,12 @@ namespace Lusid.Sdk.Api
         /// ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
-        /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
+        /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -552,12 +552,12 @@ namespace Lusid.Sdk.Api
         /// ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
-        /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
+        /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -670,11 +670,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The parent placement&#39;s scope</param>
         /// <param name="code">The parent placement&#39;s code</param>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfOrderGraphPlacement</returns>
@@ -690,11 +690,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The parent placement&#39;s scope</param>
         /// <param name="code">The parent placement&#39;s code</param>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfOrderGraphPlacement</returns>
@@ -814,11 +814,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The parent placement&#39;s scope</param>
         /// <param name="code">The parent placement&#39;s code</param>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -835,11 +835,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The parent placement&#39;s scope</param>
         /// <param name="code">The parent placement&#39;s code</param>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -955,12 +955,12 @@ namespace Lusid.Sdk.Api
         /// ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
-        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
+        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfOrderGraphPlacement</returns>
@@ -974,12 +974,12 @@ namespace Lusid.Sdk.Api
         /// ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
-        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
+        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfOrderGraphPlacement</returns>
@@ -1088,12 +1088,12 @@ namespace Lusid.Sdk.Api
         /// ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
-        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
+        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1108,12 +1108,12 @@ namespace Lusid.Sdk.Api
         /// ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
-        /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
+        /// <param name="asAt">See https://support.lusid.com/docs/what-is-the-asat-timestamp (optional)</param>
+        /// <param name="paginationToken">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
-        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
+        /// <param name="limit">See https://support.lusid.com/docs/paging-and-limiting-an-api-request (optional)</param>
+        /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
+        /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

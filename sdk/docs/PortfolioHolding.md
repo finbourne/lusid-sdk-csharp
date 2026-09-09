@@ -29,8 +29,6 @@ Name | Type | Description | Notes
 **UnsettledUnits** | **decimal** | The number of unsettled units for the holding. | [optional] 
 **OverdueUnits** | **decimal** | The number of unsettled units for the holding that are beyond their contractual settlement date. | [optional] 
 **CustodianAccount** | [**CustodianAccount**](CustodianAccount.md) |  | [optional] 
-**ResolvedCustodianAccount** | [**ResolvedCustodianAccount**](ResolvedCustodianAccount.md) |  | [optional] 
-**HoldingPropertyBalances** | **Dictionary&lt;string, decimal&gt;** | The latest running balance of each holding property maintained on the holding by transaction type holding property deltas, keyed by holding property key, for example &#39;CommittedCapital&#39;. Only populated when the holding has at least one balance. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -64,9 +62,6 @@ ResourceId? custodianAccountId = new ResourceId();
 decimal? unsettledUnits = "example unsettledUnits";decimal? overdueUnits = "example overdueUnits";
 CustodianAccount? custodianAccount = new CustodianAccount();
 
-ResolvedCustodianAccount? resolvedCustodianAccount = new ResolvedCustodianAccount();
-
-Dictionary<string, decimal> holdingPropertyBalances = new Dictionary<string, decimal>();
 
 PortfolioHolding portfolioHoldingInstance = new PortfolioHolding(
     instrumentScope: instrumentScope,
@@ -92,9 +87,7 @@ PortfolioHolding portfolioHoldingInstance = new PortfolioHolding(
     custodianAccountId: custodianAccountId,
     unsettledUnits: unsettledUnits,
     overdueUnits: overdueUnits,
-    custodianAccount: custodianAccount,
-    resolvedCustodianAccount: resolvedCustodianAccount,
-    holdingPropertyBalances: holdingPropertyBalances);
+    custodianAccount: custodianAccount);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

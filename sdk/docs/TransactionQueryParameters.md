@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **IncludeEconomics** | **bool** | By default is false. When set to true the Economics data would be populated in the response. | [optional] 
 **IncludeSettlementStatus** | **bool** | By default is false. When set to true the Settlement Status data would be populated in the response. | [optional] 
 **SettlementStatusDate** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | Optional date used to specify end of an extended window for settlement information. When provided, transactions will be returned between start and end date, but settlement information between start date and this date will be included. When provided, the value must be greater than or equal to end date. | [optional] 
+**ReturnExcludedTransactions** | **bool** | Option to specify whether or not to include transactions that are marked as excluded by the portfolio&#39;s transaction exclusion filter. Excluded transactions do not affect holdings. Defaults to false if not specified. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -27,6 +28,7 @@ string timelineCode = "example timelineCode";
 bool includeEconomics = //"True";
 bool includeSettlementStatus = //"True";
 DateTimeOrCutLabel settlementStatusDate = "example settlementStatusDate";
+bool returnExcludedTransactions = //"True";
 
 TransactionQueryParameters transactionQueryParametersInstance = new TransactionQueryParameters(
     startDate: startDate,
@@ -37,7 +39,8 @@ TransactionQueryParameters transactionQueryParametersInstance = new TransactionQ
     timelineCode: timelineCode,
     includeEconomics: includeEconomics,
     includeSettlementStatus: includeSettlementStatus,
-    settlementStatusDate: settlementStatusDate);
+    settlementStatusDate: settlementStatusDate,
+    returnExcludedTransactions: returnExcludedTransactions);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

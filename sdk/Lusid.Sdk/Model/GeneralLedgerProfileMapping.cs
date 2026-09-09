@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GeneralLedgerProfileMapping" /> class.
         /// </summary>
-        /// <param name="mappingFilter">The filter syntax for the Mapping filter. See https://support.lusid.com/knowledgebase/article/KA-02140 for more information on filter syntax (required).</param>
+        /// <param name="mappingFilter">The filter syntax for the Mapping filter. See https://support.lusid.com/docs/assigning-economic-activity-to-general-ledger-accounts-using-posting-rules for more information on filter syntax (required).</param>
         /// <param name="levels">References fields and properties on the associated Journal Entry Line and graph of associated objects. (required).</param>
         public GeneralLedgerProfileMapping(string mappingFilter = default(string), List<string> levels = default(List<string>))
         {
@@ -55,9 +55,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The filter syntax for the Mapping filter. See https://support.lusid.com/knowledgebase/article/KA-02140 for more information on filter syntax
+        /// The filter syntax for the Mapping filter. See https://support.lusid.com/docs/assigning-economic-activity-to-general-ledger-accounts-using-posting-rules for more information on filter syntax
         /// </summary>
-        /// <value>The filter syntax for the Mapping filter. See https://support.lusid.com/knowledgebase/article/KA-02140 for more information on filter syntax</value>
+        /// <value>The filter syntax for the Mapping filter. See https://support.lusid.com/docs/assigning-economic-activity-to-general-ledger-accounts-using-posting-rules for more information on filter syntax</value>
         [DataMember(Name = "mappingFilter", IsRequired = true, EmitDefaultValue = true)]
         public string MappingFilter { get; set; }
 

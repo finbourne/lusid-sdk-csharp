@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RuleId** | **string** | The identifier for the Cleardown Rule. | 
 **GeneralLedgerAccountCode** | **string** | The account to post the residual P&amp;L to. | 
-**RuleFilter** | **string** | The filter syntax for the Cleardown Rule. See https://support.lusid.com/knowledgebase/article/KA-02140 for more information on filter syntax. | 
+**RuleFilter** | **string** | The filter syntax for the Cleardown Rule. See https://support.lusid.com/docs/assigning-economic-activity-to-general-ledger-accounts-using-posting-rules for more information on filter syntax. | 
 
 ```csharp
 using Lusid.Sdk.Model;

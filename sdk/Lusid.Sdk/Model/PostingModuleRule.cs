@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="ruleId">The identifier for the Posting Rule. (required).</param>
         /// <param name="generalLedgerAccountCode">The general ledger account to post the Activity credit or debit to. (required).</param>
-        /// <param name="ruleFilter">The filter syntax for the Posting Rule. See https://support.lusid.com/knowledgebase/article/KA-02140 for more information on filter syntax. (required).</param>
+        /// <param name="ruleFilter">The filter syntax for the Posting Rule. See https://support.lusid.com/docs/assigning-economic-activity-to-general-ledger-accounts-using-posting-rules for more information on filter syntax. (required).</param>
         public PostingModuleRule(string ruleId = default(string), string generalLedgerAccountCode = default(string), string ruleFilter = default(string))
         {
             // to ensure "ruleId" is required (not null)
@@ -76,9 +76,9 @@ namespace Lusid.Sdk.Model
         public string GeneralLedgerAccountCode { get; set; }
 
         /// <summary>
-        /// The filter syntax for the Posting Rule. See https://support.lusid.com/knowledgebase/article/KA-02140 for more information on filter syntax.
+        /// The filter syntax for the Posting Rule. See https://support.lusid.com/docs/assigning-economic-activity-to-general-ledger-accounts-using-posting-rules for more information on filter syntax.
         /// </summary>
-        /// <value>The filter syntax for the Posting Rule. See https://support.lusid.com/knowledgebase/article/KA-02140 for more information on filter syntax.</value>
+        /// <value>The filter syntax for the Posting Rule. See https://support.lusid.com/docs/assigning-economic-activity-to-general-ledger-accounts-using-posting-rules for more information on filter syntax.</value>
         [DataMember(Name = "ruleFilter", IsRequired = true, EmitDefaultValue = true)]
         public string RuleFilter { get; set; }
 

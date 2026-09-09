@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A single run within an instance&#39;s run log. All runs share the same effective dates (frozen at  instantiation); each has a different asAt, advanced on re-run.
+    /// A summary of a single run of a single rec type within an instance&#39;s run log, carrying the per-run outcome  detail the grouped-by-instance overview renders. Every entry comes off a result set, so only a run that has  completed or failed appears: a run still in flight is not logged until it lands.
     /// </summary>
     [DataContract(Name = "RecRunLogEntry")]
     public partial class RecRunLogEntry : IEquatable<RecRunLogEntry>, IValidatableObject
@@ -40,7 +40,12 @@ namespace Lusid.Sdk.Model
         /// <param name="runAsAt">The asAt datetime at which the run happened. (required).</param>
         /// <param name="supersededAsAt">The asAt datetime at which this run was superseded by a subsequent run..</param>
         /// <param name="datesReconciled">datesReconciled (required).</param>
-        public RecRunLogEntry(int runNumber = default(int), DateTimeOffset runAsAt = default(DateTimeOffset), DateTimeOffset? supersededAsAt = default(DateTimeOffset?), RecDatesReconciled datesReconciled = default(RecDatesReconciled))
+        /// <param name="execution">execution (required).</param>
+        /// <param name="approvalStatus">The position of this result set in the approval ceremony. Available values: UnderReview, PendingApproval, RevisionsRequested, Approved, NotApplicable. (required).</param>
+        /// <param name="resultCounts">resultCounts.</param>
+        /// <param name="review">review.</param>
+        /// <param name="recResultSetHref">The specific Uniform Resource Identifier (URI) of the full rec result set this run belongs to. (required).</param>
+        public RecRunLogEntry(int runNumber = default(int), DateTimeOffset runAsAt = default(DateTimeOffset), DateTimeOffset? supersededAsAt = default(DateTimeOffset?), RecDatesReconciled datesReconciled = default(RecDatesReconciled), RecExecution execution = default(RecExecution), string approvalStatus = default(string), RecResultCounts resultCounts = default(RecResultCounts), RecReview review = default(RecReview), string recResultSetHref = default(string))
         {
             this.RunNumber = runNumber;
             this.RunAsAt = runAsAt;
@@ -50,7 +55,27 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("datesReconciled is a required property for RecRunLogEntry and cannot be null");
             }
             this.DatesReconciled = datesReconciled;
+            // to ensure "execution" is required (not null)
+            if (execution == null)
+            {
+                throw new ArgumentNullException("execution is a required property for RecRunLogEntry and cannot be null");
+            }
+            this.Execution = execution;
+            // to ensure "approvalStatus" is required (not null)
+            if (approvalStatus == null)
+            {
+                throw new ArgumentNullException("approvalStatus is a required property for RecRunLogEntry and cannot be null");
+            }
+            this.ApprovalStatus = approvalStatus;
+            // to ensure "recResultSetHref" is required (not null)
+            if (recResultSetHref == null)
+            {
+                throw new ArgumentNullException("recResultSetHref is a required property for RecRunLogEntry and cannot be null");
+            }
+            this.RecResultSetHref = recResultSetHref;
             this.SupersededAsAt = supersededAsAt;
+            this.ResultCounts = resultCounts;
+            this.Review = review;
         }
 
         /// <summary>
@@ -81,6 +106,38 @@ namespace Lusid.Sdk.Model
         public RecDatesReconciled DatesReconciled { get; set; }
 
         /// <summary>
+        /// Gets or Sets Execution
+        /// </summary>
+        [DataMember(Name = "execution", IsRequired = true, EmitDefaultValue = true)]
+        public RecExecution Execution { get; set; }
+
+        /// <summary>
+        /// The position of this result set in the approval ceremony. Available values: UnderReview, PendingApproval, RevisionsRequested, Approved, NotApplicable.
+        /// </summary>
+        /// <value>The position of this result set in the approval ceremony. Available values: UnderReview, PendingApproval, RevisionsRequested, Approved, NotApplicable.</value>
+        [DataMember(Name = "approvalStatus", IsRequired = true, EmitDefaultValue = true)]
+        public string ApprovalStatus { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ResultCounts
+        /// </summary>
+        [DataMember(Name = "resultCounts", EmitDefaultValue = false)]
+        public RecResultCounts ResultCounts { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Review
+        /// </summary>
+        [DataMember(Name = "review", EmitDefaultValue = false)]
+        public RecReview Review { get; set; }
+
+        /// <summary>
+        /// The specific Uniform Resource Identifier (URI) of the full rec result set this run belongs to.
+        /// </summary>
+        /// <value>The specific Uniform Resource Identifier (URI) of the full rec result set this run belongs to.</value>
+        [DataMember(Name = "recResultSetHref", IsRequired = true, EmitDefaultValue = true)]
+        public string RecResultSetHref { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,6 +149,11 @@ namespace Lusid.Sdk.Model
             sb.Append("  RunAsAt: ").Append(RunAsAt).Append("\n");
             sb.Append("  SupersededAsAt: ").Append(SupersededAsAt).Append("\n");
             sb.Append("  DatesReconciled: ").Append(DatesReconciled).Append("\n");
+            sb.Append("  Execution: ").Append(Execution).Append("\n");
+            sb.Append("  ApprovalStatus: ").Append(ApprovalStatus).Append("\n");
+            sb.Append("  ResultCounts: ").Append(ResultCounts).Append("\n");
+            sb.Append("  Review: ").Append(Review).Append("\n");
+            sb.Append("  RecResultSetHref: ").Append(RecResultSetHref).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -145,6 +207,31 @@ namespace Lusid.Sdk.Model
                     this.DatesReconciled == input.DatesReconciled ||
                     (this.DatesReconciled != null &&
                     this.DatesReconciled.Equals(input.DatesReconciled))
+                ) && 
+                (
+                    this.Execution == input.Execution ||
+                    (this.Execution != null &&
+                    this.Execution.Equals(input.Execution))
+                ) && 
+                (
+                    this.ApprovalStatus == input.ApprovalStatus ||
+                    (this.ApprovalStatus != null &&
+                    this.ApprovalStatus.Equals(input.ApprovalStatus))
+                ) && 
+                (
+                    this.ResultCounts == input.ResultCounts ||
+                    (this.ResultCounts != null &&
+                    this.ResultCounts.Equals(input.ResultCounts))
+                ) && 
+                (
+                    this.Review == input.Review ||
+                    (this.Review != null &&
+                    this.Review.Equals(input.Review))
+                ) && 
+                (
+                    this.RecResultSetHref == input.RecResultSetHref ||
+                    (this.RecResultSetHref != null &&
+                    this.RecResultSetHref.Equals(input.RecResultSetHref))
                 );
         }
 
@@ -170,6 +257,26 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.DatesReconciled.GetHashCode();
                 }
+                if (this.Execution != null)
+                {
+                    hashCode = (hashCode * 59) + this.Execution.GetHashCode();
+                }
+                if (this.ApprovalStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.ApprovalStatus.GetHashCode();
+                }
+                if (this.ResultCounts != null)
+                {
+                    hashCode = (hashCode * 59) + this.ResultCounts.GetHashCode();
+                }
+                if (this.Review != null)
+                {
+                    hashCode = (hashCode * 59) + this.Review.GetHashCode();
+                }
+                if (this.RecResultSetHref != null)
+                {
+                    hashCode = (hashCode * 59) + this.RecResultSetHref.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -181,6 +288,12 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // ApprovalStatus (string) minLength
+            if (this.ApprovalStatus != null && this.ApprovalStatus.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApprovalStatus, length must be greater than 1.", new [] { "ApprovalStatus" });
+            }
+
             yield break;
         }
     }
