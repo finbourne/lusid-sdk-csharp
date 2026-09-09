@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A single result-value shape whose structure is derived from &#x60;dimension&#x60;, replacing one  hand-maintained type per rank (Result0D/Result1D/Result2D). Additive and opt-in: existing  consumers of those types see no change to their response bytes.
+    /// A single result-value shape whose structure is derived from &#x60;dimension&#x60;, replacing one  hand-maintained type per rank (Result0D/Result1D/Result2D). Risk measures of dimension 1, 2  or 3 - the ladders, the surfaces and the IR vol cubes - now report this shape rather than  Result1D/Result2D, so their response bytes change: the values arrive nested and dense here  (see &#x60;values&#x60;), where the legacy types carried a flat \&quot;(row,column)\&quot;-keyed map that  elided unquoted coordinates, and the units arrive as one flat list rather than the doubled  &#x60;{ units: { units: [] } }&#x60; wrapper. Dimension 0 measures are untouched and stay on the  legacy shapes.
     /// </summary>
     [DataContract(Name = "ResultND")]
     public partial class ResultND : IEquatable<ResultND>, IValidatableObject
@@ -34,10 +34,10 @@ namespace Lusid.Sdk.Model
         /// <param name="dimension">The rank of the result, 0..N. Determines which of &#x60;value&#x60; / &#x60;values&#x60; is populated  and how deeply &#x60;values&#x60; is nested..</param>
         /// <param name="labels">One ordered array of labels per axis, index to label, in the same axis order as  &#x60;AddressDefinition.Axes&#x60;. Length equals &#x60;dimension&#x60;; empty for a scalar..</param>
         /// <param name="value">The scalar value. Present if and only if &#x60;dimension&#x60; is 0..</param>
-        /// <param name="values">The values, flattened row-major with axis 0 outermost and dense - a coordinate the legacy  format would have elided is materialised as 0. The shape is read off &#x60;labels&#x60;: position  (i0, i1, ..., ik) is at offset i0 * len(labels[1]) * ... * len(labels[k]) + i1 * ... + ik.  Present if and only if &#x60;dimension&#x60; is at least 1..</param>
+        /// <param name="values">The values, nested exactly &#x60;dimension&#x60; deep (axis 0 outermost) and dense - a coordinate  the legacy format would have elided is null, never a fabricated number. Present if and only  if &#x60;dimension&#x60; is at least 1..</param>
         /// <param name="hasAnnotation">Unchanged from Result0D/1D/2D..</param>
         /// <param name="units">A flat list of dimensional-analysis units, replacing the doubled  &#x60;{ units: { units: [] } }&#x60; wrapper on the legacy types. The count reflects the order of  the derivative (e.g. two entries for a ratio such as a rates delta), not the result&#39;s axes..</param>
-        public ResultND(int dimension = default(int), List<List<string>> labels = default(List<List<string>>), decimal? value = default(decimal?), List<decimal> values = default(List<decimal>), bool hasAnnotation = default(bool), List<UnitDimension> units = default(List<UnitDimension>))
+        public ResultND(int dimension = default(int), List<List<string>> labels = default(List<List<string>>), decimal? value = default(decimal?), Object values = default(Object), bool hasAnnotation = default(bool), List<UnitDimension> units = default(List<UnitDimension>))
         {
             this.Dimension = dimension;
             this.Labels = labels;
@@ -84,11 +84,11 @@ namespace Lusid.Sdk.Model
         public decimal? Value { get; set; }
 
         /// <summary>
-        /// The values, flattened row-major with axis 0 outermost and dense - a coordinate the legacy  format would have elided is materialised as 0. The shape is read off &#x60;labels&#x60;: position  (i0, i1, ..., ik) is at offset i0 * len(labels[1]) * ... * len(labels[k]) + i1 * ... + ik.  Present if and only if &#x60;dimension&#x60; is at least 1.
+        /// The values, nested exactly &#x60;dimension&#x60; deep (axis 0 outermost) and dense - a coordinate  the legacy format would have elided is null, never a fabricated number. Present if and only  if &#x60;dimension&#x60; is at least 1.
         /// </summary>
-        /// <value>The values, flattened row-major with axis 0 outermost and dense - a coordinate the legacy  format would have elided is materialised as 0. The shape is read off &#x60;labels&#x60;: position  (i0, i1, ..., ik) is at offset i0 * len(labels[1]) * ... * len(labels[k]) + i1 * ... + ik.  Present if and only if &#x60;dimension&#x60; is at least 1.</value>
+        /// <value>The values, nested exactly &#x60;dimension&#x60; deep (axis 0 outermost) and dense - a coordinate  the legacy format would have elided is null, never a fabricated number. Present if and only  if &#x60;dimension&#x60; is at least 1.</value>
         [DataMember(Name = "values", EmitDefaultValue = true)]
-        public List<decimal> Values { get; set; }
+        public Object Values { get; set; }
 
         /// <summary>
         /// Unchanged from Result0D/1D/2D.
@@ -176,9 +176,8 @@ namespace Lusid.Sdk.Model
                 ) && 
                 (
                     this.Values == input.Values ||
-                    this.Values != null &&
-                    input.Values != null &&
-                    this.Values.SequenceEqual(input.Values)
+                    (this.Values != null &&
+                    this.Values.Equals(input.Values))
                 ) && 
                 (
                     this.HasAnnotation == input.HasAnnotation ||

@@ -184,11 +184,11 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="index">The inflation index name the curve is keyed by, e.g. UKRPI or EUHICPXT. (required).</param>
         /// <param name="amount">The size of the shift, in the units given by Scale: basis points on the zero-coupon  rates by default (50 means +50bps), or a percentage of each rate when Scale is  Percentage (1 means rates scaled by 1.01)..</param>
-        /// <param name="startTenor">startTenor.</param>
-        /// <param name="endTenor">endTenor.</param>
+        /// <param name="startTenor">The near end of the tenor window the shift applies over, resolved against the valuation  date. A whole number of units, in any case: BD (business day), D, W, M, Q or Qtr, SA  (semi-annual), Y or A - for example \&quot;1BD\&quot;, \&quot;3m\&quot;, \&quot;6M\&quot;, \&quot;1Qtr\&quot;, \&quot;5y\&quot;. Omitted, the window  is open at this end and every point up to EndTenor is in it..</param>
+        /// <param name="endTenor">The far end of the tenor window, in the same units as StartTenor. Omitted, the window is  open at this end..</param>
         /// <param name="shiftType">Available values: Parallel, Steepen, Flatten, Twist, Tent. (required).</param>
         /// <param name="scale">Available values: Bps, Percentage..</param>
-        /// <param name="pivotTenor">The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape. Only  valid with ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. Declared  last on purpose: generated SDKs emit their positional constructor in property-declaration  order, and this property must not shift the parameters of the ones before it..</param>
+        /// <param name="pivotTenor">The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape. Only  valid with ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. In the  same units as StartTenor. Declared last on purpose: generated SDKs emit their positional  constructor in property-declaration order, and this property must not shift the parameters  of the ones before it..</param>
         /// <param name="windowBounds">Available values: Inclusive, StartExclusive, EndExclusive, Exclusive..</param>
         /// <param name="minimumAmountBps">The smallest magnitude, in basis points, of the shift finally applied at each curve point,  evaluated per point AFTER the shape weight, in the direction the shift acts there. Exactly  the rate curve shift&#39;s MinimumAmountBps - see that field for the full semantics; the two  curve shifts keep one vocabulary. Omitted, no floor applies - today&#39;s behaviour.  Declared after PivotTenor on purpose, for the constructor-ordering reason given there..</param>
         /// <param name="applyWhenValue">Available values: Any, Positive, Negative..</param>
@@ -227,21 +227,23 @@ namespace Lusid.Sdk.Model
         public decimal? Amount { get; set; }
 
         /// <summary>
-        /// Gets or Sets StartTenor
+        /// The near end of the tenor window the shift applies over, resolved against the valuation  date. A whole number of units, in any case: BD (business day), D, W, M, Q or Qtr, SA  (semi-annual), Y or A - for example \&quot;1BD\&quot;, \&quot;3m\&quot;, \&quot;6M\&quot;, \&quot;1Qtr\&quot;, \&quot;5y\&quot;. Omitted, the window  is open at this end and every point up to EndTenor is in it.
         /// </summary>
+        /// <value>The near end of the tenor window the shift applies over, resolved against the valuation  date. A whole number of units, in any case: BD (business day), D, W, M, Q or Qtr, SA  (semi-annual), Y or A - for example \&quot;1BD\&quot;, \&quot;3m\&quot;, \&quot;6M\&quot;, \&quot;1Qtr\&quot;, \&quot;5y\&quot;. Omitted, the window  is open at this end and every point up to EndTenor is in it.</value>
         [DataMember(Name = "startTenor", EmitDefaultValue = true)]
         public string StartTenor { get; set; }
 
         /// <summary>
-        /// Gets or Sets EndTenor
+        /// The far end of the tenor window, in the same units as StartTenor. Omitted, the window is  open at this end.
         /// </summary>
+        /// <value>The far end of the tenor window, in the same units as StartTenor. Omitted, the window is  open at this end.</value>
         [DataMember(Name = "endTenor", EmitDefaultValue = true)]
         public string EndTenor { get; set; }
 
         /// <summary>
-        /// The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape. Only  valid with ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. Declared  last on purpose: generated SDKs emit their positional constructor in property-declaration  order, and this property must not shift the parameters of the ones before it.
+        /// The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape. Only  valid with ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. In the  same units as StartTenor. Declared last on purpose: generated SDKs emit their positional  constructor in property-declaration order, and this property must not shift the parameters  of the ones before it.
         /// </summary>
-        /// <value>The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape. Only  valid with ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. Declared  last on purpose: generated SDKs emit their positional constructor in property-declaration  order, and this property must not shift the parameters of the ones before it.</value>
+        /// <value>The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape. Only  valid with ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. In the  same units as StartTenor. Declared last on purpose: generated SDKs emit their positional  constructor in property-declaration order, and this property must not shift the parameters  of the ones before it.</value>
         [DataMember(Name = "pivotTenor", EmitDefaultValue = true)]
         public string PivotTenor { get; set; }
 
@@ -453,7 +455,7 @@ namespace Lusid.Sdk.Model
             }
 
             // StartTenor (string) pattern
-            Regex regexStartTenor = new Regex(@"^\d+[mywdMYWD]$", RegexOptions.CultureInvariant);
+            Regex regexStartTenor = new Regex(@"^\d+(?:[Bb][Dd]|[Qq][Tt][Rr]|[Ss][Aa]|[Dd]|[Ww]|[Mm]|[Qq]|[Yy]|[Aa])$", RegexOptions.CultureInvariant);
             if (false == regexStartTenor.Match(this.StartTenor).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartTenor, must match a pattern of " + regexStartTenor, new [] { "StartTenor" });
@@ -472,7 +474,7 @@ namespace Lusid.Sdk.Model
             }
 
             // EndTenor (string) pattern
-            Regex regexEndTenor = new Regex(@"^\d+[mywdMYWD]$", RegexOptions.CultureInvariant);
+            Regex regexEndTenor = new Regex(@"^\d+(?:[Bb][Dd]|[Qq][Tt][Rr]|[Ss][Aa]|[Dd]|[Ww]|[Mm]|[Qq]|[Yy]|[Aa])$", RegexOptions.CultureInvariant);
             if (false == regexEndTenor.Match(this.EndTenor).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EndTenor, must match a pattern of " + regexEndTenor, new [] { "EndTenor" });
@@ -491,7 +493,7 @@ namespace Lusid.Sdk.Model
             }
 
             // PivotTenor (string) pattern
-            Regex regexPivotTenor = new Regex(@"^\d+[mywdMYWD]$", RegexOptions.CultureInvariant);
+            Regex regexPivotTenor = new Regex(@"^\d+(?:[Bb][Dd]|[Qq][Tt][Rr]|[Ss][Aa]|[Dd]|[Ww]|[Mm]|[Qq]|[Yy]|[Aa])$", RegexOptions.CultureInvariant);
             if (false == regexPivotTenor.Match(this.PivotTenor).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PivotTenor, must match a pattern of " + regexPivotTenor, new [] { "PivotTenor" });
