@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **FundingLeg** | [**InstrumentLeg**](InstrumentLeg.md) |  | 
 **AdditionalPayments** | [**List&lt;AdditionalPayment&gt;**](AdditionalPayment.md) | Optional additional payments at a given date e.g. to level off an uneven total return swap.  The dates must be distinct and either all payments are Pay or all payments are Receive. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
+**TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -22,6 +23,8 @@ InstrumentLeg fundingLeg = new InstrumentLeg();
 List<AdditionalPayment> additionalPayments = new List<AdditionalPayment>();
 TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
 
+TradingConventions? tradingConventions = new TradingConventions();
+
 
 TotalReturnSwap totalReturnSwapInstance = new TotalReturnSwap(
     startDate: startDate,
@@ -29,7 +32,8 @@ TotalReturnSwap totalReturnSwapInstance = new TotalReturnSwap(
     assetLeg: assetLeg,
     fundingLeg: fundingLeg,
     additionalPayments: additionalPayments,
-    timeZoneConventions: timeZoneConventions);
+    timeZoneConventions: timeZoneConventions,
+    tradingConventions: tradingConventions);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

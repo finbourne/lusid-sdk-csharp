@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="GeneratedEventDiagnostics" /> class.
         /// </summary>
         /// <param name="instrumentEventId">instrumentEventId (required).</param>
-        /// <param name="type">Available values: MarketDataFailure, TransactionFailure, EventCombinationFailure, RepodOutHolding, ScheduleFailure. (required).</param>
+        /// <param name="type">Available values: MarketDataFailure, TransactionFailure, EventCombinationFailure, RepodOutHolding, ScheduleFailure, ModelSubstitution. (required).</param>
         /// <param name="detail">detail (required).</param>
         /// <param name="errorDetails">errorDetails (required).</param>
         public GeneratedEventDiagnostics(string instrumentEventId = default(string), string type = default(string), string detail = default(string), List<string> errorDetails = default(List<string>))
@@ -75,9 +75,9 @@ namespace Lusid.Sdk.Model
         public string InstrumentEventId { get; set; }
 
         /// <summary>
-        /// Available values: MarketDataFailure, TransactionFailure, EventCombinationFailure, RepodOutHolding, ScheduleFailure.
+        /// Available values: MarketDataFailure, TransactionFailure, EventCombinationFailure, RepodOutHolding, ScheduleFailure, ModelSubstitution.
         /// </summary>
-        /// <value>Available values: MarketDataFailure, TransactionFailure, EventCombinationFailure, RepodOutHolding, ScheduleFailure.</value>
+        /// <value>Available values: MarketDataFailure, TransactionFailure, EventCombinationFailure, RepodOutHolding, ScheduleFailure, ModelSubstitution.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **OrderId** | [**ResourceId**](ResourceId.md) |  | 
 **Order** | [**TransferAgencyOrderToEstimate**](TransferAgencyOrderToEstimate.md) |  | [optional] 
+**PriceDate** | **DateTimeOffset?** |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -18,7 +19,8 @@ TransferAgencyOrderToEstimate? order = new TransferAgencyOrderToEstimate();
 
 EstimateTransferAgencyOrderRequest estimateTransferAgencyOrderRequestInstance = new EstimateTransferAgencyOrderRequest(
     orderId: orderId,
-    order: order);
+    order: order,
+    priceDate: priceDate);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

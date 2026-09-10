@@ -45,9 +45,8 @@ namespace Lusid.Sdk.Model
         /// <param name="quantity">quantity.</param>
         /// <param name="amount">amount.</param>
         /// <param name="weight">weight.</param>
-        /// <param name="transactionDate">transactionDate.</param>
         /// <param name="exchangeRate">exchangeRate.</param>
-        public TransferAgencyOrderToEstimate(ResourceId portfolioId = default(ResourceId), string instrumentIdentifierType = default(string), string instrumentIdentifier = default(string), string instrumentScope = default(string), string transactionCategory = default(string), string currency = default(string), decimal? quantity = default(decimal?), decimal? amount = default(decimal?), decimal? weight = default(decimal?), DateTimeOffset? transactionDate = default(DateTimeOffset?), decimal? exchangeRate = default(decimal?))
+        public TransferAgencyOrderToEstimate(ResourceId portfolioId = default(ResourceId), string instrumentIdentifierType = default(string), string instrumentIdentifier = default(string), string instrumentScope = default(string), string transactionCategory = default(string), string currency = default(string), decimal? quantity = default(decimal?), decimal? amount = default(decimal?), decimal? weight = default(decimal?), decimal? exchangeRate = default(decimal?))
         {
             // to ensure "portfolioId" is required (not null)
             if (portfolioId == null)
@@ -78,7 +77,6 @@ namespace Lusid.Sdk.Model
             this.Quantity = quantity;
             this.Amount = amount;
             this.Weight = weight;
-            this.TransactionDate = transactionDate;
             this.ExchangeRate = exchangeRate;
         }
 
@@ -138,12 +136,6 @@ namespace Lusid.Sdk.Model
         public decimal? Weight { get; set; }
 
         /// <summary>
-        /// Gets or Sets TransactionDate
-        /// </summary>
-        [DataMember(Name = "transactionDate", EmitDefaultValue = true)]
-        public DateTimeOffset? TransactionDate { get; set; }
-
-        /// <summary>
         /// Gets or Sets ExchangeRate
         /// </summary>
         [DataMember(Name = "exchangeRate", EmitDefaultValue = true)]
@@ -166,7 +158,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Weight: ").Append(Weight).Append("\n");
-            sb.Append("  TransactionDate: ").Append(TransactionDate).Append("\n");
             sb.Append("  ExchangeRate: ").Append(ExchangeRate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -249,11 +240,6 @@ namespace Lusid.Sdk.Model
                     this.Weight.Equals(input.Weight))
                 ) && 
                 (
-                    this.TransactionDate == input.TransactionDate ||
-                    (this.TransactionDate != null &&
-                    this.TransactionDate.Equals(input.TransactionDate))
-                ) && 
-                (
                     this.ExchangeRate == input.ExchangeRate ||
                     (this.ExchangeRate != null &&
                     this.ExchangeRate.Equals(input.ExchangeRate))
@@ -304,10 +290,6 @@ namespace Lusid.Sdk.Model
                 if (this.Weight != null)
                 {
                     hashCode = (hashCode * 59) + this.Weight.GetHashCode();
-                }
-                if (this.TransactionDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.TransactionDate.GetHashCode();
                 }
                 if (this.ExchangeRate != null)
                 {

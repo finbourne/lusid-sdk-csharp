@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **Quantity** | **decimal?** |  | [optional] 
 **Amount** | **decimal?** |  | [optional] 
 **Weight** | **decimal?** |  | [optional] 
-**TransactionDate** | **DateTimeOffset?** |  | [optional] 
 **ExchangeRate** | **decimal?** |  | [optional] 
 
 ```csharp
@@ -38,7 +37,6 @@ TransferAgencyOrderToEstimate transferAgencyOrderToEstimateInstance = new Transf
     quantity: quantity,
     amount: amount,
     weight: weight,
-    transactionDate: transactionDate,
     exchangeRate: exchangeRate);
 ```
 
