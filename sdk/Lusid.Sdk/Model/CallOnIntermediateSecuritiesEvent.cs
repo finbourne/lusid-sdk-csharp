@@ -46,8 +46,11 @@ namespace Lusid.Sdk.Model
         /// <param name="exerciseCurrency">The currency of the exercise. (required).</param>
         /// <param name="optionExerciseElections">Option exercise election for this event..</param>
         /// <param name="lapseElections">Lapse election for this event..</param>
-        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent. (required) (default to &quot;CallOnIntermediateSecuritiesEvent&quot;).</param>
-        public CallOnIntermediateSecuritiesEvent(DateTimeOffset expiryDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), NewInstrument newInstrument = default(NewInstrument), UnitsRatio unitsRatio = default(UnitsRatio), decimal price = default(decimal), string exerciseCurrency = default(string), List<OptionExerciseElection> optionExerciseElections = default(List<OptionExerciseElection>), List<LapseElection> lapseElections = default(List<LapseElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="oversubscribeElections">List of possible oversubscribe elections for this event (OVER) — subscribe for more than the entitled amount..</param>
+        /// <param name="sellEntitlementElections">List of possible sell-entitlement elections for this event (SLLE) — sell the intermediate securities rather than exercise..</param>
+        /// <param name="unknownProceedsElections">List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known..</param>
+        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent. (required) (default to &quot;CallOnIntermediateSecuritiesEvent&quot;).</param>
+        public CallOnIntermediateSecuritiesEvent(DateTimeOffset expiryDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), NewInstrument newInstrument = default(NewInstrument), UnitsRatio unitsRatio = default(UnitsRatio), decimal price = default(decimal), string exerciseCurrency = default(string), List<OptionExerciseElection> optionExerciseElections = default(List<OptionExerciseElection>), List<LapseElection> lapseElections = default(List<LapseElection>), List<OversubscribeElection> oversubscribeElections = default(List<OversubscribeElection>), List<SellEntitlementElection> sellEntitlementElections = default(List<SellEntitlementElection>), List<UnknownProceedsElection> unknownProceedsElections = default(List<UnknownProceedsElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "newInstrument" is required (not null)
             if (newInstrument == null)
@@ -72,6 +75,9 @@ namespace Lusid.Sdk.Model
             this.PaymentDate = paymentDate;
             this.OptionExerciseElections = optionExerciseElections;
             this.LapseElections = lapseElections;
+            this.OversubscribeElections = oversubscribeElections;
+            this.SellEntitlementElections = sellEntitlementElections;
+            this.UnknownProceedsElections = unknownProceedsElections;
         }
 
         /// <summary>
@@ -129,6 +135,27 @@ namespace Lusid.Sdk.Model
         public List<LapseElection> LapseElections { get; set; }
 
         /// <summary>
+        /// List of possible oversubscribe elections for this event (OVER) — subscribe for more than the entitled amount.
+        /// </summary>
+        /// <value>List of possible oversubscribe elections for this event (OVER) — subscribe for more than the entitled amount.</value>
+        [DataMember(Name = "oversubscribeElections", EmitDefaultValue = true)]
+        public List<OversubscribeElection> OversubscribeElections { get; set; }
+
+        /// <summary>
+        /// List of possible sell-entitlement elections for this event (SLLE) — sell the intermediate securities rather than exercise.
+        /// </summary>
+        /// <value>List of possible sell-entitlement elections for this event (SLLE) — sell the intermediate securities rather than exercise.</value>
+        [DataMember(Name = "sellEntitlementElections", EmitDefaultValue = true)]
+        public List<SellEntitlementElection> SellEntitlementElections { get; set; }
+
+        /// <summary>
+        /// List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known.
+        /// </summary>
+        /// <value>List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known.</value>
+        [DataMember(Name = "unknownProceedsElections", EmitDefaultValue = true)]
+        public List<UnknownProceedsElection> UnknownProceedsElections { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -145,6 +172,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  ExerciseCurrency: ").Append(ExerciseCurrency).Append("\n");
             sb.Append("  OptionExerciseElections: ").Append(OptionExerciseElections).Append("\n");
             sb.Append("  LapseElections: ").Append(LapseElections).Append("\n");
+            sb.Append("  OversubscribeElections: ").Append(OversubscribeElections).Append("\n");
+            sb.Append("  SellEntitlementElections: ").Append(SellEntitlementElections).Append("\n");
+            sb.Append("  UnknownProceedsElections: ").Append(UnknownProceedsElections).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -220,6 +250,24 @@ namespace Lusid.Sdk.Model
                     this.LapseElections != null &&
                     input.LapseElections != null &&
                     this.LapseElections.SequenceEqual(input.LapseElections)
+                ) && base.Equals(input) && 
+                (
+                    this.OversubscribeElections == input.OversubscribeElections ||
+                    this.OversubscribeElections != null &&
+                    input.OversubscribeElections != null &&
+                    this.OversubscribeElections.SequenceEqual(input.OversubscribeElections)
+                ) && base.Equals(input) && 
+                (
+                    this.SellEntitlementElections == input.SellEntitlementElections ||
+                    this.SellEntitlementElections != null &&
+                    input.SellEntitlementElections != null &&
+                    this.SellEntitlementElections.SequenceEqual(input.SellEntitlementElections)
+                ) && base.Equals(input) && 
+                (
+                    this.UnknownProceedsElections == input.UnknownProceedsElections ||
+                    this.UnknownProceedsElections != null &&
+                    input.UnknownProceedsElections != null &&
+                    this.UnknownProceedsElections.SequenceEqual(input.UnknownProceedsElections)
                 );
         }
 
@@ -260,6 +308,18 @@ namespace Lusid.Sdk.Model
                 if (this.LapseElections != null)
                 {
                     hashCode = (hashCode * 59) + this.LapseElections.GetHashCode();
+                }
+                if (this.OversubscribeElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.OversubscribeElections.GetHashCode();
+                }
+                if (this.SellEntitlementElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.SellEntitlementElections.GetHashCode();
+                }
+                if (this.UnknownProceedsElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnknownProceedsElections.GetHashCode();
                 }
                 return hashCode;
             }

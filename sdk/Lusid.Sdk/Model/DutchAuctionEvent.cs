@@ -46,6 +46,7 @@ namespace Lusid.Sdk.Model
         /// <param name="cashAndSecurityOfferElections">List of possible CashAndSecurityOfferElections for this event. Populated on the CASE path  (Count &#x3D;&#x3D; 1); empty on the CASH and SECU paths..</param>
         /// <param name="lapseElections">List of possible LapseElections for this event. Required on all three paths (Count &#x3D;&#x3D; 1).  Allows the holder to opt out of the offer (NOAC)..</param>
         /// <param name="mixedLotConstituentsElections">List of possible MixedLotConstituentsElections for this event, if any. Each election settles into one or more  distinct new securities and/or cash legs of its own, in place of the single event-level NewInstrument the  SecurityOffer and CashAndSecurityOffer paths resolve to.    Several may be present: a Dutch Auction commonly offers a number of mutually exclusive destinations, and each  is described by its own election. Not applicable to the CASH path, which has no security leg to multiply..</param>
+        /// <param name="unknownProceedsElections">List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known..</param>
         /// <param name="responseDeadlineDate">Account-servicer response deadline. Defaults to MarketDeadlineDate when not supplied.  When provided, must be on or before MarketDeadlineDate..</param>
         /// <param name="earlyResponseDeadline">Early-participation deadline. When provided, must be on or before ResponseDeadlineDate..</param>
         /// <param name="exDate">The ex date of the event. Optional; carried for cross-event consistency..</param>
@@ -57,8 +58,8 @@ namespace Lusid.Sdk.Model
         /// <param name="fractionalUnitsCashPrice">Cash-in-lieu price per fractional unit on the SECU and CASE paths.  Null indicates round-down disposition of fractional remainders.  Distinct from the CASE path&#39;s main cash settlement (which lives on CashAndSecurityOfferElection)..</param>
         /// <param name="fractionalUnitsCashCurrency">Currency of the cash-in-lieu paid on fractional remainders on the SECU and CASE paths.  Required when FractionalUnitsCashPrice is non-null..</param>
         /// <param name="bidPrice">Per-holder bid price submitted at instruction time. Audit-only; no calculation impact..</param>
-        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent. (required) (default to &quot;DutchAuctionEvent&quot;).</param>
-        public DutchAuctionEvent(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset marketDeadlineDate = default(DateTimeOffset), string currency = default(string), List<TenderOfferElection> tenderOfferElections = default(List<TenderOfferElection>), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<LapseElection> lapseElections = default(List<LapseElection>), List<MixedLotConstituentsElection> mixedLotConstituentsElections = default(List<MixedLotConstituentsElection>), DateTimeOffset? responseDeadlineDate = default(DateTimeOffset?), DateTimeOffset? earlyResponseDeadline = default(DateTimeOffset?), DateTimeOffset? exDate = default(DateTimeOffset?), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset? announcementDate = default(DateTimeOffset?), decimal? targetQuantity = default(decimal?), decimal prorationRate = default(decimal), NewInstrument newInstrument = default(NewInstrument), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), decimal? bidPrice = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent. (required) (default to &quot;DutchAuctionEvent&quot;).</param>
+        public DutchAuctionEvent(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset marketDeadlineDate = default(DateTimeOffset), string currency = default(string), List<TenderOfferElection> tenderOfferElections = default(List<TenderOfferElection>), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<LapseElection> lapseElections = default(List<LapseElection>), List<MixedLotConstituentsElection> mixedLotConstituentsElections = default(List<MixedLotConstituentsElection>), List<UnknownProceedsElection> unknownProceedsElections = default(List<UnknownProceedsElection>), DateTimeOffset? responseDeadlineDate = default(DateTimeOffset?), DateTimeOffset? earlyResponseDeadline = default(DateTimeOffset?), DateTimeOffset? exDate = default(DateTimeOffset?), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset? announcementDate = default(DateTimeOffset?), decimal? targetQuantity = default(decimal?), decimal prorationRate = default(decimal), NewInstrument newInstrument = default(NewInstrument), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), decimal? bidPrice = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.PaymentDate = paymentDate;
             this.MarketDeadlineDate = marketDeadlineDate;
@@ -68,6 +69,7 @@ namespace Lusid.Sdk.Model
             this.CashAndSecurityOfferElections = cashAndSecurityOfferElections;
             this.LapseElections = lapseElections;
             this.MixedLotConstituentsElections = mixedLotConstituentsElections;
+            this.UnknownProceedsElections = unknownProceedsElections;
             this.ResponseDeadlineDate = responseDeadlineDate;
             this.EarlyResponseDeadline = earlyResponseDeadline;
             this.ExDate = exDate;
@@ -136,6 +138,13 @@ namespace Lusid.Sdk.Model
         /// <value>List of possible MixedLotConstituentsElections for this event, if any. Each election settles into one or more  distinct new securities and/or cash legs of its own, in place of the single event-level NewInstrument the  SecurityOffer and CashAndSecurityOffer paths resolve to.    Several may be present: a Dutch Auction commonly offers a number of mutually exclusive destinations, and each  is described by its own election. Not applicable to the CASH path, which has no security leg to multiply.</value>
         [DataMember(Name = "mixedLotConstituentsElections", EmitDefaultValue = true)]
         public List<MixedLotConstituentsElection> MixedLotConstituentsElections { get; set; }
+
+        /// <summary>
+        /// List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known.
+        /// </summary>
+        /// <value>List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known.</value>
+        [DataMember(Name = "unknownProceedsElections", EmitDefaultValue = true)]
+        public List<UnknownProceedsElection> UnknownProceedsElections { get; set; }
 
         /// <summary>
         /// Account-servicer response deadline. Defaults to MarketDeadlineDate when not supplied.  When provided, must be on or before MarketDeadlineDate.
@@ -230,6 +239,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CashAndSecurityOfferElections: ").Append(CashAndSecurityOfferElections).Append("\n");
             sb.Append("  LapseElections: ").Append(LapseElections).Append("\n");
             sb.Append("  MixedLotConstituentsElections: ").Append(MixedLotConstituentsElections).Append("\n");
+            sb.Append("  UnknownProceedsElections: ").Append(UnknownProceedsElections).Append("\n");
             sb.Append("  ResponseDeadlineDate: ").Append(ResponseDeadlineDate).Append("\n");
             sb.Append("  EarlyResponseDeadline: ").Append(EarlyResponseDeadline).Append("\n");
             sb.Append("  ExDate: ").Append(ExDate).Append("\n");
@@ -320,6 +330,12 @@ namespace Lusid.Sdk.Model
                     this.MixedLotConstituentsElections != null &&
                     input.MixedLotConstituentsElections != null &&
                     this.MixedLotConstituentsElections.SequenceEqual(input.MixedLotConstituentsElections)
+                ) && base.Equals(input) && 
+                (
+                    this.UnknownProceedsElections == input.UnknownProceedsElections ||
+                    this.UnknownProceedsElections != null &&
+                    input.UnknownProceedsElections != null &&
+                    this.UnknownProceedsElections.SequenceEqual(input.UnknownProceedsElections)
                 ) && base.Equals(input) && 
                 (
                     this.ResponseDeadlineDate == input.ResponseDeadlineDate ||
@@ -417,6 +433,10 @@ namespace Lusid.Sdk.Model
                 if (this.MixedLotConstituentsElections != null)
                 {
                     hashCode = (hashCode * 59) + this.MixedLotConstituentsElections.GetHashCode();
+                }
+                if (this.UnknownProceedsElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnknownProceedsElections.GetHashCode();
                 }
                 if (this.ResponseDeadlineDate != null)
                 {

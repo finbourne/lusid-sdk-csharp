@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule
+        /// DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule
         /// </summary>
         /// <remarks>
         /// Delete the Quote Access Metadata Rule that exactly matches the provided identifier parts
@@ -52,7 +52,7 @@ namespace Lusid.Sdk.Api
         QuoteAccessMetadataRule DeleteQuoteAccessMetadataRule(string scope, string? provider = default(string?), string? priceSource = default(string?), string? instrumentIdType = default(string?), string? instrumentId = default(string?), string? quoteType = default(string?), string? field = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule
+        /// DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule
         /// </summary>
         /// <remarks>
         /// Delete the Quote Access Metadata Rule that exactly matches the provided identifier parts
@@ -131,7 +131,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of GetQuotesResponse</returns>
         Lusid.Sdk.Client.ApiResponse<GetQuotesResponse> GetQuotesWithHttpInfo(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), Dictionary<string, QuoteSeriesId>? requestBody = default(Dictionary<string, QuoteSeriesId>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetQuotesAccessMetadataRule: Get a quote access metadata rule
+        /// GetQuotesAccessMetadataRule: Get a quote access metadata rule
         /// </summary>
         /// <remarks>
         /// Get a specific quote access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
@@ -152,7 +152,7 @@ namespace Lusid.Sdk.Api
         QuoteAccessMetadataRule GetQuotesAccessMetadataRule(string scope, string? provider = default(string?), string? priceSource = default(string?), string? instrumentIdType = default(string?), string? instrumentId = default(string?), string? quoteType = default(string?), string? field = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetQuotesAccessMetadataRule: Get a quote access metadata rule
+        /// GetQuotesAccessMetadataRule: Get a quote access metadata rule
         /// </summary>
         /// <remarks>
         /// Get a specific quote access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
@@ -205,7 +205,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfQuote</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfQuote> ListQuotesWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope
+        /// ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope
         /// </summary>
         /// <remarks>
         /// Get all the quote access metadata rules in the specified scope
@@ -219,7 +219,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfQuoteAccessMetadataRule ListQuotesAccessMetadataRules(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope
+        /// ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope
         /// </summary>
         /// <remarks>
         /// Get all the quote access metadata rules in the specified scope
@@ -265,7 +265,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfQuote</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfQuote> ListQuotesForScopeWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
+        /// UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
         /// </summary>
         /// <remarks>
         /// Update or insert one Quote Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Quote Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a key can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
@@ -281,7 +281,7 @@ namespace Lusid.Sdk.Api
         QuoteAccessMetadataRule UpsertQuoteAccessMetadataRule(string scope, UpsertQuoteAccessMetadataRuleRequest upsertQuoteAccessMetadataRuleRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
+        /// UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
         /// </summary>
         /// <remarks>
         /// Update or insert one Quote Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Quote Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a key can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
@@ -332,7 +332,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule
+        /// DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule
         /// </summary>
         /// <remarks>
         /// Delete the Quote Access Metadata Rule that exactly matches the provided identifier parts
@@ -353,7 +353,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<QuoteAccessMetadataRule> DeleteQuoteAccessMetadataRuleAsync(string scope, string? provider = default(string?), string? priceSource = default(string?), string? instrumentIdType = default(string?), string? instrumentId = default(string?), string? quoteType = default(string?), string? field = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule
+        /// DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule
         /// </summary>
         /// <remarks>
         /// Delete the Quote Access Metadata Rule that exactly matches the provided identifier parts
@@ -437,7 +437,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (GetQuotesResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetQuotesResponse>> GetQuotesWithHttpInfoAsync(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), Dictionary<string, QuoteSeriesId>? requestBody = default(Dictionary<string, QuoteSeriesId>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetQuotesAccessMetadataRule: Get a quote access metadata rule
+        /// GetQuotesAccessMetadataRule: Get a quote access metadata rule
         /// </summary>
         /// <remarks>
         /// Get a specific quote access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
@@ -459,7 +459,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<QuoteAccessMetadataRule> GetQuotesAccessMetadataRuleAsync(string scope, string? provider = default(string?), string? priceSource = default(string?), string? instrumentIdType = default(string?), string? instrumentId = default(string?), string? quoteType = default(string?), string? field = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetQuotesAccessMetadataRule: Get a quote access metadata rule
+        /// GetQuotesAccessMetadataRule: Get a quote access metadata rule
         /// </summary>
         /// <remarks>
         /// Get a specific quote access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
@@ -515,7 +515,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfQuote)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfQuote>> ListQuotesWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope
+        /// ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope
         /// </summary>
         /// <remarks>
         /// Get all the quote access metadata rules in the specified scope
@@ -530,7 +530,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfQuoteAccessMetadataRule> ListQuotesAccessMetadataRulesAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope
+        /// ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope
         /// </summary>
         /// <remarks>
         /// Get all the quote access metadata rules in the specified scope
@@ -579,7 +579,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfQuote)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfQuote>> ListQuotesForScopeWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
+        /// UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
         /// </summary>
         /// <remarks>
         /// Update or insert one Quote Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Quote Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a key can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
@@ -596,7 +596,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<QuoteAccessMetadataRule> UpsertQuoteAccessMetadataRuleAsync(string scope, UpsertQuoteAccessMetadataRuleRequest upsertQuoteAccessMetadataRuleRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
+        /// UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
         /// </summary>
         /// <remarks>
         /// Update or insert one Quote Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Quote Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a key can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
@@ -764,7 +764,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule Delete the Quote Access Metadata Rule that exactly matches the provided identifier parts
+        /// DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule Delete the Quote Access Metadata Rule that exactly matches the provided identifier parts
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Quote Access Metadata Rule to retrieve.</param>
@@ -785,7 +785,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule Delete the Quote Access Metadata Rule that exactly matches the provided identifier parts
+        /// DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule Delete the Quote Access Metadata Rule that exactly matches the provided identifier parts
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Quote Access Metadata Rule to retrieve.</param>
@@ -913,7 +913,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule Delete the Quote Access Metadata Rule that exactly matches the provided identifier parts
+        /// DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule Delete the Quote Access Metadata Rule that exactly matches the provided identifier parts
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Quote Access Metadata Rule to retrieve.</param>
@@ -935,7 +935,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule Delete the Quote Access Metadata Rule that exactly matches the provided identifier parts
+        /// DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule Delete the Quote Access Metadata Rule that exactly matches the provided identifier parts
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Quote Access Metadata Rule to retrieve.</param>
@@ -1534,7 +1534,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetQuotesAccessMetadataRule: Get a quote access metadata rule Get a specific quote access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
+        /// GetQuotesAccessMetadataRule: Get a quote access metadata rule Get a specific quote access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Quote Access Metadata Rule to retrieve.</param>
@@ -1556,7 +1556,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetQuotesAccessMetadataRule: Get a quote access metadata rule Get a specific quote access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
+        /// GetQuotesAccessMetadataRule: Get a quote access metadata rule Get a specific quote access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Quote Access Metadata Rule to retrieve.</param>
@@ -1690,7 +1690,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetQuotesAccessMetadataRule: Get a quote access metadata rule Get a specific quote access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
+        /// GetQuotesAccessMetadataRule: Get a quote access metadata rule Get a specific quote access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Quote Access Metadata Rule to retrieve.</param>
@@ -1713,7 +1713,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetQuotesAccessMetadataRule: Get a quote access metadata rule Get a specific quote access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
+        /// GetQuotesAccessMetadataRule: Get a quote access metadata rule Get a specific quote access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Quote Access Metadata Rule to retrieve.</param>
@@ -2098,7 +2098,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope Get all the quote access metadata rules in the specified scope
+        /// ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope Get all the quote access metadata rules in the specified scope
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Quote Access Metadata Rule to retrieve.</param>
@@ -2113,7 +2113,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope Get all the quote access metadata rules in the specified scope
+        /// ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope Get all the quote access metadata rules in the specified scope
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Quote Access Metadata Rule to retrieve.</param>
@@ -2205,7 +2205,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope Get all the quote access metadata rules in the specified scope
+        /// ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope Get all the quote access metadata rules in the specified scope
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Quote Access Metadata Rule to retrieve.</param>
@@ -2221,7 +2221,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope Get all the quote access metadata rules in the specified scope
+        /// ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope Get all the quote access metadata rules in the specified scope
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Quote Access Metadata Rule to retrieve.</param>
@@ -2571,7 +2571,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID. Update or insert one Quote Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Quote Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a key can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID. Update or insert one Quote Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Quote Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a key can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to use when updating or inserting the Quote Access Metadata Rule.</param>
@@ -2588,7 +2588,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID. Update or insert one Quote Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Quote Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a key can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID. Update or insert one Quote Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Quote Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a key can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to use when updating or inserting the Quote Access Metadata Rule.</param>
@@ -2698,7 +2698,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID. Update or insert one Quote Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Quote Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a key can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID. Update or insert one Quote Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Quote Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a key can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to use when updating or inserting the Quote Access Metadata Rule.</param>
@@ -2716,7 +2716,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID. Update or insert one Quote Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Quote Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a key can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID. Update or insert one Quote Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Quote Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a key can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to use when updating or inserting the Quote Access Metadata Rule.</param>

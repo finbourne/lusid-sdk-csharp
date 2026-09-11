@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **RuleName** | **string** | The name of the rule. | 
 **LeftValue** | **string** | The left-side value. | [optional] 
 **RightValue** | **string** | The right-side value. | [optional] 
-**Difference** | **string** | The measured magnitude of the difference, ToString(ABS(leftValue - rightValue)). | 
+**Difference** | **string** | The measured magnitude of the difference, ToString(ABS(leftValue - rightValue)). | [optional] 
 **AppliedTolerance** | [**ToleranceBase**](ToleranceBase.md) |  | [optional] 
 
 ```csharp
@@ -18,7 +18,7 @@ using System;
 string ruleName = "ruleName";
 string leftValue = "example leftValue";
 string rightValue = "example rightValue";
-string difference = "difference";
+string difference = "example difference";
 ToleranceBase? appliedTolerance = new ToleranceBase();
 
 

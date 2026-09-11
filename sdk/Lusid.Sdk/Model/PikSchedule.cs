@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A PikSchedule represents Payment-in-Kind features for a ComplexBond.  It works in conjunction with existing FixedSchedules or FloatSchedules to define  how interest is paid during duration of the schedule.
+    /// A PikSchedule represents Payment-in-Kind features for a ComplexBond, a FlexibleLoan or a LoanFacility.  It works in conjunction with existing FixedSchedules or FloatSchedules to define  how interest is paid during duration of the schedule.
     /// </summary>
     [DataContract(Name = "PikSchedule")]
     [JsonConverter(typeof(JsonSubtypes), "ScheduleType")]
@@ -46,8 +46,10 @@ namespace Lusid.Sdk.Model
         /// <param name="pikPaymentType">The type of PIK payment to be used for the duration of this schedule.  InterestCapitalisation adds the paid-in-kind portion to the bond&#39;s current face;  AdditionalSecurities settles it by delivering units of another instrument, named on each  period&#39;s PikBondInterestEvent; Electable leaves the choice to a per-period election.                Supported string (enumeration) values are: [Electable, InterestCapitalisation, AdditionalSecurities]..</param>
         /// <param name="pikRate">The PIK interest rate. Must be greater than or equal to zero.  null indicates no override PIK interest rate..</param>
         /// <param name="pikSpread">The PIK spread to be added to the base rate for the final PIK rate.  null indicates no spread on base rate..</param>
+        /// <param name="pikTravelsFree">Whether the in-kind entitlement travels with the traded position for the whole period, the way bond  interest does, rather than being earned from settlement the way loan cash interest is. When true, a  holder who buys before the period end takes the full-period in-kind amount on the amount bought even  if the trade settles after the ex-date. When false, the in-kind amount is day-weighted on the settled  balance path and the settled holder keeps it. Defaults to true. Bank debt only: a ComplexBond&#39;s  in-kind entitlement already follows the record date.                Nullable in the constructor and initialised here, unlike the generated shape: Newtonsoft passes  default(bool) for a value-type constructor parameter the payload omits, so a plain  &#x60;bool pikTravelsFree &#x3D; true&#x60; would come back false for every client that did not state it..</param>
+        /// <param name="pikInterestBasis">Whether the in-kind leg stands in place of the cash leg or is paid on top of it.                Alternative, the default, is the toggling structure: one period&#39;s interest settled partly in cash  and partly in kind, so the cash leg settles the complement of PikFraction and the period&#39;s  interest is the weighted sum of the two accruals, lying between them. Additional makes the two  separate legs of one loan, each settled in full, so the period&#39;s interest is their sum and  PikFraction weights only the in-kind leg.                The two accruals cannot be told apart without this: 500 accrued in cash against 600 in kind is  560 of interest on one reading and 1,100 on the other. A PikMargin schedule is Additional  whichever is stated, because the margin is already carved out of the coupon.                Defaulted here as well as in the constructor for the reason PikTravelsFree is..</param>
         /// <param name="scheduleType">Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, CommodityCalendarSchedule, Invalid, CancelSchedule. (required) (default to &quot;PikSchedule&quot;).</param>
-        public PikSchedule(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), bool isPikFractionElectable = default(bool), decimal? pikFraction = default(decimal?), decimal? pikMargin = default(decimal?), string pikPaymentType = default(string), decimal? pikRate = default(decimal?), decimal? pikSpread = default(decimal?), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
+        public PikSchedule(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), bool isPikFractionElectable = default(bool), decimal? pikFraction = default(decimal?), decimal? pikMargin = default(decimal?), string pikPaymentType = default(string), decimal? pikRate = default(decimal?), decimal? pikSpread = default(decimal?), bool pikTravelsFree = default(bool), string pikInterestBasis = default(string), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -57,6 +59,8 @@ namespace Lusid.Sdk.Model
             this.PikPaymentType = pikPaymentType;
             this.PikRate = pikRate;
             this.PikSpread = pikSpread;
+            this.PikTravelsFree = pikTravelsFree;
+            this.PikInterestBasis = pikInterestBasis;
         }
 
         /// <summary>
@@ -116,6 +120,20 @@ namespace Lusid.Sdk.Model
         public decimal? PikSpread { get; set; }
 
         /// <summary>
+        /// Whether the in-kind entitlement travels with the traded position for the whole period, the way bond  interest does, rather than being earned from settlement the way loan cash interest is. When true, a  holder who buys before the period end takes the full-period in-kind amount on the amount bought even  if the trade settles after the ex-date. When false, the in-kind amount is day-weighted on the settled  balance path and the settled holder keeps it. Defaults to true. Bank debt only: a ComplexBond&#39;s  in-kind entitlement already follows the record date.                Nullable in the constructor and initialised here, unlike the generated shape: Newtonsoft passes  default(bool) for a value-type constructor parameter the payload omits, so a plain  &#x60;bool pikTravelsFree &#x3D; true&#x60; would come back false for every client that did not state it.
+        /// </summary>
+        /// <value>Whether the in-kind entitlement travels with the traded position for the whole period, the way bond  interest does, rather than being earned from settlement the way loan cash interest is. When true, a  holder who buys before the period end takes the full-period in-kind amount on the amount bought even  if the trade settles after the ex-date. When false, the in-kind amount is day-weighted on the settled  balance path and the settled holder keeps it. Defaults to true. Bank debt only: a ComplexBond&#39;s  in-kind entitlement already follows the record date.                Nullable in the constructor and initialised here, unlike the generated shape: Newtonsoft passes  default(bool) for a value-type constructor parameter the payload omits, so a plain  &#x60;bool pikTravelsFree &#x3D; true&#x60; would come back false for every client that did not state it.</value>
+        [DataMember(Name = "pikTravelsFree", EmitDefaultValue = true)]
+        public bool PikTravelsFree { get; set; }
+
+        /// <summary>
+        /// Whether the in-kind leg stands in place of the cash leg or is paid on top of it.                Alternative, the default, is the toggling structure: one period&#39;s interest settled partly in cash  and partly in kind, so the cash leg settles the complement of PikFraction and the period&#39;s  interest is the weighted sum of the two accruals, lying between them. Additional makes the two  separate legs of one loan, each settled in full, so the period&#39;s interest is their sum and  PikFraction weights only the in-kind leg.                The two accruals cannot be told apart without this: 500 accrued in cash against 600 in kind is  560 of interest on one reading and 1,100 on the other. A PikMargin schedule is Additional  whichever is stated, because the margin is already carved out of the coupon.                Defaulted here as well as in the constructor for the reason PikTravelsFree is.
+        /// </summary>
+        /// <value>Whether the in-kind leg stands in place of the cash leg or is paid on top of it.                Alternative, the default, is the toggling structure: one period&#39;s interest settled partly in cash  and partly in kind, so the cash leg settles the complement of PikFraction and the period&#39;s  interest is the weighted sum of the two accruals, lying between them. Additional makes the two  separate legs of one loan, each settled in full, so the period&#39;s interest is their sum and  PikFraction weights only the in-kind leg.                The two accruals cannot be told apart without this: 500 accrued in cash against 600 in kind is  560 of interest on one reading and 1,100 on the other. A PikMargin schedule is Additional  whichever is stated, because the margin is already carved out of the coupon.                Defaulted here as well as in the constructor for the reason PikTravelsFree is.</value>
+        [DataMember(Name = "pikInterestBasis", EmitDefaultValue = true)]
+        public string PikInterestBasis { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -132,6 +150,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  PikPaymentType: ").Append(PikPaymentType).Append("\n");
             sb.Append("  PikRate: ").Append(PikRate).Append("\n");
             sb.Append("  PikSpread: ").Append(PikSpread).Append("\n");
+            sb.Append("  PikTravelsFree: ").Append(PikTravelsFree).Append("\n");
+            sb.Append("  PikInterestBasis: ").Append(PikInterestBasis).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -205,6 +225,15 @@ namespace Lusid.Sdk.Model
                     this.PikSpread == input.PikSpread ||
                     (this.PikSpread != null &&
                     this.PikSpread.Equals(input.PikSpread))
+                ) && base.Equals(input) && 
+                (
+                    this.PikTravelsFree == input.PikTravelsFree ||
+                    this.PikTravelsFree.Equals(input.PikTravelsFree)
+                ) && base.Equals(input) && 
+                (
+                    this.PikInterestBasis == input.PikInterestBasis ||
+                    (this.PikInterestBasis != null &&
+                    this.PikInterestBasis.Equals(input.PikInterestBasis))
                 );
         }
 
@@ -245,6 +274,11 @@ namespace Lusid.Sdk.Model
                 if (this.PikSpread != null)
                 {
                     hashCode = (hashCode * 59) + this.PikSpread.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.PikTravelsFree.GetHashCode();
+                if (this.PikInterestBasis != null)
+                {
+                    hashCode = (hashCode * 59) + this.PikInterestBasis.GetHashCode();
                 }
                 return hashCode;
             }

@@ -46,6 +46,10 @@ namespace Lusid.Sdk.Model
         /// <param name="securityOfferElections">securityOfferElections.</param>
         /// <param name="mixedLotConstituentsElections">mixedLotConstituentsElections.</param>
         /// <param name="lapseElections">lapseElections.</param>
+        /// <param name="cashAndSecurityOfferElections">List of possible CashAndSecurityOfferElections for this exchange offer event..</param>
+        /// <param name="consentAndExchangeElections">List of possible consent-and-exchange elections for this event (CTEN-style consent paired with the exchange)..</param>
+        /// <param name="abstainElections">List of possible abstain elections for this event (ABST) — decline to vote on the consent..</param>
+        /// <param name="unknownProceedsElections">List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known..</param>
         /// <param name="minPieceSize">minPieceSize.</param>
         /// <param name="minIncrement">minIncrement.</param>
         /// <param name="fractionalUnitsCashPrice">fractionalUnitsCashPrice.</param>
@@ -53,8 +57,8 @@ namespace Lusid.Sdk.Model
         /// <param name="fractionalUnitsRoundingConvention">The convention used to round the fractional units entitlement. Defaults to Floor. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding..</param>
         /// <param name="fractionalUnitsDecimalPlaces">The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces..</param>
         /// <param name="instructionReference">instructionReference.</param>
-        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent. (required) (default to &quot;ExchangeOfferEvent&quot;).</param>
-        public ExchangeOfferEvent(DateTimeOffset effectiveDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), string eventSource = default(string), NewInstrument newInstrument = default(NewInstrument), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), List<MixedLotConstituentsElection> mixedLotConstituentsElections = default(List<MixedLotConstituentsElection>), List<LapseElection> lapseElections = default(List<LapseElection>), decimal? minPieceSize = default(decimal?), decimal? minIncrement = default(decimal?), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), string fractionalUnitsRoundingConvention = default(string), int? fractionalUnitsDecimalPlaces = default(int?), string instructionReference = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent. (required) (default to &quot;ExchangeOfferEvent&quot;).</param>
+        public ExchangeOfferEvent(DateTimeOffset effectiveDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), string eventSource = default(string), NewInstrument newInstrument = default(NewInstrument), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), List<MixedLotConstituentsElection> mixedLotConstituentsElections = default(List<MixedLotConstituentsElection>), List<LapseElection> lapseElections = default(List<LapseElection>), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<ConsentAndExchangeElection> consentAndExchangeElections = default(List<ConsentAndExchangeElection>), List<AbstainElection> abstainElections = default(List<AbstainElection>), List<UnknownProceedsElection> unknownProceedsElections = default(List<UnknownProceedsElection>), decimal? minPieceSize = default(decimal?), decimal? minIncrement = default(decimal?), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), string fractionalUnitsRoundingConvention = default(string), int? fractionalUnitsDecimalPlaces = default(int?), string instructionReference = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "eventSource" is required (not null)
             if (eventSource == null)
@@ -69,6 +73,10 @@ namespace Lusid.Sdk.Model
             this.SecurityOfferElections = securityOfferElections;
             this.MixedLotConstituentsElections = mixedLotConstituentsElections;
             this.LapseElections = lapseElections;
+            this.CashAndSecurityOfferElections = cashAndSecurityOfferElections;
+            this.ConsentAndExchangeElections = consentAndExchangeElections;
+            this.AbstainElections = abstainElections;
+            this.UnknownProceedsElections = unknownProceedsElections;
             this.MinPieceSize = minPieceSize;
             this.MinIncrement = minIncrement;
             this.FractionalUnitsCashPrice = fractionalUnitsCashPrice;
@@ -125,6 +133,34 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "lapseElections", EmitDefaultValue = true)]
         public List<LapseElection> LapseElections { get; set; }
+
+        /// <summary>
+        /// List of possible CashAndSecurityOfferElections for this exchange offer event.
+        /// </summary>
+        /// <value>List of possible CashAndSecurityOfferElections for this exchange offer event.</value>
+        [DataMember(Name = "cashAndSecurityOfferElections", EmitDefaultValue = true)]
+        public List<CashAndSecurityOfferElection> CashAndSecurityOfferElections { get; set; }
+
+        /// <summary>
+        /// List of possible consent-and-exchange elections for this event (CTEN-style consent paired with the exchange).
+        /// </summary>
+        /// <value>List of possible consent-and-exchange elections for this event (CTEN-style consent paired with the exchange).</value>
+        [DataMember(Name = "consentAndExchangeElections", EmitDefaultValue = true)]
+        public List<ConsentAndExchangeElection> ConsentAndExchangeElections { get; set; }
+
+        /// <summary>
+        /// List of possible abstain elections for this event (ABST) — decline to vote on the consent.
+        /// </summary>
+        /// <value>List of possible abstain elections for this event (ABST) — decline to vote on the consent.</value>
+        [DataMember(Name = "abstainElections", EmitDefaultValue = true)]
+        public List<AbstainElection> AbstainElections { get; set; }
+
+        /// <summary>
+        /// List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known.
+        /// </summary>
+        /// <value>List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known.</value>
+        [DataMember(Name = "unknownProceedsElections", EmitDefaultValue = true)]
+        public List<UnknownProceedsElection> UnknownProceedsElections { get; set; }
 
         /// <summary>
         /// Gets or Sets MinPieceSize
@@ -187,6 +223,10 @@ namespace Lusid.Sdk.Model
             sb.Append("  SecurityOfferElections: ").Append(SecurityOfferElections).Append("\n");
             sb.Append("  MixedLotConstituentsElections: ").Append(MixedLotConstituentsElections).Append("\n");
             sb.Append("  LapseElections: ").Append(LapseElections).Append("\n");
+            sb.Append("  CashAndSecurityOfferElections: ").Append(CashAndSecurityOfferElections).Append("\n");
+            sb.Append("  ConsentAndExchangeElections: ").Append(ConsentAndExchangeElections).Append("\n");
+            sb.Append("  AbstainElections: ").Append(AbstainElections).Append("\n");
+            sb.Append("  UnknownProceedsElections: ").Append(UnknownProceedsElections).Append("\n");
             sb.Append("  MinPieceSize: ").Append(MinPieceSize).Append("\n");
             sb.Append("  MinIncrement: ").Append(MinIncrement).Append("\n");
             sb.Append("  FractionalUnitsCashPrice: ").Append(FractionalUnitsCashPrice).Append("\n");
@@ -274,6 +314,30 @@ namespace Lusid.Sdk.Model
                     this.LapseElections.SequenceEqual(input.LapseElections)
                 ) && base.Equals(input) && 
                 (
+                    this.CashAndSecurityOfferElections == input.CashAndSecurityOfferElections ||
+                    this.CashAndSecurityOfferElections != null &&
+                    input.CashAndSecurityOfferElections != null &&
+                    this.CashAndSecurityOfferElections.SequenceEqual(input.CashAndSecurityOfferElections)
+                ) && base.Equals(input) && 
+                (
+                    this.ConsentAndExchangeElections == input.ConsentAndExchangeElections ||
+                    this.ConsentAndExchangeElections != null &&
+                    input.ConsentAndExchangeElections != null &&
+                    this.ConsentAndExchangeElections.SequenceEqual(input.ConsentAndExchangeElections)
+                ) && base.Equals(input) && 
+                (
+                    this.AbstainElections == input.AbstainElections ||
+                    this.AbstainElections != null &&
+                    input.AbstainElections != null &&
+                    this.AbstainElections.SequenceEqual(input.AbstainElections)
+                ) && base.Equals(input) && 
+                (
+                    this.UnknownProceedsElections == input.UnknownProceedsElections ||
+                    this.UnknownProceedsElections != null &&
+                    input.UnknownProceedsElections != null &&
+                    this.UnknownProceedsElections.SequenceEqual(input.UnknownProceedsElections)
+                ) && base.Equals(input) && 
+                (
                     this.MinPieceSize == input.MinPieceSize ||
                     (this.MinPieceSize != null &&
                     this.MinPieceSize.Equals(input.MinPieceSize))
@@ -350,6 +414,22 @@ namespace Lusid.Sdk.Model
                 if (this.LapseElections != null)
                 {
                     hashCode = (hashCode * 59) + this.LapseElections.GetHashCode();
+                }
+                if (this.CashAndSecurityOfferElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.CashAndSecurityOfferElections.GetHashCode();
+                }
+                if (this.ConsentAndExchangeElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.ConsentAndExchangeElections.GetHashCode();
+                }
+                if (this.AbstainElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.AbstainElections.GetHashCode();
+                }
+                if (this.UnknownProceedsElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnknownProceedsElections.GetHashCode();
                 }
                 if (this.MinPieceSize != null)
                 {

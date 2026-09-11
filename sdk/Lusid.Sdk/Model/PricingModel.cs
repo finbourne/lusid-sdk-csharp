@@ -182,7 +182,13 @@ namespace Lusid.Sdk.Model
         /// Enum CapitalInterestPricer for value: CapitalInterestPricer
         /// </summary>
         [EnumMember(Value = "CapitalInterestPricer")]
-        CapitalInterestPricer = 26
+        CapitalInterestPricer = 26,
+
+        /// <summary>
+        /// Enum DiscountedForward for value: DiscountedForward
+        /// </summary>
+        [EnumMember(Value = "DiscountedForward")]
+        DiscountedForward = 27
     }
 
 }

@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="ruleName">The name of the rule. (required).</param>
         /// <param name="leftValue">The left-side value..</param>
         /// <param name="rightValue">The right-side value..</param>
-        /// <param name="difference">The measured magnitude of the difference, ToString(ABS(leftValue - rightValue)). (required).</param>
+        /// <param name="difference">The measured magnitude of the difference, ToString(ABS(leftValue - rightValue))..</param>
         /// <param name="appliedTolerance">appliedTolerance.</param>
         public AggregateRuleValues(string ruleName = default(string), string leftValue = default(string), string rightValue = default(string), string difference = default(string), ToleranceBase appliedTolerance = default(ToleranceBase))
         {
@@ -49,14 +49,9 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("ruleName is a required property for AggregateRuleValues and cannot be null");
             }
             this.RuleName = ruleName;
-            // to ensure "difference" is required (not null)
-            if (difference == null)
-            {
-                throw new ArgumentNullException("difference is a required property for AggregateRuleValues and cannot be null");
-            }
-            this.Difference = difference;
             this.LeftValue = leftValue;
             this.RightValue = rightValue;
+            this.Difference = difference;
             this.AppliedTolerance = appliedTolerance;
         }
 
@@ -85,7 +80,7 @@ namespace Lusid.Sdk.Model
         /// The measured magnitude of the difference, ToString(ABS(leftValue - rightValue)).
         /// </summary>
         /// <value>The measured magnitude of the difference, ToString(ABS(leftValue - rightValue)).</value>
-        [DataMember(Name = "difference", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "difference", EmitDefaultValue = true)]
         public string Difference { get; set; }
 
         /// <summary>
@@ -213,12 +208,6 @@ namespace Lusid.Sdk.Model
             if (this.RuleName != null && this.RuleName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RuleName, length must be greater than 1.", new [] { "RuleName" });
-            }
-
-            // Difference (string) minLength
-            if (this.Difference != null && this.Difference.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Difference, length must be greater than 1.", new [] { "Difference" });
             }
 
             yield break;

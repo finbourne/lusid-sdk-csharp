@@ -687,7 +687,13 @@ namespace Lusid.Sdk.Model
         /// Enum DividendSuspensionEvent for value: DividendSuspensionEvent
         /// </summary>
         [EnumMember(Value = "DividendSuspensionEvent")]
-        DividendSuspensionEvent = 110
+        DividendSuspensionEvent = 110,
+
+        /// <summary>
+        /// Enum LoanInterestCapitalisationEvent for value: LoanInterestCapitalisationEvent
+        /// </summary>
+        [EnumMember(Value = "LoanInterestCapitalisationEvent")]
+        LoanInterestCapitalisationEvent = 111
     }
 
 }

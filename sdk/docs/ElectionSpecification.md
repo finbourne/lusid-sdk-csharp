@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ElectionType** | **string** | Available values: CashElection, CashAndSecurityOfferElection, CashOfferElection, EarlyRedemptionElection, LapseElection, OptionExerciseElection, SecurityElection, SecurityOfferElection, TenderOfferElection, MixedLotConstituentsElection, SubscribeElection. | 
+**ElectionType** | **string** | Available values: CashElection, CashAndSecurityOfferElection, CashOfferElection, EarlyRedemptionElection, LapseElection, OptionExerciseElection, SecurityElection, SecurityOfferElection, TenderOfferElection, MixedLotConstituentsElection, SubscribeElection, ConsentGrantedElection, ConsentDeniedElection, AbstainElection, ConsentAndTenderElection, ConsentAndExchangeElection, RetainElection, OversubscribeElection, SellEntitlementElection, UnknownProceedsElection. | 
 **Cardinality** | **Dictionary&lt;string, string&gt;** |  | 
 **ReferencedAs** | **List&lt;string&gt;** |  | 
 

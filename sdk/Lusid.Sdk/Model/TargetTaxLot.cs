@@ -45,7 +45,8 @@ namespace Lusid.Sdk.Model
         /// <param name="notionalCost">The notional cost of the tax-lot&#39;s opening transaction..</param>
         /// <param name="variationMargin">The variation margin of the tax-lot&#39;s opening transaction..</param>
         /// <param name="variationMarginPortfolioCcy">The variation margin in portfolio currency of the tax-lot&#39;s opening transaction..</param>
-        public TargetTaxLot(decimal units = default(decimal), CurrencyAndAmount cost = default(CurrencyAndAmount), decimal? portfolioCost = default(decimal?), decimal? price = default(decimal?), DateTimeOffset? purchaseDate = default(DateTimeOffset?), DateTimeOffset? settlementDate = default(DateTimeOffset?), decimal? notionalCost = default(decimal?), decimal? variationMargin = default(decimal?), decimal? variationMarginPortfolioCcy = default(decimal?))
+        /// <param name="amortisedCost">The amortised cost of the tax-lot in the settlement currency, for example a supplied amortised cost at migration. If supplied, this value seeds the tax-lot&#39;s amortised cost at the adjustment date and amortisation continues forward from it; if not supplied, the amortised cost defaults to the cost of the tax-lot..</param>
+        public TargetTaxLot(decimal units = default(decimal), CurrencyAndAmount cost = default(CurrencyAndAmount), decimal? portfolioCost = default(decimal?), decimal? price = default(decimal?), DateTimeOffset? purchaseDate = default(DateTimeOffset?), DateTimeOffset? settlementDate = default(DateTimeOffset?), decimal? notionalCost = default(decimal?), decimal? variationMargin = default(decimal?), decimal? variationMarginPortfolioCcy = default(decimal?), decimal? amortisedCost = default(decimal?))
         {
             this.Units = units;
             this.Cost = cost;
@@ -56,6 +57,7 @@ namespace Lusid.Sdk.Model
             this.NotionalCost = notionalCost;
             this.VariationMargin = variationMargin;
             this.VariationMarginPortfolioCcy = variationMarginPortfolioCcy;
+            this.AmortisedCost = amortisedCost;
         }
 
         /// <summary>
@@ -121,6 +123,13 @@ namespace Lusid.Sdk.Model
         public decimal? VariationMarginPortfolioCcy { get; set; }
 
         /// <summary>
+        /// The amortised cost of the tax-lot in the settlement currency, for example a supplied amortised cost at migration. If supplied, this value seeds the tax-lot&#39;s amortised cost at the adjustment date and amortisation continues forward from it; if not supplied, the amortised cost defaults to the cost of the tax-lot.
+        /// </summary>
+        /// <value>The amortised cost of the tax-lot in the settlement currency, for example a supplied amortised cost at migration. If supplied, this value seeds the tax-lot&#39;s amortised cost at the adjustment date and amortisation continues forward from it; if not supplied, the amortised cost defaults to the cost of the tax-lot.</value>
+        [DataMember(Name = "amortisedCost", EmitDefaultValue = true)]
+        public decimal? AmortisedCost { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -137,6 +146,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  NotionalCost: ").Append(NotionalCost).Append("\n");
             sb.Append("  VariationMargin: ").Append(VariationMargin).Append("\n");
             sb.Append("  VariationMarginPortfolioCcy: ").Append(VariationMarginPortfolioCcy).Append("\n");
+            sb.Append("  AmortisedCost: ").Append(AmortisedCost).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -215,6 +225,11 @@ namespace Lusid.Sdk.Model
                     this.VariationMarginPortfolioCcy == input.VariationMarginPortfolioCcy ||
                     (this.VariationMarginPortfolioCcy != null &&
                     this.VariationMarginPortfolioCcy.Equals(input.VariationMarginPortfolioCcy))
+                ) && 
+                (
+                    this.AmortisedCost == input.AmortisedCost ||
+                    (this.AmortisedCost != null &&
+                    this.AmortisedCost.Equals(input.AmortisedCost))
                 );
         }
 
@@ -259,6 +274,10 @@ namespace Lusid.Sdk.Model
                 if (this.VariationMarginPortfolioCcy != null)
                 {
                     hashCode = (hashCode * 59) + this.VariationMarginPortfolioCcy.GetHashCode();
+                }
+                if (this.AmortisedCost != null)
+                {
+                    hashCode = (hashCode * 59) + this.AmortisedCost.GetHashCode();
                 }
                 return hashCode;
             }

@@ -45,9 +45,12 @@ namespace Lusid.Sdk.Model
         /// <param name="earlyResponseDeadline">Deadline for early consent. Required when a CONY-early CashOfferElection is offered.  Must be earlier than ResponseDeadline..</param>
         /// <param name="paymentDate">Date on which the consent fee is paid. Required when any CashOfferElection is offered..</param>
         /// <param name="cashOfferElections">List of possible cash offer elections for this event. Each tier (CONY-standard, CONY-early)  is modelled as a separate entry; the election carries the per-unit fee rate and currency..</param>
-        /// <param name="lapseElections">List of possible lapse elections for this event (NOAC, CONN, ABST)..</param>
-        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent. (required) (default to &quot;ConsentEvent&quot;).</param>
-        public ConsentEvent(string consentType = default(string), DateTimeOffset recordDate = default(DateTimeOffset), DateTimeOffset responseDeadline = default(DateTimeOffset), DateTimeOffset marketDeadline = default(DateTimeOffset), DateTimeOffset? earlyResponseDeadline = default(DateTimeOffset?), DateTimeOffset? paymentDate = default(DateTimeOffset?), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), List<LapseElection> lapseElections = default(List<LapseElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="lapseElections">List of possible lapse elections for this event (NOAC)..</param>
+        /// <param name="consentGrantedElections">List of possible consent-granted elections for this event (CONY), each optionally carrying a consent fee..</param>
+        /// <param name="consentDeniedElections">List of possible consent-denied elections for this event (CONN)..</param>
+        /// <param name="abstainElections">List of possible abstain elections for this event (ABST)..</param>
+        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent. (required) (default to &quot;ConsentEvent&quot;).</param>
+        public ConsentEvent(string consentType = default(string), DateTimeOffset recordDate = default(DateTimeOffset), DateTimeOffset responseDeadline = default(DateTimeOffset), DateTimeOffset marketDeadline = default(DateTimeOffset), DateTimeOffset? earlyResponseDeadline = default(DateTimeOffset?), DateTimeOffset? paymentDate = default(DateTimeOffset?), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), List<LapseElection> lapseElections = default(List<LapseElection>), List<ConsentGrantedElection> consentGrantedElections = default(List<ConsentGrantedElection>), List<ConsentDeniedElection> consentDeniedElections = default(List<ConsentDeniedElection>), List<AbstainElection> abstainElections = default(List<AbstainElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "consentType" is required (not null)
             if (consentType == null)
@@ -62,6 +65,9 @@ namespace Lusid.Sdk.Model
             this.PaymentDate = paymentDate;
             this.CashOfferElections = cashOfferElections;
             this.LapseElections = lapseElections;
+            this.ConsentGrantedElections = consentGrantedElections;
+            this.ConsentDeniedElections = consentDeniedElections;
+            this.AbstainElections = abstainElections;
         }
 
         /// <summary>
@@ -114,11 +120,32 @@ namespace Lusid.Sdk.Model
         public List<CashOfferElection> CashOfferElections { get; set; }
 
         /// <summary>
-        /// List of possible lapse elections for this event (NOAC, CONN, ABST).
+        /// List of possible lapse elections for this event (NOAC).
         /// </summary>
-        /// <value>List of possible lapse elections for this event (NOAC, CONN, ABST).</value>
+        /// <value>List of possible lapse elections for this event (NOAC).</value>
         [DataMember(Name = "lapseElections", EmitDefaultValue = true)]
         public List<LapseElection> LapseElections { get; set; }
+
+        /// <summary>
+        /// List of possible consent-granted elections for this event (CONY), each optionally carrying a consent fee.
+        /// </summary>
+        /// <value>List of possible consent-granted elections for this event (CONY), each optionally carrying a consent fee.</value>
+        [DataMember(Name = "consentGrantedElections", EmitDefaultValue = true)]
+        public List<ConsentGrantedElection> ConsentGrantedElections { get; set; }
+
+        /// <summary>
+        /// List of possible consent-denied elections for this event (CONN).
+        /// </summary>
+        /// <value>List of possible consent-denied elections for this event (CONN).</value>
+        [DataMember(Name = "consentDeniedElections", EmitDefaultValue = true)]
+        public List<ConsentDeniedElection> ConsentDeniedElections { get; set; }
+
+        /// <summary>
+        /// List of possible abstain elections for this event (ABST).
+        /// </summary>
+        /// <value>List of possible abstain elections for this event (ABST).</value>
+        [DataMember(Name = "abstainElections", EmitDefaultValue = true)]
+        public List<AbstainElection> AbstainElections { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -137,6 +164,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("  CashOfferElections: ").Append(CashOfferElections).Append("\n");
             sb.Append("  LapseElections: ").Append(LapseElections).Append("\n");
+            sb.Append("  ConsentGrantedElections: ").Append(ConsentGrantedElections).Append("\n");
+            sb.Append("  ConsentDeniedElections: ").Append(ConsentDeniedElections).Append("\n");
+            sb.Append("  AbstainElections: ").Append(AbstainElections).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -213,6 +243,24 @@ namespace Lusid.Sdk.Model
                     this.LapseElections != null &&
                     input.LapseElections != null &&
                     this.LapseElections.SequenceEqual(input.LapseElections)
+                ) && base.Equals(input) && 
+                (
+                    this.ConsentGrantedElections == input.ConsentGrantedElections ||
+                    this.ConsentGrantedElections != null &&
+                    input.ConsentGrantedElections != null &&
+                    this.ConsentGrantedElections.SequenceEqual(input.ConsentGrantedElections)
+                ) && base.Equals(input) && 
+                (
+                    this.ConsentDeniedElections == input.ConsentDeniedElections ||
+                    this.ConsentDeniedElections != null &&
+                    input.ConsentDeniedElections != null &&
+                    this.ConsentDeniedElections.SequenceEqual(input.ConsentDeniedElections)
+                ) && base.Equals(input) && 
+                (
+                    this.AbstainElections == input.AbstainElections ||
+                    this.AbstainElections != null &&
+                    input.AbstainElections != null &&
+                    this.AbstainElections.SequenceEqual(input.AbstainElections)
                 );
         }
 
@@ -256,6 +304,18 @@ namespace Lusid.Sdk.Model
                 if (this.LapseElections != null)
                 {
                     hashCode = (hashCode * 59) + this.LapseElections.GetHashCode();
+                }
+                if (this.ConsentGrantedElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.ConsentGrantedElections.GetHashCode();
+                }
+                if (this.ConsentDeniedElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.ConsentDeniedElections.GetHashCode();
+                }
+                if (this.AbstainElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.AbstainElections.GetHashCode();
                 }
                 return hashCode;
             }

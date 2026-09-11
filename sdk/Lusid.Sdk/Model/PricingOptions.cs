@@ -55,7 +55,8 @@ namespace Lusid.Sdk.Model
         /// <param name="fundingCurveByCurrency">Names the funding curve each currency discounts on, keyed by ISO 4217 currency code  (e.g. \&quot;GBP\&quot; -&gt; \&quot;GBPOIS-USDCOLL\&quot;). Keys are case-insensitive. A currency absent from  the map keeps the default funding curve, {CCY}OIS, so an absent or empty map leaves  every valuation unchanged..</param>
         /// <param name="defaultPoolFactorsToUnity">When true, an asset-backed instrument with no pool-factor history defaults the pool  factor to 1.0 (the full original face) instead of 0. When false (default), the factor  defaults to 0 as before, preserving current behaviour..</param>
         /// <param name="findOrCalculateWriteThrough">When true, and FindOrCalculate is Enabled, results that had to be calculated because no  verified stored value existed are written back into the structured result store, so a  later identical request can serve them without recomputing. The write targets the  document selected by the same result data key rules the lookup reads. When false  (default), calculated results are never persisted.  Results are stored at unit level (per unit of holding), so a value served from the store  is rescaled by the holding&#39;s units and may differ from a freshly calculated value in the  least significant digits..</param>
-        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), string riskEngine = default(string), string findOrCalculate = default(string), bool produceSeparateResultForLinearOtcLegs = default(bool), bool fxForwardContractsAsUnitsInBothLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool), bool useInstrumentScaleFactorAsDefault = default(bool), bool scaleInstrumentAccruedOverrideByContractSize = default(bool), RiskBumpOptions riskBumpOptions = default(RiskBumpOptions), Dictionary<string, string> fundingCurveByCurrency = default(Dictionary<string, string>), bool defaultPoolFactorsToUnity = default(bool), bool findOrCalculateWriteThrough = default(bool))
+        /// <param name="inflationConvexity">inflationConvexity.</param>
+        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), string riskEngine = default(string), string findOrCalculate = default(string), bool produceSeparateResultForLinearOtcLegs = default(bool), bool fxForwardContractsAsUnitsInBothLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool), bool useInstrumentScaleFactorAsDefault = default(bool), bool scaleInstrumentAccruedOverrideByContractSize = default(bool), RiskBumpOptions riskBumpOptions = default(RiskBumpOptions), Dictionary<string, string> fundingCurveByCurrency = default(Dictionary<string, string>), bool defaultPoolFactorsToUnity = default(bool), bool findOrCalculateWriteThrough = default(bool), InflationConvexityOptions inflationConvexity = default(InflationConvexityOptions))
         {
             this.ModelSelection = modelSelection;
             this.UseInstrumentTypeToDeterminePricer = useInstrumentTypeToDeterminePricer;
@@ -81,6 +82,7 @@ namespace Lusid.Sdk.Model
             this.FundingCurveByCurrency = fundingCurveByCurrency;
             this.DefaultPoolFactorsToUnity = defaultPoolFactorsToUnity;
             this.FindOrCalculateWriteThrough = findOrCalculateWriteThrough;
+            this.InflationConvexity = inflationConvexity;
         }
 
         /// <summary>
@@ -248,6 +250,12 @@ namespace Lusid.Sdk.Model
         public bool FindOrCalculateWriteThrough { get; set; }
 
         /// <summary>
+        /// Gets or Sets InflationConvexity
+        /// </summary>
+        [DataMember(Name = "inflationConvexity", EmitDefaultValue = false)]
+        public InflationConvexityOptions InflationConvexity { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -279,6 +287,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  FundingCurveByCurrency: ").Append(FundingCurveByCurrency).Append("\n");
             sb.Append("  DefaultPoolFactorsToUnity: ").Append(DefaultPoolFactorsToUnity).Append("\n");
             sb.Append("  FindOrCalculateWriteThrough: ").Append(FindOrCalculateWriteThrough).Append("\n");
+            sb.Append("  InflationConvexity: ").Append(InflationConvexity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -417,6 +426,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.FindOrCalculateWriteThrough == input.FindOrCalculateWriteThrough ||
                     this.FindOrCalculateWriteThrough.Equals(input.FindOrCalculateWriteThrough)
+                ) && 
+                (
+                    this.InflationConvexity == input.InflationConvexity ||
+                    (this.InflationConvexity != null &&
+                    this.InflationConvexity.Equals(input.InflationConvexity))
                 );
         }
 
@@ -474,6 +488,10 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.DefaultPoolFactorsToUnity.GetHashCode();
                 hashCode = (hashCode * 59) + this.FindOrCalculateWriteThrough.GetHashCode();
+                if (this.InflationConvexity != null)
+                {
+                    hashCode = (hashCode * 59) + this.InflationConvexity.GetHashCode();
+                }
                 return hashCode;
             }
         }
