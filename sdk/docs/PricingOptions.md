@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **DefaultPoolFactorsToUnity** | **bool** | When true, an asset-backed instrument with no pool-factor history defaults the pool  factor to 1.0 (the full original face) instead of 0. When false (default), the factor  defaults to 0 as before, preserving current behaviour. | [optional] 
 **FindOrCalculateWriteThrough** | **bool** | When true, and FindOrCalculate is Enabled, results that had to be calculated because no  verified stored value existed are written back into the structured result store, so a  later identical request can serve them without recomputing. The write targets the  document selected by the same result data key rules the lookup reads. When false  (default), calculated results are never persisted.  Results are stored at unit level (per unit of holding), so a value served from the store  is rescaled by the holding&#39;s units and may differ from a freshly calculated value in the  least significant digits. | [optional] 
 **InflationConvexity** | [**InflationConvexityOptions**](InflationConvexityOptions.md) |  | [optional] 
+**AllowFallbackOnModelDecline** | **bool** | When true, a model that refuses an instrument outright - because the instrument is outside  what that model can represent, not because data was missing - hands the instrument to the  next model this recipe&#39;s rules offer for it, and to the default model for its type after  those. The row is then priced by the first model that accepts it, and carries a diagnostic  naming the model that stood down, its objection, and the model that served it. The caller  must be entitled to the model that serves the row; where none of the alternatives is both  licensed and willing, the row keeps the original refusal.  When false (default), a refusal ends the row however many other models the recipe offers.  A failure that is not a refusal - a missing curve, an unresolved fixing, a malformed model  option - always ends the row, whatever this is set to, because another model&#39;s number would  hide the gap rather than close it. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -64,6 +65,7 @@ bool defaultPoolFactorsToUnity = //"True";
 bool findOrCalculateWriteThrough = //"True";
 InflationConvexityOptions? inflationConvexity = new InflationConvexityOptions();
 
+bool allowFallbackOnModelDecline = //"True";
 
 PricingOptions pricingOptionsInstance = new PricingOptions(
     modelSelection: modelSelection,
@@ -90,7 +92,8 @@ PricingOptions pricingOptionsInstance = new PricingOptions(
     fundingCurveByCurrency: fundingCurveByCurrency,
     defaultPoolFactorsToUnity: defaultPoolFactorsToUnity,
     findOrCalculateWriteThrough: findOrCalculateWriteThrough,
-    inflationConvexity: inflationConvexity);
+    inflationConvexity: inflationConvexity,
+    allowFallbackOnModelDecline: allowFallbackOnModelDecline);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -68,8 +68,9 @@ namespace Lusid.Sdk.Model
         /// <param name="shareClassBreakdowns">Share Class breakdown data for this Journal Entry Line..</param>
         /// <param name="custodianAccountId">custodianAccountId.</param>
         /// <param name="custodianAccountType">Indicates the Account Type of the resolved Custodian Account for this Journal Entry Line..</param>
+        /// <param name="bucketMemberships">The bucket this Journal Entry Line is assigned to in each of the Fund Configuration&#39;s bucket sets that covers the NAV type, in bucket set definition order. Each bucket set classifies the line independently, so a line normally carries one entry per bucket set..</param>
         /// <param name="links">links.</param>
-        public FundJournalEntryLine(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string generalLedgerAccountCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount varBase = default(CurrencyAndAmount), decimal units = default(decimal), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), string economicBucketComponent = default(string), string economicBucketVariant = default(string), List<string> levels = default(List<string>), List<string> sourceLevels = default(List<string>), string movementSign = default(string), string holdingSign = default(string), string ledgerColumn = default(string), string journalEntryLineType = default(string), List<JournalEntryLineShareClassBreakdown> shareClassBreakdowns = default(List<JournalEntryLineShareClassBreakdown>), ResourceId custodianAccountId = default(ResourceId), string custodianAccountType = default(string), List<Link> links = default(List<Link>))
+        public FundJournalEntryLine(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string generalLedgerAccountCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount varBase = default(CurrencyAndAmount), decimal units = default(decimal), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), string economicBucketComponent = default(string), string economicBucketVariant = default(string), List<string> levels = default(List<string>), List<string> sourceLevels = default(List<string>), string movementSign = default(string), string holdingSign = default(string), string ledgerColumn = default(string), string journalEntryLineType = default(string), List<JournalEntryLineShareClassBreakdown> shareClassBreakdowns = default(List<JournalEntryLineShareClassBreakdown>), ResourceId custodianAccountId = default(ResourceId), string custodianAccountType = default(string), List<BucketMembership> bucketMemberships = default(List<BucketMembership>), List<Link> links = default(List<Link>))
         {
             this.AccountingDate = accountingDate;
             this.ActivityDate = activityDate;
@@ -158,6 +159,7 @@ namespace Lusid.Sdk.Model
             this.ShareClassBreakdowns = shareClassBreakdowns;
             this.CustodianAccountId = custodianAccountId;
             this.CustodianAccountType = custodianAccountType;
+            this.BucketMemberships = bucketMemberships;
             this.Links = links;
         }
 
@@ -382,6 +384,13 @@ namespace Lusid.Sdk.Model
         public string CustodianAccountType { get; set; }
 
         /// <summary>
+        /// The bucket this Journal Entry Line is assigned to in each of the Fund Configuration&#39;s bucket sets that covers the NAV type, in bucket set definition order. Each bucket set classifies the line independently, so a line normally carries one entry per bucket set.
+        /// </summary>
+        /// <value>The bucket this Journal Entry Line is assigned to in each of the Fund Configuration&#39;s bucket sets that covers the NAV type, in bucket set definition order. Each bucket set classifies the line independently, so a line normally carries one entry per bucket set.</value>
+        [DataMember(Name = "bucketMemberships", EmitDefaultValue = true)]
+        public List<BucketMembership> BucketMemberships { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -427,6 +436,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ShareClassBreakdowns: ").Append(ShareClassBreakdowns).Append("\n");
             sb.Append("  CustodianAccountId: ").Append(CustodianAccountId).Append("\n");
             sb.Append("  CustodianAccountType: ").Append(CustodianAccountType).Append("\n");
+            sb.Append("  BucketMemberships: ").Append(BucketMemberships).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -628,6 +638,12 @@ namespace Lusid.Sdk.Model
                     this.CustodianAccountType.Equals(input.CustodianAccountType))
                 ) && 
                 (
+                    this.BucketMemberships == input.BucketMemberships ||
+                    this.BucketMemberships != null &&
+                    input.BucketMemberships != null &&
+                    this.BucketMemberships.SequenceEqual(input.BucketMemberships)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -768,6 +784,10 @@ namespace Lusid.Sdk.Model
                 if (this.CustodianAccountType != null)
                 {
                     hashCode = (hashCode * 59) + this.CustodianAccountType.GetHashCode();
+                }
+                if (this.BucketMemberships != null)
+                {
+                    hashCode = (hashCode * 59) + this.BucketMemberships.GetHashCode();
                 }
                 if (this.Links != null)
                 {

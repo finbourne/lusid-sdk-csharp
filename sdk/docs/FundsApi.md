@@ -2971,7 +2971,7 @@ catch (ApiException e)
 
 <a id="getvaluationpointjournalentrylines"></a>
 # **GetValuationPointJournalEntryLines**
-> ValuationPointResourceListOfFundJournalEntryLine GetValuationPointJournalEntryLines (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = null, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null)
+> ValuationPointResourceListOfFundJournalEntryLine GetValuationPointJournalEntryLines (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = null, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null, string? bucketSetCode = null)
 
 [EARLY ACCESS] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
 
@@ -3026,14 +3026,15 @@ namespace Examples
             var page = "page_example";  // string? | The pagination token to use to continue listing Journal Entry Lines from a previous call to GetValuationPointJournalEntryLines. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', 'Account', 'LegalEntity' or 'CustodianAccount'               domain to decorate onto the Journal Entry Lines. (optional) 
             var navTypeCode = "navTypeCode_example";  // string? | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
+            var bucketSetCode = "bucketSetCode_example";  // string? | When provided, each line's bucketMemberships report only this bucket set's classification of it.               Otherwise, every bucket set covering the NAV Type is reported. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ValuationPointResourceListOfFundJournalEntryLine result = apiInstance.GetValuationPointJournalEntryLines(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode, opts: opts);
+                // ValuationPointResourceListOfFundJournalEntryLine result = apiInstance.GetValuationPointJournalEntryLines(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode, bucketSetCode, opts: opts);
 
                 // [EARLY ACCESS] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
-                ValuationPointResourceListOfFundJournalEntryLine result = apiInstance.GetValuationPointJournalEntryLines(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode);
+                ValuationPointResourceListOfFundJournalEntryLine result = apiInstance.GetValuationPointJournalEntryLines(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode, bucketSetCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -3054,7 +3055,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
-    ApiResponse<ValuationPointResourceListOfFundJournalEntryLine> response = apiInstance.GetValuationPointJournalEntryLinesWithHttpInfo(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode);
+    ApiResponse<ValuationPointResourceListOfFundJournalEntryLine> response = apiInstance.GetValuationPointJournalEntryLinesWithHttpInfo(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode, bucketSetCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -3081,6 +3082,7 @@ catch (ApiException e)
 | **page** | **string?** | The pagination token to use to continue listing Journal Entry Lines from a previous call to GetValuationPointJournalEntryLines. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the Journal Entry Lines. | [optional]  |
 | **navTypeCode** | **string?** | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
+| **bucketSetCode** | **string?** | When provided, each line&#39;s bucketMemberships report only this bucket set&#39;s classification of it.               Otherwise, every bucket set covering the NAV Type is reported. | [optional]  |
 
 ### Return type
 

@@ -56,7 +56,8 @@ namespace Lusid.Sdk.Model
         /// <param name="defaultPoolFactorsToUnity">When true, an asset-backed instrument with no pool-factor history defaults the pool  factor to 1.0 (the full original face) instead of 0. When false (default), the factor  defaults to 0 as before, preserving current behaviour..</param>
         /// <param name="findOrCalculateWriteThrough">When true, and FindOrCalculate is Enabled, results that had to be calculated because no  verified stored value existed are written back into the structured result store, so a  later identical request can serve them without recomputing. The write targets the  document selected by the same result data key rules the lookup reads. When false  (default), calculated results are never persisted.  Results are stored at unit level (per unit of holding), so a value served from the store  is rescaled by the holding&#39;s units and may differ from a freshly calculated value in the  least significant digits..</param>
         /// <param name="inflationConvexity">inflationConvexity.</param>
-        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), string riskEngine = default(string), string findOrCalculate = default(string), bool produceSeparateResultForLinearOtcLegs = default(bool), bool fxForwardContractsAsUnitsInBothLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool), bool useInstrumentScaleFactorAsDefault = default(bool), bool scaleInstrumentAccruedOverrideByContractSize = default(bool), RiskBumpOptions riskBumpOptions = default(RiskBumpOptions), Dictionary<string, string> fundingCurveByCurrency = default(Dictionary<string, string>), bool defaultPoolFactorsToUnity = default(bool), bool findOrCalculateWriteThrough = default(bool), InflationConvexityOptions inflationConvexity = default(InflationConvexityOptions))
+        /// <param name="allowFallbackOnModelDecline">When true, a model that refuses an instrument outright - because the instrument is outside  what that model can represent, not because data was missing - hands the instrument to the  next model this recipe&#39;s rules offer for it, and to the default model for its type after  those. The row is then priced by the first model that accepts it, and carries a diagnostic  naming the model that stood down, its objection, and the model that served it. The caller  must be entitled to the model that serves the row; where none of the alternatives is both  licensed and willing, the row keeps the original refusal.  When false (default), a refusal ends the row however many other models the recipe offers.  A failure that is not a refusal - a missing curve, an unresolved fixing, a malformed model  option - always ends the row, whatever this is set to, because another model&#39;s number would  hide the gap rather than close it..</param>
+        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), string riskEngine = default(string), string findOrCalculate = default(string), bool produceSeparateResultForLinearOtcLegs = default(bool), bool fxForwardContractsAsUnitsInBothLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool), bool useInstrumentScaleFactorAsDefault = default(bool), bool scaleInstrumentAccruedOverrideByContractSize = default(bool), RiskBumpOptions riskBumpOptions = default(RiskBumpOptions), Dictionary<string, string> fundingCurveByCurrency = default(Dictionary<string, string>), bool defaultPoolFactorsToUnity = default(bool), bool findOrCalculateWriteThrough = default(bool), InflationConvexityOptions inflationConvexity = default(InflationConvexityOptions), bool allowFallbackOnModelDecline = default(bool))
         {
             this.ModelSelection = modelSelection;
             this.UseInstrumentTypeToDeterminePricer = useInstrumentTypeToDeterminePricer;
@@ -83,6 +84,7 @@ namespace Lusid.Sdk.Model
             this.DefaultPoolFactorsToUnity = defaultPoolFactorsToUnity;
             this.FindOrCalculateWriteThrough = findOrCalculateWriteThrough;
             this.InflationConvexity = inflationConvexity;
+            this.AllowFallbackOnModelDecline = allowFallbackOnModelDecline;
         }
 
         /// <summary>
@@ -256,6 +258,13 @@ namespace Lusid.Sdk.Model
         public InflationConvexityOptions InflationConvexity { get; set; }
 
         /// <summary>
+        /// When true, a model that refuses an instrument outright - because the instrument is outside  what that model can represent, not because data was missing - hands the instrument to the  next model this recipe&#39;s rules offer for it, and to the default model for its type after  those. The row is then priced by the first model that accepts it, and carries a diagnostic  naming the model that stood down, its objection, and the model that served it. The caller  must be entitled to the model that serves the row; where none of the alternatives is both  licensed and willing, the row keeps the original refusal.  When false (default), a refusal ends the row however many other models the recipe offers.  A failure that is not a refusal - a missing curve, an unresolved fixing, a malformed model  option - always ends the row, whatever this is set to, because another model&#39;s number would  hide the gap rather than close it.
+        /// </summary>
+        /// <value>When true, a model that refuses an instrument outright - because the instrument is outside  what that model can represent, not because data was missing - hands the instrument to the  next model this recipe&#39;s rules offer for it, and to the default model for its type after  those. The row is then priced by the first model that accepts it, and carries a diagnostic  naming the model that stood down, its objection, and the model that served it. The caller  must be entitled to the model that serves the row; where none of the alternatives is both  licensed and willing, the row keeps the original refusal.  When false (default), a refusal ends the row however many other models the recipe offers.  A failure that is not a refusal - a missing curve, an unresolved fixing, a malformed model  option - always ends the row, whatever this is set to, because another model&#39;s number would  hide the gap rather than close it.</value>
+        [DataMember(Name = "allowFallbackOnModelDecline", EmitDefaultValue = true)]
+        public bool AllowFallbackOnModelDecline { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -288,6 +297,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DefaultPoolFactorsToUnity: ").Append(DefaultPoolFactorsToUnity).Append("\n");
             sb.Append("  FindOrCalculateWriteThrough: ").Append(FindOrCalculateWriteThrough).Append("\n");
             sb.Append("  InflationConvexity: ").Append(InflationConvexity).Append("\n");
+            sb.Append("  AllowFallbackOnModelDecline: ").Append(AllowFallbackOnModelDecline).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -431,6 +441,10 @@ namespace Lusid.Sdk.Model
                     this.InflationConvexity == input.InflationConvexity ||
                     (this.InflationConvexity != null &&
                     this.InflationConvexity.Equals(input.InflationConvexity))
+                ) && 
+                (
+                    this.AllowFallbackOnModelDecline == input.AllowFallbackOnModelDecline ||
+                    this.AllowFallbackOnModelDecline.Equals(input.AllowFallbackOnModelDecline)
                 );
         }
 
@@ -492,6 +506,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.InflationConvexity.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.AllowFallbackOnModelDecline.GetHashCode();
                 return hashCode;
             }
         }

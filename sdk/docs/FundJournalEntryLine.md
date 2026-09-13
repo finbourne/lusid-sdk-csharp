@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **ShareClassBreakdowns** | [**List&lt;JournalEntryLineShareClassBreakdown&gt;**](JournalEntryLineShareClassBreakdown.md) | Share Class breakdown data for this Journal Entry Line. | [optional] 
 **CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **CustodianAccountType** | **string** | Indicates the Account Type of the resolved Custodian Account for this Journal Entry Line. | [optional] 
+**BucketMemberships** | [**List&lt;BucketMembership&gt;**](BucketMembership.md) | The bucket this Journal Entry Line is assigned to in each of the Fund Configuration&#39;s bucket sets that covers the NAV type, in bucket set definition order. Each bucket set classifies the line independently, so a line normally carries one entry per bucket set. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -73,6 +74,7 @@ List<JournalEntryLineShareClassBreakdown> shareClassBreakdowns = new List<Journa
 ResourceId? custodianAccountId = new ResourceId();
 
 string custodianAccountType = "example custodianAccountType";
+List<BucketMembership> bucketMemberships = new List<BucketMembership>();
 List<Link> links = new List<Link>();
 
 FundJournalEntryLine fundJournalEntryLineInstance = new FundJournalEntryLine(
@@ -108,6 +110,7 @@ FundJournalEntryLine fundJournalEntryLineInstance = new FundJournalEntryLine(
     shareClassBreakdowns: shareClassBreakdowns,
     custodianAccountId: custodianAccountId,
     custodianAccountType: custodianAccountType,
+    bucketMemberships: bucketMemberships,
     links: links);
 ```
 

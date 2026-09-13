@@ -41,9 +41,11 @@ namespace Lusid.Sdk.Model
         /// <param name="exDate">The ex date (entitlement date) of the coupon.</param>
         /// <param name="paymentDate">The payment date of the coupon.</param>
         /// <param name="currency">The currency in which the coupon is denominated (required).</param>
-        /// <param name="couponPerUnit">The capitalised coupon amount per unit of the held bond&#39;s current face.</param>
+        /// <param name="couponPerUnit">The capitalised coupon amount per unit of the held bond&#39;s current face. Never rounded..</param>
+        /// <param name="faceRoundingConvention">How the face credited to a holding is rounded once CouponPerUnit has been scaled by the holding&#39;s  current face. Defaults to null, which leaves it unrounded. Carried from the bond&#39;s PikSchedule; the  per-unit coupon itself is never rounded. BuyUp is one of the available values but is rejected for  this event: a capitalisation has no cash leg to fund the next whole unit from. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding..</param>
+        /// <param name="faceRoundingDecimalPlaces">The number of decimal places the credited face is rounded to. Required when  FaceRoundingConvention is RoundToDecimalPlaces and not permitted otherwise..</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent. (required) (default to &quot;PikBondInterestCapitalisationEvent&quot;).</param>
-        public PikBondInterestCapitalisationEvent(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal? couponPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public PikBondInterestCapitalisationEvent(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal? couponPerUnit = default(decimal?), string faceRoundingConvention = default(string), int? faceRoundingDecimalPlaces = default(int?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "currency" is required (not null)
             if (currency == null)
@@ -54,6 +56,8 @@ namespace Lusid.Sdk.Model
             this.ExDate = exDate;
             this.PaymentDate = paymentDate;
             this.CouponPerUnit = couponPerUnit;
+            this.FaceRoundingConvention = faceRoundingConvention;
+            this.FaceRoundingDecimalPlaces = faceRoundingDecimalPlaces;
         }
 
         /// <summary>
@@ -78,11 +82,25 @@ namespace Lusid.Sdk.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// The capitalised coupon amount per unit of the held bond&#39;s current face
+        /// The capitalised coupon amount per unit of the held bond&#39;s current face. Never rounded.
         /// </summary>
-        /// <value>The capitalised coupon amount per unit of the held bond&#39;s current face</value>
+        /// <value>The capitalised coupon amount per unit of the held bond&#39;s current face. Never rounded.</value>
         [DataMember(Name = "couponPerUnit", EmitDefaultValue = true)]
         public decimal? CouponPerUnit { get; set; }
+
+        /// <summary>
+        /// How the face credited to a holding is rounded once CouponPerUnit has been scaled by the holding&#39;s  current face. Defaults to null, which leaves it unrounded. Carried from the bond&#39;s PikSchedule; the  per-unit coupon itself is never rounded. BuyUp is one of the available values but is rejected for  this event: a capitalisation has no cash leg to fund the next whole unit from. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding.
+        /// </summary>
+        /// <value>How the face credited to a holding is rounded once CouponPerUnit has been scaled by the holding&#39;s  current face. Defaults to null, which leaves it unrounded. Carried from the bond&#39;s PikSchedule; the  per-unit coupon itself is never rounded. BuyUp is one of the available values but is rejected for  this event: a capitalisation has no cash leg to fund the next whole unit from. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding.</value>
+        [DataMember(Name = "faceRoundingConvention", EmitDefaultValue = true)]
+        public string FaceRoundingConvention { get; set; }
+
+        /// <summary>
+        /// The number of decimal places the credited face is rounded to. Required when  FaceRoundingConvention is RoundToDecimalPlaces and not permitted otherwise.
+        /// </summary>
+        /// <value>The number of decimal places the credited face is rounded to. Required when  FaceRoundingConvention is RoundToDecimalPlaces and not permitted otherwise.</value>
+        [DataMember(Name = "faceRoundingDecimalPlaces", EmitDefaultValue = true)]
+        public int? FaceRoundingDecimalPlaces { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -97,6 +115,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  CouponPerUnit: ").Append(CouponPerUnit).Append("\n");
+            sb.Append("  FaceRoundingConvention: ").Append(FaceRoundingConvention).Append("\n");
+            sb.Append("  FaceRoundingDecimalPlaces: ").Append(FaceRoundingDecimalPlaces).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -151,6 +171,16 @@ namespace Lusid.Sdk.Model
                     this.CouponPerUnit == input.CouponPerUnit ||
                     (this.CouponPerUnit != null &&
                     this.CouponPerUnit.Equals(input.CouponPerUnit))
+                ) && base.Equals(input) && 
+                (
+                    this.FaceRoundingConvention == input.FaceRoundingConvention ||
+                    (this.FaceRoundingConvention != null &&
+                    this.FaceRoundingConvention.Equals(input.FaceRoundingConvention))
+                ) && base.Equals(input) && 
+                (
+                    this.FaceRoundingDecimalPlaces == input.FaceRoundingDecimalPlaces ||
+                    (this.FaceRoundingDecimalPlaces != null &&
+                    this.FaceRoundingDecimalPlaces.Equals(input.FaceRoundingDecimalPlaces))
                 );
         }
 
@@ -178,6 +208,14 @@ namespace Lusid.Sdk.Model
                 if (this.CouponPerUnit != null)
                 {
                     hashCode = (hashCode * 59) + this.CouponPerUnit.GetHashCode();
+                }
+                if (this.FaceRoundingConvention != null)
+                {
+                    hashCode = (hashCode * 59) + this.FaceRoundingConvention.GetHashCode();
+                }
+                if (this.FaceRoundingDecimalPlaces != null)
+                {
+                    hashCode = (hashCode * 59) + this.FaceRoundingDecimalPlaces.GetHashCode();
                 }
                 return hashCode;
             }
