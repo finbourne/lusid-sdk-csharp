@@ -46,8 +46,9 @@ namespace Lusid.Sdk.Model
         /// <param name="byTaxLots">byTaxLots.</param>
         /// <param name="subscriptionType">The kind of data the subscription streams (holdings or transactions), defaulting to holdings.  Address keys and byTaxLots are not valid for a transactions subscription. Available values: Holdings, Transactions..</param>
         /// <param name="startEffectiveAt">startEffectiveAt.</param>
-        /// <param name="endEffectiveAt">endEffectiveAt.</param>
-        public SubscriptionDefinition(string scope = default(string), string code = default(string), string displayName = default(string), string description = default(string), ResourceId portfolioId = default(ResourceId), ResourceId timelineId = default(ResourceId), List<string> addressKeys = default(List<string>), bool byTaxLots = default(bool), string subscriptionType = default(string), DateTimeOffset? startEffectiveAt = default(DateTimeOffset?), DateTimeOffset? endEffectiveAt = default(DateTimeOffset?))
+        /// <param name="endEffectiveAt">Deprecated and no longer honoured: a fixed forward date stops being a forward view once  the live edge passes it. Use effectiveForwardDays instead. Still accepted and echoed back  so existing subscriptions keep round-tripping..</param>
+        /// <param name="effectiveForwardDays">How far forward the subscription reports, as a number of calendar days past the live  edge — a rolling forward view that advances as time passes..</param>
+        public SubscriptionDefinition(string scope = default(string), string code = default(string), string displayName = default(string), string description = default(string), ResourceId portfolioId = default(ResourceId), ResourceId timelineId = default(ResourceId), List<string> addressKeys = default(List<string>), bool byTaxLots = default(bool), string subscriptionType = default(string), DateTimeOffset? startEffectiveAt = default(DateTimeOffset?), DateTimeOffset? endEffectiveAt = default(DateTimeOffset?), int? effectiveForwardDays = default(int?))
         {
             // to ensure "scope" is required (not null)
             if (scope == null)
@@ -75,6 +76,7 @@ namespace Lusid.Sdk.Model
             this.SubscriptionType = subscriptionType;
             this.StartEffectiveAt = startEffectiveAt;
             this.EndEffectiveAt = endEffectiveAt;
+            this.EffectiveForwardDays = effectiveForwardDays;
         }
 
         /// <summary>
@@ -140,10 +142,18 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? StartEffectiveAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets EndEffectiveAt
+        /// Deprecated and no longer honoured: a fixed forward date stops being a forward view once  the live edge passes it. Use effectiveForwardDays instead. Still accepted and echoed back  so existing subscriptions keep round-tripping.
         /// </summary>
+        /// <value>Deprecated and no longer honoured: a fixed forward date stops being a forward view once  the live edge passes it. Use effectiveForwardDays instead. Still accepted and echoed back  so existing subscriptions keep round-tripping.</value>
         [DataMember(Name = "endEffectiveAt", EmitDefaultValue = true)]
         public DateTimeOffset? EndEffectiveAt { get; set; }
+
+        /// <summary>
+        /// How far forward the subscription reports, as a number of calendar days past the live  edge — a rolling forward view that advances as time passes.
+        /// </summary>
+        /// <value>How far forward the subscription reports, as a number of calendar days past the live  edge — a rolling forward view that advances as time passes.</value>
+        [DataMember(Name = "effectiveForwardDays", EmitDefaultValue = true)]
+        public int? EffectiveForwardDays { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -164,6 +174,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  SubscriptionType: ").Append(SubscriptionType).Append("\n");
             sb.Append("  StartEffectiveAt: ").Append(StartEffectiveAt).Append("\n");
             sb.Append("  EndEffectiveAt: ").Append(EndEffectiveAt).Append("\n");
+            sb.Append("  EffectiveForwardDays: ").Append(EffectiveForwardDays).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -253,6 +264,11 @@ namespace Lusid.Sdk.Model
                     this.EndEffectiveAt == input.EndEffectiveAt ||
                     (this.EndEffectiveAt != null &&
                     this.EndEffectiveAt.Equals(input.EndEffectiveAt))
+                ) && 
+                (
+                    this.EffectiveForwardDays == input.EffectiveForwardDays ||
+                    (this.EffectiveForwardDays != null &&
+                    this.EffectiveForwardDays.Equals(input.EffectiveForwardDays))
                 );
         }
 
@@ -305,6 +321,10 @@ namespace Lusid.Sdk.Model
                 if (this.EndEffectiveAt != null)
                 {
                     hashCode = (hashCode * 59) + this.EndEffectiveAt.GetHashCode();
+                }
+                if (this.EffectiveForwardDays != null)
+                {
+                    hashCode = (hashCode * 59) + this.EffectiveForwardDays.GetHashCode();
                 }
                 return hashCode;
             }
@@ -384,6 +404,18 @@ namespace Lusid.Sdk.Model
             if (false == regexDescription.Match(this.Description).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
+            }
+
+            // EffectiveForwardDays (int?) maximum
+            if (this.EffectiveForwardDays > (int?)3650)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EffectiveForwardDays, must be a value less than or equal to 3650.", new [] { "EffectiveForwardDays" });
+            }
+
+            // EffectiveForwardDays (int?) minimum
+            if (this.EffectiveForwardDays < (int?)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EffectiveForwardDays, must be a value greater than or equal to 1.", new [] { "EffectiveForwardDays" });
             }
 
             yield break;

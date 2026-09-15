@@ -14,7 +14,8 @@ Name | Type | Description | Notes
 **ByTaxLots** | **bool** |  | [optional] 
 **SubscriptionType** | **string** | The kind of data the subscription streams (holdings or transactions), defaulting to holdings.  Address keys and byTaxLots are not valid for a transactions subscription. Available values: Holdings, Transactions. | [optional] 
 **StartEffectiveAt** | **DateTimeOffset?** |  | [optional] 
-**EndEffectiveAt** | **DateTimeOffset?** |  | [optional] 
+**EndEffectiveAt** | **DateTimeOffset?** | Deprecated and no longer honoured: a fixed forward date stops being a forward view once  the live edge passes it. Use effectiveForwardDays instead. Still accepted and echoed back  so existing subscriptions keep round-tripping. | [optional] 
+**EffectiveForwardDays** | **int?** | How far forward the subscription reports, as a number of calendar days past the live  edge — a rolling forward view that advances as time passes. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -42,7 +43,8 @@ SubscriptionDefinition subscriptionDefinitionInstance = new SubscriptionDefiniti
     byTaxLots: byTaxLots,
     subscriptionType: subscriptionType,
     startEffectiveAt: startEffectiveAt,
-    endEffectiveAt: endEffectiveAt);
+    endEffectiveAt: endEffectiveAt,
+    effectiveForwardDays: effectiveForwardDays);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
