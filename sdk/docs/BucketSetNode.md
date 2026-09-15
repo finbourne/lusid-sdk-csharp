@@ -14,6 +14,10 @@ Name | Type | Description | Notes
 **SharesInIssue** | **decimal?** | The share class&#39;s units in issue at the end of the period. Reported only for a share class that is unitised. | [optional] 
 **PreviousPerUnitValue** | **decimal?** | The share class&#39;s NAV per unit at the previous valuation point, on the same basis as PerUnitValue. | [optional] 
 **PreviousSharesInIssue** | **decimal?** | The share class&#39;s units in issue at the start of the period. Reported only for a share class that is unitised. | [optional] 
+**Label** | **string** | A display label for the node: the fund&#39;s display name on the fund node, the share class&#39;s name on a share class node. | [optional] 
+**PreviousNav** | **decimal?** | The net asset value this node carried at the previous valuation point, in the fund currency. Zero at the fund&#39;s first valuation point. | [optional] 
+**NetDealingUnits** | **decimal?** | The net units dealt for the share class over the period, so that the shares in issue are the previous shares in issue plus this. Set only on share class nodes, and only where the bucket set is unitised. | [optional] 
+**ShareClassDetails** | [**BucketSetShareClassDetails**](BucketSetShareClassDetails.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -22,6 +26,9 @@ using System;
 string nodeType = "nodeType";
 string shareClassShortCode = "example shareClassShortCode";
 List<BucketSetResultBucket> buckets = new List<BucketSetResultBucket>();
+string label = "example label";
+BucketSetShareClassDetails? shareClassDetails = new BucketSetShareClassDetails();
+
 
 BucketSetNode bucketSetNodeInstance = new BucketSetNode(
     nodeType: nodeType,
@@ -32,7 +39,11 @@ BucketSetNode bucketSetNodeInstance = new BucketSetNode(
     perUnitValue: perUnitValue,
     sharesInIssue: sharesInIssue,
     previousPerUnitValue: previousPerUnitValue,
-    previousSharesInIssue: previousSharesInIssue);
+    previousSharesInIssue: previousSharesInIssue,
+    label: label,
+    previousNav: previousNav,
+    netDealingUnits: netDealingUnits,
+    shareClassDetails: shareClassDetails);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

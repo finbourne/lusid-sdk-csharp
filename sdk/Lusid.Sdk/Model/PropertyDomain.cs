@@ -585,7 +585,13 @@ namespace Lusid.Sdk.Model
         /// Enum CurrencyGroup for value: CurrencyGroup
         /// </summary>
         [EnumMember(Value = "CurrencyGroup")]
-        CurrencyGroup = 93
+        CurrencyGroup = 93,
+
+        /// <summary>
+        /// Enum RecDefinition for value: RecDefinition
+        /// </summary>
+        [EnumMember(Value = "RecDefinition")]
+        RecDefinition = 94
     }
 
 }

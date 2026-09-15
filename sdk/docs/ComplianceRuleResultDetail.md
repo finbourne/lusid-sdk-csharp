@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **RuleName** | **string** |  | 
 **RuleDescription** | **string** |  | 
 **Outcome** | **string** |  | 
+**Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -29,6 +30,7 @@ string status = "status";
 string ruleName = "ruleName";
 string ruleDescription = "ruleDescription";
 string outcome = "outcome";
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 
 ComplianceRuleResultDetail complianceRuleResultDetailInstance = new ComplianceRuleResultDetail(
     ruleId: ruleId,
@@ -40,7 +42,8 @@ ComplianceRuleResultDetail complianceRuleResultDetailInstance = new ComplianceRu
     status: status,
     ruleName: ruleName,
     ruleDescription: ruleDescription,
-    outcome: outcome);
+    outcome: outcome,
+    properties: properties);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

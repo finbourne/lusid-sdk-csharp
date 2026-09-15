@@ -61,9 +61,9 @@ namespace Lusid.Sdk.Model
         /// <param name="custodianAccountIdIn">custodianAccountIdIn.</param>
         /// <param name="source">source (required).</param>
         /// <param name="accountingMethod">Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency..</param>
-        /// <param name="properties">properties.</param>
+        /// <param name="propertiesOut">propertiesOut.</param>
         /// <param name="propertiesIn">propertiesIn.</param>
-        public CreateTransferRequest(ResourceId transferId = default(ResourceId), ResourceId portfolioIdOut = default(ResourceId), ResourceId portfolioIdIn = default(ResourceId), string instrumentIdentifierOut = default(string), string instrumentIdentifierIn = default(string), string pricingMethod = default(string), string taxLotStructure = default(string), decimal unitsOut = default(decimal), decimal unitsIn = default(decimal), decimal? amountOut = default(decimal?), decimal? weightOut = default(decimal?), DateTimeOffset tradeDateOut = default(DateTimeOffset), DateTimeOffset tradeDateIn = default(DateTimeOffset), DateTimeOffset settlementDateOut = default(DateTimeOffset), DateTimeOffset? settlementDateIn = default(DateTimeOffset?), decimal? exchangeRateOut = default(decimal?), decimal? exchangeRateIn = default(decimal?), decimal? transactionPriceOut = default(decimal?), decimal? transactionPriceIn = default(decimal?), string counterpartyIdOut = default(string), string counterpartyIdIn = default(string), ResourceId custodianAccountIdOut = default(ResourceId), ResourceId custodianAccountIdIn = default(ResourceId), string source = default(string), string accountingMethod = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, PerpetualProperty> propertiesIn = default(Dictionary<string, PerpetualProperty>))
+        public CreateTransferRequest(ResourceId transferId = default(ResourceId), ResourceId portfolioIdOut = default(ResourceId), ResourceId portfolioIdIn = default(ResourceId), string instrumentIdentifierOut = default(string), string instrumentIdentifierIn = default(string), string pricingMethod = default(string), string taxLotStructure = default(string), decimal unitsOut = default(decimal), decimal unitsIn = default(decimal), decimal? amountOut = default(decimal?), decimal? weightOut = default(decimal?), DateTimeOffset tradeDateOut = default(DateTimeOffset), DateTimeOffset tradeDateIn = default(DateTimeOffset), DateTimeOffset settlementDateOut = default(DateTimeOffset), DateTimeOffset? settlementDateIn = default(DateTimeOffset?), decimal? exchangeRateOut = default(decimal?), decimal? exchangeRateIn = default(decimal?), decimal? transactionPriceOut = default(decimal?), decimal? transactionPriceIn = default(decimal?), string counterpartyIdOut = default(string), string counterpartyIdIn = default(string), ResourceId custodianAccountIdOut = default(ResourceId), ResourceId custodianAccountIdIn = default(ResourceId), string source = default(string), string accountingMethod = default(string), Dictionary<string, PerpetualProperty> propertiesOut = default(Dictionary<string, PerpetualProperty>), Dictionary<string, PerpetualProperty> propertiesIn = default(Dictionary<string, PerpetualProperty>))
         {
             // to ensure "transferId" is required (not null)
             if (transferId == null)
@@ -125,7 +125,7 @@ namespace Lusid.Sdk.Model
             this.CustodianAccountIdOut = custodianAccountIdOut;
             this.CustodianAccountIdIn = custodianAccountIdIn;
             this.AccountingMethod = accountingMethod;
-            this.Properties = properties;
+            this.PropertiesOut = propertiesOut;
             this.PropertiesIn = propertiesIn;
         }
 
@@ -283,10 +283,10 @@ namespace Lusid.Sdk.Model
         public string AccountingMethod { get; set; }
 
         /// <summary>
-        /// Gets or Sets Properties
+        /// Gets or Sets PropertiesOut
         /// </summary>
-        [DataMember(Name = "properties", EmitDefaultValue = true)]
-        public Dictionary<string, PerpetualProperty> Properties { get; set; }
+        [DataMember(Name = "propertiesOut", EmitDefaultValue = true)]
+        public Dictionary<string, PerpetualProperty> PropertiesOut { get; set; }
 
         /// <summary>
         /// Gets or Sets PropertiesIn
@@ -327,7 +327,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CustodianAccountIdIn: ").Append(CustodianAccountIdIn).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  AccountingMethod: ").Append(AccountingMethod).Append("\n");
-            sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  PropertiesOut: ").Append(PropertiesOut).Append("\n");
             sb.Append("  PropertiesIn: ").Append(PropertiesIn).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -488,10 +488,10 @@ namespace Lusid.Sdk.Model
                     this.AccountingMethod.Equals(input.AccountingMethod))
                 ) && 
                 (
-                    this.Properties == input.Properties ||
-                    this.Properties != null &&
-                    input.Properties != null &&
-                    this.Properties.SequenceEqual(input.Properties)
+                    this.PropertiesOut == input.PropertiesOut ||
+                    this.PropertiesOut != null &&
+                    input.PropertiesOut != null &&
+                    this.PropertiesOut.SequenceEqual(input.PropertiesOut)
                 ) && 
                 (
                     this.PropertiesIn == input.PropertiesIn ||
@@ -604,9 +604,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.AccountingMethod.GetHashCode();
                 }
-                if (this.Properties != null)
+                if (this.PropertiesOut != null)
                 {
-                    hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PropertiesOut.GetHashCode();
                 }
                 if (this.PropertiesIn != null)
                 {

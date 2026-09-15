@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **UnitsInIssue** | **decimal?** | The share class&#39;s units in issue at the end of the period. Reported only where both the share class and the bucket are unitised. | [optional] 
 **PreviousCumulativePerUnitValue** | **decimal?** | The bucket&#39;s cumulative value at the start of the period, per unit in issue at that point - so it reads as it did at the previous valuation point rather than being restated at this period&#39;s unit count. | [optional] 
 **CumulativePerUnitValue** | **decimal?** | The bucket&#39;s cumulative value at the end of the period per unit in issue (CumulativeValue divided by UnitsInIssue). Reported only where both the share class and the bucket are unitised and there are units in issue to divide by. | [optional] 
+**DisplayName** | **string** | The display name of the bucket, as configured on the fund configuration. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -26,6 +27,7 @@ decimal previousCumulativeValue = "previousCumulativeValue";
 decimal cumulativeValue = "cumulativeValue";
 
 Dictionary<string, decimal> sourceBreakdown = new Dictionary<string, decimal>();
+string displayName = "example displayName";
 
 BucketSetResultBucket bucketSetResultBucketInstance = new BucketSetResultBucket(
     bucketId: bucketId,
@@ -37,7 +39,8 @@ BucketSetResultBucket bucketSetResultBucketInstance = new BucketSetResultBucket(
     perUnitValue: perUnitValue,
     unitsInIssue: unitsInIssue,
     previousCumulativePerUnitValue: previousCumulativePerUnitValue,
-    cumulativePerUnitValue: cumulativePerUnitValue);
+    cumulativePerUnitValue: cumulativePerUnitValue,
+    displayName: displayName);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

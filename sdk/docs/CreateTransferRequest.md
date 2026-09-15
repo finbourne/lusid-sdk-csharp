@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **CustodianAccountIdIn** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Source** | **string** |  | 
 **AccountingMethod** | **string** | Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency. | [optional] 
-**Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) |  | [optional] 
+**PropertiesOut** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) |  | [optional] 
 **PropertiesIn** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) |  | [optional] 
 
 ```csharp
@@ -54,7 +54,7 @@ ResourceId? custodianAccountIdIn = new ResourceId();
 
 string source = "source";
 string accountingMethod = "example accountingMethod";
-Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+Dictionary<string, PerpetualProperty> propertiesOut = new Dictionary<string, PerpetualProperty>();
 Dictionary<string, PerpetualProperty> propertiesIn = new Dictionary<string, PerpetualProperty>();
 
 CreateTransferRequest createTransferRequestInstance = new CreateTransferRequest(
@@ -83,7 +83,7 @@ CreateTransferRequest createTransferRequestInstance = new CreateTransferRequest(
     custodianAccountIdIn: custodianAccountIdIn,
     source: source,
     accountingMethod: accountingMethod,
-    properties: properties,
+    propertiesOut: propertiesOut,
     propertiesIn: propertiesIn);
 ```
 

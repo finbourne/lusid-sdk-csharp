@@ -45,7 +45,11 @@ namespace Lusid.Sdk.Model
         /// <param name="sharesInIssue">The share class&#39;s units in issue at the end of the period. Reported only for a share class that is unitised..</param>
         /// <param name="previousPerUnitValue">The share class&#39;s NAV per unit at the previous valuation point, on the same basis as PerUnitValue..</param>
         /// <param name="previousSharesInIssue">The share class&#39;s units in issue at the start of the period. Reported only for a share class that is unitised..</param>
-        public BucketSetNode(string nodeType = default(string), string shareClassShortCode = default(string), decimal? nav = default(decimal?), decimal? capitalRatio = default(decimal?), List<BucketSetResultBucket> buckets = default(List<BucketSetResultBucket>), decimal? perUnitValue = default(decimal?), decimal? sharesInIssue = default(decimal?), decimal? previousPerUnitValue = default(decimal?), decimal? previousSharesInIssue = default(decimal?))
+        /// <param name="label">A display label for the node: the fund&#39;s display name on the fund node, the share class&#39;s name on a share class node..</param>
+        /// <param name="previousNav">The net asset value this node carried at the previous valuation point, in the fund currency. Zero at the fund&#39;s first valuation point..</param>
+        /// <param name="netDealingUnits">The net units dealt for the share class over the period, so that the shares in issue are the previous shares in issue plus this. Set only on share class nodes, and only where the bucket set is unitised..</param>
+        /// <param name="shareClassDetails">shareClassDetails.</param>
+        public BucketSetNode(string nodeType = default(string), string shareClassShortCode = default(string), decimal? nav = default(decimal?), decimal? capitalRatio = default(decimal?), List<BucketSetResultBucket> buckets = default(List<BucketSetResultBucket>), decimal? perUnitValue = default(decimal?), decimal? sharesInIssue = default(decimal?), decimal? previousPerUnitValue = default(decimal?), decimal? previousSharesInIssue = default(decimal?), string label = default(string), decimal? previousNav = default(decimal?), decimal? netDealingUnits = default(decimal?), BucketSetShareClassDetails shareClassDetails = default(BucketSetShareClassDetails))
         {
             // to ensure "nodeType" is required (not null)
             if (nodeType == null)
@@ -66,6 +70,10 @@ namespace Lusid.Sdk.Model
             this.SharesInIssue = sharesInIssue;
             this.PreviousPerUnitValue = previousPerUnitValue;
             this.PreviousSharesInIssue = previousSharesInIssue;
+            this.Label = label;
+            this.PreviousNav = previousNav;
+            this.NetDealingUnits = netDealingUnits;
+            this.ShareClassDetails = shareClassDetails;
         }
 
         /// <summary>
@@ -132,6 +140,33 @@ namespace Lusid.Sdk.Model
         public decimal? PreviousSharesInIssue { get; set; }
 
         /// <summary>
+        /// A display label for the node: the fund&#39;s display name on the fund node, the share class&#39;s name on a share class node.
+        /// </summary>
+        /// <value>A display label for the node: the fund&#39;s display name on the fund node, the share class&#39;s name on a share class node.</value>
+        [DataMember(Name = "label", EmitDefaultValue = true)]
+        public string Label { get; set; }
+
+        /// <summary>
+        /// The net asset value this node carried at the previous valuation point, in the fund currency. Zero at the fund&#39;s first valuation point.
+        /// </summary>
+        /// <value>The net asset value this node carried at the previous valuation point, in the fund currency. Zero at the fund&#39;s first valuation point.</value>
+        [DataMember(Name = "previousNav", EmitDefaultValue = true)]
+        public decimal? PreviousNav { get; set; }
+
+        /// <summary>
+        /// The net units dealt for the share class over the period, so that the shares in issue are the previous shares in issue plus this. Set only on share class nodes, and only where the bucket set is unitised.
+        /// </summary>
+        /// <value>The net units dealt for the share class over the period, so that the shares in issue are the previous shares in issue plus this. Set only on share class nodes, and only where the bucket set is unitised.</value>
+        [DataMember(Name = "netDealingUnits", EmitDefaultValue = true)]
+        public decimal? NetDealingUnits { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ShareClassDetails
+        /// </summary>
+        [DataMember(Name = "shareClassDetails", EmitDefaultValue = false)]
+        public BucketSetShareClassDetails ShareClassDetails { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -148,6 +183,10 @@ namespace Lusid.Sdk.Model
             sb.Append("  SharesInIssue: ").Append(SharesInIssue).Append("\n");
             sb.Append("  PreviousPerUnitValue: ").Append(PreviousPerUnitValue).Append("\n");
             sb.Append("  PreviousSharesInIssue: ").Append(PreviousSharesInIssue).Append("\n");
+            sb.Append("  Label: ").Append(Label).Append("\n");
+            sb.Append("  PreviousNav: ").Append(PreviousNav).Append("\n");
+            sb.Append("  NetDealingUnits: ").Append(NetDealingUnits).Append("\n");
+            sb.Append("  ShareClassDetails: ").Append(ShareClassDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -228,6 +267,26 @@ namespace Lusid.Sdk.Model
                     this.PreviousSharesInIssue == input.PreviousSharesInIssue ||
                     (this.PreviousSharesInIssue != null &&
                     this.PreviousSharesInIssue.Equals(input.PreviousSharesInIssue))
+                ) && 
+                (
+                    this.Label == input.Label ||
+                    (this.Label != null &&
+                    this.Label.Equals(input.Label))
+                ) && 
+                (
+                    this.PreviousNav == input.PreviousNav ||
+                    (this.PreviousNav != null &&
+                    this.PreviousNav.Equals(input.PreviousNav))
+                ) && 
+                (
+                    this.NetDealingUnits == input.NetDealingUnits ||
+                    (this.NetDealingUnits != null &&
+                    this.NetDealingUnits.Equals(input.NetDealingUnits))
+                ) && 
+                (
+                    this.ShareClassDetails == input.ShareClassDetails ||
+                    (this.ShareClassDetails != null &&
+                    this.ShareClassDetails.Equals(input.ShareClassDetails))
                 );
         }
 
@@ -275,6 +334,22 @@ namespace Lusid.Sdk.Model
                 if (this.PreviousSharesInIssue != null)
                 {
                     hashCode = (hashCode * 59) + this.PreviousSharesInIssue.GetHashCode();
+                }
+                if (this.Label != null)
+                {
+                    hashCode = (hashCode * 59) + this.Label.GetHashCode();
+                }
+                if (this.PreviousNav != null)
+                {
+                    hashCode = (hashCode * 59) + this.PreviousNav.GetHashCode();
+                }
+                if (this.NetDealingUnits != null)
+                {
+                    hashCode = (hashCode * 59) + this.NetDealingUnits.GetHashCode();
+                }
+                if (this.ShareClassDetails != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShareClassDetails.GetHashCode();
                 }
                 return hashCode;
             }

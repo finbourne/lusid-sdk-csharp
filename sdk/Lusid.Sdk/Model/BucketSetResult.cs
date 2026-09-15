@@ -39,7 +39,8 @@ namespace Lusid.Sdk.Model
         /// <param name="bucketSetCode">The code of the fund configuration&#39;s bucket set definition these results were produced from. Empty for a fund valued from component filters, which has no bucket set definition to name. (required).</param>
         /// <param name="isApportionment">Whether this bucket set is the apportionment set (apportioning non-class-specific P&amp;L across share classes). (required).</param>
         /// <param name="nodes">The nodes making up the bucket set: the fund aggregate and one per share class. (required).</param>
-        public BucketSetResult(string bucketSetCode = default(string), bool isApportionment = default(bool), List<BucketSetNode> nodes = default(List<BucketSetNode>))
+        /// <param name="displayName">The display name of the bucket set, as configured on the fund configuration..</param>
+        public BucketSetResult(string bucketSetCode = default(string), bool isApportionment = default(bool), List<BucketSetNode> nodes = default(List<BucketSetNode>), string displayName = default(string))
         {
             // to ensure "bucketSetCode" is required (not null)
             if (bucketSetCode == null)
@@ -54,6 +55,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("nodes is a required property for BucketSetResult and cannot be null");
             }
             this.Nodes = nodes;
+            this.DisplayName = displayName;
         }
 
         /// <summary>
@@ -78,6 +80,13 @@ namespace Lusid.Sdk.Model
         public List<BucketSetNode> Nodes { get; set; }
 
         /// <summary>
+        /// The display name of the bucket set, as configured on the fund configuration.
+        /// </summary>
+        /// <value>The display name of the bucket set, as configured on the fund configuration.</value>
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -88,6 +97,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  BucketSetCode: ").Append(BucketSetCode).Append("\n");
             sb.Append("  IsApportionment: ").Append(IsApportionment).Append("\n");
             sb.Append("  Nodes: ").Append(Nodes).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -137,6 +147,11 @@ namespace Lusid.Sdk.Model
                     this.Nodes != null &&
                     input.Nodes != null &&
                     this.Nodes.SequenceEqual(input.Nodes)
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
                 );
         }
 
@@ -157,6 +172,10 @@ namespace Lusid.Sdk.Model
                 if (this.Nodes != null)
                 {
                     hashCode = (hashCode * 59) + this.Nodes.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
                 }
                 return hashCode;
             }

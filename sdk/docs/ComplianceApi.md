@@ -729,7 +729,7 @@ catch (ApiException e)
 
 <a id="getdecoratedcompliancerunsummary"></a>
 # **GetDecoratedComplianceRunSummary**
-> DecoratedComplianceRunSummary GetDecoratedComplianceRunSummary (string scope, string code)
+> DecoratedComplianceRunSummary GetDecoratedComplianceRunSummary (string scope, string code, List<string>? propertyKeys = null)
 
 [EARLY ACCESS] GetDecoratedComplianceRunSummary: Get decorated summary results for a specific compliance run.
 
@@ -776,14 +776,15 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var scope = "scope_example";  // string | Required: Run Scope.
             var code = "code_example";  // string | Required: Run Code.
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Compliance' domain to decorate onto each rule result.              These must take the format {domain}/{scope}/{code}, for example 'Compliance/live/UCITS'. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // DecoratedComplianceRunSummary result = apiInstance.GetDecoratedComplianceRunSummary(scope, code, opts: opts);
+                // DecoratedComplianceRunSummary result = apiInstance.GetDecoratedComplianceRunSummary(scope, code, propertyKeys, opts: opts);
 
                 // [EARLY ACCESS] GetDecoratedComplianceRunSummary: Get decorated summary results for a specific compliance run.
-                DecoratedComplianceRunSummary result = apiInstance.GetDecoratedComplianceRunSummary(scope, code);
+                DecoratedComplianceRunSummary result = apiInstance.GetDecoratedComplianceRunSummary(scope, code, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -804,7 +805,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] GetDecoratedComplianceRunSummary: Get decorated summary results for a specific compliance run.
-    ApiResponse<DecoratedComplianceRunSummary> response = apiInstance.GetDecoratedComplianceRunSummaryWithHttpInfo(scope, code);
+    ApiResponse<DecoratedComplianceRunSummary> response = apiInstance.GetDecoratedComplianceRunSummaryWithHttpInfo(scope, code, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -823,6 +824,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | Required: Run Scope. |  |
 | **code** | **string** | Required: Run Code. |  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule result.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. | [optional]  |
 
 ### Return type
 

@@ -212,10 +212,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Required: Run Scope.</param>
         /// <param name="code">Required: Run Code.</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule result.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DecoratedComplianceRunSummary</returns>
-        DecoratedComplianceRunSummary GetDecoratedComplianceRunSummary(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+        DecoratedComplianceRunSummary GetDecoratedComplianceRunSummary(string scope, string code, List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetDecoratedComplianceRunSummary: Get decorated summary results for a specific compliance run.
@@ -226,10 +227,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Required: Run Scope.</param>
         /// <param name="code">Required: Run Code.</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule result.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DecoratedComplianceRunSummary</returns>
-        Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary> GetDecoratedComplianceRunSummaryWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary> GetDecoratedComplianceRunSummaryWithHttpInfo(string scope, string code, List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListComplianceRules: List compliance rules.
         /// </summary>
@@ -707,11 +709,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Required: Run Scope.</param>
         /// <param name="code">Required: Run Code.</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule result.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DecoratedComplianceRunSummary</returns>
-        System.Threading.Tasks.Task<DecoratedComplianceRunSummary> GetDecoratedComplianceRunSummaryAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<DecoratedComplianceRunSummary> GetDecoratedComplianceRunSummaryAsync(string scope, string code, List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetDecoratedComplianceRunSummary: Get decorated summary results for a specific compliance run.
@@ -722,11 +725,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Required: Run Scope.</param>
         /// <param name="code">Required: Run Code.</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule result.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DecoratedComplianceRunSummary)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary>> GetDecoratedComplianceRunSummaryWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary>> GetDecoratedComplianceRunSummaryWithHttpInfoAsync(string scope, string code, List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListComplianceRules: List compliance rules.
         /// </summary>
@@ -2564,12 +2568,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Required: Run Scope.</param>
         /// <param name="code">Required: Run Code.</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule result.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DecoratedComplianceRunSummary</returns>
-        public DecoratedComplianceRunSummary GetDecoratedComplianceRunSummary(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public DecoratedComplianceRunSummary GetDecoratedComplianceRunSummary(string scope, string code, List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary> localVarResponse = GetDecoratedComplianceRunSummaryWithHttpInfo(scope, code, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary> localVarResponse = GetDecoratedComplianceRunSummaryWithHttpInfo(scope, code, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2579,10 +2584,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Required: Run Scope.</param>
         /// <param name="code">Required: Run Code.</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule result.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DecoratedComplianceRunSummary</returns>
-        public Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary> GetDecoratedComplianceRunSummaryWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary> GetDecoratedComplianceRunSummaryWithHttpInfo(string scope, string code, List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2632,6 +2638,11 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (propertyKeys != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
+            }
 
             localVarRequestOptions.Operation = "ComplianceApi.GetDecoratedComplianceRunSummary";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2673,13 +2684,14 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Required: Run Scope.</param>
         /// <param name="code">Required: Run Code.</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule result.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DecoratedComplianceRunSummary</returns>
-        public async System.Threading.Tasks.Task<DecoratedComplianceRunSummary> GetDecoratedComplianceRunSummaryAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<DecoratedComplianceRunSummary> GetDecoratedComplianceRunSummaryAsync(string scope, string code, List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary> localVarResponse = await GetDecoratedComplianceRunSummaryWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary> localVarResponse = await GetDecoratedComplianceRunSummaryWithHttpInfoAsync(scope, code, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2689,11 +2701,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Required: Run Scope.</param>
         /// <param name="code">Required: Run Code.</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule result.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DecoratedComplianceRunSummary)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary>> GetDecoratedComplianceRunSummaryWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary>> GetDecoratedComplianceRunSummaryWithHttpInfoAsync(string scope, string code, List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2744,6 +2757,10 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (propertyKeys != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
+            }
 
             localVarRequestOptions.Operation = "ComplianceApi.GetDecoratedComplianceRunSummary";
             localVarRequestOptions.OperationIndex = operationIndex;
