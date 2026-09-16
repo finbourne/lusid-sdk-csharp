@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **FundCode** | **string** | The code of the fund the member share class belongs to. | [optional] 
 **BaseValue** | **decimal?** | The base value the method produced for the member, or null for the SetFactor method. | [optional] 
 **ApportionmentFactor** | **decimal** | The member&#39;s apportionment factor: its base value over the total across the group or fund. | 
+**Inputs** | [**List&lt;ApportionmentInput&gt;**](ApportionmentInput.md) | The named amounts the apportionment method summed to reach the base value, always summing to it. Absent where the method defines no such breakdown. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -19,13 +20,15 @@ string memberIdentifier = "memberIdentifier";
 string fundScope = "example fundScope";
 string fundCode = "example fundCode";decimal apportionmentFactor = "apportionmentFactor";
 
+List<ApportionmentInput> inputs = new List<ApportionmentInput>();
 
 ApportionmentMemberFactor apportionmentMemberFactorInstance = new ApportionmentMemberFactor(
     memberIdentifier: memberIdentifier,
     fundScope: fundScope,
     fundCode: fundCode,
     baseValue: baseValue,
-    apportionmentFactor: apportionmentFactor);
+    apportionmentFactor: apportionmentFactor,
+    inputs: inputs);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

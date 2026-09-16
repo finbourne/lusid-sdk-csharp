@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Parameters** | [**Dictionary&lt;string, ComplianceParameter&gt;**](ComplianceParameter.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) |  | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -34,6 +35,8 @@ Dictionary<string, ComplianceParameter> parameters = new Dictionary<string, Comp
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 ModelVersion? varVersion = new ModelVersion();
 
+StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
+
 List<Link> links = new List<Link>();
 
 ComplianceRuleResponse complianceRuleResponseInstance = new ComplianceRuleResponse(
@@ -47,6 +50,7 @@ ComplianceRuleResponse complianceRuleResponseInstance = new ComplianceRuleRespon
     parameters: parameters,
     properties: properties,
     varVersion: varVersion,
+    stagedModifications: stagedModifications,
     links: links);
 ```
 

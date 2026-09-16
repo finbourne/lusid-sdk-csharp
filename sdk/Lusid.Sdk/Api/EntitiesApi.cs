@@ -61,6 +61,35 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of BookmarkEntity</returns>
         Lusid.Sdk.Client.ApiResponse<BookmarkEntity> GetBookmarkByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] GetComplianceRuleByEntityUniqueId: Get compliance rule by EntityUniqueId
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the definition of a particular compliance rule.    If the compliance rule is deleted, this will return the state of the rule immediately prior to deletion.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityUniqueId">The universally unique identifier of the compliance rule.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the compliance rule. Defaults to returning the latest version of the compliance rule if not specified. (optional)</param>
+        /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ComplianceRuleEntity</returns>
+        ComplianceRuleEntity GetComplianceRuleByEntityUniqueId(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] GetComplianceRuleByEntityUniqueId: Get compliance rule by EntityUniqueId
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the definition of a particular compliance rule.    If the compliance rule is deleted, this will return the state of the rule immediately prior to deletion.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityUniqueId">The universally unique identifier of the compliance rule.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the compliance rule. Defaults to returning the latest version of the compliance rule if not specified. (optional)</param>
+        /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ComplianceRuleEntity</returns>
+        Lusid.Sdk.Client.ApiResponse<ComplianceRuleEntity> GetComplianceRuleByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId
         /// </summary>
         /// <remarks>
@@ -385,6 +414,37 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BookmarkEntity)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BookmarkEntity>> GetBookmarkByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] GetComplianceRuleByEntityUniqueId: Get compliance rule by EntityUniqueId
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the definition of a particular compliance rule.    If the compliance rule is deleted, this will return the state of the rule immediately prior to deletion.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityUniqueId">The universally unique identifier of the compliance rule.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the compliance rule. Defaults to returning the latest version of the compliance rule if not specified. (optional)</param>
+        /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ComplianceRuleEntity</returns>
+        System.Threading.Tasks.Task<ComplianceRuleEntity> GetComplianceRuleByEntityUniqueIdAsync(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] GetComplianceRuleByEntityUniqueId: Get compliance rule by EntityUniqueId
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the definition of a particular compliance rule.    If the compliance rule is deleted, this will return the state of the rule immediately prior to deletion.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityUniqueId">The universally unique identifier of the compliance rule.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the compliance rule. Defaults to returning the latest version of the compliance rule if not specified. (optional)</param>
+        /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRuleEntity)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleEntity>> GetComplianceRuleByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId
         /// </summary>
@@ -1032,6 +1092,236 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetBookmarkByEntityUniqueId", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetComplianceRuleByEntityUniqueId: Get compliance rule by EntityUniqueId Retrieve the definition of a particular compliance rule.    If the compliance rule is deleted, this will return the state of the rule immediately prior to deletion.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityUniqueId">The universally unique identifier of the compliance rule.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the compliance rule. Defaults to returning the latest version of the compliance rule if not specified. (optional)</param>
+        /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ComplianceRuleEntity</returns>
+        public ComplianceRuleEntity GetComplianceRuleByEntityUniqueId(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleEntity> localVarResponse = GetComplianceRuleByEntityUniqueIdWithHttpInfo(entityUniqueId, asAt, previews, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetComplianceRuleByEntityUniqueId: Get compliance rule by EntityUniqueId Retrieve the definition of a particular compliance rule.    If the compliance rule is deleted, this will return the state of the rule immediately prior to deletion.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityUniqueId">The universally unique identifier of the compliance rule.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the compliance rule. Defaults to returning the latest version of the compliance rule if not specified. (optional)</param>
+        /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ComplianceRuleEntity</returns>
+        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleEntity> GetComplianceRuleByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'entityUniqueId' is set
+            if (entityUniqueId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'entityUniqueId' when calling EntitiesApi->GetComplianceRuleByEntityUniqueId");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("entityUniqueId", Lusid.Sdk.Client.ClientUtils.ParameterToString(entityUniqueId)); // path parameter
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (previews != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "previews", previews));
+            }
+
+            localVarRequestOptions.Operation = "EntitiesApi.GetComplianceRuleByEntityUniqueId";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ComplianceRuleEntity>("/api/entities/compliancerules/{entityUniqueId}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetComplianceRuleByEntityUniqueId", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetComplianceRuleByEntityUniqueId: Get compliance rule by EntityUniqueId Retrieve the definition of a particular compliance rule.    If the compliance rule is deleted, this will return the state of the rule immediately prior to deletion.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityUniqueId">The universally unique identifier of the compliance rule.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the compliance rule. Defaults to returning the latest version of the compliance rule if not specified. (optional)</param>
+        /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ComplianceRuleEntity</returns>
+        public async System.Threading.Tasks.Task<ComplianceRuleEntity> GetComplianceRuleByEntityUniqueIdAsync(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleEntity> localVarResponse = await GetComplianceRuleByEntityUniqueIdWithHttpInfoAsync(entityUniqueId, asAt, previews, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetComplianceRuleByEntityUniqueId: Get compliance rule by EntityUniqueId Retrieve the definition of a particular compliance rule.    If the compliance rule is deleted, this will return the state of the rule immediately prior to deletion.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityUniqueId">The universally unique identifier of the compliance rule.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the compliance rule. Defaults to returning the latest version of the compliance rule if not specified. (optional)</param>
+        /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRuleEntity)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleEntity>> GetComplianceRuleByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'entityUniqueId' is set
+            if (entityUniqueId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'entityUniqueId' when calling EntitiesApi->GetComplianceRuleByEntityUniqueId");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("entityUniqueId", Lusid.Sdk.Client.ClientUtils.ParameterToString(entityUniqueId)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (previews != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "previews", previews));
+            }
+
+            localVarRequestOptions.Operation = "EntitiesApi.GetComplianceRuleByEntityUniqueId";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ComplianceRuleEntity>("/api/entities/compliancerules/{entityUniqueId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetComplianceRuleByEntityUniqueId", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

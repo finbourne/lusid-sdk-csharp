@@ -260,6 +260,31 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ScenarioPreviewResponse</returns>
         Lusid.Sdk.Client.ApiResponse<ScenarioPreviewResponse> PreviewScenarioWithHttpInfo(ScenarioPreviewRequest scenarioPreviewRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] SolveReverseStress: Solve a reverse stress test
+        /// </summary>
+        /// <remarks>
+        /// Solve for how far the market has to move to produce a given change in portfolio value.                A scenario supplies the direction the market moves in: which risk factors move, and in what  proportion to each other. The solve is over a single factor its shifts are multiplied by, so the  answer is a multiple of the scenario rather than a set of shifts in its own right - a factor of  two means twice every shift the scenario states.                A ladder of factors is valued first, all in one valuation so the rungs share market data  resolution, then the bracketing pair is interpolated and the interpolated factor valued again to  confirm it. The whole ladder is returned: a reverse stress is only meaningful where the change in  value moves in one direction with the factor, and the ladder is what shows whether it does.                The solve is refused rather than approximated where it cannot be trusted: a scenario carrying a  shift with no size to scale (a model option, or a market data routing override), a measure that  cannot be computed under a scenario, or a valuation that could not price every holding.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reverseStressRequest">The recipe, portfolios, effective date, scenario direction and target change in value</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ReverseStressResponse</returns>
+        ReverseStressResponse SolveReverseStress(ReverseStressRequest reverseStressRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] SolveReverseStress: Solve a reverse stress test
+        /// </summary>
+        /// <remarks>
+        /// Solve for how far the market has to move to produce a given change in portfolio value.                A scenario supplies the direction the market moves in: which risk factors move, and in what  proportion to each other. The solve is over a single factor its shifts are multiplied by, so the  answer is a multiple of the scenario rather than a set of shifts in its own right - a factor of  two means twice every shift the scenario states.                A ladder of factors is valued first, all in one valuation so the rungs share market data  resolution, then the bracketing pair is interpolated and the interpolated factor valued again to  confirm it. The whole ladder is returned: a reverse stress is only meaningful where the change in  value moves in one direction with the factor, and the ladder is what shows whether it does.                The solve is refused rather than approximated where it cannot be trusted: a scenario carrying a  shift with no size to scale (a model option, or a market data routing override), a measure that  cannot be computed under a scenario, or a valuation that could not price every holding.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reverseStressRequest">The recipe, portfolios, effective date, scenario direction and target change in value</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ReverseStressResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<ReverseStressResponse> SolveReverseStressWithHttpInfo(ReverseStressRequest reverseStressRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] UpsertScenario: Upsert a Scenario. This creates or updates the scenario definition in LUSID.
         /// </summary>
         /// <remarks>
@@ -537,6 +562,33 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ScenarioPreviewResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ScenarioPreviewResponse>> PreviewScenarioWithHttpInfoAsync(ScenarioPreviewRequest scenarioPreviewRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] SolveReverseStress: Solve a reverse stress test
+        /// </summary>
+        /// <remarks>
+        /// Solve for how far the market has to move to produce a given change in portfolio value.                A scenario supplies the direction the market moves in: which risk factors move, and in what  proportion to each other. The solve is over a single factor its shifts are multiplied by, so the  answer is a multiple of the scenario rather than a set of shifts in its own right - a factor of  two means twice every shift the scenario states.                A ladder of factors is valued first, all in one valuation so the rungs share market data  resolution, then the bracketing pair is interpolated and the interpolated factor valued again to  confirm it. The whole ladder is returned: a reverse stress is only meaningful where the change in  value moves in one direction with the factor, and the ladder is what shows whether it does.                The solve is refused rather than approximated where it cannot be trusted: a scenario carrying a  shift with no size to scale (a model option, or a market data routing override), a measure that  cannot be computed under a scenario, or a valuation that could not price every holding.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reverseStressRequest">The recipe, portfolios, effective date, scenario direction and target change in value</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ReverseStressResponse</returns>
+        System.Threading.Tasks.Task<ReverseStressResponse> SolveReverseStressAsync(ReverseStressRequest reverseStressRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] SolveReverseStress: Solve a reverse stress test
+        /// </summary>
+        /// <remarks>
+        /// Solve for how far the market has to move to produce a given change in portfolio value.                A scenario supplies the direction the market moves in: which risk factors move, and in what  proportion to each other. The solve is over a single factor its shifts are multiplied by, so the  answer is a multiple of the scenario rather than a set of shifts in its own right - a factor of  two means twice every shift the scenario states.                A ladder of factors is valued first, all in one valuation so the rungs share market data  resolution, then the bracketing pair is interpolated and the interpolated factor valued again to  confirm it. The whole ladder is returned: a reverse stress is only meaningful where the change in  value moves in one direction with the factor, and the ladder is what shows whether it does.                The solve is refused rather than approximated where it cannot be trusted: a scenario carrying a  shift with no size to scale (a model option, or a market data routing override), a measure that  cannot be computed under a scenario, or a valuation that could not price every holding.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reverseStressRequest">The recipe, portfolios, effective date, scenario direction and target change in value</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ReverseStressResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ReverseStressResponse>> SolveReverseStressWithHttpInfoAsync(ReverseStressRequest reverseStressRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertScenario: Upsert a Scenario. This creates or updates the scenario definition in LUSID.
         /// </summary>
@@ -2518,6 +2570,218 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PreviewScenario", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] SolveReverseStress: Solve a reverse stress test Solve for how far the market has to move to produce a given change in portfolio value.                A scenario supplies the direction the market moves in: which risk factors move, and in what  proportion to each other. The solve is over a single factor its shifts are multiplied by, so the  answer is a multiple of the scenario rather than a set of shifts in its own right - a factor of  two means twice every shift the scenario states.                A ladder of factors is valued first, all in one valuation so the rungs share market data  resolution, then the bracketing pair is interpolated and the interpolated factor valued again to  confirm it. The whole ladder is returned: a reverse stress is only meaningful where the change in  value moves in one direction with the factor, and the ladder is what shows whether it does.                The solve is refused rather than approximated where it cannot be trusted: a scenario carrying a  shift with no size to scale (a model option, or a market data routing override), a measure that  cannot be computed under a scenario, or a valuation that could not price every holding.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reverseStressRequest">The recipe, portfolios, effective date, scenario direction and target change in value</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ReverseStressResponse</returns>
+        public ReverseStressResponse SolveReverseStress(ReverseStressRequest reverseStressRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ReverseStressResponse> localVarResponse = SolveReverseStressWithHttpInfo(reverseStressRequest, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] SolveReverseStress: Solve a reverse stress test Solve for how far the market has to move to produce a given change in portfolio value.                A scenario supplies the direction the market moves in: which risk factors move, and in what  proportion to each other. The solve is over a single factor its shifts are multiplied by, so the  answer is a multiple of the scenario rather than a set of shifts in its own right - a factor of  two means twice every shift the scenario states.                A ladder of factors is valued first, all in one valuation so the rungs share market data  resolution, then the bracketing pair is interpolated and the interpolated factor valued again to  confirm it. The whole ladder is returned: a reverse stress is only meaningful where the change in  value moves in one direction with the factor, and the ladder is what shows whether it does.                The solve is refused rather than approximated where it cannot be trusted: a scenario carrying a  shift with no size to scale (a model option, or a market data routing override), a measure that  cannot be computed under a scenario, or a valuation that could not price every holding.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reverseStressRequest">The recipe, portfolios, effective date, scenario direction and target change in value</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ReverseStressResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<ReverseStressResponse> SolveReverseStressWithHttpInfo(ReverseStressRequest reverseStressRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'reverseStressRequest' is set
+            if (reverseStressRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'reverseStressRequest' when calling ScenariosApi->SolveReverseStress");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = reverseStressRequest;
+
+            localVarRequestOptions.Operation = "ScenariosApi.SolveReverseStress";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ReverseStressResponse>("/api/scenarios/$reversestress", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SolveReverseStress", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] SolveReverseStress: Solve a reverse stress test Solve for how far the market has to move to produce a given change in portfolio value.                A scenario supplies the direction the market moves in: which risk factors move, and in what  proportion to each other. The solve is over a single factor its shifts are multiplied by, so the  answer is a multiple of the scenario rather than a set of shifts in its own right - a factor of  two means twice every shift the scenario states.                A ladder of factors is valued first, all in one valuation so the rungs share market data  resolution, then the bracketing pair is interpolated and the interpolated factor valued again to  confirm it. The whole ladder is returned: a reverse stress is only meaningful where the change in  value moves in one direction with the factor, and the ladder is what shows whether it does.                The solve is refused rather than approximated where it cannot be trusted: a scenario carrying a  shift with no size to scale (a model option, or a market data routing override), a measure that  cannot be computed under a scenario, or a valuation that could not price every holding.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reverseStressRequest">The recipe, portfolios, effective date, scenario direction and target change in value</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ReverseStressResponse</returns>
+        public async System.Threading.Tasks.Task<ReverseStressResponse> SolveReverseStressAsync(ReverseStressRequest reverseStressRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ReverseStressResponse> localVarResponse = await SolveReverseStressWithHttpInfoAsync(reverseStressRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] SolveReverseStress: Solve a reverse stress test Solve for how far the market has to move to produce a given change in portfolio value.                A scenario supplies the direction the market moves in: which risk factors move, and in what  proportion to each other. The solve is over a single factor its shifts are multiplied by, so the  answer is a multiple of the scenario rather than a set of shifts in its own right - a factor of  two means twice every shift the scenario states.                A ladder of factors is valued first, all in one valuation so the rungs share market data  resolution, then the bracketing pair is interpolated and the interpolated factor valued again to  confirm it. The whole ladder is returned: a reverse stress is only meaningful where the change in  value moves in one direction with the factor, and the ladder is what shows whether it does.                The solve is refused rather than approximated where it cannot be trusted: a scenario carrying a  shift with no size to scale (a model option, or a market data routing override), a measure that  cannot be computed under a scenario, or a valuation that could not price every holding.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reverseStressRequest">The recipe, portfolios, effective date, scenario direction and target change in value</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ReverseStressResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ReverseStressResponse>> SolveReverseStressWithHttpInfoAsync(ReverseStressRequest reverseStressRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'reverseStressRequest' is set
+            if (reverseStressRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'reverseStressRequest' when calling ScenariosApi->SolveReverseStress");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = reverseStressRequest;
+
+            localVarRequestOptions.Operation = "ScenariosApi.SolveReverseStress";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ReverseStressResponse>("/api/scenarios/$reversestress", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SolveReverseStress", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

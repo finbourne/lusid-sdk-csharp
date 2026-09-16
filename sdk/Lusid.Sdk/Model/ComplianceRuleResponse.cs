@@ -41,8 +41,9 @@ namespace Lusid.Sdk.Model
         /// <param name="parameters">parameters.</param>
         /// <param name="properties">properties.</param>
         /// <param name="varVersion">varVersion.</param>
+        /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="links">links.</param>
-        public ComplianceRuleResponse(ResourceId id = default(ResourceId), string name = default(string), string description = default(string), bool active = default(bool), ResourceId templateId = default(ResourceId), string variation = default(string), ResourceId portfolioGroupId = default(ResourceId), Dictionary<string, ComplianceParameter> parameters = default(Dictionary<string, ComplianceParameter>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public ComplianceRuleResponse(ResourceId id = default(ResourceId), string name = default(string), string description = default(string), bool active = default(bool), ResourceId templateId = default(ResourceId), string variation = default(string), ResourceId portfolioGroupId = default(ResourceId), Dictionary<string, ComplianceParameter> parameters = default(Dictionary<string, ComplianceParameter>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<Link> links = default(List<Link>))
         {
             this.Id = id;
             this.Name = name;
@@ -54,6 +55,7 @@ namespace Lusid.Sdk.Model
             this.Parameters = parameters;
             this.Properties = properties;
             this.VarVersion = varVersion;
+            this.StagedModifications = stagedModifications;
             this.Links = links;
         }
 
@@ -118,6 +120,12 @@ namespace Lusid.Sdk.Model
         public ModelVersion VarVersion { get; set; }
 
         /// <summary>
+        /// Gets or Sets StagedModifications
+        /// </summary>
+        [DataMember(Name = "stagedModifications", EmitDefaultValue = false)]
+        public StagedModificationsInfo StagedModifications { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -141,6 +149,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Parameters: ").Append(Parameters).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -229,6 +238,11 @@ namespace Lusid.Sdk.Model
                     this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
+                    this.StagedModifications == input.StagedModifications ||
+                    (this.StagedModifications != null &&
+                    this.StagedModifications.Equals(input.StagedModifications))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -281,6 +295,10 @@ namespace Lusid.Sdk.Model
                 if (this.VarVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                }
+                if (this.StagedModifications != null)
+                {
+                    hashCode = (hashCode * 59) + this.StagedModifications.GetHashCode();
                 }
                 if (this.Links != null)
                 {

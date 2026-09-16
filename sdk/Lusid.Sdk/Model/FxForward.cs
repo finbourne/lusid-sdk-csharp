@@ -40,9 +40,9 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
-        /// <param name="domAmount">The amount that is to be paid in the domestic currency on the maturity date. (required).</param>
+        /// <param name="domAmount">The amount that is to be paid in the domestic currency on the maturity date.  Required unless isPooled is set. On a pooled FX forward the domestic amount is the contract size and  not a traded amount: leave it absent and it is populated as one, so that holding units are amounts of  the domestic currency..</param>
         /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
-        /// <param name="fgnAmount">The amount that is to be paid in the foreign currency on the maturity date. (required).</param>
+        /// <param name="fgnAmount">The amount that is to be paid in the foreign currency on the maturity date.  Required unless isPooled is set. On a pooled FX forward it must be absent or zero, because the whole  foreign consideration is carried by the transactions booked against the pool..</param>
         /// <param name="fgnCcy">The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency.  For the outright forward, currencies are exchanged. (required).</param>
         /// <param name="refSpotRate">The reference Fx Spot rate for currency pair Foreign-Domestic that was seen on the trade start date (time)..</param>
         /// <param name="isNdf">Is the contract an Fx-Forward of \&quot;Non-Deliverable\&quot; type, meaning a single payment in the domestic currency based on the change in fx-rate vs  a reference rate is used.  Defaults to false if not set..</param>
@@ -50,31 +50,33 @@ namespace Lusid.Sdk.Model
         /// <param name="settlementCcy">The settlement currency.  If provided, present value will be calculated in settlement currency, otherwise the domestic currency. Applies only to non-deliverable FX Forwards..</param>
         /// <param name="bookedAsSpot">Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.  For information purposes only, this does not impact LUSID valuation, analytics, cashflows or events, but may be used by third party vendors..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
+        /// <param name="isPooled">Declares the contract to be a pool, carrying no traded amounts of its own. A pool is defined once for a  currency pair and maturity date and traded repeatedly at different rates, so the traded amounts are carried  by the transactions booked against it rather than by the instrument. The domestic amount of a pool is  therefore the contract size and not a traded amount, and is pinned to one so that holding units are amounts  of the domestic currency; the foreign amount and the reference spot rate must be absent, because the whole  foreign consideration is carried by the transaction.                Orientation is part of a pool&#39;s identity: the domestic currency is the unit currency and the foreign  currency the consideration currency, so a USD/JPY pool and a JPY/USD pool are distinct instruments, and  transactions must be booked in the pool&#39;s own direction (transaction currency equal to the domestic  currency, settlement currency equal to the foreign currency). This will default to False if not provided..</param>
         /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap, BondForward, PreferredShare, CapitalInterest. (required) (default to &quot;FxForward&quot;).</param>
-        public FxForward(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), decimal domAmount = default(decimal), string domCcy = default(string), decimal fgnAmount = default(decimal), string fgnCcy = default(string), decimal refSpotRate = default(decimal), bool isNdf = default(bool), DateTimeOffset fixingDate = default(DateTimeOffset), string settlementCcy = default(string), bool bookedAsSpot = default(bool), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public FxForward(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), decimal domAmount = default(decimal), string domCcy = default(string), decimal fgnAmount = default(decimal), string fgnCcy = default(string), decimal refSpotRate = default(decimal), bool isNdf = default(bool), DateTimeOffset fixingDate = default(DateTimeOffset), string settlementCcy = default(string), bool bookedAsSpot = default(bool), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), bool isPooled = default(bool), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
-            this.DomAmount = domAmount;
             // to ensure "domCcy" is required (not null)
             if (domCcy == null)
             {
                 throw new ArgumentNullException("domCcy is a required property for FxForward and cannot be null");
             }
             this.DomCcy = domCcy;
-            this.FgnAmount = fgnAmount;
             // to ensure "fgnCcy" is required (not null)
             if (fgnCcy == null)
             {
                 throw new ArgumentNullException("fgnCcy is a required property for FxForward and cannot be null");
             }
             this.FgnCcy = fgnCcy;
+            this.DomAmount = domAmount;
+            this.FgnAmount = fgnAmount;
             this.RefSpotRate = refSpotRate;
             this.IsNdf = isNdf;
             this.FixingDate = fixingDate;
             this.SettlementCcy = settlementCcy;
             this.BookedAsSpot = bookedAsSpot;
             this.TimeZoneConventions = timeZoneConventions;
+            this.IsPooled = isPooled;
         }
 
         /// <summary>
@@ -92,10 +94,10 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset MaturityDate { get; set; }
 
         /// <summary>
-        /// The amount that is to be paid in the domestic currency on the maturity date.
+        /// The amount that is to be paid in the domestic currency on the maturity date.  Required unless isPooled is set. On a pooled FX forward the domestic amount is the contract size and  not a traded amount: leave it absent and it is populated as one, so that holding units are amounts of  the domestic currency.
         /// </summary>
-        /// <value>The amount that is to be paid in the domestic currency on the maturity date.</value>
-        [DataMember(Name = "domAmount", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>The amount that is to be paid in the domestic currency on the maturity date.  Required unless isPooled is set. On a pooled FX forward the domestic amount is the contract size and  not a traded amount: leave it absent and it is populated as one, so that holding units are amounts of  the domestic currency.</value>
+        [DataMember(Name = "domAmount", EmitDefaultValue = true)]
         public decimal DomAmount { get; set; }
 
         /// <summary>
@@ -106,10 +108,10 @@ namespace Lusid.Sdk.Model
         public string DomCcy { get; set; }
 
         /// <summary>
-        /// The amount that is to be paid in the foreign currency on the maturity date.
+        /// The amount that is to be paid in the foreign currency on the maturity date.  Required unless isPooled is set. On a pooled FX forward it must be absent or zero, because the whole  foreign consideration is carried by the transactions booked against the pool.
         /// </summary>
-        /// <value>The amount that is to be paid in the foreign currency on the maturity date.</value>
-        [DataMember(Name = "fgnAmount", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>The amount that is to be paid in the foreign currency on the maturity date.  Required unless isPooled is set. On a pooled FX forward it must be absent or zero, because the whole  foreign consideration is carried by the transactions booked against the pool.</value>
+        [DataMember(Name = "fgnAmount", EmitDefaultValue = true)]
         public decimal FgnAmount { get; set; }
 
         /// <summary>
@@ -161,6 +163,13 @@ namespace Lusid.Sdk.Model
         public TimeZoneConventions TimeZoneConventions { get; set; }
 
         /// <summary>
+        /// Declares the contract to be a pool, carrying no traded amounts of its own. A pool is defined once for a  currency pair and maturity date and traded repeatedly at different rates, so the traded amounts are carried  by the transactions booked against it rather than by the instrument. The domestic amount of a pool is  therefore the contract size and not a traded amount, and is pinned to one so that holding units are amounts  of the domestic currency; the foreign amount and the reference spot rate must be absent, because the whole  foreign consideration is carried by the transaction.                Orientation is part of a pool&#39;s identity: the domestic currency is the unit currency and the foreign  currency the consideration currency, so a USD/JPY pool and a JPY/USD pool are distinct instruments, and  transactions must be booked in the pool&#39;s own direction (transaction currency equal to the domestic  currency, settlement currency equal to the foreign currency). This will default to False if not provided.
+        /// </summary>
+        /// <value>Declares the contract to be a pool, carrying no traded amounts of its own. A pool is defined once for a  currency pair and maturity date and traded repeatedly at different rates, so the traded amounts are carried  by the transactions booked against it rather than by the instrument. The domestic amount of a pool is  therefore the contract size and not a traded amount, and is pinned to one so that holding units are amounts  of the domestic currency; the foreign amount and the reference spot rate must be absent, because the whole  foreign consideration is carried by the transaction.                Orientation is part of a pool&#39;s identity: the domestic currency is the unit currency and the foreign  currency the consideration currency, so a USD/JPY pool and a JPY/USD pool are distinct instruments, and  transactions must be booked in the pool&#39;s own direction (transaction currency equal to the domestic  currency, settlement currency equal to the foreign currency). This will default to False if not provided.</value>
+        [DataMember(Name = "isPooled", EmitDefaultValue = true)]
+        public bool IsPooled { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -181,6 +190,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  SettlementCcy: ").Append(SettlementCcy).Append("\n");
             sb.Append("  BookedAsSpot: ").Append(BookedAsSpot).Append("\n");
             sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
+            sb.Append("  IsPooled: ").Append(IsPooled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -270,6 +280,10 @@ namespace Lusid.Sdk.Model
                     this.TimeZoneConventions == input.TimeZoneConventions ||
                     (this.TimeZoneConventions != null &&
                     this.TimeZoneConventions.Equals(input.TimeZoneConventions))
+                ) && base.Equals(input) && 
+                (
+                    this.IsPooled == input.IsPooled ||
+                    this.IsPooled.Equals(input.IsPooled)
                 );
         }
 
@@ -315,6 +329,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IsPooled.GetHashCode();
                 return hashCode;
             }
         }
