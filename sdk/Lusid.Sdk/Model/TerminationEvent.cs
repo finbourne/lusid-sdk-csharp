@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Termination of a derivative at fair settlement value before or at its own maturity, triggered by the  economic life of a referenced underlying ending first (redemption, tender, repurchase offer, spin-off,  conversion, exchange offer), or by the derivative maturing while the underlying still has remaining  value. Synthesised by the instrument itself; the settlement amounts are painted on by post-processing  and the resulting transaction closes the holding and settles the net amount.
+    /// Termination of a derivative at fair settlement value before or at its own maturity, triggered by the  economic life of a referenced underlying ending first (a bond&#39;s redemption, tender, repurchase offer or  conversion; an equity&#39;s merger, spin-off or exchange offer), or by the derivative maturing while the  underlying still has remaining value. Synthesised by the instrument itself; the settlement amounts are  painted on by post-processing and the resulting transaction closes the holding and settles the net amount.
     /// </summary>
     [DataContract(Name = "TerminationEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
@@ -47,8 +47,9 @@ namespace Lusid.Sdk.Model
         /// <param name="assetSettlementAmount">The asset-side settlement value per the settlement method, unsigned by leg direction.  Optional — populated by post-processing from market data; absent until enriched..</param>
         /// <param name="fundingAccruedAmount">The funding leg&#39;s financing accrued to the effective date, signed by the funding leg&#39;s own  direction. Optional — populated by post-processing from market data; absent until enriched..</param>
         /// <param name="terminationAmount">The net amount settled on termination: the asset settlement amount signed by the asset leg&#39;s  direction, netted with the funding accrued. Optional — populated by post-processing; absent  until enriched..</param>
+        /// <param name="terminationPrice">The per-unit price of the underlying the asset side settled at, for a price-return termination:  the triggering event&#39;s chosen cash-offer price when it has one, otherwise the underlying&#39;s last  available quote on or before the effective date. Optional — absent for formula-based settlements  and until enriched by post-processing..</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent. (required) (default to &quot;TerminationEvent&quot;).</param>
-        public TerminationEvent(DateTimeOffset effectiveDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), string settlementCurrency = default(string), string triggeringEventType = default(string), string triggeringEventId = default(string), string settlementMethod = default(string), decimal? assetSettlementAmount = default(decimal?), decimal? fundingAccruedAmount = default(decimal?), decimal? terminationAmount = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public TerminationEvent(DateTimeOffset effectiveDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), string settlementCurrency = default(string), string triggeringEventType = default(string), string triggeringEventId = default(string), string settlementMethod = default(string), decimal? assetSettlementAmount = default(decimal?), decimal? fundingAccruedAmount = default(decimal?), decimal? terminationAmount = default(decimal?), decimal? terminationPrice = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "settlementCurrency" is required (not null)
             if (settlementCurrency == null)
@@ -74,6 +75,7 @@ namespace Lusid.Sdk.Model
             this.AssetSettlementAmount = assetSettlementAmount;
             this.FundingAccruedAmount = fundingAccruedAmount;
             this.TerminationAmount = terminationAmount;
+            this.TerminationPrice = terminationPrice;
         }
 
         /// <summary>
@@ -140,6 +142,13 @@ namespace Lusid.Sdk.Model
         public decimal? TerminationAmount { get; set; }
 
         /// <summary>
+        /// The per-unit price of the underlying the asset side settled at, for a price-return termination:  the triggering event&#39;s chosen cash-offer price when it has one, otherwise the underlying&#39;s last  available quote on or before the effective date. Optional — absent for formula-based settlements  and until enriched by post-processing.
+        /// </summary>
+        /// <value>The per-unit price of the underlying the asset side settled at, for a price-return termination:  the triggering event&#39;s chosen cash-offer price when it has one, otherwise the underlying&#39;s last  available quote on or before the effective date. Optional — absent for formula-based settlements  and until enriched by post-processing.</value>
+        [DataMember(Name = "terminationPrice", EmitDefaultValue = true)]
+        public decimal? TerminationPrice { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -157,6 +166,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AssetSettlementAmount: ").Append(AssetSettlementAmount).Append("\n");
             sb.Append("  FundingAccruedAmount: ").Append(FundingAccruedAmount).Append("\n");
             sb.Append("  TerminationAmount: ").Append(TerminationAmount).Append("\n");
+            sb.Append("  TerminationPrice: ").Append(TerminationPrice).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -236,6 +246,11 @@ namespace Lusid.Sdk.Model
                     this.TerminationAmount == input.TerminationAmount ||
                     (this.TerminationAmount != null &&
                     this.TerminationAmount.Equals(input.TerminationAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.TerminationPrice == input.TerminationPrice ||
+                    (this.TerminationPrice != null &&
+                    this.TerminationPrice.Equals(input.TerminationPrice))
                 );
         }
 
@@ -283,6 +298,10 @@ namespace Lusid.Sdk.Model
                 if (this.TerminationAmount != null)
                 {
                     hashCode = (hashCode * 59) + this.TerminationAmount.GetHashCode();
+                }
+                if (this.TerminationPrice != null)
+                {
+                    hashCode = (hashCode * 59) + this.TerminationPrice.GetHashCode();
                 }
                 return hashCode;
             }

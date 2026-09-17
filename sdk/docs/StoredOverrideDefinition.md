@@ -1,0 +1,56 @@
+# Lusid.Sdk.Model.StoredOverrideDefinition
+A single replacement transaction definition as it was persisted against a virtual transaction.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**TransactionId** | **string** | The unique identifier of the replacement transaction. | [optional] 
+**Type** | **string** | The type of the replacement transaction, for example &#39;Buy&#39; or &#39;Sell&#39;. | [optional] 
+**InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | A set of instrument identifiers that resolve the replacement transaction to a unique instrument. | [optional] 
+**TradeDate** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The trade date of the replacement transaction. | [optional] 
+**SettlementDate** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The settlement date of the replacement transaction. | [optional] 
+**Units** | **decimal** | The number of units of the transacted instrument. | [optional] 
+**TradePrice** | [**TransactionPrice**](TransactionPrice.md) |  | [optional] 
+**TotalConsideration** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**ExchangeRate** | **decimal?** | The exchange rate between the trade and settlement currency. | [optional] 
+**TradeCurrency** | **string** | The trade currency of the replacement transaction. | [optional] 
+**Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The transaction properties stored for the replacement transaction. | [optional] 
+**CounterpartyId** | **string** | The identifier for the counterparty of the replacement transaction. | [optional] 
+**Source** | **string** | The source of the replacement transaction. | [optional] 
+
+```csharp
+using Lusid.Sdk.Model;
+using System;
+
+string transactionId = "example transactionId";
+string type = "example type";
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+DateTimeOrCutLabel tradeDate = "example tradeDate";
+DateTimeOrCutLabel settlementDate = "example settlementDate";decimal? units = "example units";
+TransactionPrice? tradePrice = new TransactionPrice();
+
+CurrencyAndAmount? totalConsideration = new CurrencyAndAmount();
+
+string tradeCurrency = "example tradeCurrency";
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+string counterpartyId = "example counterpartyId";
+string source = "example source";
+
+StoredOverrideDefinition storedOverrideDefinitionInstance = new StoredOverrideDefinition(
+    transactionId: transactionId,
+    type: type,
+    instrumentIdentifiers: instrumentIdentifiers,
+    tradeDate: tradeDate,
+    settlementDate: settlementDate,
+    units: units,
+    tradePrice: tradePrice,
+    totalConsideration: totalConsideration,
+    exchangeRate: exchangeRate,
+    tradeCurrency: tradeCurrency,
+    properties: properties,
+    counterpartyId: counterpartyId,
+    source: source);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

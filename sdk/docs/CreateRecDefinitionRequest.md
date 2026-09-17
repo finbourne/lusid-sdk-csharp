@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Currencies** | [**RecDefCurrencies**](RecDefCurrencies.md) |  | [optional] 
 **Rulesets** | [**List&lt;RecDefRuleset&gt;**](RecDefRuleset.md) | The types of reconciliation included in the group, each naming the matching ruleset that drives it. At least one entry is required, and each rec type may appear at most once. | 
 **ReviewConfiguration** | [**RecReviewConfiguration**](RecReviewConfiguration.md) |  | [optional] 
+**DatePolicy** | [**RecDatePolicy**](RecDatePolicy.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -35,6 +36,8 @@ RecDefCurrencies? currencies = new RecDefCurrencies();
 List<RecDefRuleset> rulesets = new List<RecDefRuleset>();
 RecReviewConfiguration? reviewConfiguration = new RecReviewConfiguration();
 
+RecDatePolicy? datePolicy = new RecDatePolicy();
+
 
 CreateRecDefinitionRequest createRecDefinitionRequestInstance = new CreateRecDefinitionRequest(
     id: id,
@@ -47,7 +50,8 @@ CreateRecDefinitionRequest createRecDefinitionRequestInstance = new CreateRecDef
     valuationRecipes: valuationRecipes,
     currencies: currencies,
     rulesets: rulesets,
-    reviewConfiguration: reviewConfiguration);
+    reviewConfiguration: reviewConfiguration,
+    datePolicy: datePolicy);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

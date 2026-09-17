@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **PreviousValuationPointCode** | **string** | The code of the previous valuation point. | [optional] 
 **ApportionmentResults** | [**List&lt;ApportionmentBreakdown&gt;**](ApportionmentBreakdown.md) | The apportionment results for the valuation point: one fund-level entry plus one entry per allocation group. | [optional] 
 **BucketSetResults** | [**List&lt;BucketSetResult&gt;**](BucketSetResult.md) | The bucket set results for the valuation point: for each bucket set, the per-node (fund and share class) buckets and NAV. | [optional] 
+**StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -31,6 +32,8 @@ string valuationPointCode = "example valuationPointCode";
 string previousValuationPointCode = "example previousValuationPointCode";
 List<ApportionmentBreakdown> apportionmentResults = new List<ApportionmentBreakdown>();
 List<BucketSetResult> bucketSetResults = new List<BucketSetResult>();
+StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
+
 List<Link> links = new List<Link>();
 
 ValuationPointDataResponse valuationPointDataResponseInstance = new ValuationPointDataResponse(
@@ -44,6 +47,7 @@ ValuationPointDataResponse valuationPointDataResponseInstance = new ValuationPoi
     previousValuationPointCode: previousValuationPointCode,
     apportionmentResults: apportionmentResults,
     bucketSetResults: bucketSetResults,
+    stagedModifications: stagedModifications,
     links: links);
 ```
 

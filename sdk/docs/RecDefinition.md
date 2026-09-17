@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Currencies** | [**RecDefCurrencies**](RecDefCurrencies.md) |  | [optional] 
 **Rulesets** | [**List&lt;RecDefRuleset&gt;**](RecDefRuleset.md) | The types of reconciliation included in the group, each naming the matching ruleset that drives it. At least one entry is required, and each rec type may appear at most once. | 
 **ReviewConfiguration** | [**RecReviewConfiguration**](RecReviewConfiguration.md) |  | 
+**DatePolicy** | [**RecDatePolicy**](RecDatePolicy.md) |  | 
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
@@ -37,6 +38,7 @@ RecDefCurrencies? currencies = new RecDefCurrencies();
 
 List<RecDefRuleset> rulesets = new List<RecDefRuleset>();
 RecReviewConfiguration reviewConfiguration = new RecReviewConfiguration();
+RecDatePolicy datePolicy = new RecDatePolicy();
 string href = "example href";
 ModelVersion? varVersion = new ModelVersion();
 
@@ -54,6 +56,7 @@ RecDefinition recDefinitionInstance = new RecDefinition(
     currencies: currencies,
     rulesets: rulesets,
     reviewConfiguration: reviewConfiguration,
+    datePolicy: datePolicy,
     href: href,
     varVersion: varVersion,
     links: links);

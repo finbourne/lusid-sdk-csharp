@@ -1352,6 +1352,39 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfTransaction</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfTransaction> GetUpsertablePortfolioCashFlowsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] GetVirtualTransactionOverride: [EARLY ACCESS] Get virtual transaction overrides and suppressions for an instrument event
+        /// </summary>
+        /// <remarks>
+        /// Returns the overrides and suppressions affecting this portfolio for the specified instrument event,  each entry&#39;s status, and the virtual transaction ids the event currently generates that none of them  target. A derived portfolio is affected by its own record and by every record held by an ancestor, so  one record is returned per holding portfolio, nearest first, each carrying the portfolio that holds  it. An entry&#39;s map key is the virtual transaction id as it appears in the portfolio holding the  record, which is the id to override or suppress against that portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio.</param>
+        /// <param name="instrumentEventId">The ID of the instrument event whose overrides and suppressions should be returned.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the overrides and suppressions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>VirtualTransactionOverridesResponse</returns>
+        VirtualTransactionOverridesResponse GetVirtualTransactionOverride(string scope, string code, string instrumentEventId, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] GetVirtualTransactionOverride: [EARLY ACCESS] Get virtual transaction overrides and suppressions for an instrument event
+        /// </summary>
+        /// <remarks>
+        /// Returns the overrides and suppressions affecting this portfolio for the specified instrument event,  each entry&#39;s status, and the virtual transaction ids the event currently generates that none of them  target. A derived portfolio is affected by its own record and by every record held by an ancestor, so  one record is returned per holding portfolio, nearest first, each carrying the portfolio that holds  it. An entry&#39;s map key is the virtual transaction id as it appears in the portfolio holding the  record, which is the id to override or suppress against that portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio.</param>
+        /// <param name="instrumentEventId">The ID of the instrument event whose overrides and suppressions should be returned.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the overrides and suppressions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of VirtualTransactionOverridesResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<VirtualTransactionOverridesResponse> GetVirtualTransactionOverrideWithHttpInfo(string scope, string code, string instrumentEventId, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// ListCustodianAccounts: List Custodian Accounts
         /// </summary>
         /// <remarks>
@@ -1472,6 +1505,41 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfTransactionSettlementInstruction</returns>
         Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransactionSettlementInstruction> ListSettlementInstructionsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] ListVirtualTransactionOverrides: [EARLY ACCESS] List virtual transaction overrides and suppressions
+        /// </summary>
+        /// <remarks>
+        /// Returns every override and suppression record affecting this portfolio, across every instrument  event, optionally restricted to the given match and application statuses. Filtering to the orphaned  and partially-applied statuses gives a reconciliation worklist of records whose targets no longer  generate. A derived portfolio is affected by its own records and by every record held by an ancestor,  so each returned record carries the portfolio that holds it.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the overrides and suppressions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="overrideMatchStatus">Restrict the records returned to those with one of these match statuses. May be specified more than once. Available values: Matched, Orphaned. (optional)</param>
+        /// <param name="overrideApplicationStatus">Restrict the records returned to those with one of these application statuses. May be specified more than once. Available values: Full, Partial, Orphaned. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfVirtualTransactionOverrideRecord</returns>
+        ResourceListOfVirtualTransactionOverrideRecord ListVirtualTransactionOverrides(string scope, string code, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? overrideMatchStatus = default(List<string>?), List<string>? overrideApplicationStatus = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] ListVirtualTransactionOverrides: [EARLY ACCESS] List virtual transaction overrides and suppressions
+        /// </summary>
+        /// <remarks>
+        /// Returns every override and suppression record affecting this portfolio, across every instrument  event, optionally restricted to the given match and application statuses. Filtering to the orphaned  and partially-applied statuses gives a reconciliation worklist of records whose targets no longer  generate. A derived portfolio is affected by its own records and by every record held by an ancestor,  so each returned record carries the portfolio that holds it.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the overrides and suppressions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="overrideMatchStatus">Restrict the records returned to those with one of these match statuses. May be specified more than once. Available values: Matched, Orphaned. (optional)</param>
+        /// <param name="overrideApplicationStatus">Restrict the records returned to those with one of these application statuses. May be specified more than once. Available values: Full, Partial, Orphaned. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfVirtualTransactionOverrideRecord</returns>
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfVirtualTransactionOverrideRecord> ListVirtualTransactionOverridesWithHttpInfo(string scope, string code, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? overrideMatchStatus = default(List<string>?), List<string>? overrideApplicationStatus = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// PatchPortfolioDetails: Patch portfolio details
         /// </summary>
@@ -1805,44 +1873,40 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of UpsertPortfolioTransactionsResponse</returns>
         Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse> UpsertTransactionsWithHttpInfo(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert a virtual transaction override
+        /// [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert virtual transaction overrides and suppressions
         /// </summary>
         /// <remarks>
-        /// Creates or updates virtual transaction overrides for an instrument event with manually provided input transactions.  This will cancel the specified instrument event and upsert the provided transactions as replacements.  The replacement transactions will have the OverrideOfInstrumentEvent system property set and a source type of OverriddenVirtualTransaction.  Calling this endpoint again with the same transaction IDs will update the existing overrides in place.
+        /// Creates or updates overrides and suppressions of virtual transactions generated by a single instrument  event. Overrides and suppressions are each keyed by the virtual transaction id they target. This is a  full replace of the previously stored overrides and suppressions for the targeted instrument event -  any previously stored entry not present in this request is removed.  Calling this endpoint again with the same virtual transaction id will replace the existing override or  suppression in place.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
-        /// <param name="instrumentEventId">The ID of the instrument event whose virtual transactions should be overridden.</param>
-        /// <param name="transactionRequest">A list of transactions to replace the virtual transactions generated by the instrument event.</param>
+        /// <param name="instrumentEventId">The ID of the instrument event whose virtual transactions should be overridden or suppressed.</param>
+        /// <param name="overrideVirtualTransactionsRequest">The overrides and suppressions to upsert, keyed by the virtual transaction id being overridden or suppressed.</param>
         /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
-        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
+        /// <param name="preserveProperties">If set to false, the entire property set of an updated override entry will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>OverrideVirtualTransactionsResponse</returns>
-        OverrideVirtualTransactionsResponse UpsertVirtualTransactionOverride(string scope, string code, string instrumentEventId, List<TransactionRequest> transactionRequest, string? portfolioEffectiveAt = default(string?), bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>UpsertVirtualTransactionOverrideResponse</returns>
+        UpsertVirtualTransactionOverrideResponse UpsertVirtualTransactionOverride(string scope, string code, string instrumentEventId, OverrideVirtualTransactionsRequest overrideVirtualTransactionsRequest, string? portfolioEffectiveAt = default(string?), bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert a virtual transaction override
+        /// [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert virtual transaction overrides and suppressions
         /// </summary>
         /// <remarks>
-        /// Creates or updates virtual transaction overrides for an instrument event with manually provided input transactions.  This will cancel the specified instrument event and upsert the provided transactions as replacements.  The replacement transactions will have the OverrideOfInstrumentEvent system property set and a source type of OverriddenVirtualTransaction.  Calling this endpoint again with the same transaction IDs will update the existing overrides in place.
+        /// Creates or updates overrides and suppressions of virtual transactions generated by a single instrument  event. Overrides and suppressions are each keyed by the virtual transaction id they target. This is a  full replace of the previously stored overrides and suppressions for the targeted instrument event -  any previously stored entry not present in this request is removed.  Calling this endpoint again with the same virtual transaction id will replace the existing override or  suppression in place.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
-        /// <param name="instrumentEventId">The ID of the instrument event whose virtual transactions should be overridden.</param>
-        /// <param name="transactionRequest">A list of transactions to replace the virtual transactions generated by the instrument event.</param>
+        /// <param name="instrumentEventId">The ID of the instrument event whose virtual transactions should be overridden or suppressed.</param>
+        /// <param name="overrideVirtualTransactionsRequest">The overrides and suppressions to upsert, keyed by the virtual transaction id being overridden or suppressed.</param>
         /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
-        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
+        /// <param name="preserveProperties">If set to false, the entire property set of an updated override entry will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of OverrideVirtualTransactionsResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<OverrideVirtualTransactionsResponse> UpsertVirtualTransactionOverrideWithHttpInfo(string scope, string code, string instrumentEventId, List<TransactionRequest> transactionRequest, string? portfolioEffectiveAt = default(string?), bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of UpsertVirtualTransactionOverrideResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<UpsertVirtualTransactionOverrideResponse> UpsertVirtualTransactionOverrideWithHttpInfo(string scope, string code, string instrumentEventId, OverrideVirtualTransactionsRequest overrideVirtualTransactionsRequest, string? portfolioEffectiveAt = default(string?), bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -3245,6 +3309,41 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfTransaction)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfTransaction>> GetUpsertablePortfolioCashFlowsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] GetVirtualTransactionOverride: [EARLY ACCESS] Get virtual transaction overrides and suppressions for an instrument event
+        /// </summary>
+        /// <remarks>
+        /// Returns the overrides and suppressions affecting this portfolio for the specified instrument event,  each entry&#39;s status, and the virtual transaction ids the event currently generates that none of them  target. A derived portfolio is affected by its own record and by every record held by an ancestor, so  one record is returned per holding portfolio, nearest first, each carrying the portfolio that holds  it. An entry&#39;s map key is the virtual transaction id as it appears in the portfolio holding the  record, which is the id to override or suppress against that portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio.</param>
+        /// <param name="instrumentEventId">The ID of the instrument event whose overrides and suppressions should be returned.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the overrides and suppressions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of VirtualTransactionOverridesResponse</returns>
+        System.Threading.Tasks.Task<VirtualTransactionOverridesResponse> GetVirtualTransactionOverrideAsync(string scope, string code, string instrumentEventId, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] GetVirtualTransactionOverride: [EARLY ACCESS] Get virtual transaction overrides and suppressions for an instrument event
+        /// </summary>
+        /// <remarks>
+        /// Returns the overrides and suppressions affecting this portfolio for the specified instrument event,  each entry&#39;s status, and the virtual transaction ids the event currently generates that none of them  target. A derived portfolio is affected by its own record and by every record held by an ancestor, so  one record is returned per holding portfolio, nearest first, each carrying the portfolio that holds  it. An entry&#39;s map key is the virtual transaction id as it appears in the portfolio holding the  record, which is the id to override or suppress against that portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio.</param>
+        /// <param name="instrumentEventId">The ID of the instrument event whose overrides and suppressions should be returned.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the overrides and suppressions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (VirtualTransactionOverridesResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VirtualTransactionOverridesResponse>> GetVirtualTransactionOverrideWithHttpInfoAsync(string scope, string code, string instrumentEventId, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// ListCustodianAccounts: List Custodian Accounts
         /// </summary>
         /// <remarks>
@@ -3371,6 +3470,43 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfTransactionSettlementInstruction)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransactionSettlementInstruction>> ListSettlementInstructionsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] ListVirtualTransactionOverrides: [EARLY ACCESS] List virtual transaction overrides and suppressions
+        /// </summary>
+        /// <remarks>
+        /// Returns every override and suppression record affecting this portfolio, across every instrument  event, optionally restricted to the given match and application statuses. Filtering to the orphaned  and partially-applied statuses gives a reconciliation worklist of records whose targets no longer  generate. A derived portfolio is affected by its own records and by every record held by an ancestor,  so each returned record carries the portfolio that holds it.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the overrides and suppressions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="overrideMatchStatus">Restrict the records returned to those with one of these match statuses. May be specified more than once. Available values: Matched, Orphaned. (optional)</param>
+        /// <param name="overrideApplicationStatus">Restrict the records returned to those with one of these application statuses. May be specified more than once. Available values: Full, Partial, Orphaned. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfVirtualTransactionOverrideRecord</returns>
+        System.Threading.Tasks.Task<ResourceListOfVirtualTransactionOverrideRecord> ListVirtualTransactionOverridesAsync(string scope, string code, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? overrideMatchStatus = default(List<string>?), List<string>? overrideApplicationStatus = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] ListVirtualTransactionOverrides: [EARLY ACCESS] List virtual transaction overrides and suppressions
+        /// </summary>
+        /// <remarks>
+        /// Returns every override and suppression record affecting this portfolio, across every instrument  event, optionally restricted to the given match and application statuses. Filtering to the orphaned  and partially-applied statuses gives a reconciliation worklist of records whose targets no longer  generate. A derived portfolio is affected by its own records and by every record held by an ancestor,  so each returned record carries the portfolio that holds it.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the overrides and suppressions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="overrideMatchStatus">Restrict the records returned to those with one of these match statuses. May be specified more than once. Available values: Matched, Orphaned. (optional)</param>
+        /// <param name="overrideApplicationStatus">Restrict the records returned to those with one of these application statuses. May be specified more than once. Available values: Full, Partial, Orphaned. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfVirtualTransactionOverrideRecord)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfVirtualTransactionOverrideRecord>> ListVirtualTransactionOverridesWithHttpInfoAsync(string scope, string code, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? overrideMatchStatus = default(List<string>?), List<string>? overrideApplicationStatus = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// PatchPortfolioDetails: Patch portfolio details
         /// </summary>
@@ -3724,46 +3860,42 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (UpsertPortfolioTransactionsResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse>> UpsertTransactionsWithHttpInfoAsync(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert a virtual transaction override
+        /// [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert virtual transaction overrides and suppressions
         /// </summary>
         /// <remarks>
-        /// Creates or updates virtual transaction overrides for an instrument event with manually provided input transactions.  This will cancel the specified instrument event and upsert the provided transactions as replacements.  The replacement transactions will have the OverrideOfInstrumentEvent system property set and a source type of OverriddenVirtualTransaction.  Calling this endpoint again with the same transaction IDs will update the existing overrides in place.
+        /// Creates or updates overrides and suppressions of virtual transactions generated by a single instrument  event. Overrides and suppressions are each keyed by the virtual transaction id they target. This is a  full replace of the previously stored overrides and suppressions for the targeted instrument event -  any previously stored entry not present in this request is removed.  Calling this endpoint again with the same virtual transaction id will replace the existing override or  suppression in place.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
-        /// <param name="instrumentEventId">The ID of the instrument event whose virtual transactions should be overridden.</param>
-        /// <param name="transactionRequest">A list of transactions to replace the virtual transactions generated by the instrument event.</param>
+        /// <param name="instrumentEventId">The ID of the instrument event whose virtual transactions should be overridden or suppressed.</param>
+        /// <param name="overrideVirtualTransactionsRequest">The overrides and suppressions to upsert, keyed by the virtual transaction id being overridden or suppressed.</param>
         /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
-        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
+        /// <param name="preserveProperties">If set to false, the entire property set of an updated override entry will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of OverrideVirtualTransactionsResponse</returns>
-        System.Threading.Tasks.Task<OverrideVirtualTransactionsResponse> UpsertVirtualTransactionOverrideAsync(string scope, string code, string instrumentEventId, List<TransactionRequest> transactionRequest, string? portfolioEffectiveAt = default(string?), bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of UpsertVirtualTransactionOverrideResponse</returns>
+        System.Threading.Tasks.Task<UpsertVirtualTransactionOverrideResponse> UpsertVirtualTransactionOverrideAsync(string scope, string code, string instrumentEventId, OverrideVirtualTransactionsRequest overrideVirtualTransactionsRequest, string? portfolioEffectiveAt = default(string?), bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert a virtual transaction override
+        /// [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert virtual transaction overrides and suppressions
         /// </summary>
         /// <remarks>
-        /// Creates or updates virtual transaction overrides for an instrument event with manually provided input transactions.  This will cancel the specified instrument event and upsert the provided transactions as replacements.  The replacement transactions will have the OverrideOfInstrumentEvent system property set and a source type of OverriddenVirtualTransaction.  Calling this endpoint again with the same transaction IDs will update the existing overrides in place.
+        /// Creates or updates overrides and suppressions of virtual transactions generated by a single instrument  event. Overrides and suppressions are each keyed by the virtual transaction id they target. This is a  full replace of the previously stored overrides and suppressions for the targeted instrument event -  any previously stored entry not present in this request is removed.  Calling this endpoint again with the same virtual transaction id will replace the existing override or  suppression in place.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
-        /// <param name="instrumentEventId">The ID of the instrument event whose virtual transactions should be overridden.</param>
-        /// <param name="transactionRequest">A list of transactions to replace the virtual transactions generated by the instrument event.</param>
+        /// <param name="instrumentEventId">The ID of the instrument event whose virtual transactions should be overridden or suppressed.</param>
+        /// <param name="overrideVirtualTransactionsRequest">The overrides and suppressions to upsert, keyed by the virtual transaction id being overridden or suppressed.</param>
         /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
-        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
+        /// <param name="preserveProperties">If set to false, the entire property set of an updated override entry will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (OverrideVirtualTransactionsResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<OverrideVirtualTransactionsResponse>> UpsertVirtualTransactionOverrideWithHttpInfoAsync(string scope, string code, string instrumentEventId, List<TransactionRequest> transactionRequest, string? portfolioEffectiveAt = default(string?), bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (UpsertVirtualTransactionOverrideResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertVirtualTransactionOverrideResponse>> UpsertVirtualTransactionOverrideWithHttpInfoAsync(string scope, string code, string instrumentEventId, OverrideVirtualTransactionsRequest overrideVirtualTransactionsRequest, string? portfolioEffectiveAt = default(string?), bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -14436,6 +14568,272 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
+        /// [EARLY ACCESS] GetVirtualTransactionOverride: [EARLY ACCESS] Get virtual transaction overrides and suppressions for an instrument event Returns the overrides and suppressions affecting this portfolio for the specified instrument event,  each entry&#39;s status, and the virtual transaction ids the event currently generates that none of them  target. A derived portfolio is affected by its own record and by every record held by an ancestor, so  one record is returned per holding portfolio, nearest first, each carrying the portfolio that holds  it. An entry&#39;s map key is the virtual transaction id as it appears in the portfolio holding the  record, which is the id to override or suppress against that portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio.</param>
+        /// <param name="instrumentEventId">The ID of the instrument event whose overrides and suppressions should be returned.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the overrides and suppressions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>VirtualTransactionOverridesResponse</returns>
+        public VirtualTransactionOverridesResponse GetVirtualTransactionOverride(string scope, string code, string instrumentEventId, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<VirtualTransactionOverridesResponse> localVarResponse = GetVirtualTransactionOverrideWithHttpInfo(scope, code, instrumentEventId, portfolioEffectiveAt, asAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetVirtualTransactionOverride: [EARLY ACCESS] Get virtual transaction overrides and suppressions for an instrument event Returns the overrides and suppressions affecting this portfolio for the specified instrument event,  each entry&#39;s status, and the virtual transaction ids the event currently generates that none of them  target. A derived portfolio is affected by its own record and by every record held by an ancestor, so  one record is returned per holding portfolio, nearest first, each carrying the portfolio that holds  it. An entry&#39;s map key is the virtual transaction id as it appears in the portfolio holding the  record, which is the id to override or suppress against that portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio.</param>
+        /// <param name="instrumentEventId">The ID of the instrument event whose overrides and suppressions should be returned.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the overrides and suppressions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of VirtualTransactionOverridesResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<VirtualTransactionOverridesResponse> GetVirtualTransactionOverrideWithHttpInfo(string scope, string code, string instrumentEventId, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionPortfoliosApi->GetVirtualTransactionOverride");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionPortfoliosApi->GetVirtualTransactionOverride");
+            }
+
+            // verify the required parameter 'instrumentEventId' is set
+            if (instrumentEventId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'instrumentEventId' when calling TransactionPortfoliosApi->GetVirtualTransactionOverride");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "instrumentEventId", instrumentEventId));
+            if (portfolioEffectiveAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetVirtualTransactionOverride";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<VirtualTransactionOverridesResponse>("/api/transactionportfolios/{scope}/{code}/overridevirtualtransactions", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetVirtualTransactionOverride", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetVirtualTransactionOverride: [EARLY ACCESS] Get virtual transaction overrides and suppressions for an instrument event Returns the overrides and suppressions affecting this portfolio for the specified instrument event,  each entry&#39;s status, and the virtual transaction ids the event currently generates that none of them  target. A derived portfolio is affected by its own record and by every record held by an ancestor, so  one record is returned per holding portfolio, nearest first, each carrying the portfolio that holds  it. An entry&#39;s map key is the virtual transaction id as it appears in the portfolio holding the  record, which is the id to override or suppress against that portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio.</param>
+        /// <param name="instrumentEventId">The ID of the instrument event whose overrides and suppressions should be returned.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the overrides and suppressions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of VirtualTransactionOverridesResponse</returns>
+        public async System.Threading.Tasks.Task<VirtualTransactionOverridesResponse> GetVirtualTransactionOverrideAsync(string scope, string code, string instrumentEventId, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<VirtualTransactionOverridesResponse> localVarResponse = await GetVirtualTransactionOverrideWithHttpInfoAsync(scope, code, instrumentEventId, portfolioEffectiveAt, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetVirtualTransactionOverride: [EARLY ACCESS] Get virtual transaction overrides and suppressions for an instrument event Returns the overrides and suppressions affecting this portfolio for the specified instrument event,  each entry&#39;s status, and the virtual transaction ids the event currently generates that none of them  target. A derived portfolio is affected by its own record and by every record held by an ancestor, so  one record is returned per holding portfolio, nearest first, each carrying the portfolio that holds  it. An entry&#39;s map key is the virtual transaction id as it appears in the portfolio holding the  record, which is the id to override or suppress against that portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio.</param>
+        /// <param name="instrumentEventId">The ID of the instrument event whose overrides and suppressions should be returned.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the overrides and suppressions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (VirtualTransactionOverridesResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VirtualTransactionOverridesResponse>> GetVirtualTransactionOverrideWithHttpInfoAsync(string scope, string code, string instrumentEventId, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionPortfoliosApi->GetVirtualTransactionOverride");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionPortfoliosApi->GetVirtualTransactionOverride");
+            }
+
+            // verify the required parameter 'instrumentEventId' is set
+            if (instrumentEventId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'instrumentEventId' when calling TransactionPortfoliosApi->GetVirtualTransactionOverride");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "instrumentEventId", instrumentEventId));
+            if (portfolioEffectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetVirtualTransactionOverride";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<VirtualTransactionOverridesResponse>("/api/transactionportfolios/{scope}/{code}/overridevirtualtransactions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetVirtualTransactionOverride", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// ListCustodianAccounts: List Custodian Accounts List the custodian accounts in a Transaction Portfolios
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -15352,6 +15750,280 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListSettlementInstructions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ListVirtualTransactionOverrides: [EARLY ACCESS] List virtual transaction overrides and suppressions Returns every override and suppression record affecting this portfolio, across every instrument  event, optionally restricted to the given match and application statuses. Filtering to the orphaned  and partially-applied statuses gives a reconciliation worklist of records whose targets no longer  generate. A derived portfolio is affected by its own records and by every record held by an ancestor,  so each returned record carries the portfolio that holds it.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the overrides and suppressions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="overrideMatchStatus">Restrict the records returned to those with one of these match statuses. May be specified more than once. Available values: Matched, Orphaned. (optional)</param>
+        /// <param name="overrideApplicationStatus">Restrict the records returned to those with one of these application statuses. May be specified more than once. Available values: Full, Partial, Orphaned. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfVirtualTransactionOverrideRecord</returns>
+        public ResourceListOfVirtualTransactionOverrideRecord ListVirtualTransactionOverrides(string scope, string code, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? overrideMatchStatus = default(List<string>?), List<string>? overrideApplicationStatus = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfVirtualTransactionOverrideRecord> localVarResponse = ListVirtualTransactionOverridesWithHttpInfo(scope, code, portfolioEffectiveAt, asAt, overrideMatchStatus, overrideApplicationStatus, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ListVirtualTransactionOverrides: [EARLY ACCESS] List virtual transaction overrides and suppressions Returns every override and suppression record affecting this portfolio, across every instrument  event, optionally restricted to the given match and application statuses. Filtering to the orphaned  and partially-applied statuses gives a reconciliation worklist of records whose targets no longer  generate. A derived portfolio is affected by its own records and by every record held by an ancestor,  so each returned record carries the portfolio that holds it.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the overrides and suppressions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="overrideMatchStatus">Restrict the records returned to those with one of these match statuses. May be specified more than once. Available values: Matched, Orphaned. (optional)</param>
+        /// <param name="overrideApplicationStatus">Restrict the records returned to those with one of these application statuses. May be specified more than once. Available values: Full, Partial, Orphaned. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfVirtualTransactionOverrideRecord</returns>
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfVirtualTransactionOverrideRecord> ListVirtualTransactionOverridesWithHttpInfo(string scope, string code, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? overrideMatchStatus = default(List<string>?), List<string>? overrideApplicationStatus = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionPortfoliosApi->ListVirtualTransactionOverrides");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionPortfoliosApi->ListVirtualTransactionOverrides");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (portfolioEffectiveAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (overrideMatchStatus != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "overrideMatchStatus", overrideMatchStatus));
+            }
+            if (overrideApplicationStatus != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "overrideApplicationStatus", overrideApplicationStatus));
+            }
+
+            localVarRequestOptions.Operation = "TransactionPortfoliosApi.ListVirtualTransactionOverrides";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ResourceListOfVirtualTransactionOverrideRecord>("/api/transactionportfolios/{scope}/{code}/overridevirtualtransactions/$list", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListVirtualTransactionOverrides", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ListVirtualTransactionOverrides: [EARLY ACCESS] List virtual transaction overrides and suppressions Returns every override and suppression record affecting this portfolio, across every instrument  event, optionally restricted to the given match and application statuses. Filtering to the orphaned  and partially-applied statuses gives a reconciliation worklist of records whose targets no longer  generate. A derived portfolio is affected by its own records and by every record held by an ancestor,  so each returned record carries the portfolio that holds it.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the overrides and suppressions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="overrideMatchStatus">Restrict the records returned to those with one of these match statuses. May be specified more than once. Available values: Matched, Orphaned. (optional)</param>
+        /// <param name="overrideApplicationStatus">Restrict the records returned to those with one of these application statuses. May be specified more than once. Available values: Full, Partial, Orphaned. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfVirtualTransactionOverrideRecord</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfVirtualTransactionOverrideRecord> ListVirtualTransactionOverridesAsync(string scope, string code, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? overrideMatchStatus = default(List<string>?), List<string>? overrideApplicationStatus = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfVirtualTransactionOverrideRecord> localVarResponse = await ListVirtualTransactionOverridesWithHttpInfoAsync(scope, code, portfolioEffectiveAt, asAt, overrideMatchStatus, overrideApplicationStatus, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ListVirtualTransactionOverrides: [EARLY ACCESS] List virtual transaction overrides and suppressions Returns every override and suppression record affecting this portfolio, across every instrument  event, optionally restricted to the given match and application statuses. Filtering to the orphaned  and partially-applied statuses gives a reconciliation worklist of records whose targets no longer  generate. A derived portfolio is affected by its own records and by every record held by an ancestor,  so each returned record carries the portfolio that holds it.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the overrides and suppressions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="overrideMatchStatus">Restrict the records returned to those with one of these match statuses. May be specified more than once. Available values: Matched, Orphaned. (optional)</param>
+        /// <param name="overrideApplicationStatus">Restrict the records returned to those with one of these application statuses. May be specified more than once. Available values: Full, Partial, Orphaned. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfVirtualTransactionOverrideRecord)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfVirtualTransactionOverrideRecord>> ListVirtualTransactionOverridesWithHttpInfoAsync(string scope, string code, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? overrideMatchStatus = default(List<string>?), List<string>? overrideApplicationStatus = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionPortfoliosApi->ListVirtualTransactionOverrides");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionPortfoliosApi->ListVirtualTransactionOverrides");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (portfolioEffectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (overrideMatchStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "overrideMatchStatus", overrideMatchStatus));
+            }
+            if (overrideApplicationStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "overrideApplicationStatus", overrideApplicationStatus));
+            }
+
+            localVarRequestOptions.Operation = "TransactionPortfoliosApi.ListVirtualTransactionOverrides";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfVirtualTransactionOverrideRecord>("/api/transactionportfolios/{scope}/{code}/overridevirtualtransactions/$list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListVirtualTransactionOverrides", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -18121,42 +18793,38 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert a virtual transaction override Creates or updates virtual transaction overrides for an instrument event with manually provided input transactions.  This will cancel the specified instrument event and upsert the provided transactions as replacements.  The replacement transactions will have the OverrideOfInstrumentEvent system property set and a source type of OverriddenVirtualTransaction.  Calling this endpoint again with the same transaction IDs will update the existing overrides in place.
+        /// [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert virtual transaction overrides and suppressions Creates or updates overrides and suppressions of virtual transactions generated by a single instrument  event. Overrides and suppressions are each keyed by the virtual transaction id they target. This is a  full replace of the previously stored overrides and suppressions for the targeted instrument event -  any previously stored entry not present in this request is removed.  Calling this endpoint again with the same virtual transaction id will replace the existing override or  suppression in place.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
-        /// <param name="instrumentEventId">The ID of the instrument event whose virtual transactions should be overridden.</param>
-        /// <param name="transactionRequest">A list of transactions to replace the virtual transactions generated by the instrument event.</param>
+        /// <param name="instrumentEventId">The ID of the instrument event whose virtual transactions should be overridden or suppressed.</param>
+        /// <param name="overrideVirtualTransactionsRequest">The overrides and suppressions to upsert, keyed by the virtual transaction id being overridden or suppressed.</param>
         /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
-        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
+        /// <param name="preserveProperties">If set to false, the entire property set of an updated override entry will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>OverrideVirtualTransactionsResponse</returns>
-        public OverrideVirtualTransactionsResponse UpsertVirtualTransactionOverride(string scope, string code, string instrumentEventId, List<TransactionRequest> transactionRequest, string? portfolioEffectiveAt = default(string?), bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>UpsertVirtualTransactionOverrideResponse</returns>
+        public UpsertVirtualTransactionOverrideResponse UpsertVirtualTransactionOverride(string scope, string code, string instrumentEventId, OverrideVirtualTransactionsRequest overrideVirtualTransactionsRequest, string? portfolioEffectiveAt = default(string?), bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<OverrideVirtualTransactionsResponse> localVarResponse = UpsertVirtualTransactionOverrideWithHttpInfo(scope, code, instrumentEventId, transactionRequest, portfolioEffectiveAt, preserveProperties, dataModelScope, dataModelCode, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<UpsertVirtualTransactionOverrideResponse> localVarResponse = UpsertVirtualTransactionOverrideWithHttpInfo(scope, code, instrumentEventId, overrideVirtualTransactionsRequest, portfolioEffectiveAt, preserveProperties, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert a virtual transaction override Creates or updates virtual transaction overrides for an instrument event with manually provided input transactions.  This will cancel the specified instrument event and upsert the provided transactions as replacements.  The replacement transactions will have the OverrideOfInstrumentEvent system property set and a source type of OverriddenVirtualTransaction.  Calling this endpoint again with the same transaction IDs will update the existing overrides in place.
+        /// [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert virtual transaction overrides and suppressions Creates or updates overrides and suppressions of virtual transactions generated by a single instrument  event. Overrides and suppressions are each keyed by the virtual transaction id they target. This is a  full replace of the previously stored overrides and suppressions for the targeted instrument event -  any previously stored entry not present in this request is removed.  Calling this endpoint again with the same virtual transaction id will replace the existing override or  suppression in place.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
-        /// <param name="instrumentEventId">The ID of the instrument event whose virtual transactions should be overridden.</param>
-        /// <param name="transactionRequest">A list of transactions to replace the virtual transactions generated by the instrument event.</param>
+        /// <param name="instrumentEventId">The ID of the instrument event whose virtual transactions should be overridden or suppressed.</param>
+        /// <param name="overrideVirtualTransactionsRequest">The overrides and suppressions to upsert, keyed by the virtual transaction id being overridden or suppressed.</param>
         /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
-        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
+        /// <param name="preserveProperties">If set to false, the entire property set of an updated override entry will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of OverrideVirtualTransactionsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<OverrideVirtualTransactionsResponse> UpsertVirtualTransactionOverrideWithHttpInfo(string scope, string code, string instrumentEventId, List<TransactionRequest> transactionRequest, string? portfolioEffectiveAt = default(string?), bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of UpsertVirtualTransactionOverrideResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<UpsertVirtualTransactionOverrideResponse> UpsertVirtualTransactionOverrideWithHttpInfo(string scope, string code, string instrumentEventId, OverrideVirtualTransactionsRequest overrideVirtualTransactionsRequest, string? portfolioEffectiveAt = default(string?), bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -18176,10 +18844,10 @@ namespace Lusid.Sdk.Api
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'instrumentEventId' when calling TransactionPortfoliosApi->UpsertVirtualTransactionOverride");
             }
 
-            // verify the required parameter 'transactionRequest' is set
-            if (transactionRequest == null)
+            // verify the required parameter 'overrideVirtualTransactionsRequest' is set
+            if (overrideVirtualTransactionsRequest == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'transactionRequest' when calling TransactionPortfoliosApi->UpsertVirtualTransactionOverride");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'overrideVirtualTransactionsRequest' when calling TransactionPortfoliosApi->UpsertVirtualTransactionOverride");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -18233,17 +18901,7 @@ namespace Lusid.Sdk.Api
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "preserveProperties", preserveProperties));
             }
-            if (dataModelScope != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelScope", dataModelScope));
-            }
-            if (dataModelCode != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
-            }
-            localVarRequestOptions.Data = transactionRequest;
+            localVarRequestOptions.Data = overrideVirtualTransactionsRequest;
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.UpsertVirtualTransactionOverride";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -18266,7 +18924,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<OverrideVirtualTransactionsResponse>("/api/transactionportfolios/{scope}/{code}/overridevirtualtransactions", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<UpsertVirtualTransactionOverrideResponse>("/api/transactionportfolios/{scope}/{code}/overridevirtualtransactions", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpsertVirtualTransactionOverride", localVarResponse);
@@ -18280,44 +18938,40 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert a virtual transaction override Creates or updates virtual transaction overrides for an instrument event with manually provided input transactions.  This will cancel the specified instrument event and upsert the provided transactions as replacements.  The replacement transactions will have the OverrideOfInstrumentEvent system property set and a source type of OverriddenVirtualTransaction.  Calling this endpoint again with the same transaction IDs will update the existing overrides in place.
+        /// [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert virtual transaction overrides and suppressions Creates or updates overrides and suppressions of virtual transactions generated by a single instrument  event. Overrides and suppressions are each keyed by the virtual transaction id they target. This is a  full replace of the previously stored overrides and suppressions for the targeted instrument event -  any previously stored entry not present in this request is removed.  Calling this endpoint again with the same virtual transaction id will replace the existing override or  suppression in place.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
-        /// <param name="instrumentEventId">The ID of the instrument event whose virtual transactions should be overridden.</param>
-        /// <param name="transactionRequest">A list of transactions to replace the virtual transactions generated by the instrument event.</param>
+        /// <param name="instrumentEventId">The ID of the instrument event whose virtual transactions should be overridden or suppressed.</param>
+        /// <param name="overrideVirtualTransactionsRequest">The overrides and suppressions to upsert, keyed by the virtual transaction id being overridden or suppressed.</param>
         /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
-        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
+        /// <param name="preserveProperties">If set to false, the entire property set of an updated override entry will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of OverrideVirtualTransactionsResponse</returns>
-        public async System.Threading.Tasks.Task<OverrideVirtualTransactionsResponse> UpsertVirtualTransactionOverrideAsync(string scope, string code, string instrumentEventId, List<TransactionRequest> transactionRequest, string? portfolioEffectiveAt = default(string?), bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of UpsertVirtualTransactionOverrideResponse</returns>
+        public async System.Threading.Tasks.Task<UpsertVirtualTransactionOverrideResponse> UpsertVirtualTransactionOverrideAsync(string scope, string code, string instrumentEventId, OverrideVirtualTransactionsRequest overrideVirtualTransactionsRequest, string? portfolioEffectiveAt = default(string?), bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<OverrideVirtualTransactionsResponse> localVarResponse = await UpsertVirtualTransactionOverrideWithHttpInfoAsync(scope, code, instrumentEventId, transactionRequest, portfolioEffectiveAt, preserveProperties, dataModelScope, dataModelCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertVirtualTransactionOverrideResponse> localVarResponse = await UpsertVirtualTransactionOverrideWithHttpInfoAsync(scope, code, instrumentEventId, overrideVirtualTransactionsRequest, portfolioEffectiveAt, preserveProperties, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert a virtual transaction override Creates or updates virtual transaction overrides for an instrument event with manually provided input transactions.  This will cancel the specified instrument event and upsert the provided transactions as replacements.  The replacement transactions will have the OverrideOfInstrumentEvent system property set and a source type of OverriddenVirtualTransaction.  Calling this endpoint again with the same transaction IDs will update the existing overrides in place.
+        /// [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert virtual transaction overrides and suppressions Creates or updates overrides and suppressions of virtual transactions generated by a single instrument  event. Overrides and suppressions are each keyed by the virtual transaction id they target. This is a  full replace of the previously stored overrides and suppressions for the targeted instrument event -  any previously stored entry not present in this request is removed.  Calling this endpoint again with the same virtual transaction id will replace the existing override or  suppression in place.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
-        /// <param name="instrumentEventId">The ID of the instrument event whose virtual transactions should be overridden.</param>
-        /// <param name="transactionRequest">A list of transactions to replace the virtual transactions generated by the instrument event.</param>
+        /// <param name="instrumentEventId">The ID of the instrument event whose virtual transactions should be overridden or suppressed.</param>
+        /// <param name="overrideVirtualTransactionsRequest">The overrides and suppressions to upsert, keyed by the virtual transaction id being overridden or suppressed.</param>
         /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
-        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
+        /// <param name="preserveProperties">If set to false, the entire property set of an updated override entry will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (OverrideVirtualTransactionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<OverrideVirtualTransactionsResponse>> UpsertVirtualTransactionOverrideWithHttpInfoAsync(string scope, string code, string instrumentEventId, List<TransactionRequest> transactionRequest, string? portfolioEffectiveAt = default(string?), bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (UpsertVirtualTransactionOverrideResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertVirtualTransactionOverrideResponse>> UpsertVirtualTransactionOverrideWithHttpInfoAsync(string scope, string code, string instrumentEventId, OverrideVirtualTransactionsRequest overrideVirtualTransactionsRequest, string? portfolioEffectiveAt = default(string?), bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -18337,10 +18991,10 @@ namespace Lusid.Sdk.Api
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'instrumentEventId' when calling TransactionPortfoliosApi->UpsertVirtualTransactionOverride");
             }
 
-            // verify the required parameter 'transactionRequest' is set
-            if (transactionRequest == null)
+            // verify the required parameter 'overrideVirtualTransactionsRequest' is set
+            if (overrideVirtualTransactionsRequest == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'transactionRequest' when calling TransactionPortfoliosApi->UpsertVirtualTransactionOverride");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'overrideVirtualTransactionsRequest' when calling TransactionPortfoliosApi->UpsertVirtualTransactionOverride");
             }
 
 
@@ -18393,15 +19047,7 @@ namespace Lusid.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "preserveProperties", preserveProperties));
             }
-            if (dataModelScope != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelScope", dataModelScope));
-            }
-            if (dataModelCode != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
-            }
-            localVarRequestOptions.Data = transactionRequest;
+            localVarRequestOptions.Data = overrideVirtualTransactionsRequest;
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.UpsertVirtualTransactionOverride";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -18424,7 +19070,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<OverrideVirtualTransactionsResponse>("/api/transactionportfolios/{scope}/{code}/overridevirtualtransactions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<UpsertVirtualTransactionOverrideResponse>("/api/transactionportfolios/{scope}/{code}/overridevirtualtransactions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

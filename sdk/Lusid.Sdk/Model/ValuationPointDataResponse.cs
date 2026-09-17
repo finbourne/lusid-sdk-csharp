@@ -46,8 +46,9 @@ namespace Lusid.Sdk.Model
         /// <param name="previousValuationPointCode">The code of the previous valuation point..</param>
         /// <param name="apportionmentResults">The apportionment results for the valuation point: one fund-level entry plus one entry per allocation group..</param>
         /// <param name="bucketSetResults">The bucket set results for the valuation point: for each bucket set, the per-node (fund and share class) buckets and NAV..</param>
+        /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="links">links.</param>
-        public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), FundDetails fundDetails = default(FundDetails), FundValuationPointData fundValuationPointData = default(FundValuationPointData), List<ShareClassData> shareClassData = default(List<ShareClassData>), string valuationPointCode = default(string), string previousValuationPointCode = default(string), List<ApportionmentBreakdown> apportionmentResults = default(List<ApportionmentBreakdown>), List<BucketSetResult> bucketSetResults = default(List<BucketSetResult>), List<Link> links = default(List<Link>))
+        public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), FundDetails fundDetails = default(FundDetails), FundValuationPointData fundValuationPointData = default(FundValuationPointData), List<ShareClassData> shareClassData = default(List<ShareClassData>), string valuationPointCode = default(string), string previousValuationPointCode = default(string), List<ApportionmentBreakdown> apportionmentResults = default(List<ApportionmentBreakdown>), List<BucketSetResult> bucketSetResults = default(List<BucketSetResult>), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<Link> links = default(List<Link>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -84,6 +85,7 @@ namespace Lusid.Sdk.Model
             this.PreviousValuationPointCode = previousValuationPointCode;
             this.ApportionmentResults = apportionmentResults;
             this.BucketSetResults = bucketSetResults;
+            this.StagedModifications = stagedModifications;
             this.Links = links;
         }
 
@@ -156,6 +158,12 @@ namespace Lusid.Sdk.Model
         public List<BucketSetResult> BucketSetResults { get; set; }
 
         /// <summary>
+        /// Gets or Sets StagedModifications
+        /// </summary>
+        [DataMember(Name = "stagedModifications", EmitDefaultValue = false)]
+        public StagedModificationsInfo StagedModifications { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -179,6 +187,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PreviousValuationPointCode: ").Append(PreviousValuationPointCode).Append("\n");
             sb.Append("  ApportionmentResults: ").Append(ApportionmentResults).Append("\n");
             sb.Append("  BucketSetResults: ").Append(BucketSetResults).Append("\n");
+            sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -269,6 +278,11 @@ namespace Lusid.Sdk.Model
                     this.BucketSetResults.SequenceEqual(input.BucketSetResults)
                 ) && 
                 (
+                    this.StagedModifications == input.StagedModifications ||
+                    (this.StagedModifications != null &&
+                    this.StagedModifications.Equals(input.StagedModifications))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -324,6 +338,10 @@ namespace Lusid.Sdk.Model
                 if (this.BucketSetResults != null)
                 {
                     hashCode = (hashCode * 59) + this.BucketSetResults.GetHashCode();
+                }
+                if (this.StagedModifications != null)
+                {
+                    hashCode = (hashCode * 59) + this.StagedModifications.GetHashCode();
                 }
                 if (this.Links != null)
                 {

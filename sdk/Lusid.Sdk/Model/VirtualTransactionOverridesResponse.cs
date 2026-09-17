@@ -23,47 +23,42 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// OverrideVirtualTransactionsResponse
+    /// The overrides and suppressions affecting a single instrument event in the requested portfolio. A derived  portfolio is affected by its own record and by every record held by an ancestor, so one record per  holding portfolio is returned, nearest first.
     /// </summary>
-    [DataContract(Name = "OverrideVirtualTransactionsResponse")]
-    public partial class OverrideVirtualTransactionsResponse : IEquatable<OverrideVirtualTransactionsResponse>, IValidatableObject
+    [DataContract(Name = "VirtualTransactionOverridesResponse")]
+    public partial class VirtualTransactionOverridesResponse : IEquatable<VirtualTransactionOverridesResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="OverrideVirtualTransactionsResponse" /> class.
+        /// Initializes a new instance of the <see cref="VirtualTransactionOverridesResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected OverrideVirtualTransactionsResponse() { }
+        protected VirtualTransactionOverridesResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="OverrideVirtualTransactionsResponse" /> class.
+        /// Initializes a new instance of the <see cref="VirtualTransactionOverridesResponse" /> class.
         /// </summary>
         /// <param name="varVersion">varVersion (required).</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
-        /// <param name="metadata">Contains warnings related to unresolved instruments or non-existent transaction types for the override transactions..</param>
-        /// <param name="instrumentEventId">The identifier of the instrument event that was overridden. (required).</param>
-        /// <param name="cancelInstructionId">The identifier of the cancel instruction that was created for the overridden instrument event. (required).</param>
+        /// <param name="instrumentEventId">The identifier of the instrument event whose overrides and suppressions are returned. (required).</param>
+        /// <param name="records">The override and suppression records affecting the requested portfolio for this instrument event, nearest first. A derived portfolio is affected by its own record and by every record held by an ancestor..</param>
+        /// <param name="live">The virtual transaction ids the event currently generates in the requested portfolio that no returned record targets, and so keep generating unmodified..</param>
         /// <param name="links">links.</param>
-        public OverrideVirtualTransactionsResponse(ModelVersion varVersion = default(ModelVersion), string href = default(string), Dictionary<string, List<ResponseMetaData>> metadata = default(Dictionary<string, List<ResponseMetaData>>), string instrumentEventId = default(string), string cancelInstructionId = default(string), List<Link> links = default(List<Link>))
+        public VirtualTransactionOverridesResponse(ModelVersion varVersion = default(ModelVersion), string href = default(string), string instrumentEventId = default(string), List<VirtualTransactionOverrideRecord> records = default(List<VirtualTransactionOverrideRecord>), List<string> live = default(List<string>), List<Link> links = default(List<Link>))
         {
             // to ensure "varVersion" is required (not null)
             if (varVersion == null)
             {
-                throw new ArgumentNullException("varVersion is a required property for OverrideVirtualTransactionsResponse and cannot be null");
+                throw new ArgumentNullException("varVersion is a required property for VirtualTransactionOverridesResponse and cannot be null");
             }
             this.VarVersion = varVersion;
             // to ensure "instrumentEventId" is required (not null)
             if (instrumentEventId == null)
             {
-                throw new ArgumentNullException("instrumentEventId is a required property for OverrideVirtualTransactionsResponse and cannot be null");
+                throw new ArgumentNullException("instrumentEventId is a required property for VirtualTransactionOverridesResponse and cannot be null");
             }
             this.InstrumentEventId = instrumentEventId;
-            // to ensure "cancelInstructionId" is required (not null)
-            if (cancelInstructionId == null)
-            {
-                throw new ArgumentNullException("cancelInstructionId is a required property for OverrideVirtualTransactionsResponse and cannot be null");
-            }
-            this.CancelInstructionId = cancelInstructionId;
             this.Href = href;
-            this.Metadata = metadata;
+            this.Records = records;
+            this.Live = live;
             this.Links = links;
         }
 
@@ -81,25 +76,25 @@ namespace Lusid.Sdk.Model
         public string Href { get; set; }
 
         /// <summary>
-        /// Contains warnings related to unresolved instruments or non-existent transaction types for the override transactions.
+        /// The identifier of the instrument event whose overrides and suppressions are returned.
         /// </summary>
-        /// <value>Contains warnings related to unresolved instruments or non-existent transaction types for the override transactions.</value>
-        [DataMember(Name = "metadata", EmitDefaultValue = true)]
-        public Dictionary<string, List<ResponseMetaData>> Metadata { get; set; }
-
-        /// <summary>
-        /// The identifier of the instrument event that was overridden.
-        /// </summary>
-        /// <value>The identifier of the instrument event that was overridden.</value>
+        /// <value>The identifier of the instrument event whose overrides and suppressions are returned.</value>
         [DataMember(Name = "instrumentEventId", IsRequired = true, EmitDefaultValue = true)]
         public string InstrumentEventId { get; set; }
 
         /// <summary>
-        /// The identifier of the cancel instruction that was created for the overridden instrument event.
+        /// The override and suppression records affecting the requested portfolio for this instrument event, nearest first. A derived portfolio is affected by its own record and by every record held by an ancestor.
         /// </summary>
-        /// <value>The identifier of the cancel instruction that was created for the overridden instrument event.</value>
-        [DataMember(Name = "cancelInstructionId", IsRequired = true, EmitDefaultValue = true)]
-        public string CancelInstructionId { get; set; }
+        /// <value>The override and suppression records affecting the requested portfolio for this instrument event, nearest first. A derived portfolio is affected by its own record and by every record held by an ancestor.</value>
+        [DataMember(Name = "records", EmitDefaultValue = true)]
+        public List<VirtualTransactionOverrideRecord> Records { get; set; }
+
+        /// <summary>
+        /// The virtual transaction ids the event currently generates in the requested portfolio that no returned record targets, and so keep generating unmodified.
+        /// </summary>
+        /// <value>The virtual transaction ids the event currently generates in the requested portfolio that no returned record targets, and so keep generating unmodified.</value>
+        [DataMember(Name = "live", EmitDefaultValue = true)]
+        public List<string> Live { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -114,12 +109,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class OverrideVirtualTransactionsResponse {\n");
+            sb.Append("class VirtualTransactionOverridesResponse {\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
-            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  InstrumentEventId: ").Append(InstrumentEventId).Append("\n");
-            sb.Append("  CancelInstructionId: ").Append(CancelInstructionId).Append("\n");
+            sb.Append("  Records: ").Append(Records).Append("\n");
+            sb.Append("  Live: ").Append(Live).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -141,15 +136,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OverrideVirtualTransactionsResponse);
+            return this.Equals(input as VirtualTransactionOverridesResponse);
         }
 
         /// <summary>
-        /// Returns true if OverrideVirtualTransactionsResponse instances are equal
+        /// Returns true if VirtualTransactionOverridesResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of OverrideVirtualTransactionsResponse to be compared</param>
+        /// <param name="input">Instance of VirtualTransactionOverridesResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OverrideVirtualTransactionsResponse input)
+        public bool Equals(VirtualTransactionOverridesResponse input)
         {
             if (input == null)
             {
@@ -167,20 +162,21 @@ namespace Lusid.Sdk.Model
                     this.Href.Equals(input.Href))
                 ) && 
                 (
-                    this.Metadata == input.Metadata ||
-                    this.Metadata != null &&
-                    input.Metadata != null &&
-                    this.Metadata.SequenceEqual(input.Metadata)
-                ) && 
-                (
                     this.InstrumentEventId == input.InstrumentEventId ||
                     (this.InstrumentEventId != null &&
                     this.InstrumentEventId.Equals(input.InstrumentEventId))
                 ) && 
                 (
-                    this.CancelInstructionId == input.CancelInstructionId ||
-                    (this.CancelInstructionId != null &&
-                    this.CancelInstructionId.Equals(input.CancelInstructionId))
+                    this.Records == input.Records ||
+                    this.Records != null &&
+                    input.Records != null &&
+                    this.Records.SequenceEqual(input.Records)
+                ) && 
+                (
+                    this.Live == input.Live ||
+                    this.Live != null &&
+                    input.Live != null &&
+                    this.Live.SequenceEqual(input.Live)
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -207,17 +203,17 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Href.GetHashCode();
                 }
-                if (this.Metadata != null)
-                {
-                    hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
-                }
                 if (this.InstrumentEventId != null)
                 {
                     hashCode = (hashCode * 59) + this.InstrumentEventId.GetHashCode();
                 }
-                if (this.CancelInstructionId != null)
+                if (this.Records != null)
                 {
-                    hashCode = (hashCode * 59) + this.CancelInstructionId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Records.GetHashCode();
+                }
+                if (this.Live != null)
+                {
+                    hashCode = (hashCode * 59) + this.Live.GetHashCode();
                 }
                 if (this.Links != null)
                 {
@@ -238,12 +234,6 @@ namespace Lusid.Sdk.Model
             if (this.InstrumentEventId != null && this.InstrumentEventId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstrumentEventId, length must be greater than 1.", new [] { "InstrumentEventId" });
-            }
-
-            // CancelInstructionId (string) minLength
-            if (this.CancelInstructionId != null && this.CancelInstructionId.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CancelInstructionId, length must be greater than 1.", new [] { "CancelInstructionId" });
             }
 
             yield break;

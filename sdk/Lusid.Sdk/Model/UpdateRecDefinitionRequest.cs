@@ -46,7 +46,8 @@ namespace Lusid.Sdk.Model
         /// <param name="currencies">currencies.</param>
         /// <param name="rulesets">The types of reconciliation included in the group, each naming the matching ruleset that drives it. At least one entry is required, and each rec type may appear at most once. (required).</param>
         /// <param name="reviewConfiguration">reviewConfiguration.</param>
-        public UpdateRecDefinitionRequest(string displayName = default(string), string description = default(string), string definitionType = default(string), RecDefSideNames sideNames = default(RecDefSideNames), List<RecDefSource> leftPortfolioSources = default(List<RecDefSource>), List<RecDefSource> rightPortfolioSources = default(List<RecDefSource>), RecDefRecipeIds valuationRecipes = default(RecDefRecipeIds), RecDefCurrencies currencies = default(RecDefCurrencies), List<RecDefRuleset> rulesets = default(List<RecDefRuleset>), RecReviewConfiguration reviewConfiguration = default(RecReviewConfiguration))
+        /// <param name="datePolicy">datePolicy.</param>
+        public UpdateRecDefinitionRequest(string displayName = default(string), string description = default(string), string definitionType = default(string), RecDefSideNames sideNames = default(RecDefSideNames), List<RecDefSource> leftPortfolioSources = default(List<RecDefSource>), List<RecDefSource> rightPortfolioSources = default(List<RecDefSource>), RecDefRecipeIds valuationRecipes = default(RecDefRecipeIds), RecDefCurrencies currencies = default(RecDefCurrencies), List<RecDefRuleset> rulesets = default(List<RecDefRuleset>), RecReviewConfiguration reviewConfiguration = default(RecReviewConfiguration), RecDatePolicy datePolicy = default(RecDatePolicy))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -73,6 +74,7 @@ namespace Lusid.Sdk.Model
             this.ValuationRecipes = valuationRecipes;
             this.Currencies = currencies;
             this.ReviewConfiguration = reviewConfiguration;
+            this.DatePolicy = datePolicy;
         }
 
         /// <summary>
@@ -142,6 +144,12 @@ namespace Lusid.Sdk.Model
         public RecReviewConfiguration ReviewConfiguration { get; set; }
 
         /// <summary>
+        /// Gets or Sets DatePolicy
+        /// </summary>
+        [DataMember(Name = "datePolicy", EmitDefaultValue = false)]
+        public RecDatePolicy DatePolicy { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -159,6 +167,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Currencies: ").Append(Currencies).Append("\n");
             sb.Append("  Rulesets: ").Append(Rulesets).Append("\n");
             sb.Append("  ReviewConfiguration: ").Append(ReviewConfiguration).Append("\n");
+            sb.Append("  DatePolicy: ").Append(DatePolicy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -246,6 +255,11 @@ namespace Lusid.Sdk.Model
                     this.ReviewConfiguration == input.ReviewConfiguration ||
                     (this.ReviewConfiguration != null &&
                     this.ReviewConfiguration.Equals(input.ReviewConfiguration))
+                ) && 
+                (
+                    this.DatePolicy == input.DatePolicy ||
+                    (this.DatePolicy != null &&
+                    this.DatePolicy.Equals(input.DatePolicy))
                 );
         }
 
@@ -297,6 +311,10 @@ namespace Lusid.Sdk.Model
                 if (this.ReviewConfiguration != null)
                 {
                     hashCode = (hashCode * 59) + this.ReviewConfiguration.GetHashCode();
+                }
+                if (this.DatePolicy != null)
+                {
+                    hashCode = (hashCode * 59) + this.DatePolicy.GetHashCode();
                 }
                 return hashCode;
             }
