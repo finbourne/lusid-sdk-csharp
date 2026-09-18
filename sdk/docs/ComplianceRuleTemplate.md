@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Variations** | [**List&lt;ComplianceTemplateVariationDto&gt;**](ComplianceTemplateVariationDto.md) | Variation details of a Compliance Template | [optional] 
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -24,6 +25,8 @@ List<ComplianceTemplateVariationDto> variations = new List<ComplianceTemplateVar
 string href = "example href";
 ModelVersion? varVersion = new ModelVersion();
 
+StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
+
 List<Link> links = new List<Link>();
 
 ComplianceRuleTemplate complianceRuleTemplateInstance = new ComplianceRuleTemplate(
@@ -33,6 +36,7 @@ ComplianceRuleTemplate complianceRuleTemplateInstance = new ComplianceRuleTempla
     variations: variations,
     href: href,
     varVersion: varVersion,
+    stagedModifications: stagedModifications,
     links: links);
 ```
 
