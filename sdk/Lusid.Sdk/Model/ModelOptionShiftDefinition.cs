@@ -68,7 +68,7 @@ namespace Lusid.Sdk.Model
         /// <param name="modelName">The pricing model whose options this shift targets, exactly as named on the recipe&#39;s model  rule, e.g. \&quot;HullWhite1F\&quot;. Only models with shiftable options are accepted; an unknown or  unsupported model name is rejected when the scenario is stored. (required).</param>
         /// <param name="instrumentType">The instrument type narrowing which of the model&#39;s rules the shift applies to, matching the  instrument-type addressing of model rules in the recipe, e.g. \&quot;ComplexBond\&quot;. Omitted, the  shift applies to every instrument the named model prices..</param>
         /// <param name="optionName">The model option field the shift moves, e.g. \&quot;Volatility\&quot; or \&quot;MeanReversion\&quot; for  HullWhite1F. Only a whitelisted set of options per model is shiftable; an unknown option  name is rejected when the scenario is stored. (required).</param>
-        /// <param name="ccy">For options carrying per-currency overrides (e.g. HullWhite1F&#39;s VolatilityByCurrency): the  ISO currency code whose effective value the shift moves. The shifted entry starts from the  existing override for that currency, or from the scalar option where no override exists.  Omitted, the shift moves the scalar option and every per-currency override together, so the  effective value moves for every instrument regardless of which level supplies it..</param>
+        /// <param name="ccy">For options carrying per-currency overrides (e.g. HullWhite1F&#39;s VolatilityByCurrency): the  three to five letter currency code whose effective value the shift moves. The shifted entry starts from the  existing override for that currency, or from the scalar option where no override exists.  Omitted, the shift moves the scalar option and every per-currency override together, so the  effective value moves for every instrument regardless of which level supplies it..</param>
         /// <param name="amount">The size of the shift, in the units given by ShiftType: the option&#39;s own units for Absolute  (0.0010 on a volatility of 0.008 is ten basis points of annualised volatility), or a  fraction of the configured value for Relative (0.1 raises it by ten percent)..</param>
         /// <param name="shiftType">Available values: Absolute, Relative. (required).</param>
         /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition, CreditSpreadShiftDefinition, ModelOptionShiftDefinition. (required) (default to &quot;ModelOptionShiftDefinition&quot;).</param>
@@ -114,9 +114,9 @@ namespace Lusid.Sdk.Model
         public string OptionName { get; set; }
 
         /// <summary>
-        /// For options carrying per-currency overrides (e.g. HullWhite1F&#39;s VolatilityByCurrency): the  ISO currency code whose effective value the shift moves. The shifted entry starts from the  existing override for that currency, or from the scalar option where no override exists.  Omitted, the shift moves the scalar option and every per-currency override together, so the  effective value moves for every instrument regardless of which level supplies it.
+        /// For options carrying per-currency overrides (e.g. HullWhite1F&#39;s VolatilityByCurrency): the  three to five letter currency code whose effective value the shift moves. The shifted entry starts from the  existing override for that currency, or from the scalar option where no override exists.  Omitted, the shift moves the scalar option and every per-currency override together, so the  effective value moves for every instrument regardless of which level supplies it.
         /// </summary>
-        /// <value>For options carrying per-currency overrides (e.g. HullWhite1F&#39;s VolatilityByCurrency): the  ISO currency code whose effective value the shift moves. The shifted entry starts from the  existing override for that currency, or from the scalar option where no override exists.  Omitted, the shift moves the scalar option and every per-currency override together, so the  effective value moves for every instrument regardless of which level supplies it.</value>
+        /// <value>For options carrying per-currency overrides (e.g. HullWhite1F&#39;s VolatilityByCurrency): the  three to five letter currency code whose effective value the shift moves. The shifted entry starts from the  existing override for that currency, or from the scalar option where no override exists.  Omitted, the shift moves the scalar option and every per-currency override together, so the  effective value moves for every instrument regardless of which level supplies it.</value>
         [DataMember(Name = "ccy", EmitDefaultValue = true)]
         public string Ccy { get; set; }
 
@@ -300,15 +300,22 @@ namespace Lusid.Sdk.Model
             }
 
             // Ccy (string) maxLength
-            if (this.Ccy != null && this.Ccy.Length > 3)
+            if (this.Ccy != null && this.Ccy.Length > 5)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ccy, length must be less than 3.", new [] { "Ccy" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ccy, length must be less than 5.", new [] { "Ccy" });
             }
 
             // Ccy (string) minLength
             if (this.Ccy != null && this.Ccy.Length < 3)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ccy, length must be greater than 3.", new [] { "Ccy" });
+            }
+
+            // Ccy (string) pattern
+            Regex regexCcy = new Regex(@"^[a-zA-Z]*$", RegexOptions.CultureInvariant);
+            if (false == regexCcy.Match(this.Ccy).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ccy, must match a pattern of " + regexCcy, new [] { "Ccy" });
             }
 
             // Amount (decimal?) maximum

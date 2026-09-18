@@ -36,11 +36,13 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RecResultCounts" /> class.
         /// </summary>
+        /// <param name="total">The total number of results in this result set, across all categories. (required).</param>
         /// <param name="openExceptions">openExceptions (required).</param>
         /// <param name="closedExceptions">closedExceptions (required).</param>
         /// <param name="matches">matches (required).</param>
-        public RecResultCounts(RecOpenExceptionCounts openExceptions = default(RecOpenExceptionCounts), RecClosedExceptionCounts closedExceptions = default(RecClosedExceptionCounts), RecMatchCounts matches = default(RecMatchCounts))
+        public RecResultCounts(int total = default(int), RecOpenExceptionCounts openExceptions = default(RecOpenExceptionCounts), RecClosedExceptionCounts closedExceptions = default(RecClosedExceptionCounts), RecMatchCounts matches = default(RecMatchCounts))
         {
+            this.Total = total;
             // to ensure "openExceptions" is required (not null)
             if (openExceptions == null)
             {
@@ -60,6 +62,13 @@ namespace Lusid.Sdk.Model
             }
             this.Matches = matches;
         }
+
+        /// <summary>
+        /// The total number of results in this result set, across all categories.
+        /// </summary>
+        /// <value>The total number of results in this result set, across all categories.</value>
+        [DataMember(Name = "total", IsRequired = true, EmitDefaultValue = true)]
+        public int Total { get; set; }
 
         /// <summary>
         /// Gets or Sets OpenExceptions
@@ -87,6 +96,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class RecResultCounts {\n");
+            sb.Append("  Total: ").Append(Total).Append("\n");
             sb.Append("  OpenExceptions: ").Append(OpenExceptions).Append("\n");
             sb.Append("  ClosedExceptions: ").Append(ClosedExceptions).Append("\n");
             sb.Append("  Matches: ").Append(Matches).Append("\n");
@@ -126,6 +136,10 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
+                    this.Total == input.Total ||
+                    this.Total.Equals(input.Total)
+                ) && 
+                (
                     this.OpenExceptions == input.OpenExceptions ||
                     (this.OpenExceptions != null &&
                     this.OpenExceptions.Equals(input.OpenExceptions))
@@ -151,6 +165,7 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = (hashCode * 59) + this.Total.GetHashCode();
                 if (this.OpenExceptions != null)
                 {
                     hashCode = (hashCode * 59) + this.OpenExceptions.GetHashCode();

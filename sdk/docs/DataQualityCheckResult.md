@@ -20,8 +20,9 @@ Name | Type | Description | Notes
 **LusidEntity** | [**LusidEntityResult**](LusidEntityResult.md) |  | [optional] 
 **CountRuleBreaches** | **int?** | The count of rule breaches (1 for RuleBreached, multiple for RuleBreachesOverLimit) | [optional] 
 **ErrorDetail** | **string** | Error details (for RulesetInvalid, RuleInvalid) | [optional] 
-**ResultId** | **string** | Unique identifier for the result in format: {{GUID of Check Definition}}-{{resultType}}-{{rulesetKey}}-{{ruleKey}}-{{entity GUID}}.  For holdings the trailing segment is {{source portfolio GUID}}-{{subEntityId}}, since a holding id only  identifies a holding within its own portfolio. | [optional] 
+**ResultId** | **string** | Unique, stable identifier for this result, scoped to the check definition, ruleset, rule and breaching  entity. Treat as opaque — composition varies by entityType. | [optional] 
 **PortfolioHolding** | [**PortfolioHoldingResult**](PortfolioHoldingResult.md) |  | [optional] 
+**PortfolioTransaction** | [**PortfolioTransactionResult**](PortfolioTransactionResult.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -43,6 +44,8 @@ string errorDetail = "example errorDetail";
 string resultId = "example resultId";
 PortfolioHoldingResult? portfolioHolding = new PortfolioHoldingResult();
 
+PortfolioTransactionResult? portfolioTransaction = new PortfolioTransactionResult();
+
 
 DataQualityCheckResult dataQualityCheckResultInstance = new DataQualityCheckResult(
     checkDefinitionScope: checkDefinitionScope,
@@ -61,7 +64,8 @@ DataQualityCheckResult dataQualityCheckResultInstance = new DataQualityCheckResu
     countRuleBreaches: countRuleBreaches,
     errorDetail: errorDetail,
     resultId: resultId,
-    portfolioHolding: portfolioHolding);
+    portfolioHolding: portfolioHolding,
+    portfolioTransaction: portfolioTransaction);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

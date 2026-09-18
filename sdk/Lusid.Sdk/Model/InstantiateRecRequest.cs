@@ -37,10 +37,10 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="InstantiateRecRequest" /> class.
         /// </summary>
         /// <param name="recDefinitionId">recDefinitionId (required).</param>
-        /// <param name="leftEffectiveAt">The left effective datetime, as a date-time or a LUSID cut label. Defaults to the current date-time..</param>
-        /// <param name="leftAsAt">The left asAt datetime, as a date-time or a LUSID cut label. Defaults to the current date-time..</param>
-        /// <param name="rightEffectiveAt">The right effective datetime, as a date-time or a LUSID cut label. Defaults to the current date-time..</param>
-        /// <param name="rightAsAt">The right asAt datetime, as a date-time or a LUSID cut label. Defaults to the current date-time..</param>
+        /// <param name="leftEffectiveAt">The left effective datetime, as a date-time or a LUSID cut label. Defaults to the current date-time. When the definition&#39;s datePolicy.effectiveAtProgression is Series, must be strictly after the previous instance&#39;s leftEffectiveAt..</param>
+        /// <param name="leftAsAt">The left asAt datetime, as a date-time or a LUSID cut label. Must be omitted when the definition&#39;s datePolicy.asAtPolicy.left is Latest, as the system reconciles at the latest knowledge on every run. When it is Explicit, defaults to the current date-time and is pinned on the instance..</param>
+        /// <param name="rightEffectiveAt">The right effective datetime, as a date-time or a LUSID cut label. Defaults to the current date-time. When the definition&#39;s datePolicy.effectiveAtProgression is Series, must be strictly after the previous instance&#39;s rightEffectiveAt..</param>
+        /// <param name="rightAsAt">The right asAt datetime, as a date-time or a LUSID cut label. Must be omitted when the definition&#39;s datePolicy.asAtPolicy.right is Latest, as the system reconciles at the latest knowledge on every run. When it is Explicit, defaults to the current date-time and is pinned on the instance..</param>
         public InstantiateRecRequest(ResourceId recDefinitionId = default(ResourceId), DateTimeOrCutLabel leftEffectiveAt = default(DateTimeOrCutLabel), DateTimeOrCutLabel leftAsAt = default(DateTimeOrCutLabel), DateTimeOrCutLabel rightEffectiveAt = default(DateTimeOrCutLabel), DateTimeOrCutLabel rightAsAt = default(DateTimeOrCutLabel))
         {
             // to ensure "recDefinitionId" is required (not null)
@@ -62,30 +62,30 @@ namespace Lusid.Sdk.Model
         public ResourceId RecDefinitionId { get; set; }
 
         /// <summary>
-        /// The left effective datetime, as a date-time or a LUSID cut label. Defaults to the current date-time.
+        /// The left effective datetime, as a date-time or a LUSID cut label. Defaults to the current date-time. When the definition&#39;s datePolicy.effectiveAtProgression is Series, must be strictly after the previous instance&#39;s leftEffectiveAt.
         /// </summary>
-        /// <value>The left effective datetime, as a date-time or a LUSID cut label. Defaults to the current date-time.</value>
+        /// <value>The left effective datetime, as a date-time or a LUSID cut label. Defaults to the current date-time. When the definition&#39;s datePolicy.effectiveAtProgression is Series, must be strictly after the previous instance&#39;s leftEffectiveAt.</value>
         [DataMember(Name = "leftEffectiveAt", EmitDefaultValue = true)]
         public DateTimeOrCutLabel LeftEffectiveAt { get; set; }
 
         /// <summary>
-        /// The left asAt datetime, as a date-time or a LUSID cut label. Defaults to the current date-time.
+        /// The left asAt datetime, as a date-time or a LUSID cut label. Must be omitted when the definition&#39;s datePolicy.asAtPolicy.left is Latest, as the system reconciles at the latest knowledge on every run. When it is Explicit, defaults to the current date-time and is pinned on the instance.
         /// </summary>
-        /// <value>The left asAt datetime, as a date-time or a LUSID cut label. Defaults to the current date-time.</value>
+        /// <value>The left asAt datetime, as a date-time or a LUSID cut label. Must be omitted when the definition&#39;s datePolicy.asAtPolicy.left is Latest, as the system reconciles at the latest knowledge on every run. When it is Explicit, defaults to the current date-time and is pinned on the instance.</value>
         [DataMember(Name = "leftAsAt", EmitDefaultValue = true)]
         public DateTimeOrCutLabel LeftAsAt { get; set; }
 
         /// <summary>
-        /// The right effective datetime, as a date-time or a LUSID cut label. Defaults to the current date-time.
+        /// The right effective datetime, as a date-time or a LUSID cut label. Defaults to the current date-time. When the definition&#39;s datePolicy.effectiveAtProgression is Series, must be strictly after the previous instance&#39;s rightEffectiveAt.
         /// </summary>
-        /// <value>The right effective datetime, as a date-time or a LUSID cut label. Defaults to the current date-time.</value>
+        /// <value>The right effective datetime, as a date-time or a LUSID cut label. Defaults to the current date-time. When the definition&#39;s datePolicy.effectiveAtProgression is Series, must be strictly after the previous instance&#39;s rightEffectiveAt.</value>
         [DataMember(Name = "rightEffectiveAt", EmitDefaultValue = true)]
         public DateTimeOrCutLabel RightEffectiveAt { get; set; }
 
         /// <summary>
-        /// The right asAt datetime, as a date-time or a LUSID cut label. Defaults to the current date-time.
+        /// The right asAt datetime, as a date-time or a LUSID cut label. Must be omitted when the definition&#39;s datePolicy.asAtPolicy.right is Latest, as the system reconciles at the latest knowledge on every run. When it is Explicit, defaults to the current date-time and is pinned on the instance.
         /// </summary>
-        /// <value>The right asAt datetime, as a date-time or a LUSID cut label. Defaults to the current date-time.</value>
+        /// <value>The right asAt datetime, as a date-time or a LUSID cut label. Must be omitted when the definition&#39;s datePolicy.asAtPolicy.right is Latest, as the system reconciles at the latest knowledge on every run. When it is Explicit, defaults to the current date-time and is pinned on the instance.</value>
         [DataMember(Name = "rightAsAt", EmitDefaultValue = true)]
         public DateTimeOrCutLabel RightAsAt { get; set; }
 

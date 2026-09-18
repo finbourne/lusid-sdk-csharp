@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The left and right effective and asAt dates of the data reconciled in a run.
+    /// The left and right effective and asAt dates of the data reconciled in a run, plus the exclusive lower bound of each side&#39;s activity window on activity-based rec types.
     /// </summary>
     [DataContract(Name = "RecDatesReconciled")]
     public partial class RecDatesReconciled : IEquatable<RecDatesReconciled>, IValidatableObject
@@ -40,12 +40,16 @@ namespace Lusid.Sdk.Model
         /// <param name="leftAsAt">The asAt datetime of the data reconciled on the left side. (required).</param>
         /// <param name="rightEffectiveAt">The effective datetime of the data reconciled on the right side. (required).</param>
         /// <param name="rightAsAt">The asAt datetime of the data reconciled on the right side. (required).</param>
-        public RecDatesReconciled(DateTimeOffset leftEffectiveAt = default(DateTimeOffset), DateTimeOffset leftAsAt = default(DateTimeOffset), DateTimeOffset rightEffectiveAt = default(DateTimeOffset), DateTimeOffset rightAsAt = default(DateTimeOffset))
+        /// <param name="leftActivitySinceEffectiveAt">The exclusive lower bound of the left side&#39;s activity window, so the window is (leftActivitySinceEffectiveAt, leftEffectiveAt]. Populated only on activity-based rec types; null on point-in-time rec types and when the definition has no activity window..</param>
+        /// <param name="rightActivitySinceEffectiveAt">The exclusive lower bound of the right side&#39;s activity window, so the window is (rightActivitySinceEffectiveAt, rightEffectiveAt]. Populated only on activity-based rec types; null on point-in-time rec types and when the definition has no activity window..</param>
+        public RecDatesReconciled(DateTimeOffset leftEffectiveAt = default(DateTimeOffset), DateTimeOffset leftAsAt = default(DateTimeOffset), DateTimeOffset rightEffectiveAt = default(DateTimeOffset), DateTimeOffset rightAsAt = default(DateTimeOffset), DateTimeOffset? leftActivitySinceEffectiveAt = default(DateTimeOffset?), DateTimeOffset? rightActivitySinceEffectiveAt = default(DateTimeOffset?))
         {
             this.LeftEffectiveAt = leftEffectiveAt;
             this.LeftAsAt = leftAsAt;
             this.RightEffectiveAt = rightEffectiveAt;
             this.RightAsAt = rightAsAt;
+            this.LeftActivitySinceEffectiveAt = leftActivitySinceEffectiveAt;
+            this.RightActivitySinceEffectiveAt = rightActivitySinceEffectiveAt;
         }
 
         /// <summary>
@@ -77,6 +81,20 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset RightAsAt { get; set; }
 
         /// <summary>
+        /// The exclusive lower bound of the left side&#39;s activity window, so the window is (leftActivitySinceEffectiveAt, leftEffectiveAt]. Populated only on activity-based rec types; null on point-in-time rec types and when the definition has no activity window.
+        /// </summary>
+        /// <value>The exclusive lower bound of the left side&#39;s activity window, so the window is (leftActivitySinceEffectiveAt, leftEffectiveAt]. Populated only on activity-based rec types; null on point-in-time rec types and when the definition has no activity window.</value>
+        [DataMember(Name = "leftActivitySinceEffectiveAt", EmitDefaultValue = true)]
+        public DateTimeOffset? LeftActivitySinceEffectiveAt { get; set; }
+
+        /// <summary>
+        /// The exclusive lower bound of the right side&#39;s activity window, so the window is (rightActivitySinceEffectiveAt, rightEffectiveAt]. Populated only on activity-based rec types; null on point-in-time rec types and when the definition has no activity window.
+        /// </summary>
+        /// <value>The exclusive lower bound of the right side&#39;s activity window, so the window is (rightActivitySinceEffectiveAt, rightEffectiveAt]. Populated only on activity-based rec types; null on point-in-time rec types and when the definition has no activity window.</value>
+        [DataMember(Name = "rightActivitySinceEffectiveAt", EmitDefaultValue = true)]
+        public DateTimeOffset? RightActivitySinceEffectiveAt { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -88,6 +106,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  LeftAsAt: ").Append(LeftAsAt).Append("\n");
             sb.Append("  RightEffectiveAt: ").Append(RightEffectiveAt).Append("\n");
             sb.Append("  RightAsAt: ").Append(RightAsAt).Append("\n");
+            sb.Append("  LeftActivitySinceEffectiveAt: ").Append(LeftActivitySinceEffectiveAt).Append("\n");
+            sb.Append("  RightActivitySinceEffectiveAt: ").Append(RightActivitySinceEffectiveAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,6 +162,16 @@ namespace Lusid.Sdk.Model
                     this.RightAsAt == input.RightAsAt ||
                     (this.RightAsAt != null &&
                     this.RightAsAt.Equals(input.RightAsAt))
+                ) && 
+                (
+                    this.LeftActivitySinceEffectiveAt == input.LeftActivitySinceEffectiveAt ||
+                    (this.LeftActivitySinceEffectiveAt != null &&
+                    this.LeftActivitySinceEffectiveAt.Equals(input.LeftActivitySinceEffectiveAt))
+                ) && 
+                (
+                    this.RightActivitySinceEffectiveAt == input.RightActivitySinceEffectiveAt ||
+                    (this.RightActivitySinceEffectiveAt != null &&
+                    this.RightActivitySinceEffectiveAt.Equals(input.RightActivitySinceEffectiveAt))
                 );
         }
 
@@ -169,6 +199,14 @@ namespace Lusid.Sdk.Model
                 if (this.RightAsAt != null)
                 {
                     hashCode = (hashCode * 59) + this.RightAsAt.GetHashCode();
+                }
+                if (this.LeftActivitySinceEffectiveAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.LeftActivitySinceEffectiveAt.GetHashCode();
+                }
+                if (this.RightActivitySinceEffectiveAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.RightActivitySinceEffectiveAt.GetHashCode();
                 }
                 return hashCode;
             }

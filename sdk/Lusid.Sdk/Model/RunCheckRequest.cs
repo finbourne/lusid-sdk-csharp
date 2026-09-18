@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// RunCheckRequest
+    /// Exactly one dataset must be provided, matching the check definition&#39;s datasetSchema.
     /// </summary>
     [DataContract(Name = "RunCheckRequest")]
     public partial class RunCheckRequest : IEquatable<RunCheckRequest>, IValidatableObject
@@ -34,11 +34,13 @@ namespace Lusid.Sdk.Model
         /// <param name="lusidEntityDataset">lusidEntityDataset.</param>
         /// <param name="limitIndividualBreachesPerRule">The maximum number of individual breaches to return per rule. Defaults to 100 if not specified..</param>
         /// <param name="portfolioHoldingDataset">portfolioHoldingDataset.</param>
-        public RunCheckRequest(LusidEntityDataset lusidEntityDataset = default(LusidEntityDataset), int limitIndividualBreachesPerRule = default(int), PortfolioHoldingDataset portfolioHoldingDataset = default(PortfolioHoldingDataset))
+        /// <param name="portfolioTransactionDataset">portfolioTransactionDataset.</param>
+        public RunCheckRequest(LusidEntityDataset lusidEntityDataset = default(LusidEntityDataset), int limitIndividualBreachesPerRule = default(int), PortfolioHoldingDataset portfolioHoldingDataset = default(PortfolioHoldingDataset), PortfolioTransactionDataset portfolioTransactionDataset = default(PortfolioTransactionDataset))
         {
             this.LusidEntityDataset = lusidEntityDataset;
             this.LimitIndividualBreachesPerRule = limitIndividualBreachesPerRule;
             this.PortfolioHoldingDataset = portfolioHoldingDataset;
+            this.PortfolioTransactionDataset = portfolioTransactionDataset;
         }
 
         /// <summary>
@@ -61,6 +63,12 @@ namespace Lusid.Sdk.Model
         public PortfolioHoldingDataset PortfolioHoldingDataset { get; set; }
 
         /// <summary>
+        /// Gets or Sets PortfolioTransactionDataset
+        /// </summary>
+        [DataMember(Name = "portfolioTransactionDataset", EmitDefaultValue = false)]
+        public PortfolioTransactionDataset PortfolioTransactionDataset { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -71,6 +79,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  LusidEntityDataset: ").Append(LusidEntityDataset).Append("\n");
             sb.Append("  LimitIndividualBreachesPerRule: ").Append(LimitIndividualBreachesPerRule).Append("\n");
             sb.Append("  PortfolioHoldingDataset: ").Append(PortfolioHoldingDataset).Append("\n");
+            sb.Append("  PortfolioTransactionDataset: ").Append(PortfolioTransactionDataset).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,6 +128,11 @@ namespace Lusid.Sdk.Model
                     this.PortfolioHoldingDataset == input.PortfolioHoldingDataset ||
                     (this.PortfolioHoldingDataset != null &&
                     this.PortfolioHoldingDataset.Equals(input.PortfolioHoldingDataset))
+                ) && 
+                (
+                    this.PortfolioTransactionDataset == input.PortfolioTransactionDataset ||
+                    (this.PortfolioTransactionDataset != null &&
+                    this.PortfolioTransactionDataset.Equals(input.PortfolioTransactionDataset))
                 );
         }
 
@@ -139,6 +153,10 @@ namespace Lusid.Sdk.Model
                 if (this.PortfolioHoldingDataset != null)
                 {
                     hashCode = (hashCode * 59) + this.PortfolioHoldingDataset.GetHashCode();
+                }
+                if (this.PortfolioTransactionDataset != null)
+                {
+                    hashCode = (hashCode * 59) + this.PortfolioTransactionDataset.GetHashCode();
                 }
                 return hashCode;
             }

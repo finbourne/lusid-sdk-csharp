@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="code">The code of the currency group. This uniquely identifies the currency group within the tenant. (required).</param>
         /// <param name="displayName">The name of the currency group. (required).</param>
         /// <param name="description">A description for the currency group..</param>
-        /// <param name="majorUnitCurrency">The three-letter, case-sensitive currency code of the group&#39;s major unit, e.g. GBP for the sterling group. (required).</param>
+        /// <param name="majorUnitCurrency">The three to five letter, case-sensitive currency code of the group&#39;s major unit, e.g. GBP for the sterling group. (required).</param>
         /// <param name="circulationDomain">The domain in which the group&#39;s currencies circulate, e.g. an ISO 3166 country code..</param>
         /// <param name="minorUnits">The minor unit currencies belonging to this currency group..</param>
         public UpsertCurrencyGroupRequest(string code = default(string), string displayName = default(string), string description = default(string), string majorUnitCurrency = default(string), string circulationDomain = default(string), List<CurrencyGroupMinorUnit> minorUnits = default(List<CurrencyGroupMinorUnit>))
@@ -89,9 +89,9 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The three-letter, case-sensitive currency code of the group&#39;s major unit, e.g. GBP for the sterling group.
+        /// The three to five letter, case-sensitive currency code of the group&#39;s major unit, e.g. GBP for the sterling group.
         /// </summary>
-        /// <value>The three-letter, case-sensitive currency code of the group&#39;s major unit, e.g. GBP for the sterling group.</value>
+        /// <value>The three to five letter, case-sensitive currency code of the group&#39;s major unit, e.g. GBP for the sterling group.</value>
         [DataMember(Name = "majorUnitCurrency", IsRequired = true, EmitDefaultValue = true)]
         public string MajorUnitCurrency { get; set; }
 
@@ -279,9 +279,9 @@ namespace Lusid.Sdk.Model
             }
 
             // MajorUnitCurrency (string) maxLength
-            if (this.MajorUnitCurrency != null && this.MajorUnitCurrency.Length > 3)
+            if (this.MajorUnitCurrency != null && this.MajorUnitCurrency.Length > 5)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MajorUnitCurrency, length must be less than 3.", new [] { "MajorUnitCurrency" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MajorUnitCurrency, length must be less than 5.", new [] { "MajorUnitCurrency" });
             }
 
             // MajorUnitCurrency (string) minLength

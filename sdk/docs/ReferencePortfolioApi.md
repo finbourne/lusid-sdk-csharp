@@ -5,6 +5,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**CreateReferencePortfolio**](ReferencePortfolioApi.md#createreferenceportfolio) | **POST** /api/referenceportfolios/{scope} | CreateReferencePortfolio: Create reference portfolio |
+| [**DeleteReferencePortfolioConstituentAdjustment**](ReferencePortfolioApi.md#deletereferenceportfolioconstituentadjustment) | **DELETE** /api/referenceportfolios/{scope}/{code}/constituentsadjustment | DeleteReferencePortfolioConstituentAdjustment: Delete constituents adjustment |
 | [**GetReferencePortfolioConstituents**](ReferencePortfolioApi.md#getreferenceportfolioconstituents) | **GET** /api/referenceportfolios/{scope}/{code}/constituents | GetReferencePortfolioConstituents: Get reference portfolio constituents |
 | [**ListConstituentsAdjustments**](ReferencePortfolioApi.md#listconstituentsadjustments) | **GET** /api/referenceportfolios/{scope}/{code}/constituentsadjustments | ListConstituentsAdjustments: List constituents adjustments |
 | [**UpsertReferencePortfolioConstituentProperties**](ReferencePortfolioApi.md#upsertreferenceportfolioconstituentproperties) | **POST** /api/referenceportfolios/{scope}/{code}/constituents/properties | [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties |
@@ -121,6 +122,124 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | The created reference portfolio, with populated id |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="deletereferenceportfolioconstituentadjustment"></a>
+# **DeleteReferencePortfolioConstituentAdjustment**
+> DeletedEntityResponse DeleteReferencePortfolioConstituentAdjustment (string scope, string code, DateTimeOrCutLabel effectiveAt)
+
+DeleteReferencePortfolioConstituentAdjustment: Delete constituents adjustment
+
+Delete the constituents adjustment made to a reference portfolio at the specified effective  datetime. After deletion the constituents in effect revert to the previous effective-dated  adjustment, or to none if there is no earlier adjustment.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReferencePortfolioApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReferencePortfolioApi>();
+            var scope = "scope_example";  // string | The scope of the reference portfolio.
+            var code = "code_example";  // string | The code of the reference portfolio. Together with the scope this uniquely              identifies the reference portfolio.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel | The effective datetime or cut label at which the constituents adjustment was made.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteReferencePortfolioConstituentAdjustment(scope, code, effectiveAt, opts: opts);
+
+                // DeleteReferencePortfolioConstituentAdjustment: Delete constituents adjustment
+                DeletedEntityResponse result = apiInstance.DeleteReferencePortfolioConstituentAdjustment(scope, code, effectiveAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling ReferencePortfolioApi.DeleteReferencePortfolioConstituentAdjustment: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DeleteReferencePortfolioConstituentAdjustmentWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // DeleteReferencePortfolioConstituentAdjustment: Delete constituents adjustment
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteReferencePortfolioConstituentAdjustmentWithHttpInfo(scope, code, effectiveAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling ReferencePortfolioApi.DeleteReferencePortfolioConstituentAdjustmentWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the reference portfolio. |  |
+| **code** | **string** | The code of the reference portfolio. Together with the scope this uniquely              identifies the reference portfolio. |  |
+| **effectiveAt** | **DateTimeOrCutLabel** | The effective datetime or cut label at which the constituents adjustment was made. |  |
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The datetime that the constituents adjustment was deleted |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

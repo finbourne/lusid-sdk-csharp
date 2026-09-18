@@ -556,15 +556,22 @@ namespace Lusid.Sdk.Model
             }
 
             // AccrualCurrency (string) maxLength
-            if (this.AccrualCurrency != null && this.AccrualCurrency.Length > 3)
+            if (this.AccrualCurrency != null && this.AccrualCurrency.Length > 5)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccrualCurrency, length must be less than 3.", new [] { "AccrualCurrency" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccrualCurrency, length must be less than 5.", new [] { "AccrualCurrency" });
             }
 
             // AccrualCurrency (string) minLength
             if (this.AccrualCurrency != null && this.AccrualCurrency.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccrualCurrency, length must be greater than 0.", new [] { "AccrualCurrency" });
+            }
+
+            // AccrualCurrency (string) pattern
+            Regex regexAccrualCurrency = new Regex(@"^[a-zA-Z]*$", RegexOptions.CultureInvariant);
+            if (false == regexAccrualCurrency.Match(this.AccrualCurrency).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccrualCurrency, must match a pattern of " + regexAccrualCurrency, new [] { "AccrualCurrency" });
             }
 
             // Treatment (string) minLength

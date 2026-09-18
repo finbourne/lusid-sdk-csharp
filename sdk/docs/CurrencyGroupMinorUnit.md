@@ -5,7 +5,7 @@ A minor unit currency within a currency group.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Currency** | **string** | The three-letter, case-sensitive currency code of the minor unit, e.g. GBX. | 
+**Currency** | **string** | The three to five letter, case-sensitive currency code of the minor unit, e.g. GBX. | 
 **FractionOfMajor** | **decimal** | The fraction of the major unit that one minor unit is worth, greater than zero and no more than one, e.g. 0.01 for GBX against GBP. | 
 
 ```csharp

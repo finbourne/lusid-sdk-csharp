@@ -5,6 +5,7 @@ Counts of results broken down by the structural categories that align with the r
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Total** | **int** | The total number of results in this result set, across all categories. | 
 **OpenExceptions** | [**RecOpenExceptionCounts**](RecOpenExceptionCounts.md) |  | 
 **ClosedExceptions** | [**RecClosedExceptionCounts**](RecClosedExceptionCounts.md) |  | 
 **Matches** | [**RecMatchCounts**](RecMatchCounts.md) |  | 
@@ -18,6 +19,7 @@ RecClosedExceptionCounts closedExceptions = new RecClosedExceptionCounts();
 RecMatchCounts matches = new RecMatchCounts();
 
 RecResultCounts recResultCountsInstance = new RecResultCounts(
+    total: total,
     openExceptions: openExceptions,
     closedExceptions: closedExceptions,
     matches: matches);

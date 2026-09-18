@@ -456,15 +456,22 @@ namespace Lusid.Sdk.Model
                 yield return x;
             }
             // Ccy (string) maxLength
-            if (this.Ccy != null && this.Ccy.Length > 3)
+            if (this.Ccy != null && this.Ccy.Length > 5)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ccy, length must be less than 3.", new [] { "Ccy" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ccy, length must be less than 5.", new [] { "Ccy" });
             }
 
             // Ccy (string) minLength
             if (this.Ccy != null && this.Ccy.Length < 3)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ccy, length must be greater than 3.", new [] { "Ccy" });
+            }
+
+            // Ccy (string) pattern
+            Regex regexCcy = new Regex(@"^[a-zA-Z]*$", RegexOptions.CultureInvariant);
+            if (false == regexCcy.Match(this.Ccy).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ccy, must match a pattern of " + regexCcy, new [] { "Ccy" });
             }
 
             // Amount (decimal?) maximum

@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="scenario">scenario (required).</param>
         /// <param name="targetPnl">The change in value to solve for, signed and in the report currency: negative for a loss.  Expressed as an amount rather than a percentage so that the same target can be stated against  a portfolio whose base value is not known to the caller. (required).</param>
         /// <param name="metric">The measure the target is expressed in. Defaults to Valuation/PV. Must be a measure that  supports scenario decoration, which the request is rejected for if it is not..</param>
-        /// <param name="reportCurrency">Three letter ISO currency string to report in. If absent the portfolio&#39;s own currency is used,  which makes the target ambiguous across a multi-currency portfolio group - supply it there..</param>
+        /// <param name="reportCurrency">Three to five letter currency string to report in. If absent the portfolio&#39;s own currency is used,  which makes the target ambiguous across a multi-currency portfolio group - supply it there..</param>
         /// <param name="filters">Filters reducing the holdings the target is measured over, matching the valuation endpoint&#39;s..</param>
         /// <param name="maxScale">The largest factor to evaluate. A target beyond the loss reached at this factor is reported as  out of reach rather than extrapolated to: extrapolating past the evaluated range is exactly  where a locally linear P&amp;L stops being linear..</param>
         /// <param name="ladderPoints">How many factors to evaluate between zero and MaxScale. All of them are valued in  one request - the rungs share market data resolution - so a finer ladder costs far less than  its rung count suggests, and a coarse one is the main source of a missed bracket..</param>
@@ -129,9 +129,9 @@ namespace Lusid.Sdk.Model
         public string Metric { get; set; }
 
         /// <summary>
-        /// Three letter ISO currency string to report in. If absent the portfolio&#39;s own currency is used,  which makes the target ambiguous across a multi-currency portfolio group - supply it there.
+        /// Three to five letter currency string to report in. If absent the portfolio&#39;s own currency is used,  which makes the target ambiguous across a multi-currency portfolio group - supply it there.
         /// </summary>
-        /// <value>Three letter ISO currency string to report in. If absent the portfolio&#39;s own currency is used,  which makes the target ambiguous across a multi-currency portfolio group - supply it there.</value>
+        /// <value>Three to five letter currency string to report in. If absent the portfolio&#39;s own currency is used,  which makes the target ambiguous across a multi-currency portfolio group - supply it there.</value>
         [DataMember(Name = "reportCurrency", EmitDefaultValue = true)]
         public string ReportCurrency { get; set; }
 
@@ -348,15 +348,22 @@ namespace Lusid.Sdk.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ReportCurrency (string) maxLength
-            if (this.ReportCurrency != null && this.ReportCurrency.Length > 3)
+            if (this.ReportCurrency != null && this.ReportCurrency.Length > 5)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportCurrency, length must be less than 3.", new [] { "ReportCurrency" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportCurrency, length must be less than 5.", new [] { "ReportCurrency" });
             }
 
             // ReportCurrency (string) minLength
             if (this.ReportCurrency != null && this.ReportCurrency.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportCurrency, length must be greater than 0.", new [] { "ReportCurrency" });
+            }
+
+            // ReportCurrency (string) pattern
+            Regex regexReportCurrency = new Regex(@"^[a-zA-Z]*$", RegexOptions.CultureInvariant);
+            if (false == regexReportCurrency.Match(this.ReportCurrency).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportCurrency, must match a pattern of " + regexReportCurrency, new [] { "ReportCurrency" });
             }
 
             // MaxScale (decimal) maximum

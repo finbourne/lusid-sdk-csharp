@@ -204,9 +204,9 @@ namespace Lusid.Sdk.Model
             }
 
             // Currency (string) maxLength
-            if (this.Currency != null && this.Currency.Length > 3)
+            if (this.Currency != null && this.Currency.Length > 5)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than 3.", new [] { "Currency" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than 5.", new [] { "Currency" });
             }
 
             // Currency (string) minLength

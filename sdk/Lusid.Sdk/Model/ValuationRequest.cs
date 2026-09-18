@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="groupBy">The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping  that reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out..</param>
         /// <param name="filters">A set of filters to use to reduce the data found in a request. Equivalent to the &#39;where ...&#39; part of a Sql select statement.  For example, filter a set of values within a given range or matching a particular value..</param>
         /// <param name="sort">A (possibly empty/null) set of specifications for how to order the results..</param>
-        /// <param name="reportCurrency">Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.  If not present, then the currency of the relevant portfolio will be used in its place..</param>
+        /// <param name="reportCurrency">Three to five letter currency string indicating what currency to report in for ReportCurrency denominated queries.  If not present, then the currency of the relevant portfolio will be used in its place..</param>
         /// <param name="equipWithSubtotals">Flag directing the Valuation call to populate the results with subtotals of aggregates..</param>
         /// <param name="returnResultAsExpandedTypes">Financially meaningful results can be presented as either simple flat types or more complex expanded types.  For example, the present value (PV) of a holding could be represented either as a simple decimal (with currency implied)  or as a decimal-currency pair. This flag allows either representation to be returned. In the PV example,  the returned value would be the decimal-currency pair if this flag is true, or the decimal only if this flag is false..</param>
         /// <param name="includeOrderFlow">includeOrderFlow.</param>
@@ -132,9 +132,9 @@ namespace Lusid.Sdk.Model
         public List<OrderBySpec> Sort { get; set; }
 
         /// <summary>
-        /// Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.  If not present, then the currency of the relevant portfolio will be used in its place.
+        /// Three to five letter currency string indicating what currency to report in for ReportCurrency denominated queries.  If not present, then the currency of the relevant portfolio will be used in its place.
         /// </summary>
-        /// <value>Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.  If not present, then the currency of the relevant portfolio will be used in its place.</value>
+        /// <value>Three to five letter currency string indicating what currency to report in for ReportCurrency denominated queries.  If not present, then the currency of the relevant portfolio will be used in its place.</value>
         [DataMember(Name = "reportCurrency", EmitDefaultValue = true)]
         public string ReportCurrency { get; set; }
 
@@ -402,15 +402,22 @@ namespace Lusid.Sdk.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ReportCurrency (string) maxLength
-            if (this.ReportCurrency != null && this.ReportCurrency.Length > 3)
+            if (this.ReportCurrency != null && this.ReportCurrency.Length > 5)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportCurrency, length must be less than 3.", new [] { "ReportCurrency" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportCurrency, length must be less than 5.", new [] { "ReportCurrency" });
             }
 
             // ReportCurrency (string) minLength
             if (this.ReportCurrency != null && this.ReportCurrency.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportCurrency, length must be greater than 0.", new [] { "ReportCurrency" });
+            }
+
+            // ReportCurrency (string) pattern
+            Regex regexReportCurrency = new Regex(@"^[a-zA-Z]*$", RegexOptions.CultureInvariant);
+            if (false == regexReportCurrency.Match(this.ReportCurrency).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportCurrency, must match a pattern of " + regexReportCurrency, new [] { "ReportCurrency" });
             }
 
             yield break;

@@ -154,9 +154,9 @@ namespace Lusid.Sdk.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Left (string) maxLength
-            if (this.Left != null && this.Left.Length > 3)
+            if (this.Left != null && this.Left.Length > 5)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Left, length must be less than 3.", new [] { "Left" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Left, length must be less than 5.", new [] { "Left" });
             }
 
             // Left (string) minLength
@@ -173,9 +173,9 @@ namespace Lusid.Sdk.Model
             }
 
             // Right (string) maxLength
-            if (this.Right != null && this.Right.Length > 3)
+            if (this.Right != null && this.Right.Length > 5)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Right, length must be less than 3.", new [] { "Right" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Right, length must be less than 5.", new [] { "Right" });
             }
 
             // Right (string) minLength
