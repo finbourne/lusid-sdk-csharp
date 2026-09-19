@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **TransactionExclusionFilter** | **string** | A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded. | [optional] 
 **TaxLotSelectionCostBasis** | **string** | The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Supply Default to explicitly reset it; a reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost. | [optional] 
 **FractionalUnitsTrueUpConfiguration** | [**FractionalUnitsTrueUpConfiguration**](FractionalUnitsTrueUpConfiguration.md) |  | [optional] 
+**HoldingsFungibility** | **string** | Whether the portfolio&#39;s holdings are fungible across the currencies of a currency group. This can be: Default or Enabled. Defaults to Default if not specified, which currently means holdings fungibility is not applied. Supply Default to explicitly reset it; a reset or never-configured flag reads back as absent. Available values: Default, Enabled. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -54,6 +55,7 @@ string transactionExclusionFilter = "example transactionExclusionFilter";
 string taxLotSelectionCostBasis = "example taxLotSelectionCostBasis";
 FractionalUnitsTrueUpConfiguration? fractionalUnitsTrueUpConfiguration = new FractionalUnitsTrueUpConfiguration();
 
+string holdingsFungibility = "example holdingsFungibility";
 
 CreateTransactionPortfolioRequest createTransactionPortfolioRequestInstance = new CreateTransactionPortfolioRequest(
     displayName: displayName,
@@ -76,7 +78,8 @@ CreateTransactionPortfolioRequest createTransactionPortfolioRequestInstance = ne
     settlementConfiguration: settlementConfiguration,
     transactionExclusionFilter: transactionExclusionFilter,
     taxLotSelectionCostBasis: taxLotSelectionCostBasis,
-    fractionalUnitsTrueUpConfiguration: fractionalUnitsTrueUpConfiguration);
+    fractionalUnitsTrueUpConfiguration: fractionalUnitsTrueUpConfiguration,
+    holdingsFungibility: holdingsFungibility);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
