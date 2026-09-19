@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **AccountingMethod** | **string** | Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency. | [optional] 
 **PropertiesOut** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) |  | [optional] 
 **PropertiesIn** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) |  | [optional] 
+**Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -56,6 +57,7 @@ string source = "source";
 string accountingMethod = "example accountingMethod";
 Dictionary<string, PerpetualProperty> propertiesOut = new Dictionary<string, PerpetualProperty>();
 Dictionary<string, PerpetualProperty> propertiesIn = new Dictionary<string, PerpetualProperty>();
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 
 CreateTransferRequest createTransferRequestInstance = new CreateTransferRequest(
     transferId: transferId,
@@ -84,7 +86,8 @@ CreateTransferRequest createTransferRequestInstance = new CreateTransferRequest(
     source: source,
     accountingMethod: accountingMethod,
     propertiesOut: propertiesOut,
-    propertiesIn: propertiesIn);
+    propertiesIn: propertiesIn,
+    properties: properties);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

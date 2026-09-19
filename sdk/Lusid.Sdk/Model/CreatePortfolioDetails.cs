@@ -33,10 +33,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="corporateActionSourceId">corporateActionSourceId.</param>
         /// <param name="taxLotSelectionCostBasis">The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. A reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost..</param>
-        public CreatePortfolioDetails(ResourceId corporateActionSourceId = default(ResourceId), string taxLotSelectionCostBasis = default(string))
+        /// <param name="fractionalUnitsTrueUpConfiguration">fractionalUnitsTrueUpConfiguration.</param>
+        public CreatePortfolioDetails(ResourceId corporateActionSourceId = default(ResourceId), string taxLotSelectionCostBasis = default(string), FractionalUnitsTrueUpConfiguration fractionalUnitsTrueUpConfiguration = default(FractionalUnitsTrueUpConfiguration))
         {
             this.CorporateActionSourceId = corporateActionSourceId;
             this.TaxLotSelectionCostBasis = taxLotSelectionCostBasis;
+            this.FractionalUnitsTrueUpConfiguration = fractionalUnitsTrueUpConfiguration;
         }
 
         /// <summary>
@@ -53,6 +55,12 @@ namespace Lusid.Sdk.Model
         public string TaxLotSelectionCostBasis { get; set; }
 
         /// <summary>
+        /// Gets or Sets FractionalUnitsTrueUpConfiguration
+        /// </summary>
+        [DataMember(Name = "fractionalUnitsTrueUpConfiguration", EmitDefaultValue = false)]
+        public FractionalUnitsTrueUpConfiguration FractionalUnitsTrueUpConfiguration { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -62,6 +70,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class CreatePortfolioDetails {\n");
             sb.Append("  CorporateActionSourceId: ").Append(CorporateActionSourceId).Append("\n");
             sb.Append("  TaxLotSelectionCostBasis: ").Append(TaxLotSelectionCostBasis).Append("\n");
+            sb.Append("  FractionalUnitsTrueUpConfiguration: ").Append(FractionalUnitsTrueUpConfiguration).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,6 +115,11 @@ namespace Lusid.Sdk.Model
                     this.TaxLotSelectionCostBasis == input.TaxLotSelectionCostBasis ||
                     (this.TaxLotSelectionCostBasis != null &&
                     this.TaxLotSelectionCostBasis.Equals(input.TaxLotSelectionCostBasis))
+                ) && 
+                (
+                    this.FractionalUnitsTrueUpConfiguration == input.FractionalUnitsTrueUpConfiguration ||
+                    (this.FractionalUnitsTrueUpConfiguration != null &&
+                    this.FractionalUnitsTrueUpConfiguration.Equals(input.FractionalUnitsTrueUpConfiguration))
                 );
         }
 
@@ -125,6 +139,10 @@ namespace Lusid.Sdk.Model
                 if (this.TaxLotSelectionCostBasis != null)
                 {
                     hashCode = (hashCode * 59) + this.TaxLotSelectionCostBasis.GetHashCode();
+                }
+                if (this.FractionalUnitsTrueUpConfiguration != null)
+                {
+                    hashCode = (hashCode * 59) + this.FractionalUnitsTrueUpConfiguration.GetHashCode();
                 }
                 return hashCode;
             }

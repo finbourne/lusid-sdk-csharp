@@ -63,7 +63,8 @@ namespace Lusid.Sdk.Model
         /// <param name="accountingMethod">Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency..</param>
         /// <param name="propertiesOut">propertiesOut.</param>
         /// <param name="propertiesIn">propertiesIn.</param>
-        public CreateTransferRequest(ResourceId transferId = default(ResourceId), ResourceId portfolioIdOut = default(ResourceId), ResourceId portfolioIdIn = default(ResourceId), string instrumentIdentifierOut = default(string), string instrumentIdentifierIn = default(string), string pricingMethod = default(string), string taxLotStructure = default(string), decimal unitsOut = default(decimal), decimal unitsIn = default(decimal), decimal? amountOut = default(decimal?), decimal? weightOut = default(decimal?), DateTimeOffset tradeDateOut = default(DateTimeOffset), DateTimeOffset tradeDateIn = default(DateTimeOffset), DateTimeOffset settlementDateOut = default(DateTimeOffset), DateTimeOffset? settlementDateIn = default(DateTimeOffset?), decimal? exchangeRateOut = default(decimal?), decimal? exchangeRateIn = default(decimal?), decimal? transactionPriceOut = default(decimal?), decimal? transactionPriceIn = default(decimal?), string counterpartyIdOut = default(string), string counterpartyIdIn = default(string), ResourceId custodianAccountIdOut = default(ResourceId), ResourceId custodianAccountIdIn = default(ResourceId), string source = default(string), string accountingMethod = default(string), Dictionary<string, PerpetualProperty> propertiesOut = default(Dictionary<string, PerpetualProperty>), Dictionary<string, PerpetualProperty> propertiesIn = default(Dictionary<string, PerpetualProperty>))
+        /// <param name="properties">properties.</param>
+        public CreateTransferRequest(ResourceId transferId = default(ResourceId), ResourceId portfolioIdOut = default(ResourceId), ResourceId portfolioIdIn = default(ResourceId), string instrumentIdentifierOut = default(string), string instrumentIdentifierIn = default(string), string pricingMethod = default(string), string taxLotStructure = default(string), decimal unitsOut = default(decimal), decimal unitsIn = default(decimal), decimal? amountOut = default(decimal?), decimal? weightOut = default(decimal?), DateTimeOffset tradeDateOut = default(DateTimeOffset), DateTimeOffset tradeDateIn = default(DateTimeOffset), DateTimeOffset settlementDateOut = default(DateTimeOffset), DateTimeOffset? settlementDateIn = default(DateTimeOffset?), decimal? exchangeRateOut = default(decimal?), decimal? exchangeRateIn = default(decimal?), decimal? transactionPriceOut = default(decimal?), decimal? transactionPriceIn = default(decimal?), string counterpartyIdOut = default(string), string counterpartyIdIn = default(string), ResourceId custodianAccountIdOut = default(ResourceId), ResourceId custodianAccountIdIn = default(ResourceId), string source = default(string), string accountingMethod = default(string), Dictionary<string, PerpetualProperty> propertiesOut = default(Dictionary<string, PerpetualProperty>), Dictionary<string, PerpetualProperty> propertiesIn = default(Dictionary<string, PerpetualProperty>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
         {
             // to ensure "transferId" is required (not null)
             if (transferId == null)
@@ -127,6 +128,7 @@ namespace Lusid.Sdk.Model
             this.AccountingMethod = accountingMethod;
             this.PropertiesOut = propertiesOut;
             this.PropertiesIn = propertiesIn;
+            this.Properties = properties;
         }
 
         /// <summary>
@@ -295,6 +297,12 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, PerpetualProperty> PropertiesIn { get; set; }
 
         /// <summary>
+        /// Gets or Sets Properties
+        /// </summary>
+        [DataMember(Name = "properties", EmitDefaultValue = true)]
+        public Dictionary<string, PerpetualProperty> Properties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -329,6 +337,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AccountingMethod: ").Append(AccountingMethod).Append("\n");
             sb.Append("  PropertiesOut: ").Append(PropertiesOut).Append("\n");
             sb.Append("  PropertiesIn: ").Append(PropertiesIn).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -498,6 +507,12 @@ namespace Lusid.Sdk.Model
                     this.PropertiesIn != null &&
                     input.PropertiesIn != null &&
                     this.PropertiesIn.SequenceEqual(input.PropertiesIn)
+                ) && 
+                (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
                 );
         }
 
@@ -611,6 +626,10 @@ namespace Lusid.Sdk.Model
                 if (this.PropertiesIn != null)
                 {
                     hashCode = (hashCode * 59) + this.PropertiesIn.GetHashCode();
+                }
+                if (this.Properties != null)
+                {
+                    hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
                 return hashCode;
             }

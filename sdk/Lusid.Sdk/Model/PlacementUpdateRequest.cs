@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A request to update a Placement.
+    /// A request to create or update a Placement.
     /// </summary>
     [DataContract(Name = "PlacementUpdateRequest")]
     public partial class PlacementUpdateRequest : IEquatable<PlacementUpdateRequest>, IValidatableObject
@@ -40,14 +40,13 @@ namespace Lusid.Sdk.Model
         /// <param name="quantity">The quantity of given instrument ordered..</param>
         /// <param name="amount">amount.</param>
         /// <param name="properties">Client-defined properties associated with this placement..</param>
-        /// <param name="type">Optionally changes the type of this placement (Market, Limit, Stop, StopLimit). A type may only be tightened: a Market placement may become Limit, Stop or StopLimit, and any placement may become StopLimit. A placement may be relaxed to Market only when the associated block is of type &#39;Market&#39;. Changing to a priced type requires a currency and the price(s) that type carries; a price the new type does not carry is cleared. Changing to Market clears both prices and may not be combined with a price update. A change to or from any other type is not subject to these rules, leaves both prices as they are, and is permitted only when the associated block is of type &#39;Market&#39;..</param>
-        /// <param name="limitPrice">Optionally updates the limit price of this placement, in the placement&#39;s limit price currency unless a currency is also specified. A currency is required if the placement has no limit price currency..</param>
-        /// <param name="stopPrice">Optionally updates the stop price of this placement, in the placement&#39;s stop price currency unless a currency is also specified. A currency is required if the placement has no stop price currency..</param>
+        /// <param name="type">The type of this placement (Market, Limit, etc)..</param>
+        /// <param name="limitPrice">The optional price, as currency and amount, associated with this placement..</param>
+        /// <param name="stopPrice">The optional price, as currency and amount, associated with this placement..</param>
         /// <param name="counterparty">Optionally specifies the market entity this placement is placed with..</param>
         /// <param name="executionSystem">Optionally specifies the execution system in use..</param>
         /// <param name="entryType">Optionally specifies the entry type of this placement. Available values: Undecided, Manual, Direct, Ems, External..</param>
-        /// <param name="currency">The ISO currency code of the stop and/or limit price carried by the placement&#39;s type. Required when the type is changed to Stop, Limit or StopLimit, or when a price is set that the placement has no currency for; not permitted for a Market placement. For a value placement it must match the currency of the amount exactly, whether that amount is on the placement or in the update..</param>
-        public PlacementUpdateRequest(ResourceId id = default(ResourceId), decimal? quantity = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string type = default(string), decimal? limitPrice = default(decimal?), decimal? stopPrice = default(decimal?), string counterparty = default(string), string executionSystem = default(string), string entryType = default(string), string currency = default(string))
+        public PlacementUpdateRequest(ResourceId id = default(ResourceId), decimal? quantity = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string type = default(string), decimal? limitPrice = default(decimal?), decimal? stopPrice = default(decimal?), string counterparty = default(string), string executionSystem = default(string), string entryType = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -64,7 +63,6 @@ namespace Lusid.Sdk.Model
             this.Counterparty = counterparty;
             this.ExecutionSystem = executionSystem;
             this.EntryType = entryType;
-            this.Currency = currency;
         }
 
         /// <summary>
@@ -94,23 +92,23 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, PerpetualProperty> Properties { get; set; }
 
         /// <summary>
-        /// Optionally changes the type of this placement (Market, Limit, Stop, StopLimit). A type may only be tightened: a Market placement may become Limit, Stop or StopLimit, and any placement may become StopLimit. A placement may be relaxed to Market only when the associated block is of type &#39;Market&#39;. Changing to a priced type requires a currency and the price(s) that type carries; a price the new type does not carry is cleared. Changing to Market clears both prices and may not be combined with a price update. A change to or from any other type is not subject to these rules, leaves both prices as they are, and is permitted only when the associated block is of type &#39;Market&#39;.
+        /// The type of this placement (Market, Limit, etc).
         /// </summary>
-        /// <value>Optionally changes the type of this placement (Market, Limit, Stop, StopLimit). A type may only be tightened: a Market placement may become Limit, Stop or StopLimit, and any placement may become StopLimit. A placement may be relaxed to Market only when the associated block is of type &#39;Market&#39;. Changing to a priced type requires a currency and the price(s) that type carries; a price the new type does not carry is cleared. Changing to Market clears both prices and may not be combined with a price update. A change to or from any other type is not subject to these rules, leaves both prices as they are, and is permitted only when the associated block is of type &#39;Market&#39;.</value>
+        /// <value>The type of this placement (Market, Limit, etc).</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Optionally updates the limit price of this placement, in the placement&#39;s limit price currency unless a currency is also specified. A currency is required if the placement has no limit price currency.
+        /// The optional price, as currency and amount, associated with this placement.
         /// </summary>
-        /// <value>Optionally updates the limit price of this placement, in the placement&#39;s limit price currency unless a currency is also specified. A currency is required if the placement has no limit price currency.</value>
+        /// <value>The optional price, as currency and amount, associated with this placement.</value>
         [DataMember(Name = "limitPrice", EmitDefaultValue = true)]
         public decimal? LimitPrice { get; set; }
 
         /// <summary>
-        /// Optionally updates the stop price of this placement, in the placement&#39;s stop price currency unless a currency is also specified. A currency is required if the placement has no stop price currency.
+        /// The optional price, as currency and amount, associated with this placement.
         /// </summary>
-        /// <value>Optionally updates the stop price of this placement, in the placement&#39;s stop price currency unless a currency is also specified. A currency is required if the placement has no stop price currency.</value>
+        /// <value>The optional price, as currency and amount, associated with this placement.</value>
         [DataMember(Name = "stopPrice", EmitDefaultValue = true)]
         public decimal? StopPrice { get; set; }
 
@@ -136,13 +134,6 @@ namespace Lusid.Sdk.Model
         public string EntryType { get; set; }
 
         /// <summary>
-        /// The ISO currency code of the stop and/or limit price carried by the placement&#39;s type. Required when the type is changed to Stop, Limit or StopLimit, or when a price is set that the placement has no currency for; not permitted for a Market placement. For a value placement it must match the currency of the amount exactly, whether that amount is on the placement or in the update.
-        /// </summary>
-        /// <value>The ISO currency code of the stop and/or limit price carried by the placement&#39;s type. Required when the type is changed to Stop, Limit or StopLimit, or when a price is set that the placement has no currency for; not permitted for a Market placement. For a value placement it must match the currency of the amount exactly, whether that amount is on the placement or in the update.</value>
-        [DataMember(Name = "currency", EmitDefaultValue = true)]
-        public string Currency { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -160,7 +151,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  Counterparty: ").Append(Counterparty).Append("\n");
             sb.Append("  ExecutionSystem: ").Append(ExecutionSystem).Append("\n");
             sb.Append("  EntryType: ").Append(EntryType).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -246,11 +236,6 @@ namespace Lusid.Sdk.Model
                     this.EntryType == input.EntryType ||
                     (this.EntryType != null &&
                     this.EntryType.Equals(input.EntryType))
-                ) && 
-                (
-                    this.Currency == input.Currency ||
-                    (this.Currency != null &&
-                    this.Currency.Equals(input.Currency))
                 );
         }
 
@@ -303,10 +288,6 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.EntryType.GetHashCode();
                 }
-                if (this.Currency != null)
-                {
-                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
-                }
                 return hashCode;
             }
         }
@@ -352,18 +333,6 @@ namespace Lusid.Sdk.Model
             if (this.EntryType != null && this.EntryType.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntryType, length must be greater than 1.", new [] { "EntryType" });
-            }
-
-            // Currency (string) maxLength
-            if (this.Currency != null && this.Currency.Length > 3)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than 3.", new [] { "Currency" });
-            }
-
-            // Currency (string) minLength
-            if (this.Currency != null && this.Currency.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 0.", new [] { "Currency" });
             }
 
             yield break;

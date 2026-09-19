@@ -46,7 +46,7 @@ namespace Lusid.Sdk.Model
         /// <param name="state">The state of this placement (typically a FIX state; Open, Filled, etc)..</param>
         /// <param name="side">The side (Buy, Sell, ...) of this placement. (required).</param>
         /// <param name="timeInForce">The time in force applicable to this placement (GTC, FOK, Day, etc) (required).</param>
-        /// <param name="type">The type of this placement (Market, Limit, Stop, StopLimit, etc). A Limit placement must specify a limit price, a Stop placement a stop price, and a StopLimit placement both. (required).</param>
+        /// <param name="type">The type of this placement (Market, Limit, etc). (required).</param>
         /// <param name="createdDate">The active date of this placement. (required).</param>
         /// <param name="limitPrice">limitPrice.</param>
         /// <param name="stopPrice">stopPrice.</param>
@@ -172,9 +172,9 @@ namespace Lusid.Sdk.Model
         public string TimeInForce { get; set; }
 
         /// <summary>
-        /// The type of this placement (Market, Limit, Stop, StopLimit, etc). A Limit placement must specify a limit price, a Stop placement a stop price, and a StopLimit placement both.
+        /// The type of this placement (Market, Limit, etc).
         /// </summary>
-        /// <value>The type of this placement (Market, Limit, Stop, StopLimit, etc). A Limit placement must specify a limit price, a Stop placement a stop price, and a StopLimit placement both.</value>
+        /// <value>The type of this placement (Market, Limit, etc).</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 

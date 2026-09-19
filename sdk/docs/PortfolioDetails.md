@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **TransactionExclusionFilter** | **string** | A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded. | [optional] 
 **TaxLotSelectionCostBasis** | **string** | The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Supply Default to explicitly reset it; a reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost. | [optional] 
+**FractionalUnitsTrueUpConfiguration** | [**FractionalUnitsTrueUpConfiguration**](FractionalUnitsTrueUpConfiguration.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -51,6 +52,8 @@ StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
 
 string transactionExclusionFilter = "example transactionExclusionFilter";
 string taxLotSelectionCostBasis = "example taxLotSelectionCostBasis";
+FractionalUnitsTrueUpConfiguration? fractionalUnitsTrueUpConfiguration = new FractionalUnitsTrueUpConfiguration();
+
 List<Link> links = new List<Link>();
 
 PortfolioDetails portfolioDetailsInstance = new PortfolioDetails(
@@ -72,6 +75,7 @@ PortfolioDetails portfolioDetailsInstance = new PortfolioDetails(
     stagedModifications: stagedModifications,
     transactionExclusionFilter: transactionExclusionFilter,
     taxLotSelectionCostBasis: taxLotSelectionCostBasis,
+    fractionalUnitsTrueUpConfiguration: fractionalUnitsTrueUpConfiguration,
     links: links);
 ```
 

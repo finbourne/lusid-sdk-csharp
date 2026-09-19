@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **SettlementConfiguration** | [**PortfolioSettlementConfiguration**](PortfolioSettlementConfiguration.md) |  | [optional] 
 **TransactionExclusionFilter** | **string** | A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded. | [optional] 
 **TaxLotSelectionCostBasis** | **string** | The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Supply Default to explicitly reset it; a reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost. | [optional] 
+**FractionalUnitsTrueUpConfiguration** | [**FractionalUnitsTrueUpConfiguration**](FractionalUnitsTrueUpConfiguration.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -65,6 +66,8 @@ PortfolioSettlementConfiguration? settlementConfiguration = new PortfolioSettlem
 
 string transactionExclusionFilter = "example transactionExclusionFilter";
 string taxLotSelectionCostBasis = "example taxLotSelectionCostBasis";
+FractionalUnitsTrueUpConfiguration? fractionalUnitsTrueUpConfiguration = new FractionalUnitsTrueUpConfiguration();
+
 List<Link> links = new List<Link>();
 
 Portfolio portfolioInstance = new Portfolio(
@@ -93,6 +96,7 @@ Portfolio portfolioInstance = new Portfolio(
     settlementConfiguration: settlementConfiguration,
     transactionExclusionFilter: transactionExclusionFilter,
     taxLotSelectionCostBasis: taxLotSelectionCostBasis,
+    fractionalUnitsTrueUpConfiguration: fractionalUnitsTrueUpConfiguration,
     links: links);
 ```
 

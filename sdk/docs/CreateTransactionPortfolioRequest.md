@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **SettlementConfiguration** | [**PortfolioSettlementConfiguration**](PortfolioSettlementConfiguration.md) |  | [optional] 
 **TransactionExclusionFilter** | **string** | A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded. | [optional] 
 **TaxLotSelectionCostBasis** | **string** | The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Supply Default to explicitly reset it; a reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost. | [optional] 
+**FractionalUnitsTrueUpConfiguration** | [**FractionalUnitsTrueUpConfiguration**](FractionalUnitsTrueUpConfiguration.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -51,6 +52,8 @@ PortfolioSettlementConfiguration? settlementConfiguration = new PortfolioSettlem
 
 string transactionExclusionFilter = "example transactionExclusionFilter";
 string taxLotSelectionCostBasis = "example taxLotSelectionCostBasis";
+FractionalUnitsTrueUpConfiguration? fractionalUnitsTrueUpConfiguration = new FractionalUnitsTrueUpConfiguration();
+
 
 CreateTransactionPortfolioRequest createTransactionPortfolioRequestInstance = new CreateTransactionPortfolioRequest(
     displayName: displayName,
@@ -72,7 +75,8 @@ CreateTransactionPortfolioRequest createTransactionPortfolioRequestInstance = ne
     taxRuleSetScope: taxRuleSetScope,
     settlementConfiguration: settlementConfiguration,
     transactionExclusionFilter: transactionExclusionFilter,
-    taxLotSelectionCostBasis: taxLotSelectionCostBasis);
+    taxLotSelectionCostBasis: taxLotSelectionCostBasis,
+    fractionalUnitsTrueUpConfiguration: fractionalUnitsTrueUpConfiguration);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

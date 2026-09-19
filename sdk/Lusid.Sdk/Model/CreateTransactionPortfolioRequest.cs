@@ -167,7 +167,8 @@ namespace Lusid.Sdk.Model
         /// <param name="settlementConfiguration">settlementConfiguration.</param>
         /// <param name="transactionExclusionFilter">A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded..</param>
         /// <param name="taxLotSelectionCostBasis">The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Supply Default to explicitly reset it; a reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost..</param>
-        public CreateTransactionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), DateTimeOffset? created = default(DateTimeOffset?), DateTimeOffset? enablementDate = default(DateTimeOffset?), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), string taxRuleSetScope = default(string), PortfolioSettlementConfiguration settlementConfiguration = default(PortfolioSettlementConfiguration), string transactionExclusionFilter = default(string), string taxLotSelectionCostBasis = default(string))
+        /// <param name="fractionalUnitsTrueUpConfiguration">fractionalUnitsTrueUpConfiguration.</param>
+        public CreateTransactionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), DateTimeOffset? created = default(DateTimeOffset?), DateTimeOffset? enablementDate = default(DateTimeOffset?), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), string taxRuleSetScope = default(string), PortfolioSettlementConfiguration settlementConfiguration = default(PortfolioSettlementConfiguration), string transactionExclusionFilter = default(string), string taxLotSelectionCostBasis = default(string), FractionalUnitsTrueUpConfiguration fractionalUnitsTrueUpConfiguration = default(FractionalUnitsTrueUpConfiguration))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -204,6 +205,7 @@ namespace Lusid.Sdk.Model
             this.SettlementConfiguration = settlementConfiguration;
             this.TransactionExclusionFilter = transactionExclusionFilter;
             this.TaxLotSelectionCostBasis = taxLotSelectionCostBasis;
+            this.FractionalUnitsTrueUpConfiguration = fractionalUnitsTrueUpConfiguration;
         }
 
         /// <summary>
@@ -336,6 +338,12 @@ namespace Lusid.Sdk.Model
         public string TaxLotSelectionCostBasis { get; set; }
 
         /// <summary>
+        /// Gets or Sets FractionalUnitsTrueUpConfiguration
+        /// </summary>
+        [DataMember(Name = "fractionalUnitsTrueUpConfiguration", EmitDefaultValue = false)]
+        public FractionalUnitsTrueUpConfiguration FractionalUnitsTrueUpConfiguration { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -363,6 +371,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  SettlementConfiguration: ").Append(SettlementConfiguration).Append("\n");
             sb.Append("  TransactionExclusionFilter: ").Append(TransactionExclusionFilter).Append("\n");
             sb.Append("  TaxLotSelectionCostBasis: ").Append(TaxLotSelectionCostBasis).Append("\n");
+            sb.Append("  FractionalUnitsTrueUpConfiguration: ").Append(FractionalUnitsTrueUpConfiguration).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -499,6 +508,11 @@ namespace Lusid.Sdk.Model
                     this.TaxLotSelectionCostBasis == input.TaxLotSelectionCostBasis ||
                     (this.TaxLotSelectionCostBasis != null &&
                     this.TaxLotSelectionCostBasis.Equals(input.TaxLotSelectionCostBasis))
+                ) && 
+                (
+                    this.FractionalUnitsTrueUpConfiguration == input.FractionalUnitsTrueUpConfiguration ||
+                    (this.FractionalUnitsTrueUpConfiguration != null &&
+                    this.FractionalUnitsTrueUpConfiguration.Equals(input.FractionalUnitsTrueUpConfiguration))
                 );
         }
 
@@ -587,6 +601,10 @@ namespace Lusid.Sdk.Model
                 if (this.TaxLotSelectionCostBasis != null)
                 {
                     hashCode = (hashCode * 59) + this.TaxLotSelectionCostBasis.GetHashCode();
+                }
+                if (this.FractionalUnitsTrueUpConfiguration != null)
+                {
+                    hashCode = (hashCode * 59) + this.FractionalUnitsTrueUpConfiguration.GetHashCode();
                 }
                 return hashCode;
             }

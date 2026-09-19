@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **State** | **string** | The state of this placement (typically a FIX state; Open, Filled, etc). | 
 **Side** | **string** | The side (Buy, Sell, ...) of this placement. | 
 **TimeInForce** | **string** | The time in force applicable to this placement (GTC, FOK, Day, etc) | 
-**Type** | **string** | The type of this placement (Market, Limit, Stop, StopLimit, etc). A Limit placement must specify a limit price, a Stop placement a stop price, and a StopLimit placement both. | 
+**Type** | **string** | The type of this placement (Market, Limit, etc). | 
 **CreatedDate** | **DateTimeOffset** | The active date of this placement. | 
 **LimitPrice** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **StopPrice** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 

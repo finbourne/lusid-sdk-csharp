@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **AggregateRules** | [**List&lt;AggregateRuleValues&gt;**](AggregateRuleValues.md) | The aggregate matching rules and their measured values. | 
 **SupplementalAttributes** | [**List&lt;SupplementalAttributeValues&gt;**](SupplementalAttributeValues.md) | Additional attribute values carried on the result for context. Do not contribute to matching or the result id. | 
 **Items** | [**RecResultItemDetails**](RecResultItemDetails.md) |  | 
+**LinkedResults** | [**List&lt;RecLinkedResult&gt;**](RecLinkedResult.md) | Results of other rec types in the same rec instance run whose items share an identifier with this result&#39;s items. Only exceptions link, and only to exceptions; symmetric. Set by the linking pass once every rec type of the run has completed, so empty until then. | 
 **Comments** | [**List&lt;RecUserComment&gt;**](RecUserComment.md) | User-authored comments attached to the result. Carried forward across runs. | 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Properties in the RecResult domain. Filterable and sortable. | [optional] 
 **AssignedUser** | **string** | The LUSID user id assigned to the result. | [optional] 
@@ -48,6 +49,7 @@ List<CoreRuleValues> coreRules = new List<CoreRuleValues>();
 List<AggregateRuleValues> aggregateRules = new List<AggregateRuleValues>();
 List<SupplementalAttributeValues> supplementalAttributes = new List<SupplementalAttributeValues>();
 RecResultItemDetails items = new RecResultItemDetails();
+List<RecLinkedResult> linkedResults = new List<RecLinkedResult>();
 List<RecUserComment> comments = new List<RecUserComment>();
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 string assignedUser = "example assignedUser";
@@ -74,6 +76,7 @@ RecResult recResultInstance = new RecResult(
     aggregateRules: aggregateRules,
     supplementalAttributes: supplementalAttributes,
     items: items,
+    linkedResults: linkedResults,
     comments: comments,
     properties: properties,
     assignedUser: assignedUser,

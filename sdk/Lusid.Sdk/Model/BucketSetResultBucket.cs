@@ -41,11 +41,11 @@ namespace Lusid.Sdk.Model
         /// <param name="value">The movement in the bucket over the valuation point&#39;s period. (required).</param>
         /// <param name="previousCumulativeValue">The cumulative value of the bucket up to the start of the period. (required).</param>
         /// <param name="cumulativeValue">The cumulative value of the bucket up to the end of the period (Value + PreviousCumulativeValue). (required).</param>
-        /// <param name="sourceBreakdown">The bucket&#39;s movement broken down by the source that contributed it, which always sums to Value. Set on share class nodes only. The keys are &#39;classSpecific&#39; for amounts booked directly to the share class, &#39;nonClassSpecific&#39; for fund-level amounts apportioned to it, and an allocation group&#39;s code for amounts allocated to that group and apportioned to the share class. Sources contributing nothing to the bucket are omitted..</param>
-        /// <param name="perUnitValue">The bucket&#39;s movement over the period per unit in issue (Value divided by UnitsInIssue), in the fund currency, rounded to the share class&#39;s PricePrecision. Reported only where both the share class and the bucket are unitised and there are units in issue to divide by..</param>
-        /// <param name="unitsInIssue">The share class&#39;s units in issue at the end of the period. Reported only where both the share class and the bucket are unitised..</param>
-        /// <param name="previousCumulativePerUnitValue">The bucket&#39;s cumulative value at the start of the period, per unit in issue at that point - so it reads as it did at the previous valuation point rather than being restated at this period&#39;s unit count..</param>
-        /// <param name="cumulativePerUnitValue">The bucket&#39;s cumulative value at the end of the period per unit in issue (CumulativeValue divided by UnitsInIssue). Reported only where both the share class and the bucket are unitised and there are units in issue to divide by..</param>
+        /// <param name="sourceBreakdown">The bucket&#39;s movement broken down by the source that contributed it, which always sums to Value. Reported on share class nodes and omitted on the fund node; on a share class node it is present even when nothing contributed in the period, as an empty map. The keys are &#39;classSpecific&#39; for amounts booked directly to the share class, &#39;nonClassSpecific&#39; for fund-level amounts apportioned to it, and an allocation group&#39;s code for amounts allocated to that group and apportioned to the share class. Sources contributing nothing to the bucket are omitted..</param>
+        /// <param name="perUnitValue">The bucket&#39;s movement over the period per unit in issue (Value divided by UnitsInIssue), in the fund currency, rounded to the share class&#39;s PricePrecision. Omitted where either the share class or the bucket is not unitised, and where a unitised share class has no units in issue to divide by (UnitsInIssue is then reported as zero)..</param>
+        /// <param name="unitsInIssue">The share class&#39;s units in issue at the end of the period. Omitted where either the share class or the bucket is not unitised..</param>
+        /// <param name="previousCumulativePerUnitValue">The bucket&#39;s cumulative value at the start of the period, per unit in issue at that point - so it reads as it did at the previous valuation point rather than being restated at this period&#39;s unit count. Omitted where the bucket had no per-unit value at the previous valuation point: on the fund node, where the share class or the bucket is not unitised, where the share class then had no units in issue, and at the fund&#39;s first valuation point..</param>
+        /// <param name="cumulativePerUnitValue">The bucket&#39;s cumulative value at the end of the period per unit in issue (CumulativeValue divided by UnitsInIssue). Omitted where either the share class or the bucket is not unitised, and where a unitised share class has no units in issue to divide by..</param>
         /// <param name="displayName">The display name of the bucket, as configured on the fund configuration..</param>
         public BucketSetResultBucket(string bucketId = default(string), string bucketType = default(string), decimal value = default(decimal), decimal previousCumulativeValue = default(decimal), decimal cumulativeValue = default(decimal), Dictionary<string, decimal> sourceBreakdown = default(Dictionary<string, decimal>), decimal? perUnitValue = default(decimal?), decimal? unitsInIssue = default(decimal?), decimal? previousCumulativePerUnitValue = default(decimal?), decimal? cumulativePerUnitValue = default(decimal?), string displayName = default(string))
         {
@@ -108,37 +108,37 @@ namespace Lusid.Sdk.Model
         public decimal CumulativeValue { get; set; }
 
         /// <summary>
-        /// The bucket&#39;s movement broken down by the source that contributed it, which always sums to Value. Set on share class nodes only. The keys are &#39;classSpecific&#39; for amounts booked directly to the share class, &#39;nonClassSpecific&#39; for fund-level amounts apportioned to it, and an allocation group&#39;s code for amounts allocated to that group and apportioned to the share class. Sources contributing nothing to the bucket are omitted.
+        /// The bucket&#39;s movement broken down by the source that contributed it, which always sums to Value. Reported on share class nodes and omitted on the fund node; on a share class node it is present even when nothing contributed in the period, as an empty map. The keys are &#39;classSpecific&#39; for amounts booked directly to the share class, &#39;nonClassSpecific&#39; for fund-level amounts apportioned to it, and an allocation group&#39;s code for amounts allocated to that group and apportioned to the share class. Sources contributing nothing to the bucket are omitted.
         /// </summary>
-        /// <value>The bucket&#39;s movement broken down by the source that contributed it, which always sums to Value. Set on share class nodes only. The keys are &#39;classSpecific&#39; for amounts booked directly to the share class, &#39;nonClassSpecific&#39; for fund-level amounts apportioned to it, and an allocation group&#39;s code for amounts allocated to that group and apportioned to the share class. Sources contributing nothing to the bucket are omitted.</value>
+        /// <value>The bucket&#39;s movement broken down by the source that contributed it, which always sums to Value. Reported on share class nodes and omitted on the fund node; on a share class node it is present even when nothing contributed in the period, as an empty map. The keys are &#39;classSpecific&#39; for amounts booked directly to the share class, &#39;nonClassSpecific&#39; for fund-level amounts apportioned to it, and an allocation group&#39;s code for amounts allocated to that group and apportioned to the share class. Sources contributing nothing to the bucket are omitted.</value>
         [DataMember(Name = "sourceBreakdown", EmitDefaultValue = true)]
         public Dictionary<string, decimal> SourceBreakdown { get; set; }
 
         /// <summary>
-        /// The bucket&#39;s movement over the period per unit in issue (Value divided by UnitsInIssue), in the fund currency, rounded to the share class&#39;s PricePrecision. Reported only where both the share class and the bucket are unitised and there are units in issue to divide by.
+        /// The bucket&#39;s movement over the period per unit in issue (Value divided by UnitsInIssue), in the fund currency, rounded to the share class&#39;s PricePrecision. Omitted where either the share class or the bucket is not unitised, and where a unitised share class has no units in issue to divide by (UnitsInIssue is then reported as zero).
         /// </summary>
-        /// <value>The bucket&#39;s movement over the period per unit in issue (Value divided by UnitsInIssue), in the fund currency, rounded to the share class&#39;s PricePrecision. Reported only where both the share class and the bucket are unitised and there are units in issue to divide by.</value>
+        /// <value>The bucket&#39;s movement over the period per unit in issue (Value divided by UnitsInIssue), in the fund currency, rounded to the share class&#39;s PricePrecision. Omitted where either the share class or the bucket is not unitised, and where a unitised share class has no units in issue to divide by (UnitsInIssue is then reported as zero).</value>
         [DataMember(Name = "perUnitValue", EmitDefaultValue = true)]
         public decimal? PerUnitValue { get; set; }
 
         /// <summary>
-        /// The share class&#39;s units in issue at the end of the period. Reported only where both the share class and the bucket are unitised.
+        /// The share class&#39;s units in issue at the end of the period. Omitted where either the share class or the bucket is not unitised.
         /// </summary>
-        /// <value>The share class&#39;s units in issue at the end of the period. Reported only where both the share class and the bucket are unitised.</value>
+        /// <value>The share class&#39;s units in issue at the end of the period. Omitted where either the share class or the bucket is not unitised.</value>
         [DataMember(Name = "unitsInIssue", EmitDefaultValue = true)]
         public decimal? UnitsInIssue { get; set; }
 
         /// <summary>
-        /// The bucket&#39;s cumulative value at the start of the period, per unit in issue at that point - so it reads as it did at the previous valuation point rather than being restated at this period&#39;s unit count.
+        /// The bucket&#39;s cumulative value at the start of the period, per unit in issue at that point - so it reads as it did at the previous valuation point rather than being restated at this period&#39;s unit count. Omitted where the bucket had no per-unit value at the previous valuation point: on the fund node, where the share class or the bucket is not unitised, where the share class then had no units in issue, and at the fund&#39;s first valuation point.
         /// </summary>
-        /// <value>The bucket&#39;s cumulative value at the start of the period, per unit in issue at that point - so it reads as it did at the previous valuation point rather than being restated at this period&#39;s unit count.</value>
+        /// <value>The bucket&#39;s cumulative value at the start of the period, per unit in issue at that point - so it reads as it did at the previous valuation point rather than being restated at this period&#39;s unit count. Omitted where the bucket had no per-unit value at the previous valuation point: on the fund node, where the share class or the bucket is not unitised, where the share class then had no units in issue, and at the fund&#39;s first valuation point.</value>
         [DataMember(Name = "previousCumulativePerUnitValue", EmitDefaultValue = true)]
         public decimal? PreviousCumulativePerUnitValue { get; set; }
 
         /// <summary>
-        /// The bucket&#39;s cumulative value at the end of the period per unit in issue (CumulativeValue divided by UnitsInIssue). Reported only where both the share class and the bucket are unitised and there are units in issue to divide by.
+        /// The bucket&#39;s cumulative value at the end of the period per unit in issue (CumulativeValue divided by UnitsInIssue). Omitted where either the share class or the bucket is not unitised, and where a unitised share class has no units in issue to divide by.
         /// </summary>
-        /// <value>The bucket&#39;s cumulative value at the end of the period per unit in issue (CumulativeValue divided by UnitsInIssue). Reported only where both the share class and the bucket are unitised and there are units in issue to divide by.</value>
+        /// <value>The bucket&#39;s cumulative value at the end of the period per unit in issue (CumulativeValue divided by UnitsInIssue). Omitted where either the share class or the bucket is not unitised, and where a unitised share class has no units in issue to divide by.</value>
         [DataMember(Name = "cumulativePerUnitValue", EmitDefaultValue = true)]
         public decimal? CumulativePerUnitValue { get; set; }
 

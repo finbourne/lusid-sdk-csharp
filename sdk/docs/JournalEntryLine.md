@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **SourceId** | **string** | For the Lusid Source Type this will be the txn Id. For the rest will be what the user populates. | 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Abor. | [optional] 
 **MovementName** | **string** | If the JE Line is generated from a transaction, the name of the side in the transaction type&#39;s movement. If from a valuation, this is &#39;MarkToMarket&#39;. | [optional] 
+**TxnType** | **string** | If the JE Line is generated from a transaction, the type of that transaction. Null where the line is not linked to a transaction, such as a valuation line. | [optional] 
 **HoldingType** | **string** | One of the LUSID holding types such as &#39;P&#39; for position or &#39;B&#39; for settled cash balance. | 
 **EconomicBucket** | **string** | LUSID automatically categorises a JE Line into a broad economic bucket such as &#39;NA_Cost&#39; or &#39;PL_RealPriceGL&#39;. | 
 **EconomicBucketComponent** | **string** | Sub bucket of the economic bucket. Available values: Undefined, Premium, OID, MarketDiscount, AcquisitionPremium, CoreMarket, CrossGainLoss, TradedInterest, Income, Expense. | [optional] 
@@ -58,6 +59,7 @@ string sourceType = "sourceType";
 string sourceId = "sourceId";
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 string movementName = "example movementName";
+string txnType = "example txnType";
 string holdingType = "holdingType";
 string economicBucket = "economicBucket";
 string economicBucketComponent = "example economicBucketComponent";
@@ -93,6 +95,7 @@ JournalEntryLine journalEntryLineInstance = new JournalEntryLine(
     sourceId: sourceId,
     properties: properties,
     movementName: movementName,
+    txnType: txnType,
     holdingType: holdingType,
     economicBucket: economicBucket,
     economicBucketComponent: economicBucketComponent,
