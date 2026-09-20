@@ -41,9 +41,11 @@ namespace Lusid.Sdk.Model
         /// <param name="currency">The payment currency of the cashflow. (required).</param>
         /// <param name="sourceType">The source that produced the cashflow in the cash flow waterfall. One of &#39;Instrument&#39; (produced by the valuation engine), &#39;Transaction&#39; (produced from a booked transaction or movement) or &#39;SRS&#39; (sourced from the structured results store). (required).</param>
         /// <param name="instrumentId">The LUSID instrument identifier of the instrument that produced the cashflow. (required).</param>
+        /// <param name="instrumentDisplayName">The display name of the instrument that produced the cashflow. Not present when the instrument cannot be resolved (e.g. deleted, no permission)..</param>
         /// <param name="transactionId">The identifier of the transaction from which the cashflow originates, where known..</param>
         /// <param name="portfolioId">portfolioId (required).</param>
         /// <param name="flowType">The type of the cashflow, e.g. Coupon, Principal or Premium..</param>
+        /// <param name="movementName">The name of the movement that produced the cashflow (e.g. Coupon, Side1), falling back to the flow type when the movement is unnamed. Not present when the cashflow could not be valued..</param>
         /// <param name="payReceive">Indicates whether the cashflow is paid or received..</param>
         /// <param name="grossAmount">The signed amount of the cashflow before any haircut was applied. Only populated when haircut rules were supplied on the request..</param>
         /// <param name="haircutFraction">The fraction of the gross amount removed by the haircut, in the range [0, 1]. Zero for outflows and for cashflows no rule matched. Only populated when haircut rules were supplied on the request..</param>
@@ -51,7 +53,7 @@ namespace Lusid.Sdk.Model
         /// <param name="haircutRuleApplied">The identifier of the haircut rule that was applied to the cashflow, or not present when no rule matched or no haircut rules were supplied on the request..</param>
         /// <param name="error">Only present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. When set, the amount is null rather than zero..</param>
         /// <param name="links">links.</param>
-        public CashFlowDetail(DateTimeOffset paymentDate = default(DateTimeOffset), decimal? amount = default(decimal?), string currency = default(string), string sourceType = default(string), string instrumentId = default(string), string transactionId = default(string), ResourceId portfolioId = default(ResourceId), string flowType = default(string), string payReceive = default(string), decimal? grossAmount = default(decimal?), decimal? haircutFraction = default(decimal?), decimal? netAmount = default(decimal?), string haircutRuleApplied = default(string), string error = default(string), List<Link> links = default(List<Link>))
+        public CashFlowDetail(DateTimeOffset paymentDate = default(DateTimeOffset), decimal? amount = default(decimal?), string currency = default(string), string sourceType = default(string), string instrumentId = default(string), string instrumentDisplayName = default(string), string transactionId = default(string), ResourceId portfolioId = default(ResourceId), string flowType = default(string), string movementName = default(string), string payReceive = default(string), decimal? grossAmount = default(decimal?), decimal? haircutFraction = default(decimal?), decimal? netAmount = default(decimal?), string haircutRuleApplied = default(string), string error = default(string), List<Link> links = default(List<Link>))
         {
             this.PaymentDate = paymentDate;
             // to ensure "currency" is required (not null)
@@ -79,8 +81,10 @@ namespace Lusid.Sdk.Model
             }
             this.PortfolioId = portfolioId;
             this.Amount = amount;
+            this.InstrumentDisplayName = instrumentDisplayName;
             this.TransactionId = transactionId;
             this.FlowType = flowType;
+            this.MovementName = movementName;
             this.PayReceive = payReceive;
             this.GrossAmount = grossAmount;
             this.HaircutFraction = haircutFraction;
@@ -126,6 +130,13 @@ namespace Lusid.Sdk.Model
         public string InstrumentId { get; set; }
 
         /// <summary>
+        /// The display name of the instrument that produced the cashflow. Not present when the instrument cannot be resolved (e.g. deleted, no permission).
+        /// </summary>
+        /// <value>The display name of the instrument that produced the cashflow. Not present when the instrument cannot be resolved (e.g. deleted, no permission).</value>
+        [DataMember(Name = "instrumentDisplayName", EmitDefaultValue = true)]
+        public string InstrumentDisplayName { get; set; }
+
+        /// <summary>
         /// The identifier of the transaction from which the cashflow originates, where known.
         /// </summary>
         /// <value>The identifier of the transaction from which the cashflow originates, where known.</value>
@@ -144,6 +155,13 @@ namespace Lusid.Sdk.Model
         /// <value>The type of the cashflow, e.g. Coupon, Principal or Premium.</value>
         [DataMember(Name = "flowType", EmitDefaultValue = true)]
         public string FlowType { get; set; }
+
+        /// <summary>
+        /// The name of the movement that produced the cashflow (e.g. Coupon, Side1), falling back to the flow type when the movement is unnamed. Not present when the cashflow could not be valued.
+        /// </summary>
+        /// <value>The name of the movement that produced the cashflow (e.g. Coupon, Side1), falling back to the flow type when the movement is unnamed. Not present when the cashflow could not be valued.</value>
+        [DataMember(Name = "movementName", EmitDefaultValue = true)]
+        public string MovementName { get; set; }
 
         /// <summary>
         /// Indicates whether the cashflow is paid or received.
@@ -206,9 +224,11 @@ namespace Lusid.Sdk.Model
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  SourceType: ").Append(SourceType).Append("\n");
             sb.Append("  InstrumentId: ").Append(InstrumentId).Append("\n");
+            sb.Append("  InstrumentDisplayName: ").Append(InstrumentDisplayName).Append("\n");
             sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
             sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
             sb.Append("  FlowType: ").Append(FlowType).Append("\n");
+            sb.Append("  MovementName: ").Append(MovementName).Append("\n");
             sb.Append("  PayReceive: ").Append(PayReceive).Append("\n");
             sb.Append("  GrossAmount: ").Append(GrossAmount).Append("\n");
             sb.Append("  HaircutFraction: ").Append(HaircutFraction).Append("\n");
@@ -277,6 +297,11 @@ namespace Lusid.Sdk.Model
                     this.InstrumentId.Equals(input.InstrumentId))
                 ) && 
                 (
+                    this.InstrumentDisplayName == input.InstrumentDisplayName ||
+                    (this.InstrumentDisplayName != null &&
+                    this.InstrumentDisplayName.Equals(input.InstrumentDisplayName))
+                ) && 
+                (
                     this.TransactionId == input.TransactionId ||
                     (this.TransactionId != null &&
                     this.TransactionId.Equals(input.TransactionId))
@@ -290,6 +315,11 @@ namespace Lusid.Sdk.Model
                     this.FlowType == input.FlowType ||
                     (this.FlowType != null &&
                     this.FlowType.Equals(input.FlowType))
+                ) && 
+                (
+                    this.MovementName == input.MovementName ||
+                    (this.MovementName != null &&
+                    this.MovementName.Equals(input.MovementName))
                 ) && 
                 (
                     this.PayReceive == input.PayReceive ||
@@ -358,6 +388,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.InstrumentId.GetHashCode();
                 }
+                if (this.InstrumentDisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstrumentDisplayName.GetHashCode();
+                }
                 if (this.TransactionId != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionId.GetHashCode();
@@ -369,6 +403,10 @@ namespace Lusid.Sdk.Model
                 if (this.FlowType != null)
                 {
                     hashCode = (hashCode * 59) + this.FlowType.GetHashCode();
+                }
+                if (this.MovementName != null)
+                {
+                    hashCode = (hashCode * 59) + this.MovementName.GetHashCode();
                 }
                 if (this.PayReceive != null)
                 {

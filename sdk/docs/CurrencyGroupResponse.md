@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | The name of the currency group. | [optional] 
 **Description** | **string** | A description for the currency group. | [optional] 
 **MajorUnitCurrency** | **string** | The three to five letter, case-sensitive currency code of the group&#39;s major unit, e.g. GBP for the sterling group. | [optional] 
-**CirculationDomain** | **string** | The domain in which the group&#39;s currencies circulate, e.g. an ISO 3166 country code. | [optional] 
+**CirculationDomain** | **List&lt;string&gt;** | The domains in which the group&#39;s currencies circulate, e.g. ISO 3166 country codes or the ISO 4217 entity names of the countries using the major unit. | [optional] 
 **MinorUnits** | [**List&lt;CurrencyGroupMinorUnit&gt;**](CurrencyGroupMinorUnit.md) | The minor unit currencies belonging to this currency group. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource. | [optional] 
@@ -23,7 +23,7 @@ string code = "example code";
 string displayName = "example displayName";
 string description = "example description";
 string majorUnitCurrency = "example majorUnitCurrency";
-string circulationDomain = "example circulationDomain";
+List<string> circulationDomain = new List<string>();
 List<CurrencyGroupMinorUnit> minorUnits = new List<CurrencyGroupMinorUnit>();
 ModelVersion? varVersion = new ModelVersion();
 

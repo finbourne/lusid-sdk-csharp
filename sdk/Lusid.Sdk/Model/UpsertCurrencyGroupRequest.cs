@@ -40,9 +40,9 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the currency group. (required).</param>
         /// <param name="description">A description for the currency group..</param>
         /// <param name="majorUnitCurrency">The three to five letter, case-sensitive currency code of the group&#39;s major unit, e.g. GBP for the sterling group. (required).</param>
-        /// <param name="circulationDomain">The domain in which the group&#39;s currencies circulate, e.g. an ISO 3166 country code..</param>
+        /// <param name="circulationDomain">The domains in which the group&#39;s currencies circulate, e.g. ISO 3166 country codes or the ISO 4217 entity names of the countries using the major unit..</param>
         /// <param name="minorUnits">The minor unit currencies belonging to this currency group..</param>
-        public UpsertCurrencyGroupRequest(string code = default(string), string displayName = default(string), string description = default(string), string majorUnitCurrency = default(string), string circulationDomain = default(string), List<CurrencyGroupMinorUnit> minorUnits = default(List<CurrencyGroupMinorUnit>))
+        public UpsertCurrencyGroupRequest(string code = default(string), string displayName = default(string), string description = default(string), string majorUnitCurrency = default(string), List<string> circulationDomain = default(List<string>), List<CurrencyGroupMinorUnit> minorUnits = default(List<CurrencyGroupMinorUnit>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -96,11 +96,11 @@ namespace Lusid.Sdk.Model
         public string MajorUnitCurrency { get; set; }
 
         /// <summary>
-        /// The domain in which the group&#39;s currencies circulate, e.g. an ISO 3166 country code.
+        /// The domains in which the group&#39;s currencies circulate, e.g. ISO 3166 country codes or the ISO 4217 entity names of the countries using the major unit.
         /// </summary>
-        /// <value>The domain in which the group&#39;s currencies circulate, e.g. an ISO 3166 country code.</value>
+        /// <value>The domains in which the group&#39;s currencies circulate, e.g. ISO 3166 country codes or the ISO 4217 entity names of the countries using the major unit.</value>
         [DataMember(Name = "circulationDomain", EmitDefaultValue = true)]
-        public string CirculationDomain { get; set; }
+        public List<string> CirculationDomain { get; set; }
 
         /// <summary>
         /// The minor unit currencies belonging to this currency group.
@@ -180,8 +180,9 @@ namespace Lusid.Sdk.Model
                 ) && 
                 (
                     this.CirculationDomain == input.CirculationDomain ||
-                    (this.CirculationDomain != null &&
-                    this.CirculationDomain.Equals(input.CirculationDomain))
+                    this.CirculationDomain != null &&
+                    input.CirculationDomain != null &&
+                    this.CirculationDomain.SequenceEqual(input.CirculationDomain)
                 ) && 
                 (
                     this.MinorUnits == input.MinorUnits ||
@@ -295,18 +296,6 @@ namespace Lusid.Sdk.Model
             if (false == regexMajorUnitCurrency.Match(this.MajorUnitCurrency).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MajorUnitCurrency, must match a pattern of " + regexMajorUnitCurrency, new [] { "MajorUnitCurrency" });
-            }
-
-            // CirculationDomain (string) maxLength
-            if (this.CirculationDomain != null && this.CirculationDomain.Length > 512)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CirculationDomain, length must be less than 512.", new [] { "CirculationDomain" });
-            }
-
-            // CirculationDomain (string) minLength
-            if (this.CirculationDomain != null && this.CirculationDomain.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CirculationDomain, length must be greater than 0.", new [] { "CirculationDomain" });
             }
 
             yield break;

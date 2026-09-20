@@ -10,9 +10,11 @@ Name | Type | Description | Notes
 **Currency** | **string** | The payment currency of the cashflow. | 
 **SourceType** | **string** | The source that produced the cashflow in the cash flow waterfall. One of &#39;Instrument&#39; (produced by the valuation engine), &#39;Transaction&#39; (produced from a booked transaction or movement) or &#39;SRS&#39; (sourced from the structured results store). | 
 **InstrumentId** | **string** | The LUSID instrument identifier of the instrument that produced the cashflow. | 
+**InstrumentDisplayName** | **string** | The display name of the instrument that produced the cashflow. Not present when the instrument cannot be resolved (e.g. deleted, no permission). | [optional] 
 **TransactionId** | **string** | The identifier of the transaction from which the cashflow originates, where known. | [optional] 
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | 
 **FlowType** | **string** | The type of the cashflow, e.g. Coupon, Principal or Premium. | [optional] 
+**MovementName** | **string** | The name of the movement that produced the cashflow (e.g. Coupon, Side1), falling back to the flow type when the movement is unnamed. Not present when the cashflow could not be valued. | [optional] 
 **PayReceive** | **string** | Indicates whether the cashflow is paid or received. | [optional] 
 **GrossAmount** | **decimal?** | The signed amount of the cashflow before any haircut was applied. Only populated when haircut rules were supplied on the request. | [optional] 
 **HaircutFraction** | **decimal?** | The fraction of the gross amount removed by the haircut, in the range [0, 1]. Zero for outflows and for cashflows no rule matched. Only populated when haircut rules were supplied on the request. | [optional] 
@@ -28,9 +30,11 @@ using System;
 string currency = "currency";
 string sourceType = "sourceType";
 string instrumentId = "instrumentId";
+string instrumentDisplayName = "example instrumentDisplayName";
 string transactionId = "example transactionId";
 ResourceId portfolioId = new ResourceId();
 string flowType = "example flowType";
+string movementName = "example movementName";
 string payReceive = "example payReceive";
 string haircutRuleApplied = "example haircutRuleApplied";
 string error = "example error";
@@ -42,9 +46,11 @@ CashFlowDetail cashFlowDetailInstance = new CashFlowDetail(
     currency: currency,
     sourceType: sourceType,
     instrumentId: instrumentId,
+    instrumentDisplayName: instrumentDisplayName,
     transactionId: transactionId,
     portfolioId: portfolioId,
     flowType: flowType,
+    movementName: movementName,
     payReceive: payReceive,
     grossAmount: grossAmount,
     haircutFraction: haircutFraction,
