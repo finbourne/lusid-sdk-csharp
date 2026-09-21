@@ -34,11 +34,13 @@ namespace Lusid.Sdk.Model
         /// <param name="priceScaleFactor">The factor used to scale prices for the instrument. Currently used by LUSID when calculating cost  and notional amounts on transactions, and in Valuation, PV and exposure when the recipe&#39;s  UseInstrumentScaleFactorAsDefault pricing option is set: a lookup-priced instrument whose price  quote declares no scale factor of its own is then scaled by this factor. When that option is not  set, only the scale factor attached to the price quotes in the QuoteStore is used.  Must be positive and defaults to 1 if not set..</param>
         /// <param name="minimumOrderSize">The Minimum Order Size  Must be non-negative and defaults to 0 if not set..</param>
         /// <param name="minimumOrderIncrement">The Minimum Order Increment  Must be non-negative and defaults to 0 if not set..</param>
-        public TradingConventions(decimal priceScaleFactor = default(decimal), decimal minimumOrderSize = default(decimal), decimal minimumOrderIncrement = default(decimal))
+        /// <param name="priceQuotationType">Conventional price quotation type of the instrument.  Whether its quoted price excludes accrued interest (Clean) or includes it (Dirty).  Defaults to Clean if not set.                Supported string (enumeration) values are: [Clean, Dirty]. Available values: Clean, Dirty..</param>
+        public TradingConventions(decimal priceScaleFactor = default(decimal), decimal minimumOrderSize = default(decimal), decimal minimumOrderIncrement = default(decimal), string priceQuotationType = default(string))
         {
             this.PriceScaleFactor = priceScaleFactor;
             this.MinimumOrderSize = minimumOrderSize;
             this.MinimumOrderIncrement = minimumOrderIncrement;
+            this.PriceQuotationType = priceQuotationType;
         }
 
         /// <summary>
@@ -63,6 +65,13 @@ namespace Lusid.Sdk.Model
         public decimal MinimumOrderIncrement { get; set; }
 
         /// <summary>
+        /// Conventional price quotation type of the instrument.  Whether its quoted price excludes accrued interest (Clean) or includes it (Dirty).  Defaults to Clean if not set.                Supported string (enumeration) values are: [Clean, Dirty]. Available values: Clean, Dirty.
+        /// </summary>
+        /// <value>Conventional price quotation type of the instrument.  Whether its quoted price excludes accrued interest (Clean) or includes it (Dirty).  Defaults to Clean if not set.                Supported string (enumeration) values are: [Clean, Dirty]. Available values: Clean, Dirty.</value>
+        [DataMember(Name = "priceQuotationType", EmitDefaultValue = true)]
+        public string PriceQuotationType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +82,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PriceScaleFactor: ").Append(PriceScaleFactor).Append("\n");
             sb.Append("  MinimumOrderSize: ").Append(MinimumOrderSize).Append("\n");
             sb.Append("  MinimumOrderIncrement: ").Append(MinimumOrderIncrement).Append("\n");
+            sb.Append("  PriceQuotationType: ").Append(PriceQuotationType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,6 +129,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.MinimumOrderIncrement == input.MinimumOrderIncrement ||
                     this.MinimumOrderIncrement.Equals(input.MinimumOrderIncrement)
+                ) && 
+                (
+                    this.PriceQuotationType == input.PriceQuotationType ||
+                    (this.PriceQuotationType != null &&
+                    this.PriceQuotationType.Equals(input.PriceQuotationType))
                 );
         }
 
@@ -134,6 +149,10 @@ namespace Lusid.Sdk.Model
                 hashCode = (hashCode * 59) + this.PriceScaleFactor.GetHashCode();
                 hashCode = (hashCode * 59) + this.MinimumOrderSize.GetHashCode();
                 hashCode = (hashCode * 59) + this.MinimumOrderIncrement.GetHashCode();
+                if (this.PriceQuotationType != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceQuotationType.GetHashCode();
+                }
                 return hashCode;
             }
         }
