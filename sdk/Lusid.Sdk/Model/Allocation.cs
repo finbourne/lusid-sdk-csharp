@@ -58,8 +58,9 @@ namespace Lusid.Sdk.Model
         /// <param name="executionIds">The executions associated with this allocation.</param>
         /// <param name="custodianAccountId">custodianAccountId.</param>
         /// <param name="dataModelMembership">dataModelMembership.</param>
+        /// <param name="direction">The direction of the allocation&#39;s side, derived from its transaction type at write time: 1 the side increases the position (longer), -1 it decreases it (shorter), null when no direction could be resolved..</param>
         /// <param name="links">links.</param>
-        public Allocation(ResourceId id = default(ResourceId), ResourceId allocatedOrderId = default(ResourceId), ResourceId portfolioId = default(ResourceId), decimal quantity = default(decimal), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string instrumentScope = default(string), string lusidInstrumentId = default(string), List<ResourceId> placementIds = default(List<ResourceId>), string state = default(string), string side = default(string), string type = default(string), DateTimeOffset? settlementDate = default(DateTimeOffset?), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), string settlementCurrency = default(string), decimal? settlementCurrencyFxRate = default(decimal?), string counterparty = default(string), List<ResourceId> executionIds = default(List<ResourceId>), ResourceId custodianAccountId = default(ResourceId), DataModelMembership dataModelMembership = default(DataModelMembership), List<Link> links = default(List<Link>))
+        public Allocation(ResourceId id = default(ResourceId), ResourceId allocatedOrderId = default(ResourceId), ResourceId portfolioId = default(ResourceId), decimal quantity = default(decimal), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string instrumentScope = default(string), string lusidInstrumentId = default(string), List<ResourceId> placementIds = default(List<ResourceId>), string state = default(string), string side = default(string), string type = default(string), DateTimeOffset? settlementDate = default(DateTimeOffset?), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), string settlementCurrency = default(string), decimal? settlementCurrencyFxRate = default(decimal?), string counterparty = default(string), List<ResourceId> executionIds = default(List<ResourceId>), ResourceId custodianAccountId = default(ResourceId), DataModelMembership dataModelMembership = default(DataModelMembership), int? direction = default(int?), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -108,6 +109,7 @@ namespace Lusid.Sdk.Model
             this.ExecutionIds = executionIds;
             this.CustodianAccountId = custodianAccountId;
             this.DataModelMembership = dataModelMembership;
+            this.Direction = direction;
             this.Links = links;
         }
 
@@ -259,6 +261,13 @@ namespace Lusid.Sdk.Model
         public DataModelMembership DataModelMembership { get; set; }
 
         /// <summary>
+        /// The direction of the allocation&#39;s side, derived from its transaction type at write time: 1 the side increases the position (longer), -1 it decreases it (shorter), null when no direction could be resolved.
+        /// </summary>
+        /// <value>The direction of the allocation&#39;s side, derived from its transaction type at write time: 1 the side increases the position (longer), -1 it decreases it (shorter), null when no direction could be resolved.</value>
+        [DataMember(Name = "direction", EmitDefaultValue = true)]
+        public int? Direction { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -294,6 +303,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ExecutionIds: ").Append(ExecutionIds).Append("\n");
             sb.Append("  CustodianAccountId: ").Append(CustodianAccountId).Append("\n");
             sb.Append("  DataModelMembership: ").Append(DataModelMembership).Append("\n");
+            sb.Append("  Direction: ").Append(Direction).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -444,6 +454,11 @@ namespace Lusid.Sdk.Model
                     this.DataModelMembership.Equals(input.DataModelMembership))
                 ) && 
                 (
+                    this.Direction == input.Direction ||
+                    (this.Direction != null &&
+                    this.Direction.Equals(input.Direction))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -544,6 +559,10 @@ namespace Lusid.Sdk.Model
                 if (this.DataModelMembership != null)
                 {
                     hashCode = (hashCode * 59) + this.DataModelMembership.GetHashCode();
+                }
+                if (this.Direction != null)
+                {
+                    hashCode = (hashCode * 59) + this.Direction.GetHashCode();
                 }
                 if (this.Links != null)
                 {

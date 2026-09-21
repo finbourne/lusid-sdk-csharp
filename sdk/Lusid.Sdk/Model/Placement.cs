@@ -56,8 +56,9 @@ namespace Lusid.Sdk.Model
         /// <param name="entryType">Optionally specifies the entry type of this placement..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="dataModelMembership">dataModelMembership.</param>
+        /// <param name="direction">The direction of the placement&#39;s side, inherited at creation from its block&#39;s orders: 1 the side increases the position (longer), -1 it decreases it (shorter), 0 the block&#39;s orders net flat, null when no direction could be resolved..</param>
         /// <param name="links">links.</param>
-        public Placement(ResourceId id = default(ResourceId), ResourceId parentPlacementId = default(ResourceId), List<ResourceId> blockIds = default(List<ResourceId>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string lusidInstrumentId = default(string), decimal? quantity = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount), string state = default(string), string side = default(string), string timeInForce = default(string), string type = default(string), DateTimeOffset createdDate = default(DateTimeOffset), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), string counterparty = default(string), string executionSystem = default(string), string entryType = default(string), ModelVersion varVersion = default(ModelVersion), DataModelMembership dataModelMembership = default(DataModelMembership), List<Link> links = default(List<Link>))
+        public Placement(ResourceId id = default(ResourceId), ResourceId parentPlacementId = default(ResourceId), List<ResourceId> blockIds = default(List<ResourceId>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string lusidInstrumentId = default(string), decimal? quantity = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount), string state = default(string), string side = default(string), string timeInForce = default(string), string type = default(string), DateTimeOffset createdDate = default(DateTimeOffset), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), string counterparty = default(string), string executionSystem = default(string), string entryType = default(string), ModelVersion varVersion = default(ModelVersion), DataModelMembership dataModelMembership = default(DataModelMembership), int? direction = default(int?), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -119,6 +120,7 @@ namespace Lusid.Sdk.Model
             this.EntryType = entryType;
             this.VarVersion = varVersion;
             this.DataModelMembership = dataModelMembership;
+            this.Direction = direction;
             this.Links = links;
         }
 
@@ -271,6 +273,13 @@ namespace Lusid.Sdk.Model
         public DataModelMembership DataModelMembership { get; set; }
 
         /// <summary>
+        /// The direction of the placement&#39;s side, inherited at creation from its block&#39;s orders: 1 the side increases the position (longer), -1 it decreases it (shorter), 0 the block&#39;s orders net flat, null when no direction could be resolved.
+        /// </summary>
+        /// <value>The direction of the placement&#39;s side, inherited at creation from its block&#39;s orders: 1 the side increases the position (longer), -1 it decreases it (shorter), 0 the block&#39;s orders net flat, null when no direction could be resolved.</value>
+        [DataMember(Name = "direction", EmitDefaultValue = true)]
+        public int? Direction { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -305,6 +314,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EntryType: ").Append(EntryType).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  DataModelMembership: ").Append(DataModelMembership).Append("\n");
+            sb.Append("  Direction: ").Append(Direction).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -450,6 +460,11 @@ namespace Lusid.Sdk.Model
                     this.DataModelMembership.Equals(input.DataModelMembership))
                 ) && 
                 (
+                    this.Direction == input.Direction ||
+                    (this.Direction != null &&
+                    this.Direction.Equals(input.Direction))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -549,6 +564,10 @@ namespace Lusid.Sdk.Model
                 if (this.DataModelMembership != null)
                 {
                     hashCode = (hashCode * 59) + this.DataModelMembership.GetHashCode();
+                }
+                if (this.Direction != null)
+                {
+                    hashCode = (hashCode * 59) + this.Direction.GetHashCode();
                 }
                 if (this.Links != null)
                 {

@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **EntryType** | **string** | Optionally specifies the entry type of this placement. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
+**Direction** | **int?** | The direction of the placement&#39;s side, inherited at creation from its block&#39;s orders: 1 the side increases the position (longer), -1 it decreases it (shorter), 0 the block&#39;s orders net flat, null when no direction could be resolved. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -81,6 +82,7 @@ Placement placementInstance = new Placement(
     entryType: entryType,
     varVersion: varVersion,
     dataModelMembership: dataModelMembership,
+    direction: direction,
     links: links);
 ```
 

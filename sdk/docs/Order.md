@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
 **DerivedComplianceState** | **string** | The compliance state of the order, derived from pre-trade compliance runs. | [optional] 
 **DerivedApprovalState** | **string** | The approval state of the order. | [optional] 
+**Direction** | **int?** | The direction of the order&#39;s side, derived from its transaction type at write time: 1 the side increases the position (longer), -1 it decreases it (shorter), null when no direction could be resolved. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -100,6 +101,7 @@ Order orderInstance = new Order(
     dataModelMembership: dataModelMembership,
     derivedComplianceState: derivedComplianceState,
     derivedApprovalState: derivedApprovalState,
+    direction: direction,
     links: links);
 ```
 

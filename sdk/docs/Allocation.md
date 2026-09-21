@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **ExecutionIds** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The executions associated with this allocation | [optional] 
 **CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
+**Direction** | **int?** | The direction of the allocation&#39;s side, derived from its transaction type at write time: 1 the side increases the position (longer), -1 it decreases it (shorter), null when no direction could be resolved. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -81,6 +82,7 @@ Allocation allocationInstance = new Allocation(
     executionIds: executionIds,
     custodianAccountId: custodianAccountId,
     dataModelMembership: dataModelMembership,
+    direction: direction,
     links: links);
 ```
 

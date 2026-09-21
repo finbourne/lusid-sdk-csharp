@@ -39,10 +39,12 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="DecimalComplianceParameter" /> class.
         /// </summary>
         /// <param name="value">value (required).</param>
+        /// <param name="inclusiveBounds">Whether the bound is inclusive of the value; when true a candidate landing exactly on the bound satisfies it. Defaults to false (exclusive)..</param>
         /// <param name="complianceParameterType">The parameter type. Available values: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter, FilterPredicateComplianceParameter, GroupFilterPredicateComplianceParameter, GroupBySelectorComplianceParameter, PropertyListComplianceParameter, GroupCalculationComplianceParameter. (required) (default to &quot;DecimalComplianceParameter&quot;).</param>
-        public DecimalComplianceParameter(decimal value = default(decimal), ComplianceParameterTypeEnum complianceParameterType = default(ComplianceParameterTypeEnum)) : base(complianceParameterType)
+        public DecimalComplianceParameter(decimal value = default(decimal), bool inclusiveBounds = default(bool), ComplianceParameterTypeEnum complianceParameterType = default(ComplianceParameterTypeEnum)) : base(complianceParameterType)
         {
             this.Value = value;
+            this.InclusiveBounds = inclusiveBounds;
         }
 
         /// <summary>
@@ -50,6 +52,13 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
         public decimal Value { get; set; }
+
+        /// <summary>
+        /// Whether the bound is inclusive of the value; when true a candidate landing exactly on the bound satisfies it. Defaults to false (exclusive).
+        /// </summary>
+        /// <value>Whether the bound is inclusive of the value; when true a candidate landing exactly on the bound satisfies it. Defaults to false (exclusive).</value>
+        [DataMember(Name = "inclusiveBounds", EmitDefaultValue = true)]
+        public bool InclusiveBounds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,6 +70,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class DecimalComplianceParameter {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  InclusiveBounds: ").Append(InclusiveBounds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,6 +109,10 @@ namespace Lusid.Sdk.Model
                 (
                     this.Value == input.Value ||
                     this.Value.Equals(input.Value)
+                ) && base.Equals(input) && 
+                (
+                    this.InclusiveBounds == input.InclusiveBounds ||
+                    this.InclusiveBounds.Equals(input.InclusiveBounds)
                 );
         }
 
@@ -112,6 +126,7 @@ namespace Lusid.Sdk.Model
             {
                 int hashCode = base.GetHashCode();
                 hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                hashCode = (hashCode * 59) + this.InclusiveBounds.GetHashCode();
                 return hashCode;
             }
         }

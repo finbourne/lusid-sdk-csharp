@@ -19,54 +19,141 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
+using System.Reflection;
 
 namespace Lusid.Sdk.Model
 {
     /// <summary>
     /// Base class for the tolerances that relax how strictly a matching rule compares its two sides. Polymorphic  by ToleranceType; each supported type has a corresponding inherited class.
     /// </summary>
+    [JsonConverter(typeof(ToleranceBaseJsonConverter))]
     [DataContract(Name = "ToleranceBase")]
-    public partial class ToleranceBase : IEquatable<ToleranceBase>, IValidatableObject
+    public partial class ToleranceBase : AbstractOpenAPISchema, IEquatable<ToleranceBase>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ToleranceBase" /> class.
+        /// Initializes a new instance of the <see cref="ToleranceBase" /> class
+        /// with the <see cref="AggregateNumericTolerance" /> class
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ToleranceBase() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ToleranceBase" /> class.
-        /// </summary>
-        /// <param name="toleranceType">Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. (required).</param>
-        /// <param name="ruleName">The reference name of the rule that this tolerance relaxes. (required).</param>
-        public ToleranceBase(string toleranceType = default(string), string ruleName = default(string))
+        /// <param name="actualInstance">An instance of AggregateNumericTolerance.</param>
+        public ToleranceBase(AggregateNumericTolerance actualInstance)
         {
-            // to ensure "toleranceType" is required (not null)
-            if (toleranceType == null)
-            {
-                throw new ArgumentNullException("toleranceType is a required property for ToleranceBase and cannot be null");
-            }
-            this.ToleranceType = toleranceType;
-            // to ensure "ruleName" is required (not null)
-            if (ruleName == null)
-            {
-                throw new ArgumentNullException("ruleName is a required property for ToleranceBase and cannot be null");
-            }
-            this.RuleName = ruleName;
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
         /// <summary>
-        /// Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric.
+        /// Initializes a new instance of the <see cref="ToleranceBase" /> class
+        /// with the <see cref="CoreAttributeOptionalityTolerance" /> class
         /// </summary>
-        /// <value>Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric.</value>
-        [DataMember(Name = "toleranceType", IsRequired = true, EmitDefaultValue = true)]
-        public string ToleranceType { get; set; }
+        /// <param name="actualInstance">An instance of CoreAttributeOptionalityTolerance.</param>
+        public ToleranceBase(CoreAttributeOptionalityTolerance actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
 
         /// <summary>
-        /// The reference name of the rule that this tolerance relaxes.
+        /// Initializes a new instance of the <see cref="ToleranceBase" /> class
+        /// with the <see cref="CoreDateTolerance" /> class
         /// </summary>
-        /// <value>The reference name of the rule that this tolerance relaxes.</value>
-        [DataMember(Name = "ruleName", IsRequired = true, EmitDefaultValue = true)]
-        public string RuleName { get; set; }
+        /// <param name="actualInstance">An instance of CoreDateTolerance.</param>
+        public ToleranceBase(CoreDateTolerance actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ToleranceBase" /> class
+        /// with the <see cref="CoreStringCrossTolerance" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of CoreStringCrossTolerance.</param>
+        public ToleranceBase(CoreStringCrossTolerance actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+
+        private Object _actualInstance;
+
+        /// <summary>
+        /// Gets or Sets ActualInstance
+        /// </summary>
+        public override Object ActualInstance
+        {
+            get
+            {
+                return _actualInstance;
+            }
+            set
+            {
+                if (value.GetType() == typeof(AggregateNumericTolerance) || value is AggregateNumericTolerance)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(CoreAttributeOptionalityTolerance) || value is CoreAttributeOptionalityTolerance)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(CoreDateTolerance) || value is CoreDateTolerance)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(CoreStringCrossTolerance) || value is CoreStringCrossTolerance)
+                {
+                    this._actualInstance = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Invalid instance found. Must be the following types: AggregateNumericTolerance, CoreAttributeOptionalityTolerance, CoreDateTolerance, CoreStringCrossTolerance");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Get the actual instance of `AggregateNumericTolerance`. If the actual instance is not `AggregateNumericTolerance`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of AggregateNumericTolerance</returns>
+        public AggregateNumericTolerance GetAggregateNumericTolerance()
+        {
+            return (AggregateNumericTolerance)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `CoreAttributeOptionalityTolerance`. If the actual instance is not `CoreAttributeOptionalityTolerance`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of CoreAttributeOptionalityTolerance</returns>
+        public CoreAttributeOptionalityTolerance GetCoreAttributeOptionalityTolerance()
+        {
+            return (CoreAttributeOptionalityTolerance)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `CoreDateTolerance`. If the actual instance is not `CoreDateTolerance`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of CoreDateTolerance</returns>
+        public CoreDateTolerance GetCoreDateTolerance()
+        {
+            return (CoreDateTolerance)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `CoreStringCrossTolerance`. If the actual instance is not `CoreStringCrossTolerance`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of CoreStringCrossTolerance</returns>
+        public CoreStringCrossTolerance GetCoreStringCrossTolerance()
+        {
+            return (CoreStringCrossTolerance)this.ActualInstance;
+        }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,10 +161,9 @@ namespace Lusid.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class ToleranceBase {\n");
-            sb.Append("  ToleranceType: ").Append(ToleranceType).Append("\n");
-            sb.Append("  RuleName: ").Append(RuleName).Append("\n");
+            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,9 +172,118 @@ namespace Lusid.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return JsonConvert.SerializeObject(this.ActualInstance, ToleranceBase.SerializerSettings);
+        }
+
+        /// <summary>
+        /// Converts the JSON string into an instance of ToleranceBase
+        /// </summary>
+        /// <param name="jsonString">JSON string</param>
+        /// <returns>An instance of ToleranceBase</returns>
+        public static ToleranceBase FromJson(string jsonString)
+        {
+            ToleranceBase newToleranceBase = null;
+
+            if (string.IsNullOrEmpty(jsonString))
+            {
+                return newToleranceBase;
+            }
+            int match = 0;
+            List<string> matchedTypes = new List<string>();
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(AggregateNumericTolerance).GetProperty("AdditionalProperties") == null)
+                {
+                    newToleranceBase = new ToleranceBase(JsonConvert.DeserializeObject<AggregateNumericTolerance>(jsonString, ToleranceBase.SerializerSettings));
+                }
+                else
+                {
+                    newToleranceBase = new ToleranceBase(JsonConvert.DeserializeObject<AggregateNumericTolerance>(jsonString, ToleranceBase.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("AggregateNumericTolerance");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into AggregateNumericTolerance: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(CoreAttributeOptionalityTolerance).GetProperty("AdditionalProperties") == null)
+                {
+                    newToleranceBase = new ToleranceBase(JsonConvert.DeserializeObject<CoreAttributeOptionalityTolerance>(jsonString, ToleranceBase.SerializerSettings));
+                }
+                else
+                {
+                    newToleranceBase = new ToleranceBase(JsonConvert.DeserializeObject<CoreAttributeOptionalityTolerance>(jsonString, ToleranceBase.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("CoreAttributeOptionalityTolerance");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CoreAttributeOptionalityTolerance: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(CoreDateTolerance).GetProperty("AdditionalProperties") == null)
+                {
+                    newToleranceBase = new ToleranceBase(JsonConvert.DeserializeObject<CoreDateTolerance>(jsonString, ToleranceBase.SerializerSettings));
+                }
+                else
+                {
+                    newToleranceBase = new ToleranceBase(JsonConvert.DeserializeObject<CoreDateTolerance>(jsonString, ToleranceBase.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("CoreDateTolerance");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CoreDateTolerance: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(CoreStringCrossTolerance).GetProperty("AdditionalProperties") == null)
+                {
+                    newToleranceBase = new ToleranceBase(JsonConvert.DeserializeObject<CoreStringCrossTolerance>(jsonString, ToleranceBase.SerializerSettings));
+                }
+                else
+                {
+                    newToleranceBase = new ToleranceBase(JsonConvert.DeserializeObject<CoreStringCrossTolerance>(jsonString, ToleranceBase.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("CoreStringCrossTolerance");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CoreStringCrossTolerance: {1}", jsonString, exception.ToString()));
+            }
+
+            if (match == 0)
+            {
+                throw new InvalidDataException("The JSON string `" + jsonString + "` cannot be deserialized into any schema defined.");
+            }
+            else if (match > 1)
+            {
+                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + String.Join(",", matchedTypes));
+            }
+
+            // deserialization is considered successful at this point if no exception has been thrown.
+            return newToleranceBase;
         }
 
         /// <summary>
@@ -109,20 +304,9 @@ namespace Lusid.Sdk.Model
         public bool Equals(ToleranceBase input)
         {
             if (input == null)
-            {
                 return false;
-            }
-            return 
-                (
-                    this.ToleranceType == input.ToleranceType ||
-                    (this.ToleranceType != null &&
-                    this.ToleranceType.Equals(input.ToleranceType))
-                ) && 
-                (
-                    this.RuleName == input.RuleName ||
-                    (this.RuleName != null &&
-                    this.RuleName.Equals(input.RuleName))
-                );
+
+            return this.ActualInstance.Equals(input.ActualInstance);
         }
 
         /// <summary>
@@ -134,17 +318,12 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ToleranceType != null)
-                {
-                    hashCode = (hashCode * 59) + this.ToleranceType.GetHashCode();
-                }
-                if (this.RuleName != null)
-                {
-                    hashCode = (hashCode * 59) + this.RuleName.GetHashCode();
-                }
+                if (this.ActualInstance != null)
+                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
                 return hashCode;
             }
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -153,25 +332,56 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ToleranceType (string) minLength
-            if (this.ToleranceType != null && this.ToleranceType.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ToleranceType, length must be greater than 1.", new [] { "ToleranceType" });
-            }
-
-            // RuleName (string) maxLength
-            if (this.RuleName != null && this.RuleName.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RuleName, length must be less than 256.", new [] { "RuleName" });
-            }
-
-            // RuleName (string) minLength
-            if (this.RuleName != null && this.RuleName.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RuleName, length must be greater than 1.", new [] { "RuleName" });
-            }
-
             yield break;
         }
     }
+
+    /// <summary>
+    /// Custom JSON converter for ToleranceBase
+    /// </summary>
+    public class ToleranceBaseJsonConverter : JsonConverter
+    {
+        /// <summary>
+        /// To write the JSON string
+        /// </summary>
+        /// <param name="writer">JSON writer</param>
+        /// <param name="value">Object to be converted into a JSON string</param>
+        /// <param name="serializer">JSON Serializer</param>
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            writer.WriteRawValue((string)(typeof(ToleranceBase).GetMethod("ToJson").Invoke(value, null)));
+        }
+
+        /// <summary>
+        /// To convert a JSON string into an object
+        /// </summary>
+        /// <param name="reader">JSON reader</param>
+        /// <param name="objectType">Object type</param>
+        /// <param name="existingValue">Existing value</param>
+        /// <param name="serializer">JSON Serializer</param>
+        /// <returns>The object converted from the JSON string</returns>
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            switch(reader.TokenType) 
+            {
+                case JsonToken.StartObject:
+                    return ToleranceBase.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartArray:
+                    return ToleranceBase.FromJson(JArray.Load(reader).ToString(Formatting.None));
+                default:
+                    return null;
+            }
+        }
+
+        /// <summary>
+        /// Check if the object can be converted
+        /// </summary>
+        /// <param name="objectType">Object type</param>
+        /// <returns>True if the object can be converted</returns>
+        public override bool CanConvert(Type objectType)
+        {
+            return false;
+        }
+    }
+
 }

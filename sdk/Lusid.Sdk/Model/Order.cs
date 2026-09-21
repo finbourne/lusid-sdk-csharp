@@ -61,8 +61,9 @@ namespace Lusid.Sdk.Model
         /// <param name="dataModelMembership">dataModelMembership.</param>
         /// <param name="derivedComplianceState">The compliance state of the order, derived from pre-trade compliance runs..</param>
         /// <param name="derivedApprovalState">The approval state of the order..</param>
+        /// <param name="direction">The direction of the order&#39;s side, derived from its transaction type at write time: 1 the side increases the position (longer), -1 it decreases it (shorter), null when no direction could be resolved..</param>
         /// <param name="links">links.</param>
-        public Order(Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), string side = default(string), ResourceId orderBookId = default(ResourceId), ResourceId portfolioId = default(ResourceId), ResourceId id = default(ResourceId), string instrumentScope = default(string), string lusidInstrumentId = default(string), string state = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), ResourceId orderInstructionId = default(ResourceId), ResourceId packageId = default(ResourceId), decimal? weight = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount), ResourceId custodianAccountId = default(ResourceId), DataModelMembership dataModelMembership = default(DataModelMembership), string derivedComplianceState = default(string), string derivedApprovalState = default(string), List<Link> links = default(List<Link>))
+        public Order(Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), string side = default(string), ResourceId orderBookId = default(ResourceId), ResourceId portfolioId = default(ResourceId), ResourceId id = default(ResourceId), string instrumentScope = default(string), string lusidInstrumentId = default(string), string state = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), ResourceId orderInstructionId = default(ResourceId), ResourceId packageId = default(ResourceId), decimal? weight = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount), ResourceId custodianAccountId = default(ResourceId), DataModelMembership dataModelMembership = default(DataModelMembership), string derivedComplianceState = default(string), string derivedApprovalState = default(string), int? direction = default(int?), List<Link> links = default(List<Link>))
         {
             // to ensure "instrumentIdentifiers" is required (not null)
             if (instrumentIdentifiers == null)
@@ -109,6 +110,7 @@ namespace Lusid.Sdk.Model
             this.DataModelMembership = dataModelMembership;
             this.DerivedComplianceState = derivedComplianceState;
             this.DerivedApprovalState = derivedApprovalState;
+            this.Direction = direction;
             this.Links = links;
         }
 
@@ -291,6 +293,13 @@ namespace Lusid.Sdk.Model
         public string DerivedApprovalState { get; set; }
 
         /// <summary>
+        /// The direction of the order&#39;s side, derived from its transaction type at write time: 1 the side increases the position (longer), -1 it decreases it (shorter), null when no direction could be resolved.
+        /// </summary>
+        /// <value>The direction of the order&#39;s side, derived from its transaction type at write time: 1 the side increases the position (longer), -1 it decreases it (shorter), null when no direction could be resolved.</value>
+        [DataMember(Name = "direction", EmitDefaultValue = true)]
+        public int? Direction { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -330,6 +339,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DataModelMembership: ").Append(DataModelMembership).Append("\n");
             sb.Append("  DerivedComplianceState: ").Append(DerivedComplianceState).Append("\n");
             sb.Append("  DerivedApprovalState: ").Append(DerivedApprovalState).Append("\n");
+            sb.Append("  Direction: ").Append(Direction).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -499,6 +509,11 @@ namespace Lusid.Sdk.Model
                     this.DerivedApprovalState.Equals(input.DerivedApprovalState))
                 ) && 
                 (
+                    this.Direction == input.Direction ||
+                    (this.Direction != null &&
+                    this.Direction.Equals(input.Direction))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -618,6 +633,10 @@ namespace Lusid.Sdk.Model
                 if (this.DerivedApprovalState != null)
                 {
                     hashCode = (hashCode * 59) + this.DerivedApprovalState.GetHashCode();
+                }
+                if (this.Direction != null)
+                {
+                    hashCode = (hashCode * 59) + this.Direction.GetHashCode();
                 }
                 if (this.Links != null)
                 {

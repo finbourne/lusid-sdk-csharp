@@ -6,6 +6,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 |--------|--------------|-------------|
 | [**GenerateConfigurationRecipe**](AggregationApi.md#generateconfigurationrecipe) | **POST** /api/aggregation/{scope}/{code}/$generateconfigurationrecipe | [EXPERIMENTAL] GenerateConfigurationRecipe: Generates a recipe sufficient to perform valuations for the given portfolio. |
 | [**GetQueryableKeys**](AggregationApi.md#getqueryablekeys) | **GET** /api/results/queryable/keys | GetQueryableKeys: Query the set of supported \&quot;addresses\&quot; that can be queried from the aggregation endpoint. |
+| [**GetQueryableKeysForMetrics**](AggregationApi.md#getqueryablekeysformetrics) | **POST** /api/aggregation/$queryablekeys | [EXPERIMENTAL] GetQueryableKeysForMetrics: Query the queryable keys behind a given set of valuation metrics. |
 | [**GetValuation**](AggregationApi.md#getvaluation) | **POST** /api/aggregation/$valuation | GetValuation: Perform valuation for a list of portfolios and/or portfolio groups |
 | [**GetValuationOfWeightedInstruments**](AggregationApi.md#getvaluationofweightedinstruments) | **POST** /api/aggregation/$valuationinlined | GetValuationOfWeightedInstruments: Perform valuation for an inlined portfolio |
 
@@ -233,6 +234,120 @@ catch (ApiException e)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getqueryablekeysformetrics"></a>
+# **GetQueryableKeysForMetrics**
+> QueryableKeysForMetricsResponse GetQueryableKeysForMetrics (QueryableKeysForMetricsRequest? queryableKeysForMetricsRequest = null)
+
+[EXPERIMENTAL] GetQueryableKeysForMetrics: Query the queryable keys behind a given set of valuation metrics.
+
+Describes what a valuation would return for each of the supplied metrics, so that a caller can  prepare for the response, and render it, without having to ask for the valuation first. The  metrics are given exactly as they would be supplied to the metrics of a valuation request.                Each metric is reported on individually, keyed by its normalised address key: those that resolve  appear under metrics with their queryable key definition, and the rest appear under failed with the  reason. A metric that does not exist, or that you are not entitled to read, is reported as failed;  the two cases are not distinguished from one another.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AggregationApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AggregationApi>();
+            var queryableKeysForMetricsRequest = new QueryableKeysForMetricsRequest?(); // QueryableKeysForMetricsRequest? | The set of metrics whose queryable keys are to be described (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // QueryableKeysForMetricsResponse result = apiInstance.GetQueryableKeysForMetrics(queryableKeysForMetricsRequest, opts: opts);
+
+                // [EXPERIMENTAL] GetQueryableKeysForMetrics: Query the queryable keys behind a given set of valuation metrics.
+                QueryableKeysForMetricsResponse result = apiInstance.GetQueryableKeysForMetrics(queryableKeysForMetricsRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling AggregationApi.GetQueryableKeysForMetrics: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetQueryableKeysForMetricsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetQueryableKeysForMetrics: Query the queryable keys behind a given set of valuation metrics.
+    ApiResponse<QueryableKeysForMetricsResponse> response = apiInstance.GetQueryableKeysForMetricsWithHttpInfo(queryableKeysForMetricsRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling AggregationApi.GetQueryableKeysForMetricsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **queryableKeysForMetricsRequest** | [**QueryableKeysForMetricsRequest?**](QueryableKeysForMetricsRequest?.md) | The set of metrics whose queryable keys are to be described | [optional]  |
+
+### Return type
+
+[**QueryableKeysForMetricsResponse**](QueryableKeysForMetricsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
