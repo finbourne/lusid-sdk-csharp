@@ -442,6 +442,7 @@ Class | Method | HTTP request | Description
 *PaymentInstructionsApi* | [**DeletePaymentInstruction**](docs/PaymentInstructionsApi.md#deletepaymentinstruction) | **DELETE** /api/paymentinstructions/{scope}/{code} | [EXPERIMENTAL] DeletePaymentInstruction: Delete Payment Instruction
 *PaymentInstructionsApi* | [**GetPaymentInstruction**](docs/PaymentInstructionsApi.md#getpaymentinstruction) | **GET** /api/paymentinstructions/{scope}/{code} | [EXPERIMENTAL] GetPaymentInstruction: Get Payment Instruction
 *PaymentInstructionsApi* | [**GetPaymentInstructionsByPaymentRecordIds**](docs/PaymentInstructionsApi.md#getpaymentinstructionsbypaymentrecordids) | **POST** /api/paymentinstructions/$getByPaymentRecordIds | [EXPERIMENTAL] GetPaymentInstructionsByPaymentRecordIds: Get Payment Instructions by Payment Record Ids
+*PaymentInstructionsApi* | [**ListPaymentInstructions**](docs/PaymentInstructionsApi.md#listpaymentinstructions) | **GET** /api/paymentinstructions | [EXPERIMENTAL] ListPaymentInstructions: List Payment Instructions
 *PaymentInstructionsApi* | [**UpsertPaymentInstructions**](docs/PaymentInstructionsApi.md#upsertpaymentinstructions) | **POST** /api/paymentinstructions | [EXPERIMENTAL] UpsertPaymentInstructions: Upsert Payment Instructions
 *PersonsApi* | [**DeletePerson**](docs/PersonsApi.md#deleteperson) | **DELETE** /api/persons/{idTypeScope}/{idTypeCode}/{code} | DeletePerson: Delete person
 *PersonsApi* | [**DeletePersonAccessMetadata**](docs/PersonsApi.md#deletepersonaccessmetadata) | **DELETE** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry
@@ -785,6 +786,15 @@ Class | Method | HTTP request | Description
 *TransfersApi* | [**GetTransfer**](docs/TransfersApi.md#gettransfer) | **POST** /api/transfers/$get | [EXPERIMENTAL] GetTransfer: Get a transfer
 *TranslationApi* | [**TranslateInstrumentDefinitions**](docs/TranslationApi.md#translateinstrumentdefinitions) | **POST** /api/translation/instrumentdefinitions | [EXPERIMENTAL] TranslateInstrumentDefinitions: Translate instruments
 *TranslationApi* | [**TranslateTradeTickets**](docs/TranslationApi.md#translatetradetickets) | **POST** /api/translation/tradetickets | [EXPERIMENTAL] TranslateTradeTickets: Translate trade ticket
+*WithholdingTaxApi* | [**CreateWithholdingTaxDatasetDefinitions**](docs/WithholdingTaxApi.md#createwithholdingtaxdatasetdefinitions) | **POST** /api/withholdingtax/datasetdefinitions | [EARLY ACCESS] CreateWithholdingTaxDatasetDefinitions: Create the Withholding Tax dataset definitions.
+*WithholdingTaxApi* | [**DeleteWithholdingTaxConfiguration**](docs/WithholdingTaxApi.md#deletewithholdingtaxconfiguration) | **DELETE** /api/withholdingtax/configurations/{scope}/{code} | [EARLY ACCESS] DeleteWithholdingTaxConfiguration: Delete a Withholding Tax Configuration.
+*WithholdingTaxApi* | [**DeleteWithholdingTaxDatasetDefinition**](docs/WithholdingTaxApi.md#deletewithholdingtaxdatasetdefinition) | **DELETE** /api/withholdingtax/datasetdefinitions/{scope}/{code} | [EARLY ACCESS] DeleteWithholdingTaxDatasetDefinition: Delete a Withholding Tax dataset definition.
+*WithholdingTaxApi* | [**GetWithholdingTaxConfiguration**](docs/WithholdingTaxApi.md#getwithholdingtaxconfiguration) | **GET** /api/withholdingtax/configurations/{scope}/{code} | [EARLY ACCESS] GetWithholdingTaxConfiguration: Get a Withholding Tax Configuration.
+*WithholdingTaxApi* | [**GetWithholdingTaxDatasetDefinition**](docs/WithholdingTaxApi.md#getwithholdingtaxdatasetdefinition) | **GET** /api/withholdingtax/datasetdefinitions/{scope}/{code} | [EARLY ACCESS] GetWithholdingTaxDatasetDefinition: Get a Withholding Tax dataset definition.
+*WithholdingTaxApi* | [**ListWithholdingTaxConfigurations**](docs/WithholdingTaxApi.md#listwithholdingtaxconfigurations) | **GET** /api/withholdingtax/configurations | [EARLY ACCESS] ListWithholdingTaxConfigurations: List Withholding Tax Configurations.
+*WithholdingTaxApi* | [**ListWithholdingTaxDatasetDefinitions**](docs/WithholdingTaxApi.md#listwithholdingtaxdatasetdefinitions) | **GET** /api/withholdingtax/datasetdefinitions | [EARLY ACCESS] ListWithholdingTaxDatasetDefinitions: List Withholding Tax dataset definitions.
+*WithholdingTaxApi* | [**PatchWithholdingTaxDatasetDefinition**](docs/WithholdingTaxApi.md#patchwithholdingtaxdatasetdefinition) | **PATCH** /api/withholdingtax/datasetdefinitions/{scope}/{code} | [EARLY ACCESS] PatchWithholdingTaxDatasetDefinition: Patch a Withholding Tax dataset definition.
+*WithholdingTaxApi* | [**UpsertWithholdingTaxConfiguration**](docs/WithholdingTaxApi.md#upsertwithholdingtaxconfiguration) | **POST** /api/withholdingtax/configurations/{scope}/{code} | [EARLY ACCESS] UpsertWithholdingTaxConfiguration: Upsert a Withholding Tax Configuration.
 *WorkspaceApi* | [**CreateItem**](docs/WorkspaceApi.md#createitem) | **POST** /api/workspaces/{visibility}/{workspaceName}/items | [EXPERIMENTAL] CreateItem: Create a new item in a workspace.
 *WorkspaceApi* | [**CreateWorkspace**](docs/WorkspaceApi.md#createworkspace) | **POST** /api/workspaces/{visibility} | [EXPERIMENTAL] CreateWorkspace: Create a new workspace.
 *WorkspaceApi* | [**DeleteItem**](docs/WorkspaceApi.md#deleteitem) | **DELETE** /api/workspaces/{visibility}/{workspaceName}/items/{groupName}/{itemName} | [EXPERIMENTAL] DeleteItem: Delete an item from a workspace.
@@ -1163,6 +1173,8 @@ Class | Method | HTTP request | Description
  - [CreateTransferResponse](docs/CreateTransferResponse.md)
  - [CreateUnitDefinition](docs/CreateUnitDefinition.md)
  - [CreateValuationPointRequest](docs/CreateValuationPointRequest.md)
+ - [CreateWithholdingTaxDataset](docs/CreateWithholdingTaxDataset.md)
+ - [CreateWithholdingTaxDatasetDefinitionsRequest](docs/CreateWithholdingTaxDatasetDefinitionsRequest.md)
  - [CreditDefaultSwap](docs/CreditDefaultSwap.md)
  - [CreditPremiumCashFlowEvent](docs/CreditPremiumCashFlowEvent.md)
  - [CreditRating](docs/CreditRating.md)
@@ -1749,6 +1761,7 @@ Class | Method | HTTP request | Description
  - [PagedResourceListOfOrderInstruction](docs/PagedResourceListOfOrderInstruction.md)
  - [PagedResourceListOfPackage](docs/PagedResourceListOfPackage.md)
  - [PagedResourceListOfParticipation](docs/PagedResourceListOfParticipation.md)
+ - [PagedResourceListOfPaymentInstruction](docs/PagedResourceListOfPaymentInstruction.md)
  - [PagedResourceListOfPerson](docs/PagedResourceListOfPerson.md)
  - [PagedResourceListOfPlacement](docs/PagedResourceListOfPlacement.md)
  - [PagedResourceListOfPortfolioGroup](docs/PagedResourceListOfPortfolioGroup.md)
@@ -1780,6 +1793,8 @@ Class | Method | HTTP request | Description
  - [PagedResourceListOfValuationPointOverview](docs/PagedResourceListOfValuationPointOverview.md)
  - [PagedResourceListOfVersion](docs/PagedResourceListOfVersion.md)
  - [PagedResourceListOfVirtualRow](docs/PagedResourceListOfVirtualRow.md)
+ - [PagedResourceListOfWithholdingTaxConfiguration](docs/PagedResourceListOfWithholdingTaxConfiguration.md)
+ - [PagedResourceListOfWithholdingTaxDataset](docs/PagedResourceListOfWithholdingTaxDataset.md)
  - [PagedResourceListOfWorkspace](docs/PagedResourceListOfWorkspace.md)
  - [PagedResourceListOfWorkspaceItem](docs/PagedResourceListOfWorkspaceItem.md)
  - [PariPassuEvent](docs/PariPassuEvent.md)
@@ -2183,6 +2198,7 @@ Class | Method | HTTP request | Description
  - [SequenceDefinition](docs/SequenceDefinition.md)
  - [SeriesDefinition](docs/SeriesDefinition.md)
  - [SeriesDefinitionRequest](docs/SeriesDefinitionRequest.md)
+ - [SeriesIdentifierField](docs/SeriesIdentifierField.md)
  - [SetAmortisationRulesRequest](docs/SetAmortisationRulesRequest.md)
  - [SetLegalEntityIdentifiersRequest](docs/SetLegalEntityIdentifiersRequest.md)
  - [SetLegalEntityPropertiesRequest](docs/SetLegalEntityPropertiesRequest.md)
@@ -2276,6 +2292,7 @@ Class | Method | HTTP request | Description
  - [ToBeAnnouncedOption](docs/ToBeAnnouncedOption.md)
  - [ToleranceBase](docs/ToleranceBase.md)
  - [TotalReturnSwap](docs/TotalReturnSwap.md)
+ - [TotalReturnSwapCashFlowEvent](docs/TotalReturnSwapCashFlowEvent.md)
  - [Touch](docs/Touch.md)
  - [TradeTicket](docs/TradeTicket.md)
  - [TradeTicketType](docs/TradeTicketType.md)
@@ -2455,6 +2472,7 @@ Class | Method | HTTP request | Description
  - [UpsertTranslationScriptRequest](docs/UpsertTranslationScriptRequest.md)
  - [UpsertValuationPointRequest](docs/UpsertValuationPointRequest.md)
  - [UpsertVirtualTransactionOverrideResponse](docs/UpsertVirtualTransactionOverrideResponse.md)
+ - [UpsertWithholdingTaxConfigurationRequest](docs/UpsertWithholdingTaxConfigurationRequest.md)
  - [User](docs/User.md)
  - [ValuationPoint](docs/ValuationPoint.md)
  - [ValuationPointDataQueryParameters](docs/ValuationPointDataQueryParameters.md)
@@ -2508,6 +2526,10 @@ Class | Method | HTTP request | Description
  - [WeightedInstrument](docs/WeightedInstrument.md)
  - [WeightedInstrumentInLineLookupIdentifiers](docs/WeightedInstrumentInLineLookupIdentifiers.md)
  - [WeightedInstruments](docs/WeightedInstruments.md)
+ - [WithholdingTaxConfiguration](docs/WithholdingTaxConfiguration.md)
+ - [WithholdingTaxDataset](docs/WithholdingTaxDataset.md)
+ - [WithholdingTaxDatasetDefinitions](docs/WithholdingTaxDatasetDefinitions.md)
+ - [WithholdingTaxValueSource](docs/WithholdingTaxValueSource.md)
  - [Workspace](docs/Workspace.md)
  - [WorkspaceCreationRequest](docs/WorkspaceCreationRequest.md)
  - [WorkspaceItem](docs/WorkspaceItem.md)

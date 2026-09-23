@@ -18,6 +18,9 @@ Name | Type | Description | Notes
 **PreviousNav** | **decimal?** | The net asset value this node carried at the previous valuation point, in the fund currency. Zero at the fund&#39;s first valuation point. | [optional] 
 **NetDealingUnits** | **decimal?** | The net units dealt for the share class over the period, so that the shares in issue are the previous shares in issue plus this. Omitted on the fund node and where the bucket set is not unitised. | [optional] 
 **ShareClassDetails** | [**BucketSetShareClassDetails**](BucketSetShareClassDetails.md) |  | [optional] 
+**NavShareClassCurrency** | **decimal?** | The node&#39;s net asset value restated in the share class&#39; own currency, at the rate this node publishes. Set only on share class nodes. | [optional] 
+**ShareClassToFundFxRate** | **decimal?** | The fx rate from the share class currency to the fund currency at this valuation point. Nav and the bucket values are in the fund currency, so divide by this rate to restate them in the share class currency. Set only on share class nodes. | [optional] 
+**PreviousNavShareClassCurrency** | **decimal?** | The net asset value in the share class&#39; currency at the previous valuation point, as that point published it, at the rate that point struck. Zero at the fund&#39;s first valuation point. Absent (rather than zero) if the previous valuation point predates this field. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -43,7 +46,10 @@ BucketSetNode bucketSetNodeInstance = new BucketSetNode(
     label: label,
     previousNav: previousNav,
     netDealingUnits: netDealingUnits,
-    shareClassDetails: shareClassDetails);
+    shareClassDetails: shareClassDetails,
+    navShareClassCurrency: navShareClassCurrency,
+    shareClassToFundFxRate: shareClassToFundFxRate,
+    previousNavShareClassCurrency: previousNavShareClassCurrency);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -7,6 +7,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**DeletePaymentInstruction**](PaymentInstructionsApi.md#deletepaymentinstruction) | **DELETE** /api/paymentinstructions/{scope}/{code} | [EXPERIMENTAL] DeletePaymentInstruction: Delete Payment Instruction |
 | [**GetPaymentInstruction**](PaymentInstructionsApi.md#getpaymentinstruction) | **GET** /api/paymentinstructions/{scope}/{code} | [EXPERIMENTAL] GetPaymentInstruction: Get Payment Instruction |
 | [**GetPaymentInstructionsByPaymentRecordIds**](PaymentInstructionsApi.md#getpaymentinstructionsbypaymentrecordids) | **POST** /api/paymentinstructions/$getByPaymentRecordIds | [EXPERIMENTAL] GetPaymentInstructionsByPaymentRecordIds: Get Payment Instructions by Payment Record Ids |
+| [**ListPaymentInstructions**](PaymentInstructionsApi.md#listpaymentinstructions) | **GET** /api/paymentinstructions | [EXPERIMENTAL] ListPaymentInstructions: List Payment Instructions |
 | [**UpsertPaymentInstructions**](PaymentInstructionsApi.md#upsertpaymentinstructions) | **POST** /api/paymentinstructions | [EXPERIMENTAL] UpsertPaymentInstructions: Upsert Payment Instructions |
 
 <a id="deletepaymentinstruction"></a>
@@ -362,6 +363,132 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The payment instructions that could be found for the supplied payment record ids, along with any failures |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="listpaymentinstructions"></a>
+# **ListPaymentInstructions**
+> PagedResourceListOfPaymentInstruction ListPaymentInstructions (DateTimeOffset? asAt = null, DateTimeOrCutLabel? effectiveAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null)
+
+[EXPERIMENTAL] ListPaymentInstructions: List Payment Instructions
+
+List all Payment Instructions matching the given criteria.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PaymentInstructionsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PaymentInstructionsApi>();
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the payment instructions. Defaults to return the latest              version of each payment instruction if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the payment instructions.              Defaults to the current LUSID system datetime if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing payment instructions from a previous call to              list payment instructions. This value is returned from the previous call. If a pagination token is provided,              the filter, limit and asAt fields must not have changed since the original request. (optional) 
+            var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results. For example, to filter on the currency, specify              \"currency eq 'GBP'\". For more information about filtering results, see              https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"PaymentInstruction\" domain to decorate onto each              payment instruction. These take the format {domain}/{scope}/{code} e.g. \"PaymentInstruction/myScope/myProperty\". (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfPaymentInstruction result = apiInstance.ListPaymentInstructions(asAt, effectiveAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
+
+                // [EXPERIMENTAL] ListPaymentInstructions: List Payment Instructions
+                PagedResourceListOfPaymentInstruction result = apiInstance.ListPaymentInstructions(asAt, effectiveAt, page, limit, filter, sortBy, propertyKeys);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling PaymentInstructionsApi.ListPaymentInstructions: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListPaymentInstructionsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ListPaymentInstructions: List Payment Instructions
+    ApiResponse<PagedResourceListOfPaymentInstruction> response = apiInstance.ListPaymentInstructionsWithHttpInfo(asAt, effectiveAt, page, limit, filter, sortBy, propertyKeys);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling PaymentInstructionsApi.ListPaymentInstructionsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the payment instructions. Defaults to return the latest              version of each payment instruction if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the payment instructions.              Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing payment instructions from a previous call to              list payment instructions. This value is returned from the previous call. If a pagination token is provided,              the filter, limit and asAt fields must not have changed since the original request. | [optional]  |
+| **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
+| **filter** | **string?** | Expression to filter the results. For example, to filter on the currency, specify              \&quot;currency eq &#39;GBP&#39;\&quot;. For more information about filtering results, see              https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;PaymentInstruction\&quot; domain to decorate onto each              payment instruction. These take the format {domain}/{scope}/{code} e.g. \&quot;PaymentInstruction/myScope/myProperty\&quot;. | [optional]  |
+
+### Return type
+
+[**PagedResourceListOfPaymentInstruction**](PagedResourceListOfPaymentInstruction.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The payment instructions matching the given criteria |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

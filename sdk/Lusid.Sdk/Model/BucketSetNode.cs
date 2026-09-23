@@ -49,7 +49,10 @@ namespace Lusid.Sdk.Model
         /// <param name="previousNav">The net asset value this node carried at the previous valuation point, in the fund currency. Zero at the fund&#39;s first valuation point..</param>
         /// <param name="netDealingUnits">The net units dealt for the share class over the period, so that the shares in issue are the previous shares in issue plus this. Omitted on the fund node and where the bucket set is not unitised..</param>
         /// <param name="shareClassDetails">shareClassDetails.</param>
-        public BucketSetNode(string nodeType = default(string), string shareClassShortCode = default(string), decimal? nav = default(decimal?), decimal? capitalRatio = default(decimal?), List<BucketSetResultBucket> buckets = default(List<BucketSetResultBucket>), decimal? perUnitValue = default(decimal?), decimal? sharesInIssue = default(decimal?), decimal? previousPerUnitValue = default(decimal?), decimal? previousSharesInIssue = default(decimal?), string label = default(string), decimal? previousNav = default(decimal?), decimal? netDealingUnits = default(decimal?), BucketSetShareClassDetails shareClassDetails = default(BucketSetShareClassDetails))
+        /// <param name="navShareClassCurrency">The node&#39;s net asset value restated in the share class&#39; own currency, at the rate this node publishes. Set only on share class nodes..</param>
+        /// <param name="shareClassToFundFxRate">The fx rate from the share class currency to the fund currency at this valuation point. Nav and the bucket values are in the fund currency, so divide by this rate to restate them in the share class currency. Set only on share class nodes..</param>
+        /// <param name="previousNavShareClassCurrency">The net asset value in the share class&#39; currency at the previous valuation point, as that point published it, at the rate that point struck. Zero at the fund&#39;s first valuation point. Absent (rather than zero) if the previous valuation point predates this field..</param>
+        public BucketSetNode(string nodeType = default(string), string shareClassShortCode = default(string), decimal? nav = default(decimal?), decimal? capitalRatio = default(decimal?), List<BucketSetResultBucket> buckets = default(List<BucketSetResultBucket>), decimal? perUnitValue = default(decimal?), decimal? sharesInIssue = default(decimal?), decimal? previousPerUnitValue = default(decimal?), decimal? previousSharesInIssue = default(decimal?), string label = default(string), decimal? previousNav = default(decimal?), decimal? netDealingUnits = default(decimal?), BucketSetShareClassDetails shareClassDetails = default(BucketSetShareClassDetails), decimal? navShareClassCurrency = default(decimal?), decimal? shareClassToFundFxRate = default(decimal?), decimal? previousNavShareClassCurrency = default(decimal?))
         {
             // to ensure "nodeType" is required (not null)
             if (nodeType == null)
@@ -74,6 +77,9 @@ namespace Lusid.Sdk.Model
             this.PreviousNav = previousNav;
             this.NetDealingUnits = netDealingUnits;
             this.ShareClassDetails = shareClassDetails;
+            this.NavShareClassCurrency = navShareClassCurrency;
+            this.ShareClassToFundFxRate = shareClassToFundFxRate;
+            this.PreviousNavShareClassCurrency = previousNavShareClassCurrency;
         }
 
         /// <summary>
@@ -167,6 +173,27 @@ namespace Lusid.Sdk.Model
         public BucketSetShareClassDetails ShareClassDetails { get; set; }
 
         /// <summary>
+        /// The node&#39;s net asset value restated in the share class&#39; own currency, at the rate this node publishes. Set only on share class nodes.
+        /// </summary>
+        /// <value>The node&#39;s net asset value restated in the share class&#39; own currency, at the rate this node publishes. Set only on share class nodes.</value>
+        [DataMember(Name = "navShareClassCurrency", EmitDefaultValue = true)]
+        public decimal? NavShareClassCurrency { get; set; }
+
+        /// <summary>
+        /// The fx rate from the share class currency to the fund currency at this valuation point. Nav and the bucket values are in the fund currency, so divide by this rate to restate them in the share class currency. Set only on share class nodes.
+        /// </summary>
+        /// <value>The fx rate from the share class currency to the fund currency at this valuation point. Nav and the bucket values are in the fund currency, so divide by this rate to restate them in the share class currency. Set only on share class nodes.</value>
+        [DataMember(Name = "shareClassToFundFxRate", EmitDefaultValue = true)]
+        public decimal? ShareClassToFundFxRate { get; set; }
+
+        /// <summary>
+        /// The net asset value in the share class&#39; currency at the previous valuation point, as that point published it, at the rate that point struck. Zero at the fund&#39;s first valuation point. Absent (rather than zero) if the previous valuation point predates this field.
+        /// </summary>
+        /// <value>The net asset value in the share class&#39; currency at the previous valuation point, as that point published it, at the rate that point struck. Zero at the fund&#39;s first valuation point. Absent (rather than zero) if the previous valuation point predates this field.</value>
+        [DataMember(Name = "previousNavShareClassCurrency", EmitDefaultValue = true)]
+        public decimal? PreviousNavShareClassCurrency { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -187,6 +214,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  PreviousNav: ").Append(PreviousNav).Append("\n");
             sb.Append("  NetDealingUnits: ").Append(NetDealingUnits).Append("\n");
             sb.Append("  ShareClassDetails: ").Append(ShareClassDetails).Append("\n");
+            sb.Append("  NavShareClassCurrency: ").Append(NavShareClassCurrency).Append("\n");
+            sb.Append("  ShareClassToFundFxRate: ").Append(ShareClassToFundFxRate).Append("\n");
+            sb.Append("  PreviousNavShareClassCurrency: ").Append(PreviousNavShareClassCurrency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -287,6 +317,21 @@ namespace Lusid.Sdk.Model
                     this.ShareClassDetails == input.ShareClassDetails ||
                     (this.ShareClassDetails != null &&
                     this.ShareClassDetails.Equals(input.ShareClassDetails))
+                ) && 
+                (
+                    this.NavShareClassCurrency == input.NavShareClassCurrency ||
+                    (this.NavShareClassCurrency != null &&
+                    this.NavShareClassCurrency.Equals(input.NavShareClassCurrency))
+                ) && 
+                (
+                    this.ShareClassToFundFxRate == input.ShareClassToFundFxRate ||
+                    (this.ShareClassToFundFxRate != null &&
+                    this.ShareClassToFundFxRate.Equals(input.ShareClassToFundFxRate))
+                ) && 
+                (
+                    this.PreviousNavShareClassCurrency == input.PreviousNavShareClassCurrency ||
+                    (this.PreviousNavShareClassCurrency != null &&
+                    this.PreviousNavShareClassCurrency.Equals(input.PreviousNavShareClassCurrency))
                 );
         }
 
@@ -350,6 +395,18 @@ namespace Lusid.Sdk.Model
                 if (this.ShareClassDetails != null)
                 {
                     hashCode = (hashCode * 59) + this.ShareClassDetails.GetHashCode();
+                }
+                if (this.NavShareClassCurrency != null)
+                {
+                    hashCode = (hashCode * 59) + this.NavShareClassCurrency.GetHashCode();
+                }
+                if (this.ShareClassToFundFxRate != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShareClassToFundFxRate.GetHashCode();
+                }
+                if (this.PreviousNavShareClassCurrency != null)
+                {
+                    hashCode = (hashCode * 59) + this.PreviousNavShareClassCurrency.GetHashCode();
                 }
                 return hashCode;
             }

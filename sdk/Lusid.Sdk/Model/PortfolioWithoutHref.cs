@@ -191,7 +191,7 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the portfolio. (required).</param>
         /// <param name="description">The long form description of the portfolio..</param>
         /// <param name="created">The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date. (required).</param>
-        /// <param name="enablementDate">The effective datetime from which transactions or holdings booked to the portfolio begin contributing to holdings, valuations and other computed results. Data with an earlier effective date is still accepted and stored, but does not affect any computed results until this date. Defaults to the portfolio&#39;s creation date when not explicitly set..</param>
+        /// <param name="enablementDate">The effective datetime from which instrument events and corporate actions are generated and applied to the portfolio. Transactions and holdings booked to the portfolio contribute to holdings, valuations and other computed results from its creation date whatever the enablement date. Defaults to the portfolio&#39;s creation date when not explicitly set..</param>
         /// <param name="parentPortfolioId">parentPortfolioId.</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="stagedModifications">stagedModifications.</param>
@@ -282,9 +282,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset Created { get; set; }
 
         /// <summary>
-        /// The effective datetime from which transactions or holdings booked to the portfolio begin contributing to holdings, valuations and other computed results. Data with an earlier effective date is still accepted and stored, but does not affect any computed results until this date. Defaults to the portfolio&#39;s creation date when not explicitly set.
+        /// The effective datetime from which instrument events and corporate actions are generated and applied to the portfolio. Transactions and holdings booked to the portfolio contribute to holdings, valuations and other computed results from its creation date whatever the enablement date. Defaults to the portfolio&#39;s creation date when not explicitly set.
         /// </summary>
-        /// <value>The effective datetime from which transactions or holdings booked to the portfolio begin contributing to holdings, valuations and other computed results. Data with an earlier effective date is still accepted and stored, but does not affect any computed results until this date. Defaults to the portfolio&#39;s creation date when not explicitly set.</value>
+        /// <value>The effective datetime from which instrument events and corporate actions are generated and applied to the portfolio. Transactions and holdings booked to the portfolio contribute to holdings, valuations and other computed results from its creation date whatever the enablement date. Defaults to the portfolio&#39;s creation date when not explicitly set.</value>
         [DataMember(Name = "enablementDate", EmitDefaultValue = true)]
         public DateTimeOffset? EnablementDate { get; set; }
 

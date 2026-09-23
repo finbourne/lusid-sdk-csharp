@@ -152,7 +152,7 @@ namespace Lusid.Sdk.Model
         /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies the derived transaction portfolio. (required).</param>
         /// <param name="parentPortfolioId">parentPortfolioId (required).</param>
         /// <param name="created">This will be auto-populated to be the parent portfolio creation date..</param>
-        /// <param name="enablementDate">The effective datetime from which transactions booked to the derived transaction portfolio begin contributing to holdings, valuations and other computed results. Transactions with an earlier effective date are still accepted and stored, but do not affect any computed results until this date. Defaults to the portfolio&#39;s creation date if not specified..</param>
+        /// <param name="enablementDate">The effective datetime from which instrument events and corporate actions are generated and applied to the derived transaction portfolio. Transactions contribute to holdings, valuations and other computed results from the portfolio&#39;s creation date whatever the enablement date. Defaults to the portfolio&#39;s creation date if not specified..</param>
         /// <param name="corporateActionSourceId">corporateActionSourceId.</param>
         /// <param name="accountingMethod">Determines the accounting treatment given to the transaction portfolio&#39;s tax lots. Default value: AverageCost. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency..</param>
         /// <param name="subHoldingKeys">A set of unique transaction properties to group the derived transaction portfolio&#39;s holdings by, perhaps for strategy tagging. Each property must be from the &#39;Transaction&#39; domain and identified by a key in the format {domain}/{scope}/{code}, for example &#39;Transaction/strategies/quantsignal&#39;. See https://support.lusid.com/docs/how-do-i-register-sub-holding-keys-shks-with-a-portfolio for more information..</param>
@@ -241,9 +241,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? Created { get; set; }
 
         /// <summary>
-        /// The effective datetime from which transactions booked to the derived transaction portfolio begin contributing to holdings, valuations and other computed results. Transactions with an earlier effective date are still accepted and stored, but do not affect any computed results until this date. Defaults to the portfolio&#39;s creation date if not specified.
+        /// The effective datetime from which instrument events and corporate actions are generated and applied to the derived transaction portfolio. Transactions contribute to holdings, valuations and other computed results from the portfolio&#39;s creation date whatever the enablement date. Defaults to the portfolio&#39;s creation date if not specified.
         /// </summary>
-        /// <value>The effective datetime from which transactions booked to the derived transaction portfolio begin contributing to holdings, valuations and other computed results. Transactions with an earlier effective date are still accepted and stored, but do not affect any computed results until this date. Defaults to the portfolio&#39;s creation date if not specified.</value>
+        /// <value>The effective datetime from which instrument events and corporate actions are generated and applied to the derived transaction portfolio. Transactions contribute to holdings, valuations and other computed results from the portfolio&#39;s creation date whatever the enablement date. Defaults to the portfolio&#39;s creation date if not specified.</value>
         [DataMember(Name = "enablementDate", EmitDefaultValue = true)]
         public DateTimeOffset? EnablementDate { get; set; }
 

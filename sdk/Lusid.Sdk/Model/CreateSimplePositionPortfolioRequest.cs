@@ -151,7 +151,7 @@ namespace Lusid.Sdk.Model
         /// <param name="description">A description for the simple position portfolio..</param>
         /// <param name="code">The code of the simple position portfolio. Together with the scope this uniquely identifies the simple position portfolio. (required).</param>
         /// <param name="created">The effective datetime at which to create the simple position portfolio. No holdings can be set on the simple position portfolio before this date. Defaults to the current LUSID system datetime if not specified..</param>
-        /// <param name="enablementDate">The effective datetime from which holdings set on the simple position portfolio begin contributing to valuations and other computed results. Holdings with an earlier effective date are still accepted and stored, but do not affect any computed results until this date. Defaults to the portfolio&#39;s creation date if not specified..</param>
+        /// <param name="enablementDate">The effective datetime from which instrument events and corporate actions are generated and applied to the simple position portfolio. Holdings set on the portfolio contribute to valuations and other computed results from the portfolio&#39;s creation date whatever the enablement date. Defaults to the portfolio&#39;s creation date if not specified..</param>
         /// <param name="baseCurrency">The base currency of the simple position portfolio in ISO 4217 currency code format. (required).</param>
         /// <param name="corporateActionSourceId">corporateActionSourceId.</param>
         /// <param name="accountingMethod">Determines the accounting treatment given to the simple position portfolio&#39;s tax lots. Default value: AverageCost. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency..</param>
@@ -229,9 +229,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? Created { get; set; }
 
         /// <summary>
-        /// The effective datetime from which holdings set on the simple position portfolio begin contributing to valuations and other computed results. Holdings with an earlier effective date are still accepted and stored, but do not affect any computed results until this date. Defaults to the portfolio&#39;s creation date if not specified.
+        /// The effective datetime from which instrument events and corporate actions are generated and applied to the simple position portfolio. Holdings set on the portfolio contribute to valuations and other computed results from the portfolio&#39;s creation date whatever the enablement date. Defaults to the portfolio&#39;s creation date if not specified.
         /// </summary>
-        /// <value>The effective datetime from which holdings set on the simple position portfolio begin contributing to valuations and other computed results. Holdings with an earlier effective date are still accepted and stored, but do not affect any computed results until this date. Defaults to the portfolio&#39;s creation date if not specified.</value>
+        /// <value>The effective datetime from which instrument events and corporate actions are generated and applied to the simple position portfolio. Holdings set on the portfolio contribute to valuations and other computed results from the portfolio&#39;s creation date whatever the enablement date. Defaults to the portfolio&#39;s creation date if not specified.</value>
         [DataMember(Name = "enablementDate", EmitDefaultValue = true)]
         public DateTimeOffset? EnablementDate { get; set; }
 
