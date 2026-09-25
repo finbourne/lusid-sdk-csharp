@@ -1,19 +1,19 @@
 # Lusid.Sdk.Model.RecLinkedBy
-The item keys a link between two rec results was established on, per side.
+The item pairings a link between two rec results was established on, per side.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Left** | [**List&lt;RecLinkKey&gt;**](RecLinkKey.md) | The keys shared by the two results&#39; left-side items. May be empty. | 
-**Right** | [**List&lt;RecLinkKey&gt;**](RecLinkKey.md) | The keys shared by the two results&#39; right-side items. May be empty. | 
+**Left** | [**List&lt;RecResultLinkKey&gt;**](RecResultLinkKey.md) | The pairings between the two results&#39; left-side items, one entry per pairing. May be empty. | 
+**Right** | [**List&lt;RecResultLinkKey&gt;**](RecResultLinkKey.md) | The pairings between the two results&#39; right-side items, one entry per pairing. May be empty. | 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 
-List<RecLinkKey> left = new List<RecLinkKey>();
-List<RecLinkKey> right = new List<RecLinkKey>();
+List<RecResultLinkKey> left = new List<RecResultLinkKey>();
+List<RecResultLinkKey> right = new List<RecResultLinkKey>();
 
 RecLinkedBy recLinkedByInstance = new RecLinkedBy(
     left: left,

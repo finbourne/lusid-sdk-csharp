@@ -19,66 +19,125 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
+using System.Reflection;
 
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// An individual item that makes up (one side of) a rec result. Polymorphic by rec type / item type.
+    /// An individual item that makes up (one side of) a rec result. Polymorphic by itemType; each value has a  corresponding inherited class.
     /// </summary>
+    [JsonConverter(typeof(RecResultItemJsonConverter))]
     [DataContract(Name = "RecResultItem")]
-    public partial class RecResultItem : IEquatable<RecResultItem>, IValidatableObject
+    public partial class RecResultItem : AbstractOpenAPISchema, IEquatable<RecResultItem>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RecResultItem" /> class.
+        /// Initializes a new instance of the <see cref="RecResultItem" /> class
+        /// with the <see cref="RecResultHoldingItem" /> class
         /// </summary>
-        [JsonConstructorAttribute]
-        protected RecResultItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RecResultItem" /> class.
-        /// </summary>
-        /// <param name="itemType">The polymorphic item-type discriminator (e.g. SettlementActivity, Holding, Transaction). Available values: SettlementActivity, Holding, Transaction. (required).</param>
-        public RecResultItem(string itemType = default(string))
+        /// <param name="actualInstance">An instance of RecResultHoldingItem.</param>
+        public RecResultItem(RecResultHoldingItem actualInstance)
         {
-            // to ensure "itemType" is required (not null)
-            if (itemType == null)
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RecResultItem" /> class
+        /// with the <see cref="RecResultSettlementActivityItem" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of RecResultSettlementActivityItem.</param>
+        public RecResultItem(RecResultSettlementActivityItem actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RecResultItem" /> class
+        /// with the <see cref="RecResultTransactionItem" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of RecResultTransactionItem.</param>
+        public RecResultItem(RecResultTransactionItem actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+
+        private Object _actualInstance;
+
+        /// <summary>
+        /// Gets or Sets ActualInstance
+        /// </summary>
+        public override Object ActualInstance
+        {
+            get
             {
-                throw new ArgumentNullException("itemType is a required property for RecResultItem and cannot be null");
+                return _actualInstance;
             }
-            this.ItemType = itemType;
+            set
+            {
+                if (value.GetType() == typeof(RecResultHoldingItem) || value is RecResultHoldingItem)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(RecResultSettlementActivityItem) || value is RecResultSettlementActivityItem)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(RecResultTransactionItem) || value is RecResultTransactionItem)
+                {
+                    this._actualInstance = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Invalid instance found. Must be the following types: RecResultHoldingItem, RecResultSettlementActivityItem, RecResultTransactionItem");
+                }
+            }
         }
 
         /// <summary>
-        /// The polymorphic item-type discriminator (e.g. SettlementActivity, Holding, Transaction). Available values: SettlementActivity, Holding, Transaction.
+        /// Get the actual instance of `RecResultHoldingItem`. If the actual instance is not `RecResultHoldingItem`,
+        /// the InvalidClassException will be thrown
         /// </summary>
-        /// <value>The polymorphic item-type discriminator (e.g. SettlementActivity, Holding, Transaction). Available values: SettlementActivity, Holding, Transaction.</value>
-        [DataMember(Name = "itemType", IsRequired = true, EmitDefaultValue = true)]
-        public string ItemType { get; set; }
-
-        /// <summary>
-        /// The core rule, aggregate rule and supplemental attribute values for the item, keyed by name.
-        /// </summary>
-        /// <value>The core rule, aggregate rule and supplemental attribute values for the item, keyed by name.</value>
-        [DataMember(Name = "ruleAndAttributeValues", EmitDefaultValue = true)]
-        public Dictionary<string, string> RuleAndAttributeValues { get; private set; }
-
-        /// <summary>
-        /// Returns false as RuleAndAttributeValues should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeRuleAndAttributeValues()
+        /// <returns>An instance of RecResultHoldingItem</returns>
+        public RecResultHoldingItem GetRecResultHoldingItem()
         {
-            return false;
+            return (RecResultHoldingItem)this.ActualInstance;
         }
+
+        /// <summary>
+        /// Get the actual instance of `RecResultSettlementActivityItem`. If the actual instance is not `RecResultSettlementActivityItem`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of RecResultSettlementActivityItem</returns>
+        public RecResultSettlementActivityItem GetRecResultSettlementActivityItem()
+        {
+            return (RecResultSettlementActivityItem)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `RecResultTransactionItem`. If the actual instance is not `RecResultTransactionItem`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of RecResultTransactionItem</returns>
+        public RecResultTransactionItem GetRecResultTransactionItem()
+        {
+            return (RecResultTransactionItem)this.ActualInstance;
+        }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class RecResultItem {\n");
-            sb.Append("  ItemType: ").Append(ItemType).Append("\n");
-            sb.Append("  RuleAndAttributeValues: ").Append(RuleAndAttributeValues).Append("\n");
+            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,9 +146,98 @@ namespace Lusid.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return JsonConvert.SerializeObject(this.ActualInstance, RecResultItem.SerializerSettings);
+        }
+
+        /// <summary>
+        /// Converts the JSON string into an instance of RecResultItem
+        /// </summary>
+        /// <param name="jsonString">JSON string</param>
+        /// <returns>An instance of RecResultItem</returns>
+        public static RecResultItem FromJson(string jsonString)
+        {
+            RecResultItem newRecResultItem = null;
+
+            if (string.IsNullOrEmpty(jsonString))
+            {
+                return newRecResultItem;
+            }
+            int match = 0;
+            List<string> matchedTypes = new List<string>();
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(RecResultHoldingItem).GetProperty("AdditionalProperties") == null)
+                {
+                    newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultHoldingItem>(jsonString, RecResultItem.SerializerSettings));
+                }
+                else
+                {
+                    newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultHoldingItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("RecResultHoldingItem");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into RecResultHoldingItem: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(RecResultSettlementActivityItem).GetProperty("AdditionalProperties") == null)
+                {
+                    newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultSettlementActivityItem>(jsonString, RecResultItem.SerializerSettings));
+                }
+                else
+                {
+                    newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultSettlementActivityItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("RecResultSettlementActivityItem");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into RecResultSettlementActivityItem: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(RecResultTransactionItem).GetProperty("AdditionalProperties") == null)
+                {
+                    newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultTransactionItem>(jsonString, RecResultItem.SerializerSettings));
+                }
+                else
+                {
+                    newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultTransactionItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("RecResultTransactionItem");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into RecResultTransactionItem: {1}", jsonString, exception.ToString()));
+            }
+
+            if (match == 0)
+            {
+                throw new InvalidDataException("The JSON string `" + jsonString + "` cannot be deserialized into any schema defined.");
+            }
+            else if (match > 1)
+            {
+                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + String.Join(",", matchedTypes));
+            }
+
+            // deserialization is considered successful at this point if no exception has been thrown.
+            return newRecResultItem;
         }
 
         /// <summary>
@@ -110,21 +258,9 @@ namespace Lusid.Sdk.Model
         public bool Equals(RecResultItem input)
         {
             if (input == null)
-            {
                 return false;
-            }
-            return 
-                (
-                    this.ItemType == input.ItemType ||
-                    (this.ItemType != null &&
-                    this.ItemType.Equals(input.ItemType))
-                ) && 
-                (
-                    this.RuleAndAttributeValues == input.RuleAndAttributeValues ||
-                    this.RuleAndAttributeValues != null &&
-                    input.RuleAndAttributeValues != null &&
-                    this.RuleAndAttributeValues.SequenceEqual(input.RuleAndAttributeValues)
-                );
+
+            return this.ActualInstance.Equals(input.ActualInstance);
         }
 
         /// <summary>
@@ -136,17 +272,12 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ItemType != null)
-                {
-                    hashCode = (hashCode * 59) + this.ItemType.GetHashCode();
-                }
-                if (this.RuleAndAttributeValues != null)
-                {
-                    hashCode = (hashCode * 59) + this.RuleAndAttributeValues.GetHashCode();
-                }
+                if (this.ActualInstance != null)
+                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
                 return hashCode;
             }
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -155,13 +286,56 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ItemType (string) minLength
-            if (this.ItemType != null && this.ItemType.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ItemType, length must be greater than 1.", new [] { "ItemType" });
-            }
-
             yield break;
         }
     }
+
+    /// <summary>
+    /// Custom JSON converter for RecResultItem
+    /// </summary>
+    public class RecResultItemJsonConverter : JsonConverter
+    {
+        /// <summary>
+        /// To write the JSON string
+        /// </summary>
+        /// <param name="writer">JSON writer</param>
+        /// <param name="value">Object to be converted into a JSON string</param>
+        /// <param name="serializer">JSON Serializer</param>
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            writer.WriteRawValue((string)(typeof(RecResultItem).GetMethod("ToJson").Invoke(value, null)));
+        }
+
+        /// <summary>
+        /// To convert a JSON string into an object
+        /// </summary>
+        /// <param name="reader">JSON reader</param>
+        /// <param name="objectType">Object type</param>
+        /// <param name="existingValue">Existing value</param>
+        /// <param name="serializer">JSON Serializer</param>
+        /// <returns>The object converted from the JSON string</returns>
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            switch(reader.TokenType) 
+            {
+                case JsonToken.StartObject:
+                    return RecResultItem.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartArray:
+                    return RecResultItem.FromJson(JArray.Load(reader).ToString(Formatting.None));
+                default:
+                    return null;
+            }
+        }
+
+        /// <summary>
+        /// Check if the object can be converted
+        /// </summary>
+        /// <param name="objectType">Object type</param>
+        /// <returns>True if the object can be converted</returns>
+        public override bool CanConvert(Type objectType)
+        {
+            return false;
+        }
+    }
+
 }

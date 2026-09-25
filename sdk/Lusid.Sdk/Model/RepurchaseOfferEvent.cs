@@ -41,20 +41,20 @@ namespace Lusid.Sdk.Model
         /// <param name="paymentDate">Payment date of the event..</param>
         /// <param name="marketDeadlineDate">Date set by the issuer or by an agent of the issuer as the latest date to respond to the offer. Must be before or equal to the PaymentDate..</param>
         /// <param name="repurchaseQuantity">Quantity of the security to be repurchased. (required).</param>
-        /// <param name="cashOfferElections">List of possible CashOfferElections for this event. Only 1 should be provided. (required).</param>
-        /// <param name="lapseElections">List of possible LapseElections for this event. Only 1 should be provided.  Allows the user to opt out of the offer. (required).</param>
-        /// <param name="tenderOfferElections">List of possible TenderOfferElections for this event. Only 1 should be provided. (required).</param>
+        /// <param name="cashOfferElections">List of possible CashOfferElections for this event.    - The event requires at least one election of any type.    - Any number of CashOfferElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen. (required).</param>
+        /// <param name="lapseElections">List of possible LapseElections for this event. Allows the user to opt out of the offer.    - The event requires at least one election of any type.    - Any number of LapseElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen. (required).</param>
+        /// <param name="tenderOfferElections">List of possible TenderOfferElections for this event.    - The event requires at least one election of any type.    - Any number of TenderOfferElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen. (required).</param>
         /// <param name="prorationRate">The fraction used to calculate a proportional adjustment for RepurchaseQuantity when a full period is not used.  Defaults to 1 if not set. Must be greater than 0 and less than or equal to 1. (default to 1D).</param>
         /// <param name="responseDeadlineDate">Date set by the account servicer as the latest date to respond to the offer.  Optional. If set, must be before or equal to MarketDeadlineDate.  Defaults to MarketDeadlineDate if not set..</param>
         /// <param name="earlyResponseDeadline">Optional CTEN early-tender deadline. If set, must be on or before ResponseDeadlineDate.  Used for bond tender offers where early tenders attract a premium..</param>
         /// <param name="minPieceSize">Bond-specific minimum instructable face amount. Optional.  Must be strictly positive when set..</param>
         /// <param name="minIncrement">Bond-specific increment above MinPieceSize. Optional.  When set, MinPieceSize must also be set. Must be strictly positive..</param>
         /// <param name="accruedInterestPerUnit">Optional per-unit accrued interest on the accepted face amount, from the last coupon date  up to (but excluding) PaymentDate. Bond-like instruments only. If left empty,  resolves it internally at event time from the bond&#39;s coupon schedule and market data..</param>
-        /// <param name="consentAndTenderElections">List of possible consent-and-tender elections for this event (CTEN) — tender the holding and grant consent together..</param>
-        /// <param name="consentGrantedElections">List of possible consent-granted elections for this event (CONY) — vote in favour, optionally attracting a consent fee..</param>
-        /// <param name="consentDeniedElections">List of possible consent-denied elections for this event (CONN) — vote against the proposal..</param>
-        /// <param name="abstainElections">List of possible abstain elections for this event (ABST) — decline to vote on the consent..</param>
-        /// <param name="unknownProceedsElections">List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known..</param>
+        /// <param name="consentAndTenderElections">List of possible consent-and-tender elections for this event (CTEN) — tender the holding and grant consent together.    - The event requires at least one election of any type.    - Any number of ConsentAndTenderElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen..</param>
+        /// <param name="consentGrantedElections">List of possible consent-granted elections for this event (CONY) — vote in favour, optionally attracting a consent fee.    - The event requires at least one election of any type.    - Any number of ConsentGrantedElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen..</param>
+        /// <param name="consentDeniedElections">List of possible consent-denied elections for this event (CONN) — vote against the proposal.    - The event requires at least one election of any type.    - Any number of ConsentDeniedElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen..</param>
+        /// <param name="abstainElections">List of possible abstain elections for this event (ABST) — decline to vote on the consent.    - The event requires at least one election of any type.    - Any number of AbstainElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen..</param>
+        /// <param name="unknownProceedsElections">List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known.    - The event requires at least one election of any type.    - Any number of UnknownProceedsElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen..</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent, TotalReturnSwapCashFlowEvent. (required) (default to &quot;RepurchaseOfferEvent&quot;).</param>
         public RepurchaseOfferEvent(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset marketDeadlineDate = default(DateTimeOffset), decimal repurchaseQuantity = default(decimal), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), List<LapseElection> lapseElections = default(List<LapseElection>), List<TenderOfferElection> tenderOfferElections = default(List<TenderOfferElection>), decimal prorationRate = (decimal)1D, DateTimeOffset? responseDeadlineDate = default(DateTimeOffset?), DateTimeOffset? earlyResponseDeadline = default(DateTimeOffset?), decimal? minPieceSize = default(decimal?), decimal? minIncrement = default(decimal?), decimal? accruedInterestPerUnit = default(decimal?), List<ConsentAndTenderElection> consentAndTenderElections = default(List<ConsentAndTenderElection>), List<ConsentGrantedElection> consentGrantedElections = default(List<ConsentGrantedElection>), List<ConsentDeniedElection> consentDeniedElections = default(List<ConsentDeniedElection>), List<AbstainElection> abstainElections = default(List<AbstainElection>), List<UnknownProceedsElection> unknownProceedsElections = default(List<UnknownProceedsElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
@@ -114,23 +114,23 @@ namespace Lusid.Sdk.Model
         public decimal RepurchaseQuantity { get; set; }
 
         /// <summary>
-        /// List of possible CashOfferElections for this event. Only 1 should be provided.
+        /// List of possible CashOfferElections for this event.    - The event requires at least one election of any type.    - Any number of CashOfferElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen.
         /// </summary>
-        /// <value>List of possible CashOfferElections for this event. Only 1 should be provided.</value>
+        /// <value>List of possible CashOfferElections for this event.    - The event requires at least one election of any type.    - Any number of CashOfferElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen.</value>
         [DataMember(Name = "cashOfferElections", IsRequired = true, EmitDefaultValue = true)]
         public List<CashOfferElection> CashOfferElections { get; set; }
 
         /// <summary>
-        /// List of possible LapseElections for this event. Only 1 should be provided.  Allows the user to opt out of the offer.
+        /// List of possible LapseElections for this event. Allows the user to opt out of the offer.    - The event requires at least one election of any type.    - Any number of LapseElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen.
         /// </summary>
-        /// <value>List of possible LapseElections for this event. Only 1 should be provided.  Allows the user to opt out of the offer.</value>
+        /// <value>List of possible LapseElections for this event. Allows the user to opt out of the offer.    - The event requires at least one election of any type.    - Any number of LapseElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen.</value>
         [DataMember(Name = "lapseElections", IsRequired = true, EmitDefaultValue = true)]
         public List<LapseElection> LapseElections { get; set; }
 
         /// <summary>
-        /// List of possible TenderOfferElections for this event. Only 1 should be provided.
+        /// List of possible TenderOfferElections for this event.    - The event requires at least one election of any type.    - Any number of TenderOfferElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen.
         /// </summary>
-        /// <value>List of possible TenderOfferElections for this event. Only 1 should be provided.</value>
+        /// <value>List of possible TenderOfferElections for this event.    - The event requires at least one election of any type.    - Any number of TenderOfferElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen.</value>
         [DataMember(Name = "tenderOfferElections", IsRequired = true, EmitDefaultValue = true)]
         public List<TenderOfferElection> TenderOfferElections { get; set; }
 
@@ -177,37 +177,37 @@ namespace Lusid.Sdk.Model
         public decimal? AccruedInterestPerUnit { get; set; }
 
         /// <summary>
-        /// List of possible consent-and-tender elections for this event (CTEN) — tender the holding and grant consent together.
+        /// List of possible consent-and-tender elections for this event (CTEN) — tender the holding and grant consent together.    - The event requires at least one election of any type.    - Any number of ConsentAndTenderElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen.
         /// </summary>
-        /// <value>List of possible consent-and-tender elections for this event (CTEN) — tender the holding and grant consent together.</value>
+        /// <value>List of possible consent-and-tender elections for this event (CTEN) — tender the holding and grant consent together.    - The event requires at least one election of any type.    - Any number of ConsentAndTenderElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen.</value>
         [DataMember(Name = "consentAndTenderElections", EmitDefaultValue = true)]
         public List<ConsentAndTenderElection> ConsentAndTenderElections { get; set; }
 
         /// <summary>
-        /// List of possible consent-granted elections for this event (CONY) — vote in favour, optionally attracting a consent fee.
+        /// List of possible consent-granted elections for this event (CONY) — vote in favour, optionally attracting a consent fee.    - The event requires at least one election of any type.    - Any number of ConsentGrantedElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen.
         /// </summary>
-        /// <value>List of possible consent-granted elections for this event (CONY) — vote in favour, optionally attracting a consent fee.</value>
+        /// <value>List of possible consent-granted elections for this event (CONY) — vote in favour, optionally attracting a consent fee.    - The event requires at least one election of any type.    - Any number of ConsentGrantedElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen.</value>
         [DataMember(Name = "consentGrantedElections", EmitDefaultValue = true)]
         public List<ConsentGrantedElection> ConsentGrantedElections { get; set; }
 
         /// <summary>
-        /// List of possible consent-denied elections for this event (CONN) — vote against the proposal.
+        /// List of possible consent-denied elections for this event (CONN) — vote against the proposal.    - The event requires at least one election of any type.    - Any number of ConsentDeniedElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen.
         /// </summary>
-        /// <value>List of possible consent-denied elections for this event (CONN) — vote against the proposal.</value>
+        /// <value>List of possible consent-denied elections for this event (CONN) — vote against the proposal.    - The event requires at least one election of any type.    - Any number of ConsentDeniedElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen.</value>
         [DataMember(Name = "consentDeniedElections", EmitDefaultValue = true)]
         public List<ConsentDeniedElection> ConsentDeniedElections { get; set; }
 
         /// <summary>
-        /// List of possible abstain elections for this event (ABST) — decline to vote on the consent.
+        /// List of possible abstain elections for this event (ABST) — decline to vote on the consent.    - The event requires at least one election of any type.    - Any number of AbstainElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen.
         /// </summary>
-        /// <value>List of possible abstain elections for this event (ABST) — decline to vote on the consent.</value>
+        /// <value>List of possible abstain elections for this event (ABST) — decline to vote on the consent.    - The event requires at least one election of any type.    - Any number of AbstainElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen.</value>
         [DataMember(Name = "abstainElections", EmitDefaultValue = true)]
         public List<AbstainElection> AbstainElections { get; set; }
 
         /// <summary>
-        /// List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known.
+        /// List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known.    - The event requires at least one election of any type.    - Any number of UnknownProceedsElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen.
         /// </summary>
-        /// <value>List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known.</value>
+        /// <value>List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known.    - The event requires at least one election of any type.    - Any number of UnknownProceedsElections may be supplied.    - At most one election on the event may be the default, and at most one may be chosen.</value>
         [DataMember(Name = "unknownProceedsElections", EmitDefaultValue = true)]
         public List<UnknownProceedsElection> UnknownProceedsElections { get; set; }
 

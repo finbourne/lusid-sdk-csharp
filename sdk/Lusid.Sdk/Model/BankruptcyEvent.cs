@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A Bankruptcy (BRUP) event recording the legal status of a company unable to meet its financial  obligations. Pure informational marker — generates no transactions and has no position impact.
+    /// A Bankruptcy (BRUP) event recording the legal status of a company unable to meet its financial  obligations. With no elections it is a pure informational marker, generating no transactions and  having no position impact. It may also carry a ballot: one CashOfferElection per option that pays  cash and one LapseElection per option that pays nothing.
     /// </summary>
     [DataContract(Name = "BankruptcyEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
@@ -42,8 +42,11 @@ namespace Lusid.Sdk.Model
         /// <param name="notificationType">Notification type: NEWM (new announcement), REPL (replacement/correction), or CANC (proceedings dismissed). Available values: NEWM, REPL, CANC. (required).</param>
         /// <param name="claimFilingDeadline">Date by which creditors must file a proof of claim. Optional — null when not applicable.  If provided, overrides EffectiveDate as the settle date of the resulting virtual transactions..</param>
         /// <param name="narrative">Free-text detail: court, jurisdiction, trustee, plan reference. Optional..</param>
+        /// <param name="paymentDate">Settlement date of the cash leg. Required when a CashOfferElection is offered, and accepted  but unused otherwise — inbound ballot notifications populate a pay date on pure votes that  settle no cash..</param>
+        /// <param name="cashOfferElections">One election per ballot option that pays cash, keyed \&quot;{OptionNumber}-{OptionCode}\&quot;, for  example \&quot;1-CASH\&quot;. Each election&#39;s CashOfferPrice is per eligible unit, not per 1000 of face.  Defaults to an empty list..</param>
+        /// <param name="lapseElections">One election per ballot option that pays nothing — consent granted with no fee, consent  denied, abstain, or no action — keyed \&quot;{OptionNumber}-{OptionCode}\&quot;, for example \&quot;6-NOAC\&quot;.  Keys are free-form because a real ballot carries CONY twice and CONN twice. Defaults to an  empty list..</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent, TotalReturnSwapCashFlowEvent. (required) (default to &quot;BankruptcyEvent&quot;).</param>
-        public BankruptcyEvent(DateTimeOffset effectiveDate = default(DateTimeOffset), string notificationType = default(string), DateTimeOffset? claimFilingDeadline = default(DateTimeOffset?), string narrative = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public BankruptcyEvent(DateTimeOffset effectiveDate = default(DateTimeOffset), string notificationType = default(string), DateTimeOffset? claimFilingDeadline = default(DateTimeOffset?), string narrative = default(string), DateTimeOffset? paymentDate = default(DateTimeOffset?), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), List<LapseElection> lapseElections = default(List<LapseElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "notificationType" is required (not null)
             if (notificationType == null)
@@ -54,6 +57,9 @@ namespace Lusid.Sdk.Model
             this.EffectiveDate = effectiveDate;
             this.ClaimFilingDeadline = claimFilingDeadline;
             this.Narrative = narrative;
+            this.PaymentDate = paymentDate;
+            this.CashOfferElections = cashOfferElections;
+            this.LapseElections = lapseElections;
         }
 
         /// <summary>
@@ -85,6 +91,27 @@ namespace Lusid.Sdk.Model
         public string Narrative { get; set; }
 
         /// <summary>
+        /// Settlement date of the cash leg. Required when a CashOfferElection is offered, and accepted  but unused otherwise — inbound ballot notifications populate a pay date on pure votes that  settle no cash.
+        /// </summary>
+        /// <value>Settlement date of the cash leg. Required when a CashOfferElection is offered, and accepted  but unused otherwise — inbound ballot notifications populate a pay date on pure votes that  settle no cash.</value>
+        [DataMember(Name = "paymentDate", EmitDefaultValue = true)]
+        public DateTimeOffset? PaymentDate { get; set; }
+
+        /// <summary>
+        /// One election per ballot option that pays cash, keyed \&quot;{OptionNumber}-{OptionCode}\&quot;, for  example \&quot;1-CASH\&quot;. Each election&#39;s CashOfferPrice is per eligible unit, not per 1000 of face.  Defaults to an empty list.
+        /// </summary>
+        /// <value>One election per ballot option that pays cash, keyed \&quot;{OptionNumber}-{OptionCode}\&quot;, for  example \&quot;1-CASH\&quot;. Each election&#39;s CashOfferPrice is per eligible unit, not per 1000 of face.  Defaults to an empty list.</value>
+        [DataMember(Name = "cashOfferElections", EmitDefaultValue = true)]
+        public List<CashOfferElection> CashOfferElections { get; set; }
+
+        /// <summary>
+        /// One election per ballot option that pays nothing — consent granted with no fee, consent  denied, abstain, or no action — keyed \&quot;{OptionNumber}-{OptionCode}\&quot;, for example \&quot;6-NOAC\&quot;.  Keys are free-form because a real ballot carries CONY twice and CONN twice. Defaults to an  empty list.
+        /// </summary>
+        /// <value>One election per ballot option that pays nothing — consent granted with no fee, consent  denied, abstain, or no action — keyed \&quot;{OptionNumber}-{OptionCode}\&quot;, for example \&quot;6-NOAC\&quot;.  Keys are free-form because a real ballot carries CONY twice and CONN twice. Defaults to an  empty list.</value>
+        [DataMember(Name = "lapseElections", EmitDefaultValue = true)]
+        public List<LapseElection> LapseElections { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -97,6 +124,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  NotificationType: ").Append(NotificationType).Append("\n");
             sb.Append("  ClaimFilingDeadline: ").Append(ClaimFilingDeadline).Append("\n");
             sb.Append("  Narrative: ").Append(Narrative).Append("\n");
+            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
+            sb.Append("  CashOfferElections: ").Append(CashOfferElections).Append("\n");
+            sb.Append("  LapseElections: ").Append(LapseElections).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -151,6 +181,23 @@ namespace Lusid.Sdk.Model
                     this.Narrative == input.Narrative ||
                     (this.Narrative != null &&
                     this.Narrative.Equals(input.Narrative))
+                ) && base.Equals(input) && 
+                (
+                    this.PaymentDate == input.PaymentDate ||
+                    (this.PaymentDate != null &&
+                    this.PaymentDate.Equals(input.PaymentDate))
+                ) && base.Equals(input) && 
+                (
+                    this.CashOfferElections == input.CashOfferElections ||
+                    this.CashOfferElections != null &&
+                    input.CashOfferElections != null &&
+                    this.CashOfferElections.SequenceEqual(input.CashOfferElections)
+                ) && base.Equals(input) && 
+                (
+                    this.LapseElections == input.LapseElections ||
+                    this.LapseElections != null &&
+                    input.LapseElections != null &&
+                    this.LapseElections.SequenceEqual(input.LapseElections)
                 );
         }
 
@@ -178,6 +225,18 @@ namespace Lusid.Sdk.Model
                 if (this.Narrative != null)
                 {
                     hashCode = (hashCode * 59) + this.Narrative.GetHashCode();
+                }
+                if (this.PaymentDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
+                }
+                if (this.CashOfferElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.CashOfferElections.GetHashCode();
+                }
+                if (this.LapseElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.LapseElections.GetHashCode();
                 }
                 return hashCode;
             }

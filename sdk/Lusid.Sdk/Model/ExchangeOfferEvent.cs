@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ExchangeOfferEvent
+    /// Exchange Offer Event (EXOF).
     /// </summary>
     [DataContract(Name = "ExchangeOfferEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
@@ -42,14 +42,14 @@ namespace Lusid.Sdk.Model
         /// <param name="settlementDate">settlementDate.</param>
         /// <param name="eventSource">eventSource (required).</param>
         /// <param name="newInstrument">newInstrument.</param>
-        /// <param name="cashOfferElections">cashOfferElections.</param>
-        /// <param name="securityOfferElections">securityOfferElections.</param>
-        /// <param name="mixedLotConstituentsElections">mixedLotConstituentsElections.</param>
-        /// <param name="lapseElections">lapseElections.</param>
-        /// <param name="cashAndSecurityOfferElections">List of possible CashAndSecurityOfferElections for this exchange offer event..</param>
-        /// <param name="consentAndExchangeElections">List of possible consent-and-exchange elections for this event (CTEN-style consent paired with the exchange)..</param>
-        /// <param name="abstainElections">List of possible abstain elections for this event (ABST) — decline to vote on the consent..</param>
-        /// <param name="unknownProceedsElections">List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known..</param>
+        /// <param name="cashOfferElections">List of possible CashOfferElections for this exchange offer event (CASH).    - The event requires at least one election of any type.    - If ParticipationType is Mandatory, CashOfferElection is not permitted.    - If ParticipationType is MandatoryWithChoices or Voluntary, at most one CashOfferElection may be supplied.    - Exactly one election on the event must be the default, and at most one may be chosen..</param>
+        /// <param name="securityOfferElections">List of possible SecurityOfferElections for this exchange offer event (SECU).    - The event requires at least one election of any type.    - Any number of SecurityOfferElections may be supplied.    - A NewInstrument is required on the event when this list is non-empty.    - Exactly one election on the event must be the default, and at most one may be chosen.    - If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two..</param>
+        /// <param name="mixedLotConstituentsElections">List of possible MixedLotConstituentsElections for this exchange offer event.    - The event requires at least one election of any type.    - Any number of MixedLotConstituentsElections may be supplied, up to a limit of 100 entries.    - Exactly one election on the event must be the default, and at most one may be chosen.    - If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two..</param>
+        /// <param name="lapseElections">List of possible LapseElections for this exchange offer event (NOAC).    - The event requires at least one election of any type.    - If ParticipationType is Mandatory, LapseElection is not permitted.    - If ParticipationType is MandatoryWithChoices, any number of LapseElections may be supplied, but none of them may be the default.    - If ParticipationType is Voluntary, at most one LapseElection may be supplied..</param>
+        /// <param name="cashAndSecurityOfferElections">List of possible CashAndSecurityOfferElections for this exchange offer event (CASE).    - The event requires at least one election of any type.    - Any number of CashAndSecurityOfferElections may be supplied.    - Exactly one election on the event must be the default, and at most one may be chosen.    - If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two..</param>
+        /// <param name="consentAndExchangeElections">List of possible ConsentAndExchangeElections for this exchange offer event (CEXC).    - The event requires at least one election of any type.    - Any number of ConsentAndExchangeElections may be supplied.    - Exactly one election on the event must be the default, and at most one may be chosen.    - If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two..</param>
+        /// <param name="abstainElections">List of possible AbstainElections for this exchange offer event (ABST).    - The event requires at least one election of any type.    - Any number of AbstainElections may be supplied.    - Exactly one election on the event must be the default, and at most one may be chosen.    - If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two..</param>
+        /// <param name="unknownProceedsElections">List of possible UnknownProceedsElections for this exchange offer event (UNKNOWN).    - The event requires at least one election of any type.    - Any number of UnknownProceedsElections may be supplied.    - Exactly one election on the event must be the default, and at most one may be chosen.    - If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two..</param>
         /// <param name="minPieceSize">minPieceSize.</param>
         /// <param name="minIncrement">minIncrement.</param>
         /// <param name="fractionalUnitsCashPrice">fractionalUnitsCashPrice.</param>
@@ -111,54 +111,58 @@ namespace Lusid.Sdk.Model
         public NewInstrument NewInstrument { get; set; }
 
         /// <summary>
-        /// Gets or Sets CashOfferElections
+        /// List of possible CashOfferElections for this exchange offer event (CASH).    - The event requires at least one election of any type.    - If ParticipationType is Mandatory, CashOfferElection is not permitted.    - If ParticipationType is MandatoryWithChoices or Voluntary, at most one CashOfferElection may be supplied.    - Exactly one election on the event must be the default, and at most one may be chosen.
         /// </summary>
+        /// <value>List of possible CashOfferElections for this exchange offer event (CASH).    - The event requires at least one election of any type.    - If ParticipationType is Mandatory, CashOfferElection is not permitted.    - If ParticipationType is MandatoryWithChoices or Voluntary, at most one CashOfferElection may be supplied.    - Exactly one election on the event must be the default, and at most one may be chosen.</value>
         [DataMember(Name = "cashOfferElections", EmitDefaultValue = true)]
         public List<CashOfferElection> CashOfferElections { get; set; }
 
         /// <summary>
-        /// Gets or Sets SecurityOfferElections
+        /// List of possible SecurityOfferElections for this exchange offer event (SECU).    - The event requires at least one election of any type.    - Any number of SecurityOfferElections may be supplied.    - A NewInstrument is required on the event when this list is non-empty.    - Exactly one election on the event must be the default, and at most one may be chosen.    - If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two.
         /// </summary>
+        /// <value>List of possible SecurityOfferElections for this exchange offer event (SECU).    - The event requires at least one election of any type.    - Any number of SecurityOfferElections may be supplied.    - A NewInstrument is required on the event when this list is non-empty.    - Exactly one election on the event must be the default, and at most one may be chosen.    - If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two.</value>
         [DataMember(Name = "securityOfferElections", EmitDefaultValue = true)]
         public List<SecurityOfferElection> SecurityOfferElections { get; set; }
 
         /// <summary>
-        /// Gets or Sets MixedLotConstituentsElections
+        /// List of possible MixedLotConstituentsElections for this exchange offer event.    - The event requires at least one election of any type.    - Any number of MixedLotConstituentsElections may be supplied, up to a limit of 100 entries.    - Exactly one election on the event must be the default, and at most one may be chosen.    - If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two.
         /// </summary>
+        /// <value>List of possible MixedLotConstituentsElections for this exchange offer event.    - The event requires at least one election of any type.    - Any number of MixedLotConstituentsElections may be supplied, up to a limit of 100 entries.    - Exactly one election on the event must be the default, and at most one may be chosen.    - If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two.</value>
         [DataMember(Name = "mixedLotConstituentsElections", EmitDefaultValue = true)]
         public List<MixedLotConstituentsElection> MixedLotConstituentsElections { get; set; }
 
         /// <summary>
-        /// Gets or Sets LapseElections
+        /// List of possible LapseElections for this exchange offer event (NOAC).    - The event requires at least one election of any type.    - If ParticipationType is Mandatory, LapseElection is not permitted.    - If ParticipationType is MandatoryWithChoices, any number of LapseElections may be supplied, but none of them may be the default.    - If ParticipationType is Voluntary, at most one LapseElection may be supplied.
         /// </summary>
+        /// <value>List of possible LapseElections for this exchange offer event (NOAC).    - The event requires at least one election of any type.    - If ParticipationType is Mandatory, LapseElection is not permitted.    - If ParticipationType is MandatoryWithChoices, any number of LapseElections may be supplied, but none of them may be the default.    - If ParticipationType is Voluntary, at most one LapseElection may be supplied.</value>
         [DataMember(Name = "lapseElections", EmitDefaultValue = true)]
         public List<LapseElection> LapseElections { get; set; }
 
         /// <summary>
-        /// List of possible CashAndSecurityOfferElections for this exchange offer event.
+        /// List of possible CashAndSecurityOfferElections for this exchange offer event (CASE).    - The event requires at least one election of any type.    - Any number of CashAndSecurityOfferElections may be supplied.    - Exactly one election on the event must be the default, and at most one may be chosen.    - If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two.
         /// </summary>
-        /// <value>List of possible CashAndSecurityOfferElections for this exchange offer event.</value>
+        /// <value>List of possible CashAndSecurityOfferElections for this exchange offer event (CASE).    - The event requires at least one election of any type.    - Any number of CashAndSecurityOfferElections may be supplied.    - Exactly one election on the event must be the default, and at most one may be chosen.    - If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two.</value>
         [DataMember(Name = "cashAndSecurityOfferElections", EmitDefaultValue = true)]
         public List<CashAndSecurityOfferElection> CashAndSecurityOfferElections { get; set; }
 
         /// <summary>
-        /// List of possible consent-and-exchange elections for this event (CTEN-style consent paired with the exchange).
+        /// List of possible ConsentAndExchangeElections for this exchange offer event (CEXC).    - The event requires at least one election of any type.    - Any number of ConsentAndExchangeElections may be supplied.    - Exactly one election on the event must be the default, and at most one may be chosen.    - If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two.
         /// </summary>
-        /// <value>List of possible consent-and-exchange elections for this event (CTEN-style consent paired with the exchange).</value>
+        /// <value>List of possible ConsentAndExchangeElections for this exchange offer event (CEXC).    - The event requires at least one election of any type.    - Any number of ConsentAndExchangeElections may be supplied.    - Exactly one election on the event must be the default, and at most one may be chosen.    - If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two.</value>
         [DataMember(Name = "consentAndExchangeElections", EmitDefaultValue = true)]
         public List<ConsentAndExchangeElection> ConsentAndExchangeElections { get; set; }
 
         /// <summary>
-        /// List of possible abstain elections for this event (ABST) — decline to vote on the consent.
+        /// List of possible AbstainElections for this exchange offer event (ABST).    - The event requires at least one election of any type.    - Any number of AbstainElections may be supplied.    - Exactly one election on the event must be the default, and at most one may be chosen.    - If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two.
         /// </summary>
-        /// <value>List of possible abstain elections for this event (ABST) — decline to vote on the consent.</value>
+        /// <value>List of possible AbstainElections for this exchange offer event (ABST).    - The event requires at least one election of any type.    - Any number of AbstainElections may be supplied.    - Exactly one election on the event must be the default, and at most one may be chosen.    - If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two.</value>
         [DataMember(Name = "abstainElections", EmitDefaultValue = true)]
         public List<AbstainElection> AbstainElections { get; set; }
 
         /// <summary>
-        /// List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known.
+        /// List of possible UnknownProceedsElections for this exchange offer event (UNKNOWN).    - The event requires at least one election of any type.    - Any number of UnknownProceedsElections may be supplied.    - Exactly one election on the event must be the default, and at most one may be chosen.    - If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two.
         /// </summary>
-        /// <value>List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known.</value>
+        /// <value>List of possible UnknownProceedsElections for this exchange offer event (UNKNOWN).    - The event requires at least one election of any type.    - Any number of UnknownProceedsElections may be supplied.    - Exactly one election on the event must be the default, and at most one may be chosen.    - If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two.</value>
         [DataMember(Name = "unknownProceedsElections", EmitDefaultValue = true)]
         public List<UnknownProceedsElection> UnknownProceedsElections { get; set; }
 

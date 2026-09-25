@@ -3633,11 +3633,11 @@ catch (ApiException e)
 
 <a id="getvaluationpointunsettledtransactions"></a>
 # **GetValuationPointUnsettledTransactions**
-> ValuationPointResourceListOfUnsettledTransaction GetValuationPointUnsettledTransactions (string scope, string code, DateTimeOffset? asAt = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null, DateTimeOrCutLabel? date = null, string? diaryEntry = null, string? variant = null, SingleValuationPointQueryParameters? singleValuationPointQueryParameters = null)
+> ValuationPointResourceListOfUnsettledTransaction GetValuationPointUnsettledTransactions (string scope, string code, SingleValuationPointQueryParameters singleValuationPointQueryParameters, DateTimeOffset? asAt = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null)
 
 [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
 
-Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,  looking back from inception. Settlement status is point-in-time: post-cutoff settlement  activity does not alter the result.  The Valuation Point must be identified either by the date or diaryEntry query parameters or by the  'dateOrDiaryEntry' parameter in the request body; when both are supplied the query parameters are used.
+Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,  looking back from inception. Settlement status is point-in-time: post-cutoff settlement  activity does not alter the result.
 
 ### Example
 ```csharp
@@ -3680,23 +3680,20 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var singleValuationPointQueryParameters = new SingleValuationPointQueryParameters(); // SingleValuationPointQueryParameters | The arguments to use for querying the unsettled transactions.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the report. Defaults to latest. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing from a previous call. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', or 'Account'              domain to decorate onto the transactions. (optional) 
             var navTypeCode = "navTypeCode_example";  // string? | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
-            var date = "date_example";  // DateTimeOrCutLabel? | The optional date of the Valuation Point to report against, as an alternative to supplying              it in the request body. Must not be supplied together with diaryEntry. (optional) 
-            var diaryEntry = "diaryEntry_example";  // string? | The optional diary entry code of the Valuation Point to report against, as an              alternative to supplying it in the request body. Must not be supplied together with date. (optional) 
-            var variant = "variant_example";  // string? | The optional variant code of the Valuation Point to report against, as an alternative to              supplying it in the request body. Only required when it is necessary to choose between scenarios with multiple              estimates. (optional) 
-            var singleValuationPointQueryParameters = new SingleValuationPointQueryParameters?(); // SingleValuationPointQueryParameters? | The optional arguments to use for querying the unsettled transactions. Can be              omitted when the Valuation Point is identified by the date or diaryEntry query parameters. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ValuationPointResourceListOfUnsettledTransaction result = apiInstance.GetValuationPointUnsettledTransactions(scope, code, asAt, limit, page, propertyKeys, navTypeCode, date, diaryEntry, variant, singleValuationPointQueryParameters, opts: opts);
+                // ValuationPointResourceListOfUnsettledTransaction result = apiInstance.GetValuationPointUnsettledTransactions(scope, code, singleValuationPointQueryParameters, asAt, limit, page, propertyKeys, navTypeCode, opts: opts);
 
                 // [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
-                ValuationPointResourceListOfUnsettledTransaction result = apiInstance.GetValuationPointUnsettledTransactions(scope, code, asAt, limit, page, propertyKeys, navTypeCode, date, diaryEntry, variant, singleValuationPointQueryParameters);
+                ValuationPointResourceListOfUnsettledTransaction result = apiInstance.GetValuationPointUnsettledTransactions(scope, code, singleValuationPointQueryParameters, asAt, limit, page, propertyKeys, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -3717,7 +3714,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
-    ApiResponse<ValuationPointResourceListOfUnsettledTransaction> response = apiInstance.GetValuationPointUnsettledTransactionsWithHttpInfo(scope, code, asAt, limit, page, propertyKeys, navTypeCode, date, diaryEntry, variant, singleValuationPointQueryParameters);
+    ApiResponse<ValuationPointResourceListOfUnsettledTransaction> response = apiInstance.GetValuationPointUnsettledTransactionsWithHttpInfo(scope, code, singleValuationPointQueryParameters, asAt, limit, page, propertyKeys, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -3736,15 +3733,12 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **singleValuationPointQueryParameters** | [**SingleValuationPointQueryParameters**](SingleValuationPointQueryParameters.md) | The arguments to use for querying the unsettled transactions. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the report. Defaults to latest. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing from a previous call. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, or &#39;Account&#39;              domain to decorate onto the transactions. | [optional]  |
 | **navTypeCode** | **string?** | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
-| **date** | **DateTimeOrCutLabel?** | The optional date of the Valuation Point to report against, as an alternative to supplying              it in the request body. Must not be supplied together with diaryEntry. | [optional]  |
-| **diaryEntry** | **string?** | The optional diary entry code of the Valuation Point to report against, as an              alternative to supplying it in the request body. Must not be supplied together with date. | [optional]  |
-| **variant** | **string?** | The optional variant code of the Valuation Point to report against, as an alternative to              supplying it in the request body. Only required when it is necessary to choose between scenarios with multiple              estimates. | [optional]  |
-| **singleValuationPointQueryParameters** | [**SingleValuationPointQueryParameters?**](SingleValuationPointQueryParameters?.md) | The optional arguments to use for querying the unsettled transactions. Can be              omitted when the Valuation Point is identified by the date or diaryEntry query parameters. | [optional]  |
 
 ### Return type
 

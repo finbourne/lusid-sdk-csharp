@@ -8,6 +8,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**DeleteComplianceRule**](ComplianceApi.md#deletecompliancerule) | **DELETE** /api/compliance/rules/{scope}/{code} | [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule. |
 | [**DeleteComplianceTemplate**](ComplianceApi.md#deletecompliancetemplate) | **DELETE** /api/compliance/templates/{scope}/{code} | [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate |
 | [**GetComplianceRule**](ComplianceApi.md#getcompliancerule) | **GET** /api/compliance/rules/{scope}/{code} | [EARLY ACCESS] GetComplianceRule: Get compliance rule. |
+| [**GetComplianceRuleBreakdown**](ComplianceApi.md#getcompliancerulebreakdown) | **GET** /api/compliance/runs/breakdown/{runScope}/{runCode}/{ruleScope}/{ruleCode} | [EARLY ACCESS] GetComplianceRuleBreakdown: Get the position-level breakdown for a single rule of a compliance run. |
 | [**GetComplianceRuleResult**](ComplianceApi.md#getcomplianceruleresult) | **GET** /api/compliance/runs/summary/{runScope}/{runCode}/{ruleScope}/{ruleCode} | [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run. |
 | [**GetComplianceTemplate**](ComplianceApi.md#getcompliancetemplate) | **GET** /api/compliance/templates/{scope}/{code} | [EARLY ACCESS] GetComplianceTemplate: Get the requested compliance template. |
 | [**GetDecoratedComplianceRunSummary**](ComplianceApi.md#getdecoratedcompliancerunsummary) | **GET** /api/compliance/runs/summary/{scope}/{code}/$decorate | [EARLY ACCESS] GetDecoratedComplianceRunSummary: Get decorated summary results for a specific compliance run. |
@@ -484,6 +485,126 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The requested compliance rule. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getcompliancerulebreakdown"></a>
+# **GetComplianceRuleBreakdown**
+> ComplianceRuleResultV2WithContributions GetComplianceRuleBreakdown (string runScope, string runCode, string ruleScope, string ruleCode)
+
+[EARLY ACCESS] GetComplianceRuleBreakdown: Get the position-level breakdown for a single rule of a compliance run.
+
+Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get the per-position contributions behind that rule's breakdown groups.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplianceApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
+            var runScope = "runScope_example";  // string | Required: Run Scope.
+            var runCode = "runCode_example";  // string | Required: Run Code.
+            var ruleScope = "ruleScope_example";  // string | Required: Rule Scope.
+            var ruleCode = "ruleCode_example";  // string | Required: Rule Code.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ComplianceRuleResultV2WithContributions result = apiInstance.GetComplianceRuleBreakdown(runScope, runCode, ruleScope, ruleCode, opts: opts);
+
+                // [EARLY ACCESS] GetComplianceRuleBreakdown: Get the position-level breakdown for a single rule of a compliance run.
+                ComplianceRuleResultV2WithContributions result = apiInstance.GetComplianceRuleBreakdown(runScope, runCode, ruleScope, ruleCode);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling ComplianceApi.GetComplianceRuleBreakdown: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetComplianceRuleBreakdownWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetComplianceRuleBreakdown: Get the position-level breakdown for a single rule of a compliance run.
+    ApiResponse<ComplianceRuleResultV2WithContributions> response = apiInstance.GetComplianceRuleBreakdownWithHttpInfo(runScope, runCode, ruleScope, ruleCode);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling ComplianceApi.GetComplianceRuleBreakdownWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **runScope** | **string** | Required: Run Scope. |  |
+| **runCode** | **string** | Required: Run Code. |  |
+| **ruleScope** | **string** | Required: Rule Scope. |  |
+| **ruleCode** | **string** | Required: Rule Code. |  |
+
+### Return type
+
+[**ComplianceRuleResultV2WithContributions**](ComplianceRuleResultV2WithContributions.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The position-level breakdown for the requested rule of a compliance run. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

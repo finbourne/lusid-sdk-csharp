@@ -144,6 +144,37 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ComplianceRuleResponse</returns>
         Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse> GetComplianceRuleWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] GetComplianceRuleBreakdown: Get the position-level breakdown for a single rule of a compliance run.
+        /// </summary>
+        /// <remarks>
+        /// Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get the per-position contributions behind that rule&#39;s breakdown groups.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runScope">Required: Run Scope.</param>
+        /// <param name="runCode">Required: Run Code.</param>
+        /// <param name="ruleScope">Required: Rule Scope.</param>
+        /// <param name="ruleCode">Required: Rule Code.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ComplianceRuleResultV2WithContributions</returns>
+        ComplianceRuleResultV2WithContributions GetComplianceRuleBreakdown(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] GetComplianceRuleBreakdown: Get the position-level breakdown for a single rule of a compliance run.
+        /// </summary>
+        /// <remarks>
+        /// Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get the per-position contributions behind that rule&#39;s breakdown groups.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runScope">Required: Run Scope.</param>
+        /// <param name="runCode">Required: Run Code.</param>
+        /// <param name="ruleScope">Required: Rule Scope.</param>
+        /// <param name="ruleCode">Required: Rule Code.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ComplianceRuleResultV2WithContributions</returns>
+        Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2WithContributions> GetComplianceRuleBreakdownWithHttpInfo(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run.
         /// </summary>
         /// <remarks>
@@ -636,6 +667,39 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ComplianceRuleResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse>> GetComplianceRuleWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] GetComplianceRuleBreakdown: Get the position-level breakdown for a single rule of a compliance run.
+        /// </summary>
+        /// <remarks>
+        /// Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get the per-position contributions behind that rule&#39;s breakdown groups.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runScope">Required: Run Scope.</param>
+        /// <param name="runCode">Required: Run Code.</param>
+        /// <param name="ruleScope">Required: Rule Scope.</param>
+        /// <param name="ruleCode">Required: Rule Code.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ComplianceRuleResultV2WithContributions</returns>
+        System.Threading.Tasks.Task<ComplianceRuleResultV2WithContributions> GetComplianceRuleBreakdownAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] GetComplianceRuleBreakdown: Get the position-level breakdown for a single rule of a compliance run.
+        /// </summary>
+        /// <remarks>
+        /// Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get the per-position contributions behind that rule&#39;s breakdown groups.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runScope">Required: Run Scope.</param>
+        /// <param name="runCode">Required: Run Code.</param>
+        /// <param name="ruleScope">Required: Rule Scope.</param>
+        /// <param name="ruleCode">Required: Rule Code.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRuleResultV2WithContributions)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2WithContributions>> GetComplianceRuleBreakdownWithHttpInfoAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run.
         /// </summary>
@@ -2060,6 +2124,264 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetComplianceRule", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetComplianceRuleBreakdown: Get the position-level breakdown for a single rule of a compliance run. Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get the per-position contributions behind that rule&#39;s breakdown groups.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runScope">Required: Run Scope.</param>
+        /// <param name="runCode">Required: Run Code.</param>
+        /// <param name="ruleScope">Required: Rule Scope.</param>
+        /// <param name="ruleCode">Required: Rule Code.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ComplianceRuleResultV2WithContributions</returns>
+        public ComplianceRuleResultV2WithContributions GetComplianceRuleBreakdown(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2WithContributions> localVarResponse = GetComplianceRuleBreakdownWithHttpInfo(runScope, runCode, ruleScope, ruleCode, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetComplianceRuleBreakdown: Get the position-level breakdown for a single rule of a compliance run. Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get the per-position contributions behind that rule&#39;s breakdown groups.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runScope">Required: Run Scope.</param>
+        /// <param name="runCode">Required: Run Code.</param>
+        /// <param name="ruleScope">Required: Rule Scope.</param>
+        /// <param name="ruleCode">Required: Rule Code.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ComplianceRuleResultV2WithContributions</returns>
+        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2WithContributions> GetComplianceRuleBreakdownWithHttpInfo(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'runScope' is set
+            if (runScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runScope' when calling ComplianceApi->GetComplianceRuleBreakdown");
+            }
+
+            // verify the required parameter 'runCode' is set
+            if (runCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runCode' when calling ComplianceApi->GetComplianceRuleBreakdown");
+            }
+
+            // verify the required parameter 'ruleScope' is set
+            if (ruleScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleScope' when calling ComplianceApi->GetComplianceRuleBreakdown");
+            }
+
+            // verify the required parameter 'ruleCode' is set
+            if (ruleCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleCode' when calling ComplianceApi->GetComplianceRuleBreakdown");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("runScope", Lusid.Sdk.Client.ClientUtils.ParameterToString(runScope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("runCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(runCode)); // path parameter
+            localVarRequestOptions.PathParameters.Add("ruleScope", Lusid.Sdk.Client.ClientUtils.ParameterToString(ruleScope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("ruleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(ruleCode)); // path parameter
+
+            localVarRequestOptions.Operation = "ComplianceApi.GetComplianceRuleBreakdown";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ComplianceRuleResultV2WithContributions>("/api/compliance/runs/breakdown/{runScope}/{runCode}/{ruleScope}/{ruleCode}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetComplianceRuleBreakdown", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetComplianceRuleBreakdown: Get the position-level breakdown for a single rule of a compliance run. Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get the per-position contributions behind that rule&#39;s breakdown groups.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runScope">Required: Run Scope.</param>
+        /// <param name="runCode">Required: Run Code.</param>
+        /// <param name="ruleScope">Required: Rule Scope.</param>
+        /// <param name="ruleCode">Required: Rule Code.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ComplianceRuleResultV2WithContributions</returns>
+        public async System.Threading.Tasks.Task<ComplianceRuleResultV2WithContributions> GetComplianceRuleBreakdownAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2WithContributions> localVarResponse = await GetComplianceRuleBreakdownWithHttpInfoAsync(runScope, runCode, ruleScope, ruleCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetComplianceRuleBreakdown: Get the position-level breakdown for a single rule of a compliance run. Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get the per-position contributions behind that rule&#39;s breakdown groups.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runScope">Required: Run Scope.</param>
+        /// <param name="runCode">Required: Run Code.</param>
+        /// <param name="ruleScope">Required: Rule Scope.</param>
+        /// <param name="ruleCode">Required: Rule Code.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRuleResultV2WithContributions)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2WithContributions>> GetComplianceRuleBreakdownWithHttpInfoAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'runScope' is set
+            if (runScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runScope' when calling ComplianceApi->GetComplianceRuleBreakdown");
+            }
+
+            // verify the required parameter 'runCode' is set
+            if (runCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runCode' when calling ComplianceApi->GetComplianceRuleBreakdown");
+            }
+
+            // verify the required parameter 'ruleScope' is set
+            if (ruleScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleScope' when calling ComplianceApi->GetComplianceRuleBreakdown");
+            }
+
+            // verify the required parameter 'ruleCode' is set
+            if (ruleCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleCode' when calling ComplianceApi->GetComplianceRuleBreakdown");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("runScope", Lusid.Sdk.Client.ClientUtils.ParameterToString(runScope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("runCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(runCode)); // path parameter
+            localVarRequestOptions.PathParameters.Add("ruleScope", Lusid.Sdk.Client.ClientUtils.ParameterToString(ruleScope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("ruleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(ruleCode)); // path parameter
+
+            localVarRequestOptions.Operation = "ComplianceApi.GetComplianceRuleBreakdown";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ComplianceRuleResultV2WithContributions>("/api/compliance/runs/breakdown/{runScope}/{runCode}/{ruleScope}/{ruleCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetComplianceRuleBreakdown", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

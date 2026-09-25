@@ -23,50 +23,35 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The item pairings a link between two rec results was established on, per side.
+    /// Per-side tax-lot granularity for a Holding entry of a rec definition&#39;s rulesets.
     /// </summary>
-    [DataContract(Name = "RecLinkedBy")]
-    public partial class RecLinkedBy : IEquatable<RecLinkedBy>, IValidatableObject
+    [DataContract(Name = "RecDefByTaxLots")]
+    public partial class RecDefByTaxLots : IEquatable<RecDefByTaxLots>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RecLinkedBy" /> class.
+        /// Initializes a new instance of the <see cref="RecDefByTaxLots" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected RecLinkedBy() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RecLinkedBy" /> class.
-        /// </summary>
-        /// <param name="left">The pairings between the two results&#39; left-side items, one entry per pairing. May be empty. (required).</param>
-        /// <param name="right">The pairings between the two results&#39; right-side items, one entry per pairing. May be empty. (required).</param>
-        public RecLinkedBy(List<RecResultLinkKey> left = default(List<RecResultLinkKey>), List<RecResultLinkKey> right = default(List<RecResultLinkKey>))
+        /// <param name="left">Whether the left side splits holdings by tax lot. Must be omitted when the left side is relational, and reads as null there..</param>
+        /// <param name="right">Whether the right side splits holdings by tax lot. Must be omitted when the right side is relational, and reads as null there..</param>
+        public RecDefByTaxLots(bool? left = default(bool?), bool? right = default(bool?))
         {
-            // to ensure "left" is required (not null)
-            if (left == null)
-            {
-                throw new ArgumentNullException("left is a required property for RecLinkedBy and cannot be null");
-            }
             this.Left = left;
-            // to ensure "right" is required (not null)
-            if (right == null)
-            {
-                throw new ArgumentNullException("right is a required property for RecLinkedBy and cannot be null");
-            }
             this.Right = right;
         }
 
         /// <summary>
-        /// The pairings between the two results&#39; left-side items, one entry per pairing. May be empty.
+        /// Whether the left side splits holdings by tax lot. Must be omitted when the left side is relational, and reads as null there.
         /// </summary>
-        /// <value>The pairings between the two results&#39; left-side items, one entry per pairing. May be empty.</value>
-        [DataMember(Name = "left", IsRequired = true, EmitDefaultValue = true)]
-        public List<RecResultLinkKey> Left { get; set; }
+        /// <value>Whether the left side splits holdings by tax lot. Must be omitted when the left side is relational, and reads as null there.</value>
+        [DataMember(Name = "left", EmitDefaultValue = true)]
+        public bool? Left { get; set; }
 
         /// <summary>
-        /// The pairings between the two results&#39; right-side items, one entry per pairing. May be empty.
+        /// Whether the right side splits holdings by tax lot. Must be omitted when the right side is relational, and reads as null there.
         /// </summary>
-        /// <value>The pairings between the two results&#39; right-side items, one entry per pairing. May be empty.</value>
-        [DataMember(Name = "right", IsRequired = true, EmitDefaultValue = true)]
-        public List<RecResultLinkKey> Right { get; set; }
+        /// <value>Whether the right side splits holdings by tax lot. Must be omitted when the right side is relational, and reads as null there.</value>
+        [DataMember(Name = "right", EmitDefaultValue = true)]
+        public bool? Right { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,7 +60,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class RecLinkedBy {\n");
+            sb.Append("class RecDefByTaxLots {\n");
             sb.Append("  Left: ").Append(Left).Append("\n");
             sb.Append("  Right: ").Append(Right).Append("\n");
             sb.Append("}\n");
@@ -98,15 +83,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as RecLinkedBy);
+            return this.Equals(input as RecDefByTaxLots);
         }
 
         /// <summary>
-        /// Returns true if RecLinkedBy instances are equal
+        /// Returns true if RecDefByTaxLots instances are equal
         /// </summary>
-        /// <param name="input">Instance of RecLinkedBy to be compared</param>
+        /// <param name="input">Instance of RecDefByTaxLots to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RecLinkedBy input)
+        public bool Equals(RecDefByTaxLots input)
         {
             if (input == null)
             {
@@ -115,15 +100,13 @@ namespace Lusid.Sdk.Model
             return 
                 (
                     this.Left == input.Left ||
-                    this.Left != null &&
-                    input.Left != null &&
-                    this.Left.SequenceEqual(input.Left)
+                    (this.Left != null &&
+                    this.Left.Equals(input.Left))
                 ) && 
                 (
                     this.Right == input.Right ||
-                    this.Right != null &&
-                    input.Right != null &&
-                    this.Right.SequenceEqual(input.Right)
+                    (this.Right != null &&
+                    this.Right.Equals(input.Right))
                 );
         }
 

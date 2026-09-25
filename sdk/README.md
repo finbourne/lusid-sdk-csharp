@@ -128,6 +128,7 @@ Class | Method | HTTP request | Description
 *ComplianceApi* | [**DeleteComplianceRule**](docs/ComplianceApi.md#deletecompliancerule) | **DELETE** /api/compliance/rules/{scope}/{code} | [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule.
 *ComplianceApi* | [**DeleteComplianceTemplate**](docs/ComplianceApi.md#deletecompliancetemplate) | **DELETE** /api/compliance/templates/{scope}/{code} | [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate
 *ComplianceApi* | [**GetComplianceRule**](docs/ComplianceApi.md#getcompliancerule) | **GET** /api/compliance/rules/{scope}/{code} | [EARLY ACCESS] GetComplianceRule: Get compliance rule.
+*ComplianceApi* | [**GetComplianceRuleBreakdown**](docs/ComplianceApi.md#getcompliancerulebreakdown) | **GET** /api/compliance/runs/breakdown/{runScope}/{runCode}/{ruleScope}/{ruleCode} | [EARLY ACCESS] GetComplianceRuleBreakdown: Get the position-level breakdown for a single rule of a compliance run.
 *ComplianceApi* | [**GetComplianceRuleResult**](docs/ComplianceApi.md#getcomplianceruleresult) | **GET** /api/compliance/runs/summary/{runScope}/{runCode}/{ruleScope}/{ruleCode} | [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run.
 *ComplianceApi* | [**GetComplianceTemplate**](docs/ComplianceApi.md#getcompliancetemplate) | **GET** /api/compliance/templates/{scope}/{code} | [EARLY ACCESS] GetComplianceTemplate: Get the requested compliance template.
 *ComplianceApi* | [**GetDecoratedComplianceRunSummary**](docs/ComplianceApi.md#getdecoratedcompliancerunsummary) | **GET** /api/compliance/runs/summary/{scope}/{code}/$decorate | [EARLY ACCESS] GetDecoratedComplianceRunSummary: Get decorated summary results for a specific compliance run.
@@ -241,6 +242,10 @@ Class | Method | HTTP request | Description
 *EntitiesApi* | [**GetPropertyDefinitionByEntityUniqueId**](docs/EntitiesApi.md#getpropertydefinitionbyentityuniqueid) | **GET** /api/entities/propertydefinitions/{entityUniqueId} | GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId
 *EntitiesApi* | [**GetTransactionByEntityUniqueId**](docs/EntitiesApi.md#gettransactionbyentityuniqueid) | **GET** /api/entities/transactions/{entityUniqueId} | GetTransactionByEntityUniqueId: Get transaction by EntityUniqueId
 *EntitiesApi* | [**GetValuationPointByEntityUniqueId**](docs/EntitiesApi.md#getvaluationpointbyentityuniqueid) | **GET** /api/entities/valuationpoints/{entityUniqueId} | GetValuationPointByEntityUniqueId: Get valuation point by EntityUniqueId
+*EntityResolversApi* | [**CreateEntityResolver**](docs/EntityResolversApi.md#createentityresolver) | **POST** /api/entityresolvers | [EXPERIMENTAL] CreateEntityResolver: Create an Entity Resolver
+*EntityResolversApi* | [**DeleteEntityResolver**](docs/EntityResolversApi.md#deleteentityresolver) | **DELETE** /api/entityresolvers/{scope}/{code} | [EXPERIMENTAL] DeleteEntityResolver: Delete an Entity Resolver
+*EntityResolversApi* | [**GetEntityResolver**](docs/EntityResolversApi.md#getentityresolver) | **GET** /api/entityresolvers/{scope}/{code} | [EXPERIMENTAL] GetEntityResolver: Get a single Entity Resolver
+*EntityResolversApi* | [**UpdateEntityResolver**](docs/EntityResolversApi.md#updateentityresolver) | **PUT** /api/entityresolvers/{scope}/{code} | [EXPERIMENTAL] UpdateEntityResolver: Update an Entity Resolver
 *ExecutionsApi* | [**DeleteExecution**](docs/ExecutionsApi.md#deleteexecution) | **DELETE** /api/executions/{scope}/{code} | [EARLY ACCESS] DeleteExecution: Delete execution
 *ExecutionsApi* | [**GetExecution**](docs/ExecutionsApi.md#getexecution) | **GET** /api/executions/{scope}/{code} | [EARLY ACCESS] GetExecution: Get Execution
 *ExecutionsApi* | [**ListExecutions**](docs/ExecutionsApi.md#listexecutions) | **GET** /api/executions | ListExecutions: List Executions
@@ -1068,12 +1073,15 @@ Class | Method | HTTP request | Description
  - [ComplianceRule](docs/ComplianceRule.md)
  - [ComplianceRuleBreakdown](docs/ComplianceRuleBreakdown.md)
  - [ComplianceRuleBreakdownRequest](docs/ComplianceRuleBreakdownRequest.md)
+ - [ComplianceRuleBreakdownWithContributions](docs/ComplianceRuleBreakdownWithContributions.md)
+ - [ComplianceRuleContribution](docs/ComplianceRuleContribution.md)
  - [ComplianceRuleEntity](docs/ComplianceRuleEntity.md)
  - [ComplianceRuleResponse](docs/ComplianceRuleResponse.md)
  - [ComplianceRuleResult](docs/ComplianceRuleResult.md)
  - [ComplianceRuleResultDetail](docs/ComplianceRuleResultDetail.md)
  - [ComplianceRuleResultPortfolioDetail](docs/ComplianceRuleResultPortfolioDetail.md)
  - [ComplianceRuleResultV2](docs/ComplianceRuleResultV2.md)
+ - [ComplianceRuleResultV2WithContributions](docs/ComplianceRuleResultV2WithContributions.md)
  - [ComplianceRuleTemplate](docs/ComplianceRuleTemplate.md)
  - [ComplianceRuleTemplateEntity](docs/ComplianceRuleTemplateEntity.md)
  - [ComplianceRuleUpsertRequest](docs/ComplianceRuleUpsertRequest.md)
@@ -1087,6 +1095,7 @@ Class | Method | HTTP request | Description
  - [ComplianceStepTypeRequest](docs/ComplianceStepTypeRequest.md)
  - [ComplianceSummaryRuleResult](docs/ComplianceSummaryRuleResult.md)
  - [ComplianceSummaryRuleResultRequest](docs/ComplianceSummaryRuleResultRequest.md)
+ - [ComplianceSummaryRuleResultWithContributions](docs/ComplianceSummaryRuleResultWithContributions.md)
  - [ComplianceTemplate](docs/ComplianceTemplate.md)
  - [ComplianceTemplateParameter](docs/ComplianceTemplateParameter.md)
  - [ComplianceTemplateVariation](docs/ComplianceTemplateVariation.md)
@@ -1143,6 +1152,7 @@ Class | Method | HTTP request | Description
  - [CreateDateRequest](docs/CreateDateRequest.md)
  - [CreateDerivedPropertyDefinitionRequest](docs/CreateDerivedPropertyDefinitionRequest.md)
  - [CreateDerivedTransactionPortfolioRequest](docs/CreateDerivedTransactionPortfolioRequest.md)
+ - [CreateEntityResolverRequest](docs/CreateEntityResolverRequest.md)
  - [CreateGroupReconciliationComparisonRulesetRequest](docs/CreateGroupReconciliationComparisonRulesetRequest.md)
  - [CreateGroupReconciliationDefinitionRequest](docs/CreateGroupReconciliationDefinitionRequest.md)
  - [CreateIdentifierDefinitionRequest](docs/CreateIdentifierDefinitionRequest.md)
@@ -1286,6 +1296,7 @@ Class | Method | HTTP request | Description
  - [EligibilityCalculation](docs/EligibilityCalculation.md)
  - [EmptyModelOptions](docs/EmptyModelOptions.md)
  - [EntityIdentifier](docs/EntityIdentifier.md)
+ - [EntityResolver](docs/EntityResolver.md)
  - [Equity](docs/Equity.md)
  - [EquityAllOfIdentifiers](docs/EquityAllOfIdentifiers.md)
  - [EquityCurveByPricesData](docs/EquityCurveByPricesData.md)
@@ -1490,6 +1501,7 @@ Class | Method | HTTP request | Description
  - [IUnitDefinitionDto](docs/IUnitDefinitionDto.md)
  - [IdSelectorDefinition](docs/IdSelectorDefinition.md)
  - [IdentifierDefinition](docs/IdentifierDefinition.md)
+ - [IdentifierForResolution](docs/IdentifierForResolution.md)
  - [IdentifierPartSchema](docs/IdentifierPartSchema.md)
  - [IndexConvention](docs/IndexConvention.md)
  - [IndexModelOptions](docs/IndexModelOptions.md)
@@ -1958,6 +1970,7 @@ Class | Method | HTTP request | Description
  - [RecDatasetSchemas](docs/RecDatasetSchemas.md)
  - [RecDatePolicy](docs/RecDatePolicy.md)
  - [RecDatesReconciled](docs/RecDatesReconciled.md)
+ - [RecDefByTaxLots](docs/RecDefByTaxLots.md)
  - [RecDefCurrencies](docs/RecDefCurrencies.md)
  - [RecDefRecipeIds](docs/RecDefRecipeIds.md)
  - [RecDefRuleset](docs/RecDefRuleset.md)
@@ -1970,7 +1983,6 @@ Class | Method | HTTP request | Description
  - [RecInstance](docs/RecInstance.md)
  - [RecInstanceId](docs/RecInstanceId.md)
  - [RecInstanceSummary](docs/RecInstanceSummary.md)
- - [RecLinkKey](docs/RecLinkKey.md)
  - [RecLinkedBy](docs/RecLinkedBy.md)
  - [RecLinkedResult](docs/RecLinkedResult.md)
  - [RecMatchCountByResultType](docs/RecMatchCountByResultType.md)
@@ -1985,11 +1997,16 @@ Class | Method | HTTP request | Description
  - [RecResultDecisionGroup](docs/RecResultDecisionGroup.md)
  - [RecResultDecisionUpdate](docs/RecResultDecisionUpdate.md)
  - [RecResultException](docs/RecResultException.md)
+ - [RecResultHoldingImpact](docs/RecResultHoldingImpact.md)
+ - [RecResultHoldingItem](docs/RecResultHoldingItem.md)
  - [RecResultItem](docs/RecResultItem.md)
  - [RecResultItemDetails](docs/RecResultItemDetails.md)
+ - [RecResultLinkKey](docs/RecResultLinkKey.md)
  - [RecResultReview](docs/RecResultReview.md)
  - [RecResultSet](docs/RecResultSet.md)
  - [RecResultSetApprovalDecisionRequest](docs/RecResultSetApprovalDecisionRequest.md)
+ - [RecResultSettlementActivityItem](docs/RecResultSettlementActivityItem.md)
+ - [RecResultTransactionItem](docs/RecResultTransactionItem.md)
  - [RecReview](docs/RecReview.md)
  - [RecReviewConfiguration](docs/RecReviewConfiguration.md)
  - [RecReviewRequiredApproval](docs/RecReviewRequiredApproval.md)
@@ -2428,6 +2445,7 @@ Class | Method | HTTP request | Description
  - [UpsertCustomEntityAccessMetadataRequest](docs/UpsertCustomEntityAccessMetadataRequest.md)
  - [UpsertDataQualityRule](docs/UpsertDataQualityRule.md)
  - [UpsertDialectRequest](docs/UpsertDialectRequest.md)
+ - [UpsertEntityResolverRequest](docs/UpsertEntityResolverRequest.md)
  - [UpsertFlowConventionsRequest](docs/UpsertFlowConventionsRequest.md)
  - [UpsertFundBookmarkRequest](docs/UpsertFundBookmarkRequest.md)
  - [UpsertIndexConventionRequest](docs/UpsertIndexConventionRequest.md)
