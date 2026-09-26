@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="quantity">The quantity of given instrument ordered..</param>
         /// <param name="amount">amount.</param>
         /// <param name="properties">Client-defined properties associated with this placement..</param>
-        /// <param name="type">Optionally changes the type of this placement (Market, Limit, Stop, StopLimit, etc). A type change is permitted only when the associated block is of type &#39;Market&#39;, and leaves the placement&#39;s prices as they are..</param>
+        /// <param name="type">Optionally changes the type of this placement (Market, Limit, Stop, StopLimit, etc). A type change is permitted only when the associated block is of type &#39;Market&#39;. Setting the type to &#39;Market&#39; clears the placement&#39;s stop and limit prices; any other type change leaves them as they are..</param>
         /// <param name="limitPrice">Optionally updates the limit price of this placement, in the placement&#39;s limit price currency unless a currency is also specified. A price on a placement with no limit price currency is stored but not returned until a currency is supplied..</param>
         /// <param name="stopPrice">Optionally updates the stop price of this placement, in the placement&#39;s stop price currency unless a currency is also specified. A price on a placement with no stop price currency is stored but not returned until a currency is supplied..</param>
         /// <param name="counterparty">Optionally specifies the market entity this placement is placed with..</param>
@@ -94,9 +94,9 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, PerpetualProperty> Properties { get; set; }
 
         /// <summary>
-        /// Optionally changes the type of this placement (Market, Limit, Stop, StopLimit, etc). A type change is permitted only when the associated block is of type &#39;Market&#39;, and leaves the placement&#39;s prices as they are.
+        /// Optionally changes the type of this placement (Market, Limit, Stop, StopLimit, etc). A type change is permitted only when the associated block is of type &#39;Market&#39;. Setting the type to &#39;Market&#39; clears the placement&#39;s stop and limit prices; any other type change leaves them as they are.
         /// </summary>
-        /// <value>Optionally changes the type of this placement (Market, Limit, Stop, StopLimit, etc). A type change is permitted only when the associated block is of type &#39;Market&#39;, and leaves the placement&#39;s prices as they are.</value>
+        /// <value>Optionally changes the type of this placement (Market, Limit, Stop, StopLimit, etc). A type change is permitted only when the associated block is of type &#39;Market&#39;. Setting the type to &#39;Market&#39; clears the placement&#39;s stop and limit prices; any other type change leaves them as they are.</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 

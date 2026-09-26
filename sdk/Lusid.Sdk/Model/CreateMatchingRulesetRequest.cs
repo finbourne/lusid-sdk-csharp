@@ -47,7 +47,8 @@ namespace Lusid.Sdk.Model
         /// <param name="aggregateTolerances">Tolerance configurations applied to aggregate rule matching..</param>
         /// <param name="allowPartialMatching">Whether to permit partial matches when applying rules..</param>
         /// <param name="supplementalAttributes">Supplemental attributes that decorate reconciliation results with additional values without participating in the reconciliation itself..</param>
-        public CreateMatchingRulesetRequest(ResourceId id = default(ResourceId), string displayName = default(string), string recType = default(string), RecDatasetSchemas datasetSchemas = default(RecDatasetSchemas), GroupReconciliationFilters filters = default(GroupReconciliationFilters), List<CoreMatchingRule> coreRules = default(List<CoreMatchingRule>), List<AggregateMatchingRule> aggregateRules = default(List<AggregateMatchingRule>), List<ToleranceBase> coreTolerances = default(List<ToleranceBase>), List<ToleranceBase> aggregateTolerances = default(List<ToleranceBase>), bool allowPartialMatching = default(bool), List<SupplementalAttribute> supplementalAttributes = default(List<SupplementalAttribute>))
+        /// <param name="writebackConfigurations">The writeback suggestions generated against this ruleset&#39;s results. Suggestions are made at item level on target-side items only, and are suggestions only: a user is expected to review them before acting. Optional, and may be empty..</param>
+        public CreateMatchingRulesetRequest(ResourceId id = default(ResourceId), string displayName = default(string), string recType = default(string), RecDatasetSchemas datasetSchemas = default(RecDatasetSchemas), GroupReconciliationFilters filters = default(GroupReconciliationFilters), List<CoreMatchingRule> coreRules = default(List<CoreMatchingRule>), List<AggregateMatchingRule> aggregateRules = default(List<AggregateMatchingRule>), List<ToleranceBase> coreTolerances = default(List<ToleranceBase>), List<ToleranceBase> aggregateTolerances = default(List<ToleranceBase>), bool allowPartialMatching = default(bool), List<SupplementalAttribute> supplementalAttributes = default(List<SupplementalAttribute>), List<WritebackConfiguration> writebackConfigurations = default(List<WritebackConfiguration>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -85,6 +86,7 @@ namespace Lusid.Sdk.Model
             this.AggregateTolerances = aggregateTolerances;
             this.AllowPartialMatching = allowPartialMatching;
             this.SupplementalAttributes = supplementalAttributes;
+            this.WritebackConfigurations = writebackConfigurations;
         }
 
         /// <summary>
@@ -162,6 +164,13 @@ namespace Lusid.Sdk.Model
         public List<SupplementalAttribute> SupplementalAttributes { get; set; }
 
         /// <summary>
+        /// The writeback suggestions generated against this ruleset&#39;s results. Suggestions are made at item level on target-side items only, and are suggestions only: a user is expected to review them before acting. Optional, and may be empty.
+        /// </summary>
+        /// <value>The writeback suggestions generated against this ruleset&#39;s results. Suggestions are made at item level on target-side items only, and are suggestions only: a user is expected to review them before acting. Optional, and may be empty.</value>
+        [DataMember(Name = "writebackConfigurations", EmitDefaultValue = true)]
+        public List<WritebackConfiguration> WritebackConfigurations { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -180,6 +189,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AggregateTolerances: ").Append(AggregateTolerances).Append("\n");
             sb.Append("  AllowPartialMatching: ").Append(AllowPartialMatching).Append("\n");
             sb.Append("  SupplementalAttributes: ").Append(SupplementalAttributes).Append("\n");
+            sb.Append("  WritebackConfigurations: ").Append(WritebackConfigurations).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -273,6 +283,12 @@ namespace Lusid.Sdk.Model
                     this.SupplementalAttributes != null &&
                     input.SupplementalAttributes != null &&
                     this.SupplementalAttributes.SequenceEqual(input.SupplementalAttributes)
+                ) && 
+                (
+                    this.WritebackConfigurations == input.WritebackConfigurations ||
+                    this.WritebackConfigurations != null &&
+                    input.WritebackConfigurations != null &&
+                    this.WritebackConfigurations.SequenceEqual(input.WritebackConfigurations)
                 );
         }
 
@@ -325,6 +341,10 @@ namespace Lusid.Sdk.Model
                 if (this.SupplementalAttributes != null)
                 {
                     hashCode = (hashCode * 59) + this.SupplementalAttributes.GetHashCode();
+                }
+                if (this.WritebackConfigurations != null)
+                {
+                    hashCode = (hashCode * 59) + this.WritebackConfigurations.GetHashCode();
                 }
                 return hashCode;
             }

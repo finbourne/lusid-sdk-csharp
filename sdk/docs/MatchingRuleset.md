@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **AggregateTolerances** | [**List&lt;ToleranceBase&gt;**](ToleranceBase.md) | Tolerance configurations applied to aggregate rule matching. | [optional] 
 **AllowPartialMatching** | **bool** | Whether to permit partial matches when applying rules. | [optional] 
 **SupplementalAttributes** | [**List&lt;SupplementalAttribute&gt;**](SupplementalAttribute.md) | Supplemental attributes that decorate reconciliation results with additional values without participating in the reconciliation itself. | [optional] 
+**WritebackConfigurations** | [**List&lt;WritebackConfiguration&gt;**](WritebackConfiguration.md) | The writeback suggestions generated against this ruleset&#39;s results. Suggestions are made at item level on target-side items only, and are suggestions only: a user is expected to review them before acting. Optional, and may be empty. | [optional] 
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
@@ -35,6 +36,7 @@ List<ToleranceBase> coreTolerances = new List<ToleranceBase>();
 List<ToleranceBase> aggregateTolerances = new List<ToleranceBase>();
 bool allowPartialMatching = //"True";
 List<SupplementalAttribute> supplementalAttributes = new List<SupplementalAttribute>();
+List<WritebackConfiguration> writebackConfigurations = new List<WritebackConfiguration>();
 string href = "example href";
 ModelVersion? varVersion = new ModelVersion();
 
@@ -52,6 +54,7 @@ MatchingRuleset matchingRulesetInstance = new MatchingRuleset(
     aggregateTolerances: aggregateTolerances,
     allowPartialMatching: allowPartialMatching,
     supplementalAttributes: supplementalAttributes,
+    writebackConfigurations: writebackConfigurations,
     href: href,
     varVersion: varVersion,
     links: links);

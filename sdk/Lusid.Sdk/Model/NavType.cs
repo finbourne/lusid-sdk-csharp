@@ -54,7 +54,8 @@ namespace Lusid.Sdk.Model
         /// <param name="amortisationRuleSetId">amortisationRuleSetId.</param>
         /// <param name="leaderNavTypeCode">The code of the Nav Type that this Nav Type will follow when set..</param>
         /// <param name="transactionTemplateScope">The Transaction Template Scope used by the NavType. (required).</param>
-        public NavType(string status = default(string), string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), NavSettlementConfiguration settlementConfiguration = default(NavSettlementConfiguration), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), ResourceId amortisationRuleSetId = default(ResourceId), string leaderNavTypeCode = default(string), string transactionTemplateScope = default(string))
+        /// <param name="transactionExclusionFilter">Optional filter expression to exclude specific transactions from this NavType&#39;s derived portfolios. The filter can reference Transaction, Portfolio, or Instrument fields and properties..</param>
+        public NavType(string status = default(string), string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), NavSettlementConfiguration settlementConfiguration = default(NavSettlementConfiguration), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), ResourceId amortisationRuleSetId = default(ResourceId), string leaderNavTypeCode = default(string), string transactionTemplateScope = default(string), string transactionExclusionFilter = default(string))
         {
             // to ensure "status" is required (not null)
             if (status == null)
@@ -124,6 +125,7 @@ namespace Lusid.Sdk.Model
             this.SubHoldingKeys = subHoldingKeys;
             this.AmortisationRuleSetId = amortisationRuleSetId;
             this.LeaderNavTypeCode = leaderNavTypeCode;
+            this.TransactionExclusionFilter = transactionExclusionFilter;
         }
 
         /// <summary>
@@ -248,6 +250,13 @@ namespace Lusid.Sdk.Model
         public string TransactionTemplateScope { get; set; }
 
         /// <summary>
+        /// Optional filter expression to exclude specific transactions from this NavType&#39;s derived portfolios. The filter can reference Transaction, Portfolio, or Instrument fields and properties.
+        /// </summary>
+        /// <value>Optional filter expression to exclude specific transactions from this NavType&#39;s derived portfolios. The filter can reference Transaction, Portfolio, or Instrument fields and properties.</value>
+        [DataMember(Name = "transactionExclusionFilter", EmitDefaultValue = true)]
+        public string TransactionExclusionFilter { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -273,6 +282,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AmortisationRuleSetId: ").Append(AmortisationRuleSetId).Append("\n");
             sb.Append("  LeaderNavTypeCode: ").Append(LeaderNavTypeCode).Append("\n");
             sb.Append("  TransactionTemplateScope: ").Append(TransactionTemplateScope).Append("\n");
+            sb.Append("  TransactionExclusionFilter: ").Append(TransactionExclusionFilter).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -400,6 +410,11 @@ namespace Lusid.Sdk.Model
                     this.TransactionTemplateScope == input.TransactionTemplateScope ||
                     (this.TransactionTemplateScope != null &&
                     this.TransactionTemplateScope.Equals(input.TransactionTemplateScope))
+                ) && 
+                (
+                    this.TransactionExclusionFilter == input.TransactionExclusionFilter ||
+                    (this.TransactionExclusionFilter != null &&
+                    this.TransactionExclusionFilter.Equals(input.TransactionExclusionFilter))
                 );
         }
 
@@ -483,6 +498,10 @@ namespace Lusid.Sdk.Model
                 if (this.TransactionTemplateScope != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionTemplateScope.GetHashCode();
+                }
+                if (this.TransactionExclusionFilter != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionExclusionFilter.GetHashCode();
                 }
                 return hashCode;
             }
@@ -624,6 +643,25 @@ namespace Lusid.Sdk.Model
             if (false == regexTransactionTemplateScope.Match(this.TransactionTemplateScope).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionTemplateScope, must match a pattern of " + regexTransactionTemplateScope, new [] { "TransactionTemplateScope" });
+            }
+
+            // TransactionExclusionFilter (string) maxLength
+            if (this.TransactionExclusionFilter != null && this.TransactionExclusionFilter.Length > 16384)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionExclusionFilter, length must be less than 16384.", new [] { "TransactionExclusionFilter" });
+            }
+
+            // TransactionExclusionFilter (string) minLength
+            if (this.TransactionExclusionFilter != null && this.TransactionExclusionFilter.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionExclusionFilter, length must be greater than 0.", new [] { "TransactionExclusionFilter" });
+            }
+
+            // TransactionExclusionFilter (string) pattern
+            Regex regexTransactionExclusionFilter = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexTransactionExclusionFilter.Match(this.TransactionExclusionFilter).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionExclusionFilter, must match a pattern of " + regexTransactionExclusionFilter, new [] { "TransactionExclusionFilter" });
             }
 
             yield break;

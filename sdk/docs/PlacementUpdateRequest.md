@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Quantity** | **decimal?** | The quantity of given instrument ordered. | [optional] 
 **Amount** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Client-defined properties associated with this placement. | [optional] 
-**Type** | **string** | Optionally changes the type of this placement (Market, Limit, Stop, StopLimit, etc). A type change is permitted only when the associated block is of type &#39;Market&#39;, and leaves the placement&#39;s prices as they are. | [optional] 
+**Type** | **string** | Optionally changes the type of this placement (Market, Limit, Stop, StopLimit, etc). A type change is permitted only when the associated block is of type &#39;Market&#39;. Setting the type to &#39;Market&#39; clears the placement&#39;s stop and limit prices; any other type change leaves them as they are. | [optional] 
 **LimitPrice** | **decimal?** | Optionally updates the limit price of this placement, in the placement&#39;s limit price currency unless a currency is also specified. A price on a placement with no limit price currency is stored but not returned until a currency is supplied. | [optional] 
 **StopPrice** | **decimal?** | Optionally updates the stop price of this placement, in the placement&#39;s stop price currency unless a currency is also specified. A price on a placement with no stop price currency is stored but not returned until a currency is supplied. | [optional] 
 **Counterparty** | **string** | Optionally specifies the market entity this placement is placed with. | [optional] 

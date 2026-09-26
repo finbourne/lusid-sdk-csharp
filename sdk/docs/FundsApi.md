@@ -3361,7 +3361,7 @@ catch (ApiException e)
 
 <a id="getvaluationpointtransactions"></a>
 # **GetValuationPointTransactions**
-> ValuationPointResourceListOfAccountedTransaction GetValuationPointTransactions (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null, string? dataModelScope = null, string? dataModelCode = null, bool? showCancelledTransactions = null, string? membershipType = null)
+> ValuationPointResourceListOfAccountedTransaction GetValuationPointTransactions (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null, string? dataModelScope = null, string? dataModelCode = null, bool? showCancelledTransactions = null, string? membershipType = null, bool? returnExcludedTransactions = null)
 
 [EARLY ACCESS] GetValuationPointTransactions: Get the Transactions for the given Fund.
 
@@ -3419,14 +3419,15 @@ namespace Examples
             var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
             var showCancelledTransactions = true;  // bool? | Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. (optional) 
             var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional) 
+            var returnExcludedTransactions = true;  // bool? | Option to specify whether or not to include transactions excluded by the              NavType's TransactionExclusionFilter. Defaults to False if not specified. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ValuationPointResourceListOfAccountedTransaction result = apiInstance.GetValuationPointTransactions(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, dataModelScope, dataModelCode, showCancelledTransactions, membershipType, opts: opts);
+                // ValuationPointResourceListOfAccountedTransaction result = apiInstance.GetValuationPointTransactions(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, dataModelScope, dataModelCode, showCancelledTransactions, membershipType, returnExcludedTransactions, opts: opts);
 
                 // [EARLY ACCESS] GetValuationPointTransactions: Get the Transactions for the given Fund.
-                ValuationPointResourceListOfAccountedTransaction result = apiInstance.GetValuationPointTransactions(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, dataModelScope, dataModelCode, showCancelledTransactions, membershipType);
+                ValuationPointResourceListOfAccountedTransaction result = apiInstance.GetValuationPointTransactions(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, dataModelScope, dataModelCode, showCancelledTransactions, membershipType, returnExcludedTransactions);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -3447,7 +3448,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] GetValuationPointTransactions: Get the Transactions for the given Fund.
-    ApiResponse<ValuationPointResourceListOfAccountedTransaction> response = apiInstance.GetValuationPointTransactionsWithHttpInfo(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, dataModelScope, dataModelCode, showCancelledTransactions, membershipType);
+    ApiResponse<ValuationPointResourceListOfAccountedTransaction> response = apiInstance.GetValuationPointTransactionsWithHttpInfo(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, dataModelScope, dataModelCode, showCancelledTransactions, membershipType, returnExcludedTransactions);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -3477,6 +3478,7 @@ catch (ApiException e)
 | **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
 | **showCancelledTransactions** | **bool?** | Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. | [optional]  |
 | **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. | [optional]  |
+| **returnExcludedTransactions** | **bool?** | Option to specify whether or not to include transactions excluded by the              NavType&#39;s TransactionExclusionFilter. Defaults to False if not specified. | [optional]  |
 
 ### Return type
 

@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **AmortisationRuleSetId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **LeaderNavTypeCode** | **string** | The code of the Nav Type that this Nav Type will follow when set. | [optional] 
 **TransactionTemplateScope** | **string** | The Transaction Template Scope used by the NavType. | 
+**TransactionExclusionFilter** | **string** | Optional filter expression to exclude specific transactions from this NavType&#39;s derived portfolios. The filter can reference Transaction, Portfolio, or Instrument fields and properties. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -44,6 +45,7 @@ ResourceId? amortisationRuleSetId = new ResourceId();
 
 string leaderNavTypeCode = "example leaderNavTypeCode";
 string transactionTemplateScope = "transactionTemplateScope";
+string transactionExclusionFilter = "example transactionExclusionFilter";
 
 NavTypeDefinition navTypeDefinitionInstance = new NavTypeDefinition(
     code: code,
@@ -62,7 +64,8 @@ NavTypeDefinition navTypeDefinitionInstance = new NavTypeDefinition(
     cashGainLossCalculationDate: cashGainLossCalculationDate,
     amortisationRuleSetId: amortisationRuleSetId,
     leaderNavTypeCode: leaderNavTypeCode,
-    transactionTemplateScope: transactionTemplateScope);
+    transactionTemplateScope: transactionTemplateScope,
+    transactionExclusionFilter: transactionExclusionFilter);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -47,10 +47,11 @@ namespace Lusid.Sdk.Model
         /// <param name="aggregateTolerances">Tolerance configurations applied to aggregate rule matching..</param>
         /// <param name="allowPartialMatching">Whether to permit partial matches when applying rules..</param>
         /// <param name="supplementalAttributes">Supplemental attributes that decorate reconciliation results with additional values without participating in the reconciliation itself..</param>
+        /// <param name="writebackConfigurations">The writeback suggestions generated against this ruleset&#39;s results. Suggestions are made at item level on target-side items only, and are suggestions only: a user is expected to review them before acting. Optional, and may be empty..</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public MatchingRuleset(ResourceId id = default(ResourceId), string displayName = default(string), string recType = default(string), RecDatasetSchemas datasetSchemas = default(RecDatasetSchemas), GroupReconciliationFilters filters = default(GroupReconciliationFilters), List<CoreMatchingRule> coreRules = default(List<CoreMatchingRule>), List<AggregateMatchingRule> aggregateRules = default(List<AggregateMatchingRule>), List<ToleranceBase> coreTolerances = default(List<ToleranceBase>), List<ToleranceBase> aggregateTolerances = default(List<ToleranceBase>), bool allowPartialMatching = default(bool), List<SupplementalAttribute> supplementalAttributes = default(List<SupplementalAttribute>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public MatchingRuleset(ResourceId id = default(ResourceId), string displayName = default(string), string recType = default(string), RecDatasetSchemas datasetSchemas = default(RecDatasetSchemas), GroupReconciliationFilters filters = default(GroupReconciliationFilters), List<CoreMatchingRule> coreRules = default(List<CoreMatchingRule>), List<AggregateMatchingRule> aggregateRules = default(List<AggregateMatchingRule>), List<ToleranceBase> coreTolerances = default(List<ToleranceBase>), List<ToleranceBase> aggregateTolerances = default(List<ToleranceBase>), bool allowPartialMatching = default(bool), List<SupplementalAttribute> supplementalAttributes = default(List<SupplementalAttribute>), List<WritebackConfiguration> writebackConfigurations = default(List<WritebackConfiguration>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -93,6 +94,7 @@ namespace Lusid.Sdk.Model
             this.AggregateTolerances = aggregateTolerances;
             this.AllowPartialMatching = allowPartialMatching;
             this.SupplementalAttributes = supplementalAttributes;
+            this.WritebackConfigurations = writebackConfigurations;
             this.Href = href;
             this.VarVersion = varVersion;
             this.Links = links;
@@ -173,6 +175,13 @@ namespace Lusid.Sdk.Model
         public List<SupplementalAttribute> SupplementalAttributes { get; set; }
 
         /// <summary>
+        /// The writeback suggestions generated against this ruleset&#39;s results. Suggestions are made at item level on target-side items only, and are suggestions only: a user is expected to review them before acting. Optional, and may be empty.
+        /// </summary>
+        /// <value>The writeback suggestions generated against this ruleset&#39;s results. Suggestions are made at item level on target-side items only, and are suggestions only: a user is expected to review them before acting. Optional, and may be empty.</value>
+        [DataMember(Name = "writebackConfigurations", EmitDefaultValue = true)]
+        public List<WritebackConfiguration> WritebackConfigurations { get; set; }
+
+        /// <summary>
         /// The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
         /// </summary>
         /// <value>The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.</value>
@@ -210,6 +219,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AggregateTolerances: ").Append(AggregateTolerances).Append("\n");
             sb.Append("  AllowPartialMatching: ").Append(AllowPartialMatching).Append("\n");
             sb.Append("  SupplementalAttributes: ").Append(SupplementalAttributes).Append("\n");
+            sb.Append("  WritebackConfigurations: ").Append(WritebackConfigurations).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -308,6 +318,12 @@ namespace Lusid.Sdk.Model
                     this.SupplementalAttributes.SequenceEqual(input.SupplementalAttributes)
                 ) && 
                 (
+                    this.WritebackConfigurations == input.WritebackConfigurations ||
+                    this.WritebackConfigurations != null &&
+                    input.WritebackConfigurations != null &&
+                    this.WritebackConfigurations.SequenceEqual(input.WritebackConfigurations)
+                ) && 
+                (
                     this.Href == input.Href ||
                     (this.Href != null &&
                     this.Href.Equals(input.Href))
@@ -374,6 +390,10 @@ namespace Lusid.Sdk.Model
                 if (this.SupplementalAttributes != null)
                 {
                     hashCode = (hashCode * 59) + this.SupplementalAttributes.GetHashCode();
+                }
+                if (this.WritebackConfigurations != null)
+                {
+                    hashCode = (hashCode * 59) + this.WritebackConfigurations.GetHashCode();
                 }
                 if (this.Href != null)
                 {

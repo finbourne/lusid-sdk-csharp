@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **StartDate** | **DateTimeOffset** | The start date of the instrument. This is normally synonymous with the trade-date. | 
 **MaturityDate** | **DateTimeOffset** | The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. | 
 **DomCcy** | **string** | The domestic currency of the instrument. | 
+**ParentFacility** | **string** | The parent loan facility of this loan if this loan is a contract on a facility.  This resolves to the facility&#39;s LusidInstrumentId, falling back to its ClientInternal identifier,  and is null when the loan is not a contract on a facility. | [optional] [readonly] 
 **ParentFacilityDetails** | **Dictionary&lt;string, string&gt;** | The details of the parent loan facility of this loan if this loan is a contract on a facility. | [optional] [readonly] 
 **Schedules** | [**List&lt;Schedule&gt;**](Schedule.md) | Repayment schedules for the loan. | 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
@@ -18,6 +19,7 @@ using Lusid.Sdk.Model;
 using System;
 
 string domCcy = "domCcy";
+string parentFacility = "example parentFacility";
 Dictionary<string, string> parentFacilityDetails = new Dictionary<string, string>();
 List<Schedule> schedules = new List<Schedule>();
 TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
@@ -27,6 +29,7 @@ FlexibleLoan flexibleLoanInstance = new FlexibleLoan(
     startDate: startDate,
     maturityDate: maturityDate,
     domCcy: domCcy,
+    parentFacility: parentFacility,
     parentFacilityDetails: parentFacilityDetails,
     schedules: schedules,
     timeZoneConventions: timeZoneConventions);
