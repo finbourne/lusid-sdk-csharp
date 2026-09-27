@@ -40,12 +40,11 @@ namespace Lusid.Sdk.Model
         /// <param name="name">The display name of the Fund Structure. (required).</param>
         /// <param name="description">An optional description for the Fund Structure..</param>
         /// <param name="existingFunds">An optional list of existing funds to be incorporated as part of the structure..</param>
-        /// <param name="newFunds">An optional list of Fund definitions to be created inline as part of the structure..</param>
         /// <param name="allocationGroups">An optional list of Allocation Groups that can apply across a Fund Structure. Only classes and feeder funds linked to the master fund specified are allowed..</param>
         /// <param name="nodes">The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role. (required).</param>
         /// <param name="edges">The list of edges that define the relationships between feeder and master nodes in the structure. (required).</param>
         /// <param name="properties">A set of properties to decorate onto the Fund Structure..</param>
-        public FundStructureRequest(string code = default(string), string name = default(string), string description = default(string), List<ResourceId> existingFunds = default(List<ResourceId>), List<FundDefinitionRequest> newFunds = default(List<FundDefinitionRequest>), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<FundStructureNode> nodes = default(List<FundStructureNode>), List<FundStructureEdge> edges = default(List<FundStructureEdge>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        public FundStructureRequest(string code = default(string), string name = default(string), string description = default(string), List<ResourceId> existingFunds = default(List<ResourceId>), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<FundStructureNode> nodes = default(List<FundStructureNode>), List<FundStructureEdge> edges = default(List<FundStructureEdge>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -73,7 +72,6 @@ namespace Lusid.Sdk.Model
             this.Edges = edges;
             this.Description = description;
             this.ExistingFunds = existingFunds;
-            this.NewFunds = newFunds;
             this.AllocationGroups = allocationGroups;
             this.Properties = properties;
         }
@@ -105,13 +103,6 @@ namespace Lusid.Sdk.Model
         /// <value>An optional list of existing funds to be incorporated as part of the structure.</value>
         [DataMember(Name = "existingFunds", EmitDefaultValue = true)]
         public List<ResourceId> ExistingFunds { get; set; }
-
-        /// <summary>
-        /// An optional list of Fund definitions to be created inline as part of the structure.
-        /// </summary>
-        /// <value>An optional list of Fund definitions to be created inline as part of the structure.</value>
-        [DataMember(Name = "newFunds", EmitDefaultValue = true)]
-        public List<FundDefinitionRequest> NewFunds { get; set; }
 
         /// <summary>
         /// An optional list of Allocation Groups that can apply across a Fund Structure. Only classes and feeder funds linked to the master fund specified are allowed.
@@ -153,7 +144,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  ExistingFunds: ").Append(ExistingFunds).Append("\n");
-            sb.Append("  NewFunds: ").Append(NewFunds).Append("\n");
             sb.Append("  AllocationGroups: ").Append(AllocationGroups).Append("\n");
             sb.Append("  Nodes: ").Append(Nodes).Append("\n");
             sb.Append("  Edges: ").Append(Edges).Append("\n");
@@ -215,12 +205,6 @@ namespace Lusid.Sdk.Model
                     this.ExistingFunds.SequenceEqual(input.ExistingFunds)
                 ) && 
                 (
-                    this.NewFunds == input.NewFunds ||
-                    this.NewFunds != null &&
-                    input.NewFunds != null &&
-                    this.NewFunds.SequenceEqual(input.NewFunds)
-                ) && 
-                (
                     this.AllocationGroups == input.AllocationGroups ||
                     this.AllocationGroups != null &&
                     input.AllocationGroups != null &&
@@ -270,10 +254,6 @@ namespace Lusid.Sdk.Model
                 if (this.ExistingFunds != null)
                 {
                     hashCode = (hashCode * 59) + this.ExistingFunds.GetHashCode();
-                }
-                if (this.NewFunds != null)
-                {
-                    hashCode = (hashCode * 59) + this.NewFunds.GetHashCode();
                 }
                 if (this.AllocationGroups != null)
                 {
