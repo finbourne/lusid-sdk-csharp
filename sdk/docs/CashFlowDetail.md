@@ -20,7 +20,9 @@ Name | Type | Description | Notes
 **HaircutFraction** | **decimal?** | The fraction of the gross amount removed by the haircut, in the range [0, 1]. Zero for outflows and for cashflows no rule matched. Only populated when haircut rules were supplied on the request. | [optional] 
 **NetAmount** | **decimal?** | The signed amount of the cashflow net of the haircut. Only populated when haircut rules were supplied on the request. | [optional] 
 **HaircutRuleApplied** | **string** | The identifier of the haircut rule that was applied to the cashflow, or not present when no rule matched or no haircut rules were supplied on the request. | [optional] 
-**Error** | **string** | Only present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. When set, the amount is null rather than zero. | [optional] 
+**Error** | **string** | Present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. In that case the amount is null rather than zero. Error may also be set when only the portfolio-currency FX lookup failed (see AmountInPortfolioCcy), in which case the base Amount remains populated and only AmountInPortfolioCcy and TradeToPortfolioRate are null. | [optional] 
+**AmountInPortfolioCcy** | **decimal?** | The signed amount of the cashflow (see Amount), converted into the portfolio&#39;s base currency. Not present when the FX rate used to convert into the portfolio currency could not be resolved; see Error. | [optional] 
+**TradeToPortfolioRate** | **decimal?** | The FX rate used to convert the cashflow amount into the portfolio&#39;s base currency, resolved at the cashflow&#39;s transaction (trade) date, not its payment date. Not present when the rate could not be resolved; see Error. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -57,6 +59,8 @@ CashFlowDetail cashFlowDetailInstance = new CashFlowDetail(
     netAmount: netAmount,
     haircutRuleApplied: haircutRuleApplied,
     error: error,
+    amountInPortfolioCcy: amountInPortfolioCcy,
+    tradeToPortfolioRate: tradeToPortfolioRate,
     links: links);
 ```
 

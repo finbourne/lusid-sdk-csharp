@@ -51,9 +51,11 @@ namespace Lusid.Sdk.Model
         /// <param name="haircutFraction">The fraction of the gross amount removed by the haircut, in the range [0, 1]. Zero for outflows and for cashflows no rule matched. Only populated when haircut rules were supplied on the request..</param>
         /// <param name="netAmount">The signed amount of the cashflow net of the haircut. Only populated when haircut rules were supplied on the request..</param>
         /// <param name="haircutRuleApplied">The identifier of the haircut rule that was applied to the cashflow, or not present when no rule matched or no haircut rules were supplied on the request..</param>
-        /// <param name="error">Only present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. When set, the amount is null rather than zero..</param>
+        /// <param name="error">Present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. In that case the amount is null rather than zero. Error may also be set when only the portfolio-currency FX lookup failed (see AmountInPortfolioCcy), in which case the base Amount remains populated and only AmountInPortfolioCcy and TradeToPortfolioRate are null..</param>
+        /// <param name="amountInPortfolioCcy">The signed amount of the cashflow (see Amount), converted into the portfolio&#39;s base currency. Not present when the FX rate used to convert into the portfolio currency could not be resolved; see Error..</param>
+        /// <param name="tradeToPortfolioRate">The FX rate used to convert the cashflow amount into the portfolio&#39;s base currency, resolved at the cashflow&#39;s transaction (trade) date, not its payment date. Not present when the rate could not be resolved; see Error..</param>
         /// <param name="links">links.</param>
-        public CashFlowDetail(DateTimeOffset paymentDate = default(DateTimeOffset), decimal? amount = default(decimal?), string currency = default(string), string sourceType = default(string), string instrumentId = default(string), string instrumentDisplayName = default(string), string transactionId = default(string), ResourceId portfolioId = default(ResourceId), string flowType = default(string), string movementName = default(string), string payReceive = default(string), decimal? grossAmount = default(decimal?), decimal? haircutFraction = default(decimal?), decimal? netAmount = default(decimal?), string haircutRuleApplied = default(string), string error = default(string), List<Link> links = default(List<Link>))
+        public CashFlowDetail(DateTimeOffset paymentDate = default(DateTimeOffset), decimal? amount = default(decimal?), string currency = default(string), string sourceType = default(string), string instrumentId = default(string), string instrumentDisplayName = default(string), string transactionId = default(string), ResourceId portfolioId = default(ResourceId), string flowType = default(string), string movementName = default(string), string payReceive = default(string), decimal? grossAmount = default(decimal?), decimal? haircutFraction = default(decimal?), decimal? netAmount = default(decimal?), string haircutRuleApplied = default(string), string error = default(string), decimal? amountInPortfolioCcy = default(decimal?), decimal? tradeToPortfolioRate = default(decimal?), List<Link> links = default(List<Link>))
         {
             this.PaymentDate = paymentDate;
             // to ensure "currency" is required (not null)
@@ -91,6 +93,8 @@ namespace Lusid.Sdk.Model
             this.NetAmount = netAmount;
             this.HaircutRuleApplied = haircutRuleApplied;
             this.Error = error;
+            this.AmountInPortfolioCcy = amountInPortfolioCcy;
+            this.TradeToPortfolioRate = tradeToPortfolioRate;
             this.Links = links;
         }
 
@@ -199,11 +203,25 @@ namespace Lusid.Sdk.Model
         public string HaircutRuleApplied { get; set; }
 
         /// <summary>
-        /// Only present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. When set, the amount is null rather than zero.
+        /// Present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. In that case the amount is null rather than zero. Error may also be set when only the portfolio-currency FX lookup failed (see AmountInPortfolioCcy), in which case the base Amount remains populated and only AmountInPortfolioCcy and TradeToPortfolioRate are null.
         /// </summary>
-        /// <value>Only present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. When set, the amount is null rather than zero.</value>
+        /// <value>Present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. In that case the amount is null rather than zero. Error may also be set when only the portfolio-currency FX lookup failed (see AmountInPortfolioCcy), in which case the base Amount remains populated and only AmountInPortfolioCcy and TradeToPortfolioRate are null.</value>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
+
+        /// <summary>
+        /// The signed amount of the cashflow (see Amount), converted into the portfolio&#39;s base currency. Not present when the FX rate used to convert into the portfolio currency could not be resolved; see Error.
+        /// </summary>
+        /// <value>The signed amount of the cashflow (see Amount), converted into the portfolio&#39;s base currency. Not present when the FX rate used to convert into the portfolio currency could not be resolved; see Error.</value>
+        [DataMember(Name = "amountInPortfolioCcy", EmitDefaultValue = true)]
+        public decimal? AmountInPortfolioCcy { get; set; }
+
+        /// <summary>
+        /// The FX rate used to convert the cashflow amount into the portfolio&#39;s base currency, resolved at the cashflow&#39;s transaction (trade) date, not its payment date. Not present when the rate could not be resolved; see Error.
+        /// </summary>
+        /// <value>The FX rate used to convert the cashflow amount into the portfolio&#39;s base currency, resolved at the cashflow&#39;s transaction (trade) date, not its payment date. Not present when the rate could not be resolved; see Error.</value>
+        [DataMember(Name = "tradeToPortfolioRate", EmitDefaultValue = true)]
+        public decimal? TradeToPortfolioRate { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -235,6 +253,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  NetAmount: ").Append(NetAmount).Append("\n");
             sb.Append("  HaircutRuleApplied: ").Append(HaircutRuleApplied).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
+            sb.Append("  AmountInPortfolioCcy: ").Append(AmountInPortfolioCcy).Append("\n");
+            sb.Append("  TradeToPortfolioRate: ").Append(TradeToPortfolioRate).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -352,6 +372,16 @@ namespace Lusid.Sdk.Model
                     this.Error.Equals(input.Error))
                 ) && 
                 (
+                    this.AmountInPortfolioCcy == input.AmountInPortfolioCcy ||
+                    (this.AmountInPortfolioCcy != null &&
+                    this.AmountInPortfolioCcy.Equals(input.AmountInPortfolioCcy))
+                ) && 
+                (
+                    this.TradeToPortfolioRate == input.TradeToPortfolioRate ||
+                    (this.TradeToPortfolioRate != null &&
+                    this.TradeToPortfolioRate.Equals(input.TradeToPortfolioRate))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -431,6 +461,14 @@ namespace Lusid.Sdk.Model
                 if (this.Error != null)
                 {
                     hashCode = (hashCode * 59) + this.Error.GetHashCode();
+                }
+                if (this.AmountInPortfolioCcy != null)
+                {
+                    hashCode = (hashCode * 59) + this.AmountInPortfolioCcy.GetHashCode();
+                }
+                if (this.TradeToPortfolioRate != null)
+                {
+                    hashCode = (hashCode * 59) + this.TradeToPortfolioRate.GetHashCode();
                 }
                 if (this.Links != null)
                 {

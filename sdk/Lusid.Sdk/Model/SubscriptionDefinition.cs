@@ -44,7 +44,7 @@ namespace Lusid.Sdk.Model
         /// <param name="timelineId">timelineId.</param>
         /// <param name="addressKeys">The set of addresses the subscriber wishes to receive..</param>
         /// <param name="byTaxLots">byTaxLots.</param>
-        /// <param name="subscriptionType">The kind of data the subscription streams (holdings or transactions), defaulting to holdings.  Address keys and byTaxLots are not valid for a transactions subscription. Available values: Holdings, Transactions..</param>
+        /// <param name="subscriptionType">The kind of data the subscription streams, defaulting to holdings: before/after effects per  holding (holdings), the transactions themselves (transactions), or each changed holding&#39;s  complete current state (positions). Address keys and byTaxLots are not valid for a  transactions subscription. Available values: Holdings, Transactions, Positions..</param>
         /// <param name="startEffectiveAt">startEffectiveAt.</param>
         /// <param name="endEffectiveAt">Deprecated and no longer honoured: a fixed forward date stops being a forward view once  the live edge passes it. Use effectiveForwardDays instead. Still accepted and echoed back  so existing subscriptions keep round-tripping..</param>
         /// <param name="effectiveForwardDays">How far forward the subscription reports, as a number of calendar days past the live  edge — a rolling forward view that advances as time passes..</param>
@@ -129,9 +129,9 @@ namespace Lusid.Sdk.Model
         public bool ByTaxLots { get; set; }
 
         /// <summary>
-        /// The kind of data the subscription streams (holdings or transactions), defaulting to holdings.  Address keys and byTaxLots are not valid for a transactions subscription. Available values: Holdings, Transactions.
+        /// The kind of data the subscription streams, defaulting to holdings: before/after effects per  holding (holdings), the transactions themselves (transactions), or each changed holding&#39;s  complete current state (positions). Address keys and byTaxLots are not valid for a  transactions subscription. Available values: Holdings, Transactions, Positions.
         /// </summary>
-        /// <value>The kind of data the subscription streams (holdings or transactions), defaulting to holdings.  Address keys and byTaxLots are not valid for a transactions subscription. Available values: Holdings, Transactions.</value>
+        /// <value>The kind of data the subscription streams, defaulting to holdings: before/after effects per  holding (holdings), the transactions themselves (transactions), or each changed holding&#39;s  complete current state (positions). Address keys and byTaxLots are not valid for a  transactions subscription. Available values: Holdings, Transactions, Positions.</value>
         [DataMember(Name = "subscriptionType", EmitDefaultValue = true)]
         public string SubscriptionType { get; set; }
 

@@ -47,7 +47,8 @@ namespace Lusid.Sdk.Model
         /// <param name="reportCurrency">Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries. (required).</param>
         /// <param name="excludeUnsettledTrades">If set to true, unsettled trades are excluded from the result set. Set this to match the value used on the bucketed cash flow query being drilled into, so the individual cash flows reconcile with the bucket. Note that the drill-down returns the complete resolved stream including transaction-sourced cashflows; if the bucketed query used the (default) InstrumentCashFlow representation, also exclude rows with a sourceType of &#39;Transaction&#39; when reconciling..</param>
         /// <param name="haircutRules">Optional ordered haircut rules applied to cashflow inflows; the first matching rule wins and a rule with no criteria acts as a catch-all. When supplied, each returned cashflow carries its gross amount, haircut fraction, net amount and the rule that was applied; with no rules those fields are omitted and the results are unchanged..</param>
-        public QueryBucketCashFlowDrillDownRequest(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset bucketStart = default(DateTimeOffset), DateTimeOffset bucketEnd = default(DateTimeOffset), bool startInclusive = default(bool), bool endInclusive = default(bool), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), DateTimeOffset effectiveAt = default(DateTimeOffset), ResourceId recipeId = default(ResourceId), string reportCurrency = default(string), bool excludeUnsettledTrades = default(bool), List<CashFlowHaircutRule> haircutRules = default(List<CashFlowHaircutRule>))
+        /// <param name="cashType">Which date basis buckets cash flows: TradeDate uses each cash flow&#39;s transaction date, SettleDate (default) uses its payment date. The response&#39;s CashFlowDetail.PaymentDate reflects whichever basis was used. Available values: TradeDate, SettleDate..</param>
+        public QueryBucketCashFlowDrillDownRequest(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset bucketStart = default(DateTimeOffset), DateTimeOffset bucketEnd = default(DateTimeOffset), bool startInclusive = default(bool), bool endInclusive = default(bool), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), DateTimeOffset effectiveAt = default(DateTimeOffset), ResourceId recipeId = default(ResourceId), string reportCurrency = default(string), bool excludeUnsettledTrades = default(bool), List<CashFlowHaircutRule> haircutRules = default(List<CashFlowHaircutRule>), string cashType = default(string))
         {
             this.BucketStart = bucketStart;
             this.BucketEnd = bucketEnd;
@@ -75,6 +76,7 @@ namespace Lusid.Sdk.Model
             this.EndInclusive = endInclusive;
             this.ExcludeUnsettledTrades = excludeUnsettledTrades;
             this.HaircutRules = haircutRules;
+            this.CashType = cashType;
         }
 
         /// <summary>
@@ -154,6 +156,13 @@ namespace Lusid.Sdk.Model
         public List<CashFlowHaircutRule> HaircutRules { get; set; }
 
         /// <summary>
+        /// Which date basis buckets cash flows: TradeDate uses each cash flow&#39;s transaction date, SettleDate (default) uses its payment date. The response&#39;s CashFlowDetail.PaymentDate reflects whichever basis was used. Available values: TradeDate, SettleDate.
+        /// </summary>
+        /// <value>Which date basis buckets cash flows: TradeDate uses each cash flow&#39;s transaction date, SettleDate (default) uses its payment date. The response&#39;s CashFlowDetail.PaymentDate reflects whichever basis was used. Available values: TradeDate, SettleDate.</value>
+        [DataMember(Name = "cashType", EmitDefaultValue = true)]
+        public string CashType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -172,6 +181,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ReportCurrency: ").Append(ReportCurrency).Append("\n");
             sb.Append("  ExcludeUnsettledTrades: ").Append(ExcludeUnsettledTrades).Append("\n");
             sb.Append("  HaircutRules: ").Append(HaircutRules).Append("\n");
+            sb.Append("  CashType: ").Append(CashType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -260,6 +270,11 @@ namespace Lusid.Sdk.Model
                     this.HaircutRules != null &&
                     input.HaircutRules != null &&
                     this.HaircutRules.SequenceEqual(input.HaircutRules)
+                ) && 
+                (
+                    this.CashType == input.CashType ||
+                    (this.CashType != null &&
+                    this.CashType.Equals(input.CashType))
                 );
         }
 
@@ -306,6 +321,10 @@ namespace Lusid.Sdk.Model
                 if (this.HaircutRules != null)
                 {
                     hashCode = (hashCode * 59) + this.HaircutRules.GetHashCode();
+                }
+                if (this.CashType != null)
+                {
+                    hashCode = (hashCode * 59) + this.CashType.GetHashCode();
                 }
                 return hashCode;
             }

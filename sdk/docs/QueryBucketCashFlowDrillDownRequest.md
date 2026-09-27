@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **ReportCurrency** | **string** | Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries. | 
 **ExcludeUnsettledTrades** | **bool** | If set to true, unsettled trades are excluded from the result set. Set this to match the value used on the bucketed cash flow query being drilled into, so the individual cash flows reconcile with the bucket. Note that the drill-down returns the complete resolved stream including transaction-sourced cashflows; if the bucketed query used the (default) InstrumentCashFlow representation, also exclude rows with a sourceType of &#39;Transaction&#39; when reconciling. | [optional] 
 **HaircutRules** | [**List&lt;CashFlowHaircutRule&gt;**](CashFlowHaircutRule.md) | Optional ordered haircut rules applied to cashflow inflows; the first matching rule wins and a rule with no criteria acts as a catch-all. When supplied, each returned cashflow carries its gross amount, haircut fraction, net amount and the rule that was applied; with no rules those fields are omitted and the results are unchanged. | [optional] 
+**CashType** | **string** | Which date basis buckets cash flows: TradeDate uses each cash flow&#39;s transaction date, SettleDate (default) uses its payment date. The response&#39;s CashFlowDetail.PaymentDate reflects whichever basis was used. Available values: TradeDate, SettleDate. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -28,6 +29,7 @@ ResourceId recipeId = new ResourceId();
 string reportCurrency = "reportCurrency";
 bool excludeUnsettledTrades = //"True";
 List<CashFlowHaircutRule> haircutRules = new List<CashFlowHaircutRule>();
+string cashType = "example cashType";
 
 QueryBucketCashFlowDrillDownRequest queryBucketCashFlowDrillDownRequestInstance = new QueryBucketCashFlowDrillDownRequest(
     asAt: asAt,
@@ -40,7 +42,8 @@ QueryBucketCashFlowDrillDownRequest queryBucketCashFlowDrillDownRequestInstance 
     recipeId: recipeId,
     reportCurrency: reportCurrency,
     excludeUnsettledTrades: excludeUnsettledTrades,
-    haircutRules: haircutRules);
+    haircutRules: haircutRules,
+    cashType: cashType);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
