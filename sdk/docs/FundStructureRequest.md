@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **AllocationGroups** | [**List&lt;AllocationGroup&gt;**](AllocationGroup.md) | An optional list of Allocation Groups that can apply across a Fund Structure. Only classes and feeder funds linked to the master fund specified are allowed. | [optional] 
 **Nodes** | [**List&lt;FundStructureNode&gt;**](FundStructureNode.md) | The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role. | 
 **Edges** | [**List&lt;FundStructureEdge&gt;**](FundStructureEdge.md) | The list of edges that define the relationships between feeder and master nodes in the structure. | 
+**EffectiveAt** | **DateTimeOffset?** | The effective datetime from which the Fund Structure applies. Defaults to the beginning of time if not specified, so that the structure is visible at every effective datetime. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties to decorate onto the Fund Structure. | [optional] 
 
 ```csharp
@@ -35,6 +36,7 @@ FundStructureRequest fundStructureRequestInstance = new FundStructureRequest(
     allocationGroups: allocationGroups,
     nodes: nodes,
     edges: edges,
+    effectiveAt: effectiveAt,
     properties: properties);
 ```
 

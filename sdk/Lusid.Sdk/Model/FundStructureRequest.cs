@@ -43,8 +43,9 @@ namespace Lusid.Sdk.Model
         /// <param name="allocationGroups">An optional list of Allocation Groups that can apply across a Fund Structure. Only classes and feeder funds linked to the master fund specified are allowed..</param>
         /// <param name="nodes">The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role. (required).</param>
         /// <param name="edges">The list of edges that define the relationships between feeder and master nodes in the structure. (required).</param>
+        /// <param name="effectiveAt">The effective datetime from which the Fund Structure applies. Defaults to the beginning of time if not specified, so that the structure is visible at every effective datetime..</param>
         /// <param name="properties">A set of properties to decorate onto the Fund Structure..</param>
-        public FundStructureRequest(string code = default(string), string name = default(string), string description = default(string), List<ResourceId> existingFunds = default(List<ResourceId>), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<FundStructureNode> nodes = default(List<FundStructureNode>), List<FundStructureEdge> edges = default(List<FundStructureEdge>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        public FundStructureRequest(string code = default(string), string name = default(string), string description = default(string), List<ResourceId> existingFunds = default(List<ResourceId>), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<FundStructureNode> nodes = default(List<FundStructureNode>), List<FundStructureEdge> edges = default(List<FundStructureEdge>), DateTimeOffset? effectiveAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -73,6 +74,7 @@ namespace Lusid.Sdk.Model
             this.Description = description;
             this.ExistingFunds = existingFunds;
             this.AllocationGroups = allocationGroups;
+            this.EffectiveAt = effectiveAt;
             this.Properties = properties;
         }
 
@@ -126,6 +128,13 @@ namespace Lusid.Sdk.Model
         public List<FundStructureEdge> Edges { get; set; }
 
         /// <summary>
+        /// The effective datetime from which the Fund Structure applies. Defaults to the beginning of time if not specified, so that the structure is visible at every effective datetime.
+        /// </summary>
+        /// <value>The effective datetime from which the Fund Structure applies. Defaults to the beginning of time if not specified, so that the structure is visible at every effective datetime.</value>
+        [DataMember(Name = "effectiveAt", EmitDefaultValue = true)]
+        public DateTimeOffset? EffectiveAt { get; set; }
+
+        /// <summary>
         /// A set of properties to decorate onto the Fund Structure.
         /// </summary>
         /// <value>A set of properties to decorate onto the Fund Structure.</value>
@@ -147,6 +156,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AllocationGroups: ").Append(AllocationGroups).Append("\n");
             sb.Append("  Nodes: ").Append(Nodes).Append("\n");
             sb.Append("  Edges: ").Append(Edges).Append("\n");
+            sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -223,6 +233,11 @@ namespace Lusid.Sdk.Model
                     this.Edges.SequenceEqual(input.Edges)
                 ) && 
                 (
+                    this.EffectiveAt == input.EffectiveAt ||
+                    (this.EffectiveAt != null &&
+                    this.EffectiveAt.Equals(input.EffectiveAt))
+                ) && 
+                (
                     this.Properties == input.Properties ||
                     this.Properties != null &&
                     input.Properties != null &&
@@ -266,6 +281,10 @@ namespace Lusid.Sdk.Model
                 if (this.Edges != null)
                 {
                     hashCode = (hashCode * 59) + this.Edges.GetHashCode();
+                }
+                if (this.EffectiveAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.EffectiveAt.GetHashCode();
                 }
                 if (this.Properties != null)
                 {

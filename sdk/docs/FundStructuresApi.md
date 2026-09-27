@@ -5,6 +5,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**CreateFundStructure**](FundStructuresApi.md#createfundstructure) | **POST** /api/fundstructures/{scope} | [EXPERIMENTAL] CreateFundStructure: Create a Fund Structure. |
+| [**DeleteFundStructure**](FundStructuresApi.md#deletefundstructure) | **DELETE** /api/fundstructures/{scope}/{code} | [EXPERIMENTAL] DeleteFundStructure: Delete a Fund Structure. |
 | [**GetFundStructure**](FundStructuresApi.md#getfundstructure) | **GET** /api/fundstructures/{scope}/{code} | [EXPERIMENTAL] GetFundStructure: Get a Fund Structure. |
 | [**ListFundStructures**](FundStructuresApi.md#listfundstructures) | **GET** /api/fundstructures | [EXPERIMENTAL] ListFundStructures: List Fund Structures. |
 
@@ -124,13 +125,131 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
+<a id="deletefundstructure"></a>
+# **DeleteFundStructure**
+> DeletedEntityResponse DeleteFundStructure (string scope, string code, DateTimeOrCutLabel? effectiveAt = null)
+
+[EXPERIMENTAL] DeleteFundStructure: Delete a Fund Structure.
+
+Delete a Fund Structure from the given effective datetime. It remains retrievable at earlier effective datetimes.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundStructuresApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundStructuresApi>();
+            var scope = "scope_example";  // string | The scope of the Fund Structure to be deleted.
+            var code = "code_example";  // string | The code of the Fund Structure to be deleted. Together with the scope this uniquely identifies the Fund Structure.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label from which the Fund Structure is deleted. Defaults to the current LUSID system datetime if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteFundStructure(scope, code, effectiveAt, opts: opts);
+
+                // [EXPERIMENTAL] DeleteFundStructure: Delete a Fund Structure.
+                DeletedEntityResponse result = apiInstance.DeleteFundStructure(scope, code, effectiveAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundStructuresApi.DeleteFundStructure: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DeleteFundStructureWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] DeleteFundStructure: Delete a Fund Structure.
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteFundStructureWithHttpInfo(scope, code, effectiveAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundStructuresApi.DeleteFundStructureWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund Structure to be deleted. |  |
+| **code** | **string** | The code of the Fund Structure to be deleted. Together with the scope this uniquely identifies the Fund Structure. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label from which the Fund Structure is deleted. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The datetime that the Fund Structure was deleted. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
 <a id="getfundstructure"></a>
 # **GetFundStructure**
-> FundStructure GetFundStructure (string scope, string code, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
+> FundStructure GetFundStructure (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
 [EXPERIMENTAL] GetFundStructure: Get a Fund Structure.
 
-Retrieve the definition of a particular Fund Structure, including its nodes, edges, and any inline fund definitions.
+Retrieve the definition of a particular Fund Structure at an effective and asAt datetime, including its nodes,  edges, allocation groups and the funds its nodes refer to.
 
 ### Example
 ```csharp
@@ -173,16 +292,17 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundStructuresApi>();
             var scope = "scope_example";  // string | The scope of the Fund Structure.
             var code = "code_example";  // string | The code of the Fund Structure. Together with the scope this uniquely identifies the Fund Structure.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the Fund Structure. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Fund Structure. Defaults to returning the latest version if not specified. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'FundStructure' domain to decorate onto the Fund Structure.              These must take the format {domain}/{scope}/{code}, for example 'FundStructure/Manager/Id'. If no properties are specified, then no properties will be returned. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // FundStructure result = apiInstance.GetFundStructure(scope, code, asAt, propertyKeys, opts: opts);
+                // FundStructure result = apiInstance.GetFundStructure(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
 
                 // [EXPERIMENTAL] GetFundStructure: Get a Fund Structure.
-                FundStructure result = apiInstance.GetFundStructure(scope, code, asAt, propertyKeys);
+                FundStructure result = apiInstance.GetFundStructure(scope, code, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -203,7 +323,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetFundStructure: Get a Fund Structure.
-    ApiResponse<FundStructure> response = apiInstance.GetFundStructureWithHttpInfo(scope, code, asAt, propertyKeys);
+    ApiResponse<FundStructure> response = apiInstance.GetFundStructureWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -222,6 +342,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Fund Structure. |  |
 | **code** | **string** | The code of the Fund Structure. Together with the scope this uniquely identifies the Fund Structure. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the Fund Structure. Defaults to the current LUSID system datetime if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Fund Structure. Defaults to returning the latest version if not specified. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;FundStructure&#39; domain to decorate onto the Fund Structure.              These must take the format {domain}/{scope}/{code}, for example &#39;FundStructure/Manager/Id&#39;. If no properties are specified, then no properties will be returned. | [optional]  |
 
@@ -246,7 +367,7 @@ catch (ApiException e)
 
 <a id="listfundstructures"></a>
 # **ListFundStructures**
-> PagedResourceListOfFundStructure ListFundStructures (DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null)
+> PagedResourceListOfFundStructure ListFundStructures (DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null)
 
 [EXPERIMENTAL] ListFundStructures: List Fund Structures.
 
@@ -291,6 +412,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundStructuresApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundStructuresApi>();
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the Fund Structures. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list Fund Structures. Defaults to returning the latest version of each Fund Structure if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing Fund Structures; this value is returned from the previous call. If a pagination token is provided, the filter and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
@@ -301,10 +423,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfFundStructure result = apiInstance.ListFundStructures(asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
+                // PagedResourceListOfFundStructure result = apiInstance.ListFundStructures(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
 
                 // [EXPERIMENTAL] ListFundStructures: List Fund Structures.
-                PagedResourceListOfFundStructure result = apiInstance.ListFundStructures(asAt, page, limit, filter, sortBy, propertyKeys);
+                PagedResourceListOfFundStructure result = apiInstance.ListFundStructures(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -325,7 +447,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] ListFundStructures: List Fund Structures.
-    ApiResponse<PagedResourceListOfFundStructure> response = apiInstance.ListFundStructuresWithHttpInfo(asAt, page, limit, filter, sortBy, propertyKeys);
+    ApiResponse<PagedResourceListOfFundStructure> response = apiInstance.ListFundStructuresWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -342,6 +464,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the Fund Structures. Defaults to the current LUSID system datetime if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list Fund Structures. Defaults to returning the latest version of each Fund Structure if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing Fund Structures; this value is returned from the previous call. If a pagination token is provided, the filter and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
