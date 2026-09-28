@@ -37,6 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="FundDefinitionRequest" /> class.
         /// </summary>
         /// <param name="code">The code given for the Fund. (required).</param>
+        /// <param name="shortCode">A short code for the Fund. A fund structure tags journal entry lines with the short code of the member they originated from, so it should be unique across the funds of one structure. Optional..</param>
         /// <param name="displayName">The name of the Fund. (required).</param>
         /// <param name="description">A description for the Fund..</param>
         /// <param name="baseCurrency">The base currency of the Fund in ISO 4217 currency code format. All portfolios must be of a matching base currency. (required).</param>
@@ -45,7 +46,7 @@ namespace Lusid.Sdk.Model
         /// <param name="fundConfigurationId">fundConfigurationId (required).</param>
         /// <param name="shareClassInstrumentScopes">The scopes in which the instruments lie, currently limited to one..</param>
         /// <param name="shareClassInstruments">Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures..</param>
-        /// <param name="type">The type of fund. Available values: Standalone, Master, Feeder..</param>
+        /// <param name="type">The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Standalone, Master and Feeder are retained for compatibility; the structural role of a fund now lives on its fund structure node. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA..</param>
         /// <param name="inceptionDate">Inception date of the Fund (required).</param>
         /// <param name="decimalPlaces">Number of decimal places for reporting.</param>
         /// <param name="primaryNavType">primaryNavType (required).</param>
@@ -53,7 +54,7 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">A set of properties for the Fund..</param>
         /// <param name="createInstrument">Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false..</param>
         /// <param name="shareClasses">An optional list of Share Class definitions for the Fund..</param>
-        public FundDefinitionRequest(string code = default(string), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId fundConfigurationId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), NavTypeDefinition primaryNavType = default(NavTypeDefinition), List<NavTypeDefinition> additionalNavTypes = default(List<NavTypeDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), List<ShareClassDefinition> shareClasses = default(List<ShareClassDefinition>))
+        public FundDefinitionRequest(string code = default(string), string shortCode = default(string), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId fundConfigurationId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), NavTypeDefinition primaryNavType = default(NavTypeDefinition), List<NavTypeDefinition> additionalNavTypes = default(List<NavTypeDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), List<ShareClassDefinition> shareClasses = default(List<ShareClassDefinition>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -92,6 +93,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("primaryNavType is a required property for FundDefinitionRequest and cannot be null");
             }
             this.PrimaryNavType = primaryNavType;
+            this.ShortCode = shortCode;
             this.Description = description;
             this.InvestorStructure = investorStructure;
             this.ShareClassInstrumentScopes = shareClassInstrumentScopes;
@@ -110,6 +112,13 @@ namespace Lusid.Sdk.Model
         /// <value>The code given for the Fund.</value>
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
+
+        /// <summary>
+        /// A short code for the Fund. A fund structure tags journal entry lines with the short code of the member they originated from, so it should be unique across the funds of one structure. Optional.
+        /// </summary>
+        /// <value>A short code for the Fund. A fund structure tags journal entry lines with the short code of the member they originated from, so it should be unique across the funds of one structure. Optional.</value>
+        [DataMember(Name = "shortCode", EmitDefaultValue = true)]
+        public string ShortCode { get; set; }
 
         /// <summary>
         /// The name of the Fund.
@@ -167,9 +176,9 @@ namespace Lusid.Sdk.Model
         public List<InstrumentResolutionDetail> ShareClassInstruments { get; set; }
 
         /// <summary>
-        /// The type of fund. Available values: Standalone, Master, Feeder.
+        /// The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Standalone, Master and Feeder are retained for compatibility; the structural role of a fund now lives on its fund structure node. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA.
         /// </summary>
-        /// <value>The type of fund. Available values: Standalone, Master, Feeder.</value>
+        /// <value>The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Standalone, Master and Feeder are retained for compatibility; the structural role of a fund now lives on its fund structure node. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA.</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
@@ -230,6 +239,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class FundDefinitionRequest {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  ShortCode: ").Append(ShortCode).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  BaseCurrency: ").Append(BaseCurrency).Append("\n");
@@ -285,6 +295,11 @@ namespace Lusid.Sdk.Model
                     this.Code == input.Code ||
                     (this.Code != null &&
                     this.Code.Equals(input.Code))
+                ) && 
+                (
+                    this.ShortCode == input.ShortCode ||
+                    (this.ShortCode != null &&
+                    this.ShortCode.Equals(input.ShortCode))
                 ) && 
                 (
                     this.DisplayName == input.DisplayName ||
@@ -386,6 +401,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Code.GetHashCode();
                 }
+                if (this.ShortCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShortCode.GetHashCode();
+                }
                 if (this.DisplayName != null)
                 {
                     hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
@@ -475,6 +494,25 @@ namespace Lusid.Sdk.Model
             if (false == regexCode.Match(this.Code).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, must match a pattern of " + regexCode, new [] { "Code" });
+            }
+
+            // ShortCode (string) maxLength
+            if (this.ShortCode != null && this.ShortCode.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortCode, length must be less than 64.", new [] { "ShortCode" });
+            }
+
+            // ShortCode (string) minLength
+            if (this.ShortCode != null && this.ShortCode.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortCode, length must be greater than 1.", new [] { "ShortCode" });
+            }
+
+            // ShortCode (string) pattern
+            Regex regexShortCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexShortCode.Match(this.ShortCode).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortCode, must match a pattern of " + regexShortCode, new [] { "ShortCode" });
             }
 
             // DisplayName (string) maxLength

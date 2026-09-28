@@ -39,8 +39,11 @@ namespace Lusid.Sdk.Model
         /// <param name="nodeCode">A unique identifier for this node within the Fund Structure. (required).</param>
         /// <param name="fundScope">The scope of the Fund referenced by this node. (required).</param>
         /// <param name="fundCode">The code of the Fund referenced by this node. (required).</param>
-        /// <param name="role">The role of this node within the structure. Available values: Master, Feeder. (required).</param>
-        public FundStructureNode(string nodeCode = default(string), string fundScope = default(string), string fundCode = default(string), string role = default(string))
+        /// <param name="role">The role of this node within the structure. Must be one of the acceptable values of the structure&#39;s role data type. (required).</param>
+        /// <param name="allocationBasis">allocationBasis.</param>
+        /// <param name="pnlFlowMode">How profit and loss reaches this member from the members it holds. EquityPickup (the default) revalues the position in each held member; BucketFlowThrough receives one line per economic bucket, tagged with its origin; TransactionFlowThrough receives every line, tagged with its origin and path. Available values: EquityPickup, BucketFlowThrough, TransactionFlowThrough..</param>
+        /// <param name="allocationMapId">allocationMapId.</param>
+        public FundStructureNode(string nodeCode = default(string), string fundScope = default(string), string fundCode = default(string), string role = default(string), FundStructureAllocationBasis allocationBasis = default(FundStructureAllocationBasis), string pnlFlowMode = default(string), ResourceId allocationMapId = default(ResourceId))
         {
             // to ensure "nodeCode" is required (not null)
             if (nodeCode == null)
@@ -66,6 +69,9 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("role is a required property for FundStructureNode and cannot be null");
             }
             this.Role = role;
+            this.AllocationBasis = allocationBasis;
+            this.PnlFlowMode = pnlFlowMode;
+            this.AllocationMapId = allocationMapId;
         }
 
         /// <summary>
@@ -90,11 +96,30 @@ namespace Lusid.Sdk.Model
         public string FundCode { get; set; }
 
         /// <summary>
-        /// The role of this node within the structure. Available values: Master, Feeder.
+        /// The role of this node within the structure. Must be one of the acceptable values of the structure&#39;s role data type.
         /// </summary>
-        /// <value>The role of this node within the structure. Available values: Master, Feeder.</value>
+        /// <value>The role of this node within the structure. Must be one of the acceptable values of the structure&#39;s role data type.</value>
         [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
         public string Role { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AllocationBasis
+        /// </summary>
+        [DataMember(Name = "allocationBasis", EmitDefaultValue = false)]
+        public FundStructureAllocationBasis AllocationBasis { get; set; }
+
+        /// <summary>
+        /// How profit and loss reaches this member from the members it holds. EquityPickup (the default) revalues the position in each held member; BucketFlowThrough receives one line per economic bucket, tagged with its origin; TransactionFlowThrough receives every line, tagged with its origin and path. Available values: EquityPickup, BucketFlowThrough, TransactionFlowThrough.
+        /// </summary>
+        /// <value>How profit and loss reaches this member from the members it holds. EquityPickup (the default) revalues the position in each held member; BucketFlowThrough receives one line per economic bucket, tagged with its origin; TransactionFlowThrough receives every line, tagged with its origin and path. Available values: EquityPickup, BucketFlowThrough, TransactionFlowThrough.</value>
+        [DataMember(Name = "pnlFlowMode", EmitDefaultValue = true)]
+        public string PnlFlowMode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AllocationMapId
+        /// </summary>
+        [DataMember(Name = "allocationMapId", EmitDefaultValue = false)]
+        public ResourceId AllocationMapId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -108,6 +133,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  FundScope: ").Append(FundScope).Append("\n");
             sb.Append("  FundCode: ").Append(FundCode).Append("\n");
             sb.Append("  Role: ").Append(Role).Append("\n");
+            sb.Append("  AllocationBasis: ").Append(AllocationBasis).Append("\n");
+            sb.Append("  PnlFlowMode: ").Append(PnlFlowMode).Append("\n");
+            sb.Append("  AllocationMapId: ").Append(AllocationMapId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -162,6 +190,21 @@ namespace Lusid.Sdk.Model
                     this.Role == input.Role ||
                     (this.Role != null &&
                     this.Role.Equals(input.Role))
+                ) && 
+                (
+                    this.AllocationBasis == input.AllocationBasis ||
+                    (this.AllocationBasis != null &&
+                    this.AllocationBasis.Equals(input.AllocationBasis))
+                ) && 
+                (
+                    this.PnlFlowMode == input.PnlFlowMode ||
+                    (this.PnlFlowMode != null &&
+                    this.PnlFlowMode.Equals(input.PnlFlowMode))
+                ) && 
+                (
+                    this.AllocationMapId == input.AllocationMapId ||
+                    (this.AllocationMapId != null &&
+                    this.AllocationMapId.Equals(input.AllocationMapId))
                 );
         }
 
@@ -189,6 +232,18 @@ namespace Lusid.Sdk.Model
                 if (this.Role != null)
                 {
                     hashCode = (hashCode * 59) + this.Role.GetHashCode();
+                }
+                if (this.AllocationBasis != null)
+                {
+                    hashCode = (hashCode * 59) + this.AllocationBasis.GetHashCode();
+                }
+                if (this.PnlFlowMode != null)
+                {
+                    hashCode = (hashCode * 59) + this.PnlFlowMode.GetHashCode();
+                }
+                if (this.AllocationMapId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AllocationMapId.GetHashCode();
                 }
                 return hashCode;
             }
@@ -258,10 +313,23 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FundCode, must match a pattern of " + regexFundCode, new [] { "FundCode" });
             }
 
+            // Role (string) maxLength
+            if (this.Role != null && this.Role.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Role, length must be less than 64.", new [] { "Role" });
+            }
+
             // Role (string) minLength
             if (this.Role != null && this.Role.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Role, length must be greater than 1.", new [] { "Role" });
+            }
+
+            // Role (string) pattern
+            Regex regexRole = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexRole.Match(this.Role).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Role, must match a pattern of " + regexRole, new [] { "Role" });
             }
 
             yield break;

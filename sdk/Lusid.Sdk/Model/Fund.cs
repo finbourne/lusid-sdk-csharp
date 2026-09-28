@@ -44,9 +44,10 @@ namespace Lusid.Sdk.Model
         /// <param name="investorStructure">The Investor structure to be used by the Fund. Available values: NonUnitised, Classes. (required).</param>
         /// <param name="portfolioIds">A list of the portfolios on the fund, which are part of the Fund. Note: These must all have the same base currency, which must also match the Fund Base Currency..</param>
         /// <param name="fundConfigurationId">fundConfigurationId.</param>
+        /// <param name="shortCode">A short code for the Fund. A fund structure tags journal entry lines with the short code of the member they originated from, so it should be unique across the funds of one structure. Optional..</param>
         /// <param name="aborId">aborId.</param>
         /// <param name="shareClassInstruments">Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures..</param>
-        /// <param name="type">The type of fund. Available values: Standalone, Master, Feeder..</param>
+        /// <param name="type">The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Standalone, Master and Feeder are retained for compatibility; the structural role of a fund now lives on its fund structure node. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA..</param>
         /// <param name="inceptionDate">Inception date of the Fund (required).</param>
         /// <param name="decimalPlaces">Number of decimal places for reporting.</param>
         /// <param name="yearEndDate">yearEndDate.</param>
@@ -59,7 +60,7 @@ namespace Lusid.Sdk.Model
         /// <param name="fundInstrument">fundInstrument.</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavType primaryNavType = default(NavType), List<NavType> additionalNavTypes = default(List<NavType>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<ShareClass> shareClasses = default(List<ShareClass>), FundInstrument fundInstrument = default(FundInstrument), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), string shortCode = default(string), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavType primaryNavType = default(NavType), List<NavType> additionalNavTypes = default(List<NavType>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<ShareClass> shareClasses = default(List<ShareClass>), FundInstrument fundInstrument = default(FundInstrument), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -80,6 +81,7 @@ namespace Lusid.Sdk.Model
             this.BaseCurrency = baseCurrency;
             this.PortfolioIds = portfolioIds;
             this.FundConfigurationId = fundConfigurationId;
+            this.ShortCode = shortCode;
             this.AborId = aborId;
             this.ShareClassInstruments = shareClassInstruments;
             this.Type = type;
@@ -151,6 +153,13 @@ namespace Lusid.Sdk.Model
         public ResourceId FundConfigurationId { get; set; }
 
         /// <summary>
+        /// A short code for the Fund. A fund structure tags journal entry lines with the short code of the member they originated from, so it should be unique across the funds of one structure. Optional.
+        /// </summary>
+        /// <value>A short code for the Fund. A fund structure tags journal entry lines with the short code of the member they originated from, so it should be unique across the funds of one structure. Optional.</value>
+        [DataMember(Name = "shortCode", EmitDefaultValue = true)]
+        public string ShortCode { get; set; }
+
+        /// <summary>
         /// Gets or Sets AborId
         /// </summary>
         [DataMember(Name = "aborId", EmitDefaultValue = false)]
@@ -164,9 +173,9 @@ namespace Lusid.Sdk.Model
         public List<InstrumentResolutionDetail> ShareClassInstruments { get; set; }
 
         /// <summary>
-        /// The type of fund. Available values: Standalone, Master, Feeder.
+        /// The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Standalone, Master and Feeder are retained for compatibility; the structural role of a fund now lives on its fund structure node. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA.
         /// </summary>
-        /// <value>The type of fund. Available values: Standalone, Master, Feeder.</value>
+        /// <value>The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Standalone, Master and Feeder are retained for compatibility; the structural role of a fund now lives on its fund structure node. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA.</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
@@ -265,6 +274,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InvestorStructure: ").Append(InvestorStructure).Append("\n");
             sb.Append("  PortfolioIds: ").Append(PortfolioIds).Append("\n");
             sb.Append("  FundConfigurationId: ").Append(FundConfigurationId).Append("\n");
+            sb.Append("  ShortCode: ").Append(ShortCode).Append("\n");
             sb.Append("  AborId: ").Append(AborId).Append("\n");
             sb.Append("  ShareClassInstruments: ").Append(ShareClassInstruments).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -355,6 +365,11 @@ namespace Lusid.Sdk.Model
                     this.FundConfigurationId == input.FundConfigurationId ||
                     (this.FundConfigurationId != null &&
                     this.FundConfigurationId.Equals(input.FundConfigurationId))
+                ) && 
+                (
+                    this.ShortCode == input.ShortCode ||
+                    (this.ShortCode != null &&
+                    this.ShortCode.Equals(input.ShortCode))
                 ) && 
                 (
                     this.AborId == input.AborId ||
@@ -478,6 +493,10 @@ namespace Lusid.Sdk.Model
                 if (this.FundConfigurationId != null)
                 {
                     hashCode = (hashCode * 59) + this.FundConfigurationId.GetHashCode();
+                }
+                if (this.ShortCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShortCode.GetHashCode();
                 }
                 if (this.AborId != null)
                 {

@@ -1,19 +1,19 @@
 # Lusid.Sdk.Model.FundStructureEdgeTarget
-The target of a Fund Structure edge, identifying the master node and share class the feeder invests into.
+The member a link points at, and for a dedicated share class link the share class on that member.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Node** | **string** | The node code of the master node that is the target of this relationship. | 
-**ShareClassShortCode** | **string** | The short code of the share class on the master fund that the feeder invests into. | 
+**Node** | **string** | The node code of the member the link points at. | 
+**ShareClassShortCode** | **string** | The short code of the share class on the target member that the source invests into. Required for a DedicatedShareClass link and not allowed on any other. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 
 string node = "node";
-string shareClassShortCode = "shareClassShortCode";
+string shareClassShortCode = "example shareClassShortCode";
 
 FundStructureEdgeTarget fundStructureEdgeTargetInstance = new FundStructureEdgeTarget(
     node: node,

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A directed edge in a Fund Structure, defining a relationship from a feeder node to a master node share class.
+    /// A link from one member of a Fund Structure to another, and how that link is held.
     /// </summary>
     [DataContract(Name = "FundStructureEdge")]
     public partial class FundStructureEdge : IEquatable<FundStructureEdge>, IValidatableObject
@@ -36,9 +36,11 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FundStructureEdge" /> class.
         /// </summary>
-        /// <param name="from">The node code of the feeder node that is the source of this relationship. (required).</param>
+        /// <param name="from">The node code of the member that holds the link: the investor or the owner. (required).</param>
         /// <param name="to">to (required).</param>
-        public FundStructureEdge(string from = default(string), FundStructureEdgeTarget to = default(FundStructureEdgeTarget))
+        /// <param name="linkageType">How the link is held. DedicatedShareClass (the default) means the source invests into a share class of the target; DirectEquityInstrument, GPInterest, LPInterest and CarryInterest mean the source holds that interest in the target through the instrument in viaInstrumentId. Available values: DedicatedShareClass, DirectEquityInstrument, GPInterest, LPInterest, CarryInterest..</param>
+        /// <param name="viaInstrumentId">viaInstrumentId.</param>
+        public FundStructureEdge(string from = default(string), FundStructureEdgeTarget to = default(FundStructureEdgeTarget), string linkageType = default(string), ResourceId viaInstrumentId = default(ResourceId))
         {
             // to ensure "from" is required (not null)
             if (from == null)
@@ -52,12 +54,14 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("to is a required property for FundStructureEdge and cannot be null");
             }
             this.To = to;
+            this.LinkageType = linkageType;
+            this.ViaInstrumentId = viaInstrumentId;
         }
 
         /// <summary>
-        /// The node code of the feeder node that is the source of this relationship.
+        /// The node code of the member that holds the link: the investor or the owner.
         /// </summary>
-        /// <value>The node code of the feeder node that is the source of this relationship.</value>
+        /// <value>The node code of the member that holds the link: the investor or the owner.</value>
         [DataMember(Name = "from", IsRequired = true, EmitDefaultValue = true)]
         public string From { get; set; }
 
@@ -66,6 +70,19 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "to", IsRequired = true, EmitDefaultValue = true)]
         public FundStructureEdgeTarget To { get; set; }
+
+        /// <summary>
+        /// How the link is held. DedicatedShareClass (the default) means the source invests into a share class of the target; DirectEquityInstrument, GPInterest, LPInterest and CarryInterest mean the source holds that interest in the target through the instrument in viaInstrumentId. Available values: DedicatedShareClass, DirectEquityInstrument, GPInterest, LPInterest, CarryInterest.
+        /// </summary>
+        /// <value>How the link is held. DedicatedShareClass (the default) means the source invests into a share class of the target; DirectEquityInstrument, GPInterest, LPInterest and CarryInterest mean the source holds that interest in the target through the instrument in viaInstrumentId. Available values: DedicatedShareClass, DirectEquityInstrument, GPInterest, LPInterest, CarryInterest.</value>
+        [DataMember(Name = "linkageType", EmitDefaultValue = true)]
+        public string LinkageType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ViaInstrumentId
+        /// </summary>
+        [DataMember(Name = "viaInstrumentId", EmitDefaultValue = false)]
+        public ResourceId ViaInstrumentId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,6 +94,8 @@ namespace Lusid.Sdk.Model
             sb.Append("class FundStructureEdge {\n");
             sb.Append("  From: ").Append(From).Append("\n");
             sb.Append("  To: ").Append(To).Append("\n");
+            sb.Append("  LinkageType: ").Append(LinkageType).Append("\n");
+            sb.Append("  ViaInstrumentId: ").Append(ViaInstrumentId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,6 +140,16 @@ namespace Lusid.Sdk.Model
                     this.To == input.To ||
                     (this.To != null &&
                     this.To.Equals(input.To))
+                ) && 
+                (
+                    this.LinkageType == input.LinkageType ||
+                    (this.LinkageType != null &&
+                    this.LinkageType.Equals(input.LinkageType))
+                ) && 
+                (
+                    this.ViaInstrumentId == input.ViaInstrumentId ||
+                    (this.ViaInstrumentId != null &&
+                    this.ViaInstrumentId.Equals(input.ViaInstrumentId))
                 );
         }
 
@@ -140,6 +169,14 @@ namespace Lusid.Sdk.Model
                 if (this.To != null)
                 {
                     hashCode = (hashCode * 59) + this.To.GetHashCode();
+                }
+                if (this.LinkageType != null)
+                {
+                    hashCode = (hashCode * 59) + this.LinkageType.GetHashCode();
+                }
+                if (this.ViaInstrumentId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ViaInstrumentId.GetHashCode();
                 }
                 return hashCode;
             }

@@ -41,13 +41,15 @@ namespace Lusid.Sdk.Model
         /// <param name="name">The display name of the Fund Structure. (required).</param>
         /// <param name="description">An optional description for the Fund Structure..</param>
         /// <param name="funds">An optional list of existing funds to be incorporated as part of the structure..</param>
-        /// <param name="allocationGroups">An optional list of Allocation Groups that can apply across a Fund Structure. Only classes and feeder funds linked to the master fund specified are allowed..</param>
-        /// <param name="nodes">The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role. (required).</param>
-        /// <param name="edges">The list of edges that define the relationships between feeder and master nodes in the structure. (required).</param>
+        /// <param name="allocationGroups">An optional list of Allocation Groups that can apply across a Fund Structure. A group may span the share classes of a member and the members that invest into it through dedicated share class links..</param>
+        /// <param name="nodes">The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role. May be empty on create, with members added later through the members endpoint. (required).</param>
+        /// <param name="edges">The list of edges that define how the members of the structure are linked: a member investing into a dedicated share class of another, or holding an equity, GP, LP or carry interest in another through an instrument. (required).</param>
+        /// <param name="roleDataTypeId">roleDataTypeId.</param>
+        /// <param name="navTypeCodes">The NAV types every member of the structure produces, by code. Declaring them once here gives the structure a shared Timeline. At least one is required, and every member fund must define a NAV type with each of these codes..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="properties">A set of properties to decorate onto the Fund Structure..</param>
         /// <param name="links">links.</param>
-        public FundStructure(string href = default(string), ResourceId id = default(ResourceId), string name = default(string), string description = default(string), List<Fund> funds = default(List<Fund>), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<FundStructureNode> nodes = default(List<FundStructureNode>), List<FundStructureEdge> edges = default(List<FundStructureEdge>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Link> links = default(List<Link>))
+        public FundStructure(string href = default(string), ResourceId id = default(ResourceId), string name = default(string), string description = default(string), List<Fund> funds = default(List<Fund>), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<FundStructureNode> nodes = default(List<FundStructureNode>), List<FundStructureEdge> edges = default(List<FundStructureEdge>), ResourceId roleDataTypeId = default(ResourceId), List<string> navTypeCodes = default(List<string>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -77,6 +79,8 @@ namespace Lusid.Sdk.Model
             this.Description = description;
             this.Funds = funds;
             this.AllocationGroups = allocationGroups;
+            this.RoleDataTypeId = roleDataTypeId;
+            this.NavTypeCodes = navTypeCodes;
             this.VarVersion = varVersion;
             this.Properties = properties;
             this.Links = links;
@@ -117,25 +121,38 @@ namespace Lusid.Sdk.Model
         public List<Fund> Funds { get; set; }
 
         /// <summary>
-        /// An optional list of Allocation Groups that can apply across a Fund Structure. Only classes and feeder funds linked to the master fund specified are allowed.
+        /// An optional list of Allocation Groups that can apply across a Fund Structure. A group may span the share classes of a member and the members that invest into it through dedicated share class links.
         /// </summary>
-        /// <value>An optional list of Allocation Groups that can apply across a Fund Structure. Only classes and feeder funds linked to the master fund specified are allowed.</value>
+        /// <value>An optional list of Allocation Groups that can apply across a Fund Structure. A group may span the share classes of a member and the members that invest into it through dedicated share class links.</value>
         [DataMember(Name = "allocationGroups", EmitDefaultValue = true)]
         public List<AllocationGroup> AllocationGroups { get; set; }
 
         /// <summary>
-        /// The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role.
+        /// The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role. May be empty on create, with members added later through the members endpoint.
         /// </summary>
-        /// <value>The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role.</value>
+        /// <value>The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role. May be empty on create, with members added later through the members endpoint.</value>
         [DataMember(Name = "nodes", IsRequired = true, EmitDefaultValue = true)]
         public List<FundStructureNode> Nodes { get; set; }
 
         /// <summary>
-        /// The list of edges that define the relationships between feeder and master nodes in the structure.
+        /// The list of edges that define how the members of the structure are linked: a member investing into a dedicated share class of another, or holding an equity, GP, LP or carry interest in another through an instrument.
         /// </summary>
-        /// <value>The list of edges that define the relationships between feeder and master nodes in the structure.</value>
+        /// <value>The list of edges that define how the members of the structure are linked: a member investing into a dedicated share class of another, or holding an equity, GP, LP or carry interest in another through an instrument.</value>
         [DataMember(Name = "edges", IsRequired = true, EmitDefaultValue = true)]
         public List<FundStructureEdge> Edges { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RoleDataTypeId
+        /// </summary>
+        [DataMember(Name = "roleDataTypeId", EmitDefaultValue = false)]
+        public ResourceId RoleDataTypeId { get; set; }
+
+        /// <summary>
+        /// The NAV types every member of the structure produces, by code. Declaring them once here gives the structure a shared Timeline. At least one is required, and every member fund must define a NAV type with each of these codes.
+        /// </summary>
+        /// <value>The NAV types every member of the structure produces, by code. Declaring them once here gives the structure a shared Timeline. At least one is required, and every member fund must define a NAV type with each of these codes.</value>
+        [DataMember(Name = "navTypeCodes", EmitDefaultValue = true)]
+        public List<string> NavTypeCodes { get; set; }
 
         /// <summary>
         /// Gets or Sets VarVersion
@@ -172,6 +189,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  AllocationGroups: ").Append(AllocationGroups).Append("\n");
             sb.Append("  Nodes: ").Append(Nodes).Append("\n");
             sb.Append("  Edges: ").Append(Edges).Append("\n");
+            sb.Append("  RoleDataTypeId: ").Append(RoleDataTypeId).Append("\n");
+            sb.Append("  NavTypeCodes: ").Append(NavTypeCodes).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -255,6 +274,17 @@ namespace Lusid.Sdk.Model
                     this.Edges.SequenceEqual(input.Edges)
                 ) && 
                 (
+                    this.RoleDataTypeId == input.RoleDataTypeId ||
+                    (this.RoleDataTypeId != null &&
+                    this.RoleDataTypeId.Equals(input.RoleDataTypeId))
+                ) && 
+                (
+                    this.NavTypeCodes == input.NavTypeCodes ||
+                    this.NavTypeCodes != null &&
+                    input.NavTypeCodes != null &&
+                    this.NavTypeCodes.SequenceEqual(input.NavTypeCodes)
+                ) && 
+                (
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
@@ -313,6 +343,14 @@ namespace Lusid.Sdk.Model
                 if (this.Edges != null)
                 {
                     hashCode = (hashCode * 59) + this.Edges.GetHashCode();
+                }
+                if (this.RoleDataTypeId != null)
+                {
+                    hashCode = (hashCode * 59) + this.RoleDataTypeId.GetHashCode();
+                }
+                if (this.NavTypeCodes != null)
+                {
+                    hashCode = (hashCode * 59) + this.NavTypeCodes.GetHashCode();
                 }
                 if (this.VarVersion != null)
                 {

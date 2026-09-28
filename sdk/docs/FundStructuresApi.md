@@ -4,10 +4,133 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**AddFundStructureMember**](FundStructuresApi.md#addfundstructuremember) | **POST** /api/fundstructures/{scope}/{code}/members | [EXPERIMENTAL] AddFundStructureMember: Add a member to a Fund Structure. |
 | [**CreateFundStructure**](FundStructuresApi.md#createfundstructure) | **POST** /api/fundstructures/{scope} | [EXPERIMENTAL] CreateFundStructure: Create a Fund Structure. |
 | [**DeleteFundStructure**](FundStructuresApi.md#deletefundstructure) | **DELETE** /api/fundstructures/{scope}/{code} | [EXPERIMENTAL] DeleteFundStructure: Delete a Fund Structure. |
 | [**GetFundStructure**](FundStructuresApi.md#getfundstructure) | **GET** /api/fundstructures/{scope}/{code} | [EXPERIMENTAL] GetFundStructure: Get a Fund Structure. |
 | [**ListFundStructures**](FundStructuresApi.md#listfundstructures) | **GET** /api/fundstructures | [EXPERIMENTAL] ListFundStructures: List Fund Structures. |
+| [**RemoveFundStructureMember**](FundStructuresApi.md#removefundstructuremember) | **DELETE** /api/fundstructures/{scope}/{code}/members/{nodeCode} | [EXPERIMENTAL] RemoveFundStructureMember: Remove a member from a Fund Structure. |
+| [**UpsertFundStructure**](FundStructuresApi.md#upsertfundstructure) | **PUT** /api/fundstructures/{scope}/{code} | [EXPERIMENTAL] UpsertFundStructure: Upsert a Fund Structure. |
+
+<a id="addfundstructuremember"></a>
+# **AddFundStructureMember**
+> FundStructure AddFundStructureMember (string scope, string code, FundStructureMemberRequest fundStructureMemberRequest, DateTimeOrCutLabel? effectiveAt = null)
+
+[EXPERIMENTAL] AddFundStructureMember: Add a member to a Fund Structure.
+
+Add a node and the links that join it to existing members, from an effective datetime. The result is a new  bitemporal version of the structure. The change applies to the version in force at that datetime; if a  later version of the structure already exists the request is rejected, since the member would otherwise  drop out when that version begins. Upsert the full definition for each affected version in that case.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundStructuresApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundStructuresApi>();
+            var scope = "scope_example";  // string | The scope of the Fund Structure.
+            var code = "code_example";  // string | The code of the Fund Structure. Together with the scope this uniquely identifies the Fund Structure.
+            var fundStructureMemberRequest = new FundStructureMemberRequest(); // FundStructureMemberRequest | The node to add and the links joining it to existing members.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label from which the member is part of the structure. Defaults to the current LUSID system datetime if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // FundStructure result = apiInstance.AddFundStructureMember(scope, code, fundStructureMemberRequest, effectiveAt, opts: opts);
+
+                // [EXPERIMENTAL] AddFundStructureMember: Add a member to a Fund Structure.
+                FundStructure result = apiInstance.AddFundStructureMember(scope, code, fundStructureMemberRequest, effectiveAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundStructuresApi.AddFundStructureMember: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AddFundStructureMemberWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] AddFundStructureMember: Add a member to a Fund Structure.
+    ApiResponse<FundStructure> response = apiInstance.AddFundStructureMemberWithHttpInfo(scope, code, fundStructureMemberRequest, effectiveAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundStructuresApi.AddFundStructureMemberWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund Structure. |  |
+| **code** | **string** | The code of the Fund Structure. Together with the scope this uniquely identifies the Fund Structure. |  |
+| **fundStructureMemberRequest** | [**FundStructureMemberRequest**](FundStructureMemberRequest.md) | The node to add and the links joining it to existing members. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label from which the member is part of the structure. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+
+### Return type
+
+[**FundStructure**](FundStructure.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The Fund Structure with the member added. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="createfundstructure"></a>
 # **CreateFundStructure**
@@ -486,6 +609,244 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The requested Fund Structures. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="removefundstructuremember"></a>
+# **RemoveFundStructureMember**
+> FundStructure RemoveFundStructureMember (string scope, string code, string nodeCode, DateTimeOrCutLabel? effectiveAt = null)
+
+[EXPERIMENTAL] RemoveFundStructureMember: Remove a member from a Fund Structure.
+
+Remove a node and every link that touches it, from an effective datetime. The result is a new bitemporal  version of the structure. The change applies to the version in force at that datetime; if a later version  of the structure already exists the request is rejected, since the member would otherwise reappear when  that version begins. Upsert the full definition for each affected version in that case.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundStructuresApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundStructuresApi>();
+            var scope = "scope_example";  // string | The scope of the Fund Structure.
+            var code = "code_example";  // string | The code of the Fund Structure. Together with the scope this uniquely identifies the Fund Structure.
+            var nodeCode = "nodeCode_example";  // string | The node code of the member to remove.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label from which the member is no longer part of the structure. Defaults to the current LUSID system datetime if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // FundStructure result = apiInstance.RemoveFundStructureMember(scope, code, nodeCode, effectiveAt, opts: opts);
+
+                // [EXPERIMENTAL] RemoveFundStructureMember: Remove a member from a Fund Structure.
+                FundStructure result = apiInstance.RemoveFundStructureMember(scope, code, nodeCode, effectiveAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundStructuresApi.RemoveFundStructureMember: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the RemoveFundStructureMemberWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] RemoveFundStructureMember: Remove a member from a Fund Structure.
+    ApiResponse<FundStructure> response = apiInstance.RemoveFundStructureMemberWithHttpInfo(scope, code, nodeCode, effectiveAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundStructuresApi.RemoveFundStructureMemberWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund Structure. |  |
+| **code** | **string** | The code of the Fund Structure. Together with the scope this uniquely identifies the Fund Structure. |  |
+| **nodeCode** | **string** | The node code of the member to remove. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label from which the member is no longer part of the structure. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+
+### Return type
+
+[**FundStructure**](FundStructure.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The Fund Structure with the member removed. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="upsertfundstructure"></a>
+# **UpsertFundStructure**
+> FundStructure UpsertFundStructure (string scope, string code, FundStructureRequest fundStructureRequest)
+
+[EXPERIMENTAL] UpsertFundStructure: Upsert a Fund Structure.
+
+Create or replace the full definition of a Fund Structure from an effective datetime. A change to the  definition becomes a new bitemporal version: the structure as it was declared at earlier effective datetimes,  and as of earlier asAt datetimes, remains retrievable.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundStructuresApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundStructuresApi>();
+            var scope = "scope_example";  // string | The scope of the Fund Structure.
+            var code = "code_example";  // string | The code of the Fund Structure. Together with the scope this uniquely identifies the Fund Structure, and must match the code in the request body.
+            var fundStructureRequest = new FundStructureRequest(); // FundStructureRequest | The full definition of the Fund Structure from the effective datetime in the request, or the current LUSID system datetime if not specified.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // FundStructure result = apiInstance.UpsertFundStructure(scope, code, fundStructureRequest, opts: opts);
+
+                // [EXPERIMENTAL] UpsertFundStructure: Upsert a Fund Structure.
+                FundStructure result = apiInstance.UpsertFundStructure(scope, code, fundStructureRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundStructuresApi.UpsertFundStructure: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpsertFundStructureWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] UpsertFundStructure: Upsert a Fund Structure.
+    ApiResponse<FundStructure> response = apiInstance.UpsertFundStructureWithHttpInfo(scope, code, fundStructureRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundStructuresApi.UpsertFundStructureWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund Structure. |  |
+| **code** | **string** | The code of the Fund Structure. Together with the scope this uniquely identifies the Fund Structure, and must match the code in the request body. |  |
+| **fundStructureRequest** | [**FundStructureRequest**](FundStructureRequest.md) | The full definition of the Fund Structure from the effective datetime in the request, or the current LUSID system datetime if not specified. |  |
+
+### Return type
+
+[**FundStructure**](FundStructure.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The Fund Structure as it stands from the effective datetime. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

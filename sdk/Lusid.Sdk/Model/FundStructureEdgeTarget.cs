@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The target of a Fund Structure edge, identifying the master node and share class the feeder invests into.
+    /// The member a link points at, and for a dedicated share class link the share class on that member.
     /// </summary>
     [DataContract(Name = "FundStructureEdgeTarget")]
     public partial class FundStructureEdgeTarget : IEquatable<FundStructureEdgeTarget>, IValidatableObject
@@ -36,8 +36,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FundStructureEdgeTarget" /> class.
         /// </summary>
-        /// <param name="node">The node code of the master node that is the target of this relationship. (required).</param>
-        /// <param name="shareClassShortCode">The short code of the share class on the master fund that the feeder invests into. (required).</param>
+        /// <param name="node">The node code of the member the link points at. (required).</param>
+        /// <param name="shareClassShortCode">The short code of the share class on the target member that the source invests into. Required for a DedicatedShareClass link and not allowed on any other..</param>
         public FundStructureEdgeTarget(string node = default(string), string shareClassShortCode = default(string))
         {
             // to ensure "node" is required (not null)
@@ -46,26 +46,21 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("node is a required property for FundStructureEdgeTarget and cannot be null");
             }
             this.Node = node;
-            // to ensure "shareClassShortCode" is required (not null)
-            if (shareClassShortCode == null)
-            {
-                throw new ArgumentNullException("shareClassShortCode is a required property for FundStructureEdgeTarget and cannot be null");
-            }
             this.ShareClassShortCode = shareClassShortCode;
         }
 
         /// <summary>
-        /// The node code of the master node that is the target of this relationship.
+        /// The node code of the member the link points at.
         /// </summary>
-        /// <value>The node code of the master node that is the target of this relationship.</value>
+        /// <value>The node code of the member the link points at.</value>
         [DataMember(Name = "node", IsRequired = true, EmitDefaultValue = true)]
         public string Node { get; set; }
 
         /// <summary>
-        /// The short code of the share class on the master fund that the feeder invests into.
+        /// The short code of the share class on the target member that the source invests into. Required for a DedicatedShareClass link and not allowed on any other.
         /// </summary>
-        /// <value>The short code of the share class on the master fund that the feeder invests into.</value>
-        [DataMember(Name = "shareClassShortCode", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>The short code of the share class on the target member that the source invests into. Required for a DedicatedShareClass link and not allowed on any other.</value>
+        [DataMember(Name = "shareClassShortCode", EmitDefaultValue = true)]
         public string ShareClassShortCode { get; set; }
 
         /// <summary>

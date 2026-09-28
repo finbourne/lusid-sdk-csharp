@@ -10,9 +10,11 @@ Name | Type | Description | Notes
 **Name** | **string** | The display name of the Fund Structure. | 
 **Description** | **string** | An optional description for the Fund Structure. | [optional] 
 **Funds** | [**List&lt;Fund&gt;**](Fund.md) | An optional list of existing funds to be incorporated as part of the structure. | [optional] 
-**AllocationGroups** | [**List&lt;AllocationGroup&gt;**](AllocationGroup.md) | An optional list of Allocation Groups that can apply across a Fund Structure. Only classes and feeder funds linked to the master fund specified are allowed. | [optional] 
-**Nodes** | [**List&lt;FundStructureNode&gt;**](FundStructureNode.md) | The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role. | 
-**Edges** | [**List&lt;FundStructureEdge&gt;**](FundStructureEdge.md) | The list of edges that define the relationships between feeder and master nodes in the structure. | 
+**AllocationGroups** | [**List&lt;AllocationGroup&gt;**](AllocationGroup.md) | An optional list of Allocation Groups that can apply across a Fund Structure. A group may span the share classes of a member and the members that invest into it through dedicated share class links. | [optional] 
+**Nodes** | [**List&lt;FundStructureNode&gt;**](FundStructureNode.md) | The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role. May be empty on create, with members added later through the members endpoint. | 
+**Edges** | [**List&lt;FundStructureEdge&gt;**](FundStructureEdge.md) | The list of edges that define how the members of the structure are linked: a member investing into a dedicated share class of another, or holding an equity, GP, LP or carry interest in another through an instrument. | 
+**RoleDataTypeId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**NavTypeCodes** | **List&lt;string&gt;** | The NAV types every member of the structure produces, by code. Declaring them once here gives the structure a shared Timeline. At least one is required, and every member fund must define a NAV type with each of these codes. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties to decorate onto the Fund Structure. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
@@ -29,6 +31,9 @@ List<Fund> funds = new List<Fund>();
 List<AllocationGroup> allocationGroups = new List<AllocationGroup>();
 List<FundStructureNode> nodes = new List<FundStructureNode>();
 List<FundStructureEdge> edges = new List<FundStructureEdge>();
+ResourceId? roleDataTypeId = new ResourceId();
+
+List<string> navTypeCodes = new List<string>();
 ModelVersion? varVersion = new ModelVersion();
 
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
@@ -43,6 +48,8 @@ FundStructure fundStructureInstance = new FundStructure(
     allocationGroups: allocationGroups,
     nodes: nodes,
     edges: edges,
+    roleDataTypeId: roleDataTypeId,
+    navTypeCodes: navTypeCodes,
     varVersion: varVersion,
     properties: properties,
     links: links);

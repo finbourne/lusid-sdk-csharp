@@ -40,12 +40,14 @@ namespace Lusid.Sdk.Model
         /// <param name="name">The display name of the Fund Structure. (required).</param>
         /// <param name="description">An optional description for the Fund Structure..</param>
         /// <param name="existingFunds">An optional list of existing funds to be incorporated as part of the structure..</param>
-        /// <param name="allocationGroups">An optional list of Allocation Groups that can apply across a Fund Structure. Only classes and feeder funds linked to the master fund specified are allowed..</param>
-        /// <param name="nodes">The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role. (required).</param>
-        /// <param name="edges">The list of edges that define the relationships between feeder and master nodes in the structure. (required).</param>
+        /// <param name="allocationGroups">An optional list of Allocation Groups that can apply across a Fund Structure. A group may span the share classes of a member and the members that invest into it through dedicated share class links..</param>
+        /// <param name="nodes">The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role. May be empty on create, with members added later through the members endpoint..</param>
+        /// <param name="edges">The list of edges that define how the members of the structure are linked: a member investing into a dedicated share class of another, or holding an equity, GP, LP or carry interest in another through an instrument..</param>
         /// <param name="effectiveAt">The effective datetime from which the Fund Structure applies. Defaults to the beginning of time if not specified, so that the structure is visible at every effective datetime..</param>
+        /// <param name="roleDataTypeId">roleDataTypeId.</param>
+        /// <param name="navTypeCodes">The NAV types every member of the structure produces, by code. Declaring them once here gives the structure a shared Timeline. At least one is required, and every member fund must define a NAV type with each of these codes. (required).</param>
         /// <param name="properties">A set of properties to decorate onto the Fund Structure..</param>
-        public FundStructureRequest(string code = default(string), string name = default(string), string description = default(string), List<ResourceId> existingFunds = default(List<ResourceId>), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<FundStructureNode> nodes = default(List<FundStructureNode>), List<FundStructureEdge> edges = default(List<FundStructureEdge>), DateTimeOffset? effectiveAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        public FundStructureRequest(string code = default(string), string name = default(string), string description = default(string), List<ResourceId> existingFunds = default(List<ResourceId>), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<FundStructureNode> nodes = default(List<FundStructureNode>), List<FundStructureEdge> edges = default(List<FundStructureEdge>), DateTimeOffset? effectiveAt = default(DateTimeOffset?), ResourceId roleDataTypeId = default(ResourceId), List<string> navTypeCodes = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -59,22 +61,19 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("name is a required property for FundStructureRequest and cannot be null");
             }
             this.Name = name;
-            // to ensure "nodes" is required (not null)
-            if (nodes == null)
+            // to ensure "navTypeCodes" is required (not null)
+            if (navTypeCodes == null)
             {
-                throw new ArgumentNullException("nodes is a required property for FundStructureRequest and cannot be null");
+                throw new ArgumentNullException("navTypeCodes is a required property for FundStructureRequest and cannot be null");
             }
-            this.Nodes = nodes;
-            // to ensure "edges" is required (not null)
-            if (edges == null)
-            {
-                throw new ArgumentNullException("edges is a required property for FundStructureRequest and cannot be null");
-            }
-            this.Edges = edges;
+            this.NavTypeCodes = navTypeCodes;
             this.Description = description;
             this.ExistingFunds = existingFunds;
             this.AllocationGroups = allocationGroups;
+            this.Nodes = nodes;
+            this.Edges = edges;
             this.EffectiveAt = effectiveAt;
+            this.RoleDataTypeId = roleDataTypeId;
             this.Properties = properties;
         }
 
@@ -107,24 +106,24 @@ namespace Lusid.Sdk.Model
         public List<ResourceId> ExistingFunds { get; set; }
 
         /// <summary>
-        /// An optional list of Allocation Groups that can apply across a Fund Structure. Only classes and feeder funds linked to the master fund specified are allowed.
+        /// An optional list of Allocation Groups that can apply across a Fund Structure. A group may span the share classes of a member and the members that invest into it through dedicated share class links.
         /// </summary>
-        /// <value>An optional list of Allocation Groups that can apply across a Fund Structure. Only classes and feeder funds linked to the master fund specified are allowed.</value>
+        /// <value>An optional list of Allocation Groups that can apply across a Fund Structure. A group may span the share classes of a member and the members that invest into it through dedicated share class links.</value>
         [DataMember(Name = "allocationGroups", EmitDefaultValue = true)]
         public List<AllocationGroup> AllocationGroups { get; set; }
 
         /// <summary>
-        /// The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role.
+        /// The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role. May be empty on create, with members added later through the members endpoint.
         /// </summary>
-        /// <value>The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role.</value>
-        [DataMember(Name = "nodes", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>The list of nodes that make up the Fund Structure, each referencing a Fund and defining its role. May be empty on create, with members added later through the members endpoint.</value>
+        [DataMember(Name = "nodes", EmitDefaultValue = true)]
         public List<FundStructureNode> Nodes { get; set; }
 
         /// <summary>
-        /// The list of edges that define the relationships between feeder and master nodes in the structure.
+        /// The list of edges that define how the members of the structure are linked: a member investing into a dedicated share class of another, or holding an equity, GP, LP or carry interest in another through an instrument.
         /// </summary>
-        /// <value>The list of edges that define the relationships between feeder and master nodes in the structure.</value>
-        [DataMember(Name = "edges", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>The list of edges that define how the members of the structure are linked: a member investing into a dedicated share class of another, or holding an equity, GP, LP or carry interest in another through an instrument.</value>
+        [DataMember(Name = "edges", EmitDefaultValue = true)]
         public List<FundStructureEdge> Edges { get; set; }
 
         /// <summary>
@@ -133,6 +132,19 @@ namespace Lusid.Sdk.Model
         /// <value>The effective datetime from which the Fund Structure applies. Defaults to the beginning of time if not specified, so that the structure is visible at every effective datetime.</value>
         [DataMember(Name = "effectiveAt", EmitDefaultValue = true)]
         public DateTimeOffset? EffectiveAt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RoleDataTypeId
+        /// </summary>
+        [DataMember(Name = "roleDataTypeId", EmitDefaultValue = false)]
+        public ResourceId RoleDataTypeId { get; set; }
+
+        /// <summary>
+        /// The NAV types every member of the structure produces, by code. Declaring them once here gives the structure a shared Timeline. At least one is required, and every member fund must define a NAV type with each of these codes.
+        /// </summary>
+        /// <value>The NAV types every member of the structure produces, by code. Declaring them once here gives the structure a shared Timeline. At least one is required, and every member fund must define a NAV type with each of these codes.</value>
+        [DataMember(Name = "navTypeCodes", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> NavTypeCodes { get; set; }
 
         /// <summary>
         /// A set of properties to decorate onto the Fund Structure.
@@ -157,6 +169,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  Nodes: ").Append(Nodes).Append("\n");
             sb.Append("  Edges: ").Append(Edges).Append("\n");
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
+            sb.Append("  RoleDataTypeId: ").Append(RoleDataTypeId).Append("\n");
+            sb.Append("  NavTypeCodes: ").Append(NavTypeCodes).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -238,6 +252,17 @@ namespace Lusid.Sdk.Model
                     this.EffectiveAt.Equals(input.EffectiveAt))
                 ) && 
                 (
+                    this.RoleDataTypeId == input.RoleDataTypeId ||
+                    (this.RoleDataTypeId != null &&
+                    this.RoleDataTypeId.Equals(input.RoleDataTypeId))
+                ) && 
+                (
+                    this.NavTypeCodes == input.NavTypeCodes ||
+                    this.NavTypeCodes != null &&
+                    input.NavTypeCodes != null &&
+                    this.NavTypeCodes.SequenceEqual(input.NavTypeCodes)
+                ) && 
+                (
                     this.Properties == input.Properties ||
                     this.Properties != null &&
                     input.Properties != null &&
@@ -285,6 +310,14 @@ namespace Lusid.Sdk.Model
                 if (this.EffectiveAt != null)
                 {
                     hashCode = (hashCode * 59) + this.EffectiveAt.GetHashCode();
+                }
+                if (this.RoleDataTypeId != null)
+                {
+                    hashCode = (hashCode * 59) + this.RoleDataTypeId.GetHashCode();
+                }
+                if (this.NavTypeCodes != null)
+                {
+                    hashCode = (hashCode * 59) + this.NavTypeCodes.GetHashCode();
                 }
                 if (this.Properties != null)
                 {

@@ -13,9 +13,10 @@ Name | Type | Description | Notes
 **InvestorStructure** | **string** | The Investor structure to be used by the Fund. Available values: NonUnitised, Classes. | 
 **PortfolioIds** | [**List&lt;PortfolioEntityIdWithDetails&gt;**](PortfolioEntityIdWithDetails.md) | A list of the portfolios on the fund, which are part of the Fund. Note: These must all have the same base currency, which must also match the Fund Base Currency. | [optional] 
 **FundConfigurationId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**ShortCode** | **string** | A short code for the Fund. A fund structure tags journal entry lines with the short code of the member they originated from, so it should be unique across the funds of one structure. Optional. | [optional] 
 **AborId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **ShareClassInstruments** | [**List&lt;InstrumentResolutionDetail&gt;**](InstrumentResolutionDetail.md) | Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures. | [optional] 
-**Type** | **string** | The type of fund. Available values: Standalone, Master, Feeder. | [optional] 
+**Type** | **string** | The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Standalone, Master and Feeder are retained for compatibility; the structural role of a fund now lives on its fund structure node. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA. | [optional] 
 **InceptionDate** | **DateTimeOffset** | Inception date of the Fund | 
 **DecimalPlaces** | **int?** | Number of decimal places for reporting | [optional] 
 **YearEndDate** | [**DayMonth**](DayMonth.md) |  | [optional] 
@@ -42,6 +43,7 @@ string investorStructure = "investorStructure";
 List<PortfolioEntityIdWithDetails> portfolioIds = new List<PortfolioEntityIdWithDetails>();
 ResourceId? fundConfigurationId = new ResourceId();
 
+string shortCode = "example shortCode";
 ResourceId? aborId = new ResourceId();
 
 List<InstrumentResolutionDetail> shareClassInstruments = new List<InstrumentResolutionDetail>();
@@ -70,6 +72,7 @@ Fund fundInstance = new Fund(
     investorStructure: investorStructure,
     portfolioIds: portfolioIds,
     fundConfigurationId: fundConfigurationId,
+    shortCode: shortCode,
     aborId: aborId,
     shareClassInstruments: shareClassInstruments,
     type: type,

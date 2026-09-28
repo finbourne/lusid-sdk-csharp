@@ -6,6 +6,7 @@ The request used to create a Fund.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Code** | **string** | The code given for the Fund. | 
+**ShortCode** | **string** | A short code for the Fund. A fund structure tags journal entry lines with the short code of the member they originated from, so it should be unique across the funds of one structure. Optional. | [optional] 
 **DisplayName** | **string** | The name of the Fund. | 
 **Description** | **string** | A description for the Fund. | [optional] 
 **BaseCurrency** | **string** | The base currency of the Fund in ISO 4217 currency code format. All portfolios must be of a matching base currency. | 
@@ -14,7 +15,7 @@ Name | Type | Description | Notes
 **FundConfigurationId** | [**ResourceId**](ResourceId.md) |  | 
 **ShareClassInstrumentScopes** | **List&lt;string&gt;** | The scopes in which the instruments lie, currently limited to one. | [optional] 
 **ShareClassInstruments** | [**List&lt;InstrumentResolutionDetail&gt;**](InstrumentResolutionDetail.md) | Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures. | [optional] 
-**Type** | **string** | The type of fund. Available values: Standalone, Master, Feeder. | [optional] 
+**Type** | **string** | The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Standalone, Master and Feeder are retained for compatibility; the structural role of a fund now lives on its fund structure node. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA. | [optional] 
 **InceptionDate** | **DateTimeOffset** | Inception date of the Fund | 
 **DecimalPlaces** | **int?** | Number of decimal places for reporting | [optional] 
 **PrimaryNavType** | [**NavTypeDefinition**](NavTypeDefinition.md) |  | 
@@ -28,6 +29,7 @@ using Lusid.Sdk.Model;
 using System;
 
 string code = "code";
+string shortCode = "example shortCode";
 string displayName = "displayName";
 string description = "example description";
 string baseCurrency = "baseCurrency";
@@ -45,6 +47,7 @@ List<ShareClassDefinition> shareClasses = new List<ShareClassDefinition>();
 
 FundDefinitionRequest fundDefinitionRequestInstance = new FundDefinitionRequest(
     code: code,
+    shortCode: shortCode,
     displayName: displayName,
     description: description,
     baseCurrency: baseCurrency,
