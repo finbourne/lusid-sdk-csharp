@@ -38,8 +38,9 @@ namespace Lusid.Sdk.Model
         /// <param name="description">The description of the corporate action source.</param>
         /// <param name="instrumentScopes">The list of instrument scopes used as the scope resolution strategy when resolving instruments of upserted corporate actions..</param>
         /// <param name="eventInheritance">eventInheritance.</param>
+        /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="links">links.</param>
-        public CorporateActionSource(string href = default(string), ResourceId id = default(ResourceId), ModelVersion varVersion = default(ModelVersion), string displayName = default(string), string description = default(string), List<string> instrumentScopes = default(List<string>), EventInheritance eventInheritance = default(EventInheritance), List<Link> links = default(List<Link>))
+        public CorporateActionSource(string href = default(string), ResourceId id = default(ResourceId), ModelVersion varVersion = default(ModelVersion), string displayName = default(string), string description = default(string), List<string> instrumentScopes = default(List<string>), EventInheritance eventInheritance = default(EventInheritance), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<Link> links = default(List<Link>))
         {
             this.Href = href;
             this.Id = id;
@@ -48,6 +49,7 @@ namespace Lusid.Sdk.Model
             this.Description = description;
             this.InstrumentScopes = instrumentScopes;
             this.EventInheritance = eventInheritance;
+            this.StagedModifications = stagedModifications;
             this.Links = links;
         }
 
@@ -98,6 +100,12 @@ namespace Lusid.Sdk.Model
         public EventInheritance EventInheritance { get; set; }
 
         /// <summary>
+        /// Gets or Sets StagedModifications
+        /// </summary>
+        [DataMember(Name = "stagedModifications", EmitDefaultValue = false)]
+        public StagedModificationsInfo StagedModifications { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -118,6 +126,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  InstrumentScopes: ").Append(InstrumentScopes).Append("\n");
             sb.Append("  EventInheritance: ").Append(EventInheritance).Append("\n");
+            sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -191,6 +200,11 @@ namespace Lusid.Sdk.Model
                     this.EventInheritance.Equals(input.EventInheritance))
                 ) && 
                 (
+                    this.StagedModifications == input.StagedModifications ||
+                    (this.StagedModifications != null &&
+                    this.StagedModifications.Equals(input.StagedModifications))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -234,6 +248,10 @@ namespace Lusid.Sdk.Model
                 if (this.EventInheritance != null)
                 {
                     hashCode = (hashCode * 59) + this.EventInheritance.GetHashCode();
+                }
+                if (this.StagedModifications != null)
+                {
+                    hashCode = (hashCode * 59) + this.StagedModifications.GetHashCode();
                 }
                 if (this.Links != null)
                 {

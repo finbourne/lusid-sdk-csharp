@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RecDefSource" /> class.
         /// </summary>
-        /// <param name="sourceType">The type of entity that this source refers to. One of: Portfolio, PortfolioGroup, Fund. Available values: Portfolio, PortfolioGroup, Fund. (required).</param>
+        /// <param name="sourceType">The type of entity that this source refers to. Available values: Portfolio, PortfolioGroup, Fund. (required).</param>
         /// <param name="id">id (required).</param>
         public RecDefSource(string sourceType = default(string), ResourceId id = default(ResourceId))
         {
@@ -55,9 +55,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The type of entity that this source refers to. One of: Portfolio, PortfolioGroup, Fund. Available values: Portfolio, PortfolioGroup, Fund.
+        /// The type of entity that this source refers to. Available values: Portfolio, PortfolioGroup, Fund.
         /// </summary>
-        /// <value>The type of entity that this source refers to. One of: Portfolio, PortfolioGroup, Fund. Available values: Portfolio, PortfolioGroup, Fund.</value>
+        /// <value>The type of entity that this source refers to. Available values: Portfolio, PortfolioGroup, Fund.</value>
         [DataMember(Name = "sourceType", IsRequired = true, EmitDefaultValue = true)]
         public string SourceType { get; set; }
 

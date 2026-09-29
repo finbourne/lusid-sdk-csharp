@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CoreAttributeOptionalityTolerance" /> class.
         /// </summary>
-        /// <param name="optionalSide">Which side is allowed to have no value while still attempting to match. One of: Left, Right, Either. Defaults to Either. Available values: Left, Right, Either..</param>
+        /// <param name="optionalSide">Which side is allowed to have no value while still attempting to match. Defaults to Either. Available values: Left, Right, Either..</param>
         /// <param name="toleranceType">Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. (required).</param>
         /// <param name="ruleName">The reference name of the rule that this tolerance relaxes. (required).</param>
         public CoreAttributeOptionalityTolerance(string optionalSide = default(string), string toleranceType = default(string), string ruleName = default(string))
@@ -57,9 +57,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Which side is allowed to have no value while still attempting to match. One of: Left, Right, Either. Defaults to Either. Available values: Left, Right, Either.
+        /// Which side is allowed to have no value while still attempting to match. Defaults to Either. Available values: Left, Right, Either.
         /// </summary>
-        /// <value>Which side is allowed to have no value while still attempting to match. One of: Left, Right, Either. Defaults to Either. Available values: Left, Right, Either.</value>
+        /// <value>Which side is allowed to have no value while still attempting to match. Defaults to Either. Available values: Left, Right, Either.</value>
         [DataMember(Name = "optionalSide", EmitDefaultValue = true)]
         public string OptionalSide { get; set; }
 

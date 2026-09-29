@@ -7,12 +7,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ToleranceType** | **string** | Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. | 
 **RuleName** | **string** | The reference name of the rule that this tolerance relaxes. | 
-**ReferenceSide** | **string** | Reference side (source of truth). One of: Left, Right. Available values: Left, Right, Either. | 
+**ReferenceSide** | **string** | Reference side (source of truth). Available values: Left, Right, Either. | 
 **AbsoluteThreshold** | **decimal?** | Numeric tolerance absolute value (allowable diff compared to the reference side value). | [optional] 
 **RelativeThreshold** | **decimal?** | Numeric tolerance value as a relative % of the reference value. | [optional] 
-**ThresholdPriority** | **string** | Whether to apply the GreaterOf or LesserOf the absoluteThreshold vs relativeThreshold. One of: GreaterOf, LesserOf. Available values: GreaterOf, LesserOf. | 
-**Offset** | **string** | How the interval should be applied to the reference side value. One of: Earlier, Later, Either. Defaults to Either. Available values: Earlier, Later, Either. | [optional] 
-**OptionalSide** | **string** | Which side is allowed to have no value while still attempting to match. One of: Left, Right, Either. Defaults to Either. Available values: Left, Right, Either. | [optional] 
+**ThresholdPriority** | **string** | Whether to apply the GreaterOf or LesserOf the absoluteThreshold vs relativeThreshold. Required when both thresholds are provided; must be omitted when only one is. Available values: GreaterOf, LesserOf. | [optional] 
+**Offset** | **string** | How the interval should be applied to the reference side value. Defaults to Either. Available values: Earlier, Later, Either. | [optional] 
+**OptionalSide** | **string** | Which side is allowed to have no value while still attempting to match. Defaults to Either. Available values: Left, Right, Either. | [optional] 
 **Interval** | **string** | The allowed tolerance for date time core rule values, defined as an ISO Period. | 
 **ReferenceValue** | **string** | The value for the reference side. | 
 **CrossValue** | **string** | The value for the side other than the reference one. | 

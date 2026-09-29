@@ -36,9 +36,9 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CoreDateTolerance" /> class.
         /// </summary>
-        /// <param name="referenceSide">Reference side (source of truth). One of: Left, Right. Available values: Left, Right. (required).</param>
+        /// <param name="referenceSide">Reference side (source of truth). Available values: Left, Right. (required).</param>
         /// <param name="interval">The allowed tolerance for date time core rule values, defined as an ISO Period. (required).</param>
-        /// <param name="offset">How the interval should be applied to the reference side value. One of: Earlier, Later, Either. Defaults to Either. Available values: Earlier, Later, Either..</param>
+        /// <param name="offset">How the interval should be applied to the reference side value. Defaults to Either. Available values: Earlier, Later, Either..</param>
         /// <param name="toleranceType">Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. (required).</param>
         /// <param name="ruleName">The reference name of the rule that this tolerance relaxes. (required).</param>
         public CoreDateTolerance(string referenceSide = default(string), string interval = default(string), string offset = default(string), string toleranceType = default(string), string ruleName = default(string))
@@ -71,9 +71,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Reference side (source of truth). One of: Left, Right. Available values: Left, Right.
+        /// Reference side (source of truth). Available values: Left, Right.
         /// </summary>
-        /// <value>Reference side (source of truth). One of: Left, Right. Available values: Left, Right.</value>
+        /// <value>Reference side (source of truth). Available values: Left, Right.</value>
         [DataMember(Name = "referenceSide", IsRequired = true, EmitDefaultValue = true)]
         public string ReferenceSide { get; set; }
 
@@ -85,9 +85,9 @@ namespace Lusid.Sdk.Model
         public string Interval { get; set; }
 
         /// <summary>
-        /// How the interval should be applied to the reference side value. One of: Earlier, Later, Either. Defaults to Either. Available values: Earlier, Later, Either.
+        /// How the interval should be applied to the reference side value. Defaults to Either. Available values: Earlier, Later, Either.
         /// </summary>
-        /// <value>How the interval should be applied to the reference side value. One of: Earlier, Later, Either. Defaults to Either. Available values: Earlier, Later, Either.</value>
+        /// <value>How the interval should be applied to the reference side value. Defaults to Either. Available values: Earlier, Later, Either.</value>
         [DataMember(Name = "offset", EmitDefaultValue = true)]
         public string Offset { get; set; }
 

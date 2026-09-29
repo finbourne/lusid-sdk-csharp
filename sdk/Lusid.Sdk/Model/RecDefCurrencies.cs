@@ -154,27 +154,41 @@ namespace Lusid.Sdk.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Left (string) maxLength
-            if (this.Left != null && this.Left.Length > 4)
+            if (this.Left != null && this.Left.Length > 5)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Left, length must be less than 4.", new [] { "Left" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Left, length must be less than 5.", new [] { "Left" });
             }
 
             // Left (string) minLength
-            if (this.Left != null && this.Left.Length < 0)
+            if (this.Left != null && this.Left.Length < 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Left, length must be greater than 0.", new [] { "Left" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Left, length must be greater than 3.", new [] { "Left" });
+            }
+
+            // Left (string) pattern
+            Regex regexLeft = new Regex(@"^[a-zA-Z]*$", RegexOptions.CultureInvariant);
+            if (false == regexLeft.Match(this.Left).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Left, must match a pattern of " + regexLeft, new [] { "Left" });
             }
 
             // Right (string) maxLength
-            if (this.Right != null && this.Right.Length > 4)
+            if (this.Right != null && this.Right.Length > 5)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Right, length must be less than 4.", new [] { "Right" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Right, length must be less than 5.", new [] { "Right" });
             }
 
             // Right (string) minLength
-            if (this.Right != null && this.Right.Length < 0)
+            if (this.Right != null && this.Right.Length < 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Right, length must be greater than 0.", new [] { "Right" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Right, length must be greater than 3.", new [] { "Right" });
+            }
+
+            // Right (string) pattern
+            Regex regexRight = new Regex(@"^[a-zA-Z]*$", RegexOptions.CultureInvariant);
+            if (false == regexRight.Match(this.Right).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Right, must match a pattern of " + regexRight, new [] { "Right" });
             }
 
             yield break;

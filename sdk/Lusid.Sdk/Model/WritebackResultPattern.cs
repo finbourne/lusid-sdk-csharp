@@ -36,8 +36,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WritebackResultPattern" /> class.
         /// </summary>
-        /// <param name="unitsDifference">How the origin units compare to the target units, on a literal comparison rather than on the result type. One of: Exact, ShortWithinTolerance, ShortBeyondTolerance, LongWithinTolerance. LongBeyondTolerance is reported on results but cannot be configured. Available values: Exact, ShortWithinTolerance, ShortBeyondTolerance, LongWithinTolerance, LongBeyondTolerance. (required).</param>
-        /// <param name="resultCardinality">The item cardinality of the result, read left to right. One of: OneToOne, OneToMany, ManyToOne. ManyToMany is not supported. Available values: OneToOne, OneToMany, ManyToOne, ManyToMany, OneToNone, ManyToNone, NoneToOne, NoneToMany, NoneToNone. (required).</param>
+        /// <param name="unitsDifference">How the origin units compare to the target units, on a literal comparison rather than on the result type. LongBeyondTolerance is reported on results but cannot be configured. Available values: Exact, ShortWithinTolerance, ShortBeyondTolerance, LongWithinTolerance, LongBeyondTolerance. (required).</param>
+        /// <param name="resultCardinality">The item cardinality of the result, read left to right. ManyToMany is not supported. Available values: OneToOne, OneToMany, ManyToOne, ManyToMany, OneToNone, ManyToNone, NoneToOne, NoneToMany, NoneToNone. (required).</param>
         /// <param name="useTargetUnits">Which side supplies the units where the two sides do not agree exactly. When false, the units come from the origin and any difference is left outstanding on the target; when true, they come from the target, which is written back in full. Defaults to false. Must be true for LongWithinTolerance, and cannot be true for ShortBeyondTolerance..</param>
         public WritebackResultPattern(string unitsDifference = default(string), string resultCardinality = default(string), bool useTargetUnits = default(bool))
         {
@@ -57,16 +57,16 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// How the origin units compare to the target units, on a literal comparison rather than on the result type. One of: Exact, ShortWithinTolerance, ShortBeyondTolerance, LongWithinTolerance. LongBeyondTolerance is reported on results but cannot be configured. Available values: Exact, ShortWithinTolerance, ShortBeyondTolerance, LongWithinTolerance, LongBeyondTolerance.
+        /// How the origin units compare to the target units, on a literal comparison rather than on the result type. LongBeyondTolerance is reported on results but cannot be configured. Available values: Exact, ShortWithinTolerance, ShortBeyondTolerance, LongWithinTolerance, LongBeyondTolerance.
         /// </summary>
-        /// <value>How the origin units compare to the target units, on a literal comparison rather than on the result type. One of: Exact, ShortWithinTolerance, ShortBeyondTolerance, LongWithinTolerance. LongBeyondTolerance is reported on results but cannot be configured. Available values: Exact, ShortWithinTolerance, ShortBeyondTolerance, LongWithinTolerance, LongBeyondTolerance.</value>
+        /// <value>How the origin units compare to the target units, on a literal comparison rather than on the result type. LongBeyondTolerance is reported on results but cannot be configured. Available values: Exact, ShortWithinTolerance, ShortBeyondTolerance, LongWithinTolerance, LongBeyondTolerance.</value>
         [DataMember(Name = "unitsDifference", IsRequired = true, EmitDefaultValue = true)]
         public string UnitsDifference { get; set; }
 
         /// <summary>
-        /// The item cardinality of the result, read left to right. One of: OneToOne, OneToMany, ManyToOne. ManyToMany is not supported. Available values: OneToOne, OneToMany, ManyToOne, ManyToMany, OneToNone, ManyToNone, NoneToOne, NoneToMany, NoneToNone.
+        /// The item cardinality of the result, read left to right. ManyToMany is not supported. Available values: OneToOne, OneToMany, ManyToOne, ManyToMany, OneToNone, ManyToNone, NoneToOne, NoneToMany, NoneToNone.
         /// </summary>
-        /// <value>The item cardinality of the result, read left to right. One of: OneToOne, OneToMany, ManyToOne. ManyToMany is not supported. Available values: OneToOne, OneToMany, ManyToOne, ManyToMany, OneToNone, ManyToNone, NoneToOne, NoneToMany, NoneToNone.</value>
+        /// <value>The item cardinality of the result, read left to right. ManyToMany is not supported. Available values: OneToOne, OneToMany, ManyToOne, ManyToMany, OneToNone, ManyToNone, NoneToOne, NoneToMany, NoneToNone.</value>
         [DataMember(Name = "resultCardinality", IsRequired = true, EmitDefaultValue = true)]
         public string ResultCardinality { get; set; }
 

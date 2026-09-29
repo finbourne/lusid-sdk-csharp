@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="mandatoryRuleNames">mandatoryRuleNames (required).</param>
         /// <param name="resultPatterns">The combinations of units difference and result cardinality for which writeback is suggested. A combination that is not present never produces a suggestion. Each combination may appear once, and the collection is returned in a canonical order regardless of the order supplied. (required).</param>
         /// <param name="writebackType">Polymorphic discriminator, naming the change the writeback makes to LUSID. Supported types: SettleExpectedActivity, which is only valid when recType is SettlementActivity. Available values: SettleExpectedActivity. (required).</param>
-        /// <param name="targetSide">The side the writeback changes, the other being the source of truth. One of: Left, Right. As the writeback changes LUSID, this side must draw on a native LUSID dataset rather than relational data. Available values: Left, Right. (required).</param>
+        /// <param name="targetSide">The side the writeback changes, the other being the source of truth. As the writeback changes LUSID, this side must draw on a native LUSID dataset rather than relational data. Available values: Left, Right. (required).</param>
         public SettleExpectedActivityWritebackConfiguration(SettleExpectedActivityRuleNames mandatoryRuleNames = default(SettleExpectedActivityRuleNames), List<WritebackResultPattern> resultPatterns = default(List<WritebackResultPattern>), string writebackType = default(string), string targetSide = default(string))
         {
             // to ensure "mandatoryRuleNames" is required (not null)
@@ -89,9 +89,9 @@ namespace Lusid.Sdk.Model
         public string WritebackType { get; set; }
 
         /// <summary>
-        /// The side the writeback changes, the other being the source of truth. One of: Left, Right. As the writeback changes LUSID, this side must draw on a native LUSID dataset rather than relational data. Available values: Left, Right.
+        /// The side the writeback changes, the other being the source of truth. As the writeback changes LUSID, this side must draw on a native LUSID dataset rather than relational data. Available values: Left, Right.
         /// </summary>
-        /// <value>The side the writeback changes, the other being the source of truth. One of: Left, Right. As the writeback changes LUSID, this side must draw on a native LUSID dataset rather than relational data. Available values: Left, Right.</value>
+        /// <value>The side the writeback changes, the other being the source of truth. As the writeback changes LUSID, this side must draw on a native LUSID dataset rather than relational data. Available values: Left, Right.</value>
         [DataMember(Name = "targetSide", IsRequired = true, EmitDefaultValue = true)]
         public string TargetSide { get; set; }
 

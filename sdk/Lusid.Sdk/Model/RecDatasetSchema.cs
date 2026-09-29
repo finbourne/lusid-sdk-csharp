@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RecDatasetSchema" /> class.
         /// </summary>
-        /// <param name="type">The kind of dataset this side draws on. One of: PortfolioContents, LusidEntity, RelationalData. At most one side may be RelationalData. Available values: PortfolioContents, LusidEntity, RelationalData. (required).</param>
+        /// <param name="type">The kind of dataset this side draws on. At most one side may be RelationalData. Available values: PortfolioContents, LusidEntity, RelationalData. (required).</param>
         /// <param name="entityType">The entity within the dataset. Required when type is PortfolioContents, in which case it is one of: Holding, Valuation, Transaction, OutputTransaction, SettlementActivity. Must be omitted when type is RelationalData. Available values: Holding, Valuation, Transaction, OutputTransaction, SettlementActivity..</param>
         /// <param name="relationalDatasetDefinitionId">relationalDatasetDefinitionId.</param>
         public RecDatasetSchema(string type = default(string), string entityType = default(string), ResourceId relationalDatasetDefinitionId = default(ResourceId))
@@ -52,9 +52,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The kind of dataset this side draws on. One of: PortfolioContents, LusidEntity, RelationalData. At most one side may be RelationalData. Available values: PortfolioContents, LusidEntity, RelationalData.
+        /// The kind of dataset this side draws on. At most one side may be RelationalData. Available values: PortfolioContents, LusidEntity, RelationalData.
         /// </summary>
-        /// <value>The kind of dataset this side draws on. One of: PortfolioContents, LusidEntity, RelationalData. At most one side may be RelationalData. Available values: PortfolioContents, LusidEntity, RelationalData.</value>
+        /// <value>The kind of dataset this side draws on. At most one side may be RelationalData. Available values: PortfolioContents, LusidEntity, RelationalData.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 

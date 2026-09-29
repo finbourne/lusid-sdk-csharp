@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="id">id (required).</param>
         /// <param name="displayName">The name of the rec definition. (required).</param>
         /// <param name="description">A description of the rec definition..</param>
-        /// <param name="definitionType">What this definition reconciles, naming the kind of dataset that must be present on at least one side. One of: PortfolioContents, LusidEntity, RelationalData. Only PortfolioContents is currently supported. Available values: PortfolioContents, LusidEntity, RelationalData. (required).</param>
+        /// <param name="definitionType">What this definition reconciles, naming the kind of dataset that must be present on at least one side. Only PortfolioContents is currently supported. Available values: PortfolioContents, LusidEntity, RelationalData. (required).</param>
         /// <param name="sideNames">sideNames.</param>
         /// <param name="leftPortfolioSources">The portfolios, portfolio groups and funds contributing to the left side. Empty when the left side draws on relational data instead, which requires every ruleset to declare relational data for that side. Both sides cannot be empty. (required).</param>
         /// <param name="rightPortfolioSources">The portfolios, portfolio groups and funds contributing to the right side. Empty when the right side draws on relational data instead, which requires every ruleset to declare relational data for that side. Both sides cannot be empty. (required).</param>
@@ -48,10 +48,11 @@ namespace Lusid.Sdk.Model
         /// <param name="rulesets">The types of reconciliation included in the group, each naming the matching ruleset that drives it. At least one entry is required, and each rec type may appear at most once. (required).</param>
         /// <param name="reviewConfiguration">reviewConfiguration (required).</param>
         /// <param name="datePolicy">datePolicy (required).</param>
+        /// <param name="properties">Properties in the RecDefinition domain. On update, a property with a null value is deleted and omitted properties are left unchanged. Filterable and sortable..</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public RecDefinition(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string definitionType = default(string), RecDefSideNames sideNames = default(RecDefSideNames), List<RecDefSource> leftPortfolioSources = default(List<RecDefSource>), List<RecDefSource> rightPortfolioSources = default(List<RecDefSource>), RecDefRecipeIds valuationRecipes = default(RecDefRecipeIds), RecDefCurrencies currencies = default(RecDefCurrencies), List<RecDefRuleset> rulesets = default(List<RecDefRuleset>), RecReviewConfiguration reviewConfiguration = default(RecReviewConfiguration), RecDatePolicy datePolicy = default(RecDatePolicy), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public RecDefinition(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string definitionType = default(string), RecDefSideNames sideNames = default(RecDefSideNames), List<RecDefSource> leftPortfolioSources = default(List<RecDefSource>), List<RecDefSource> rightPortfolioSources = default(List<RecDefSource>), RecDefRecipeIds valuationRecipes = default(RecDefRecipeIds), RecDefCurrencies currencies = default(RecDefCurrencies), List<RecDefRuleset> rulesets = default(List<RecDefRuleset>), RecReviewConfiguration reviewConfiguration = default(RecReviewConfiguration), RecDatePolicy datePolicy = default(RecDatePolicy), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -105,6 +106,7 @@ namespace Lusid.Sdk.Model
             this.SideNames = sideNames;
             this.ValuationRecipes = valuationRecipes;
             this.Currencies = currencies;
+            this.Properties = properties;
             this.Href = href;
             this.VarVersion = varVersion;
             this.Links = links;
@@ -131,9 +133,9 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// What this definition reconciles, naming the kind of dataset that must be present on at least one side. One of: PortfolioContents, LusidEntity, RelationalData. Only PortfolioContents is currently supported. Available values: PortfolioContents, LusidEntity, RelationalData.
+        /// What this definition reconciles, naming the kind of dataset that must be present on at least one side. Only PortfolioContents is currently supported. Available values: PortfolioContents, LusidEntity, RelationalData.
         /// </summary>
-        /// <value>What this definition reconciles, naming the kind of dataset that must be present on at least one side. One of: PortfolioContents, LusidEntity, RelationalData. Only PortfolioContents is currently supported. Available values: PortfolioContents, LusidEntity, RelationalData.</value>
+        /// <value>What this definition reconciles, naming the kind of dataset that must be present on at least one side. Only PortfolioContents is currently supported. Available values: PortfolioContents, LusidEntity, RelationalData.</value>
         [DataMember(Name = "definitionType", IsRequired = true, EmitDefaultValue = true)]
         public string DefinitionType { get; set; }
 
@@ -189,6 +191,13 @@ namespace Lusid.Sdk.Model
         public RecDatePolicy DatePolicy { get; set; }
 
         /// <summary>
+        /// Properties in the RecDefinition domain. On update, a property with a null value is deleted and omitted properties are left unchanged. Filterable and sortable.
+        /// </summary>
+        /// <value>Properties in the RecDefinition domain. On update, a property with a null value is deleted and omitted properties are left unchanged. Filterable and sortable.</value>
+        [DataMember(Name = "properties", EmitDefaultValue = true)]
+        public Dictionary<string, PerpetualProperty> Properties { get; set; }
+
+        /// <summary>
         /// The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
         /// </summary>
         /// <value>The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.</value>
@@ -227,6 +236,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Rulesets: ").Append(Rulesets).Append("\n");
             sb.Append("  ReviewConfiguration: ").Append(ReviewConfiguration).Append("\n");
             sb.Append("  DatePolicy: ").Append(DatePolicy).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -329,6 +339,12 @@ namespace Lusid.Sdk.Model
                     this.DatePolicy.Equals(input.DatePolicy))
                 ) && 
                 (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
                     this.Href == input.Href ||
                     (this.Href != null &&
                     this.Href.Equals(input.Href))
@@ -402,6 +418,10 @@ namespace Lusid.Sdk.Model
                 if (this.DatePolicy != null)
                 {
                     hashCode = (hashCode * 59) + this.DatePolicy.GetHashCode();
+                }
+                if (this.Properties != null)
+                {
+                    hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
                 if (this.Href != null)
                 {

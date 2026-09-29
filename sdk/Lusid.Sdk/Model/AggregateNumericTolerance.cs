@@ -36,11 +36,11 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AggregateNumericTolerance" /> class.
         /// </summary>
-        /// <param name="referenceSide">Reference side (source of truth). One of: Left, Right. Available values: Left, Right. (required).</param>
+        /// <param name="referenceSide">Reference side (source of truth). Available values: Left, Right. (required).</param>
         /// <param name="absoluteThreshold">Numeric tolerance absolute value (allowable diff compared to the reference side value)..</param>
         /// <param name="relativeThreshold">Numeric tolerance value as a relative % of the reference value..</param>
-        /// <param name="thresholdPriority">Whether to apply the GreaterOf or LesserOf the absoluteThreshold vs relativeThreshold. One of: GreaterOf, LesserOf. Available values: GreaterOf, LesserOf. (required).</param>
-        /// <param name="offset">How the threshold should be applied to the reference side value. One of: Above, Below, Either. Defaults to Either. Available values: Above, Below, Either..</param>
+        /// <param name="thresholdPriority">Whether to apply the GreaterOf or LesserOf the absoluteThreshold vs relativeThreshold. Required when both thresholds are provided; must be omitted when only one is. Available values: GreaterOf, LesserOf..</param>
+        /// <param name="offset">How the threshold should be applied to the reference side value. Defaults to Either. Available values: Above, Below, Either..</param>
         /// <param name="toleranceType">Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. (required).</param>
         /// <param name="ruleName">The reference name of the rule that this tolerance relaxes. (required).</param>
         public AggregateNumericTolerance(string referenceSide = default(string), decimal? absoluteThreshold = default(decimal?), decimal? relativeThreshold = default(decimal?), string thresholdPriority = default(string), string offset = default(string), string toleranceType = default(string), string ruleName = default(string))
@@ -51,12 +51,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("referenceSide is a required property for AggregateNumericTolerance and cannot be null");
             }
             this.ReferenceSide = referenceSide;
-            // to ensure "thresholdPriority" is required (not null)
-            if (thresholdPriority == null)
-            {
-                throw new ArgumentNullException("thresholdPriority is a required property for AggregateNumericTolerance and cannot be null");
-            }
-            this.ThresholdPriority = thresholdPriority;
             // to ensure "toleranceType" is required (not null)
             if (toleranceType == null)
             {
@@ -71,13 +65,14 @@ namespace Lusid.Sdk.Model
             this.RuleName = ruleName;
             this.AbsoluteThreshold = absoluteThreshold;
             this.RelativeThreshold = relativeThreshold;
+            this.ThresholdPriority = thresholdPriority;
             this.Offset = offset;
         }
 
         /// <summary>
-        /// Reference side (source of truth). One of: Left, Right. Available values: Left, Right.
+        /// Reference side (source of truth). Available values: Left, Right.
         /// </summary>
-        /// <value>Reference side (source of truth). One of: Left, Right. Available values: Left, Right.</value>
+        /// <value>Reference side (source of truth). Available values: Left, Right.</value>
         [DataMember(Name = "referenceSide", IsRequired = true, EmitDefaultValue = true)]
         public string ReferenceSide { get; set; }
 
@@ -96,16 +91,16 @@ namespace Lusid.Sdk.Model
         public decimal? RelativeThreshold { get; set; }
 
         /// <summary>
-        /// Whether to apply the GreaterOf or LesserOf the absoluteThreshold vs relativeThreshold. One of: GreaterOf, LesserOf. Available values: GreaterOf, LesserOf.
+        /// Whether to apply the GreaterOf or LesserOf the absoluteThreshold vs relativeThreshold. Required when both thresholds are provided; must be omitted when only one is. Available values: GreaterOf, LesserOf.
         /// </summary>
-        /// <value>Whether to apply the GreaterOf or LesserOf the absoluteThreshold vs relativeThreshold. One of: GreaterOf, LesserOf. Available values: GreaterOf, LesserOf.</value>
-        [DataMember(Name = "thresholdPriority", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>Whether to apply the GreaterOf or LesserOf the absoluteThreshold vs relativeThreshold. Required when both thresholds are provided; must be omitted when only one is. Available values: GreaterOf, LesserOf.</value>
+        [DataMember(Name = "thresholdPriority", EmitDefaultValue = true)]
         public string ThresholdPriority { get; set; }
 
         /// <summary>
-        /// How the threshold should be applied to the reference side value. One of: Above, Below, Either. Defaults to Either. Available values: Above, Below, Either.
+        /// How the threshold should be applied to the reference side value. Defaults to Either. Available values: Above, Below, Either.
         /// </summary>
-        /// <value>How the threshold should be applied to the reference side value. One of: Above, Below, Either. Defaults to Either. Available values: Above, Below, Either.</value>
+        /// <value>How the threshold should be applied to the reference side value. Defaults to Either. Available values: Above, Below, Either.</value>
         [DataMember(Name = "offset", EmitDefaultValue = true)]
         public string Offset { get; set; }
 
@@ -262,12 +257,6 @@ namespace Lusid.Sdk.Model
             if (this.ReferenceSide != null && this.ReferenceSide.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceSide, length must be greater than 1.", new [] { "ReferenceSide" });
-            }
-
-            // ThresholdPriority (string) minLength
-            if (this.ThresholdPriority != null && this.ThresholdPriority.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThresholdPriority, length must be greater than 1.", new [] { "ThresholdPriority" });
             }
 
             // ToleranceType (string) minLength

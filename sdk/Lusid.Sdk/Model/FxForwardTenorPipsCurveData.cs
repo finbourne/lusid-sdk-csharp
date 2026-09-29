@@ -43,13 +43,14 @@ namespace Lusid.Sdk.Model
         /// <param name="fgnCcy">Foreign currency of the fx forward (required).</param>
         /// <param name="tenors">Tenors for which the forward rates apply.  For more information on tenors, see [Specifying tenors in LUSID](https://support.lusid.com/docs/specifying-tenors-in-lusid) (required).</param>
         /// <param name="pipRates">Rates provided for the fx forward (price in FgnCcy per unit of DomCcy), expressed in pips (required).</param>
+        /// <param name="pipMultiplier">Optional. The scaling factor applied to the pip rates to convert them into a forward rate adjustment,  so that forwardRate &#x3D; spotRate + pipRate * pipMultiplier. Must be strictly positive when supplied.  When omitted, the market convention for the currency pair is used:  0.01 when the foreign (quote) currency is JPY, and 0.0001 (the four-decimal-place convention of the major pairs) otherwise..</param>
         /// <param name="lineage">Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;..</param>
         /// <param name="marketDataOptions">marketDataOptions.</param>
         /// <param name="calendars">The list of conventions that should be used when interpreting tenors as dates..</param>
         /// <param name="spotDaysCalculationType">Configures how to calculate the spot date from the build date using the Calendars provided. Available values: SingleCalendar, UnionCalendars..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="marketDataType">Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData. (required) (default to &quot;FxForwardTenorPipsCurveData&quot;).</param>
-        public FxForwardTenorPipsCurveData(DateTimeOffset baseDate = default(DateTimeOffset), string domCcy = default(string), string fgnCcy = default(string), List<string> tenors = default(List<string>), List<decimal> pipRates = default(List<decimal>), string lineage = default(string), MarketDataOptions marketDataOptions = default(MarketDataOptions), List<FxTenorConvention> calendars = default(List<FxTenorConvention>), string spotDaysCalculationType = default(string), ModelVersion varVersion = default(ModelVersion), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
+        public FxForwardTenorPipsCurveData(DateTimeOffset baseDate = default(DateTimeOffset), string domCcy = default(string), string fgnCcy = default(string), List<string> tenors = default(List<string>), List<decimal> pipRates = default(List<decimal>), decimal? pipMultiplier = default(decimal?), string lineage = default(string), MarketDataOptions marketDataOptions = default(MarketDataOptions), List<FxTenorConvention> calendars = default(List<FxTenorConvention>), string spotDaysCalculationType = default(string), ModelVersion varVersion = default(ModelVersion), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
         {
             this.BaseDate = baseDate;
             // to ensure "domCcy" is required (not null)
@@ -76,6 +77,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("pipRates is a required property for FxForwardTenorPipsCurveData and cannot be null");
             }
             this.PipRates = pipRates;
+            this.PipMultiplier = pipMultiplier;
             this.Lineage = lineage;
             this.MarketDataOptions = marketDataOptions;
             this.Calendars = calendars;
@@ -117,6 +119,13 @@ namespace Lusid.Sdk.Model
         /// <value>Rates provided for the fx forward (price in FgnCcy per unit of DomCcy), expressed in pips</value>
         [DataMember(Name = "pipRates", IsRequired = true, EmitDefaultValue = true)]
         public List<decimal> PipRates { get; set; }
+
+        /// <summary>
+        /// Optional. The scaling factor applied to the pip rates to convert them into a forward rate adjustment,  so that forwardRate &#x3D; spotRate + pipRate * pipMultiplier. Must be strictly positive when supplied.  When omitted, the market convention for the currency pair is used:  0.01 when the foreign (quote) currency is JPY, and 0.0001 (the four-decimal-place convention of the major pairs) otherwise.
+        /// </summary>
+        /// <value>Optional. The scaling factor applied to the pip rates to convert them into a forward rate adjustment,  so that forwardRate &#x3D; spotRate + pipRate * pipMultiplier. Must be strictly positive when supplied.  When omitted, the market convention for the currency pair is used:  0.01 when the foreign (quote) currency is JPY, and 0.0001 (the four-decimal-place convention of the major pairs) otherwise.</value>
+        [DataMember(Name = "pipMultiplier", EmitDefaultValue = true)]
+        public decimal? PipMultiplier { get; set; }
 
         /// <summary>
         /// Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;.
@@ -165,6 +174,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  FgnCcy: ").Append(FgnCcy).Append("\n");
             sb.Append("  Tenors: ").Append(Tenors).Append("\n");
             sb.Append("  PipRates: ").Append(PipRates).Append("\n");
+            sb.Append("  PipMultiplier: ").Append(PipMultiplier).Append("\n");
             sb.Append("  Lineage: ").Append(Lineage).Append("\n");
             sb.Append("  MarketDataOptions: ").Append(MarketDataOptions).Append("\n");
             sb.Append("  Calendars: ").Append(Calendars).Append("\n");
@@ -233,6 +243,11 @@ namespace Lusid.Sdk.Model
                     this.PipRates.SequenceEqual(input.PipRates)
                 ) && base.Equals(input) && 
                 (
+                    this.PipMultiplier == input.PipMultiplier ||
+                    (this.PipMultiplier != null &&
+                    this.PipMultiplier.Equals(input.PipMultiplier))
+                ) && base.Equals(input) && 
+                (
                     this.Lineage == input.Lineage ||
                     (this.Lineage != null &&
                     this.Lineage.Equals(input.Lineage))
@@ -288,6 +303,10 @@ namespace Lusid.Sdk.Model
                 if (this.PipRates != null)
                 {
                     hashCode = (hashCode * 59) + this.PipRates.GetHashCode();
+                }
+                if (this.PipMultiplier != null)
+                {
+                    hashCode = (hashCode * 59) + this.PipMultiplier.GetHashCode();
                 }
                 if (this.Lineage != null)
                 {

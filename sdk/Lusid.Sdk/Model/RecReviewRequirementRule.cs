@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RecReviewRequirementRule" /> class.
         /// </summary>
-        /// <param name="reviewRequirement">Whether this category&#39;s results need reviewing. One of: Required, NotRequired. Available values: Required, NotRequired. (required).</param>
+        /// <param name="reviewRequirement">Whether this category&#39;s results need reviewing. Available values: Required, NotRequired. (required).</param>
         /// <param name="overrideCondition">A boolean expression over a rec result, e.g. \&quot;resultType eq &#39;Cross&#39;\&quot;. Where it holds for a result, that result is treated as the opposite of the category&#39;s reviewRequirement. Null means the requirement applies to every result in the category..</param>
         public RecReviewRequirementRule(string reviewRequirement = default(string), string overrideCondition = default(string))
         {
@@ -50,9 +50,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Whether this category&#39;s results need reviewing. One of: Required, NotRequired. Available values: Required, NotRequired.
+        /// Whether this category&#39;s results need reviewing. Available values: Required, NotRequired.
         /// </summary>
-        /// <value>Whether this category&#39;s results need reviewing. One of: Required, NotRequired. Available values: Required, NotRequired.</value>
+        /// <value>Whether this category&#39;s results need reviewing. Available values: Required, NotRequired.</value>
         [DataMember(Name = "reviewRequirement", IsRequired = true, EmitDefaultValue = true)]
         public string ReviewRequirement { get; set; }
 

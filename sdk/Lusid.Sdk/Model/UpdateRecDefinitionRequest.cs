@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="displayName">The name of the rec definition. (required).</param>
         /// <param name="description">A description of the rec definition..</param>
-        /// <param name="definitionType">What this definition reconciles, naming the kind of dataset that must be present on at least one side. One of: PortfolioContents, LusidEntity, RelationalData. Only PortfolioContents is currently supported. Available values: PortfolioContents, LusidEntity, RelationalData. (required).</param>
+        /// <param name="definitionType">What this definition reconciles, naming the kind of dataset that must be present on at least one side. Only PortfolioContents is currently supported. Available values: PortfolioContents, LusidEntity, RelationalData. (required).</param>
         /// <param name="sideNames">sideNames.</param>
         /// <param name="leftPortfolioSources">The portfolios, portfolio groups and funds contributing to the left side. Empty when the left side draws on relational data instead, which requires every ruleset to declare relational data for that side. Both sides cannot be empty..</param>
         /// <param name="rightPortfolioSources">The portfolios, portfolio groups and funds contributing to the right side. Empty when the right side draws on relational data instead, which requires every ruleset to declare relational data for that side. Both sides cannot be empty..</param>
@@ -47,7 +47,8 @@ namespace Lusid.Sdk.Model
         /// <param name="rulesets">The types of reconciliation included in the group, each naming the matching ruleset that drives it. At least one entry is required, and each rec type may appear at most once. (required).</param>
         /// <param name="reviewConfiguration">reviewConfiguration.</param>
         /// <param name="datePolicy">datePolicy.</param>
-        public UpdateRecDefinitionRequest(string displayName = default(string), string description = default(string), string definitionType = default(string), RecDefSideNames sideNames = default(RecDefSideNames), List<RecDefSource> leftPortfolioSources = default(List<RecDefSource>), List<RecDefSource> rightPortfolioSources = default(List<RecDefSource>), RecDefRecipeIds valuationRecipes = default(RecDefRecipeIds), RecDefCurrencies currencies = default(RecDefCurrencies), List<RecDefRuleset> rulesets = default(List<RecDefRuleset>), RecReviewConfiguration reviewConfiguration = default(RecReviewConfiguration), RecDatePolicy datePolicy = default(RecDatePolicy))
+        /// <param name="properties">Properties in the RecDefinition domain. On update, a property with a null value is deleted and omitted properties are left unchanged. Filterable and sortable..</param>
+        public UpdateRecDefinitionRequest(string displayName = default(string), string description = default(string), string definitionType = default(string), RecDefSideNames sideNames = default(RecDefSideNames), List<RecDefSource> leftPortfolioSources = default(List<RecDefSource>), List<RecDefSource> rightPortfolioSources = default(List<RecDefSource>), RecDefRecipeIds valuationRecipes = default(RecDefRecipeIds), RecDefCurrencies currencies = default(RecDefCurrencies), List<RecDefRuleset> rulesets = default(List<RecDefRuleset>), RecReviewConfiguration reviewConfiguration = default(RecReviewConfiguration), RecDatePolicy datePolicy = default(RecDatePolicy), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -75,6 +76,7 @@ namespace Lusid.Sdk.Model
             this.Currencies = currencies;
             this.ReviewConfiguration = reviewConfiguration;
             this.DatePolicy = datePolicy;
+            this.Properties = properties;
         }
 
         /// <summary>
@@ -92,9 +94,9 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// What this definition reconciles, naming the kind of dataset that must be present on at least one side. One of: PortfolioContents, LusidEntity, RelationalData. Only PortfolioContents is currently supported. Available values: PortfolioContents, LusidEntity, RelationalData.
+        /// What this definition reconciles, naming the kind of dataset that must be present on at least one side. Only PortfolioContents is currently supported. Available values: PortfolioContents, LusidEntity, RelationalData.
         /// </summary>
-        /// <value>What this definition reconciles, naming the kind of dataset that must be present on at least one side. One of: PortfolioContents, LusidEntity, RelationalData. Only PortfolioContents is currently supported. Available values: PortfolioContents, LusidEntity, RelationalData.</value>
+        /// <value>What this definition reconciles, naming the kind of dataset that must be present on at least one side. Only PortfolioContents is currently supported. Available values: PortfolioContents, LusidEntity, RelationalData.</value>
         [DataMember(Name = "definitionType", IsRequired = true, EmitDefaultValue = true)]
         public string DefinitionType { get; set; }
 
@@ -150,6 +152,13 @@ namespace Lusid.Sdk.Model
         public RecDatePolicy DatePolicy { get; set; }
 
         /// <summary>
+        /// Properties in the RecDefinition domain. On update, a property with a null value is deleted and omitted properties are left unchanged. Filterable and sortable.
+        /// </summary>
+        /// <value>Properties in the RecDefinition domain. On update, a property with a null value is deleted and omitted properties are left unchanged. Filterable and sortable.</value>
+        [DataMember(Name = "properties", EmitDefaultValue = true)]
+        public Dictionary<string, PerpetualProperty> Properties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -168,6 +177,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Rulesets: ").Append(Rulesets).Append("\n");
             sb.Append("  ReviewConfiguration: ").Append(ReviewConfiguration).Append("\n");
             sb.Append("  DatePolicy: ").Append(DatePolicy).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -260,6 +270,12 @@ namespace Lusid.Sdk.Model
                     this.DatePolicy == input.DatePolicy ||
                     (this.DatePolicy != null &&
                     this.DatePolicy.Equals(input.DatePolicy))
+                ) && 
+                (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
                 );
         }
 
@@ -315,6 +331,10 @@ namespace Lusid.Sdk.Model
                 if (this.DatePolicy != null)
                 {
                     hashCode = (hashCode * 59) + this.DatePolicy.GetHashCode();
+                }
+                if (this.Properties != null)
+                {
+                    hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
                 return hashCode;
             }

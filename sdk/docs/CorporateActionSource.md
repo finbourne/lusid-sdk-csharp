@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Description** | **string** | The description of the corporate action source | [optional] 
 **InstrumentScopes** | **List&lt;string&gt;** | The list of instrument scopes used as the scope resolution strategy when resolving instruments of upserted corporate actions. | [optional] 
 **EventInheritance** | [**EventInheritance**](EventInheritance.md) |  | [optional] 
+**StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -28,6 +29,8 @@ string description = "example description";
 List<string> instrumentScopes = new List<string>();
 EventInheritance? eventInheritance = new EventInheritance();
 
+StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
+
 List<Link> links = new List<Link>();
 
 CorporateActionSource corporateActionSourceInstance = new CorporateActionSource(
@@ -38,6 +41,7 @@ CorporateActionSource corporateActionSourceInstance = new CorporateActionSource(
     description: description,
     instrumentScopes: instrumentScopes,
     eventInheritance: eventInheritance,
+    stagedModifications: stagedModifications,
     links: links);
 ```
 
