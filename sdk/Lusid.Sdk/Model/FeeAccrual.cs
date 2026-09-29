@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="effectiveAt">The effective date for which the fee accrual has been calculated. (required).</param>
         /// <param name="code">The code of the fee for which the accrual has been calculated. (required).</param>
         /// <param name="name">The name of the fee for which the accrual has been calculated. (required).</param>
-        /// <param name="calculationBase">The result of the evaluating the fee&#39;s calculation base expression..</param>
+        /// <param name="calculationBase">The basis the annual accrual derives from: the result of evaluating the fee&#39;s calculation base expression, or the configured annual amount for a fixed-amount fee..</param>
         /// <param name="amount">The result of applying the fee to the calculation base, and scaled down to a day..</param>
         /// <param name="previousAccrual">The previous valuation point&#39;s total accrual..</param>
         /// <param name="previousTotalAccrual">The previous valuation point&#39;s total accrual..</param>
@@ -90,9 +90,9 @@ namespace Lusid.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The result of the evaluating the fee&#39;s calculation base expression.
+        /// The basis the annual accrual derives from: the result of evaluating the fee&#39;s calculation base expression, or the configured annual amount for a fixed-amount fee.
         /// </summary>
-        /// <value>The result of the evaluating the fee&#39;s calculation base expression.</value>
+        /// <value>The basis the annual accrual derives from: the result of evaluating the fee&#39;s calculation base expression, or the configured annual amount for a fixed-amount fee.</value>
         [DataMember(Name = "calculationBase", EmitDefaultValue = true)]
         public decimal CalculationBase { get; set; }
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **EffectiveAt** | **DateTimeOffset** | The effective date for which the fee accrual has been calculated. | 
 **Code** | **string** | The code of the fee for which the accrual has been calculated. | 
 **Name** | **string** | The name of the fee for which the accrual has been calculated. | 
-**CalculationBase** | **decimal** | The result of the evaluating the fee&#39;s calculation base expression. | [optional] 
+**CalculationBase** | **decimal** | The basis the annual accrual derives from: the result of evaluating the fee&#39;s calculation base expression, or the configured annual amount for a fixed-amount fee. | [optional] 
 **Amount** | **decimal** | The result of applying the fee to the calculation base, and scaled down to a day. | [optional] 
 **PreviousAccrual** | **decimal** | The previous valuation point&#39;s total accrual. | [optional] 
 **PreviousTotalAccrual** | **decimal** | The previous valuation point&#39;s total accrual. | [optional] 

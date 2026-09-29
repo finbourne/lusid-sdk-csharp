@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **ApportionmentResults** | [**List&lt;ApportionmentBreakdown&gt;**](ApportionmentBreakdown.md) | The apportionment results for the valuation point: one fund-level entry plus one entry per allocation group. | [optional] 
 **BucketSetResults** | [**List&lt;BucketSetResult&gt;**](BucketSetResult.md) | The bucket set results for the valuation point: for each bucket set, the per-node (fund and share class) buckets and NAV. | [optional] 
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
+**IsBackfilled** | **bool** | Set to True if the Valuation Point has backfilled bucket set results, False otherwise. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -34,6 +35,7 @@ List<ApportionmentBreakdown> apportionmentResults = new List<ApportionmentBreakd
 List<BucketSetResult> bucketSetResults = new List<BucketSetResult>();
 StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
 
+bool isBackfilled = //"True";
 List<Link> links = new List<Link>();
 
 ValuationPointDataResponse valuationPointDataResponseInstance = new ValuationPointDataResponse(
@@ -48,6 +50,7 @@ ValuationPointDataResponse valuationPointDataResponseInstance = new ValuationPoi
     apportionmentResults: apportionmentResults,
     bucketSetResults: bucketSetResults,
     stagedModifications: stagedModifications,
+    isBackfilled: isBackfilled,
     links: links);
 ```
 

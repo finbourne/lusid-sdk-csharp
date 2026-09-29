@@ -57,6 +57,41 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of CreateTransferResponse</returns>
         Lusid.Sdk.Client.ApiResponse<CreateTransferResponse> CreateTransferWithHttpInfo(CreateTransferRequest createTransferRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] DeleteTransfer: Delete a transfer.
+        /// </summary>
+        /// <remarks>
+        /// Delete the Transfer entity recording a transfer and cancel the transaction legs it still has, as a single  atomic operation: if any part of the request is rejected, nothing is changed. A leg that has already gone is  skipped, so a transfer with no legs left can still be deleted to clear the record.                A transfer is identified by its scope, its code and both of its portfolios, so all four are required. Where  no transfer matches all four, the request is reported as not found.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transfer.</param>
+        /// <param name="code">The code of the transfer. Together with the scope and both portfolios this uniquely               identifies the transfer.</param>
+        /// <param name="portfolioScopeOut">The scope of the portfolio the outgoing leg is booked in.</param>
+        /// <param name="portfolioCodeOut">The code of the portfolio the outgoing leg is booked in.</param>
+        /// <param name="portfolioScopeIn">The scope of the portfolio the incoming leg is booked in.</param>
+        /// <param name="portfolioCodeIn">The code of the portfolio the incoming leg is booked in. Equal to               portfolioCodeOut for a switch between instruments within one portfolio.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        DeletedEntityResponse DeleteTransfer(string scope, string code, string portfolioScopeOut, string portfolioCodeOut, string portfolioScopeIn, string portfolioCodeIn, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteTransfer: Delete a transfer.
+        /// </summary>
+        /// <remarks>
+        /// Delete the Transfer entity recording a transfer and cancel the transaction legs it still has, as a single  atomic operation: if any part of the request is rejected, nothing is changed. A leg that has already gone is  skipped, so a transfer with no legs left can still be deleted to clear the record.                A transfer is identified by its scope, its code and both of its portfolios, so all four are required. Where  no transfer matches all four, the request is reported as not found.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transfer.</param>
+        /// <param name="code">The code of the transfer. Together with the scope and both portfolios this uniquely               identifies the transfer.</param>
+        /// <param name="portfolioScopeOut">The scope of the portfolio the outgoing leg is booked in.</param>
+        /// <param name="portfolioCodeOut">The code of the portfolio the outgoing leg is booked in.</param>
+        /// <param name="portfolioScopeIn">The scope of the portfolio the incoming leg is booked in.</param>
+        /// <param name="portfolioCodeIn">The code of the portfolio the incoming leg is booked in. Equal to               portfolioCodeOut for a switch between instruments within one portfolio.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTransferWithHttpInfo(string scope, string code, string portfolioScopeOut, string portfolioCodeOut, string portfolioScopeIn, string portfolioCodeIn, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] GetTransfer: Get a transfer
         /// </summary>
         /// <remarks>
@@ -119,6 +154,43 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CreateTransferResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CreateTransferResponse>> CreateTransferWithHttpInfoAsync(CreateTransferRequest createTransferRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteTransfer: Delete a transfer.
+        /// </summary>
+        /// <remarks>
+        /// Delete the Transfer entity recording a transfer and cancel the transaction legs it still has, as a single  atomic operation: if any part of the request is rejected, nothing is changed. A leg that has already gone is  skipped, so a transfer with no legs left can still be deleted to clear the record.                A transfer is identified by its scope, its code and both of its portfolios, so all four are required. Where  no transfer matches all four, the request is reported as not found.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transfer.</param>
+        /// <param name="code">The code of the transfer. Together with the scope and both portfolios this uniquely               identifies the transfer.</param>
+        /// <param name="portfolioScopeOut">The scope of the portfolio the outgoing leg is booked in.</param>
+        /// <param name="portfolioCodeOut">The code of the portfolio the outgoing leg is booked in.</param>
+        /// <param name="portfolioScopeIn">The scope of the portfolio the incoming leg is booked in.</param>
+        /// <param name="portfolioCodeIn">The code of the portfolio the incoming leg is booked in. Equal to               portfolioCodeOut for a switch between instruments within one portfolio.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransferAsync(string scope, string code, string portfolioScopeOut, string portfolioCodeOut, string portfolioScopeIn, string portfolioCodeIn, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteTransfer: Delete a transfer.
+        /// </summary>
+        /// <remarks>
+        /// Delete the Transfer entity recording a transfer and cancel the transaction legs it still has, as a single  atomic operation: if any part of the request is rejected, nothing is changed. A leg that has already gone is  skipped, so a transfer with no legs left can still be deleted to clear the record.                A transfer is identified by its scope, its code and both of its portfolios, so all four are required. Where  no transfer matches all four, the request is reported as not found.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transfer.</param>
+        /// <param name="code">The code of the transfer. Together with the scope and both portfolios this uniquely               identifies the transfer.</param>
+        /// <param name="portfolioScopeOut">The scope of the portfolio the outgoing leg is booked in.</param>
+        /// <param name="portfolioCodeOut">The code of the portfolio the outgoing leg is booked in.</param>
+        /// <param name="portfolioScopeIn">The scope of the portfolio the incoming leg is booked in.</param>
+        /// <param name="portfolioCodeIn">The code of the portfolio the incoming leg is booked in. Equal to               portfolioCodeOut for a switch between instruments within one portfolio.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTransferWithHttpInfoAsync(string scope, string code, string portfolioScopeOut, string portfolioCodeOut, string portfolioScopeIn, string portfolioCodeIn, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTransfer: Get a transfer
         /// </summary>
@@ -474,6 +546,300 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateTransfer", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteTransfer: Delete a transfer. Delete the Transfer entity recording a transfer and cancel the transaction legs it still has, as a single  atomic operation: if any part of the request is rejected, nothing is changed. A leg that has already gone is  skipped, so a transfer with no legs left can still be deleted to clear the record.                A transfer is identified by its scope, its code and both of its portfolios, so all four are required. Where  no transfer matches all four, the request is reported as not found.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transfer.</param>
+        /// <param name="code">The code of the transfer. Together with the scope and both portfolios this uniquely               identifies the transfer.</param>
+        /// <param name="portfolioScopeOut">The scope of the portfolio the outgoing leg is booked in.</param>
+        /// <param name="portfolioCodeOut">The code of the portfolio the outgoing leg is booked in.</param>
+        /// <param name="portfolioScopeIn">The scope of the portfolio the incoming leg is booked in.</param>
+        /// <param name="portfolioCodeIn">The code of the portfolio the incoming leg is booked in. Equal to               portfolioCodeOut for a switch between instruments within one portfolio.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        public DeletedEntityResponse DeleteTransfer(string scope, string code, string portfolioScopeOut, string portfolioCodeOut, string portfolioScopeIn, string portfolioCodeIn, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteTransferWithHttpInfo(scope, code, portfolioScopeOut, portfolioCodeOut, portfolioScopeIn, portfolioCodeIn, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteTransfer: Delete a transfer. Delete the Transfer entity recording a transfer and cancel the transaction legs it still has, as a single  atomic operation: if any part of the request is rejected, nothing is changed. A leg that has already gone is  skipped, so a transfer with no legs left can still be deleted to clear the record.                A transfer is identified by its scope, its code and both of its portfolios, so all four are required. Where  no transfer matches all four, the request is reported as not found.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transfer.</param>
+        /// <param name="code">The code of the transfer. Together with the scope and both portfolios this uniquely               identifies the transfer.</param>
+        /// <param name="portfolioScopeOut">The scope of the portfolio the outgoing leg is booked in.</param>
+        /// <param name="portfolioCodeOut">The code of the portfolio the outgoing leg is booked in.</param>
+        /// <param name="portfolioScopeIn">The scope of the portfolio the incoming leg is booked in.</param>
+        /// <param name="portfolioCodeIn">The code of the portfolio the incoming leg is booked in. Equal to               portfolioCodeOut for a switch between instruments within one portfolio.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTransferWithHttpInfo(string scope, string code, string portfolioScopeOut, string portfolioCodeOut, string portfolioScopeIn, string portfolioCodeIn, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransfersApi->DeleteTransfer");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransfersApi->DeleteTransfer");
+            }
+
+            // verify the required parameter 'portfolioScopeOut' is set
+            if (portfolioScopeOut == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'portfolioScopeOut' when calling TransfersApi->DeleteTransfer");
+            }
+
+            // verify the required parameter 'portfolioCodeOut' is set
+            if (portfolioCodeOut == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'portfolioCodeOut' when calling TransfersApi->DeleteTransfer");
+            }
+
+            // verify the required parameter 'portfolioScopeIn' is set
+            if (portfolioScopeIn == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'portfolioScopeIn' when calling TransfersApi->DeleteTransfer");
+            }
+
+            // verify the required parameter 'portfolioCodeIn' is set
+            if (portfolioCodeIn == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'portfolioCodeIn' when calling TransfersApi->DeleteTransfer");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioScopeOut", portfolioScopeOut));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioCodeOut", portfolioCodeOut));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioScopeIn", portfolioScopeIn));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioCodeIn", portfolioCodeIn));
+
+            localVarRequestOptions.Operation = "TransfersApi.DeleteTransfer";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/transfers/{scope}/{code}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteTransfer", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteTransfer: Delete a transfer. Delete the Transfer entity recording a transfer and cancel the transaction legs it still has, as a single  atomic operation: if any part of the request is rejected, nothing is changed. A leg that has already gone is  skipped, so a transfer with no legs left can still be deleted to clear the record.                A transfer is identified by its scope, its code and both of its portfolios, so all four are required. Where  no transfer matches all four, the request is reported as not found.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transfer.</param>
+        /// <param name="code">The code of the transfer. Together with the scope and both portfolios this uniquely               identifies the transfer.</param>
+        /// <param name="portfolioScopeOut">The scope of the portfolio the outgoing leg is booked in.</param>
+        /// <param name="portfolioCodeOut">The code of the portfolio the outgoing leg is booked in.</param>
+        /// <param name="portfolioScopeIn">The scope of the portfolio the incoming leg is booked in.</param>
+        /// <param name="portfolioCodeIn">The code of the portfolio the incoming leg is booked in. Equal to               portfolioCodeOut for a switch between instruments within one portfolio.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransferAsync(string scope, string code, string portfolioScopeOut, string portfolioCodeOut, string portfolioScopeIn, string portfolioCodeIn, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteTransferWithHttpInfoAsync(scope, code, portfolioScopeOut, portfolioCodeOut, portfolioScopeIn, portfolioCodeIn, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteTransfer: Delete a transfer. Delete the Transfer entity recording a transfer and cancel the transaction legs it still has, as a single  atomic operation: if any part of the request is rejected, nothing is changed. A leg that has already gone is  skipped, so a transfer with no legs left can still be deleted to clear the record.                A transfer is identified by its scope, its code and both of its portfolios, so all four are required. Where  no transfer matches all four, the request is reported as not found.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transfer.</param>
+        /// <param name="code">The code of the transfer. Together with the scope and both portfolios this uniquely               identifies the transfer.</param>
+        /// <param name="portfolioScopeOut">The scope of the portfolio the outgoing leg is booked in.</param>
+        /// <param name="portfolioCodeOut">The code of the portfolio the outgoing leg is booked in.</param>
+        /// <param name="portfolioScopeIn">The scope of the portfolio the incoming leg is booked in.</param>
+        /// <param name="portfolioCodeIn">The code of the portfolio the incoming leg is booked in. Equal to               portfolioCodeOut for a switch between instruments within one portfolio.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTransferWithHttpInfoAsync(string scope, string code, string portfolioScopeOut, string portfolioCodeOut, string portfolioScopeIn, string portfolioCodeIn, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransfersApi->DeleteTransfer");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransfersApi->DeleteTransfer");
+            }
+
+            // verify the required parameter 'portfolioScopeOut' is set
+            if (portfolioScopeOut == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'portfolioScopeOut' when calling TransfersApi->DeleteTransfer");
+            }
+
+            // verify the required parameter 'portfolioCodeOut' is set
+            if (portfolioCodeOut == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'portfolioCodeOut' when calling TransfersApi->DeleteTransfer");
+            }
+
+            // verify the required parameter 'portfolioScopeIn' is set
+            if (portfolioScopeIn == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'portfolioScopeIn' when calling TransfersApi->DeleteTransfer");
+            }
+
+            // verify the required parameter 'portfolioCodeIn' is set
+            if (portfolioCodeIn == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'portfolioCodeIn' when calling TransfersApi->DeleteTransfer");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioScopeOut", portfolioScopeOut));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioCodeOut", portfolioCodeOut));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioScopeIn", portfolioScopeIn));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioCodeIn", portfolioCodeIn));
+
+            localVarRequestOptions.Operation = "TransfersApi.DeleteTransfer";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/transfers/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteTransfer", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

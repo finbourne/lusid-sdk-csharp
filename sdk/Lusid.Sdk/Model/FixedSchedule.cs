@@ -47,10 +47,14 @@ namespace Lusid.Sdk.Model
         /// <param name="notional">Scaling factor, the quantity outstanding on which the rate will be paid..</param>
         /// <param name="paymentCurrency">Payment currency. This does not have to be the same as the nominal bond or observation/reset currency. (required).</param>
         /// <param name="stubType">When a payment schedule doesn&#39;t have regular payment intervals just because of the  first and/or last coupons of the schedule, we call those irregular coupons stubs.  This configuration specifies what type of stub is used when building the schedule  Supported values are:  None &#x3D; this is a regular payment schedule with no stubs. DO NOT use it with irregular schedules or you will get incorrect and unexpected behaviour.  ShortFront &#x3D; this is an irregular payment schedule where only the first coupon is irregular, and covers a payment period that is shorter than the regular payment period.  ShortBack &#x3D; this is an irregular payment schedule where only the last coupon is irregular, and covers a payment period that is shorter than the regular payment period.  LongFront &#x3D; this is an irregular payment schedule where only the first coupon is irregular, and covers a payment period that is longer than the regular payment period.  LongBack &#x3D; this is an irregular payment schedule where only the last coupon is irregular, and covers a payment period that is longer than the regular payment period.  Both &#x3D; this is an irregular payment schedule where both the first and the last coupons are irregular, and the length of these periods is calculated based on the first coupon payment date that should have been explicitly set..</param>
+        /// <param name="firstCouponPayDate">Optional. The date on which the first coupon is paid. Set this date for an irregular first coupon period.  If this date is an adjusted date, also set SecondPeriodStartDate..</param>
+        /// <param name="secondPeriodStartDate">Optional. The date on which the second coupon period starts. This is also the accrual end date of the first coupon period.  Set this date together with FirstCouponPayDate when the first coupon pay date is an adjusted date..</param>
+        /// <param name="penultimateCouponPayDate">Optional. The date on which the penultimate coupon is paid. Set this date for an irregular last coupon period.  If this date is an adjusted date, also set LastPeriodStartDate..</param>
+        /// <param name="lastPeriodStartDate">Optional. The date on which the last coupon period starts. This is also the accrual end date of the penultimate coupon period.  Set this date together with PenultimateCouponPayDate when the penultimate coupon pay date is an adjusted date..</param>
         /// <param name="exDividendConfiguration">exDividendConfiguration.</param>
         /// <param name="scheduleId">Optional: identifier for the Schedule. This is only used for Schedules on FlexibleDeposit instruments where the list of Schedules  on the instrument definition can be modified by upsert of a DepositRollEvent..</param>
         /// <param name="scheduleType">Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, CommodityCalendarSchedule, Invalid, CancelSchedule. (required) (default to &quot;FixedSchedule&quot;).</param>
-        public FixedSchedule(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), decimal couponRate = default(decimal), FlowConventionName conventionName = default(FlowConventionName), int? exDividendDays = default(int?), decimal notional = default(decimal), string paymentCurrency = default(string), string stubType = default(string), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), string scheduleId = default(string), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
+        public FixedSchedule(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), decimal couponRate = default(decimal), FlowConventionName conventionName = default(FlowConventionName), int? exDividendDays = default(int?), decimal notional = default(decimal), string paymentCurrency = default(string), string stubType = default(string), DateTimeOffset? firstCouponPayDate = default(DateTimeOffset?), DateTimeOffset? secondPeriodStartDate = default(DateTimeOffset?), DateTimeOffset? penultimateCouponPayDate = default(DateTimeOffset?), DateTimeOffset? lastPeriodStartDate = default(DateTimeOffset?), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), string scheduleId = default(string), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -66,6 +70,10 @@ namespace Lusid.Sdk.Model
             this.ExDividendDays = exDividendDays;
             this.Notional = notional;
             this.StubType = stubType;
+            this.FirstCouponPayDate = firstCouponPayDate;
+            this.SecondPeriodStartDate = secondPeriodStartDate;
+            this.PenultimateCouponPayDate = penultimateCouponPayDate;
+            this.LastPeriodStartDate = lastPeriodStartDate;
             this.ExDividendConfiguration = exDividendConfiguration;
             this.ScheduleId = scheduleId;
         }
@@ -132,6 +140,34 @@ namespace Lusid.Sdk.Model
         public string StubType { get; set; }
 
         /// <summary>
+        /// Optional. The date on which the first coupon is paid. Set this date for an irregular first coupon period.  If this date is an adjusted date, also set SecondPeriodStartDate.
+        /// </summary>
+        /// <value>Optional. The date on which the first coupon is paid. Set this date for an irregular first coupon period.  If this date is an adjusted date, also set SecondPeriodStartDate.</value>
+        [DataMember(Name = "firstCouponPayDate", EmitDefaultValue = true)]
+        public DateTimeOffset? FirstCouponPayDate { get; set; }
+
+        /// <summary>
+        /// Optional. The date on which the second coupon period starts. This is also the accrual end date of the first coupon period.  Set this date together with FirstCouponPayDate when the first coupon pay date is an adjusted date.
+        /// </summary>
+        /// <value>Optional. The date on which the second coupon period starts. This is also the accrual end date of the first coupon period.  Set this date together with FirstCouponPayDate when the first coupon pay date is an adjusted date.</value>
+        [DataMember(Name = "secondPeriodStartDate", EmitDefaultValue = true)]
+        public DateTimeOffset? SecondPeriodStartDate { get; set; }
+
+        /// <summary>
+        /// Optional. The date on which the penultimate coupon is paid. Set this date for an irregular last coupon period.  If this date is an adjusted date, also set LastPeriodStartDate.
+        /// </summary>
+        /// <value>Optional. The date on which the penultimate coupon is paid. Set this date for an irregular last coupon period.  If this date is an adjusted date, also set LastPeriodStartDate.</value>
+        [DataMember(Name = "penultimateCouponPayDate", EmitDefaultValue = true)]
+        public DateTimeOffset? PenultimateCouponPayDate { get; set; }
+
+        /// <summary>
+        /// Optional. The date on which the last coupon period starts. This is also the accrual end date of the penultimate coupon period.  Set this date together with PenultimateCouponPayDate when the penultimate coupon pay date is an adjusted date.
+        /// </summary>
+        /// <value>Optional. The date on which the last coupon period starts. This is also the accrual end date of the penultimate coupon period.  Set this date together with PenultimateCouponPayDate when the penultimate coupon pay date is an adjusted date.</value>
+        [DataMember(Name = "lastPeriodStartDate", EmitDefaultValue = true)]
+        public DateTimeOffset? LastPeriodStartDate { get; set; }
+
+        /// <summary>
         /// Gets or Sets ExDividendConfiguration
         /// </summary>
         [DataMember(Name = "exDividendConfiguration", EmitDefaultValue = false)]
@@ -162,6 +198,10 @@ namespace Lusid.Sdk.Model
             sb.Append("  Notional: ").Append(Notional).Append("\n");
             sb.Append("  PaymentCurrency: ").Append(PaymentCurrency).Append("\n");
             sb.Append("  StubType: ").Append(StubType).Append("\n");
+            sb.Append("  FirstCouponPayDate: ").Append(FirstCouponPayDate).Append("\n");
+            sb.Append("  SecondPeriodStartDate: ").Append(SecondPeriodStartDate).Append("\n");
+            sb.Append("  PenultimateCouponPayDate: ").Append(PenultimateCouponPayDate).Append("\n");
+            sb.Append("  LastPeriodStartDate: ").Append(LastPeriodStartDate).Append("\n");
             sb.Append("  ExDividendConfiguration: ").Append(ExDividendConfiguration).Append("\n");
             sb.Append("  ScheduleId: ").Append(ScheduleId).Append("\n");
             sb.Append("}\n");
@@ -243,6 +283,26 @@ namespace Lusid.Sdk.Model
                     this.StubType.Equals(input.StubType))
                 ) && base.Equals(input) && 
                 (
+                    this.FirstCouponPayDate == input.FirstCouponPayDate ||
+                    (this.FirstCouponPayDate != null &&
+                    this.FirstCouponPayDate.Equals(input.FirstCouponPayDate))
+                ) && base.Equals(input) && 
+                (
+                    this.SecondPeriodStartDate == input.SecondPeriodStartDate ||
+                    (this.SecondPeriodStartDate != null &&
+                    this.SecondPeriodStartDate.Equals(input.SecondPeriodStartDate))
+                ) && base.Equals(input) && 
+                (
+                    this.PenultimateCouponPayDate == input.PenultimateCouponPayDate ||
+                    (this.PenultimateCouponPayDate != null &&
+                    this.PenultimateCouponPayDate.Equals(input.PenultimateCouponPayDate))
+                ) && base.Equals(input) && 
+                (
+                    this.LastPeriodStartDate == input.LastPeriodStartDate ||
+                    (this.LastPeriodStartDate != null &&
+                    this.LastPeriodStartDate.Equals(input.LastPeriodStartDate))
+                ) && base.Equals(input) && 
+                (
                     this.ExDividendConfiguration == input.ExDividendConfiguration ||
                     (this.ExDividendConfiguration != null &&
                     this.ExDividendConfiguration.Equals(input.ExDividendConfiguration))
@@ -292,6 +352,22 @@ namespace Lusid.Sdk.Model
                 if (this.StubType != null)
                 {
                     hashCode = (hashCode * 59) + this.StubType.GetHashCode();
+                }
+                if (this.FirstCouponPayDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.FirstCouponPayDate.GetHashCode();
+                }
+                if (this.SecondPeriodStartDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.SecondPeriodStartDate.GetHashCode();
+                }
+                if (this.PenultimateCouponPayDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.PenultimateCouponPayDate.GetHashCode();
+                }
+                if (this.LastPeriodStartDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.LastPeriodStartDate.GetHashCode();
                 }
                 if (this.ExDividendConfiguration != null)
                 {

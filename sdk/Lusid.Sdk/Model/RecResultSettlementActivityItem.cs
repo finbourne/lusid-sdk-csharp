@@ -118,6 +118,21 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, string> RuleAndAttributeValues { get; set; }
 
         /// <summary>
+        /// The writebacks suggested against this item, as configured by the matching ruleset&#39;s writebackConfigurations. Only ever populated on target-side items. Suggestions only: a user is expected to review them before acting. Required, but may be empty.
+        /// </summary>
+        /// <value>The writebacks suggested against this item, as configured by the matching ruleset&#39;s writebackConfigurations. Only ever populated on target-side items. Suggestions only: a user is expected to review them before acting. Required, but may be empty.</value>
+        [DataMember(Name = "writebackSuggestions", IsRequired = true, EmitDefaultValue = true)]
+        public List<WritebackSuggestion> WritebackSuggestions { get; private set; }
+
+        /// <summary>
+        /// Returns false as WritebackSuggestions should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeWritebackSuggestions()
+        {
+            return false;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -132,6 +147,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  HoldingImpacts: ").Append(HoldingImpacts).Append("\n");
             sb.Append("  ItemType: ").Append(ItemType).Append("\n");
             sb.Append("  RuleAndAttributeValues: ").Append(RuleAndAttributeValues).Append("\n");
+            sb.Append("  WritebackSuggestions: ").Append(WritebackSuggestions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -203,6 +219,12 @@ namespace Lusid.Sdk.Model
                     this.RuleAndAttributeValues != null &&
                     input.RuleAndAttributeValues != null &&
                     this.RuleAndAttributeValues.SequenceEqual(input.RuleAndAttributeValues)
+                ) && 
+                (
+                    this.WritebackSuggestions == input.WritebackSuggestions ||
+                    this.WritebackSuggestions != null &&
+                    input.WritebackSuggestions != null &&
+                    this.WritebackSuggestions.SequenceEqual(input.WritebackSuggestions)
                 );
         }
 
@@ -242,6 +264,10 @@ namespace Lusid.Sdk.Model
                 if (this.RuleAndAttributeValues != null)
                 {
                     hashCode = (hashCode * 59) + this.RuleAndAttributeValues.GetHashCode();
+                }
+                if (this.WritebackSuggestions != null)
+                {
+                    hashCode = (hashCode * 59) + this.WritebackSuggestions.GetHashCode();
                 }
                 return hashCode;
             }

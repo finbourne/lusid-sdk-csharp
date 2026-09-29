@@ -17,6 +17,10 @@ Name | Type | Description | Notes
 **PaymentCurrency** | **string** | Payment currency. This does not have to be the same as the nominal bond or observation/reset currency. | 
 **Spread** | **decimal** | Spread over floating rate given as a fraction. | [optional] 
 **StubType** | **string** | When a payment schedule doesn&#39;t have regular payment intervals just because of the  first and/or last coupons of the schedule, we call those irregular coupons stubs.  This configuration specifies what type of stub is used when building the schedule  Supported values are:  None &#x3D; this is a regular payment schedule with no stubs. DO NOT use it with irregular schedules or you will get incorrect and unexpected behaviour.  ShortFront &#x3D; this is an irregular payment schedule where only the first coupon is irregular, and covers a payment period that is shorter than the regular payment period.  ShortBack &#x3D; this is an irregular payment schedule where only the last coupon is irregular, and covers a payment period that is shorter than the regular payment period.  LongFront &#x3D; this is an irregular payment schedule where only the first coupon is irregular, and covers a payment period that is longer than the regular payment period.  LongBack &#x3D; this is an irregular payment schedule where only the last coupon is irregular, and covers a payment period that is longer than the regular payment period.  Both &#x3D; this is an irregular payment schedule where both the first and the last coupons are irregular, and the length of these periods is calculated based on the first coupon payment date that should have been explicitly set. | [optional] 
+**FirstCouponPayDate** | **DateTimeOffset?** | Optional. The date on which the first coupon is paid. Set this date for an irregular first coupon period.  If this date is an adjusted date, also set SecondPeriodStartDate. | [optional] 
+**SecondPeriodStartDate** | **DateTimeOffset?** | Optional. The date on which the second coupon period starts. This is also the accrual end date of the first coupon period.  Set this date together with FirstCouponPayDate when the first coupon pay date is an adjusted date. | [optional] 
+**PenultimateCouponPayDate** | **DateTimeOffset?** | Optional. The date on which the penultimate coupon is paid. Set this date for an irregular last coupon period.  If this date is an adjusted date, also set LastPeriodStartDate. | [optional] 
+**LastPeriodStartDate** | **DateTimeOffset?** | Optional. The date on which the last coupon period starts. This is also the accrual end date of the penultimate coupon period.  Set this date together with PenultimateCouponPayDate when the penultimate coupon pay date is an adjusted date. | [optional] 
 **ExDividendConfiguration** | [**ExDividendConfiguration**](ExDividendConfiguration.md) |  | [optional] 
 **Compounding** | [**Compounding**](Compounding.md) |  | [optional] 
 **ResetConvention** | **string** | Control how resets are generated relative to payment convention(s).    Default value: InAdvance. Available values: InAdvance, InArrears. | [optional] 
@@ -59,6 +63,10 @@ FloatSchedule floatScheduleInstance = new FloatSchedule(
     paymentCurrency: paymentCurrency,
     spread: spread,
     stubType: stubType,
+    firstCouponPayDate: firstCouponPayDate,
+    secondPeriodStartDate: secondPeriodStartDate,
+    penultimateCouponPayDate: penultimateCouponPayDate,
+    lastPeriodStartDate: lastPeriodStartDate,
     exDividendConfiguration: exDividendConfiguration,
     compounding: compounding,
     resetConvention: resetConvention,

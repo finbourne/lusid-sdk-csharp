@@ -52,6 +52,10 @@ namespace Lusid.Sdk.Model
         /// <param name="principal">The face-value or principal for the bond at outset. (required).</param>
         /// <param name="principalProtection">If true then the principal is protected in that the redemption amount will be at least the face value (Principal).  This is typically set to true for inflation linked bonds issued by the United States and France (for example).  This is typically set to false for inflation linked bonds issued by the United Kingdom (post 2005).  For other sovereigns this can vary from issue to issue.  If not set this property defaults to true.  This is sometimes referred to as Deflation protection or an inflation floor of 0%..</param>
         /// <param name="stubType">StubType. Most Inflation linked bonds have a ShortFront stub type so this is the default, however in some cases  with a long front stub LongFront should be selected.  StubType Both is not supported for InflationLinkedBonds.    Supported string (enumeration) values are: [ShortFront, ShortBack, LongBack, LongFront, Both]..</param>
+        /// <param name="firstCouponPayDate">Optional. The date on which the first coupon is paid. Set this date for an irregular first coupon period.  If this date is an adjusted date, also set SecondPeriodStartDate..</param>
+        /// <param name="secondPeriodStartDate">Optional. The date on which the second coupon period starts. This is also the accrual end date of the first coupon period.  Set this date together with FirstCouponPayDate when the first coupon pay date is an adjusted date..</param>
+        /// <param name="penultimateCouponPayDate">Optional. The date on which the penultimate coupon is paid. Set this date for an irregular last coupon period.  If this date is an adjusted date, also set LastPeriodStartDate..</param>
+        /// <param name="lastPeriodStartDate">Optional. The date on which the last coupon period starts. This is also the accrual end date of the penultimate coupon period.  Set this date together with PenultimateCouponPayDate when the penultimate coupon pay date is an adjusted date..</param>
         /// <param name="roundingConventions">Rounding conventions for analytics, if any..</param>
         /// <param name="tradingConventions">tradingConventions.</param>
         /// <param name="originalIssuePrice">The price the bond was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%..</param>
@@ -59,7 +63,7 @@ namespace Lusid.Sdk.Model
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="amortisationSchedule">amortisationSchedule.</param>
         /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap, BondForward, PreferredShare, CapitalInterest. (required) (default to &quot;InflationLinkedBond&quot;).</param>
-        public InflationLinkedBond(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), InflationIndexConventions inflationIndexConventions = default(InflationIndexConventions), decimal couponRate = default(decimal), Dictionary<string, string> identifiers = default(Dictionary<string, string>), decimal? baseCPI = default(decimal?), DateTimeOffset? baseCPIDate = default(DateTimeOffset?), string calculationType = default(string), int? exDividendDays = default(int?), int indexPrecision = default(int), decimal principal = default(decimal), bool principalProtection = default(bool), string stubType = default(string), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), TradingConventions tradingConventions = default(TradingConventions), decimal? originalIssuePrice = default(decimal?), decimal? parPerUnit = default(decimal?), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), StepSchedule amortisationSchedule = default(StepSchedule), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public InflationLinkedBond(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), InflationIndexConventions inflationIndexConventions = default(InflationIndexConventions), decimal couponRate = default(decimal), Dictionary<string, string> identifiers = default(Dictionary<string, string>), decimal? baseCPI = default(decimal?), DateTimeOffset? baseCPIDate = default(DateTimeOffset?), string calculationType = default(string), int? exDividendDays = default(int?), int indexPrecision = default(int), decimal principal = default(decimal), bool principalProtection = default(bool), string stubType = default(string), DateTimeOffset? firstCouponPayDate = default(DateTimeOffset?), DateTimeOffset? secondPeriodStartDate = default(DateTimeOffset?), DateTimeOffset? penultimateCouponPayDate = default(DateTimeOffset?), DateTimeOffset? lastPeriodStartDate = default(DateTimeOffset?), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), TradingConventions tradingConventions = default(TradingConventions), decimal? originalIssuePrice = default(decimal?), decimal? parPerUnit = default(decimal?), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), StepSchedule amortisationSchedule = default(StepSchedule), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -85,6 +89,10 @@ namespace Lusid.Sdk.Model
             this.IndexPrecision = indexPrecision;
             this.PrincipalProtection = principalProtection;
             this.StubType = stubType;
+            this.FirstCouponPayDate = firstCouponPayDate;
+            this.SecondPeriodStartDate = secondPeriodStartDate;
+            this.PenultimateCouponPayDate = penultimateCouponPayDate;
+            this.LastPeriodStartDate = lastPeriodStartDate;
             this.RoundingConventions = roundingConventions;
             this.TradingConventions = tradingConventions;
             this.OriginalIssuePrice = originalIssuePrice;
@@ -190,6 +198,34 @@ namespace Lusid.Sdk.Model
         public string StubType { get; set; }
 
         /// <summary>
+        /// Optional. The date on which the first coupon is paid. Set this date for an irregular first coupon period.  If this date is an adjusted date, also set SecondPeriodStartDate.
+        /// </summary>
+        /// <value>Optional. The date on which the first coupon is paid. Set this date for an irregular first coupon period.  If this date is an adjusted date, also set SecondPeriodStartDate.</value>
+        [DataMember(Name = "firstCouponPayDate", EmitDefaultValue = true)]
+        public DateTimeOffset? FirstCouponPayDate { get; set; }
+
+        /// <summary>
+        /// Optional. The date on which the second coupon period starts. This is also the accrual end date of the first coupon period.  Set this date together with FirstCouponPayDate when the first coupon pay date is an adjusted date.
+        /// </summary>
+        /// <value>Optional. The date on which the second coupon period starts. This is also the accrual end date of the first coupon period.  Set this date together with FirstCouponPayDate when the first coupon pay date is an adjusted date.</value>
+        [DataMember(Name = "secondPeriodStartDate", EmitDefaultValue = true)]
+        public DateTimeOffset? SecondPeriodStartDate { get; set; }
+
+        /// <summary>
+        /// Optional. The date on which the penultimate coupon is paid. Set this date for an irregular last coupon period.  If this date is an adjusted date, also set LastPeriodStartDate.
+        /// </summary>
+        /// <value>Optional. The date on which the penultimate coupon is paid. Set this date for an irregular last coupon period.  If this date is an adjusted date, also set LastPeriodStartDate.</value>
+        [DataMember(Name = "penultimateCouponPayDate", EmitDefaultValue = true)]
+        public DateTimeOffset? PenultimateCouponPayDate { get; set; }
+
+        /// <summary>
+        /// Optional. The date on which the last coupon period starts. This is also the accrual end date of the penultimate coupon period.  Set this date together with PenultimateCouponPayDate when the penultimate coupon pay date is an adjusted date.
+        /// </summary>
+        /// <value>Optional. The date on which the last coupon period starts. This is also the accrual end date of the penultimate coupon period.  Set this date together with PenultimateCouponPayDate when the penultimate coupon pay date is an adjusted date.</value>
+        [DataMember(Name = "lastPeriodStartDate", EmitDefaultValue = true)]
+        public DateTimeOffset? LastPeriodStartDate { get; set; }
+
+        /// <summary>
         /// Rounding conventions for analytics, if any.
         /// </summary>
         /// <value>Rounding conventions for analytics, if any.</value>
@@ -251,6 +287,10 @@ namespace Lusid.Sdk.Model
             sb.Append("  Principal: ").Append(Principal).Append("\n");
             sb.Append("  PrincipalProtection: ").Append(PrincipalProtection).Append("\n");
             sb.Append("  StubType: ").Append(StubType).Append("\n");
+            sb.Append("  FirstCouponPayDate: ").Append(FirstCouponPayDate).Append("\n");
+            sb.Append("  SecondPeriodStartDate: ").Append(SecondPeriodStartDate).Append("\n");
+            sb.Append("  PenultimateCouponPayDate: ").Append(PenultimateCouponPayDate).Append("\n");
+            sb.Append("  LastPeriodStartDate: ").Append(LastPeriodStartDate).Append("\n");
             sb.Append("  RoundingConventions: ").Append(RoundingConventions).Append("\n");
             sb.Append("  TradingConventions: ").Append(TradingConventions).Append("\n");
             sb.Append("  OriginalIssuePrice: ").Append(OriginalIssuePrice).Append("\n");
@@ -360,6 +400,26 @@ namespace Lusid.Sdk.Model
                     this.StubType.Equals(input.StubType))
                 ) && base.Equals(input) && 
                 (
+                    this.FirstCouponPayDate == input.FirstCouponPayDate ||
+                    (this.FirstCouponPayDate != null &&
+                    this.FirstCouponPayDate.Equals(input.FirstCouponPayDate))
+                ) && base.Equals(input) && 
+                (
+                    this.SecondPeriodStartDate == input.SecondPeriodStartDate ||
+                    (this.SecondPeriodStartDate != null &&
+                    this.SecondPeriodStartDate.Equals(input.SecondPeriodStartDate))
+                ) && base.Equals(input) && 
+                (
+                    this.PenultimateCouponPayDate == input.PenultimateCouponPayDate ||
+                    (this.PenultimateCouponPayDate != null &&
+                    this.PenultimateCouponPayDate.Equals(input.PenultimateCouponPayDate))
+                ) && base.Equals(input) && 
+                (
+                    this.LastPeriodStartDate == input.LastPeriodStartDate ||
+                    (this.LastPeriodStartDate != null &&
+                    this.LastPeriodStartDate.Equals(input.LastPeriodStartDate))
+                ) && base.Equals(input) && 
+                (
                     this.RoundingConventions == input.RoundingConventions ||
                     this.RoundingConventions != null &&
                     input.RoundingConventions != null &&
@@ -444,6 +504,22 @@ namespace Lusid.Sdk.Model
                 if (this.StubType != null)
                 {
                     hashCode = (hashCode * 59) + this.StubType.GetHashCode();
+                }
+                if (this.FirstCouponPayDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.FirstCouponPayDate.GetHashCode();
+                }
+                if (this.SecondPeriodStartDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.SecondPeriodStartDate.GetHashCode();
+                }
+                if (this.PenultimateCouponPayDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.PenultimateCouponPayDate.GetHashCode();
+                }
+                if (this.LastPeriodStartDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.LastPeriodStartDate.GetHashCode();
                 }
                 if (this.RoundingConventions != null)
                 {
