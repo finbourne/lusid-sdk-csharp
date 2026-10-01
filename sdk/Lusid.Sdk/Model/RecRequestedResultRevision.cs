@@ -149,22 +149,15 @@ namespace Lusid.Sdk.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // RecResultId (string) maxLength
-            if (this.RecResultId != null && this.RecResultId.Length > 36)
+            if (this.RecResultId != null && this.RecResultId.Length > 256)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RecResultId, length must be less than 36.", new [] { "RecResultId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RecResultId, length must be less than 256.", new [] { "RecResultId" });
             }
 
             // RecResultId (string) minLength
-            if (this.RecResultId != null && this.RecResultId.Length < 36)
+            if (this.RecResultId != null && this.RecResultId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RecResultId, length must be greater than 36.", new [] { "RecResultId" });
-            }
-
-            // RecResultId (string) pattern
-            Regex regexRecResultId = new Regex(@"^[a-zA-Z0-9\-]+$", RegexOptions.CultureInvariant);
-            if (false == regexRecResultId.Match(this.RecResultId).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RecResultId, must match a pattern of " + regexRecResultId, new [] { "RecResultId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RecResultId, length must be greater than 1.", new [] { "RecResultId" });
             }
 
             // CommentText (string) maxLength

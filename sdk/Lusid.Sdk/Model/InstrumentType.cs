@@ -350,7 +350,13 @@ namespace Lusid.Sdk.Model
         /// Enum CapitalInterest for value: CapitalInterest
         /// </summary>
         [EnumMember(Value = "CapitalInterest")]
-        CapitalInterest = 54
+        CapitalInterest = 54,
+
+        /// <summary>
+        /// Enum WholeLoanFacility for value: WholeLoanFacility
+        /// </summary>
+        [EnumMember(Value = "WholeLoanFacility")]
+        WholeLoanFacility = 55
     }
 
 }

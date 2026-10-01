@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **MeanReversionByCurrency** | **Dictionary&lt;string, decimal&gt;** | Per-currency mean-reversion overrides, keyed by ISO currency code.  A currency absent from this map uses MeanReversion. | [optional] 
 **VolatilityByCurrency** | **Dictionary&lt;string, decimal&gt;** | Per-currency short-rate volatility overrides, keyed by ISO currency code.  A currency absent from this map uses Volatility. Short-rate volatility is a per-currency  quantity in practice, so a book spanning several currencies can calibrate each currency  separately instead of sharing a single global figure. | [optional] 
 **VolatilityMultiplier** | **decimal?** | A multiplicative scaling applied to the resolved short-rate volatility - the scalar  Volatility or its per-currency override, whichever applies - at the point of use, e.g. 1.1  prices with the configured volatility raised by ten percent. A single multiplier scales  every per-currency calibration coherently, so a shocked set of options can differ from its  base by this one field rather than a hand-rebuilt volatility (or map of volatilities).  Must not be negative; zero is allowed and prices with a deterministic short rate.  Defaults to 1, which reproduces the configured volatility exactly, when not supplied. | [optional] 
+**EffectiveCs01BumpWidth** | **decimal?** | The TOTAL width, as an absolute spread, of the central-difference stencil used for the  option-adjusted Analytic/EffectiveCS01: the two reprice points sit at the solved OAS plus  and minus half of this. The reported figure is normalised to a one-basis-point move  whatever width is configured. Must be strictly positive. Defaults to 0.0001 (1bp, the  market convention for a credit sensitivity) when not supplied. | [optional] 
+**EffectiveKeyRateBuckets** | **List&lt;string&gt;** | The maturity buckets of the Analytic/EffectiveKeyRateDuration ladder, as tenor strings  such as \&quot;1Y\&quot; or \&quot;6M\&quot;, in strictly increasing order. Each bucket is repriced under a  tent-shaped curve shift centred on its own tenor, so the ladder sums to the parallel  effective duration to first order. Buckets past an instrument&#39;s maturity report zero, so  one grid can serve a whole book. Defaults to the 1Y, 2Y, 3Y, 5Y, 7Y, 10Y, 20Y, 30Y grid  when not supplied; an empty list is rejected. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -20,6 +22,7 @@ using System;
 decimal? meanReversion = "example meanReversion";decimal? volatility = "example volatility";
 Dictionary<string, decimal> meanReversionByCurrency = new Dictionary<string, decimal>();
 Dictionary<string, decimal> volatilityByCurrency = new Dictionary<string, decimal>();
+List<string> effectiveKeyRateBuckets = new List<string>();
 
 HullWhiteModelOptions hullWhiteModelOptionsInstance = new HullWhiteModelOptions(
     meanReversion: meanReversion,
@@ -28,7 +31,9 @@ HullWhiteModelOptions hullWhiteModelOptionsInstance = new HullWhiteModelOptions(
     effectiveRateBumpSize: effectiveRateBumpSize,
     meanReversionByCurrency: meanReversionByCurrency,
     volatilityByCurrency: volatilityByCurrency,
-    volatilityMultiplier: volatilityMultiplier);
+    volatilityMultiplier: volatilityMultiplier,
+    effectiveCs01BumpWidth: effectiveCs01BumpWidth,
+    effectiveKeyRateBuckets: effectiveKeyRateBuckets);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

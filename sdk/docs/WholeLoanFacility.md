@@ -1,5 +1,5 @@
-# Lusid.Sdk.Model.FlexibleDeposit
-LUSID flexible deposit instrument. Represents the basic building block of a bank account  structure that can handle deferred interest payments.
+# Lusid.Sdk.Model.WholeLoanFacility
+Whole Loan Facility. A loan facility wholly funded by a single lender: it shares the contractual terms of a  LoanFacility, but ownership is not shared pro-rata across investors. Like a LoanFacility, this is a lightweight  instrument; the state of the facility is carried by the holding rather than by the instrument itself.
 
 ## Properties
 
@@ -9,30 +9,29 @@ Name | Type | Description | Notes
 **StartDate** | **DateTimeOffset** | The start date of the instrument. This is normally synonymous with the trade-date. | 
 **MaturityDate** | **DateTimeOffset** | The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. | 
 **DomCcy** | **string** | The domestic currency of the instrument. | 
-**IsStifSweep** | **bool?** | Indicates this FlexibleDeposit represents a Short Term Investment Fund (STIF) sweep vehicle.  Its balance is derived daily from the portfolio&#39;s eligible cash rather than loaded via manual  events. | [optional] 
-**Schedules** | [**List&lt;Schedule&gt;**](Schedule.md) | Repayment schedules for the deposit instrument. | 
-**TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
+**InitialCommitment** | **decimal** | The initial commitment for the whole loan facility. | 
+**LoanType** | **string** | LoanType for this facility. The facility can either be a revolving or a  term loan. Available values: Revolver, TermLoan. | 
+**Schedules** | [**List&lt;Schedule&gt;**](Schedule.md) | Repayment schedules for the facility. | 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 
-string domCcy = "domCcy";
-bool? isStifSweep = //"True";
-List<Schedule> schedules = new List<Schedule>();
-TradingConventions? tradingConventions = new TradingConventions();
+string domCcy = "domCcy";decimal initialCommitment = "initialCommitment";
 
+string loanType = "loanType";
+List<Schedule> schedules = new List<Schedule>();
 TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
 
 
-FlexibleDeposit flexibleDepositInstance = new FlexibleDeposit(
+WholeLoanFacility wholeLoanFacilityInstance = new WholeLoanFacility(
     startDate: startDate,
     maturityDate: maturityDate,
     domCcy: domCcy,
-    isStifSweep: isStifSweep,
+    initialCommitment: initialCommitment,
+    loanType: loanType,
     schedules: schedules,
-    tradingConventions: tradingConventions,
     timeZoneConventions: timeZoneConventions);
 ```
 

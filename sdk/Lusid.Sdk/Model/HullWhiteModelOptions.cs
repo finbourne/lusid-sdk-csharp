@@ -45,8 +45,10 @@ namespace Lusid.Sdk.Model
         /// <param name="meanReversionByCurrency">Per-currency mean-reversion overrides, keyed by ISO currency code.  A currency absent from this map uses MeanReversion..</param>
         /// <param name="volatilityByCurrency">Per-currency short-rate volatility overrides, keyed by ISO currency code.  A currency absent from this map uses Volatility. Short-rate volatility is a per-currency  quantity in practice, so a book spanning several currencies can calibrate each currency  separately instead of sharing a single global figure..</param>
         /// <param name="volatilityMultiplier">A multiplicative scaling applied to the resolved short-rate volatility - the scalar  Volatility or its per-currency override, whichever applies - at the point of use, e.g. 1.1  prices with the configured volatility raised by ten percent. A single multiplier scales  every per-currency calibration coherently, so a shocked set of options can differ from its  base by this one field rather than a hand-rebuilt volatility (or map of volatilities).  Must not be negative; zero is allowed and prices with a deterministic short rate.  Defaults to 1, which reproduces the configured volatility exactly, when not supplied..</param>
+        /// <param name="effectiveCs01BumpWidth">The TOTAL width, as an absolute spread, of the central-difference stencil used for the  option-adjusted Analytic/EffectiveCS01: the two reprice points sit at the solved OAS plus  and minus half of this. The reported figure is normalised to a one-basis-point move  whatever width is configured. Must be strictly positive. Defaults to 0.0001 (1bp, the  market convention for a credit sensitivity) when not supplied..</param>
+        /// <param name="effectiveKeyRateBuckets">The maturity buckets of the Analytic/EffectiveKeyRateDuration ladder, as tenor strings  such as \&quot;1Y\&quot; or \&quot;6M\&quot;, in strictly increasing order. Each bucket is repriced under a  tent-shaped curve shift centred on its own tenor, so the ladder sums to the parallel  effective duration to first order. Buckets past an instrument&#39;s maturity report zero, so  one grid can serve a whole book. Defaults to the 1Y, 2Y, 3Y, 5Y, 7Y, 10Y, 20Y, 30Y grid  when not supplied; an empty list is rejected..</param>
         /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions. (required) (default to &quot;HullWhiteModelOptions&quot;).</param>
-        public HullWhiteModelOptions(decimal meanReversion = default(decimal), decimal volatility = default(decimal), int latticeSteps = default(int), decimal? effectiveRateBumpSize = default(decimal?), Dictionary<string, decimal> meanReversionByCurrency = default(Dictionary<string, decimal>), Dictionary<string, decimal> volatilityByCurrency = default(Dictionary<string, decimal>), decimal? volatilityMultiplier = default(decimal?), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
+        public HullWhiteModelOptions(decimal meanReversion = default(decimal), decimal volatility = default(decimal), int latticeSteps = default(int), decimal? effectiveRateBumpSize = default(decimal?), Dictionary<string, decimal> meanReversionByCurrency = default(Dictionary<string, decimal>), Dictionary<string, decimal> volatilityByCurrency = default(Dictionary<string, decimal>), decimal? volatilityMultiplier = default(decimal?), decimal? effectiveCs01BumpWidth = default(decimal?), List<string> effectiveKeyRateBuckets = default(List<string>), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             this.MeanReversion = meanReversion;
             this.Volatility = volatility;
@@ -55,6 +57,8 @@ namespace Lusid.Sdk.Model
             this.MeanReversionByCurrency = meanReversionByCurrency;
             this.VolatilityByCurrency = volatilityByCurrency;
             this.VolatilityMultiplier = volatilityMultiplier;
+            this.EffectiveCs01BumpWidth = effectiveCs01BumpWidth;
+            this.EffectiveKeyRateBuckets = effectiveKeyRateBuckets;
         }
 
         /// <summary>
@@ -107,6 +111,20 @@ namespace Lusid.Sdk.Model
         public decimal? VolatilityMultiplier { get; set; }
 
         /// <summary>
+        /// The TOTAL width, as an absolute spread, of the central-difference stencil used for the  option-adjusted Analytic/EffectiveCS01: the two reprice points sit at the solved OAS plus  and minus half of this. The reported figure is normalised to a one-basis-point move  whatever width is configured. Must be strictly positive. Defaults to 0.0001 (1bp, the  market convention for a credit sensitivity) when not supplied.
+        /// </summary>
+        /// <value>The TOTAL width, as an absolute spread, of the central-difference stencil used for the  option-adjusted Analytic/EffectiveCS01: the two reprice points sit at the solved OAS plus  and minus half of this. The reported figure is normalised to a one-basis-point move  whatever width is configured. Must be strictly positive. Defaults to 0.0001 (1bp, the  market convention for a credit sensitivity) when not supplied.</value>
+        [DataMember(Name = "effectiveCs01BumpWidth", EmitDefaultValue = true)]
+        public decimal? EffectiveCs01BumpWidth { get; set; }
+
+        /// <summary>
+        /// The maturity buckets of the Analytic/EffectiveKeyRateDuration ladder, as tenor strings  such as \&quot;1Y\&quot; or \&quot;6M\&quot;, in strictly increasing order. Each bucket is repriced under a  tent-shaped curve shift centred on its own tenor, so the ladder sums to the parallel  effective duration to first order. Buckets past an instrument&#39;s maturity report zero, so  one grid can serve a whole book. Defaults to the 1Y, 2Y, 3Y, 5Y, 7Y, 10Y, 20Y, 30Y grid  when not supplied; an empty list is rejected.
+        /// </summary>
+        /// <value>The maturity buckets of the Analytic/EffectiveKeyRateDuration ladder, as tenor strings  such as \&quot;1Y\&quot; or \&quot;6M\&quot;, in strictly increasing order. Each bucket is repriced under a  tent-shaped curve shift centred on its own tenor, so the ladder sums to the parallel  effective duration to first order. Buckets past an instrument&#39;s maturity report zero, so  one grid can serve a whole book. Defaults to the 1Y, 2Y, 3Y, 5Y, 7Y, 10Y, 20Y, 30Y grid  when not supplied; an empty list is rejected.</value>
+        [DataMember(Name = "effectiveKeyRateBuckets", EmitDefaultValue = true)]
+        public List<string> EffectiveKeyRateBuckets { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -122,6 +140,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  MeanReversionByCurrency: ").Append(MeanReversionByCurrency).Append("\n");
             sb.Append("  VolatilityByCurrency: ").Append(VolatilityByCurrency).Append("\n");
             sb.Append("  VolatilityMultiplier: ").Append(VolatilityMultiplier).Append("\n");
+            sb.Append("  EffectiveCs01BumpWidth: ").Append(EffectiveCs01BumpWidth).Append("\n");
+            sb.Append("  EffectiveKeyRateBuckets: ").Append(EffectiveKeyRateBuckets).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -190,6 +210,17 @@ namespace Lusid.Sdk.Model
                     this.VolatilityMultiplier == input.VolatilityMultiplier ||
                     (this.VolatilityMultiplier != null &&
                     this.VolatilityMultiplier.Equals(input.VolatilityMultiplier))
+                ) && base.Equals(input) && 
+                (
+                    this.EffectiveCs01BumpWidth == input.EffectiveCs01BumpWidth ||
+                    (this.EffectiveCs01BumpWidth != null &&
+                    this.EffectiveCs01BumpWidth.Equals(input.EffectiveCs01BumpWidth))
+                ) && base.Equals(input) && 
+                (
+                    this.EffectiveKeyRateBuckets == input.EffectiveKeyRateBuckets ||
+                    this.EffectiveKeyRateBuckets != null &&
+                    input.EffectiveKeyRateBuckets != null &&
+                    this.EffectiveKeyRateBuckets.SequenceEqual(input.EffectiveKeyRateBuckets)
                 );
         }
 
@@ -220,6 +251,14 @@ namespace Lusid.Sdk.Model
                 if (this.VolatilityMultiplier != null)
                 {
                     hashCode = (hashCode * 59) + this.VolatilityMultiplier.GetHashCode();
+                }
+                if (this.EffectiveCs01BumpWidth != null)
+                {
+                    hashCode = (hashCode * 59) + this.EffectiveCs01BumpWidth.GetHashCode();
+                }
+                if (this.EffectiveKeyRateBuckets != null)
+                {
+                    hashCode = (hashCode * 59) + this.EffectiveKeyRateBuckets.GetHashCode();
                 }
                 return hashCode;
             }

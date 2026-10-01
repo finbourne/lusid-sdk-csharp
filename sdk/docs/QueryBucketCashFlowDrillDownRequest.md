@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **PortfolioEntityIds** | [**List&lt;PortfolioEntityId&gt;**](PortfolioEntityId.md) | The set of portfolios and portfolio groups to which the cashflows must belong. | 
 **EffectiveAt** | **DateTimeOffset** | The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up. | 
 **RecipeId** | [**ResourceId**](ResourceId.md) |  | 
-**ReportCurrency** | **string** | Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries. | 
+**ReportCurrency** | **string** | Optional three letter ISO currency string to convert cashflow amounts into. When supplied, each returned cashflow additionally carries ReportCurrencyAmount and TradeToReportCurrencyRate, converted from its own payment (instrument) currency. When omitted, those two fields are not present on any cashflow: Amount (always in the cashflow&#39;s own payment currency) are unaffected either way. | [optional] 
 **ExcludeUnsettledTrades** | **bool** | If set to true, unsettled trades are excluded from the result set. Set this to match the value used on the bucketed cash flow query being drilled into, so the individual cash flows reconcile with the bucket. Note that the drill-down returns the complete resolved stream including transaction-sourced cashflows; if the bucketed query used the (default) InstrumentCashFlow representation, also exclude rows with a sourceType of &#39;Transaction&#39; when reconciling. | [optional] 
 **HaircutRules** | [**List&lt;CashFlowHaircutRule&gt;**](CashFlowHaircutRule.md) | Optional ordered haircut rules applied to cashflow inflows; the first matching rule wins and a rule with no criteria acts as a catch-all. When supplied, each returned cashflow carries its gross amount, haircut fraction, net amount and the rule that was applied; with no rules those fields are omitted and the results are unchanged. | [optional] 
 **CashType** | **string** | Which date basis buckets cash flows: TradeDate uses each cash flow&#39;s transaction date, SettleDate (default) uses its payment date. The response&#39;s CashFlowDetail.PaymentDate reflects whichever basis was used. Available values: TradeDate, SettleDate. | [optional] 
@@ -26,7 +26,7 @@ bool startInclusive = //"True";
 bool endInclusive = //"True";
 List<PortfolioEntityId> portfolioEntityIds = new List<PortfolioEntityId>();
 ResourceId recipeId = new ResourceId();
-string reportCurrency = "reportCurrency";
+string reportCurrency = "example reportCurrency";
 bool excludeUnsettledTrades = //"True";
 List<CashFlowHaircutRule> haircutRules = new List<CashFlowHaircutRule>();
 string cashType = "example cashType";

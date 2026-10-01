@@ -673,6 +673,35 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of RecDefinition</returns>
         Lusid.Sdk.Client.ApiResponse<RecDefinition> UpdateRecDefinitionWithHttpInfo(string scope, string code, UpdateRecDefinitionRequest updateRecDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertRecDefinitionProperties: UpsertRecDefinitionProperties
+        /// </summary>
+        /// <remarks>
+        /// Update or insert one or more properties onto a single rec definition. A property will be updated if it already  exists and inserted if it does not. All properties must be of the domain &#39;RecDefinition&#39;, and are perpetual.                Upserting a property that exists for a rec definition, with a null value, will delete the instance of the  property for that rec definition. Properties not supplied are left unchanged, as is every other field of the  rec definition.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the rec definition to update or insert the properties onto.</param>
+        /// <param name="code">The code of the rec definition to update or insert the properties onto. Together with the               scope this uniquely identifies the rec definition.</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the rec definition. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               &#39;RecDefinition/Workflow/WorkflowId&#39;.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>UpsertRecDefinitionPropertiesResponse</returns>
+        UpsertRecDefinitionPropertiesResponse UpsertRecDefinitionProperties(string scope, string code, Dictionary<string, PerpetualProperty> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertRecDefinitionProperties: UpsertRecDefinitionProperties
+        /// </summary>
+        /// <remarks>
+        /// Update or insert one or more properties onto a single rec definition. A property will be updated if it already  exists and inserted if it does not. All properties must be of the domain &#39;RecDefinition&#39;, and are perpetual.                Upserting a property that exists for a rec definition, with a null value, will delete the instance of the  property for that rec definition. Properties not supplied are left unchanged, as is every other field of the  rec definition.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the rec definition to update or insert the properties onto.</param>
+        /// <param name="code">The code of the rec definition to update or insert the properties onto. Together with the               scope this uniquely identifies the rec definition.</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the rec definition. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               &#39;RecDefinition/Workflow/WorkflowId&#39;.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of UpsertRecDefinitionPropertiesResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<UpsertRecDefinitionPropertiesResponse> UpsertRecDefinitionPropertiesWithHttpInfo(string scope, string code, Dictionary<string, PerpetualProperty> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -1368,6 +1397,37 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (RecDefinition)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<RecDefinition>> UpdateRecDefinitionWithHttpInfoAsync(string scope, string code, UpdateRecDefinitionRequest updateRecDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertRecDefinitionProperties: UpsertRecDefinitionProperties
+        /// </summary>
+        /// <remarks>
+        /// Update or insert one or more properties onto a single rec definition. A property will be updated if it already  exists and inserted if it does not. All properties must be of the domain &#39;RecDefinition&#39;, and are perpetual.                Upserting a property that exists for a rec definition, with a null value, will delete the instance of the  property for that rec definition. Properties not supplied are left unchanged, as is every other field of the  rec definition.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the rec definition to update or insert the properties onto.</param>
+        /// <param name="code">The code of the rec definition to update or insert the properties onto. Together with the               scope this uniquely identifies the rec definition.</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the rec definition. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               &#39;RecDefinition/Workflow/WorkflowId&#39;.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of UpsertRecDefinitionPropertiesResponse</returns>
+        System.Threading.Tasks.Task<UpsertRecDefinitionPropertiesResponse> UpsertRecDefinitionPropertiesAsync(string scope, string code, Dictionary<string, PerpetualProperty> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertRecDefinitionProperties: UpsertRecDefinitionProperties
+        /// </summary>
+        /// <remarks>
+        /// Update or insert one or more properties onto a single rec definition. A property will be updated if it already  exists and inserted if it does not. All properties must be of the domain &#39;RecDefinition&#39;, and are perpetual.                Upserting a property that exists for a rec definition, with a null value, will delete the instance of the  property for that rec definition. Properties not supplied are left unchanged, as is every other field of the  rec definition.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the rec definition to update or insert the properties onto.</param>
+        /// <param name="code">The code of the rec definition to update or insert the properties onto. Together with the               scope this uniquely identifies the rec definition.</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the rec definition. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               &#39;RecDefinition/Workflow/WorkflowId&#39;.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (UpsertRecDefinitionPropertiesResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertRecDefinitionPropertiesResponse>> UpsertRecDefinitionPropertiesWithHttpInfoAsync(string scope, string code, Dictionary<string, PerpetualProperty> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -6688,6 +6748,254 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateRecDefinition", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertRecDefinitionProperties: UpsertRecDefinitionProperties Update or insert one or more properties onto a single rec definition. A property will be updated if it already  exists and inserted if it does not. All properties must be of the domain &#39;RecDefinition&#39;, and are perpetual.                Upserting a property that exists for a rec definition, with a null value, will delete the instance of the  property for that rec definition. Properties not supplied are left unchanged, as is every other field of the  rec definition.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the rec definition to update or insert the properties onto.</param>
+        /// <param name="code">The code of the rec definition to update or insert the properties onto. Together with the               scope this uniquely identifies the rec definition.</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the rec definition. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               &#39;RecDefinition/Workflow/WorkflowId&#39;.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>UpsertRecDefinitionPropertiesResponse</returns>
+        public UpsertRecDefinitionPropertiesResponse UpsertRecDefinitionProperties(string scope, string code, Dictionary<string, PerpetualProperty> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<UpsertRecDefinitionPropertiesResponse> localVarResponse = UpsertRecDefinitionPropertiesWithHttpInfo(scope, code, requestBody, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertRecDefinitionProperties: UpsertRecDefinitionProperties Update or insert one or more properties onto a single rec definition. A property will be updated if it already  exists and inserted if it does not. All properties must be of the domain &#39;RecDefinition&#39;, and are perpetual.                Upserting a property that exists for a rec definition, with a null value, will delete the instance of the  property for that rec definition. Properties not supplied are left unchanged, as is every other field of the  rec definition.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the rec definition to update or insert the properties onto.</param>
+        /// <param name="code">The code of the rec definition to update or insert the properties onto. Together with the               scope this uniquely identifies the rec definition.</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the rec definition. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               &#39;RecDefinition/Workflow/WorkflowId&#39;.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of UpsertRecDefinitionPropertiesResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<UpsertRecDefinitionPropertiesResponse> UpsertRecDefinitionPropertiesWithHttpInfo(string scope, string code, Dictionary<string, PerpetualProperty> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling RecsApi->UpsertRecDefinitionProperties");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling RecsApi->UpsertRecDefinitionProperties");
+            }
+
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling RecsApi->UpsertRecDefinitionProperties");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "RecsApi.UpsertRecDefinitionProperties";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<UpsertRecDefinitionPropertiesResponse>("/api/recs/definitions/{scope}/{code}/properties/$upsert", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertRecDefinitionProperties", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertRecDefinitionProperties: UpsertRecDefinitionProperties Update or insert one or more properties onto a single rec definition. A property will be updated if it already  exists and inserted if it does not. All properties must be of the domain &#39;RecDefinition&#39;, and are perpetual.                Upserting a property that exists for a rec definition, with a null value, will delete the instance of the  property for that rec definition. Properties not supplied are left unchanged, as is every other field of the  rec definition.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the rec definition to update or insert the properties onto.</param>
+        /// <param name="code">The code of the rec definition to update or insert the properties onto. Together with the               scope this uniquely identifies the rec definition.</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the rec definition. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               &#39;RecDefinition/Workflow/WorkflowId&#39;.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of UpsertRecDefinitionPropertiesResponse</returns>
+        public async System.Threading.Tasks.Task<UpsertRecDefinitionPropertiesResponse> UpsertRecDefinitionPropertiesAsync(string scope, string code, Dictionary<string, PerpetualProperty> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<UpsertRecDefinitionPropertiesResponse> localVarResponse = await UpsertRecDefinitionPropertiesWithHttpInfoAsync(scope, code, requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertRecDefinitionProperties: UpsertRecDefinitionProperties Update or insert one or more properties onto a single rec definition. A property will be updated if it already  exists and inserted if it does not. All properties must be of the domain &#39;RecDefinition&#39;, and are perpetual.                Upserting a property that exists for a rec definition, with a null value, will delete the instance of the  property for that rec definition. Properties not supplied are left unchanged, as is every other field of the  rec definition.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the rec definition to update or insert the properties onto.</param>
+        /// <param name="code">The code of the rec definition to update or insert the properties onto. Together with the               scope this uniquely identifies the rec definition.</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the rec definition. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               &#39;RecDefinition/Workflow/WorkflowId&#39;.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (UpsertRecDefinitionPropertiesResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertRecDefinitionPropertiesResponse>> UpsertRecDefinitionPropertiesWithHttpInfoAsync(string scope, string code, Dictionary<string, PerpetualProperty> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling RecsApi->UpsertRecDefinitionProperties");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling RecsApi->UpsertRecDefinitionProperties");
+            }
+
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling RecsApi->UpsertRecDefinitionProperties");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "RecsApi.UpsertRecDefinitionProperties";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<UpsertRecDefinitionPropertiesResponse>("/api/recs/definitions/{scope}/{code}/properties/$upsert", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertRecDefinitionProperties", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

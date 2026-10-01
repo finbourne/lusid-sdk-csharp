@@ -24,44 +24,51 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// LUSID representation of an Inflation Swap.  The implementation supports the following swap types:  * Zero Coupon inflation swap, with a single payment at maturity.  * LPI Swap (capped and floored)  * Year on Year inflation swap                This instrument has multiple legs, to see how legs are used in LUSID see [How does LUSID handle instrument legs?](https://support.lusid.com/docs/how-does-lusid-handle-instrument-legs).                | Leg Index | Leg Identifier | Description |  | - -- -- -- -- | - -- -- -- -- -- -- - | - -- -- -- -- -- |  | 1 | InflationLeg | Cash flows with a rate relating to an underlying inflation index. |  | 2 | FixedLeg | Cash flows with a fixed rate. |  | 3 | AdditionalPayments | Cash flows relating to any additional payments (optional). |
+    /// Whole Loan Facility. A loan facility wholly funded by a single lender: it shares the contractual terms of a  LoanFacility, but ownership is not shared pro-rata across investors. Like a LoanFacility, this is a lightweight  instrument; the state of the facility is carried by the holding rather than by the instrument itself.
     /// </summary>
-    [DataContract(Name = "InflationSwap")]
+    [DataContract(Name = "WholeLoanFacility")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentType")]
-    public partial class InflationSwap : LusidInstrument, IEquatable<InflationSwap>, IValidatableObject
+    public partial class WholeLoanFacility : LusidInstrument, IEquatable<WholeLoanFacility>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InflationSwap" /> class.
+        /// Initializes a new instance of the <see cref="WholeLoanFacility" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected InflationSwap() { }
+        protected WholeLoanFacility() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InflationSwap" /> class.
+        /// Initializes a new instance of the <see cref="WholeLoanFacility" /> class.
         /// </summary>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
-        /// <param name="inflationLeg">inflationLeg (required).</param>
-        /// <param name="fixedLeg">fixedLeg (required).</param>
-        /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven inflation swap.  The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
+        /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
+        /// <param name="initialCommitment">The initial commitment for the whole loan facility. (required).</param>
+        /// <param name="loanType">LoanType for this facility. The facility can either be a revolving or a  term loan. Available values: Revolver, TermLoan. (required).</param>
+        /// <param name="schedules">Repayment schedules for the facility. (required).</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
-        /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap, BondForward, PreferredShare, CapitalInterest, WholeLoanFacility. (required) (default to &quot;InflationSwap&quot;).</param>
-        public InflationSwap(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), InflationLeg inflationLeg = default(InflationLeg), FixedLeg fixedLeg = default(FixedLeg), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap, BondForward, PreferredShare, CapitalInterest, WholeLoanFacility. (required) (default to &quot;WholeLoanFacility&quot;).</param>
+        public WholeLoanFacility(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), decimal initialCommitment = default(decimal), string loanType = default(string), List<Schedule> schedules = default(List<Schedule>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
-            // to ensure "inflationLeg" is required (not null)
-            if (inflationLeg == null)
+            // to ensure "domCcy" is required (not null)
+            if (domCcy == null)
             {
-                throw new ArgumentNullException("inflationLeg is a required property for InflationSwap and cannot be null");
+                throw new ArgumentNullException("domCcy is a required property for WholeLoanFacility and cannot be null");
             }
-            this.InflationLeg = inflationLeg;
-            // to ensure "fixedLeg" is required (not null)
-            if (fixedLeg == null)
+            this.DomCcy = domCcy;
+            this.InitialCommitment = initialCommitment;
+            // to ensure "loanType" is required (not null)
+            if (loanType == null)
             {
-                throw new ArgumentNullException("fixedLeg is a required property for InflationSwap and cannot be null");
+                throw new ArgumentNullException("loanType is a required property for WholeLoanFacility and cannot be null");
             }
-            this.FixedLeg = fixedLeg;
-            this.AdditionalPayments = additionalPayments;
+            this.LoanType = loanType;
+            // to ensure "schedules" is required (not null)
+            if (schedules == null)
+            {
+                throw new ArgumentNullException("schedules is a required property for WholeLoanFacility and cannot be null");
+            }
+            this.Schedules = schedules;
             this.TimeZoneConventions = timeZoneConventions;
         }
 
@@ -80,23 +87,32 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset MaturityDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets InflationLeg
+        /// The domestic currency of the instrument.
         /// </summary>
-        [DataMember(Name = "inflationLeg", IsRequired = true, EmitDefaultValue = true)]
-        public InflationLeg InflationLeg { get; set; }
+        /// <value>The domestic currency of the instrument.</value>
+        [DataMember(Name = "domCcy", IsRequired = true, EmitDefaultValue = true)]
+        public string DomCcy { get; set; }
 
         /// <summary>
-        /// Gets or Sets FixedLeg
+        /// The initial commitment for the whole loan facility.
         /// </summary>
-        [DataMember(Name = "fixedLeg", IsRequired = true, EmitDefaultValue = true)]
-        public FixedLeg FixedLeg { get; set; }
+        /// <value>The initial commitment for the whole loan facility.</value>
+        [DataMember(Name = "initialCommitment", IsRequired = true, EmitDefaultValue = true)]
+        public decimal InitialCommitment { get; set; }
 
         /// <summary>
-        /// Optional additional payments at a given date e.g. to level off an uneven inflation swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.
+        /// LoanType for this facility. The facility can either be a revolving or a  term loan. Available values: Revolver, TermLoan.
         /// </summary>
-        /// <value>Optional additional payments at a given date e.g. to level off an uneven inflation swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.</value>
-        [DataMember(Name = "additionalPayments", EmitDefaultValue = true)]
-        public List<AdditionalPayment> AdditionalPayments { get; set; }
+        /// <value>LoanType for this facility. The facility can either be a revolving or a  term loan. Available values: Revolver, TermLoan.</value>
+        [DataMember(Name = "loanType", IsRequired = true, EmitDefaultValue = true)]
+        public string LoanType { get; set; }
+
+        /// <summary>
+        /// Repayment schedules for the facility.
+        /// </summary>
+        /// <value>Repayment schedules for the facility.</value>
+        [DataMember(Name = "schedules", IsRequired = true, EmitDefaultValue = true)]
+        public List<Schedule> Schedules { get; set; }
 
         /// <summary>
         /// Gets or Sets TimeZoneConventions
@@ -111,13 +127,14 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InflationSwap {\n");
+            sb.Append("class WholeLoanFacility {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
-            sb.Append("  InflationLeg: ").Append(InflationLeg).Append("\n");
-            sb.Append("  FixedLeg: ").Append(FixedLeg).Append("\n");
-            sb.Append("  AdditionalPayments: ").Append(AdditionalPayments).Append("\n");
+            sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
+            sb.Append("  InitialCommitment: ").Append(InitialCommitment).Append("\n");
+            sb.Append("  LoanType: ").Append(LoanType).Append("\n");
+            sb.Append("  Schedules: ").Append(Schedules).Append("\n");
             sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -139,15 +156,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InflationSwap);
+            return this.Equals(input as WholeLoanFacility);
         }
 
         /// <summary>
-        /// Returns true if InflationSwap instances are equal
+        /// Returns true if WholeLoanFacility instances are equal
         /// </summary>
-        /// <param name="input">Instance of InflationSwap to be compared</param>
+        /// <param name="input">Instance of WholeLoanFacility to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InflationSwap input)
+        public bool Equals(WholeLoanFacility input)
         {
             if (input == null)
             {
@@ -165,20 +182,24 @@ namespace Lusid.Sdk.Model
                     this.MaturityDate.Equals(input.MaturityDate))
                 ) && base.Equals(input) && 
                 (
-                    this.InflationLeg == input.InflationLeg ||
-                    (this.InflationLeg != null &&
-                    this.InflationLeg.Equals(input.InflationLeg))
+                    this.DomCcy == input.DomCcy ||
+                    (this.DomCcy != null &&
+                    this.DomCcy.Equals(input.DomCcy))
                 ) && base.Equals(input) && 
                 (
-                    this.FixedLeg == input.FixedLeg ||
-                    (this.FixedLeg != null &&
-                    this.FixedLeg.Equals(input.FixedLeg))
+                    this.InitialCommitment == input.InitialCommitment ||
+                    this.InitialCommitment.Equals(input.InitialCommitment)
                 ) && base.Equals(input) && 
                 (
-                    this.AdditionalPayments == input.AdditionalPayments ||
-                    this.AdditionalPayments != null &&
-                    input.AdditionalPayments != null &&
-                    this.AdditionalPayments.SequenceEqual(input.AdditionalPayments)
+                    this.LoanType == input.LoanType ||
+                    (this.LoanType != null &&
+                    this.LoanType.Equals(input.LoanType))
+                ) && base.Equals(input) && 
+                (
+                    this.Schedules == input.Schedules ||
+                    this.Schedules != null &&
+                    input.Schedules != null &&
+                    this.Schedules.SequenceEqual(input.Schedules)
                 ) && base.Equals(input) && 
                 (
                     this.TimeZoneConventions == input.TimeZoneConventions ||
@@ -204,17 +225,18 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.MaturityDate.GetHashCode();
                 }
-                if (this.InflationLeg != null)
+                if (this.DomCcy != null)
                 {
-                    hashCode = (hashCode * 59) + this.InflationLeg.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DomCcy.GetHashCode();
                 }
-                if (this.FixedLeg != null)
+                hashCode = (hashCode * 59) + this.InitialCommitment.GetHashCode();
+                if (this.LoanType != null)
                 {
-                    hashCode = (hashCode * 59) + this.FixedLeg.GetHashCode();
+                    hashCode = (hashCode * 59) + this.LoanType.GetHashCode();
                 }
-                if (this.AdditionalPayments != null)
+                if (this.Schedules != null)
                 {
-                    hashCode = (hashCode * 59) + this.AdditionalPayments.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Schedules.GetHashCode();
                 }
                 if (this.TimeZoneConventions != null)
                 {
@@ -245,6 +267,12 @@ namespace Lusid.Sdk.Model
             {
                 yield return x;
             }
+            // LoanType (string) minLength
+            if (this.LoanType != null && this.LoanType.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoanType, length must be greater than 1.", new [] { "LoanType" });
+            }
+
             yield break;
         }
     }

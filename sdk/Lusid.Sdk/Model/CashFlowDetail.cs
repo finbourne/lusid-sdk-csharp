@@ -37,8 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="CashFlowDetail" /> class.
         /// </summary>
         /// <param name="paymentDate">The date on which the cashflow is paid. (required).</param>
-        /// <param name="amount">The signed amount of the cashflow. A positive amount indicates money is received, a negative amount indicates money is paid. The amount is always the gross (pre-haircut) signed amount; when haircut rules are supplied the haircut and net amounts are reported separately..</param>
-        /// <param name="currency">The payment currency of the cashflow. (required).</param>
+        /// <param name="amount">amount.</param>
         /// <param name="sourceType">The source that produced the cashflow in the cash flow waterfall. One of &#39;Instrument&#39; (produced by the valuation engine), &#39;Transaction&#39; (produced from a booked transaction or movement) or &#39;SRS&#39; (sourced from the structured results store). (required).</param>
         /// <param name="instrumentId">The LUSID instrument identifier of the instrument that produced the cashflow. (required).</param>
         /// <param name="instrumentDisplayName">The display name of the instrument that produced the cashflow. Not present when the instrument cannot be resolved (e.g. deleted, no permission)..</param>
@@ -47,23 +46,17 @@ namespace Lusid.Sdk.Model
         /// <param name="flowType">The type of the cashflow, e.g. Coupon, Principal or Premium..</param>
         /// <param name="movementName">The name of the movement that produced the cashflow (e.g. Coupon, Side1), falling back to the flow type when the movement is unnamed. Not present when the cashflow could not be valued..</param>
         /// <param name="payReceive">Indicates whether the cashflow is paid or received..</param>
-        /// <param name="grossAmount">The signed amount of the cashflow before any haircut was applied. Only populated when haircut rules were supplied on the request..</param>
+        /// <param name="grossAmount">grossAmount.</param>
         /// <param name="haircutFraction">The fraction of the gross amount removed by the haircut, in the range [0, 1]. Zero for outflows and for cashflows no rule matched. Only populated when haircut rules were supplied on the request..</param>
-        /// <param name="netAmount">The signed amount of the cashflow net of the haircut. Only populated when haircut rules were supplied on the request..</param>
+        /// <param name="netAmount">netAmount.</param>
         /// <param name="haircutRuleApplied">The identifier of the haircut rule that was applied to the cashflow, or not present when no rule matched or no haircut rules were supplied on the request..</param>
-        /// <param name="error">Present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. In that case the amount is null rather than zero. Error may also be set when only the report-currency FX lookup failed (see AmountInReportCurrency), in which case the base Amount remains populated and only AmountInReportCurrency and TradeToReportCurrencyRate are null..</param>
-        /// <param name="amountInReportCurrency">The signed amount of the cashflow (see Amount), converted into the request&#39;s report currency (see QueryBucketCashFlowDrillDownRequest.ReportCurrency). Not present when the FX rate used to convert into the report currency could not be resolved; see Error..</param>
-        /// <param name="tradeToReportCurrencyRate">The FX rate used to convert the cashflow amount into the request&#39;s report currency, resolved at the cashflow&#39;s transaction (trade) date, not its payment date. Not present when the rate could not be resolved; see Error..</param>
+        /// <param name="error">Present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. In that case the amount is null rather than zero. Error may also be set when only the report-currency FX lookup failed (see ReportCurrencyAmount), in which case the base Amount remains populated and only ReportCurrencyAmount and TradeToReportCurrencyRate are null..</param>
+        /// <param name="reportCurrencyAmount">reportCurrencyAmount.</param>
+        /// <param name="tradeToReportCurrencyRate">The FX rate used to convert the cashflow amount from its own payment currency (see Amount) into the request&#39;s report currency, resolved at the cashflow&#39;s transaction (trade) date, not its payment date. Only present when ReportCurrency was supplied on the request; not present when it was omitted, or when the rate could not be resolved (see Error)..</param>
         /// <param name="links">links.</param>
-        public CashFlowDetail(DateTimeOffset paymentDate = default(DateTimeOffset), decimal? amount = default(decimal?), string currency = default(string), string sourceType = default(string), string instrumentId = default(string), string instrumentDisplayName = default(string), string transactionId = default(string), ResourceId portfolioId = default(ResourceId), string flowType = default(string), string movementName = default(string), string payReceive = default(string), decimal? grossAmount = default(decimal?), decimal? haircutFraction = default(decimal?), decimal? netAmount = default(decimal?), string haircutRuleApplied = default(string), string error = default(string), decimal? amountInReportCurrency = default(decimal?), decimal? tradeToReportCurrencyRate = default(decimal?), List<Link> links = default(List<Link>))
+        public CashFlowDetail(DateTimeOffset paymentDate = default(DateTimeOffset), CurrencyAndAmount amount = default(CurrencyAndAmount), string sourceType = default(string), string instrumentId = default(string), string instrumentDisplayName = default(string), string transactionId = default(string), ResourceId portfolioId = default(ResourceId), string flowType = default(string), string movementName = default(string), string payReceive = default(string), CurrencyAndAmount grossAmount = default(CurrencyAndAmount), decimal? haircutFraction = default(decimal?), CurrencyAndAmount netAmount = default(CurrencyAndAmount), string haircutRuleApplied = default(string), string error = default(string), CurrencyAndAmount reportCurrencyAmount = default(CurrencyAndAmount), decimal? tradeToReportCurrencyRate = default(decimal?), List<Link> links = default(List<Link>))
         {
             this.PaymentDate = paymentDate;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for CashFlowDetail and cannot be null");
-            }
-            this.Currency = currency;
             // to ensure "sourceType" is required (not null)
             if (sourceType == null)
             {
@@ -93,7 +86,7 @@ namespace Lusid.Sdk.Model
             this.NetAmount = netAmount;
             this.HaircutRuleApplied = haircutRuleApplied;
             this.Error = error;
-            this.AmountInReportCurrency = amountInReportCurrency;
+            this.ReportCurrencyAmount = reportCurrencyAmount;
             this.TradeToReportCurrencyRate = tradeToReportCurrencyRate;
             this.Links = links;
         }
@@ -106,18 +99,10 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
-        /// The signed amount of the cashflow. A positive amount indicates money is received, a negative amount indicates money is paid. The amount is always the gross (pre-haircut) signed amount; when haircut rules are supplied the haircut and net amounts are reported separately.
+        /// Gets or Sets Amount
         /// </summary>
-        /// <value>The signed amount of the cashflow. A positive amount indicates money is received, a negative amount indicates money is paid. The amount is always the gross (pre-haircut) signed amount; when haircut rules are supplied the haircut and net amounts are reported separately.</value>
-        [DataMember(Name = "amount", EmitDefaultValue = true)]
-        public decimal? Amount { get; set; }
-
-        /// <summary>
-        /// The payment currency of the cashflow.
-        /// </summary>
-        /// <value>The payment currency of the cashflow.</value>
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
-        public string Currency { get; set; }
+        [DataMember(Name = "amount", EmitDefaultValue = false)]
+        public CurrencyAndAmount Amount { get; set; }
 
         /// <summary>
         /// The source that produced the cashflow in the cash flow waterfall. One of &#39;Instrument&#39; (produced by the valuation engine), &#39;Transaction&#39; (produced from a booked transaction or movement) or &#39;SRS&#39; (sourced from the structured results store).
@@ -175,11 +160,10 @@ namespace Lusid.Sdk.Model
         public string PayReceive { get; set; }
 
         /// <summary>
-        /// The signed amount of the cashflow before any haircut was applied. Only populated when haircut rules were supplied on the request.
+        /// Gets or Sets GrossAmount
         /// </summary>
-        /// <value>The signed amount of the cashflow before any haircut was applied. Only populated when haircut rules were supplied on the request.</value>
-        [DataMember(Name = "grossAmount", EmitDefaultValue = true)]
-        public decimal? GrossAmount { get; set; }
+        [DataMember(Name = "grossAmount", EmitDefaultValue = false)]
+        public CurrencyAndAmount GrossAmount { get; set; }
 
         /// <summary>
         /// The fraction of the gross amount removed by the haircut, in the range [0, 1]. Zero for outflows and for cashflows no rule matched. Only populated when haircut rules were supplied on the request.
@@ -189,11 +173,10 @@ namespace Lusid.Sdk.Model
         public decimal? HaircutFraction { get; set; }
 
         /// <summary>
-        /// The signed amount of the cashflow net of the haircut. Only populated when haircut rules were supplied on the request.
+        /// Gets or Sets NetAmount
         /// </summary>
-        /// <value>The signed amount of the cashflow net of the haircut. Only populated when haircut rules were supplied on the request.</value>
-        [DataMember(Name = "netAmount", EmitDefaultValue = true)]
-        public decimal? NetAmount { get; set; }
+        [DataMember(Name = "netAmount", EmitDefaultValue = false)]
+        public CurrencyAndAmount NetAmount { get; set; }
 
         /// <summary>
         /// The identifier of the haircut rule that was applied to the cashflow, or not present when no rule matched or no haircut rules were supplied on the request.
@@ -203,23 +186,22 @@ namespace Lusid.Sdk.Model
         public string HaircutRuleApplied { get; set; }
 
         /// <summary>
-        /// Present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. In that case the amount is null rather than zero. Error may also be set when only the report-currency FX lookup failed (see AmountInReportCurrency), in which case the base Amount remains populated and only AmountInReportCurrency and TradeToReportCurrencyRate are null.
+        /// Present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. In that case the amount is null rather than zero. Error may also be set when only the report-currency FX lookup failed (see ReportCurrencyAmount), in which case the base Amount remains populated and only ReportCurrencyAmount and TradeToReportCurrencyRate are null.
         /// </summary>
-        /// <value>Present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. In that case the amount is null rather than zero. Error may also be set when only the report-currency FX lookup failed (see AmountInReportCurrency), in which case the base Amount remains populated and only AmountInReportCurrency and TradeToReportCurrencyRate are null.</value>
+        /// <value>Present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. In that case the amount is null rather than zero. Error may also be set when only the report-currency FX lookup failed (see ReportCurrencyAmount), in which case the base Amount remains populated and only ReportCurrencyAmount and TradeToReportCurrencyRate are null.</value>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
-        /// The signed amount of the cashflow (see Amount), converted into the request&#39;s report currency (see QueryBucketCashFlowDrillDownRequest.ReportCurrency). Not present when the FX rate used to convert into the report currency could not be resolved; see Error.
+        /// Gets or Sets ReportCurrencyAmount
         /// </summary>
-        /// <value>The signed amount of the cashflow (see Amount), converted into the request&#39;s report currency (see QueryBucketCashFlowDrillDownRequest.ReportCurrency). Not present when the FX rate used to convert into the report currency could not be resolved; see Error.</value>
-        [DataMember(Name = "amountInReportCurrency", EmitDefaultValue = true)]
-        public decimal? AmountInReportCurrency { get; set; }
+        [DataMember(Name = "reportCurrencyAmount", EmitDefaultValue = false)]
+        public CurrencyAndAmount ReportCurrencyAmount { get; set; }
 
         /// <summary>
-        /// The FX rate used to convert the cashflow amount into the request&#39;s report currency, resolved at the cashflow&#39;s transaction (trade) date, not its payment date. Not present when the rate could not be resolved; see Error.
+        /// The FX rate used to convert the cashflow amount from its own payment currency (see Amount) into the request&#39;s report currency, resolved at the cashflow&#39;s transaction (trade) date, not its payment date. Only present when ReportCurrency was supplied on the request; not present when it was omitted, or when the rate could not be resolved (see Error).
         /// </summary>
-        /// <value>The FX rate used to convert the cashflow amount into the request&#39;s report currency, resolved at the cashflow&#39;s transaction (trade) date, not its payment date. Not present when the rate could not be resolved; see Error.</value>
+        /// <value>The FX rate used to convert the cashflow amount from its own payment currency (see Amount) into the request&#39;s report currency, resolved at the cashflow&#39;s transaction (trade) date, not its payment date. Only present when ReportCurrency was supplied on the request; not present when it was omitted, or when the rate could not be resolved (see Error).</value>
         [DataMember(Name = "tradeToReportCurrencyRate", EmitDefaultValue = true)]
         public decimal? TradeToReportCurrencyRate { get; set; }
 
@@ -239,7 +221,6 @@ namespace Lusid.Sdk.Model
             sb.Append("class CashFlowDetail {\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  SourceType: ").Append(SourceType).Append("\n");
             sb.Append("  InstrumentId: ").Append(InstrumentId).Append("\n");
             sb.Append("  InstrumentDisplayName: ").Append(InstrumentDisplayName).Append("\n");
@@ -253,7 +234,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  NetAmount: ").Append(NetAmount).Append("\n");
             sb.Append("  HaircutRuleApplied: ").Append(HaircutRuleApplied).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
-            sb.Append("  AmountInReportCurrency: ").Append(AmountInReportCurrency).Append("\n");
+            sb.Append("  ReportCurrencyAmount: ").Append(ReportCurrencyAmount).Append("\n");
             sb.Append("  TradeToReportCurrencyRate: ").Append(TradeToReportCurrencyRate).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -300,11 +281,6 @@ namespace Lusid.Sdk.Model
                     this.Amount == input.Amount ||
                     (this.Amount != null &&
                     this.Amount.Equals(input.Amount))
-                ) && 
-                (
-                    this.Currency == input.Currency ||
-                    (this.Currency != null &&
-                    this.Currency.Equals(input.Currency))
                 ) && 
                 (
                     this.SourceType == input.SourceType ||
@@ -372,9 +348,9 @@ namespace Lusid.Sdk.Model
                     this.Error.Equals(input.Error))
                 ) && 
                 (
-                    this.AmountInReportCurrency == input.AmountInReportCurrency ||
-                    (this.AmountInReportCurrency != null &&
-                    this.AmountInReportCurrency.Equals(input.AmountInReportCurrency))
+                    this.ReportCurrencyAmount == input.ReportCurrencyAmount ||
+                    (this.ReportCurrencyAmount != null &&
+                    this.ReportCurrencyAmount.Equals(input.ReportCurrencyAmount))
                 ) && 
                 (
                     this.TradeToReportCurrencyRate == input.TradeToReportCurrencyRate ||
@@ -405,10 +381,6 @@ namespace Lusid.Sdk.Model
                 if (this.Amount != null)
                 {
                     hashCode = (hashCode * 59) + this.Amount.GetHashCode();
-                }
-                if (this.Currency != null)
-                {
-                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
                 if (this.SourceType != null)
                 {
@@ -462,9 +434,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Error.GetHashCode();
                 }
-                if (this.AmountInReportCurrency != null)
+                if (this.ReportCurrencyAmount != null)
                 {
-                    hashCode = (hashCode * 59) + this.AmountInReportCurrency.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ReportCurrencyAmount.GetHashCode();
                 }
                 if (this.TradeToReportCurrencyRate != null)
                 {

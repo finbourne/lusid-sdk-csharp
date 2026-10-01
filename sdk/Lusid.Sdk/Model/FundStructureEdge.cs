@@ -40,7 +40,8 @@ namespace Lusid.Sdk.Model
         /// <param name="to">to (required).</param>
         /// <param name="linkageType">How the link is held. DedicatedShareClass (the default) means the source invests into a share class of the target; DirectEquityInstrument, GPInterest, LPInterest and CarryInterest mean the source holds that interest in the target through the instrument in viaInstrumentId. Available values: DedicatedShareClass, DirectEquityInstrument, GPInterest, LPInterest, CarryInterest..</param>
         /// <param name="viaInstrumentId">viaInstrumentId.</param>
-        public FundStructureEdge(string from = default(string), FundStructureEdgeTarget to = default(FundStructureEdgeTarget), string linkageType = default(string), ResourceId viaInstrumentId = default(ResourceId))
+        /// <param name="sharingPercentage">The holder&#39;s ILPA sharing percentage in the target member, adjusted for transfers and equalisation but not reduced by ordinary distributions. Between 0 and 1 inclusive; the percentages declared into any one member must sum to no more than 1. Defaults to 1 (sole ownership) when not supplied. A value of 0 records a full exit: keep the edge and set it to 0 from the date the interest ended, so that the change in percentage from one version of the structure to the next tells the P&amp;L flow what was disposed of. Each disposal or acquisition trade of the holder&#39;s needs its own version of the structure, effective on that trade&#39;s date: proceeds received on a date with no change in percentage are taken as a distribution on the retained interest, not a disposal. A change in percentage with no trade of the holder&#39;s on its date takes effect at the holder&#39;s next transaction on the member or period close, whichever comes first..</param>
+        public FundStructureEdge(string from = default(string), FundStructureEdgeTarget to = default(FundStructureEdgeTarget), string linkageType = default(string), ResourceId viaInstrumentId = default(ResourceId), decimal? sharingPercentage = default(decimal?))
         {
             // to ensure "from" is required (not null)
             if (from == null)
@@ -56,6 +57,7 @@ namespace Lusid.Sdk.Model
             this.To = to;
             this.LinkageType = linkageType;
             this.ViaInstrumentId = viaInstrumentId;
+            this.SharingPercentage = sharingPercentage;
         }
 
         /// <summary>
@@ -85,6 +87,13 @@ namespace Lusid.Sdk.Model
         public ResourceId ViaInstrumentId { get; set; }
 
         /// <summary>
+        /// The holder&#39;s ILPA sharing percentage in the target member, adjusted for transfers and equalisation but not reduced by ordinary distributions. Between 0 and 1 inclusive; the percentages declared into any one member must sum to no more than 1. Defaults to 1 (sole ownership) when not supplied. A value of 0 records a full exit: keep the edge and set it to 0 from the date the interest ended, so that the change in percentage from one version of the structure to the next tells the P&amp;L flow what was disposed of. Each disposal or acquisition trade of the holder&#39;s needs its own version of the structure, effective on that trade&#39;s date: proceeds received on a date with no change in percentage are taken as a distribution on the retained interest, not a disposal. A change in percentage with no trade of the holder&#39;s on its date takes effect at the holder&#39;s next transaction on the member or period close, whichever comes first.
+        /// </summary>
+        /// <value>The holder&#39;s ILPA sharing percentage in the target member, adjusted for transfers and equalisation but not reduced by ordinary distributions. Between 0 and 1 inclusive; the percentages declared into any one member must sum to no more than 1. Defaults to 1 (sole ownership) when not supplied. A value of 0 records a full exit: keep the edge and set it to 0 from the date the interest ended, so that the change in percentage from one version of the structure to the next tells the P&amp;L flow what was disposed of. Each disposal or acquisition trade of the holder&#39;s needs its own version of the structure, effective on that trade&#39;s date: proceeds received on a date with no change in percentage are taken as a distribution on the retained interest, not a disposal. A change in percentage with no trade of the holder&#39;s on its date takes effect at the holder&#39;s next transaction on the member or period close, whichever comes first.</value>
+        [DataMember(Name = "sharingPercentage", EmitDefaultValue = true)]
+        public decimal? SharingPercentage { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -96,6 +105,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  To: ").Append(To).Append("\n");
             sb.Append("  LinkageType: ").Append(LinkageType).Append("\n");
             sb.Append("  ViaInstrumentId: ").Append(ViaInstrumentId).Append("\n");
+            sb.Append("  SharingPercentage: ").Append(SharingPercentage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -150,6 +160,11 @@ namespace Lusid.Sdk.Model
                     this.ViaInstrumentId == input.ViaInstrumentId ||
                     (this.ViaInstrumentId != null &&
                     this.ViaInstrumentId.Equals(input.ViaInstrumentId))
+                ) && 
+                (
+                    this.SharingPercentage == input.SharingPercentage ||
+                    (this.SharingPercentage != null &&
+                    this.SharingPercentage.Equals(input.SharingPercentage))
                 );
         }
 
@@ -177,6 +192,10 @@ namespace Lusid.Sdk.Model
                 if (this.ViaInstrumentId != null)
                 {
                     hashCode = (hashCode * 59) + this.ViaInstrumentId.GetHashCode();
+                }
+                if (this.SharingPercentage != null)
+                {
+                    hashCode = (hashCode * 59) + this.SharingPercentage.GetHashCode();
                 }
                 return hashCode;
             }
@@ -206,6 +225,18 @@ namespace Lusid.Sdk.Model
             if (false == regexFrom.Match(this.From).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for From, must match a pattern of " + regexFrom, new [] { "From" });
+            }
+
+            // SharingPercentage (decimal?) maximum
+            if (this.SharingPercentage > (decimal?)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SharingPercentage, must be a value less than or equal to 1.", new [] { "SharingPercentage" });
+            }
+
+            // SharingPercentage (decimal?) minimum
+            if (this.SharingPercentage < (decimal?)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SharingPercentage, must be a value greater than or equal to 0.", new [] { "SharingPercentage" });
             }
 
             yield break;
