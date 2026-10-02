@@ -53,7 +53,8 @@ namespace Lusid.Sdk.Model
         /// <param name="isActive">Indicates whether the settlement instruction is active. When false, the instruction has no impact on settlement positions, but remains visible. Defaults to true..</param>
         /// <param name="properties">The properties which have been requested to be decorated onto the settlement instruction. These will be from the &#39;SettlementInstruction&#39;, &#39;Portfolio&#39;, or &#39;Instrument&#39; domains..</param>
         /// <param name="varVersion">varVersion.</param>
-        public TransactionSettlementInstruction(string settlementInstructionId = default(string), string instructionType = default(string), DateTimeOffset actualSettlementDate = default(DateTimeOffset), decimal units = default(decimal), string transactionId = default(string), string settlementCategory = default(string), string lusidInstrumentId = default(string), DateTimeOffset? contractualSettlementDate = default(DateTimeOffset?), Dictionary<string, PerpetualProperty> subHoldingKeyOverrides = default(Dictionary<string, PerpetualProperty>), ResourceId custodianAccountOverride = default(ResourceId), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string status = default(string), decimal? instructionToPortfolioRate = default(decimal?), SettlementInLieu settlementInLieu = default(SettlementInLieu), bool isActive = default(bool), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ModelVersion varVersion = default(ModelVersion))
+        /// <param name="problemCode">Why the settlement instruction was not applied. Set only when the status is Invalid, Orphan or Rejected..</param>
+        public TransactionSettlementInstruction(string settlementInstructionId = default(string), string instructionType = default(string), DateTimeOffset actualSettlementDate = default(DateTimeOffset), decimal units = default(decimal), string transactionId = default(string), string settlementCategory = default(string), string lusidInstrumentId = default(string), DateTimeOffset? contractualSettlementDate = default(DateTimeOffset?), Dictionary<string, PerpetualProperty> subHoldingKeyOverrides = default(Dictionary<string, PerpetualProperty>), ResourceId custodianAccountOverride = default(ResourceId), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string status = default(string), decimal? instructionToPortfolioRate = default(decimal?), SettlementInLieu settlementInLieu = default(SettlementInLieu), bool isActive = default(bool), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ModelVersion varVersion = default(ModelVersion), string problemCode = default(string))
         {
             // to ensure "settlementInstructionId" is required (not null)
             if (settlementInstructionId == null)
@@ -102,6 +103,7 @@ namespace Lusid.Sdk.Model
             this.IsActive = isActive;
             this.Properties = properties;
             this.VarVersion = varVersion;
+            this.ProblemCode = problemCode;
         }
 
         /// <summary>
@@ -221,6 +223,13 @@ namespace Lusid.Sdk.Model
         public ModelVersion VarVersion { get; set; }
 
         /// <summary>
+        /// Why the settlement instruction was not applied. Set only when the status is Invalid, Orphan or Rejected.
+        /// </summary>
+        /// <value>Why the settlement instruction was not applied. Set only when the status is Invalid, Orphan or Rejected.</value>
+        [DataMember(Name = "problemCode", EmitDefaultValue = true)]
+        public string ProblemCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -245,6 +254,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  IsActive: ").Append(IsActive).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  ProblemCode: ").Append(ProblemCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -365,6 +375,11 @@ namespace Lusid.Sdk.Model
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
+                ) && 
+                (
+                    this.ProblemCode == input.ProblemCode ||
+                    (this.ProblemCode != null &&
+                    this.ProblemCode.Equals(input.ProblemCode))
                 );
         }
 
@@ -438,6 +453,10 @@ namespace Lusid.Sdk.Model
                 if (this.VarVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                }
+                if (this.ProblemCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProblemCode.GetHashCode();
                 }
                 return hashCode;
             }

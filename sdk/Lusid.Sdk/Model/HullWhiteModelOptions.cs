@@ -49,8 +49,9 @@ namespace Lusid.Sdk.Model
         /// <param name="effectiveKeyRateBuckets">The maturity buckets of the Analytic/EffectiveKeyRateDuration ladder, as tenor strings  such as \&quot;1Y\&quot; or \&quot;6M\&quot;, in strictly increasing order. Each bucket is repriced under a  tent-shaped curve shift centred on its own tenor, so the ladder sums to the parallel  effective duration to first order. Buckets past an instrument&#39;s maturity report zero, so  one grid can serve a whole book. Defaults to the 1Y, 2Y, 3Y, 5Y, 7Y, 10Y, 20Y, 30Y grid  when not supplied; an empty list is rejected..</param>
         /// <param name="priceToFirstReset">Value a fixed-to-float callable bond only to its first reset. The bond must be a  ComplexBond with one fixed schedule, one floating schedule starting on the fixed schedule&#39;s  maturity, and a call exercisable on that date; it is then valued as if called there, redeemed  at the call strike on the principal outstanding, with the fixed coupon paid on that date kept  and no floating coupon projected. Any call before that date stays live on the lattice. Bonds  of any other shape are refused by name rather than valued over their full life. Rows priced  this way carry the reset date in the Diagnostics/Model/PricingHorizon valuation key. Defaults  to false, which values the bond over its full life..</param>
         /// <param name="latticeStepsPerYear">The lattice time-step density as steps per year. When supplied, the lattice uses  ceil(horizon in years x this value) steps, raised if necessary so that one step is no longer  than the shortest gap between consecutive cashflows, so the fixed LatticeSteps is ignored and  the \&quot;lattice coarser than coupon spacing\&quot; refusal cannot fire. Must be at least 1 when  supplied. Absent, the fixed LatticeSteps count applies..</param>
+        /// <param name="maxLatticeNodes">A ceiling on the lattice size, counted as (steps + 1) x rate levels, that the pricer may  build for one instrument. An instrument whose lattice would exceed it is declined by the  model before any allocation, so the cost of a long-dated or finely-stepped row can be  bounded. Must be at least 1 when supplied. Absent, no ceiling applies..</param>
         /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions. (required) (default to &quot;HullWhiteModelOptions&quot;).</param>
-        public HullWhiteModelOptions(decimal meanReversion = default(decimal), decimal volatility = default(decimal), int latticeSteps = default(int), decimal? effectiveRateBumpSize = default(decimal?), Dictionary<string, decimal> meanReversionByCurrency = default(Dictionary<string, decimal>), Dictionary<string, decimal> volatilityByCurrency = default(Dictionary<string, decimal>), decimal? volatilityMultiplier = default(decimal?), decimal? effectiveCs01BumpWidth = default(decimal?), List<string> effectiveKeyRateBuckets = default(List<string>), bool? priceToFirstReset = default(bool?), int? latticeStepsPerYear = default(int?), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
+        public HullWhiteModelOptions(decimal meanReversion = default(decimal), decimal volatility = default(decimal), int latticeSteps = default(int), decimal? effectiveRateBumpSize = default(decimal?), Dictionary<string, decimal> meanReversionByCurrency = default(Dictionary<string, decimal>), Dictionary<string, decimal> volatilityByCurrency = default(Dictionary<string, decimal>), decimal? volatilityMultiplier = default(decimal?), decimal? effectiveCs01BumpWidth = default(decimal?), List<string> effectiveKeyRateBuckets = default(List<string>), bool? priceToFirstReset = default(bool?), int? latticeStepsPerYear = default(int?), int? maxLatticeNodes = default(int?), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             this.MeanReversion = meanReversion;
             this.Volatility = volatility;
@@ -63,6 +64,7 @@ namespace Lusid.Sdk.Model
             this.EffectiveKeyRateBuckets = effectiveKeyRateBuckets;
             this.PriceToFirstReset = priceToFirstReset;
             this.LatticeStepsPerYear = latticeStepsPerYear;
+            this.MaxLatticeNodes = maxLatticeNodes;
         }
 
         /// <summary>
@@ -143,6 +145,13 @@ namespace Lusid.Sdk.Model
         public int? LatticeStepsPerYear { get; set; }
 
         /// <summary>
+        /// A ceiling on the lattice size, counted as (steps + 1) x rate levels, that the pricer may  build for one instrument. An instrument whose lattice would exceed it is declined by the  model before any allocation, so the cost of a long-dated or finely-stepped row can be  bounded. Must be at least 1 when supplied. Absent, no ceiling applies.
+        /// </summary>
+        /// <value>A ceiling on the lattice size, counted as (steps + 1) x rate levels, that the pricer may  build for one instrument. An instrument whose lattice would exceed it is declined by the  model before any allocation, so the cost of a long-dated or finely-stepped row can be  bounded. Must be at least 1 when supplied. Absent, no ceiling applies.</value>
+        [DataMember(Name = "maxLatticeNodes", EmitDefaultValue = true)]
+        public int? MaxLatticeNodes { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -162,6 +171,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EffectiveKeyRateBuckets: ").Append(EffectiveKeyRateBuckets).Append("\n");
             sb.Append("  PriceToFirstReset: ").Append(PriceToFirstReset).Append("\n");
             sb.Append("  LatticeStepsPerYear: ").Append(LatticeStepsPerYear).Append("\n");
+            sb.Append("  MaxLatticeNodes: ").Append(MaxLatticeNodes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -251,6 +261,11 @@ namespace Lusid.Sdk.Model
                     this.LatticeStepsPerYear == input.LatticeStepsPerYear ||
                     (this.LatticeStepsPerYear != null &&
                     this.LatticeStepsPerYear.Equals(input.LatticeStepsPerYear))
+                ) && base.Equals(input) && 
+                (
+                    this.MaxLatticeNodes == input.MaxLatticeNodes ||
+                    (this.MaxLatticeNodes != null &&
+                    this.MaxLatticeNodes.Equals(input.MaxLatticeNodes))
                 );
         }
 
@@ -297,6 +312,10 @@ namespace Lusid.Sdk.Model
                 if (this.LatticeStepsPerYear != null)
                 {
                     hashCode = (hashCode * 59) + this.LatticeStepsPerYear.GetHashCode();
+                }
+                if (this.MaxLatticeNodes != null)
+                {
+                    hashCode = (hashCode * 59) + this.MaxLatticeNodes.GetHashCode();
                 }
                 return hashCode;
             }

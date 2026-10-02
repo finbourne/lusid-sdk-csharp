@@ -39,31 +39,31 @@ namespace Lusid.Sdk.Model
         /// <param name="transferId">transferId (required).</param>
         /// <param name="portfolioIdOut">portfolioIdOut (required).</param>
         /// <param name="portfolioIdIn">portfolioIdIn (required).</param>
-        /// <param name="instrumentIdentifierOut">instrumentIdentifierOut (required).</param>
-        /// <param name="instrumentIdentifierIn">instrumentIdentifierIn (required).</param>
-        /// <param name="pricingMethod">Available values: AtCost, AtPrice. (required).</param>
-        /// <param name="taxLotStructure">Available values: Consolidate, Preserve..</param>
-        /// <param name="unitsOut">unitsOut (required).</param>
-        /// <param name="unitsIn">unitsIn (required).</param>
-        /// <param name="amountOut">amountOut.</param>
-        /// <param name="weightOut">weightOut.</param>
-        /// <param name="tradeDateOut">tradeDateOut (required).</param>
-        /// <param name="tradeDateIn">tradeDateIn (required).</param>
-        /// <param name="settlementDateOut">settlementDateOut (required).</param>
-        /// <param name="settlementDateIn">settlementDateIn.</param>
-        /// <param name="exchangeRateOut">exchangeRateOut.</param>
-        /// <param name="exchangeRateIn">exchangeRateIn.</param>
-        /// <param name="transactionPriceOut">transactionPriceOut.</param>
-        /// <param name="transactionPriceIn">transactionPriceIn.</param>
-        /// <param name="counterpartyIdOut">counterpartyIdOut.</param>
-        /// <param name="counterpartyIdIn">counterpartyIdIn.</param>
+        /// <param name="instrumentIdentifierOut">The LUSID instrument id of the instrument moving out. A position in this instrument must exist in the outgoing portfolio on the outgoing trade date. (required).</param>
+        /// <param name="instrumentIdentifierIn">The LUSID instrument id of the instrument moving in. Equal to InstrumentIdentifierOut for a transfer between portfolios. (required).</param>
+        /// <param name="pricingMethod">How the legs are priced. &#39;AtCost&#39; uses the cost per unit of the outgoing holding; &#39;AtPrice&#39; uses the supplied TransactionPriceOut, which is then required. Available values: AtCost, AtPrice. (required).</param>
+        /// <param name="taxLotStructure">What happens to the tax lots of the outgoing position. Only &#39;Consolidate&#39; is currently supported; &#39;Preserve&#39; is rejected. Defaults to &#39;Consolidate&#39;. Available values: Consolidate, Preserve..</param>
+        /// <param name="unitsOut">The number of units to move out. Must be greater than zero. (required).</param>
+        /// <param name="unitsIn">The number of units to move in. Must be greater than zero. (required).</param>
+        /// <param name="amountOut">The total consideration of the outgoing leg. Recorded, not applied..</param>
+        /// <param name="weightOut">The weighting factor of the outgoing leg. Recorded, not applied..</param>
+        /// <param name="tradeDateOut">The trade date of the outgoing leg. Must not be later than TradeDateIn. (required).</param>
+        /// <param name="tradeDateIn">The trade date of the incoming leg. (required).</param>
+        /// <param name="settlementDateOut">The settlement date of the outgoing leg. Must not be later than SettlementDateIn. (required).</param>
+        /// <param name="settlementDateIn">The settlement date of the incoming leg. Defaults to SettlementDateOut when not supplied..</param>
+        /// <param name="exchangeRateOut">The FX rate to apply to the outgoing leg..</param>
+        /// <param name="exchangeRateIn">The FX rate to apply to the incoming leg..</param>
+        /// <param name="transactionPriceOut">The unit price of the outgoing leg. Required when PricingMethod is &#39;AtPrice&#39;, and ignored when it is &#39;AtCost&#39;..</param>
+        /// <param name="transactionPriceIn">The unit price of the incoming leg. Ignored for a transfer, which carries the outgoing price across; defaults to the outgoing price for a switch..</param>
+        /// <param name="counterpartyIdOut">The counterparty identifier of the outgoing leg..</param>
+        /// <param name="counterpartyIdIn">The counterparty identifier of the incoming leg. Defaults to CounterpartyIdOut..</param>
         /// <param name="custodianAccountIdOut">custodianAccountIdOut.</param>
         /// <param name="custodianAccountIdIn">custodianAccountIdIn.</param>
-        /// <param name="source">source (required).</param>
-        /// <param name="accountingMethod">Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency..</param>
-        /// <param name="propertiesOut">propertiesOut.</param>
-        /// <param name="propertiesIn">propertiesIn.</param>
-        /// <param name="properties">properties.</param>
+        /// <param name="source">The transaction source the generated legs are booked against. (required).</param>
+        /// <param name="accountingMethod">An accounting method to record against the transfer. Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency..</param>
+        /// <param name="propertiesOut">Transaction Properties to set on the outgoing transaction leg, and on the incoming transaction leg when PropertiesIn is absent. Supplying an empty collection for PropertiesIn leaves the incoming leg with no properties..</param>
+        /// <param name="propertiesIn">Transaction Properties to set on the incoming transaction leg, replacing rather than adding to PropertiesOut..</param>
+        /// <param name="properties">Properties to set on the transfer itself, in the Transfer domain. These are separate from PropertiesOut and PropertiesIn, which are Transaction domain and land on the legs..</param>
         public CreateTransferRequest(ResourceId transferId = default(ResourceId), ResourceId portfolioIdOut = default(ResourceId), ResourceId portfolioIdIn = default(ResourceId), string instrumentIdentifierOut = default(string), string instrumentIdentifierIn = default(string), string pricingMethod = default(string), string taxLotStructure = default(string), decimal unitsOut = default(decimal), decimal unitsIn = default(decimal), decimal? amountOut = default(decimal?), decimal? weightOut = default(decimal?), DateTimeOffset tradeDateOut = default(DateTimeOffset), DateTimeOffset tradeDateIn = default(DateTimeOffset), DateTimeOffset settlementDateOut = default(DateTimeOffset), DateTimeOffset? settlementDateIn = default(DateTimeOffset?), decimal? exchangeRateOut = default(decimal?), decimal? exchangeRateIn = default(decimal?), decimal? transactionPriceOut = default(decimal?), decimal? transactionPriceIn = default(decimal?), string counterpartyIdOut = default(string), string counterpartyIdIn = default(string), ResourceId custodianAccountIdOut = default(ResourceId), ResourceId custodianAccountIdIn = default(ResourceId), string source = default(string), string accountingMethod = default(string), Dictionary<string, PerpetualProperty> propertiesOut = default(Dictionary<string, PerpetualProperty>), Dictionary<string, PerpetualProperty> propertiesIn = default(Dictionary<string, PerpetualProperty>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
         {
             // to ensure "transferId" is required (not null)
@@ -150,112 +150,128 @@ namespace Lusid.Sdk.Model
         public ResourceId PortfolioIdIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets InstrumentIdentifierOut
+        /// The LUSID instrument id of the instrument moving out. A position in this instrument must exist in the outgoing portfolio on the outgoing trade date.
         /// </summary>
+        /// <value>The LUSID instrument id of the instrument moving out. A position in this instrument must exist in the outgoing portfolio on the outgoing trade date.</value>
         [DataMember(Name = "instrumentIdentifierOut", IsRequired = true, EmitDefaultValue = true)]
         public string InstrumentIdentifierOut { get; set; }
 
         /// <summary>
-        /// Gets or Sets InstrumentIdentifierIn
+        /// The LUSID instrument id of the instrument moving in. Equal to InstrumentIdentifierOut for a transfer between portfolios.
         /// </summary>
+        /// <value>The LUSID instrument id of the instrument moving in. Equal to InstrumentIdentifierOut for a transfer between portfolios.</value>
         [DataMember(Name = "instrumentIdentifierIn", IsRequired = true, EmitDefaultValue = true)]
         public string InstrumentIdentifierIn { get; set; }
 
         /// <summary>
-        /// Available values: AtCost, AtPrice.
+        /// How the legs are priced. &#39;AtCost&#39; uses the cost per unit of the outgoing holding; &#39;AtPrice&#39; uses the supplied TransactionPriceOut, which is then required. Available values: AtCost, AtPrice.
         /// </summary>
-        /// <value>Available values: AtCost, AtPrice.</value>
+        /// <value>How the legs are priced. &#39;AtCost&#39; uses the cost per unit of the outgoing holding; &#39;AtPrice&#39; uses the supplied TransactionPriceOut, which is then required. Available values: AtCost, AtPrice.</value>
         [DataMember(Name = "pricingMethod", IsRequired = true, EmitDefaultValue = true)]
         public string PricingMethod { get; set; }
 
         /// <summary>
-        /// Available values: Consolidate, Preserve.
+        /// What happens to the tax lots of the outgoing position. Only &#39;Consolidate&#39; is currently supported; &#39;Preserve&#39; is rejected. Defaults to &#39;Consolidate&#39;. Available values: Consolidate, Preserve.
         /// </summary>
-        /// <value>Available values: Consolidate, Preserve.</value>
+        /// <value>What happens to the tax lots of the outgoing position. Only &#39;Consolidate&#39; is currently supported; &#39;Preserve&#39; is rejected. Defaults to &#39;Consolidate&#39;. Available values: Consolidate, Preserve.</value>
         [DataMember(Name = "taxLotStructure", EmitDefaultValue = true)]
         public string TaxLotStructure { get; set; }
 
         /// <summary>
-        /// Gets or Sets UnitsOut
+        /// The number of units to move out. Must be greater than zero.
         /// </summary>
+        /// <value>The number of units to move out. Must be greater than zero.</value>
         [DataMember(Name = "unitsOut", IsRequired = true, EmitDefaultValue = true)]
         public decimal UnitsOut { get; set; }
 
         /// <summary>
-        /// Gets or Sets UnitsIn
+        /// The number of units to move in. Must be greater than zero.
         /// </summary>
+        /// <value>The number of units to move in. Must be greater than zero.</value>
         [DataMember(Name = "unitsIn", IsRequired = true, EmitDefaultValue = true)]
         public decimal UnitsIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets AmountOut
+        /// The total consideration of the outgoing leg. Recorded, not applied.
         /// </summary>
+        /// <value>The total consideration of the outgoing leg. Recorded, not applied.</value>
         [DataMember(Name = "amountOut", EmitDefaultValue = true)]
         public decimal? AmountOut { get; set; }
 
         /// <summary>
-        /// Gets or Sets WeightOut
+        /// The weighting factor of the outgoing leg. Recorded, not applied.
         /// </summary>
+        /// <value>The weighting factor of the outgoing leg. Recorded, not applied.</value>
         [DataMember(Name = "weightOut", EmitDefaultValue = true)]
         public decimal? WeightOut { get; set; }
 
         /// <summary>
-        /// Gets or Sets TradeDateOut
+        /// The trade date of the outgoing leg. Must not be later than TradeDateIn.
         /// </summary>
+        /// <value>The trade date of the outgoing leg. Must not be later than TradeDateIn.</value>
         [DataMember(Name = "tradeDateOut", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset TradeDateOut { get; set; }
 
         /// <summary>
-        /// Gets or Sets TradeDateIn
+        /// The trade date of the incoming leg.
         /// </summary>
+        /// <value>The trade date of the incoming leg.</value>
         [DataMember(Name = "tradeDateIn", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset TradeDateIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets SettlementDateOut
+        /// The settlement date of the outgoing leg. Must not be later than SettlementDateIn.
         /// </summary>
+        /// <value>The settlement date of the outgoing leg. Must not be later than SettlementDateIn.</value>
         [DataMember(Name = "settlementDateOut", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset SettlementDateOut { get; set; }
 
         /// <summary>
-        /// Gets or Sets SettlementDateIn
+        /// The settlement date of the incoming leg. Defaults to SettlementDateOut when not supplied.
         /// </summary>
+        /// <value>The settlement date of the incoming leg. Defaults to SettlementDateOut when not supplied.</value>
         [DataMember(Name = "settlementDateIn", EmitDefaultValue = true)]
         public DateTimeOffset? SettlementDateIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExchangeRateOut
+        /// The FX rate to apply to the outgoing leg.
         /// </summary>
+        /// <value>The FX rate to apply to the outgoing leg.</value>
         [DataMember(Name = "exchangeRateOut", EmitDefaultValue = true)]
         public decimal? ExchangeRateOut { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExchangeRateIn
+        /// The FX rate to apply to the incoming leg.
         /// </summary>
+        /// <value>The FX rate to apply to the incoming leg.</value>
         [DataMember(Name = "exchangeRateIn", EmitDefaultValue = true)]
         public decimal? ExchangeRateIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets TransactionPriceOut
+        /// The unit price of the outgoing leg. Required when PricingMethod is &#39;AtPrice&#39;, and ignored when it is &#39;AtCost&#39;.
         /// </summary>
+        /// <value>The unit price of the outgoing leg. Required when PricingMethod is &#39;AtPrice&#39;, and ignored when it is &#39;AtCost&#39;.</value>
         [DataMember(Name = "transactionPriceOut", EmitDefaultValue = true)]
         public decimal? TransactionPriceOut { get; set; }
 
         /// <summary>
-        /// Gets or Sets TransactionPriceIn
+        /// The unit price of the incoming leg. Ignored for a transfer, which carries the outgoing price across; defaults to the outgoing price for a switch.
         /// </summary>
+        /// <value>The unit price of the incoming leg. Ignored for a transfer, which carries the outgoing price across; defaults to the outgoing price for a switch.</value>
         [DataMember(Name = "transactionPriceIn", EmitDefaultValue = true)]
         public decimal? TransactionPriceIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets CounterpartyIdOut
+        /// The counterparty identifier of the outgoing leg.
         /// </summary>
+        /// <value>The counterparty identifier of the outgoing leg.</value>
         [DataMember(Name = "counterpartyIdOut", EmitDefaultValue = true)]
         public string CounterpartyIdOut { get; set; }
 
         /// <summary>
-        /// Gets or Sets CounterpartyIdIn
+        /// The counterparty identifier of the incoming leg. Defaults to CounterpartyIdOut.
         /// </summary>
+        /// <value>The counterparty identifier of the incoming leg. Defaults to CounterpartyIdOut.</value>
         [DataMember(Name = "counterpartyIdIn", EmitDefaultValue = true)]
         public string CounterpartyIdIn { get; set; }
 
@@ -272,33 +288,37 @@ namespace Lusid.Sdk.Model
         public ResourceId CustodianAccountIdIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets Source
+        /// The transaction source the generated legs are booked against.
         /// </summary>
+        /// <value>The transaction source the generated legs are booked against.</value>
         [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = true)]
         public string Source { get; set; }
 
         /// <summary>
-        /// Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency.
+        /// An accounting method to record against the transfer. Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency.
         /// </summary>
-        /// <value>Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency.</value>
+        /// <value>An accounting method to record against the transfer. Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency.</value>
         [DataMember(Name = "accountingMethod", EmitDefaultValue = true)]
         public string AccountingMethod { get; set; }
 
         /// <summary>
-        /// Gets or Sets PropertiesOut
+        /// Transaction Properties to set on the outgoing transaction leg, and on the incoming transaction leg when PropertiesIn is absent. Supplying an empty collection for PropertiesIn leaves the incoming leg with no properties.
         /// </summary>
+        /// <value>Transaction Properties to set on the outgoing transaction leg, and on the incoming transaction leg when PropertiesIn is absent. Supplying an empty collection for PropertiesIn leaves the incoming leg with no properties.</value>
         [DataMember(Name = "propertiesOut", EmitDefaultValue = true)]
         public Dictionary<string, PerpetualProperty> PropertiesOut { get; set; }
 
         /// <summary>
-        /// Gets or Sets PropertiesIn
+        /// Transaction Properties to set on the incoming transaction leg, replacing rather than adding to PropertiesOut.
         /// </summary>
+        /// <value>Transaction Properties to set on the incoming transaction leg, replacing rather than adding to PropertiesOut.</value>
         [DataMember(Name = "propertiesIn", EmitDefaultValue = true)]
         public Dictionary<string, PerpetualProperty> PropertiesIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets Properties
+        /// Properties to set on the transfer itself, in the Transfer domain. These are separate from PropertiesOut and PropertiesIn, which are Transaction domain and land on the legs.
         /// </summary>
+        /// <value>Properties to set on the transfer itself, in the Transfer domain. These are separate from PropertiesOut and PropertiesIn, which are Transaction domain and land on the legs.</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, PerpetualProperty> Properties { get; set; }
 

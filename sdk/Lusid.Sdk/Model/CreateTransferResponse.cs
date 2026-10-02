@@ -32,11 +32,11 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="CreateTransferResponse" /> class.
         /// </summary>
         /// <param name="transferId">transferId.</param>
-        /// <param name="transferType">transferType.</param>
+        /// <param name="transferType">The derived type of the transfer: &#39;Transfer&#39; when the position moves between portfolios, &#39;Switch&#39; when one instrument is exchanged for another within a portfolio, and &#39;Twitch&#39; when the position moves between portfolios and changes instrument at the same time..</param>
         /// <param name="portfolioIdOut">portfolioIdOut.</param>
         /// <param name="portfolioIdIn">portfolioIdIn.</param>
-        /// <param name="transactionIdOut">transactionIdOut.</param>
-        /// <param name="transactionIdIn">transactionIdIn.</param>
+        /// <param name="transactionIdOut">The transaction id of the created outgoing leg..</param>
+        /// <param name="transactionIdIn">The transaction id of the created incoming leg..</param>
         public CreateTransferResponse(ResourceId transferId = default(ResourceId), string transferType = default(string), ResourceId portfolioIdOut = default(ResourceId), ResourceId portfolioIdIn = default(ResourceId), string transactionIdOut = default(string), string transactionIdIn = default(string))
         {
             this.TransferId = transferId;
@@ -54,8 +54,9 @@ namespace Lusid.Sdk.Model
         public ResourceId TransferId { get; set; }
 
         /// <summary>
-        /// Gets or Sets TransferType
+        /// The derived type of the transfer: &#39;Transfer&#39; when the position moves between portfolios, &#39;Switch&#39; when one instrument is exchanged for another within a portfolio, and &#39;Twitch&#39; when the position moves between portfolios and changes instrument at the same time.
         /// </summary>
+        /// <value>The derived type of the transfer: &#39;Transfer&#39; when the position moves between portfolios, &#39;Switch&#39; when one instrument is exchanged for another within a portfolio, and &#39;Twitch&#39; when the position moves between portfolios and changes instrument at the same time.</value>
         [DataMember(Name = "transferType", EmitDefaultValue = true)]
         public string TransferType { get; set; }
 
@@ -72,14 +73,16 @@ namespace Lusid.Sdk.Model
         public ResourceId PortfolioIdIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets TransactionIdOut
+        /// The transaction id of the created outgoing leg.
         /// </summary>
+        /// <value>The transaction id of the created outgoing leg.</value>
         [DataMember(Name = "transactionIdOut", EmitDefaultValue = true)]
         public string TransactionIdOut { get; set; }
 
         /// <summary>
-        /// Gets or Sets TransactionIdIn
+        /// The transaction id of the created incoming leg.
         /// </summary>
+        /// <value>The transaction id of the created incoming leg.</value>
         [DataMember(Name = "transactionIdIn", EmitDefaultValue = true)]
         public string TransactionIdIn { get; set; }
 

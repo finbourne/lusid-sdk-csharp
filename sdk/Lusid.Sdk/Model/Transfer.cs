@@ -25,20 +25,23 @@ namespace Lusid.Sdk.Model
     /// <summary>
     /// A transfer and both of the transactions it booked.
     /// </summary>
-    [DataContract(Name = "GetTransferResponse")]
-    public partial class GetTransferResponse : IEquatable<GetTransferResponse>, IValidatableObject
+    [DataContract(Name = "Transfer")]
+    public partial class Transfer : IEquatable<Transfer>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetTransferResponse" /> class.
+        /// Initializes a new instance of the <see cref="Transfer" /> class.
         /// </summary>
         /// <param name="transferId">transferId.</param>
-        /// <param name="transferType">transferType.</param>
+        /// <param name="transferType">The derived type of the transfer: &#39;Transfer&#39; when the position moves between portfolios, &#39;Switch&#39; when one instrument is exchanged for another within a portfolio, and &#39;Twitch&#39; when the position moves between portfolios and changes instrument at the same time..</param>
         /// <param name="portfolioIdOut">portfolioIdOut.</param>
         /// <param name="portfolioIdIn">portfolioIdIn.</param>
         /// <param name="transactionOut">transactionOut.</param>
         /// <param name="transactionIn">transactionIn.</param>
-        /// <param name="properties">properties.</param>
-        public GetTransferResponse(ResourceId transferId = default(ResourceId), string transferType = default(string), ResourceId portfolioIdOut = default(ResourceId), ResourceId portfolioIdIn = default(ResourceId), Transaction transactionOut = default(Transaction), Transaction transactionIn = default(Transaction), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        /// <param name="properties">The properties of the transfer, for the requested PropertyKeys..</param>
+        /// <param name="href">The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
+        /// <param name="varVersion">varVersion.</param>
+        /// <param name="links">links.</param>
+        public Transfer(ResourceId transferId = default(ResourceId), string transferType = default(string), ResourceId portfolioIdOut = default(ResourceId), ResourceId portfolioIdIn = default(ResourceId), Transaction transactionOut = default(Transaction), Transaction transactionIn = default(Transaction), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             this.TransferId = transferId;
             this.TransferType = transferType;
@@ -47,6 +50,9 @@ namespace Lusid.Sdk.Model
             this.TransactionOut = transactionOut;
             this.TransactionIn = transactionIn;
             this.Properties = properties;
+            this.Href = href;
+            this.VarVersion = varVersion;
+            this.Links = links;
         }
 
         /// <summary>
@@ -56,8 +62,9 @@ namespace Lusid.Sdk.Model
         public ResourceId TransferId { get; set; }
 
         /// <summary>
-        /// Gets or Sets TransferType
+        /// The derived type of the transfer: &#39;Transfer&#39; when the position moves between portfolios, &#39;Switch&#39; when one instrument is exchanged for another within a portfolio, and &#39;Twitch&#39; when the position moves between portfolios and changes instrument at the same time.
         /// </summary>
+        /// <value>The derived type of the transfer: &#39;Transfer&#39; when the position moves between portfolios, &#39;Switch&#39; when one instrument is exchanged for another within a portfolio, and &#39;Twitch&#39; when the position moves between portfolios and changes instrument at the same time.</value>
         [DataMember(Name = "transferType", EmitDefaultValue = true)]
         public string TransferType { get; set; }
 
@@ -86,10 +93,30 @@ namespace Lusid.Sdk.Model
         public Transaction TransactionIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets Properties
+        /// The properties of the transfer, for the requested PropertyKeys.
         /// </summary>
+        /// <value>The properties of the transfer, for the requested PropertyKeys.</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, Property> Properties { get; set; }
+
+        /// <summary>
+        /// The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
+        /// </summary>
+        /// <value>The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.</value>
+        [DataMember(Name = "href", EmitDefaultValue = true)]
+        public string Href { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VarVersion
+        /// </summary>
+        [DataMember(Name = "version", EmitDefaultValue = false)]
+        public ModelVersion VarVersion { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name = "links", EmitDefaultValue = true)]
+        public List<Link> Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -98,7 +125,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class GetTransferResponse {\n");
+            sb.Append("class Transfer {\n");
             sb.Append("  TransferId: ").Append(TransferId).Append("\n");
             sb.Append("  TransferType: ").Append(TransferType).Append("\n");
             sb.Append("  PortfolioIdOut: ").Append(PortfolioIdOut).Append("\n");
@@ -106,6 +133,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  TransactionOut: ").Append(TransactionOut).Append("\n");
             sb.Append("  TransactionIn: ").Append(TransactionIn).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  Href: ").Append(Href).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -126,15 +156,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GetTransferResponse);
+            return this.Equals(input as Transfer);
         }
 
         /// <summary>
-        /// Returns true if GetTransferResponse instances are equal
+        /// Returns true if Transfer instances are equal
         /// </summary>
-        /// <param name="input">Instance of GetTransferResponse to be compared</param>
+        /// <param name="input">Instance of Transfer to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GetTransferResponse input)
+        public bool Equals(Transfer input)
         {
             if (input == null)
             {
@@ -176,6 +206,22 @@ namespace Lusid.Sdk.Model
                     this.Properties != null &&
                     input.Properties != null &&
                     this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
+                    this.Href == input.Href ||
+                    (this.Href != null &&
+                    this.Href.Equals(input.Href))
+                ) && 
+                (
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -215,6 +261,18 @@ namespace Lusid.Sdk.Model
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                }
+                if (this.Href != null)
+                {
+                    hashCode = (hashCode * 59) + this.Href.GetHashCode();
+                }
+                if (this.VarVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                }
+                if (this.Links != null)
+                {
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
                 }
                 return hashCode;
             }

@@ -812,6 +812,7 @@ Class | Method | HTTP request | Description
 *TransfersApi* | [**CreateTransfer**](docs/TransfersApi.md#createtransfer) | **POST** /api/transfers | [EXPERIMENTAL] CreateTransfer: Create a transfer.
 *TransfersApi* | [**DeleteTransfer**](docs/TransfersApi.md#deletetransfer) | **DELETE** /api/transfers/{scope}/{code} | [EXPERIMENTAL] DeleteTransfer: Delete a transfer.
 *TransfersApi* | [**GetTransfer**](docs/TransfersApi.md#gettransfer) | **POST** /api/transfers/$get | [EXPERIMENTAL] GetTransfer: Get a transfer
+*TransfersApi* | [**ListTransfers**](docs/TransfersApi.md#listtransfers) | **GET** /api/transfers | [EXPERIMENTAL] ListTransfers: List transfers
 *TranslationApi* | [**TranslateInstrumentDefinitions**](docs/TranslationApi.md#translateinstrumentdefinitions) | **POST** /api/translation/instrumentdefinitions | [EXPERIMENTAL] TranslateInstrumentDefinitions: Translate instruments
 *TranslationApi* | [**TranslateTradeTickets**](docs/TranslationApi.md#translatetradetickets) | **POST** /api/translation/tradetickets | [EXPERIMENTAL] TranslateTradeTickets: Translate trade ticket
 *WithholdingTaxApi* | [**CreateWithholdingTaxDatasetDefinitions**](docs/WithholdingTaxApi.md#createwithholdingtaxdatasetdefinitions) | **POST** /api/withholdingtax/datasetdefinitions | [EARLY ACCESS] CreateWithholdingTaxDatasetDefinitions: Create the Withholding Tax dataset definitions.
@@ -1487,7 +1488,6 @@ Class | Method | HTTP request | Description
  - [GetStructuredResultDataResponse](docs/GetStructuredResultDataResponse.md)
  - [GetSubscriptionResponse](docs/GetSubscriptionResponse.md)
  - [GetTransferRequest](docs/GetTransferRequest.md)
- - [GetTransferResponse](docs/GetTransferResponse.md)
  - [GetVirtualDocumentResponse](docs/GetVirtualDocumentResponse.md)
  - [GroupBySelectorComplianceParameter](docs/GroupBySelectorComplianceParameter.md)
  - [GroupByStep](docs/GroupByStep.md)
@@ -2194,6 +2194,7 @@ Class | Method | HTTP request | Description
  - [ResourceListOfTransactionFeeType](docs/ResourceListOfTransactionFeeType.md)
  - [ResourceListOfTransactionSettlementInstruction](docs/ResourceListOfTransactionSettlementInstruction.md)
  - [ResourceListOfTransactionType](docs/ResourceListOfTransactionType.md)
+ - [ResourceListOfTransfer](docs/ResourceListOfTransfer.md)
  - [ResourceListOfValueType](docs/ResourceListOfValueType.md)
  - [ResourceListOfVirtualTransactionOverrideRecord](docs/ResourceListOfVirtualTransactionOverrideRecord.md)
  - [ResourceListWithPostBodiesOfSettlementActivityToSettlementActivityQuery](docs/ResourceListWithPostBodiesOfSettlementActivityToSettlementActivityQuery.md)
@@ -2408,6 +2409,7 @@ Class | Method | HTTP request | Description
  - [TransactionTypePropertyMapping](docs/TransactionTypePropertyMapping.md)
  - [TransactionTypeRequest](docs/TransactionTypeRequest.md)
  - [TransactionsReconciliationsResponse](docs/TransactionsReconciliationsResponse.md)
+ - [Transfer](docs/Transfer.md)
  - [TransferAgencyDates](docs/TransferAgencyDates.md)
  - [TransferAgencyExcludedOrder](docs/TransferAgencyExcludedOrder.md)
  - [TransferAgencyOrderEstimateResult](docs/TransferAgencyOrderEstimateResult.md)

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **TransferId** | [**ResourceId**](ResourceId.md) |  | 
 **PortfolioIdOut** | [**ResourceId**](ResourceId.md) |  | 
 **PortfolioIdIn** | [**ResourceId**](ResourceId.md) |  | 
-**PropertyKeys** | **List&lt;string&gt;** |  | [optional] 
+**PropertyKeys** | **List&lt;string&gt;** | A list of property keys from the Transfer domain to decorate onto the transfer. These must have the format {domain}/{scope}/{code}. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

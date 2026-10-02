@@ -7,6 +7,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**CreateTransfer**](TransfersApi.md#createtransfer) | **POST** /api/transfers | [EXPERIMENTAL] CreateTransfer: Create a transfer. |
 | [**DeleteTransfer**](TransfersApi.md#deletetransfer) | **DELETE** /api/transfers/{scope}/{code} | [EXPERIMENTAL] DeleteTransfer: Delete a transfer. |
 | [**GetTransfer**](TransfersApi.md#gettransfer) | **POST** /api/transfers/$get | [EXPERIMENTAL] GetTransfer: Get a transfer |
+| [**ListTransfers**](TransfersApi.md#listtransfers) | **GET** /api/transfers | [EXPERIMENTAL] ListTransfers: List transfers |
 
 <a id="createtransfer"></a>
 # **CreateTransfer**
@@ -249,7 +250,7 @@ catch (ApiException e)
 
 <a id="gettransfer"></a>
 # **GetTransfer**
-> GetTransferResponse GetTransfer (GetTransferRequest getTransferRequest, DateTimeOffset? asAt = null)
+> Transfer GetTransfer (GetTransferRequest getTransferRequest, DateTimeOffset? asAt = null)
 
 [EXPERIMENTAL] GetTransfer: Get a transfer
 
@@ -300,10 +301,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // GetTransferResponse result = apiInstance.GetTransfer(getTransferRequest, asAt, opts: opts);
+                // Transfer result = apiInstance.GetTransfer(getTransferRequest, asAt, opts: opts);
 
                 // [EXPERIMENTAL] GetTransfer: Get a transfer
-                GetTransferResponse result = apiInstance.GetTransfer(getTransferRequest, asAt);
+                Transfer result = apiInstance.GetTransfer(getTransferRequest, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -324,7 +325,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetTransfer: Get a transfer
-    ApiResponse<GetTransferResponse> response = apiInstance.GetTransferWithHttpInfo(getTransferRequest, asAt);
+    ApiResponse<Transfer> response = apiInstance.GetTransferWithHttpInfo(getTransferRequest, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -346,7 +347,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**GetTransferResponse**](GetTransferResponse.md)
+[**Transfer**](Transfer.md)
 
 ### HTTP request headers
 
@@ -360,6 +361,130 @@ catch (ApiException e)
 | **200** | The requested transfer and both of its transactions. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **404** | No transfer exists with the requested scope, code and portfolios. |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="listtransfers"></a>
+# **ListTransfers**
+> ResourceListOfTransfer ListTransfers (DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null)
+
+[EXPERIMENTAL] ListTransfers: List transfers
+
+List transfers matching the specified criteria, decorated with the requested properties.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransfersApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransfersApi>();
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transfers. Defaults to latest              version if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing transfers from a previous call. (optional) 
+            var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. NOTE: Filtering on nested transaction out/in fields is not supported. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | The collection of `PropertyKey`s to decorate onto each transfer. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfTransfer result = apiInstance.ListTransfers(asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
+
+                // [EXPERIMENTAL] ListTransfers: List transfers
+                ResourceListOfTransfer result = apiInstance.ListTransfers(asAt, page, limit, filter, sortBy, propertyKeys);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TransfersApi.ListTransfers: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListTransfersWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ListTransfers: List transfers
+    ApiResponse<ResourceListOfTransfer> response = apiInstance.ListTransfersWithHttpInfo(asAt, page, limit, filter, sortBy, propertyKeys);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TransfersApi.ListTransfersWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the transfers. Defaults to latest              version if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing transfers from a previous call. | [optional]  |
+| **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. NOTE: Filtering on nested transaction out/in fields is not supported. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The collection of &#x60;PropertyKey&#x60;s to decorate onto each transfer. | [optional]  |
+
+### Return type
+
+[**ResourceListOfTransfer**](ResourceListOfTransfer.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A collection of transfers matching the specified criteria. |  -  |
+| **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)

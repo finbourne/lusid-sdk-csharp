@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **IsActive** | **bool** | Indicates whether the settlement instruction is active. When false, the instruction has no impact on settlement positions, but remains visible. Defaults to true. | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The properties which have been requested to be decorated onto the settlement instruction. These will be from the &#39;SettlementInstruction&#39;, &#39;Portfolio&#39;, or &#39;Instrument&#39; domains. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**ProblemCode** | **string** | Why the settlement instruction was not applied. Set only when the status is Invalid, Orphan or Rejected. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -43,6 +44,7 @@ bool isActive = //"True";
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 ModelVersion? varVersion = new ModelVersion();
 
+string problemCode = "example problemCode";
 
 TransactionSettlementInstruction transactionSettlementInstructionInstance = new TransactionSettlementInstruction(
     settlementInstructionId: settlementInstructionId,
@@ -61,7 +63,8 @@ TransactionSettlementInstruction transactionSettlementInstructionInstance = new 
     settlementInLieu: settlementInLieu,
     isActive: isActive,
     properties: properties,
-    varVersion: varVersion);
+    varVersion: varVersion,
+    problemCode: problemCode);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

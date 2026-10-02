@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="transferId">transferId (required).</param>
         /// <param name="portfolioIdOut">portfolioIdOut (required).</param>
         /// <param name="portfolioIdIn">portfolioIdIn (required).</param>
-        /// <param name="propertyKeys">propertyKeys.</param>
+        /// <param name="propertyKeys">A list of property keys from the Transfer domain to decorate onto the transfer. These must have the format {domain}/{scope}/{code}..</param>
         public GetTransferRequest(ResourceId transferId = default(ResourceId), ResourceId portfolioIdOut = default(ResourceId), ResourceId portfolioIdIn = default(ResourceId), List<string> propertyKeys = default(List<string>))
         {
             // to ensure "transferId" is required (not null)
@@ -82,8 +82,9 @@ namespace Lusid.Sdk.Model
         public ResourceId PortfolioIdIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets PropertyKeys
+        /// A list of property keys from the Transfer domain to decorate onto the transfer. These must have the format {domain}/{scope}/{code}.
         /// </summary>
+        /// <value>A list of property keys from the Transfer domain to decorate onto the transfer. These must have the format {domain}/{scope}/{code}.</value>
         [DataMember(Name = "propertyKeys", EmitDefaultValue = true)]
         public List<string> PropertyKeys { get; set; }
 
