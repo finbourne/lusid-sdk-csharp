@@ -36,7 +36,9 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RecResult" /> class.
         /// </summary>
-        /// <param name="id">The system-generated identifier for the rec result. Comprises the rec definition id, the instance id, the rec type and the core rule values. (required).</param>
+        /// <param name="id">The id of the result within its run: its result type and result number, e.g. &#39;break-3&#39;. Unique within one run of one rec type of an instance; the same id in another run of the instance names the same result, for as long as it keeps its result type. (required).</param>
+        /// <param name="resultNumber">The result&#39;s number within its result type. Kept across runs while the result keeps its type; never reused once assigned. (required).</param>
+        /// <param name="firstRunSeen">The run in which the result was first assigned its id. (required).</param>
         /// <param name="recType">The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity. (required).</param>
         /// <param name="instanceId">instanceId (required).</param>
         /// <param name="recDefinitionId">recDefinitionId (required).</param>
@@ -60,7 +62,7 @@ namespace Lusid.Sdk.Model
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public RecResult(string id = default(string), string recType = default(string), RecInstanceId instanceId = default(RecInstanceId), ResourceId recDefinitionId = default(ResourceId), int runNumber = default(int), DateTimeOffset runAsAt = default(DateTimeOffset), RecDatesReconciled datesReconciled = default(RecDatesReconciled), string resultType = default(string), string resultCardinality = default(string), string resultLifeCycle = default(string), RecResultException exception = default(RecResultException), RecResultReview review = default(RecResultReview), List<CoreRuleValues> coreRules = default(List<CoreRuleValues>), List<AggregateRuleValues> aggregateRules = default(List<AggregateRuleValues>), List<SupplementalAttributeValues> supplementalAttributes = default(List<SupplementalAttributeValues>), RecResultItemDetails items = default(RecResultItemDetails), List<RecLinkedResult> linkedResults = default(List<RecLinkedResult>), List<RecUserComment> comments = default(List<RecUserComment>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string assignedUser = default(string), string assignedRole = default(string), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public RecResult(string id = default(string), int resultNumber = default(int), int firstRunSeen = default(int), string recType = default(string), RecInstanceId instanceId = default(RecInstanceId), ResourceId recDefinitionId = default(ResourceId), int runNumber = default(int), DateTimeOffset runAsAt = default(DateTimeOffset), RecDatesReconciled datesReconciled = default(RecDatesReconciled), string resultType = default(string), string resultCardinality = default(string), string resultLifeCycle = default(string), RecResultException exception = default(RecResultException), RecResultReview review = default(RecResultReview), List<CoreRuleValues> coreRules = default(List<CoreRuleValues>), List<AggregateRuleValues> aggregateRules = default(List<AggregateRuleValues>), List<SupplementalAttributeValues> supplementalAttributes = default(List<SupplementalAttributeValues>), RecResultItemDetails items = default(RecResultItemDetails), List<RecLinkedResult> linkedResults = default(List<RecLinkedResult>), List<RecUserComment> comments = default(List<RecUserComment>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string assignedUser = default(string), string assignedRole = default(string), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -68,6 +70,8 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("id is a required property for RecResult and cannot be null");
             }
             this.Id = id;
+            this.ResultNumber = resultNumber;
+            this.FirstRunSeen = firstRunSeen;
             // to ensure "recType" is required (not null)
             if (recType == null)
             {
@@ -164,11 +168,25 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The system-generated identifier for the rec result. Comprises the rec definition id, the instance id, the rec type and the core rule values.
+        /// The id of the result within its run: its result type and result number, e.g. &#39;break-3&#39;. Unique within one run of one rec type of an instance; the same id in another run of the instance names the same result, for as long as it keeps its result type.
         /// </summary>
-        /// <value>The system-generated identifier for the rec result. Comprises the rec definition id, the instance id, the rec type and the core rule values.</value>
+        /// <value>The id of the result within its run: its result type and result number, e.g. &#39;break-3&#39;. Unique within one run of one rec type of an instance; the same id in another run of the instance names the same result, for as long as it keeps its result type.</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
+
+        /// <summary>
+        /// The result&#39;s number within its result type. Kept across runs while the result keeps its type; never reused once assigned.
+        /// </summary>
+        /// <value>The result&#39;s number within its result type. Kept across runs while the result keeps its type; never reused once assigned.</value>
+        [DataMember(Name = "resultNumber", IsRequired = true, EmitDefaultValue = true)]
+        public int ResultNumber { get; set; }
+
+        /// <summary>
+        /// The run in which the result was first assigned its id.
+        /// </summary>
+        /// <value>The run in which the result was first assigned its id.</value>
+        [DataMember(Name = "firstRunSeen", IsRequired = true, EmitDefaultValue = true)]
+        public int FirstRunSeen { get; set; }
 
         /// <summary>
         /// The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.
@@ -332,6 +350,8 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class RecResult {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  ResultNumber: ").Append(ResultNumber).Append("\n");
+            sb.Append("  FirstRunSeen: ").Append(FirstRunSeen).Append("\n");
             sb.Append("  RecType: ").Append(RecType).Append("\n");
             sb.Append("  InstanceId: ").Append(InstanceId).Append("\n");
             sb.Append("  RecDefinitionId: ").Append(RecDefinitionId).Append("\n");
@@ -394,6 +414,14 @@ namespace Lusid.Sdk.Model
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.ResultNumber == input.ResultNumber ||
+                    this.ResultNumber.Equals(input.ResultNumber)
+                ) && 
+                (
+                    this.FirstRunSeen == input.FirstRunSeen ||
+                    this.FirstRunSeen.Equals(input.FirstRunSeen)
                 ) && 
                 (
                     this.RecType == input.RecType ||
@@ -531,6 +559,8 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.ResultNumber.GetHashCode();
+                hashCode = (hashCode * 59) + this.FirstRunSeen.GetHashCode();
                 if (this.RecType != null)
                 {
                     hashCode = (hashCode * 59) + this.RecType.GetHashCode();

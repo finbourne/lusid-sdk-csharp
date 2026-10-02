@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// One item of a batch review request: applies review content to its targeted rec result(s). Exactly  one target, except FixAsGroup/ForceMatch which require two or more.
+    /// One item of a batch review request: applies review content to its targeted rec result(s). Exactly  one target, except FixAsGroup/ForceMatch which require two or more. A result id identifies a result only  within one run of one rec type of one instance, so every item names the run its targets belong to — which  also makes the same-result-set rule for group decisions structural.
     /// </summary>
     [DataContract(Name = "BatchReviewRecResultRequest")]
     public partial class BatchReviewRecResultRequest : IEquatable<BatchReviewRecResultRequest>, IValidatableObject
@@ -36,14 +36,30 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchReviewRecResultRequest" /> class.
         /// </summary>
+        /// <param name="instanceId">instanceId (required).</param>
+        /// <param name="recType">The rec type whose results this item targets (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity. (required).</param>
+        /// <param name="runNumber">The run of the instance whose results this item targets. (required).</param>
         /// <param name="recResultIds">The rec results targeted by this batch item. Exactly one, except FixAsGroup/ForceMatch which require two or more. (required).</param>
         /// <param name="decision">decision.</param>
         /// <param name="assignedUser">assignedUser.</param>
         /// <param name="assignedRole">assignedRole.</param>
         /// <param name="addCommentText">Optional comment text to add to each targeted result..</param>
         /// <param name="properties">Properties in the RecResult domain. Filterable and sortable..</param>
-        public BatchReviewRecResultRequest(List<string> recResultIds = default(List<string>), RecResultDecisionUpdate decision = default(RecResultDecisionUpdate), RecResultAssignmentUpdate assignedUser = default(RecResultAssignmentUpdate), RecResultAssignmentUpdate assignedRole = default(RecResultAssignmentUpdate), string addCommentText = default(string), List<PerpetualProperty> properties = default(List<PerpetualProperty>))
+        public BatchReviewRecResultRequest(RecInstanceId instanceId = default(RecInstanceId), string recType = default(string), int runNumber = default(int), List<string> recResultIds = default(List<string>), RecResultDecisionUpdate decision = default(RecResultDecisionUpdate), RecResultAssignmentUpdate assignedUser = default(RecResultAssignmentUpdate), RecResultAssignmentUpdate assignedRole = default(RecResultAssignmentUpdate), string addCommentText = default(string), List<PerpetualProperty> properties = default(List<PerpetualProperty>))
         {
+            // to ensure "instanceId" is required (not null)
+            if (instanceId == null)
+            {
+                throw new ArgumentNullException("instanceId is a required property for BatchReviewRecResultRequest and cannot be null");
+            }
+            this.InstanceId = instanceId;
+            // to ensure "recType" is required (not null)
+            if (recType == null)
+            {
+                throw new ArgumentNullException("recType is a required property for BatchReviewRecResultRequest and cannot be null");
+            }
+            this.RecType = recType;
+            this.RunNumber = runNumber;
             // to ensure "recResultIds" is required (not null)
             if (recResultIds == null)
             {
@@ -56,6 +72,26 @@ namespace Lusid.Sdk.Model
             this.AddCommentText = addCommentText;
             this.Properties = properties;
         }
+
+        /// <summary>
+        /// Gets or Sets InstanceId
+        /// </summary>
+        [DataMember(Name = "instanceId", IsRequired = true, EmitDefaultValue = true)]
+        public RecInstanceId InstanceId { get; set; }
+
+        /// <summary>
+        /// The rec type whose results this item targets (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.
+        /// </summary>
+        /// <value>The rec type whose results this item targets (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</value>
+        [DataMember(Name = "recType", IsRequired = true, EmitDefaultValue = true)]
+        public string RecType { get; set; }
+
+        /// <summary>
+        /// The run of the instance whose results this item targets.
+        /// </summary>
+        /// <value>The run of the instance whose results this item targets.</value>
+        [DataMember(Name = "runNumber", IsRequired = true, EmitDefaultValue = true)]
+        public int RunNumber { get; set; }
 
         /// <summary>
         /// The rec results targeted by this batch item. Exactly one, except FixAsGroup/ForceMatch which require two or more.
@@ -104,6 +140,9 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class BatchReviewRecResultRequest {\n");
+            sb.Append("  InstanceId: ").Append(InstanceId).Append("\n");
+            sb.Append("  RecType: ").Append(RecType).Append("\n");
+            sb.Append("  RunNumber: ").Append(RunNumber).Append("\n");
             sb.Append("  RecResultIds: ").Append(RecResultIds).Append("\n");
             sb.Append("  Decision: ").Append(Decision).Append("\n");
             sb.Append("  AssignedUser: ").Append(AssignedUser).Append("\n");
@@ -145,6 +184,20 @@ namespace Lusid.Sdk.Model
                 return false;
             }
             return 
+                (
+                    this.InstanceId == input.InstanceId ||
+                    (this.InstanceId != null &&
+                    this.InstanceId.Equals(input.InstanceId))
+                ) && 
+                (
+                    this.RecType == input.RecType ||
+                    (this.RecType != null &&
+                    this.RecType.Equals(input.RecType))
+                ) && 
+                (
+                    this.RunNumber == input.RunNumber ||
+                    this.RunNumber.Equals(input.RunNumber)
+                ) && 
                 (
                     this.RecResultIds == input.RecResultIds ||
                     this.RecResultIds != null &&
@@ -188,6 +241,15 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.InstanceId != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstanceId.GetHashCode();
+                }
+                if (this.RecType != null)
+                {
+                    hashCode = (hashCode * 59) + this.RecType.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.RunNumber.GetHashCode();
                 if (this.RecResultIds != null)
                 {
                     hashCode = (hashCode * 59) + this.RecResultIds.GetHashCode();
@@ -223,6 +285,30 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // RecType (string) maxLength
+            if (this.RecType != null && this.RecType.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RecType, length must be less than 64.", new [] { "RecType" });
+            }
+
+            // RecType (string) minLength
+            if (this.RecType != null && this.RecType.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RecType, length must be greater than 1.", new [] { "RecType" });
+            }
+
+            // RunNumber (int) maximum
+            if (this.RunNumber > (int)2147483647)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RunNumber, must be a value less than or equal to 2147483647.", new [] { "RunNumber" });
+            }
+
+            // RunNumber (int) minimum
+            if (this.RunNumber < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RunNumber, must be a value greater than or equal to 1.", new [] { "RunNumber" });
+            }
+
             // AddCommentText (string) maxLength
             if (this.AddCommentText != null && this.AddCommentText.Length > 6000)
             {

@@ -37,10 +37,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="TransactionEntityLink" /> class.
         /// </summary>
         /// <param name="entityType">Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition, RecResult, JournalEntry. (required).</param>
-        /// <param name="entityIdName">entityIdName (required).</param>
-        /// <param name="entityIdValue">entityIdValue (required).</param>
+        /// <param name="entityId">entityId (required).</param>
         /// <param name="restrictEditing">restrictEditing (required).</param>
-        public TransactionEntityLink(string entityType = default(string), string entityIdName = default(string), string entityIdValue = default(string), bool restrictEditing = default(bool))
+        public TransactionEntityLink(string entityType = default(string), Dictionary<string, string> entityId = default(Dictionary<string, string>), bool restrictEditing = default(bool))
         {
             // to ensure "entityType" is required (not null)
             if (entityType == null)
@@ -48,18 +47,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("entityType is a required property for TransactionEntityLink and cannot be null");
             }
             this.EntityType = entityType;
-            // to ensure "entityIdName" is required (not null)
-            if (entityIdName == null)
+            // to ensure "entityId" is required (not null)
+            if (entityId == null)
             {
-                throw new ArgumentNullException("entityIdName is a required property for TransactionEntityLink and cannot be null");
+                throw new ArgumentNullException("entityId is a required property for TransactionEntityLink and cannot be null");
             }
-            this.EntityIdName = entityIdName;
-            // to ensure "entityIdValue" is required (not null)
-            if (entityIdValue == null)
-            {
-                throw new ArgumentNullException("entityIdValue is a required property for TransactionEntityLink and cannot be null");
-            }
-            this.EntityIdValue = entityIdValue;
+            this.EntityId = entityId;
             this.RestrictEditing = restrictEditing;
         }
 
@@ -71,16 +64,10 @@ namespace Lusid.Sdk.Model
         public string EntityType { get; set; }
 
         /// <summary>
-        /// Gets or Sets EntityIdName
+        /// Gets or Sets EntityId
         /// </summary>
-        [DataMember(Name = "entityIdName", IsRequired = true, EmitDefaultValue = true)]
-        public string EntityIdName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets EntityIdValue
-        /// </summary>
-        [DataMember(Name = "entityIdValue", IsRequired = true, EmitDefaultValue = true)]
-        public string EntityIdValue { get; set; }
+        [DataMember(Name = "entityId", IsRequired = true, EmitDefaultValue = true)]
+        public Dictionary<string, string> EntityId { get; set; }
 
         /// <summary>
         /// Gets or Sets RestrictEditing
@@ -97,8 +84,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class TransactionEntityLink {\n");
             sb.Append("  EntityType: ").Append(EntityType).Append("\n");
-            sb.Append("  EntityIdName: ").Append(EntityIdName).Append("\n");
-            sb.Append("  EntityIdValue: ").Append(EntityIdValue).Append("\n");
+            sb.Append("  EntityId: ").Append(EntityId).Append("\n");
             sb.Append("  RestrictEditing: ").Append(RestrictEditing).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -141,14 +127,10 @@ namespace Lusid.Sdk.Model
                     this.EntityType.Equals(input.EntityType))
                 ) && 
                 (
-                    this.EntityIdName == input.EntityIdName ||
-                    (this.EntityIdName != null &&
-                    this.EntityIdName.Equals(input.EntityIdName))
-                ) && 
-                (
-                    this.EntityIdValue == input.EntityIdValue ||
-                    (this.EntityIdValue != null &&
-                    this.EntityIdValue.Equals(input.EntityIdValue))
+                    this.EntityId == input.EntityId ||
+                    this.EntityId != null &&
+                    input.EntityId != null &&
+                    this.EntityId.SequenceEqual(input.EntityId)
                 ) && 
                 (
                     this.RestrictEditing == input.RestrictEditing ||
@@ -169,13 +151,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.EntityType.GetHashCode();
                 }
-                if (this.EntityIdName != null)
+                if (this.EntityId != null)
                 {
-                    hashCode = (hashCode * 59) + this.EntityIdName.GetHashCode();
-                }
-                if (this.EntityIdValue != null)
-                {
-                    hashCode = (hashCode * 59) + this.EntityIdValue.GetHashCode();
+                    hashCode = (hashCode * 59) + this.EntityId.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.RestrictEditing.GetHashCode();
                 return hashCode;
@@ -193,30 +171,6 @@ namespace Lusid.Sdk.Model
             if (this.EntityType != null && this.EntityType.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntityType, length must be greater than 1.", new [] { "EntityType" });
-            }
-
-            // EntityIdName (string) maxLength
-            if (this.EntityIdName != null && this.EntityIdName.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntityIdName, length must be less than 256.", new [] { "EntityIdName" });
-            }
-
-            // EntityIdName (string) minLength
-            if (this.EntityIdName != null && this.EntityIdName.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntityIdName, length must be greater than 0.", new [] { "EntityIdName" });
-            }
-
-            // EntityIdValue (string) maxLength
-            if (this.EntityIdValue != null && this.EntityIdValue.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntityIdValue, length must be less than 256.", new [] { "EntityIdValue" });
-            }
-
-            // EntityIdValue (string) minLength
-            if (this.EntityIdValue != null && this.EntityIdValue.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntityIdValue, length must be greater than 0.", new [] { "EntityIdValue" });
             }
 
             yield break;

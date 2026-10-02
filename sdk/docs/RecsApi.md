@@ -14,7 +14,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**GetMatchingRuleset**](RecsApi.md#getmatchingruleset) | **GET** /api/recs/matchingrulesets/{scope}/{code} | [EXPERIMENTAL] GetMatchingRuleset: GetMatchingRuleset |
 | [**GetRecDefinition**](RecsApi.md#getrecdefinition) | **GET** /api/recs/definitions/{scope}/{code} | [EXPERIMENTAL] GetRecDefinition: GetRecDefinition |
 | [**GetRecInstance**](RecsApi.md#getrecinstance) | **GET** /api/recs/instances/{instanceIdType}/{instanceIdValue} | [EXPERIMENTAL] GetRecInstance: GetRecInstance |
-| [**GetRecResult**](RecsApi.md#getrecresult) | **GET** /api/recs/results/{id} | [EXPERIMENTAL] GetRecResult: GetRecResult |
+| [**GetRecResult**](RecsApi.md#getrecresult) | **GET** /api/recs/results/{instanceIdType}/{instanceIdValue}/{recType}/{runNumber}/{id} | [EXPERIMENTAL] GetRecResult: GetRecResult |
 | [**GetRecResultSet**](RecsApi.md#getrecresultset) | **GET** /api/recs/resultsets/{entityUniqueId} | [EXPERIMENTAL] GetRecResultSet: GetRecResultSet |
 | [**InstantiateRec**](RecsApi.md#instantiaterec) | **POST** /api/recs/instances | [EXPERIMENTAL] InstantiateRec: InstantiateRec |
 | [**ListMatchingRulesets**](RecsApi.md#listmatchingrulesets) | **GET** /api/recs/matchingrulesets | [EXPERIMENTAL] ListMatchingRulesets: ListMatchingRulesets |
@@ -1194,11 +1194,11 @@ catch (ApiException e)
 
 <a id="getrecresult"></a>
 # **GetRecResult**
-> RecResult GetRecResult (string id, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
+> RecResult GetRecResult (string instanceIdType, string instanceIdValue, string recType, int runNumber, string id, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
 [EXPERIMENTAL] GetRecResult: GetRecResult
 
-Retrieve a single rec result by its id.
+Retrieve a single rec result by the run it belongs to and its id within that run.
 
 ### Example
 ```csharp
@@ -1239,17 +1239,21 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RecsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RecsApi>();
-            var id = "id_example";  // string | The system-generated id of the rec result.
+            var instanceIdType = "instanceIdType_example";  // string | How the instance was created: \"WorkflowServiceTaskId\" or \"Manual\". Available values: WorkflowServiceTaskId, Manual.
+            var instanceIdValue = "instanceIdValue_example";  // string | The unique identifier of the rec instance.
+            var recType = "recType_example";  // string | The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.
+            var runNumber = 56;  // int | The run of the instance the result belongs to.
+            var id = "id_example";  // string | The id of the rec result within the run, e.g. \"break-3\".
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | The property keys to decorate onto the result. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // RecResult result = apiInstance.GetRecResult(id, asAt, propertyKeys, opts: opts);
+                // RecResult result = apiInstance.GetRecResult(instanceIdType, instanceIdValue, recType, runNumber, id, asAt, propertyKeys, opts: opts);
 
                 // [EXPERIMENTAL] GetRecResult: GetRecResult
-                RecResult result = apiInstance.GetRecResult(id, asAt, propertyKeys);
+                RecResult result = apiInstance.GetRecResult(instanceIdType, instanceIdValue, recType, runNumber, id, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1270,7 +1274,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetRecResult: GetRecResult
-    ApiResponse<RecResult> response = apiInstance.GetRecResultWithHttpInfo(id, asAt, propertyKeys);
+    ApiResponse<RecResult> response = apiInstance.GetRecResultWithHttpInfo(instanceIdType, instanceIdValue, recType, runNumber, id, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1287,7 +1291,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **string** | The system-generated id of the rec result. |  |
+| **instanceIdType** | **string** | How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual. |  |
+| **instanceIdValue** | **string** | The unique identifier of the rec instance. |  |
+| **recType** | **string** | The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity. |  |
+| **runNumber** | **int** | The run of the instance the result belongs to. |  |
+| **id** | **string** | The id of the rec result within the run, e.g. \&quot;break-3\&quot;. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the result. Defaults to latest if not specified. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The property keys to decorate onto the result. | [optional]  |
 

@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RecRequestedResultRevision" /> class.
         /// </summary>
-        /// <param name="recResultId">The identifier of the result to flag for re-review. (required).</param>
+        /// <param name="recResultId">The id of the result to flag for re-review, as carried on the result itself, e.g. &#39;break-3&#39;. Resolved within the run this result set is for. (required).</param>
         /// <param name="commentText">An optional per-result comment added to the result&#39;s user comments..</param>
         public RecRequestedResultRevision(string recResultId = default(string), string commentText = default(string))
         {
@@ -50,9 +50,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The identifier of the result to flag for re-review.
+        /// The id of the result to flag for re-review, as carried on the result itself, e.g. &#39;break-3&#39;. Resolved within the run this result set is for.
         /// </summary>
-        /// <value>The identifier of the result to flag for re-review.</value>
+        /// <value>The id of the result to flag for re-review, as carried on the result itself, e.g. &#39;break-3&#39;. Resolved within the run this result set is for.</value>
         [DataMember(Name = "recResultId", IsRequired = true, EmitDefaultValue = true)]
         public string RecResultId { get; set; }
 

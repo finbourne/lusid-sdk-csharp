@@ -47,8 +47,10 @@ namespace Lusid.Sdk.Model
         /// <param name="volatilityMultiplier">A multiplicative scaling applied to the resolved short-rate volatility - the scalar  Volatility or its per-currency override, whichever applies - at the point of use, e.g. 1.1  prices with the configured volatility raised by ten percent. A single multiplier scales  every per-currency calibration coherently, so a shocked set of options can differ from its  base by this one field rather than a hand-rebuilt volatility (or map of volatilities).  Must not be negative; zero is allowed and prices with a deterministic short rate.  Defaults to 1, which reproduces the configured volatility exactly, when not supplied..</param>
         /// <param name="effectiveCs01BumpWidth">The TOTAL width, as an absolute spread, of the central-difference stencil used for the  option-adjusted Analytic/EffectiveCS01: the two reprice points sit at the solved OAS plus  and minus half of this. The reported figure is normalised to a one-basis-point move  whatever width is configured. Must be strictly positive. Defaults to 0.0001 (1bp, the  market convention for a credit sensitivity) when not supplied..</param>
         /// <param name="effectiveKeyRateBuckets">The maturity buckets of the Analytic/EffectiveKeyRateDuration ladder, as tenor strings  such as \&quot;1Y\&quot; or \&quot;6M\&quot;, in strictly increasing order. Each bucket is repriced under a  tent-shaped curve shift centred on its own tenor, so the ladder sums to the parallel  effective duration to first order. Buckets past an instrument&#39;s maturity report zero, so  one grid can serve a whole book. Defaults to the 1Y, 2Y, 3Y, 5Y, 7Y, 10Y, 20Y, 30Y grid  when not supplied; an empty list is rejected..</param>
+        /// <param name="priceToFirstReset">Value a fixed-to-float callable bond only to its first reset. The bond must be a  ComplexBond with one fixed schedule, one floating schedule starting on the fixed schedule&#39;s  maturity, and a call exercisable on that date; it is then valued as if called there, redeemed  at the call strike on the principal outstanding, with the fixed coupon paid on that date kept  and no floating coupon projected. Any call before that date stays live on the lattice. Bonds  of any other shape are refused by name rather than valued over their full life. Rows priced  this way carry the reset date in the Diagnostics/Model/PricingHorizon valuation key. Defaults  to false, which values the bond over its full life..</param>
+        /// <param name="latticeStepsPerYear">The lattice time-step density as steps per year. When supplied, the lattice uses  ceil(horizon in years x this value) steps, raised if necessary so that one step is no longer  than the shortest gap between consecutive cashflows, so the fixed LatticeSteps is ignored and  the \&quot;lattice coarser than coupon spacing\&quot; refusal cannot fire. Must be at least 1 when  supplied. Absent, the fixed LatticeSteps count applies..</param>
         /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions. (required) (default to &quot;HullWhiteModelOptions&quot;).</param>
-        public HullWhiteModelOptions(decimal meanReversion = default(decimal), decimal volatility = default(decimal), int latticeSteps = default(int), decimal? effectiveRateBumpSize = default(decimal?), Dictionary<string, decimal> meanReversionByCurrency = default(Dictionary<string, decimal>), Dictionary<string, decimal> volatilityByCurrency = default(Dictionary<string, decimal>), decimal? volatilityMultiplier = default(decimal?), decimal? effectiveCs01BumpWidth = default(decimal?), List<string> effectiveKeyRateBuckets = default(List<string>), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
+        public HullWhiteModelOptions(decimal meanReversion = default(decimal), decimal volatility = default(decimal), int latticeSteps = default(int), decimal? effectiveRateBumpSize = default(decimal?), Dictionary<string, decimal> meanReversionByCurrency = default(Dictionary<string, decimal>), Dictionary<string, decimal> volatilityByCurrency = default(Dictionary<string, decimal>), decimal? volatilityMultiplier = default(decimal?), decimal? effectiveCs01BumpWidth = default(decimal?), List<string> effectiveKeyRateBuckets = default(List<string>), bool? priceToFirstReset = default(bool?), int? latticeStepsPerYear = default(int?), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             this.MeanReversion = meanReversion;
             this.Volatility = volatility;
@@ -59,6 +61,8 @@ namespace Lusid.Sdk.Model
             this.VolatilityMultiplier = volatilityMultiplier;
             this.EffectiveCs01BumpWidth = effectiveCs01BumpWidth;
             this.EffectiveKeyRateBuckets = effectiveKeyRateBuckets;
+            this.PriceToFirstReset = priceToFirstReset;
+            this.LatticeStepsPerYear = latticeStepsPerYear;
         }
 
         /// <summary>
@@ -125,6 +129,20 @@ namespace Lusid.Sdk.Model
         public List<string> EffectiveKeyRateBuckets { get; set; }
 
         /// <summary>
+        /// Value a fixed-to-float callable bond only to its first reset. The bond must be a  ComplexBond with one fixed schedule, one floating schedule starting on the fixed schedule&#39;s  maturity, and a call exercisable on that date; it is then valued as if called there, redeemed  at the call strike on the principal outstanding, with the fixed coupon paid on that date kept  and no floating coupon projected. Any call before that date stays live on the lattice. Bonds  of any other shape are refused by name rather than valued over their full life. Rows priced  this way carry the reset date in the Diagnostics/Model/PricingHorizon valuation key. Defaults  to false, which values the bond over its full life.
+        /// </summary>
+        /// <value>Value a fixed-to-float callable bond only to its first reset. The bond must be a  ComplexBond with one fixed schedule, one floating schedule starting on the fixed schedule&#39;s  maturity, and a call exercisable on that date; it is then valued as if called there, redeemed  at the call strike on the principal outstanding, with the fixed coupon paid on that date kept  and no floating coupon projected. Any call before that date stays live on the lattice. Bonds  of any other shape are refused by name rather than valued over their full life. Rows priced  this way carry the reset date in the Diagnostics/Model/PricingHorizon valuation key. Defaults  to false, which values the bond over its full life.</value>
+        [DataMember(Name = "priceToFirstReset", EmitDefaultValue = true)]
+        public bool? PriceToFirstReset { get; set; }
+
+        /// <summary>
+        /// The lattice time-step density as steps per year. When supplied, the lattice uses  ceil(horizon in years x this value) steps, raised if necessary so that one step is no longer  than the shortest gap between consecutive cashflows, so the fixed LatticeSteps is ignored and  the \&quot;lattice coarser than coupon spacing\&quot; refusal cannot fire. Must be at least 1 when  supplied. Absent, the fixed LatticeSteps count applies.
+        /// </summary>
+        /// <value>The lattice time-step density as steps per year. When supplied, the lattice uses  ceil(horizon in years x this value) steps, raised if necessary so that one step is no longer  than the shortest gap between consecutive cashflows, so the fixed LatticeSteps is ignored and  the \&quot;lattice coarser than coupon spacing\&quot; refusal cannot fire. Must be at least 1 when  supplied. Absent, the fixed LatticeSteps count applies.</value>
+        [DataMember(Name = "latticeStepsPerYear", EmitDefaultValue = true)]
+        public int? LatticeStepsPerYear { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -142,6 +160,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  VolatilityMultiplier: ").Append(VolatilityMultiplier).Append("\n");
             sb.Append("  EffectiveCs01BumpWidth: ").Append(EffectiveCs01BumpWidth).Append("\n");
             sb.Append("  EffectiveKeyRateBuckets: ").Append(EffectiveKeyRateBuckets).Append("\n");
+            sb.Append("  PriceToFirstReset: ").Append(PriceToFirstReset).Append("\n");
+            sb.Append("  LatticeStepsPerYear: ").Append(LatticeStepsPerYear).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -221,6 +241,16 @@ namespace Lusid.Sdk.Model
                     this.EffectiveKeyRateBuckets != null &&
                     input.EffectiveKeyRateBuckets != null &&
                     this.EffectiveKeyRateBuckets.SequenceEqual(input.EffectiveKeyRateBuckets)
+                ) && base.Equals(input) && 
+                (
+                    this.PriceToFirstReset == input.PriceToFirstReset ||
+                    (this.PriceToFirstReset != null &&
+                    this.PriceToFirstReset.Equals(input.PriceToFirstReset))
+                ) && base.Equals(input) && 
+                (
+                    this.LatticeStepsPerYear == input.LatticeStepsPerYear ||
+                    (this.LatticeStepsPerYear != null &&
+                    this.LatticeStepsPerYear.Equals(input.LatticeStepsPerYear))
                 );
         }
 
@@ -259,6 +289,14 @@ namespace Lusid.Sdk.Model
                 if (this.EffectiveKeyRateBuckets != null)
                 {
                     hashCode = (hashCode * 59) + this.EffectiveKeyRateBuckets.GetHashCode();
+                }
+                if (this.PriceToFirstReset != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceToFirstReset.GetHashCode();
+                }
+                if (this.LatticeStepsPerYear != null)
+                {
+                    hashCode = (hashCode * 59) + this.LatticeStepsPerYear.GetHashCode();
                 }
                 return hashCode;
             }
