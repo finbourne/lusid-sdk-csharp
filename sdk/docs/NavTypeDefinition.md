@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **LeaderNavTypeCode** | **string** | The code of the Nav Type that this Nav Type will follow when set. | [optional] 
 **TransactionTemplateScope** | **string** | The Transaction Template Scope used by the NavType. | 
 **TransactionExclusionFilter** | **string** | Optional filter expression to exclude specific transactions from this NavType&#39;s derived portfolios. The filter can reference Transaction, Portfolio, or Instrument fields and properties. | [optional] 
+**PricingBasis** | **string** | The side of the quote this Nav Type values the fund on: Mid, Bid or Ask. Overrides the pricing basis of the valuation recipe&#39;s market options for this Nav Type only, so a bid NAV and an ask NAV can share one recipe. Omit it to value on the recipe&#39;s own pricing basis. Available values: Mid, Bid, Ask. | [optional] 
+**SwingPricing** | [**SwingPricingRule**](SwingPricingRule.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -46,6 +48,9 @@ ResourceId? amortisationRuleSetId = new ResourceId();
 string leaderNavTypeCode = "example leaderNavTypeCode";
 string transactionTemplateScope = "transactionTemplateScope";
 string transactionExclusionFilter = "example transactionExclusionFilter";
+string pricingBasis = "example pricingBasis";
+SwingPricingRule? swingPricing = new SwingPricingRule();
+
 
 NavTypeDefinition navTypeDefinitionInstance = new NavTypeDefinition(
     code: code,
@@ -65,7 +70,9 @@ NavTypeDefinition navTypeDefinitionInstance = new NavTypeDefinition(
     amortisationRuleSetId: amortisationRuleSetId,
     leaderNavTypeCode: leaderNavTypeCode,
     transactionTemplateScope: transactionTemplateScope,
-    transactionExclusionFilter: transactionExclusionFilter);
+    transactionExclusionFilter: transactionExclusionFilter,
+    pricingBasis: pricingBasis,
+    swingPricing: swingPricing);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

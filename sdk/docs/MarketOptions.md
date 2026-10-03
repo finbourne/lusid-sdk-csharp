@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **AttemptToInferMissingFxOnFixings** | **bool** | If true, applies the same inference as AttemptToInferMissingFx to FX fixings (resets), e.g. the fixing of a  non-deliverable FX forward: a fixing quoted only in the reverse direction, or derivable by triangulation  through a standard base currency at the fixing date, is inferred rather than reported missing. This is a  separate, explicit opt-in because a fixing is a contractual historical print: with this off (the default),  a fixing must be present as the exact oriented currency pair to be used. | [optional] 
 **CalendarScope** | **string** | The scope in which holiday calendars stored | [optional] 
 **ConventionScope** | **string** | The scope in which conventions stored | [optional] 
+**PricingBasis** | **string** | The side of the instrument price quote the recipe values on: Mid (the default), Bid or Ask. This is a  property of the pricing methodology, not of any one column: with Bid or Ask, every instrument price rule  in the market data waterfall reads that quote field, so the same rules, scopes and fallbacks produce a  bid- or ask-struck valuation (for example a swing-priced NAV). Mid leaves each rule reading the field it  was written with (mid where none is given), which is the historical behaviour. FX, curve, spread, rate  and volatility rules are never affected. Available values: Mid, Bid, Ask. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -24,6 +25,7 @@ bool attemptToInferMissingFx = //"True";
 bool attemptToInferMissingFxOnFixings = //"True";
 string calendarScope = "example calendarScope";
 string conventionScope = "example conventionScope";
+string pricingBasis = "example pricingBasis";
 
 MarketOptions marketOptionsInstance = new MarketOptions(
     defaultSupplier: defaultSupplier,
@@ -32,7 +34,8 @@ MarketOptions marketOptionsInstance = new MarketOptions(
     attemptToInferMissingFx: attemptToInferMissingFx,
     attemptToInferMissingFxOnFixings: attemptToInferMissingFxOnFixings,
     calendarScope: calendarScope,
-    conventionScope: conventionScope);
+    conventionScope: conventionScope,
+    pricingBasis: pricingBasis);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

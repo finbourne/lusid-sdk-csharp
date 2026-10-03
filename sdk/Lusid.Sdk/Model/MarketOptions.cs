@@ -38,7 +38,8 @@ namespace Lusid.Sdk.Model
         /// <param name="attemptToInferMissingFxOnFixings">If true, applies the same inference as AttemptToInferMissingFx to FX fixings (resets), e.g. the fixing of a  non-deliverable FX forward: a fixing quoted only in the reverse direction, or derivable by triangulation  through a standard base currency at the fixing date, is inferred rather than reported missing. This is a  separate, explicit opt-in because a fixing is a contractual historical print: with this off (the default),  a fixing must be present as the exact oriented currency pair to be used..</param>
         /// <param name="calendarScope">The scope in which holiday calendars stored.</param>
         /// <param name="conventionScope">The scope in which conventions stored.</param>
-        public MarketOptions(string defaultSupplier = default(string), string defaultInstrumentCodeType = default(string), string defaultScope = default(string), bool attemptToInferMissingFx = default(bool), bool attemptToInferMissingFxOnFixings = default(bool), string calendarScope = default(string), string conventionScope = default(string))
+        /// <param name="pricingBasis">The side of the instrument price quote the recipe values on: Mid (the default), Bid or Ask. This is a  property of the pricing methodology, not of any one column: with Bid or Ask, every instrument price rule  in the market data waterfall reads that quote field, so the same rules, scopes and fallbacks produce a  bid- or ask-struck valuation (for example a swing-priced NAV). Mid leaves each rule reading the field it  was written with (mid where none is given), which is the historical behaviour. FX, curve, spread, rate  and volatility rules are never affected. Available values: Mid, Bid, Ask..</param>
+        public MarketOptions(string defaultSupplier = default(string), string defaultInstrumentCodeType = default(string), string defaultScope = default(string), bool attemptToInferMissingFx = default(bool), bool attemptToInferMissingFxOnFixings = default(bool), string calendarScope = default(string), string conventionScope = default(string), string pricingBasis = default(string))
         {
             this.DefaultSupplier = defaultSupplier;
             this.DefaultInstrumentCodeType = defaultInstrumentCodeType;
@@ -47,6 +48,7 @@ namespace Lusid.Sdk.Model
             this.AttemptToInferMissingFxOnFixings = attemptToInferMissingFxOnFixings;
             this.CalendarScope = calendarScope;
             this.ConventionScope = conventionScope;
+            this.PricingBasis = pricingBasis;
         }
 
         /// <summary>
@@ -99,6 +101,13 @@ namespace Lusid.Sdk.Model
         public string ConventionScope { get; set; }
 
         /// <summary>
+        /// The side of the instrument price quote the recipe values on: Mid (the default), Bid or Ask. This is a  property of the pricing methodology, not of any one column: with Bid or Ask, every instrument price rule  in the market data waterfall reads that quote field, so the same rules, scopes and fallbacks produce a  bid- or ask-struck valuation (for example a swing-priced NAV). Mid leaves each rule reading the field it  was written with (mid where none is given), which is the historical behaviour. FX, curve, spread, rate  and volatility rules are never affected. Available values: Mid, Bid, Ask.
+        /// </summary>
+        /// <value>The side of the instrument price quote the recipe values on: Mid (the default), Bid or Ask. This is a  property of the pricing methodology, not of any one column: with Bid or Ask, every instrument price rule  in the market data waterfall reads that quote field, so the same rules, scopes and fallbacks produce a  bid- or ask-struck valuation (for example a swing-priced NAV). Mid leaves each rule reading the field it  was written with (mid where none is given), which is the historical behaviour. FX, curve, spread, rate  and volatility rules are never affected. Available values: Mid, Bid, Ask.</value>
+        [DataMember(Name = "pricingBasis", EmitDefaultValue = true)]
+        public string PricingBasis { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -113,6 +122,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AttemptToInferMissingFxOnFixings: ").Append(AttemptToInferMissingFxOnFixings).Append("\n");
             sb.Append("  CalendarScope: ").Append(CalendarScope).Append("\n");
             sb.Append("  ConventionScope: ").Append(ConventionScope).Append("\n");
+            sb.Append("  PricingBasis: ").Append(PricingBasis).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -180,6 +190,11 @@ namespace Lusid.Sdk.Model
                     this.ConventionScope == input.ConventionScope ||
                     (this.ConventionScope != null &&
                     this.ConventionScope.Equals(input.ConventionScope))
+                ) && 
+                (
+                    this.PricingBasis == input.PricingBasis ||
+                    (this.PricingBasis != null &&
+                    this.PricingBasis.Equals(input.PricingBasis))
                 );
         }
 
@@ -213,6 +228,10 @@ namespace Lusid.Sdk.Model
                 if (this.ConventionScope != null)
                 {
                     hashCode = (hashCode * 59) + this.ConventionScope.GetHashCode();
+                }
+                if (this.PricingBasis != null)
+                {
+                    hashCode = (hashCode * 59) + this.PricingBasis.GetHashCode();
                 }
                 return hashCode;
             }

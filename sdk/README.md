@@ -2341,6 +2341,8 @@ Class | Method | HTTP request | Description
  - [SwapPrincipalEvent](docs/SwapPrincipalEvent.md)
  - [SweepBlocksRequest](docs/SweepBlocksRequest.md)
  - [SweepBlocksResponse](docs/SweepBlocksResponse.md)
+ - [SwingPricingDecision](docs/SwingPricingDecision.md)
+ - [SwingPricingRule](docs/SwingPricingRule.md)
  - [TargetTaxLot](docs/TargetTaxLot.md)
  - [TargetTaxLotRequest](docs/TargetTaxLotRequest.md)
  - [TaxRule](docs/TaxRule.md)
