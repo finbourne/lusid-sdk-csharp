@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **IsFilterable** | **bool** | Bool indicating whether the values of this property are fitlerable, this is true for all non-derived property defintions.  For a derived definition this must be set true to enable filtering. | [optional] 
 **CustomEntityTypes** | **List&lt;string&gt;** | The custom entity types that properties relating to this property definition can be applied to. | [optional] 
 **ValueFormat** | **string** | The format in which values for this property definition should be represented. | [optional] 
+**QualifierDefinitions** | [**List&lt;QualifierDefinition&gt;**](QualifierDefinition.md) | The qualifiers declared against this property definition, each with its value type resolved from its data type. Absent where the definition declares no qualifiers. Qualifiers are supported only on single-value properties. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -60,6 +61,7 @@ StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
 bool isFilterable = //"True";
 List<string> customEntityTypes = new List<string>();
 string valueFormat = "example valueFormat";
+List<QualifierDefinition> qualifierDefinitions = new List<QualifierDefinition>();
 List<Link> links = new List<Link>();
 
 PropertyDefinition propertyDefinitionInstance = new PropertyDefinition(
@@ -86,6 +88,7 @@ PropertyDefinition propertyDefinitionInstance = new PropertyDefinition(
     isFilterable: isFilterable,
     customEntityTypes: customEntityTypes,
     valueFormat: valueFormat,
+    qualifierDefinitions: qualifierDefinitions,
     links: links);
 ```
 

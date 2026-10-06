@@ -15,7 +15,8 @@ Name | Type | Description | Notes
 **FundConfigurationId** | [**ResourceId**](ResourceId.md) |  | 
 **ShareClassInstrumentScopes** | **List&lt;string&gt;** | The scopes in which the instruments lie, currently limited to one. | [optional] 
 **ShareClassInstruments** | [**List&lt;InstrumentResolutionDetail&gt;**](InstrumentResolutionDetail.md) | Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures. | [optional] 
-**Type** | **string** | The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Standalone, Master and Feeder are retained for compatibility; the structural role of a fund now lives on its fund structure node. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA. | [optional] 
+**Type** | **string** | The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Master and Feeder are deprecated: the structural role of a fund now lives on its fund structure node, and a fund with either type cannot be a member of a fund structure. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA. | [optional] 
+**TaxTransparency** | **string** | Whether the Fund is looked through for tax: Transparent passes its income and gains to its holders as their own, Opaque is taxed in its own right. Optional; if not set, a TaxBlocker is Opaque and a CarryVehicle or GPInterestHolder is Transparent. A fund structure requires it on every SPV and AIV member. Available values: Transparent, Opaque. | [optional] 
 **InceptionDate** | **DateTimeOffset** | Inception date of the Fund | 
 **DecimalPlaces** | **int?** | Number of decimal places for reporting | [optional] 
 **PrimaryNavType** | [**NavTypeDefinition**](NavTypeDefinition.md) |  | 
@@ -39,6 +40,7 @@ ResourceId fundConfigurationId = new ResourceId();
 List<string> shareClassInstrumentScopes = new List<string>();
 List<InstrumentResolutionDetail> shareClassInstruments = new List<InstrumentResolutionDetail>();
 string type = "example type";
+string taxTransparency = "example taxTransparency";
 NavTypeDefinition primaryNavType = new NavTypeDefinition();
 List<NavTypeDefinition> additionalNavTypes = new List<NavTypeDefinition>();
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
@@ -57,6 +59,7 @@ FundDefinitionRequest fundDefinitionRequestInstance = new FundDefinitionRequest(
     shareClassInstrumentScopes: shareClassInstrumentScopes,
     shareClassInstruments: shareClassInstruments,
     type: type,
+    taxTransparency: taxTransparency,
     inceptionDate: inceptionDate,
     decimalPlaces: decimalPlaces,
     primaryNavType: primaryNavType,

@@ -904,8 +904,9 @@ namespace Lusid.Sdk.Model
         /// <param name="isFilterable">Bool indicating whether the values of this property are fitlerable, this is true for all non-derived property defintions.  For a derived definition this must be set true to enable filtering..</param>
         /// <param name="customEntityTypes">The custom entity types that properties relating to this property definition can be applied to..</param>
         /// <param name="valueFormat">The format in which values for this property definition should be represented..</param>
+        /// <param name="qualifierDefinitions">The qualifiers declared against this property definition, each with its value type resolved from its data type. Absent where the definition declares no qualifiers. Qualifiers are supported only on single-value properties..</param>
         /// <param name="links">links.</param>
-        public PropertyDefinition(string href = default(string), string key = default(string), ValueTypeEnum ?valueType = default(ValueTypeEnum?), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), TypeEnum ?type = default(TypeEnum?), UnitSchemaEnum ?unitSchema = default(UnitSchemaEnum?), DomainEnum ?domain = default(DomainEnum?), bool valueRequired = default(bool), LifeTimeEnum ?lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), PropertyDefinitionTypeEnum ?propertyDefinitionType = default(PropertyDefinitionTypeEnum?), string propertyDescription = default(string), string derivationFormula = default(string), string collectionType = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isFilterable = default(bool), List<string> customEntityTypes = default(List<string>), string valueFormat = default(string), List<Link> links = default(List<Link>))
+        public PropertyDefinition(string href = default(string), string key = default(string), ValueTypeEnum ?valueType = default(ValueTypeEnum?), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), TypeEnum ?type = default(TypeEnum?), UnitSchemaEnum ?unitSchema = default(UnitSchemaEnum?), DomainEnum ?domain = default(DomainEnum?), bool valueRequired = default(bool), LifeTimeEnum ?lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), PropertyDefinitionTypeEnum ?propertyDefinitionType = default(PropertyDefinitionTypeEnum?), string propertyDescription = default(string), string derivationFormula = default(string), string collectionType = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isFilterable = default(bool), List<string> customEntityTypes = default(List<string>), string valueFormat = default(string), List<QualifierDefinition> qualifierDefinitions = default(List<QualifierDefinition>), List<Link> links = default(List<Link>))
         {
             this.Href = href;
             this.Key = key;
@@ -928,6 +929,7 @@ namespace Lusid.Sdk.Model
             this.IsFilterable = isFilterable;
             this.CustomEntityTypes = customEntityTypes;
             this.ValueFormat = valueFormat;
+            this.QualifierDefinitions = qualifierDefinitions;
             this.Links = links;
         }
 
@@ -1064,6 +1066,13 @@ namespace Lusid.Sdk.Model
         public string ValueFormat { get; set; }
 
         /// <summary>
+        /// The qualifiers declared against this property definition, each with its value type resolved from its data type. Absent where the definition declares no qualifiers. Qualifiers are supported only on single-value properties.
+        /// </summary>
+        /// <value>The qualifiers declared against this property definition, each with its value type resolved from its data type. Absent where the definition declares no qualifiers. Qualifiers are supported only on single-value properties.</value>
+        [DataMember(Name = "qualifierDefinitions", EmitDefaultValue = true)]
+        public List<QualifierDefinition> QualifierDefinitions { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -1100,6 +1109,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  IsFilterable: ").Append(IsFilterable).Append("\n");
             sb.Append("  CustomEntityTypes: ").Append(CustomEntityTypes).Append("\n");
             sb.Append("  ValueFormat: ").Append(ValueFormat).Append("\n");
+            sb.Append("  QualifierDefinitions: ").Append(QualifierDefinitions).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -1246,6 +1256,12 @@ namespace Lusid.Sdk.Model
                     this.ValueFormat.Equals(input.ValueFormat))
                 ) && 
                 (
+                    this.QualifierDefinitions == input.QualifierDefinitions ||
+                    this.QualifierDefinitions != null &&
+                    input.QualifierDefinitions != null &&
+                    this.QualifierDefinitions.SequenceEqual(input.QualifierDefinitions)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -1329,6 +1345,10 @@ namespace Lusid.Sdk.Model
                 if (this.ValueFormat != null)
                 {
                     hashCode = (hashCode * 59) + this.ValueFormat.GetHashCode();
+                }
+                if (this.QualifierDefinitions != null)
+                {
+                    hashCode = (hashCode * 59) + this.QualifierDefinitions.GetHashCode();
                 }
                 if (this.Links != null)
                 {

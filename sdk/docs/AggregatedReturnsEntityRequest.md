@@ -6,35 +6,35 @@ The request body for the aggregated-returns (TWR) endpoint: the entity to calcul
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Entity** | [**AggregatedReturnsEntityId**](AggregatedReturnsEntityId.md) |  | 
-**ReturnsScope** | **string** |  | 
-**ReturnsCode** | **string** |  | 
+**ReturnsId** | [**ResourceId**](ResourceId.md) |  | 
 **Metrics** | [**List&lt;ReturnsMetric&gt;**](ReturnsMetric.md) |  | 
 **Period** | **string** | Available values: Daily, Monthly. | [optional] 
 **FromEffectiveAt** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) |  | [optional] 
 **ToEffectiveAt** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) |  | [optional] 
 **AsAt** | **DateTimeOffset?** |  | [optional] 
+**Currency** | **string** |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 
 AggregatedReturnsEntityId entity = new AggregatedReturnsEntityId();
-string returnsScope = "returnsScope";
-string returnsCode = "returnsCode";
+ResourceId returnsId = new ResourceId();
 List<ReturnsMetric> metrics = new List<ReturnsMetric>();
 string period = "example period";
 DateTimeOrCutLabel fromEffectiveAt = "example fromEffectiveAt";
 DateTimeOrCutLabel toEffectiveAt = "example toEffectiveAt";
+string currency = "example currency";
 
 AggregatedReturnsEntityRequest aggregatedReturnsEntityRequestInstance = new AggregatedReturnsEntityRequest(
     entity: entity,
-    returnsScope: returnsScope,
-    returnsCode: returnsCode,
+    returnsId: returnsId,
     metrics: metrics,
     period: period,
     fromEffectiveAt: fromEffectiveAt,
     toEffectiveAt: toEffectiveAt,
-    asAt: asAt);
+    asAt: asAt,
+    currency: currency);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

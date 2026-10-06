@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **Options** | [**MarketOptions**](MarketOptions.md) |  | [optional] 
 **SpecificRules** | [**List&lt;MarketDataSpecificRule&gt;**](MarketDataSpecificRule.md) | Extends market data key rules to be able to catch dependencies depending on where the dependency comes from, as opposed to what the dependency is asking for.  Using two specific rules, one could instruct rates curves requested by bonds to be retrieved from a different scope than rates curves requested by swaps.  WARNING: The use of specific rules impacts performance. Where possible, one should use MarketDataKeyRules only. | [optional] 
 **GroupedMarketRules** | [**List&lt;GroupOfMarketDataKeyRules&gt;**](GroupOfMarketDataKeyRules.md) | The list of groups of rules that will be used in market data resolution.  Rules given within a group will, if the group is being used to resolve data,  all be applied with the results of those individual resolution attempts combined into a single result.  The method for combining results is determined by the operation detailed in the GroupOfMarketDataKeyRules.                Notes:  - When resolving MarketData, MarketRules will be applied first followed by GroupedMarketRules  if data could not be found using only the MarketRules provided.  - GroupedMarketRules can only be used for resolving data from the QuoteStore.                Caution: As every rule in a given group will be applied in resolution if the group is applied,  groups are computationally expensive for market data resolution.  Therefore, heuristically, rule groups should be kept as small as possible. | [optional] 
+**BidMarketRules** | [**List&lt;MarketDataKeyRule&gt;**](MarketDataKeyRule.md) | An optional, separate set of market data key rules for the bid side of a valuation, used when a bid  result is requested (a Valuation/PV address key with the PricingBasis option set to Bid) or the recipe&#39;s  pricing basis (MarketOptions.PricingBasis) is Bid. When supplied,  instrument prices (Price, DirtyPrice and ForwardPrice quotes) are resolved from these rules only, and are  reported as missing if none of them finds the price; rates curves and volatility surfaces are taken from  these rules where one of them matches, and from the market rules otherwise; FX rates, fixings and resets  always come from the market rules. Each rule reads the quote field it is written with. When omitted, the  bid side re-targets the instrument price rules in MarketRules onto the bid field, as before. | [optional] 
+**OfferMarketRules** | [**List&lt;MarketDataKeyRule&gt;**](MarketDataKeyRule.md) | An optional, separate set of market data key rules for the offer (ask) side of a valuation, used when an  ask result is requested (a Valuation/PV address key with the PricingBasis option set to Ask) or the recipe&#39;s  pricing basis (MarketOptions.PricingBasis) is Ask. Resolved in the  same way as BidMarketRules. When omitted, the offer side re-targets the instrument price rules in  MarketRules onto the ask field, as before. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -22,13 +24,17 @@ MarketOptions? options = new MarketOptions();
 
 List<MarketDataSpecificRule> specificRules = new List<MarketDataSpecificRule>();
 List<GroupOfMarketDataKeyRules> groupedMarketRules = new List<GroupOfMarketDataKeyRules>();
+List<MarketDataKeyRule> bidMarketRules = new List<MarketDataKeyRule>();
+List<MarketDataKeyRule> offerMarketRules = new List<MarketDataKeyRule>();
 
 MarketContext marketContextInstance = new MarketContext(
     marketRules: marketRules,
     suppliers: suppliers,
     options: options,
     specificRules: specificRules,
-    groupedMarketRules: groupedMarketRules);
+    groupedMarketRules: groupedMarketRules,
+    bidMarketRules: bidMarketRules,
+    offerMarketRules: offerMarketRules);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

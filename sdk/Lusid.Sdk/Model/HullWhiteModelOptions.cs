@@ -50,8 +50,9 @@ namespace Lusid.Sdk.Model
         /// <param name="priceToFirstReset">Value a fixed-to-float callable bond only to its first reset. The bond must be a  ComplexBond with one fixed schedule, one floating schedule starting on the fixed schedule&#39;s  maturity, and a call exercisable on that date; it is then valued as if called there, redeemed  at the call strike on the principal outstanding, with the fixed coupon paid on that date kept  and no floating coupon projected. Any call before that date stays live on the lattice. Bonds  of any other shape are refused by name rather than valued over their full life. Rows priced  this way carry the reset date in the Diagnostics/Model/PricingHorizon valuation key. Defaults  to false, which values the bond over its full life..</param>
         /// <param name="latticeStepsPerYear">The lattice time-step density as steps per year. When supplied, the lattice uses  ceil(horizon in years x this value) steps, raised if necessary so that one step is no longer  than the shortest gap between consecutive cashflows, so the fixed LatticeSteps is ignored and  the \&quot;lattice coarser than coupon spacing\&quot; refusal cannot fire. Must be at least 1 when  supplied. Absent, the fixed LatticeSteps count applies..</param>
         /// <param name="maxLatticeNodes">A ceiling on the lattice size, counted as (steps + 1) x rate levels, that the pricer may  build for one instrument. An instrument whose lattice would exceed it is declined by the  model before any allocation, so the cost of a long-dated or finely-stepped row can be  bounded. Must be at least 1 when supplied. Absent, no ceiling applies..</param>
+        /// <param name="priceAtQuoteImpliedOas">Price at the option-adjusted spread implied by the instrument&#39;s quoted price instead of at zero  spread, so the present value reproduces the quote and curve risk is measured with the spread  held. The spread is taken from an OAS quote served for the instrument (a quote with descriptor  [\&quot;OAS\&quot;] keyed by its identifiers, from a Rate-typed market data rule or a market data override)  when there is one, and is then held across every bumped valuation; otherwise it is solved  against the quote in the valuation&#39;s own market. A request for a Risk measure requires the OAS  quote, since a spread re-solved under each bump would leave the measure at zero. Also prices  compounded-in-arrears floating coupons, exercises inside an unfixed floating period and  asset-backed bonds, which are otherwise refused. For an asset-backed bond the pool is held at  its latest factor to legal final with no prepayment, so EffectiveDuration and Pv01 on those  rows are legal-final durations that ignore prepayment. A constant prepayment rate served for the  pool is not read, so the lattice, the cash flows and WeightedAverageLife all run the pool to  legal final. Rows carry the source of the spread in the Diagnostics/Model/PricingSpreadSource  valuation key. Defaults to false..</param>
         /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions. (required) (default to &quot;HullWhiteModelOptions&quot;).</param>
-        public HullWhiteModelOptions(decimal meanReversion = default(decimal), decimal volatility = default(decimal), int latticeSteps = default(int), decimal? effectiveRateBumpSize = default(decimal?), Dictionary<string, decimal> meanReversionByCurrency = default(Dictionary<string, decimal>), Dictionary<string, decimal> volatilityByCurrency = default(Dictionary<string, decimal>), decimal? volatilityMultiplier = default(decimal?), decimal? effectiveCs01BumpWidth = default(decimal?), List<string> effectiveKeyRateBuckets = default(List<string>), bool? priceToFirstReset = default(bool?), int? latticeStepsPerYear = default(int?), int? maxLatticeNodes = default(int?), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
+        public HullWhiteModelOptions(decimal meanReversion = default(decimal), decimal volatility = default(decimal), int latticeSteps = default(int), decimal? effectiveRateBumpSize = default(decimal?), Dictionary<string, decimal> meanReversionByCurrency = default(Dictionary<string, decimal>), Dictionary<string, decimal> volatilityByCurrency = default(Dictionary<string, decimal>), decimal? volatilityMultiplier = default(decimal?), decimal? effectiveCs01BumpWidth = default(decimal?), List<string> effectiveKeyRateBuckets = default(List<string>), bool? priceToFirstReset = default(bool?), int? latticeStepsPerYear = default(int?), int? maxLatticeNodes = default(int?), bool? priceAtQuoteImpliedOas = default(bool?), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             this.MeanReversion = meanReversion;
             this.Volatility = volatility;
@@ -65,6 +66,7 @@ namespace Lusid.Sdk.Model
             this.PriceToFirstReset = priceToFirstReset;
             this.LatticeStepsPerYear = latticeStepsPerYear;
             this.MaxLatticeNodes = maxLatticeNodes;
+            this.PriceAtQuoteImpliedOas = priceAtQuoteImpliedOas;
         }
 
         /// <summary>
@@ -152,6 +154,13 @@ namespace Lusid.Sdk.Model
         public int? MaxLatticeNodes { get; set; }
 
         /// <summary>
+        /// Price at the option-adjusted spread implied by the instrument&#39;s quoted price instead of at zero  spread, so the present value reproduces the quote and curve risk is measured with the spread  held. The spread is taken from an OAS quote served for the instrument (a quote with descriptor  [\&quot;OAS\&quot;] keyed by its identifiers, from a Rate-typed market data rule or a market data override)  when there is one, and is then held across every bumped valuation; otherwise it is solved  against the quote in the valuation&#39;s own market. A request for a Risk measure requires the OAS  quote, since a spread re-solved under each bump would leave the measure at zero. Also prices  compounded-in-arrears floating coupons, exercises inside an unfixed floating period and  asset-backed bonds, which are otherwise refused. For an asset-backed bond the pool is held at  its latest factor to legal final with no prepayment, so EffectiveDuration and Pv01 on those  rows are legal-final durations that ignore prepayment. A constant prepayment rate served for the  pool is not read, so the lattice, the cash flows and WeightedAverageLife all run the pool to  legal final. Rows carry the source of the spread in the Diagnostics/Model/PricingSpreadSource  valuation key. Defaults to false.
+        /// </summary>
+        /// <value>Price at the option-adjusted spread implied by the instrument&#39;s quoted price instead of at zero  spread, so the present value reproduces the quote and curve risk is measured with the spread  held. The spread is taken from an OAS quote served for the instrument (a quote with descriptor  [\&quot;OAS\&quot;] keyed by its identifiers, from a Rate-typed market data rule or a market data override)  when there is one, and is then held across every bumped valuation; otherwise it is solved  against the quote in the valuation&#39;s own market. A request for a Risk measure requires the OAS  quote, since a spread re-solved under each bump would leave the measure at zero. Also prices  compounded-in-arrears floating coupons, exercises inside an unfixed floating period and  asset-backed bonds, which are otherwise refused. For an asset-backed bond the pool is held at  its latest factor to legal final with no prepayment, so EffectiveDuration and Pv01 on those  rows are legal-final durations that ignore prepayment. A constant prepayment rate served for the  pool is not read, so the lattice, the cash flows and WeightedAverageLife all run the pool to  legal final. Rows carry the source of the spread in the Diagnostics/Model/PricingSpreadSource  valuation key. Defaults to false.</value>
+        [DataMember(Name = "priceAtQuoteImpliedOas", EmitDefaultValue = true)]
+        public bool? PriceAtQuoteImpliedOas { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -172,6 +181,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PriceToFirstReset: ").Append(PriceToFirstReset).Append("\n");
             sb.Append("  LatticeStepsPerYear: ").Append(LatticeStepsPerYear).Append("\n");
             sb.Append("  MaxLatticeNodes: ").Append(MaxLatticeNodes).Append("\n");
+            sb.Append("  PriceAtQuoteImpliedOas: ").Append(PriceAtQuoteImpliedOas).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -266,6 +276,11 @@ namespace Lusid.Sdk.Model
                     this.MaxLatticeNodes == input.MaxLatticeNodes ||
                     (this.MaxLatticeNodes != null &&
                     this.MaxLatticeNodes.Equals(input.MaxLatticeNodes))
+                ) && base.Equals(input) && 
+                (
+                    this.PriceAtQuoteImpliedOas == input.PriceAtQuoteImpliedOas ||
+                    (this.PriceAtQuoteImpliedOas != null &&
+                    this.PriceAtQuoteImpliedOas.Equals(input.PriceAtQuoteImpliedOas))
                 );
         }
 
@@ -316,6 +331,10 @@ namespace Lusid.Sdk.Model
                 if (this.MaxLatticeNodes != null)
                 {
                     hashCode = (hashCode * 59) + this.MaxLatticeNodes.GetHashCode();
+                }
+                if (this.PriceAtQuoteImpliedOas != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceAtQuoteImpliedOas.GetHashCode();
                 }
                 return hashCode;
             }

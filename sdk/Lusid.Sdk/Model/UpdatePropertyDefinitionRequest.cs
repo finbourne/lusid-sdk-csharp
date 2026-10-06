@@ -40,7 +40,8 @@ namespace Lusid.Sdk.Model
         /// <param name="propertyDescription">Describes the property.</param>
         /// <param name="customEntityTypes">The custom entity types that properties relating to this property definition can be applied to..</param>
         /// <param name="valueFormat">The format in which values for this property definition should be represented. Available values: Text, Html..</param>
-        public UpdatePropertyDefinitionRequest(string displayName = default(string), string propertyDescription = default(string), List<string> customEntityTypes = default(List<string>), string valueFormat = default(string))
+        /// <param name="qualifierDefinitions">The qualifiers declared against this property definition. Omit this field, or supply it as null, to leave the declared qualifiers unchanged. Otherwise the supplied array replaces the stored array in full, so a qualifier omitted from it is no longer declared and can no longer be set, and an empty array clears every declaration. Stored qualifier values are retained in every case and become readable again if the same keys are re-declared with the same data types..</param>
+        public UpdatePropertyDefinitionRequest(string displayName = default(string), string propertyDescription = default(string), List<string> customEntityTypes = default(List<string>), string valueFormat = default(string), List<QualifierDefinitionRequest> qualifierDefinitions = default(List<QualifierDefinitionRequest>))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -51,6 +52,7 @@ namespace Lusid.Sdk.Model
             this.PropertyDescription = propertyDescription;
             this.CustomEntityTypes = customEntityTypes;
             this.ValueFormat = valueFormat;
+            this.QualifierDefinitions = qualifierDefinitions;
         }
 
         /// <summary>
@@ -82,6 +84,13 @@ namespace Lusid.Sdk.Model
         public string ValueFormat { get; set; }
 
         /// <summary>
+        /// The qualifiers declared against this property definition. Omit this field, or supply it as null, to leave the declared qualifiers unchanged. Otherwise the supplied array replaces the stored array in full, so a qualifier omitted from it is no longer declared and can no longer be set, and an empty array clears every declaration. Stored qualifier values are retained in every case and become readable again if the same keys are re-declared with the same data types.
+        /// </summary>
+        /// <value>The qualifiers declared against this property definition. Omit this field, or supply it as null, to leave the declared qualifiers unchanged. Otherwise the supplied array replaces the stored array in full, so a qualifier omitted from it is no longer declared and can no longer be set, and an empty array clears every declaration. Stored qualifier values are retained in every case and become readable again if the same keys are re-declared with the same data types.</value>
+        [DataMember(Name = "qualifierDefinitions", EmitDefaultValue = true)]
+        public List<QualifierDefinitionRequest> QualifierDefinitions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -93,6 +102,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PropertyDescription: ").Append(PropertyDescription).Append("\n");
             sb.Append("  CustomEntityTypes: ").Append(CustomEntityTypes).Append("\n");
             sb.Append("  ValueFormat: ").Append(ValueFormat).Append("\n");
+            sb.Append("  QualifierDefinitions: ").Append(QualifierDefinitions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -148,6 +158,12 @@ namespace Lusid.Sdk.Model
                     this.ValueFormat == input.ValueFormat ||
                     (this.ValueFormat != null &&
                     this.ValueFormat.Equals(input.ValueFormat))
+                ) && 
+                (
+                    this.QualifierDefinitions == input.QualifierDefinitions ||
+                    this.QualifierDefinitions != null &&
+                    input.QualifierDefinitions != null &&
+                    this.QualifierDefinitions.SequenceEqual(input.QualifierDefinitions)
                 );
         }
 
@@ -175,6 +191,10 @@ namespace Lusid.Sdk.Model
                 if (this.ValueFormat != null)
                 {
                     hashCode = (hashCode * 59) + this.ValueFormat.GetHashCode();
+                }
+                if (this.QualifierDefinitions != null)
+                {
+                    hashCode = (hashCode * 59) + this.QualifierDefinitions.GetHashCode();
                 }
                 return hashCode;
             }

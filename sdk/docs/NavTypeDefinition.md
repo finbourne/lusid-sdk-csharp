@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **TransactionExclusionFilter** | **string** | Optional filter expression to exclude specific transactions from this NavType&#39;s derived portfolios. The filter can reference Transaction, Portfolio, or Instrument fields and properties. | [optional] 
 **PricingBasis** | **string** | The side of the quote this Nav Type values the fund on: Mid, Bid or Ask. Overrides the pricing basis of the valuation recipe&#39;s market options for this Nav Type only, so a bid NAV and an ask NAV can share one recipe. Omit it to value on the recipe&#39;s own pricing basis. Available values: Mid, Bid, Ask. | [optional] 
 **SwingPricing** | [**SwingPricingRule**](SwingPricingRule.md) |  | [optional] 
+**NotionalDealingCostTableId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -51,6 +52,8 @@ string transactionExclusionFilter = "example transactionExclusionFilter";
 string pricingBasis = "example pricingBasis";
 SwingPricingRule? swingPricing = new SwingPricingRule();
 
+ResourceId? notionalDealingCostTableId = new ResourceId();
+
 
 NavTypeDefinition navTypeDefinitionInstance = new NavTypeDefinition(
     code: code,
@@ -72,7 +75,8 @@ NavTypeDefinition navTypeDefinitionInstance = new NavTypeDefinition(
     transactionTemplateScope: transactionTemplateScope,
     transactionExclusionFilter: transactionExclusionFilter,
     pricingBasis: pricingBasis,
-    swingPricing: swingPricing);
+    swingPricing: swingPricing,
+    notionalDealingCostTableId: notionalDealingCostTableId);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

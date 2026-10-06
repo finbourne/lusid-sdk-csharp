@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Allocation Map.</param>
         /// <param name="code">The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.</param>
         /// <param name="allocationMapException">The exception to add.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label from which the exception applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label of the map version that gains the exception. Defaults to the exception&#39;s effectiveFrom when that is earlier than the current LUSID system datetime, and to the current LUSID system datetime otherwise. Refused if the map has any version starting after that datetime, including a re-save of the same definition, or a later deletion, since neither would carry the exception. Also refused, with the reason, if the defaulted effectiveFrom is before the map&#39;s first version. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AllocationMap</returns>
@@ -57,7 +57,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Allocation Map.</param>
         /// <param name="code">The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.</param>
         /// <param name="allocationMapException">The exception to add.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label from which the exception applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label of the map version that gains the exception. Defaults to the exception&#39;s effectiveFrom when that is earlier than the current LUSID system datetime, and to the current LUSID system datetime otherwise. Refused if the map has any version starting after that datetime, including a re-save of the same definition, or a later deletion, since neither would carry the exception. Also refused, with the reason, if the defaulted effectiveFrom is before the map&#39;s first version. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AllocationMap</returns>
@@ -194,7 +194,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Allocation Map.</param>
         /// <param name="code">The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.</param>
         /// <param name="investorRecordId">The investor record whose exception is removed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. Refused if the map has any version starting after that datetime, including a re-save of the same definition, which would still carry the exception, or a later deletion. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AllocationMap</returns>
@@ -210,7 +210,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Allocation Map.</param>
         /// <param name="code">The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.</param>
         /// <param name="investorRecordId">The investor record whose exception is removed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. Refused if the map has any version starting after that datetime, including a re-save of the same definition, which would still carry the exception, or a later deletion. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AllocationMap</returns>
@@ -296,7 +296,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Allocation Map.</param>
         /// <param name="code">The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.</param>
         /// <param name="allocationMapException">The exception to add.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label from which the exception applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label of the map version that gains the exception. Defaults to the exception&#39;s effectiveFrom when that is earlier than the current LUSID system datetime, and to the current LUSID system datetime otherwise. Refused if the map has any version starting after that datetime, including a re-save of the same definition, or a later deletion, since neither would carry the exception. Also refused, with the reason, if the defaulted effectiveFrom is before the map&#39;s first version. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -313,7 +313,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Allocation Map.</param>
         /// <param name="code">The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.</param>
         /// <param name="allocationMapException">The exception to add.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label from which the exception applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label of the map version that gains the exception. Defaults to the exception&#39;s effectiveFrom when that is earlier than the current LUSID system datetime, and to the current LUSID system datetime otherwise. Refused if the map has any version starting after that datetime, including a re-save of the same definition, or a later deletion, since neither would carry the exception. Also refused, with the reason, if the defaulted effectiveFrom is before the map&#39;s first version. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -459,7 +459,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Allocation Map.</param>
         /// <param name="code">The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.</param>
         /// <param name="investorRecordId">The investor record whose exception is removed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. Refused if the map has any version starting after that datetime, including a re-save of the same definition, which would still carry the exception, or a later deletion. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -476,7 +476,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Allocation Map.</param>
         /// <param name="code">The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.</param>
         /// <param name="investorRecordId">The investor record whose exception is removed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. Refused if the map has any version starting after that datetime, including a re-save of the same definition, which would still carry the exception, or a later deletion. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -678,7 +678,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Allocation Map.</param>
         /// <param name="code">The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.</param>
         /// <param name="allocationMapException">The exception to add.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label from which the exception applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label of the map version that gains the exception. Defaults to the exception&#39;s effectiveFrom when that is earlier than the current LUSID system datetime, and to the current LUSID system datetime otherwise. Refused if the map has any version starting after that datetime, including a re-save of the same definition, or a later deletion, since neither would carry the exception. Also refused, with the reason, if the defaulted effectiveFrom is before the map&#39;s first version. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AllocationMap</returns>
@@ -695,7 +695,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Allocation Map.</param>
         /// <param name="code">The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.</param>
         /// <param name="allocationMapException">The exception to add.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label from which the exception applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label of the map version that gains the exception. Defaults to the exception&#39;s effectiveFrom when that is earlier than the current LUSID system datetime, and to the current LUSID system datetime otherwise. Refused if the map has any version starting after that datetime, including a re-save of the same definition, or a later deletion, since neither would carry the exception. Also refused, with the reason, if the defaulted effectiveFrom is before the map&#39;s first version. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AllocationMap</returns>
@@ -807,7 +807,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Allocation Map.</param>
         /// <param name="code">The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.</param>
         /// <param name="allocationMapException">The exception to add.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label from which the exception applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label of the map version that gains the exception. Defaults to the exception&#39;s effectiveFrom when that is earlier than the current LUSID system datetime, and to the current LUSID system datetime otherwise. Refused if the map has any version starting after that datetime, including a re-save of the same definition, or a later deletion, since neither would carry the exception. Also refused, with the reason, if the defaulted effectiveFrom is before the map&#39;s first version. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -825,7 +825,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Allocation Map.</param>
         /// <param name="code">The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.</param>
         /// <param name="allocationMapException">The exception to add.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label from which the exception applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label of the map version that gains the exception. Defaults to the exception&#39;s effectiveFrom when that is earlier than the current LUSID system datetime, and to the current LUSID system datetime otherwise. Refused if the map has any version starting after that datetime, including a re-save of the same definition, or a later deletion, since neither would carry the exception. Also refused, with the reason, if the defaulted effectiveFrom is before the map&#39;s first version. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1916,7 +1916,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Allocation Map.</param>
         /// <param name="code">The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.</param>
         /// <param name="investorRecordId">The investor record whose exception is removed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. Refused if the map has any version starting after that datetime, including a re-save of the same definition, which would still carry the exception, or a later deletion. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AllocationMap</returns>
@@ -1933,7 +1933,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Allocation Map.</param>
         /// <param name="code">The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.</param>
         /// <param name="investorRecordId">The investor record whose exception is removed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. Refused if the map has any version starting after that datetime, including a re-save of the same definition, which would still carry the exception, or a later deletion. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AllocationMap</returns>
@@ -2041,7 +2041,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Allocation Map.</param>
         /// <param name="code">The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.</param>
         /// <param name="investorRecordId">The investor record whose exception is removed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. Refused if the map has any version starting after that datetime, including a re-save of the same definition, which would still carry the exception, or a later deletion. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2059,7 +2059,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Allocation Map.</param>
         /// <param name="code">The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.</param>
         /// <param name="investorRecordId">The investor record whose exception is removed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. Refused if the map has any version starting after that datetime, including a re-save of the same definition, which would still carry the exception, or a later deletion. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

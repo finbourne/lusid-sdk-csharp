@@ -57,7 +57,8 @@ namespace Lusid.Sdk.Model
         /// <param name="transactionExclusionFilter">Optional filter expression to exclude specific transactions from this NavType&#39;s derived portfolios. The filter can reference Transaction, Portfolio, or Instrument fields and properties..</param>
         /// <param name="pricingBasis">The side of the quote this Nav Type values the fund on: Mid, Bid or Ask. Overrides the pricing basis of the valuation recipe&#39;s market options for this Nav Type only, so a bid NAV and an ask NAV can share one recipe. Omit it to value on the recipe&#39;s own pricing basis. Available values: Mid, Bid, Ask..</param>
         /// <param name="swingPricing">swingPricing.</param>
-        public NavType(string status = default(string), string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), NavSettlementConfiguration settlementConfiguration = default(NavSettlementConfiguration), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), ResourceId amortisationRuleSetId = default(ResourceId), string leaderNavTypeCode = default(string), string transactionTemplateScope = default(string), string transactionExclusionFilter = default(string), string pricingBasis = default(string), SwingPricingRule swingPricing = default(SwingPricingRule))
+        /// <param name="notionalDealingCostTableId">notionalDealingCostTableId.</param>
+        public NavType(string status = default(string), string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), NavSettlementConfiguration settlementConfiguration = default(NavSettlementConfiguration), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), ResourceId amortisationRuleSetId = default(ResourceId), string leaderNavTypeCode = default(string), string transactionTemplateScope = default(string), string transactionExclusionFilter = default(string), string pricingBasis = default(string), SwingPricingRule swingPricing = default(SwingPricingRule), ResourceId notionalDealingCostTableId = default(ResourceId))
         {
             // to ensure "status" is required (not null)
             if (status == null)
@@ -130,6 +131,7 @@ namespace Lusid.Sdk.Model
             this.TransactionExclusionFilter = transactionExclusionFilter;
             this.PricingBasis = pricingBasis;
             this.SwingPricing = swingPricing;
+            this.NotionalDealingCostTableId = notionalDealingCostTableId;
         }
 
         /// <summary>
@@ -274,6 +276,12 @@ namespace Lusid.Sdk.Model
         public SwingPricingRule SwingPricing { get; set; }
 
         /// <summary>
+        /// Gets or Sets NotionalDealingCostTableId
+        /// </summary>
+        [DataMember(Name = "notionalDealingCostTableId", EmitDefaultValue = false)]
+        public ResourceId NotionalDealingCostTableId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -302,6 +310,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  TransactionExclusionFilter: ").Append(TransactionExclusionFilter).Append("\n");
             sb.Append("  PricingBasis: ").Append(PricingBasis).Append("\n");
             sb.Append("  SwingPricing: ").Append(SwingPricing).Append("\n");
+            sb.Append("  NotionalDealingCostTableId: ").Append(NotionalDealingCostTableId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -444,6 +453,11 @@ namespace Lusid.Sdk.Model
                     this.SwingPricing == input.SwingPricing ||
                     (this.SwingPricing != null &&
                     this.SwingPricing.Equals(input.SwingPricing))
+                ) && 
+                (
+                    this.NotionalDealingCostTableId == input.NotionalDealingCostTableId ||
+                    (this.NotionalDealingCostTableId != null &&
+                    this.NotionalDealingCostTableId.Equals(input.NotionalDealingCostTableId))
                 );
         }
 
@@ -539,6 +553,10 @@ namespace Lusid.Sdk.Model
                 if (this.SwingPricing != null)
                 {
                     hashCode = (hashCode * 59) + this.SwingPricing.GetHashCode();
+                }
+                if (this.NotionalDealingCostTableId != null)
+                {
+                    hashCode = (hashCode * 59) + this.NotionalDealingCostTableId.GetHashCode();
                 }
                 return hashCode;
             }

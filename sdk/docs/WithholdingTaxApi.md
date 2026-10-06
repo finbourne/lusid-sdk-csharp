@@ -4,6 +4,8 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**BatchDeleteWithholdingTaxRates**](WithholdingTaxApi.md#batchdeletewithholdingtaxrates) | **POST** /api/withholdingtax/rates/{scope}/{code}/$batchDelete | [EARLY ACCESS] BatchDeleteWithholdingTaxRates: Batch delete Withholding Tax rate rows from a rate dataset. |
+| [**BatchUpsertWithholdingTaxRates**](WithholdingTaxApi.md#batchupsertwithholdingtaxrates) | **POST** /api/withholdingtax/rates/{scope}/{code}/$batchUpsert | [EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands. |
 | [**CreateWithholdingTaxDatasetDefinitions**](WithholdingTaxApi.md#createwithholdingtaxdatasetdefinitions) | **POST** /api/withholdingtax/datasetdefinitions | [EARLY ACCESS] CreateWithholdingTaxDatasetDefinitions: Create the Withholding Tax dataset definitions. |
 | [**DeleteWithholdingTaxConfiguration**](WithholdingTaxApi.md#deletewithholdingtaxconfiguration) | **DELETE** /api/withholdingtax/configurations/{scope}/{code} | [EARLY ACCESS] DeleteWithholdingTaxConfiguration: Delete a Withholding Tax Configuration. |
 | [**DeleteWithholdingTaxDatasetDefinition**](WithholdingTaxApi.md#deletewithholdingtaxdatasetdefinition) | **DELETE** /api/withholdingtax/datasetdefinitions/{scope}/{code} | [EARLY ACCESS] DeleteWithholdingTaxDatasetDefinition: Delete a Withholding Tax dataset definition. |
@@ -13,6 +15,246 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**ListWithholdingTaxDatasetDefinitions**](WithholdingTaxApi.md#listwithholdingtaxdatasetdefinitions) | **GET** /api/withholdingtax/datasetdefinitions | [EARLY ACCESS] ListWithholdingTaxDatasetDefinitions: List Withholding Tax dataset definitions. |
 | [**PatchWithholdingTaxDatasetDefinition**](WithholdingTaxApi.md#patchwithholdingtaxdatasetdefinition) | **PATCH** /api/withholdingtax/datasetdefinitions/{scope}/{code} | [EARLY ACCESS] PatchWithholdingTaxDatasetDefinition: Patch a Withholding Tax dataset definition. |
 | [**UpsertWithholdingTaxConfiguration**](WithholdingTaxApi.md#upsertwithholdingtaxconfiguration) | **POST** /api/withholdingtax/configurations/{scope}/{code} | [EARLY ACCESS] UpsertWithholdingTaxConfiguration: Upsert a Withholding Tax Configuration. |
+
+<a id="batchdeletewithholdingtaxrates"></a>
+# **BatchDeleteWithholdingTaxRates**
+> BatchDeleteRelationalDataResponse BatchDeleteWithholdingTaxRates (string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = null)
+
+[EARLY ACCESS] BatchDeleteWithholdingTaxRates: Batch delete Withholding Tax rate rows from a rate dataset.
+
+Also how a rate with no replacement is expired, there being no effectiveTo field. Deletes are  bitemporal, so rows stay readable at a prior asAt.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WithholdingTaxApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WithholdingTaxApi>();
+            var scope = "scope_example";  // string | The Scope of the rate dataset's relational dataset definition.
+            var code = "code_example";  // string | The Code of the rate dataset's relational dataset definition.
+            var requestBody = new Dictionary<string, DeleteWithholdingTaxRateRequest>(); // Dictionary<string, DeleteWithholdingTaxRateRequest> | The rate rows to delete, keyed by a correlation id echoed back in the response.
+            var successMode = "\"Atomic\"";  // string? | Atomic or Partial; defaults to Atomic. In Partial mode failures are returned              in the response body with a 200 status. (optional)  (default to "Atomic")
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // BatchDeleteRelationalDataResponse result = apiInstance.BatchDeleteWithholdingTaxRates(scope, code, requestBody, successMode, opts: opts);
+
+                // [EARLY ACCESS] BatchDeleteWithholdingTaxRates: Batch delete Withholding Tax rate rows from a rate dataset.
+                BatchDeleteRelationalDataResponse result = apiInstance.BatchDeleteWithholdingTaxRates(scope, code, requestBody, successMode);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling WithholdingTaxApi.BatchDeleteWithholdingTaxRates: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the BatchDeleteWithholdingTaxRatesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] BatchDeleteWithholdingTaxRates: Batch delete Withholding Tax rate rows from a rate dataset.
+    ApiResponse<BatchDeleteRelationalDataResponse> response = apiInstance.BatchDeleteWithholdingTaxRatesWithHttpInfo(scope, code, requestBody, successMode);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling WithholdingTaxApi.BatchDeleteWithholdingTaxRatesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The Scope of the rate dataset&#39;s relational dataset definition. |  |
+| **code** | **string** | The Code of the rate dataset&#39;s relational dataset definition. |  |
+| **requestBody** | [**Dictionary&lt;string, DeleteWithholdingTaxRateRequest&gt;**](DeleteWithholdingTaxRateRequest.md) | The rate rows to delete, keyed by a correlation id echoed back in the response. |  |
+| **successMode** | **string?** | Atomic or Partial; defaults to Atomic. In Partial mode failures are returned              in the response body with a 200 status. | [optional] [default to &quot;Atomic&quot;] |
+
+### Return type
+
+[**BatchDeleteRelationalDataResponse**](BatchDeleteRelationalDataResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The deleted rate row metadata. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="batchupsertwithholdingtaxrates"></a>
+# **BatchUpsertWithholdingTaxRates**
+> BatchUpsertWithholdingTaxRatesResponse BatchUpsertWithholdingTaxRates (string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = null)
+
+[EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands.
+
+Row identity is the matching dimensions plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same dimensions.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WithholdingTaxApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WithholdingTaxApi>();
+            var scope = "scope_example";  // string | The Scope of the rate dataset's relational dataset definition.
+            var code = "code_example";  // string | The Code of the rate dataset's relational dataset definition.
+            var requestBody = new Dictionary<string, UpsertWithholdingTaxRateRequest>(); // Dictionary<string, UpsertWithholdingTaxRateRequest> | The rate rows to upsert, keyed by a correlation id echoed back in the response.
+            var successMode = "\"Atomic\"";  // string? | Atomic or Partial; defaults to Atomic, because a partly loaded feed silently              under-withholds. In Partial mode failures are returned in the response body with a 200 status. (optional)  (default to "Atomic")
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // BatchUpsertWithholdingTaxRatesResponse result = apiInstance.BatchUpsertWithholdingTaxRates(scope, code, requestBody, successMode, opts: opts);
+
+                // [EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands.
+                BatchUpsertWithholdingTaxRatesResponse result = apiInstance.BatchUpsertWithholdingTaxRates(scope, code, requestBody, successMode);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling WithholdingTaxApi.BatchUpsertWithholdingTaxRates: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the BatchUpsertWithholdingTaxRatesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands.
+    ApiResponse<BatchUpsertWithholdingTaxRatesResponse> response = apiInstance.BatchUpsertWithholdingTaxRatesWithHttpInfo(scope, code, requestBody, successMode);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling WithholdingTaxApi.BatchUpsertWithholdingTaxRatesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The Scope of the rate dataset&#39;s relational dataset definition. |  |
+| **code** | **string** | The Code of the rate dataset&#39;s relational dataset definition. |  |
+| **requestBody** | [**Dictionary&lt;string, UpsertWithholdingTaxRateRequest&gt;**](UpsertWithholdingTaxRateRequest.md) | The rate rows to upsert, keyed by a correlation id echoed back in the response. |  |
+| **successMode** | **string?** | Atomic or Partial; defaults to Atomic, because a partly loaded feed silently              under-withholds. In Partial mode failures are returned in the response body with a 200 status. | [optional] [default to &quot;Atomic&quot;] |
+
+### Return type
+
+[**BatchUpsertWithholdingTaxRatesResponse**](BatchUpsertWithholdingTaxRatesResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The Withholding Tax rate rows that were upserted. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="createwithholdingtaxdatasetdefinitions"></a>
 # **CreateWithholdingTaxDatasetDefinitions**

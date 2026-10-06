@@ -666,7 +666,8 @@ namespace Lusid.Sdk.Model
         /// <param name="collectionType">Describes whether a collection property should behave as a Set or as an Array. Available values: Set, Array..</param>
         /// <param name="customEntityTypes">The custom entity types that properties relating to this property definition can be applied to..</param>
         /// <param name="valueFormat">The format in which values for this property definition should be represented. Available values: Text, Html..</param>
-        public CreatePropertyDefinitionRequest(DomainEnum domain = default(DomainEnum), string scope = default(string), string code = default(string), bool valueRequired = default(bool), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), LifeTimeEnum ?lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), string propertyDescription = default(string), string collectionType = default(string), List<string> customEntityTypes = default(List<string>), string valueFormat = default(string))
+        /// <param name="qualifierDefinitions">The qualifiers to declare against this property definition. A qualifier attaches an individually typed supporting fact to a value of this property, sharing that value&#39;s interval. Supported only where the constraint style is Property and no collection type is set..</param>
+        public CreatePropertyDefinitionRequest(DomainEnum domain = default(DomainEnum), string scope = default(string), string code = default(string), bool valueRequired = default(bool), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), LifeTimeEnum ?lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), string propertyDescription = default(string), string collectionType = default(string), List<string> customEntityTypes = default(List<string>), string valueFormat = default(string), List<QualifierDefinitionRequest> qualifierDefinitions = default(List<QualifierDefinitionRequest>))
         {
             this.Domain = domain;
             // to ensure "scope" is required (not null)
@@ -700,6 +701,7 @@ namespace Lusid.Sdk.Model
             this.CollectionType = collectionType;
             this.CustomEntityTypes = customEntityTypes;
             this.ValueFormat = valueFormat;
+            this.QualifierDefinitions = qualifierDefinitions;
         }
 
         /// <summary>
@@ -772,6 +774,13 @@ namespace Lusid.Sdk.Model
         public string ValueFormat { get; set; }
 
         /// <summary>
+        /// The qualifiers to declare against this property definition. A qualifier attaches an individually typed supporting fact to a value of this property, sharing that value&#39;s interval. Supported only where the constraint style is Property and no collection type is set.
+        /// </summary>
+        /// <value>The qualifiers to declare against this property definition. A qualifier attaches an individually typed supporting fact to a value of this property, sharing that value&#39;s interval. Supported only where the constraint style is Property and no collection type is set.</value>
+        [DataMember(Name = "qualifierDefinitions", EmitDefaultValue = true)]
+        public List<QualifierDefinitionRequest> QualifierDefinitions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -791,6 +800,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CollectionType: ").Append(CollectionType).Append("\n");
             sb.Append("  CustomEntityTypes: ").Append(CustomEntityTypes).Append("\n");
             sb.Append("  ValueFormat: ").Append(ValueFormat).Append("\n");
+            sb.Append("  QualifierDefinitions: ").Append(QualifierDefinitions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -883,6 +893,12 @@ namespace Lusid.Sdk.Model
                     this.ValueFormat == input.ValueFormat ||
                     (this.ValueFormat != null &&
                     this.ValueFormat.Equals(input.ValueFormat))
+                ) && 
+                (
+                    this.QualifierDefinitions == input.QualifierDefinitions ||
+                    this.QualifierDefinitions != null &&
+                    input.QualifierDefinitions != null &&
+                    this.QualifierDefinitions.SequenceEqual(input.QualifierDefinitions)
                 );
         }
 
@@ -933,6 +949,10 @@ namespace Lusid.Sdk.Model
                 if (this.ValueFormat != null)
                 {
                     hashCode = (hashCode * 59) + this.ValueFormat.GetHashCode();
+                }
+                if (this.QualifierDefinitions != null)
+                {
+                    hashCode = (hashCode * 59) + this.QualifierDefinitions.GetHashCode();
                 }
                 return hashCode;
             }

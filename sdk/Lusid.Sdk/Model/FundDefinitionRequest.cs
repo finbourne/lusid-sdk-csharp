@@ -46,7 +46,8 @@ namespace Lusid.Sdk.Model
         /// <param name="fundConfigurationId">fundConfigurationId (required).</param>
         /// <param name="shareClassInstrumentScopes">The scopes in which the instruments lie, currently limited to one..</param>
         /// <param name="shareClassInstruments">Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures..</param>
-        /// <param name="type">The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Standalone, Master and Feeder are retained for compatibility; the structural role of a fund now lives on its fund structure node. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA..</param>
+        /// <param name="type">The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Master and Feeder are deprecated: the structural role of a fund now lives on its fund structure node, and a fund with either type cannot be a member of a fund structure. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA..</param>
+        /// <param name="taxTransparency">Whether the Fund is looked through for tax: Transparent passes its income and gains to its holders as their own, Opaque is taxed in its own right. Optional; if not set, a TaxBlocker is Opaque and a CarryVehicle or GPInterestHolder is Transparent. A fund structure requires it on every SPV and AIV member. Available values: Transparent, Opaque..</param>
         /// <param name="inceptionDate">Inception date of the Fund (required).</param>
         /// <param name="decimalPlaces">Number of decimal places for reporting.</param>
         /// <param name="primaryNavType">primaryNavType (required).</param>
@@ -54,7 +55,7 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">A set of properties for the Fund..</param>
         /// <param name="createInstrument">Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false..</param>
         /// <param name="shareClasses">An optional list of Share Class definitions for the Fund..</param>
-        public FundDefinitionRequest(string code = default(string), string shortCode = default(string), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId fundConfigurationId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), NavTypeDefinition primaryNavType = default(NavTypeDefinition), List<NavTypeDefinition> additionalNavTypes = default(List<NavTypeDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), List<ShareClassDefinition> shareClasses = default(List<ShareClassDefinition>))
+        public FundDefinitionRequest(string code = default(string), string shortCode = default(string), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId fundConfigurationId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), string taxTransparency = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), NavTypeDefinition primaryNavType = default(NavTypeDefinition), List<NavTypeDefinition> additionalNavTypes = default(List<NavTypeDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), List<ShareClassDefinition> shareClasses = default(List<ShareClassDefinition>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -99,6 +100,7 @@ namespace Lusid.Sdk.Model
             this.ShareClassInstrumentScopes = shareClassInstrumentScopes;
             this.ShareClassInstruments = shareClassInstruments;
             this.Type = type;
+            this.TaxTransparency = taxTransparency;
             this.DecimalPlaces = decimalPlaces;
             this.AdditionalNavTypes = additionalNavTypes;
             this.Properties = properties;
@@ -176,11 +178,18 @@ namespace Lusid.Sdk.Model
         public List<InstrumentResolutionDetail> ShareClassInstruments { get; set; }
 
         /// <summary>
-        /// The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Standalone, Master and Feeder are retained for compatibility; the structural role of a fund now lives on its fund structure node. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA.
+        /// The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Master and Feeder are deprecated: the structural role of a fund now lives on its fund structure node, and a fund with either type cannot be a member of a fund structure. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA.
         /// </summary>
-        /// <value>The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Standalone, Master and Feeder are retained for compatibility; the structural role of a fund now lives on its fund structure node. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA.</value>
+        /// <value>The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Master and Feeder are deprecated: the structural role of a fund now lives on its fund structure node, and a fund with either type cannot be a member of a fund structure. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA.</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
+
+        /// <summary>
+        /// Whether the Fund is looked through for tax: Transparent passes its income and gains to its holders as their own, Opaque is taxed in its own right. Optional; if not set, a TaxBlocker is Opaque and a CarryVehicle or GPInterestHolder is Transparent. A fund structure requires it on every SPV and AIV member. Available values: Transparent, Opaque.
+        /// </summary>
+        /// <value>Whether the Fund is looked through for tax: Transparent passes its income and gains to its holders as their own, Opaque is taxed in its own right. Optional; if not set, a TaxBlocker is Opaque and a CarryVehicle or GPInterestHolder is Transparent. A fund structure requires it on every SPV and AIV member. Available values: Transparent, Opaque.</value>
+        [DataMember(Name = "taxTransparency", EmitDefaultValue = true)]
+        public string TaxTransparency { get; set; }
 
         /// <summary>
         /// Inception date of the Fund
@@ -249,6 +258,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ShareClassInstrumentScopes: ").Append(ShareClassInstrumentScopes).Append("\n");
             sb.Append("  ShareClassInstruments: ").Append(ShareClassInstruments).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  TaxTransparency: ").Append(TaxTransparency).Append("\n");
             sb.Append("  InceptionDate: ").Append(InceptionDate).Append("\n");
             sb.Append("  DecimalPlaces: ").Append(DecimalPlaces).Append("\n");
             sb.Append("  PrimaryNavType: ").Append(PrimaryNavType).Append("\n");
@@ -350,6 +360,11 @@ namespace Lusid.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
+                    this.TaxTransparency == input.TaxTransparency ||
+                    (this.TaxTransparency != null &&
+                    this.TaxTransparency.Equals(input.TaxTransparency))
+                ) && 
+                (
                     this.InceptionDate == input.InceptionDate ||
                     (this.InceptionDate != null &&
                     this.InceptionDate.Equals(input.InceptionDate))
@@ -440,6 +455,10 @@ namespace Lusid.Sdk.Model
                 if (this.Type != null)
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
+                if (this.TaxTransparency != null)
+                {
+                    hashCode = (hashCode * 59) + this.TaxTransparency.GetHashCode();
                 }
                 if (this.InceptionDate != null)
                 {

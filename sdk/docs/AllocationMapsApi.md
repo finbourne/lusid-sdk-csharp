@@ -63,7 +63,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Allocation Map.
             var code = "code_example";  // string | The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.
             var allocationMapException = new AllocationMapException(); // AllocationMapException | The exception to add.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label from which the exception applies. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label of the map version that gains the exception. Defaults to the exception's effectiveFrom when that is earlier than the current LUSID system datetime, and to the current LUSID system datetime otherwise. Refused if the map has any version starting after that datetime, including a re-save of the same definition, or a later deletion, since neither would carry the exception. Also refused, with the reason, if the defaulted effectiveFrom is before the map's first version. (optional) 
 
             try
             {
@@ -112,7 +112,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Allocation Map. |  |
 | **code** | **string** | The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map. |  |
 | **allocationMapException** | [**AllocationMapException**](AllocationMapException.md) | The exception to add. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label from which the exception applies. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label of the map version that gains the exception. Defaults to the exception&#39;s effectiveFrom when that is earlier than the current LUSID system datetime, and to the current LUSID system datetime otherwise. Refused if the map has any version starting after that datetime, including a re-save of the same definition, or a later deletion, since neither would carry the exception. Also refused, with the reason, if the defaulted effectiveFrom is before the map&#39;s first version. | [optional]  |
 
 ### Return type
 
@@ -661,7 +661,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Allocation Map.
             var code = "code_example";  // string | The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.
             var investorRecordId = "investorRecordId_example";  // string | The investor record whose exception is removed.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. Refused if the map has any version starting after that datetime, including a re-save of the same definition, which would still carry the exception, or a later deletion. (optional) 
 
             try
             {
@@ -710,7 +710,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Allocation Map. |  |
 | **code** | **string** | The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map. |  |
 | **investorRecordId** | **string** | The investor record whose exception is removed. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label from which the exception no longer applies. Defaults to the current LUSID system datetime if not specified. Refused if the map has any version starting after that datetime, including a re-save of the same definition, which would still carry the exception, or a later deletion. | [optional]  |
 
 ### Return type
 

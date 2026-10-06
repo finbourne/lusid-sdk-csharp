@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **CollectionType** | **string** | Describes whether a collection property should behave as a Set or as an Array. Available values: Set, Array. | [optional] 
 **CustomEntityTypes** | **List&lt;string&gt;** | The custom entity types that properties relating to this property definition can be applied to. | [optional] 
 **ValueFormat** | **string** | The format in which values for this property definition should be represented. Available values: Text, Html. | [optional] 
+**QualifierDefinitions** | [**List&lt;QualifierDefinitionRequest&gt;**](QualifierDefinitionRequest.md) | The qualifiers to declare against this property definition. A qualifier attaches an individually typed supporting fact to a value of this property, sharing that value&#39;s interval. Supported only where the constraint style is Property and no collection type is set. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -33,6 +34,7 @@ string propertyDescription = "example propertyDescription";
 string collectionType = "example collectionType";
 List<string> customEntityTypes = new List<string>();
 string valueFormat = "example valueFormat";
+List<QualifierDefinitionRequest> qualifierDefinitions = new List<QualifierDefinitionRequest>();
 
 CreatePropertyDefinitionRequest createPropertyDefinitionRequestInstance = new CreatePropertyDefinitionRequest(
     domain: domain,
@@ -46,7 +48,8 @@ CreatePropertyDefinitionRequest createPropertyDefinitionRequestInstance = new Cr
     propertyDescription: propertyDescription,
     collectionType: collectionType,
     customEntityTypes: customEntityTypes,
-    valueFormat: valueFormat);
+    valueFormat: valueFormat,
+    qualifierDefinitions: qualifierDefinitions);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

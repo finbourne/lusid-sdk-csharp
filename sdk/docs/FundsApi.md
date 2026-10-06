@@ -3635,7 +3635,7 @@ catch (ApiException e)
 
 <a id="getvaluationpointunsettledtransactions"></a>
 # **GetValuationPointUnsettledTransactions**
-> ValuationPointResourceListOfUnsettledTransaction GetValuationPointUnsettledTransactions (string scope, string code, SingleValuationPointQueryParameters singleValuationPointQueryParameters, DateTimeOffset? asAt = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null)
+> ValuationPointResourceListOfUnsettledTransaction GetValuationPointUnsettledTransactions (string scope, string code, SingleValuationPointQueryParameters singleValuationPointQueryParameters, DateTimeOffset? asAt = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null, string? filter = null)
 
 [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
 
@@ -3688,14 +3688,15 @@ namespace Examples
             var page = "page_example";  // string? | The pagination token to use to continue listing from a previous call. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', or 'Account'              domain to decorate onto the transactions. (optional) 
             var navTypeCode = "navTypeCode_example";  // string? | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ValuationPointResourceListOfUnsettledTransaction result = apiInstance.GetValuationPointUnsettledTransactions(scope, code, singleValuationPointQueryParameters, asAt, limit, page, propertyKeys, navTypeCode, opts: opts);
+                // ValuationPointResourceListOfUnsettledTransaction result = apiInstance.GetValuationPointUnsettledTransactions(scope, code, singleValuationPointQueryParameters, asAt, limit, page, propertyKeys, navTypeCode, filter, opts: opts);
 
                 // [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
-                ValuationPointResourceListOfUnsettledTransaction result = apiInstance.GetValuationPointUnsettledTransactions(scope, code, singleValuationPointQueryParameters, asAt, limit, page, propertyKeys, navTypeCode);
+                ValuationPointResourceListOfUnsettledTransaction result = apiInstance.GetValuationPointUnsettledTransactions(scope, code, singleValuationPointQueryParameters, asAt, limit, page, propertyKeys, navTypeCode, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -3716,7 +3717,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
-    ApiResponse<ValuationPointResourceListOfUnsettledTransaction> response = apiInstance.GetValuationPointUnsettledTransactionsWithHttpInfo(scope, code, singleValuationPointQueryParameters, asAt, limit, page, propertyKeys, navTypeCode);
+    ApiResponse<ValuationPointResourceListOfUnsettledTransaction> response = apiInstance.GetValuationPointUnsettledTransactionsWithHttpInfo(scope, code, singleValuationPointQueryParameters, asAt, limit, page, propertyKeys, navTypeCode, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -3741,6 +3742,7 @@ catch (ApiException e)
 | **page** | **string?** | The pagination token to use to continue listing from a previous call. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, or &#39;Account&#39;              domain to decorate onto the transactions. | [optional]  |
 | **navTypeCode** | **string?** | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. | [optional]  |
 
 ### Return type
 
@@ -5293,11 +5295,11 @@ catch (ApiException e)
 
 <a id="revertvaluationpointtoestimate"></a>
 # **RevertValuationPointToEstimate**
-> ValuationPointDataResponse RevertValuationPointToEstimate (string scope, string code, RevertValuationPointDataRequest revertValuationPointDataRequest, string? navTypeCode = null)
+> RevertValuationPointResponse RevertValuationPointToEstimate (string scope, string code, RevertValuationPointDataRequest revertValuationPointDataRequest, string? navTypeCode = null)
 
 [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
 
-Moves a 'Final' status Valuation Point to status 'Estimate'.
+Moves a 'Final' status Valuation Point to status 'Estimate'.  Returns the reverted Valuation Point alongside every variant that  finalising it had rejected.
 
 ### Example
 ```csharp
@@ -5346,10 +5348,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ValuationPointDataResponse result = apiInstance.RevertValuationPointToEstimate(scope, code, revertValuationPointDataRequest, navTypeCode, opts: opts);
+                // RevertValuationPointResponse result = apiInstance.RevertValuationPointToEstimate(scope, code, revertValuationPointDataRequest, navTypeCode, opts: opts);
 
                 // [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
-                ValuationPointDataResponse result = apiInstance.RevertValuationPointToEstimate(scope, code, revertValuationPointDataRequest, navTypeCode);
+                RevertValuationPointResponse result = apiInstance.RevertValuationPointToEstimate(scope, code, revertValuationPointDataRequest, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -5370,7 +5372,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
-    ApiResponse<ValuationPointDataResponse> response = apiInstance.RevertValuationPointToEstimateWithHttpInfo(scope, code, revertValuationPointDataRequest, navTypeCode);
+    ApiResponse<RevertValuationPointResponse> response = apiInstance.RevertValuationPointToEstimateWithHttpInfo(scope, code, revertValuationPointDataRequest, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -5394,7 +5396,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**ValuationPointDataResponse**](ValuationPointDataResponse.md)
+[**RevertValuationPointResponse**](RevertValuationPointResponse.md)
 
 ### HTTP request headers
 
@@ -5405,7 +5407,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The updated Valuation Point response as a result of it be marked as Estimate. |  -  |
+| **200** | The reverted Estimate Valuation Point, with every variant resurrected by the revert |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

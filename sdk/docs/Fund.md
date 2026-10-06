@@ -16,7 +16,8 @@ Name | Type | Description | Notes
 **ShortCode** | **string** | A short code for the Fund. A fund structure tags journal entry lines with the short code of the member they originated from, so it should be unique across the funds of one structure. Optional. | [optional] 
 **AborId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **ShareClassInstruments** | [**List&lt;InstrumentResolutionDetail&gt;**](InstrumentResolutionDetail.md) | Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures. | [optional] 
-**Type** | **string** | The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Standalone, Master and Feeder are retained for compatibility; the structural role of a fund now lives on its fund structure node. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA. | [optional] 
+**Type** | **string** | The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Master and Feeder are deprecated: the structural role of a fund now lives on its fund structure node, and a fund with either type cannot be a member of a fund structure. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA. | [optional] 
+**TaxTransparency** | **string** | Whether the Fund is looked through for tax: Transparent passes its income and gains to its holders as their own, Opaque is taxed in its own right. Optional; if not set, a TaxBlocker is Opaque and a CarryVehicle or GPInterestHolder is Transparent. A fund structure requires it on every SPV and AIV member. Available values: Transparent, Opaque. | [optional] 
 **InceptionDate** | **DateTimeOffset** | Inception date of the Fund | 
 **DecimalPlaces** | **int?** | Number of decimal places for reporting | [optional] 
 **YearEndDate** | [**DayMonth**](DayMonth.md) |  | [optional] 
@@ -48,6 +49,7 @@ ResourceId? aborId = new ResourceId();
 
 List<InstrumentResolutionDetail> shareClassInstruments = new List<InstrumentResolutionDetail>();
 string type = "example type";
+string taxTransparency = "example taxTransparency";
 DayMonth? yearEndDate = new DayMonth();
 
 NavType? primaryNavType = new NavType();
@@ -76,6 +78,7 @@ Fund fundInstance = new Fund(
     aborId: aborId,
     shareClassInstruments: shareClassInstruments,
     type: type,
+    taxTransparency: taxTransparency,
     inceptionDate: inceptionDate,
     decimalPlaces: decimalPlaces,
     yearEndDate: yearEndDate,
