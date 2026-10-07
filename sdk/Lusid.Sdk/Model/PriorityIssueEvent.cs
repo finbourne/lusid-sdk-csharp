@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Model
         /// <param name="marketDeadline">The issuer-agent deadline..</param>
         /// <param name="paymentDate">Date on which cash is debited and the new securities are credited..</param>
         /// <param name="securitySettlementDate">Date the security leg settles when it differs from the cash leg. Optional.  When not supplied, transaction-template generation falls back to PaymentDate.</param>
-        /// <param name="subscriptionPrice">The subscription price per new unit. Applies to both SECU and OVER subscriptions.  Must be greater than zero..</param>
+        /// <param name="subscriptionPrice">The subscription price per new unit. Applies to both SECU and OVER subscriptions.  Must be greater than zero. For Bond and ComplexBond it is per unit of face, e.g. 0.97 for 97% of par..</param>
         /// <param name="subscriptionCurrency">Currency of the SubscriptionPrice..</param>
         /// <param name="newInstrument">newInstrument.</param>
         /// <param name="prorationRate">The proration rate applied to OVER subscriptions when the offer is oversubscribed.  Treated as 1 (full allocation) when not supplied. Must be greater than 0 and less than  or equal to 1. SECU basic entitlement is never prorated..</param>
@@ -127,9 +127,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? SecuritySettlementDate { get; set; }
 
         /// <summary>
-        /// The subscription price per new unit. Applies to both SECU and OVER subscriptions.  Must be greater than zero.
+        /// The subscription price per new unit. Applies to both SECU and OVER subscriptions.  Must be greater than zero. For Bond and ComplexBond it is per unit of face, e.g. 0.97 for 97% of par.
         /// </summary>
-        /// <value>The subscription price per new unit. Applies to both SECU and OVER subscriptions.  Must be greater than zero.</value>
+        /// <value>The subscription price per new unit. Applies to both SECU and OVER subscriptions.  Must be greater than zero. For Bond and ComplexBond it is per unit of face, e.g. 0.97 for 97% of par.</value>
         [DataMember(Name = "subscriptionPrice", EmitDefaultValue = true)]
         public decimal SubscriptionPrice { get; set; }
 

@@ -64,7 +64,9 @@ namespace Lusid.Sdk.Model
         /// <param name="propertiesOut">Transaction Properties to set on the outgoing transaction leg, and on the incoming transaction leg when PropertiesIn is absent. Supplying an empty collection for PropertiesIn leaves the incoming leg with no properties..</param>
         /// <param name="propertiesIn">Transaction Properties to set on the incoming transaction leg, replacing rather than adding to PropertiesOut..</param>
         /// <param name="properties">Properties to set on the transfer itself, in the Transfer domain. These are separate from PropertiesOut and PropertiesIn, which are Transaction domain and land on the legs..</param>
-        public CreateTransferRequest(ResourceId transferId = default(ResourceId), ResourceId portfolioIdOut = default(ResourceId), ResourceId portfolioIdIn = default(ResourceId), string instrumentIdentifierOut = default(string), string instrumentIdentifierIn = default(string), string pricingMethod = default(string), string taxLotStructure = default(string), decimal unitsOut = default(decimal), decimal unitsIn = default(decimal), decimal? amountOut = default(decimal?), decimal? weightOut = default(decimal?), DateTimeOffset tradeDateOut = default(DateTimeOffset), DateTimeOffset tradeDateIn = default(DateTimeOffset), DateTimeOffset settlementDateOut = default(DateTimeOffset), DateTimeOffset? settlementDateIn = default(DateTimeOffset?), decimal? exchangeRateOut = default(decimal?), decimal? exchangeRateIn = default(decimal?), decimal? transactionPriceOut = default(decimal?), decimal? transactionPriceIn = default(decimal?), string counterpartyIdOut = default(string), string counterpartyIdIn = default(string), ResourceId custodianAccountIdOut = default(ResourceId), ResourceId custodianAccountIdIn = default(ResourceId), string source = default(string), string accountingMethod = default(string), Dictionary<string, PerpetualProperty> propertiesOut = default(Dictionary<string, PerpetualProperty>), Dictionary<string, PerpetualProperty> propertiesIn = default(Dictionary<string, PerpetualProperty>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
+        /// <param name="transactionToPortfolioRateOut">The rate from the outgoing leg&#39;s trade currency to the outgoing portfolio&#39;s base currency, applied whenever supplied..</param>
+        /// <param name="transactionToPortfolioRateIn">The rate from the incoming leg&#39;s trade currency to the incoming portfolio&#39;s base currency. Required when the two portfolios have different base currencies, and applied whenever supplied..</param>
+        public CreateTransferRequest(ResourceId transferId = default(ResourceId), ResourceId portfolioIdOut = default(ResourceId), ResourceId portfolioIdIn = default(ResourceId), string instrumentIdentifierOut = default(string), string instrumentIdentifierIn = default(string), string pricingMethod = default(string), string taxLotStructure = default(string), decimal unitsOut = default(decimal), decimal unitsIn = default(decimal), decimal? amountOut = default(decimal?), decimal? weightOut = default(decimal?), DateTimeOffset tradeDateOut = default(DateTimeOffset), DateTimeOffset tradeDateIn = default(DateTimeOffset), DateTimeOffset settlementDateOut = default(DateTimeOffset), DateTimeOffset? settlementDateIn = default(DateTimeOffset?), decimal? exchangeRateOut = default(decimal?), decimal? exchangeRateIn = default(decimal?), decimal? transactionPriceOut = default(decimal?), decimal? transactionPriceIn = default(decimal?), string counterpartyIdOut = default(string), string counterpartyIdIn = default(string), ResourceId custodianAccountIdOut = default(ResourceId), ResourceId custodianAccountIdIn = default(ResourceId), string source = default(string), string accountingMethod = default(string), Dictionary<string, PerpetualProperty> propertiesOut = default(Dictionary<string, PerpetualProperty>), Dictionary<string, PerpetualProperty> propertiesIn = default(Dictionary<string, PerpetualProperty>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), decimal? transactionToPortfolioRateOut = default(decimal?), decimal? transactionToPortfolioRateIn = default(decimal?))
         {
             // to ensure "transferId" is required (not null)
             if (transferId == null)
@@ -129,6 +131,8 @@ namespace Lusid.Sdk.Model
             this.PropertiesOut = propertiesOut;
             this.PropertiesIn = propertiesIn;
             this.Properties = properties;
+            this.TransactionToPortfolioRateOut = transactionToPortfolioRateOut;
+            this.TransactionToPortfolioRateIn = transactionToPortfolioRateIn;
         }
 
         /// <summary>
@@ -323,6 +327,20 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, PerpetualProperty> Properties { get; set; }
 
         /// <summary>
+        /// The rate from the outgoing leg&#39;s trade currency to the outgoing portfolio&#39;s base currency, applied whenever supplied.
+        /// </summary>
+        /// <value>The rate from the outgoing leg&#39;s trade currency to the outgoing portfolio&#39;s base currency, applied whenever supplied.</value>
+        [DataMember(Name = "transactionToPortfolioRateOut", EmitDefaultValue = true)]
+        public decimal? TransactionToPortfolioRateOut { get; set; }
+
+        /// <summary>
+        /// The rate from the incoming leg&#39;s trade currency to the incoming portfolio&#39;s base currency. Required when the two portfolios have different base currencies, and applied whenever supplied.
+        /// </summary>
+        /// <value>The rate from the incoming leg&#39;s trade currency to the incoming portfolio&#39;s base currency. Required when the two portfolios have different base currencies, and applied whenever supplied.</value>
+        [DataMember(Name = "transactionToPortfolioRateIn", EmitDefaultValue = true)]
+        public decimal? TransactionToPortfolioRateIn { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -358,6 +376,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  PropertiesOut: ").Append(PropertiesOut).Append("\n");
             sb.Append("  PropertiesIn: ").Append(PropertiesIn).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  TransactionToPortfolioRateOut: ").Append(TransactionToPortfolioRateOut).Append("\n");
+            sb.Append("  TransactionToPortfolioRateIn: ").Append(TransactionToPortfolioRateIn).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -533,6 +553,16 @@ namespace Lusid.Sdk.Model
                     this.Properties != null &&
                     input.Properties != null &&
                     this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
+                    this.TransactionToPortfolioRateOut == input.TransactionToPortfolioRateOut ||
+                    (this.TransactionToPortfolioRateOut != null &&
+                    this.TransactionToPortfolioRateOut.Equals(input.TransactionToPortfolioRateOut))
+                ) && 
+                (
+                    this.TransactionToPortfolioRateIn == input.TransactionToPortfolioRateIn ||
+                    (this.TransactionToPortfolioRateIn != null &&
+                    this.TransactionToPortfolioRateIn.Equals(input.TransactionToPortfolioRateIn))
                 );
         }
 
@@ -650,6 +680,14 @@ namespace Lusid.Sdk.Model
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                }
+                if (this.TransactionToPortfolioRateOut != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionToPortfolioRateOut.GetHashCode();
+                }
+                if (this.TransactionToPortfolioRateIn != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionToPortfolioRateIn.GetHashCode();
                 }
                 return hashCode;
             }

@@ -33,6 +33,8 @@ Name | Type | Description | Notes
 **PropertiesOut** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Transaction Properties to set on the outgoing transaction leg, and on the incoming transaction leg when PropertiesIn is absent. Supplying an empty collection for PropertiesIn leaves the incoming leg with no properties. | [optional] 
 **PropertiesIn** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Transaction Properties to set on the incoming transaction leg, replacing rather than adding to PropertiesOut. | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Properties to set on the transfer itself, in the Transfer domain. These are separate from PropertiesOut and PropertiesIn, which are Transaction domain and land on the legs. | [optional] 
+**TransactionToPortfolioRateOut** | **decimal?** | The rate from the outgoing leg&#39;s trade currency to the outgoing portfolio&#39;s base currency, applied whenever supplied. | [optional] 
+**TransactionToPortfolioRateIn** | **decimal?** | The rate from the incoming leg&#39;s trade currency to the incoming portfolio&#39;s base currency. Required when the two portfolios have different base currencies, and applied whenever supplied. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -87,7 +89,9 @@ CreateTransferRequest createTransferRequestInstance = new CreateTransferRequest(
     accountingMethod: accountingMethod,
     propertiesOut: propertiesOut,
     propertiesIn: propertiesIn,
-    properties: properties);
+    properties: properties,
+    transactionToPortfolioRateOut: transactionToPortfolioRateOut,
+    transactionToPortfolioRateIn: transactionToPortfolioRateIn);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

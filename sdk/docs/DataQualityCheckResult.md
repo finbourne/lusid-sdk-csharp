@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **ResultId** | **string** | Unique, stable identifier for this result, scoped to the check definition, ruleset, rule and breaching  entity. Treat as opaque — composition varies by entityType. | [optional] 
 **PortfolioHolding** | [**PortfolioHoldingResult**](PortfolioHoldingResult.md) |  | [optional] 
 **PortfolioTransaction** | [**PortfolioTransactionResult**](PortfolioTransactionResult.md) |  | [optional] 
+**StructuredResultData** | [**StructuredResultDataResult**](StructuredResultDataResult.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -46,6 +47,8 @@ PortfolioHoldingResult? portfolioHolding = new PortfolioHoldingResult();
 
 PortfolioTransactionResult? portfolioTransaction = new PortfolioTransactionResult();
 
+StructuredResultDataResult? structuredResultData = new StructuredResultDataResult();
+
 
 DataQualityCheckResult dataQualityCheckResultInstance = new DataQualityCheckResult(
     checkDefinitionScope: checkDefinitionScope,
@@ -65,7 +68,8 @@ DataQualityCheckResult dataQualityCheckResultInstance = new DataQualityCheckResu
     errorDetail: errorDetail,
     resultId: resultId,
     portfolioHolding: portfolioHolding,
-    portfolioTransaction: portfolioTransaction);
+    portfolioTransaction: portfolioTransaction,
+    structuredResultData: structuredResultData);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

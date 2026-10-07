@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **LimitIndividualBreachesPerRule** | **int** | The maximum number of individual breaches to return per rule. Defaults to 100 if not specified. | [optional] 
 **PortfolioHoldingDataset** | [**PortfolioHoldingDataset**](PortfolioHoldingDataset.md) |  | [optional] 
 **PortfolioTransactionDataset** | [**PortfolioTransactionDataset**](PortfolioTransactionDataset.md) |  | [optional] 
+**StructuredResultDataset** | [**StructuredResultDataset**](StructuredResultDataset.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -20,12 +21,15 @@ PortfolioHoldingDataset? portfolioHoldingDataset = new PortfolioHoldingDataset()
 
 PortfolioTransactionDataset? portfolioTransactionDataset = new PortfolioTransactionDataset();
 
+StructuredResultDataset? structuredResultDataset = new StructuredResultDataset();
+
 
 RunCheckRequest runCheckRequestInstance = new RunCheckRequest(
     lusidEntityDataset: lusidEntityDataset,
     limitIndividualBreachesPerRule: limitIndividualBreachesPerRule,
     portfolioHoldingDataset: portfolioHoldingDataset,
-    portfolioTransactionDataset: portfolioTransactionDataset);
+    portfolioTransactionDataset: portfolioTransactionDataset,
+    structuredResultDataset: structuredResultDataset);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

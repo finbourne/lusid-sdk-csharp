@@ -48,7 +48,8 @@ namespace Lusid.Sdk.Model
         /// <param name="sequenceNumber">The order of the instrument event relative others on the same date (0 being processed first). Must be non negative..</param>
         /// <param name="participationType">Indicates the type of participation in this event. Default value: Mandatory. Available values: Mandatory, MandatoryWithChoices, Voluntary. (default to &quot;Mandatory&quot;).</param>
         /// <param name="groupCode">The group code that determines the processing order of instrument events with the same effective datetime. Available values: Tier1, Tier2, Tier3, Legacy..</param>
-        public InstrumentEventHolder(string instrumentEventId = default(string), ResourceId corporateActionSourceId = default(ResourceId), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string lusidInstrumentId = default(string), string instrumentScope = default(string), string description = default(string), EventDateRange eventDateRange = default(EventDateRange), InstrumentEvent instrumentEvent = default(InstrumentEvent), List<PerpetualProperty> properties = default(List<PerpetualProperty>), int sequenceNumber = default(int), string participationType = @"Mandatory", string groupCode = default(string))
+        /// <param name="stagedModifications">stagedModifications.</param>
+        public InstrumentEventHolder(string instrumentEventId = default(string), ResourceId corporateActionSourceId = default(ResourceId), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string lusidInstrumentId = default(string), string instrumentScope = default(string), string description = default(string), EventDateRange eventDateRange = default(EventDateRange), InstrumentEvent instrumentEvent = default(InstrumentEvent), List<PerpetualProperty> properties = default(List<PerpetualProperty>), int sequenceNumber = default(int), string participationType = @"Mandatory", string groupCode = default(string), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo))
         {
             // to ensure "instrumentEventId" is required (not null)
             if (instrumentEventId == null)
@@ -98,6 +99,7 @@ namespace Lusid.Sdk.Model
             // use default value if no "participationType" provided
             this.ParticipationType = participationType ?? @"Mandatory";
             this.GroupCode = groupCode;
+            this.StagedModifications = stagedModifications;
         }
 
         /// <summary>
@@ -212,6 +214,12 @@ namespace Lusid.Sdk.Model
         public string GroupCode { get; set; }
 
         /// <summary>
+        /// Gets or Sets StagedModifications
+        /// </summary>
+        [DataMember(Name = "stagedModifications", EmitDefaultValue = false)]
+        public StagedModificationsInfo StagedModifications { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -233,6 +241,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ParticipationType: ").Append(ParticipationType).Append("\n");
             sb.Append("  AsAt: ").Append(AsAt).Append("\n");
             sb.Append("  GroupCode: ").Append(GroupCode).Append("\n");
+            sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -338,6 +347,11 @@ namespace Lusid.Sdk.Model
                     this.GroupCode == input.GroupCode ||
                     (this.GroupCode != null &&
                     this.GroupCode.Equals(input.GroupCode))
+                ) && 
+                (
+                    this.StagedModifications == input.StagedModifications ||
+                    (this.StagedModifications != null &&
+                    this.StagedModifications.Equals(input.StagedModifications))
                 );
         }
 
@@ -402,6 +416,10 @@ namespace Lusid.Sdk.Model
                 if (this.GroupCode != null)
                 {
                     hashCode = (hashCode * 59) + this.GroupCode.GetHashCode();
+                }
+                if (this.StagedModifications != null)
+                {
+                    hashCode = (hashCode * 59) + this.StagedModifications.GetHashCode();
                 }
                 return hashCode;
             }

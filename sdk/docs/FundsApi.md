@@ -4917,7 +4917,7 @@ catch (ApiException e)
 
 <a id="patchfund"></a>
 # **PatchFund**
-> Fund PatchFund (string scope, string code, List<Operation> operation)
+> Fund PatchFund (string scope, string code, List<Operation> operation, DateTimeOrCutLabel? effectiveAt = null)
 
 [EARLY ACCESS] PatchFund: Patch a Fund.
 
@@ -4965,14 +4965,15 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var operation = new List<Operation>(); // List<Operation> | The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label from which the patch applies. If not specified, the patch applies for all time.              Only DisplayName and Description can be patched with an effectiveAt, and the Fund is returned as at that datetime.              A value patched with an effectiveAt stays in force from that datetime. A later patch of the same field without an effectiveAt              changes it only before that datetime; to change it from that datetime, patch it again with the same effectiveAt. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // Fund result = apiInstance.PatchFund(scope, code, operation, opts: opts);
+                // Fund result = apiInstance.PatchFund(scope, code, operation, effectiveAt, opts: opts);
 
                 // [EARLY ACCESS] PatchFund: Patch a Fund.
-                Fund result = apiInstance.PatchFund(scope, code, operation);
+                Fund result = apiInstance.PatchFund(scope, code, operation, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -4993,7 +4994,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] PatchFund: Patch a Fund.
-    ApiResponse<Fund> response = apiInstance.PatchFundWithHttpInfo(scope, code, operation);
+    ApiResponse<Fund> response = apiInstance.PatchFundWithHttpInfo(scope, code, operation, effectiveAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -5013,6 +5014,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **operation** | [**List&lt;Operation&gt;**](Operation.md) | The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label from which the patch applies. If not specified, the patch applies for all time.              Only DisplayName and Description can be patched with an effectiveAt, and the Fund is returned as at that datetime.              A value patched with an effectiveAt stays in force from that datetime. A later patch of the same field without an effectiveAt              changes it only before that datetime; to change it from that datetime, patch it again with the same effectiveAt. | [optional]  |
 
 ### Return type
 

@@ -35,12 +35,14 @@ namespace Lusid.Sdk.Model
         /// <param name="limitIndividualBreachesPerRule">The maximum number of individual breaches to return per rule. Defaults to 100 if not specified..</param>
         /// <param name="portfolioHoldingDataset">portfolioHoldingDataset.</param>
         /// <param name="portfolioTransactionDataset">portfolioTransactionDataset.</param>
-        public RunCheckRequest(LusidEntityDataset lusidEntityDataset = default(LusidEntityDataset), int limitIndividualBreachesPerRule = default(int), PortfolioHoldingDataset portfolioHoldingDataset = default(PortfolioHoldingDataset), PortfolioTransactionDataset portfolioTransactionDataset = default(PortfolioTransactionDataset))
+        /// <param name="structuredResultDataset">structuredResultDataset.</param>
+        public RunCheckRequest(LusidEntityDataset lusidEntityDataset = default(LusidEntityDataset), int limitIndividualBreachesPerRule = default(int), PortfolioHoldingDataset portfolioHoldingDataset = default(PortfolioHoldingDataset), PortfolioTransactionDataset portfolioTransactionDataset = default(PortfolioTransactionDataset), StructuredResultDataset structuredResultDataset = default(StructuredResultDataset))
         {
             this.LusidEntityDataset = lusidEntityDataset;
             this.LimitIndividualBreachesPerRule = limitIndividualBreachesPerRule;
             this.PortfolioHoldingDataset = portfolioHoldingDataset;
             this.PortfolioTransactionDataset = portfolioTransactionDataset;
+            this.StructuredResultDataset = structuredResultDataset;
         }
 
         /// <summary>
@@ -69,6 +71,12 @@ namespace Lusid.Sdk.Model
         public PortfolioTransactionDataset PortfolioTransactionDataset { get; set; }
 
         /// <summary>
+        /// Gets or Sets StructuredResultDataset
+        /// </summary>
+        [DataMember(Name = "structuredResultDataset", EmitDefaultValue = false)]
+        public StructuredResultDataset StructuredResultDataset { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -80,6 +88,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  LimitIndividualBreachesPerRule: ").Append(LimitIndividualBreachesPerRule).Append("\n");
             sb.Append("  PortfolioHoldingDataset: ").Append(PortfolioHoldingDataset).Append("\n");
             sb.Append("  PortfolioTransactionDataset: ").Append(PortfolioTransactionDataset).Append("\n");
+            sb.Append("  StructuredResultDataset: ").Append(StructuredResultDataset).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -133,6 +142,11 @@ namespace Lusid.Sdk.Model
                     this.PortfolioTransactionDataset == input.PortfolioTransactionDataset ||
                     (this.PortfolioTransactionDataset != null &&
                     this.PortfolioTransactionDataset.Equals(input.PortfolioTransactionDataset))
+                ) && 
+                (
+                    this.StructuredResultDataset == input.StructuredResultDataset ||
+                    (this.StructuredResultDataset != null &&
+                    this.StructuredResultDataset.Equals(input.StructuredResultDataset))
                 );
         }
 
@@ -157,6 +171,10 @@ namespace Lusid.Sdk.Model
                 if (this.PortfolioTransactionDataset != null)
                 {
                     hashCode = (hashCode * 59) + this.PortfolioTransactionDataset.GetHashCode();
+                }
+                if (this.StructuredResultDataset != null)
+                {
+                    hashCode = (hashCode * 59) + this.StructuredResultDataset.GetHashCode();
                 }
                 return hashCode;
             }

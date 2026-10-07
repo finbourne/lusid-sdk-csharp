@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **ParticipationType** | **string** | Indicates the type of participation in this event. Default value: Mandatory. Available values: Mandatory, MandatoryWithChoices, Voluntary. | [optional] [default to "Mandatory"]
 **AsAt** | **DateTimeOffset?** | The AsAt time of the instrument event, if available. This is a readonly field and should not be provided on upsert. | [optional] [readonly] 
 **GroupCode** | **string** | The group code that determines the processing order of instrument events with the same effective datetime. Available values: Tier1, Tier2, Tier3, Legacy. | [optional] 
+**StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -37,6 +38,8 @@ InstrumentEvent instrumentEvent = new InstrumentEvent();
 List<PerpetualProperty> properties = new List<PerpetualProperty>();
 string participationType = "example participationType";
 string groupCode = "example groupCode";
+StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
+
 
 InstrumentEventHolder instrumentEventHolderInstance = new InstrumentEventHolder(
     instrumentEventId: instrumentEventId,
@@ -52,7 +55,8 @@ InstrumentEventHolder instrumentEventHolderInstance = new InstrumentEventHolder(
     sequenceNumber: sequenceNumber,
     participationType: participationType,
     asAt: asAt,
-    groupCode: groupCode);
+    groupCode: groupCode,
+    stagedModifications: stagedModifications);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
