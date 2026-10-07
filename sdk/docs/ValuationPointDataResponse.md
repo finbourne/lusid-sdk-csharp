@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **BucketSetResults** | [**List&lt;BucketSetResult&gt;**](BucketSetResult.md) | The bucket set results for the valuation point: for each bucket set, the per-node (fund and share class) buckets and NAV. | [optional] 
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **IsBackfilled** | **bool** | Set to True if the Valuation Point has backfilled bucket set results, False otherwise. | [optional] 
+**ApplyClearDown** | **bool** | Set to True if the Valuation Point applies a clear down, False otherwise. The Valuation Point shows its bucket values before the clear down, and the next Valuation Point opens from the balances after it. | [optional] 
+**Diagnostics** | [**List&lt;ValuationPointDiagnostic&gt;**](ValuationPointDiagnostic.md) | Findings made while striking the valuation point that did not stop it but should be looked at, such as a fund structure holder whose declared sharing percentage in a member has drifted from the share its contributions make of that member&#39;s capital. Absent when there are none. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -36,6 +38,8 @@ List<BucketSetResult> bucketSetResults = new List<BucketSetResult>();
 StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
 
 bool isBackfilled = //"True";
+bool applyClearDown = //"True";
+List<ValuationPointDiagnostic> diagnostics = new List<ValuationPointDiagnostic>();
 List<Link> links = new List<Link>();
 
 ValuationPointDataResponse valuationPointDataResponseInstance = new ValuationPointDataResponse(
@@ -51,6 +55,8 @@ ValuationPointDataResponse valuationPointDataResponseInstance = new ValuationPoi
     bucketSetResults: bucketSetResults,
     stagedModifications: stagedModifications,
     isBackfilled: isBackfilled,
+    applyClearDown: applyClearDown,
+    diagnostics: diagnostics,
     links: links);
 ```
 

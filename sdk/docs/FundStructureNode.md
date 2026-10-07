@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **AllocationBasis** | [**FundStructureAllocationBasis**](FundStructureAllocationBasis.md) |  | [optional] 
 **PnlFlowMode** | **string** | How profit and loss reaches this member from the members it holds. EquityPickup (the default) revalues the position in each held member; BucketFlowThrough receives one line per economic bucket, tagged with its origin; TransactionFlowThrough receives every line, tagged with its origin and path. Available values: EquityPickup, BucketFlowThrough, TransactionFlowThrough. | [optional] 
 **AllocationMapId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**DriftMateriality** | [**FundStructureDriftMateriality**](FundStructureDriftMateriality.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -26,6 +27,8 @@ FundStructureAllocationBasis? allocationBasis = new FundStructureAllocationBasis
 string pnlFlowMode = "example pnlFlowMode";
 ResourceId? allocationMapId = new ResourceId();
 
+FundStructureDriftMateriality? driftMateriality = new FundStructureDriftMateriality();
+
 
 FundStructureNode fundStructureNodeInstance = new FundStructureNode(
     nodeCode: nodeCode,
@@ -34,7 +37,8 @@ FundStructureNode fundStructureNodeInstance = new FundStructureNode(
     role: role,
     allocationBasis: allocationBasis,
     pnlFlowMode: pnlFlowMode,
-    allocationMapId: allocationMapId);
+    allocationMapId: allocationMapId,
+    driftMateriality: driftMateriality);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -43,7 +43,8 @@ namespace Lusid.Sdk.Model
         /// <param name="allocationBasis">allocationBasis.</param>
         /// <param name="pnlFlowMode">How profit and loss reaches this member from the members it holds. EquityPickup (the default) revalues the position in each held member; BucketFlowThrough receives one line per economic bucket, tagged with its origin; TransactionFlowThrough receives every line, tagged with its origin and path. Available values: EquityPickup, BucketFlowThrough, TransactionFlowThrough..</param>
         /// <param name="allocationMapId">allocationMapId.</param>
-        public FundStructureNode(string nodeCode = default(string), string fundScope = default(string), string fundCode = default(string), string role = default(string), FundStructureAllocationBasis allocationBasis = default(FundStructureAllocationBasis), string pnlFlowMode = default(string), ResourceId allocationMapId = default(ResourceId))
+        /// <param name="driftMateriality">driftMateriality.</param>
+        public FundStructureNode(string nodeCode = default(string), string fundScope = default(string), string fundCode = default(string), string role = default(string), FundStructureAllocationBasis allocationBasis = default(FundStructureAllocationBasis), string pnlFlowMode = default(string), ResourceId allocationMapId = default(ResourceId), FundStructureDriftMateriality driftMateriality = default(FundStructureDriftMateriality))
         {
             // to ensure "nodeCode" is required (not null)
             if (nodeCode == null)
@@ -72,6 +73,7 @@ namespace Lusid.Sdk.Model
             this.AllocationBasis = allocationBasis;
             this.PnlFlowMode = pnlFlowMode;
             this.AllocationMapId = allocationMapId;
+            this.DriftMateriality = driftMateriality;
         }
 
         /// <summary>
@@ -122,6 +124,12 @@ namespace Lusid.Sdk.Model
         public ResourceId AllocationMapId { get; set; }
 
         /// <summary>
+        /// Gets or Sets DriftMateriality
+        /// </summary>
+        [DataMember(Name = "driftMateriality", EmitDefaultValue = false)]
+        public FundStructureDriftMateriality DriftMateriality { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -136,6 +144,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AllocationBasis: ").Append(AllocationBasis).Append("\n");
             sb.Append("  PnlFlowMode: ").Append(PnlFlowMode).Append("\n");
             sb.Append("  AllocationMapId: ").Append(AllocationMapId).Append("\n");
+            sb.Append("  DriftMateriality: ").Append(DriftMateriality).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -205,6 +214,11 @@ namespace Lusid.Sdk.Model
                     this.AllocationMapId == input.AllocationMapId ||
                     (this.AllocationMapId != null &&
                     this.AllocationMapId.Equals(input.AllocationMapId))
+                ) && 
+                (
+                    this.DriftMateriality == input.DriftMateriality ||
+                    (this.DriftMateriality != null &&
+                    this.DriftMateriality.Equals(input.DriftMateriality))
                 );
         }
 
@@ -244,6 +258,10 @@ namespace Lusid.Sdk.Model
                 if (this.AllocationMapId != null)
                 {
                     hashCode = (hashCode * 59) + this.AllocationMapId.GetHashCode();
+                }
+                if (this.DriftMateriality != null)
+                {
+                    hashCode = (hashCode * 59) + this.DriftMateriality.GetHashCode();
                 }
                 return hashCode;
             }

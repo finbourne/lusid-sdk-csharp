@@ -48,8 +48,10 @@ namespace Lusid.Sdk.Model
         /// <param name="bucketSetResults">The bucket set results for the valuation point: for each bucket set, the per-node (fund and share class) buckets and NAV..</param>
         /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="isBackfilled">Set to True if the Valuation Point has backfilled bucket set results, False otherwise..</param>
+        /// <param name="applyClearDown">Set to True if the Valuation Point applies a clear down, False otherwise. The Valuation Point shows its bucket values before the clear down, and the next Valuation Point opens from the balances after it..</param>
+        /// <param name="diagnostics">Findings made while striking the valuation point that did not stop it but should be looked at, such as a fund structure holder whose declared sharing percentage in a member has drifted from the share its contributions make of that member&#39;s capital. Absent when there are none..</param>
         /// <param name="links">links.</param>
-        public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), FundDetails fundDetails = default(FundDetails), FundValuationPointData fundValuationPointData = default(FundValuationPointData), List<ShareClassData> shareClassData = default(List<ShareClassData>), string valuationPointCode = default(string), string previousValuationPointCode = default(string), List<ApportionmentBreakdown> apportionmentResults = default(List<ApportionmentBreakdown>), List<BucketSetResult> bucketSetResults = default(List<BucketSetResult>), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isBackfilled = default(bool), List<Link> links = default(List<Link>))
+        public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), FundDetails fundDetails = default(FundDetails), FundValuationPointData fundValuationPointData = default(FundValuationPointData), List<ShareClassData> shareClassData = default(List<ShareClassData>), string valuationPointCode = default(string), string previousValuationPointCode = default(string), List<ApportionmentBreakdown> apportionmentResults = default(List<ApportionmentBreakdown>), List<BucketSetResult> bucketSetResults = default(List<BucketSetResult>), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isBackfilled = default(bool), bool applyClearDown = default(bool), List<ValuationPointDiagnostic> diagnostics = default(List<ValuationPointDiagnostic>), List<Link> links = default(List<Link>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -88,6 +90,8 @@ namespace Lusid.Sdk.Model
             this.BucketSetResults = bucketSetResults;
             this.StagedModifications = stagedModifications;
             this.IsBackfilled = isBackfilled;
+            this.ApplyClearDown = applyClearDown;
+            this.Diagnostics = diagnostics;
             this.Links = links;
         }
 
@@ -173,6 +177,20 @@ namespace Lusid.Sdk.Model
         public bool IsBackfilled { get; set; }
 
         /// <summary>
+        /// Set to True if the Valuation Point applies a clear down, False otherwise. The Valuation Point shows its bucket values before the clear down, and the next Valuation Point opens from the balances after it.
+        /// </summary>
+        /// <value>Set to True if the Valuation Point applies a clear down, False otherwise. The Valuation Point shows its bucket values before the clear down, and the next Valuation Point opens from the balances after it.</value>
+        [DataMember(Name = "applyClearDown", EmitDefaultValue = true)]
+        public bool ApplyClearDown { get; set; }
+
+        /// <summary>
+        /// Findings made while striking the valuation point that did not stop it but should be looked at, such as a fund structure holder whose declared sharing percentage in a member has drifted from the share its contributions make of that member&#39;s capital. Absent when there are none.
+        /// </summary>
+        /// <value>Findings made while striking the valuation point that did not stop it but should be looked at, such as a fund structure holder whose declared sharing percentage in a member has drifted from the share its contributions make of that member&#39;s capital. Absent when there are none.</value>
+        [DataMember(Name = "diagnostics", EmitDefaultValue = true)]
+        public List<ValuationPointDiagnostic> Diagnostics { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -198,6 +216,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  BucketSetResults: ").Append(BucketSetResults).Append("\n");
             sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("  IsBackfilled: ").Append(IsBackfilled).Append("\n");
+            sb.Append("  ApplyClearDown: ").Append(ApplyClearDown).Append("\n");
+            sb.Append("  Diagnostics: ").Append(Diagnostics).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -297,6 +317,16 @@ namespace Lusid.Sdk.Model
                     this.IsBackfilled.Equals(input.IsBackfilled)
                 ) && 
                 (
+                    this.ApplyClearDown == input.ApplyClearDown ||
+                    this.ApplyClearDown.Equals(input.ApplyClearDown)
+                ) && 
+                (
+                    this.Diagnostics == input.Diagnostics ||
+                    this.Diagnostics != null &&
+                    input.Diagnostics != null &&
+                    this.Diagnostics.SequenceEqual(input.Diagnostics)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -358,6 +388,11 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.StagedModifications.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.IsBackfilled.GetHashCode();
+                hashCode = (hashCode * 59) + this.ApplyClearDown.GetHashCode();
+                if (this.Diagnostics != null)
+                {
+                    hashCode = (hashCode * 59) + this.Diagnostics.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

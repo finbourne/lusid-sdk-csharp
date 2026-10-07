@@ -699,7 +699,19 @@ namespace Lusid.Sdk.Model
         /// Enum TotalReturnSwapCashFlowEvent for value: TotalReturnSwapCashFlowEvent
         /// </summary>
         [EnumMember(Value = "TotalReturnSwapCashFlowEvent")]
-        TotalReturnSwapCashFlowEvent = 112
+        TotalReturnSwapCashFlowEvent = 112,
+
+        /// <summary>
+        /// Enum GlobalLoanFacilityReinitialisationEvent for value: GlobalLoanFacilityReinitialisationEvent
+        /// </summary>
+        [EnumMember(Value = "GlobalLoanFacilityReinitialisationEvent")]
+        GlobalLoanFacilityReinitialisationEvent = 113,
+
+        /// <summary>
+        /// Enum InvestorLoanFacilityReinitialisationEvent for value: InvestorLoanFacilityReinitialisationEvent
+        /// </summary>
+        [EnumMember(Value = "InvestorLoanFacilityReinitialisationEvent")]
+        InvestorLoanFacilityReinitialisationEvent = 114
     }
 
 }

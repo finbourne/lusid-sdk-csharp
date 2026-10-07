@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **MarketDataOverrides** | [**MarketDataOverrides**](MarketDataOverrides.md) |  | [optional] 
 **CorporateActionSourceId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Scenario** | [**ScenarioReference**](ScenarioReference.md) |  | [optional] 
+**NotionalDealingCostTableId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -43,6 +44,8 @@ ResourceId? corporateActionSourceId = new ResourceId();
 
 ScenarioReference? scenario = new ScenarioReference();
 
+ResourceId? notionalDealingCostTableId = new ResourceId();
+
 
 ValuationRequest valuationRequestInstance = new ValuationRequest(
     recipeId: recipeId,
@@ -59,7 +62,8 @@ ValuationRequest valuationRequestInstance = new ValuationRequest(
     valuationSchedule: valuationSchedule,
     marketDataOverrides: marketDataOverrides,
     corporateActionSourceId: corporateActionSourceId,
-    scenario: scenario);
+    scenario: scenario,
+    notionalDealingCostTableId: notionalDealingCostTableId);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -51,7 +51,8 @@ namespace Lusid.Sdk.Model
         /// <param name="marketDataOverrides">marketDataOverrides.</param>
         /// <param name="corporateActionSourceId">corporateActionSourceId.</param>
         /// <param name="scenario">scenario.</param>
-        public ValuationRequest(ResourceId recipeId = default(ResourceId), DateTimeOffset? asAt = default(DateTimeOffset?), List<AggregateSpec> metrics = default(List<AggregateSpec>), List<string> groupBy = default(List<string>), List<PropertyFilter> filters = default(List<PropertyFilter>), List<OrderBySpec> sort = default(List<OrderBySpec>), string reportCurrency = default(string), bool equipWithSubtotals = default(bool), bool returnResultAsExpandedTypes = default(bool), OrderFlowConfiguration includeOrderFlow = default(OrderFlowConfiguration), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), ValuationSchedule valuationSchedule = default(ValuationSchedule), MarketDataOverrides marketDataOverrides = default(MarketDataOverrides), ResourceId corporateActionSourceId = default(ResourceId), ScenarioReference scenario = default(ScenarioReference))
+        /// <param name="notionalDealingCostTableId">notionalDealingCostTableId.</param>
+        public ValuationRequest(ResourceId recipeId = default(ResourceId), DateTimeOffset? asAt = default(DateTimeOffset?), List<AggregateSpec> metrics = default(List<AggregateSpec>), List<string> groupBy = default(List<string>), List<PropertyFilter> filters = default(List<PropertyFilter>), List<OrderBySpec> sort = default(List<OrderBySpec>), string reportCurrency = default(string), bool equipWithSubtotals = default(bool), bool returnResultAsExpandedTypes = default(bool), OrderFlowConfiguration includeOrderFlow = default(OrderFlowConfiguration), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), ValuationSchedule valuationSchedule = default(ValuationSchedule), MarketDataOverrides marketDataOverrides = default(MarketDataOverrides), ResourceId corporateActionSourceId = default(ResourceId), ScenarioReference scenario = default(ScenarioReference), ResourceId notionalDealingCostTableId = default(ResourceId))
         {
             // to ensure "recipeId" is required (not null)
             if (recipeId == null)
@@ -88,6 +89,7 @@ namespace Lusid.Sdk.Model
             this.MarketDataOverrides = marketDataOverrides;
             this.CorporateActionSourceId = corporateActionSourceId;
             this.Scenario = scenario;
+            this.NotionalDealingCostTableId = notionalDealingCostTableId;
         }
 
         /// <summary>
@@ -190,6 +192,12 @@ namespace Lusid.Sdk.Model
         public ScenarioReference Scenario { get; set; }
 
         /// <summary>
+        /// Gets or Sets NotionalDealingCostTableId
+        /// </summary>
+        [DataMember(Name = "notionalDealingCostTableId", EmitDefaultValue = false)]
+        public ResourceId NotionalDealingCostTableId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -212,6 +220,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  MarketDataOverrides: ").Append(MarketDataOverrides).Append("\n");
             sb.Append("  CorporateActionSourceId: ").Append(CorporateActionSourceId).Append("\n");
             sb.Append("  Scenario: ").Append(Scenario).Append("\n");
+            sb.Append("  NotionalDealingCostTableId: ").Append(NotionalDealingCostTableId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -324,6 +333,11 @@ namespace Lusid.Sdk.Model
                     this.Scenario == input.Scenario ||
                     (this.Scenario != null &&
                     this.Scenario.Equals(input.Scenario))
+                ) && 
+                (
+                    this.NotionalDealingCostTableId == input.NotionalDealingCostTableId ||
+                    (this.NotionalDealingCostTableId != null &&
+                    this.NotionalDealingCostTableId.Equals(input.NotionalDealingCostTableId))
                 );
         }
 
@@ -389,6 +403,10 @@ namespace Lusid.Sdk.Model
                 if (this.Scenario != null)
                 {
                     hashCode = (hashCode * 59) + this.Scenario.GetHashCode();
+                }
+                if (this.NotionalDealingCostTableId != null)
+                {
+                    hashCode = (hashCode * 59) + this.NotionalDealingCostTableId.GetHashCode();
                 }
                 return hashCode;
             }
