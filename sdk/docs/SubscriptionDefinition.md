@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **TimelineId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **AddressKeys** | **List&lt;string&gt;** | The set of addresses the subscriber wishes to receive. | [optional] 
 **ByTaxLots** | **bool** |  | [optional] 
-**SubscriptionType** | **string** | The kind of data the subscription streams, defaulting to holdings: before/after effects per  holding (holdings), the transactions themselves (transactions), or each changed holding&#39;s  complete current state (positions). Address keys and byTaxLots are not valid for a  transactions subscription. Available values: Holdings, Transactions, Positions. | [optional] 
+**SubscriptionType** | **string** | Required. The kind of data the subscription streams: before/after effects per  holding (holdings), the transactions themselves (transactions), or each changed holding&#39;s  complete current state (positions). Address keys and byTaxLots are not valid for a  transactions subscription. Available values: Holdings, Transactions, Positions. | 
 **StartEffectiveAt** | **DateTimeOffset?** |  | [optional] 
 **EndEffectiveAt** | **DateTimeOffset?** | Deprecated and no longer honoured: a fixed forward date stops being a forward view once  the live edge passes it. Use effectiveForwardDays instead. Still accepted and echoed back  so existing subscriptions keep round-tripping. | [optional] 
 **EffectiveForwardDays** | **int?** | How far forward the subscription reports, as a number of calendar days past the live  edge — a rolling forward view that advances as time passes. | [optional] 
@@ -30,7 +30,7 @@ ResourceId? timelineId = new ResourceId();
 
 List<string> addressKeys = new List<string>();
 bool byTaxLots = //"True";
-string subscriptionType = "example subscriptionType";
+string subscriptionType = "subscriptionType";
 
 SubscriptionDefinition subscriptionDefinitionInstance = new SubscriptionDefinition(
     scope: scope,

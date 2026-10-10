@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// What the NAV type&#39;s swing pricing rule decided for a valuation point: the net dealing flow it measured, how  it compared with the threshold, and the pricing basis the point was valued on as a result.
+    /// Deprecated and no longer produced; see the share class&#39;s pricing methodology result.  What the NAV type&#39;s swing pricing rule decided for a valuation point: the net dealing flow it measured, how  it compared with the threshold, and the pricing basis the point was valued on as a result.
     /// </summary>
     [DataContract(Name = "SwingPricingDecision")]
     public partial class SwingPricingDecision : IEquatable<SwingPricingDecision>, IValidatableObject

@@ -59,9 +59,11 @@ namespace Lusid.Sdk.Model
         /// <param name="allocationGroups">An optional list of Allocation Group definitions for the Fund..</param>
         /// <param name="shareClasses">An optional list of Share Class definitions for the Fund..</param>
         /// <param name="fundInstrument">fundInstrument.</param>
+        /// <param name="pricingMethodology">pricingMethodology.</param>
+        /// <param name="reportingPrices">Share class prices the Fund publishes at each valuation point under labels of its own, alongside the dealing price, for example a mid price for performance reporting. Optional. Each source other than Mid must be published by the valuation recipe of every active NAV type. Labels must be unique and cannot be dealingPrice, dealingBid or dealingOffer. Patch the list whole at /reportingPrices..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), string shortCode = default(string), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), string taxTransparency = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavType primaryNavType = default(NavType), List<NavType> additionalNavTypes = default(List<NavType>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<ShareClass> shareClasses = default(List<ShareClass>), FundInstrument fundInstrument = default(FundInstrument), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), string shortCode = default(string), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), string taxTransparency = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavType primaryNavType = default(NavType), List<NavType> additionalNavTypes = default(List<NavType>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<ShareClass> shareClasses = default(List<ShareClass>), FundInstrument fundInstrument = default(FundInstrument), PricingMethodology pricingMethodology = default(PricingMethodology), List<ReportingPrice> reportingPrices = default(List<ReportingPrice>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -96,6 +98,8 @@ namespace Lusid.Sdk.Model
             this.AllocationGroups = allocationGroups;
             this.ShareClasses = shareClasses;
             this.FundInstrument = fundInstrument;
+            this.PricingMethodology = pricingMethodology;
+            this.ReportingPrices = reportingPrices;
             this.VarVersion = varVersion;
             this.Links = links;
         }
@@ -256,6 +260,19 @@ namespace Lusid.Sdk.Model
         public FundInstrument FundInstrument { get; set; }
 
         /// <summary>
+        /// Gets or Sets PricingMethodology
+        /// </summary>
+        [DataMember(Name = "pricingMethodology", EmitDefaultValue = false)]
+        public PricingMethodology PricingMethodology { get; set; }
+
+        /// <summary>
+        /// Share class prices the Fund publishes at each valuation point under labels of its own, alongside the dealing price, for example a mid price for performance reporting. Optional. Each source other than Mid must be published by the valuation recipe of every active NAV type. Labels must be unique and cannot be dealingPrice, dealingBid or dealingOffer. Patch the list whole at /reportingPrices.
+        /// </summary>
+        /// <value>Share class prices the Fund publishes at each valuation point under labels of its own, alongside the dealing price, for example a mid price for performance reporting. Optional. Each source other than Mid must be published by the valuation recipe of every active NAV type. Labels must be unique and cannot be dealingPrice, dealingBid or dealingOffer. Patch the list whole at /reportingPrices.</value>
+        [DataMember(Name = "reportingPrices", EmitDefaultValue = true)]
+        public List<ReportingPrice> ReportingPrices { get; set; }
+
+        /// <summary>
         /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
@@ -298,6 +315,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  AllocationGroups: ").Append(AllocationGroups).Append("\n");
             sb.Append("  ShareClasses: ").Append(ShareClasses).Append("\n");
             sb.Append("  FundInstrument: ").Append(FundInstrument).Append("\n");
+            sb.Append("  PricingMethodology: ").Append(PricingMethodology).Append("\n");
+            sb.Append("  ReportingPrices: ").Append(ReportingPrices).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -456,6 +475,17 @@ namespace Lusid.Sdk.Model
                     this.FundInstrument.Equals(input.FundInstrument))
                 ) && 
                 (
+                    this.PricingMethodology == input.PricingMethodology ||
+                    (this.PricingMethodology != null &&
+                    this.PricingMethodology.Equals(input.PricingMethodology))
+                ) && 
+                (
+                    this.ReportingPrices == input.ReportingPrices ||
+                    this.ReportingPrices != null &&
+                    input.ReportingPrices != null &&
+                    this.ReportingPrices.SequenceEqual(input.ReportingPrices)
+                ) && 
+                (
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
@@ -565,6 +595,14 @@ namespace Lusid.Sdk.Model
                 if (this.FundInstrument != null)
                 {
                     hashCode = (hashCode * 59) + this.FundInstrument.GetHashCode();
+                }
+                if (this.PricingMethodology != null)
+                {
+                    hashCode = (hashCode * 59) + this.PricingMethodology.GetHashCode();
+                }
+                if (this.ReportingPrices != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReportingPrices.GetHashCode();
                 }
                 if (this.VarVersion != null)
                 {

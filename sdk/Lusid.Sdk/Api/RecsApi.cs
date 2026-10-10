@@ -309,14 +309,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetRecResult: GetRecResult
         /// </summary>
         /// <remarks>
-        /// Retrieve a single rec result by the run it belongs to and its id within that run.
+        /// Retrieve a single rec result by its display id, as it stood in the run named.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceIdType">How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual.</param>
         /// <param name="instanceIdValue">The unique identifier of the rec instance.</param>
         /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</param>
-        /// <param name="runNumber">The run of the instance the result belongs to.</param>
-        /// <param name="id">The id of the rec result within the run, e.g. \&quot;break-3\&quot;.</param>
+        /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
+        /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
         /// <param name="propertyKeys">The property keys to decorate onto the result. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -328,14 +328,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetRecResult: GetRecResult
         /// </summary>
         /// <remarks>
-        /// Retrieve a single rec result by the run it belongs to and its id within that run.
+        /// Retrieve a single rec result by its display id, as it stood in the run named.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceIdType">How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual.</param>
         /// <param name="instanceIdValue">The unique identifier of the rec instance.</param>
         /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</param>
-        /// <param name="runNumber">The run of the instance the result belongs to.</param>
-        /// <param name="id">The id of the rec result within the run, e.g. \&quot;break-3\&quot;.</param>
+        /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
+        /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
         /// <param name="propertyKeys">The property keys to decorate onto the result. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -536,7 +536,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListRecResults: ListRecResults
         /// </summary>
         /// <remarks>
-        /// List rec results.
+        /// List rec results. A result&#39;s runNumber is the run that last wrote it; a run&#39;s results as they stood are read at that run&#39;s asAt.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list results. Defaults to latest if not specified. (optional)</param>
@@ -554,7 +554,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListRecResults: ListRecResults
         /// </summary>
         /// <remarks>
-        /// List rec results.
+        /// List rec results. A result&#39;s runNumber is the run that last wrote it; a run&#39;s results as they stood are read at that run&#39;s asAt.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list results. Defaults to latest if not specified. (optional)</param>
@@ -1017,14 +1017,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetRecResult: GetRecResult
         /// </summary>
         /// <remarks>
-        /// Retrieve a single rec result by the run it belongs to and its id within that run.
+        /// Retrieve a single rec result by its display id, as it stood in the run named.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceIdType">How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual.</param>
         /// <param name="instanceIdValue">The unique identifier of the rec instance.</param>
         /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</param>
-        /// <param name="runNumber">The run of the instance the result belongs to.</param>
-        /// <param name="id">The id of the rec result within the run, e.g. \&quot;break-3\&quot;.</param>
+        /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
+        /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
         /// <param name="propertyKeys">The property keys to decorate onto the result. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1037,14 +1037,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetRecResult: GetRecResult
         /// </summary>
         /// <remarks>
-        /// Retrieve a single rec result by the run it belongs to and its id within that run.
+        /// Retrieve a single rec result by its display id, as it stood in the run named.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceIdType">How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual.</param>
         /// <param name="instanceIdValue">The unique identifier of the rec instance.</param>
         /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</param>
-        /// <param name="runNumber">The run of the instance the result belongs to.</param>
-        /// <param name="id">The id of the rec result within the run, e.g. \&quot;break-3\&quot;.</param>
+        /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
+        /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
         /// <param name="propertyKeys">The property keys to decorate onto the result. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1258,7 +1258,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListRecResults: ListRecResults
         /// </summary>
         /// <remarks>
-        /// List rec results.
+        /// List rec results. A result&#39;s runNumber is the run that last wrote it; a run&#39;s results as they stood are read at that run&#39;s asAt.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list results. Defaults to latest if not specified. (optional)</param>
@@ -1277,7 +1277,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListRecResults: ListRecResults
         /// </summary>
         /// <remarks>
-        /// List rec results.
+        /// List rec results. A result&#39;s runNumber is the run that last wrote it; a run&#39;s results as they stood are read at that run&#39;s asAt.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list results. Defaults to latest if not specified. (optional)</param>
@@ -3834,14 +3834,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRecResult: GetRecResult Retrieve a single rec result by the run it belongs to and its id within that run.
+        /// [EXPERIMENTAL] GetRecResult: GetRecResult Retrieve a single rec result by its display id, as it stood in the run named.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceIdType">How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual.</param>
         /// <param name="instanceIdValue">The unique identifier of the rec instance.</param>
         /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</param>
-        /// <param name="runNumber">The run of the instance the result belongs to.</param>
-        /// <param name="id">The id of the rec result within the run, e.g. \&quot;break-3\&quot;.</param>
+        /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
+        /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
         /// <param name="propertyKeys">The property keys to decorate onto the result. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3854,14 +3854,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRecResult: GetRecResult Retrieve a single rec result by the run it belongs to and its id within that run.
+        /// [EXPERIMENTAL] GetRecResult: GetRecResult Retrieve a single rec result by its display id, as it stood in the run named.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceIdType">How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual.</param>
         /// <param name="instanceIdValue">The unique identifier of the rec instance.</param>
         /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</param>
-        /// <param name="runNumber">The run of the instance the result belongs to.</param>
-        /// <param name="id">The id of the rec result within the run, e.g. \&quot;break-3\&quot;.</param>
+        /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
+        /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
         /// <param name="propertyKeys">The property keys to decorate onto the result. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3978,14 +3978,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRecResult: GetRecResult Retrieve a single rec result by the run it belongs to and its id within that run.
+        /// [EXPERIMENTAL] GetRecResult: GetRecResult Retrieve a single rec result by its display id, as it stood in the run named.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceIdType">How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual.</param>
         /// <param name="instanceIdValue">The unique identifier of the rec instance.</param>
         /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</param>
-        /// <param name="runNumber">The run of the instance the result belongs to.</param>
-        /// <param name="id">The id of the rec result within the run, e.g. \&quot;break-3\&quot;.</param>
+        /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
+        /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
         /// <param name="propertyKeys">The property keys to decorate onto the result. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3999,14 +3999,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRecResult: GetRecResult Retrieve a single rec result by the run it belongs to and its id within that run.
+        /// [EXPERIMENTAL] GetRecResult: GetRecResult Retrieve a single rec result by its display id, as it stood in the run named.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceIdType">How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual.</param>
         /// <param name="instanceIdValue">The unique identifier of the rec instance.</param>
         /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</param>
-        /// <param name="runNumber">The run of the instance the result belongs to.</param>
-        /// <param name="id">The id of the rec result within the run, e.g. \&quot;break-3\&quot;.</param>
+        /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
+        /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
         /// <param name="propertyKeys">The property keys to decorate onto the result. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -5596,7 +5596,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListRecResults: ListRecResults List rec results.
+        /// [EXPERIMENTAL] ListRecResults: ListRecResults List rec results. A result&#39;s runNumber is the run that last wrote it; a run&#39;s results as they stood are read at that run&#39;s asAt.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list results. Defaults to latest if not specified. (optional)</param>
@@ -5615,7 +5615,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListRecResults: ListRecResults List rec results.
+        /// [EXPERIMENTAL] ListRecResults: ListRecResults List rec results. A result&#39;s runNumber is the run that last wrote it; a run&#39;s results as they stood are read at that run&#39;s asAt.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list results. Defaults to latest if not specified. (optional)</param>
@@ -5729,7 +5729,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListRecResults: ListRecResults List rec results.
+        /// [EXPERIMENTAL] ListRecResults: ListRecResults List rec results. A result&#39;s runNumber is the run that last wrote it; a run&#39;s results as they stood are read at that run&#39;s asAt.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list results. Defaults to latest if not specified. (optional)</param>
@@ -5749,7 +5749,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListRecResults: ListRecResults List rec results.
+        /// [EXPERIMENTAL] ListRecResults: ListRecResults List rec results. A result&#39;s runNumber is the run that last wrote it; a run&#39;s results as they stood are read at that run&#39;s asAt.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list results. Defaults to latest if not specified. (optional)</param>

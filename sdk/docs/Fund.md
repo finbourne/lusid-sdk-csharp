@@ -28,6 +28,8 @@ Name | Type | Description | Notes
 **AllocationGroups** | [**List&lt;AllocationGroup&gt;**](AllocationGroup.md) | An optional list of Allocation Group definitions for the Fund. | [optional] 
 **ShareClasses** | [**List&lt;ShareClass&gt;**](ShareClass.md) | An optional list of Share Class definitions for the Fund. | [optional] 
 **FundInstrument** | [**FundInstrument**](FundInstrument.md) |  | [optional] 
+**PricingMethodology** | [**PricingMethodology**](PricingMethodology.md) |  | [optional] 
+**ReportingPrices** | [**List&lt;ReportingPrice&gt;**](ReportingPrice.md) | Share class prices the Fund publishes at each valuation point under labels of its own, alongside the dealing price, for example a mid price for performance reporting. Optional. Each source other than Mid must be published by the valuation recipe of every active NAV type. Labels must be unique and cannot be dealingPrice, dealingBid or dealingOffer. Patch the list whole at /reportingPrices. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
@@ -61,6 +63,9 @@ List<AllocationGroup> allocationGroups = new List<AllocationGroup>();
 List<ShareClass> shareClasses = new List<ShareClass>();
 FundInstrument? fundInstrument = new FundInstrument();
 
+PricingMethodology? pricingMethodology = new PricingMethodology();
+
+List<ReportingPrice> reportingPrices = new List<ReportingPrice>();
 ModelVersion? varVersion = new ModelVersion();
 
 List<Link> links = new List<Link>();
@@ -89,6 +94,8 @@ Fund fundInstance = new Fund(
     allocationGroups: allocationGroups,
     shareClasses: shareClasses,
     fundInstrument: fundInstrument,
+    pricingMethodology: pricingMethodology,
+    reportingPrices: reportingPrices,
     varVersion: varVersion,
     links: links);
 ```

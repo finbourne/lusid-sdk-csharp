@@ -122,7 +122,7 @@ namespace Lusid.Sdk.Model
         /// <param name="cancelDateTime">If the transaction has been cancelled, the asAt datetime that the transaction was cancelled..</param>
         /// <param name="realisedGainLoss">The collection of realised gains or losses resulting from relevant transactions e.g. a sale transaction. The cost used in calculating the realised gain or loss is determined by the accounting method defined when the transaction portfolio is created..</param>
         /// <param name="holdingIds">The collection of single identifiers for the holding within the portfolio. The holdingId is constructed from the LusidInstrumentId, sub-holding keys and currrency and is unique within the portfolio..</param>
-        /// <param name="sourceType">The type of source that the transaction originated from. Available values: Unknown, InputTransaction, InstrumentEvent, HoldingAdjustment, OverriddenVirtualTransaction..</param>
+        /// <param name="sourceType">The type of source that the transaction originated from. Available values: Unknown, InputTransaction, InstrumentEvent, HoldingAdjustment, OverriddenVirtualTransaction, Reversal..</param>
         /// <param name="sourceInstrumentEventId">The unique ID of the instrument event that the transaction is related to..</param>
         /// <param name="custodianAccount">custodianAccount.</param>
         /// <param name="transactionGroupId">The identifier for grouping economic events across multiple transactions.</param>
@@ -359,9 +359,9 @@ namespace Lusid.Sdk.Model
         public List<long> HoldingIds { get; set; }
 
         /// <summary>
-        /// The type of source that the transaction originated from. Available values: Unknown, InputTransaction, InstrumentEvent, HoldingAdjustment, OverriddenVirtualTransaction.
+        /// The type of source that the transaction originated from. Available values: Unknown, InputTransaction, InstrumentEvent, HoldingAdjustment, OverriddenVirtualTransaction, Reversal.
         /// </summary>
-        /// <value>The type of source that the transaction originated from. Available values: Unknown, InputTransaction, InstrumentEvent, HoldingAdjustment, OverriddenVirtualTransaction.</value>
+        /// <value>The type of source that the transaction originated from. Available values: Unknown, InputTransaction, InstrumentEvent, HoldingAdjustment, OverriddenVirtualTransaction, Reversal.</value>
         [DataMember(Name = "sourceType", EmitDefaultValue = true)]
         public string SourceType { get; set; }
 

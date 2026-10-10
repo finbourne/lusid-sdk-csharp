@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the diary entry. | [optional] 
 **ApplyClearDown** | **bool?** | Defaults to null. Set to true if you want the closed period to have the clear down applied. | [optional] 
 **UpdateInclusionDateNavAdjustments** | **bool?** | Defaults to null. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities. | [optional] 
+**PricingMethodologyOverride** | [**PricingMethodologyOverrideRequest**](PricingMethodologyOverrideRequest.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -22,6 +23,8 @@ string name = "example name";
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 bool? applyClearDown = //"True";
 bool? updateInclusionDateNavAdjustments = //"True";
+PricingMethodologyOverrideRequest? pricingMethodologyOverride = new PricingMethodologyOverrideRequest();
+
 
 UpdateValuationPointRequest updateValuationPointRequestInstance = new UpdateValuationPointRequest(
     valuationPointCode: valuationPointCode,
@@ -29,7 +32,8 @@ UpdateValuationPointRequest updateValuationPointRequestInstance = new UpdateValu
     name: name,
     properties: properties,
     applyClearDown: applyClearDown,
-    updateInclusionDateNavAdjustments: updateInclusionDateNavAdjustments);
+    updateInclusionDateNavAdjustments: updateInclusionDateNavAdjustments,
+    pricingMethodologyOverride: pricingMethodologyOverride);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

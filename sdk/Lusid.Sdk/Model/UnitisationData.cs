@@ -39,11 +39,19 @@ namespace Lusid.Sdk.Model
         /// <param name="sharesInIssue">The number of shares in issue at a valuation point. (required).</param>
         /// <param name="unitPrice">The price of one unit of the share class at a valuation point. (required).</param>
         /// <param name="netDealingUnits">The net dealing in units for the share class at a valuation point. This could be the sum of negative redemptions (in units) and positive subscriptions (in units). (required).</param>
-        public UnitisationData(decimal sharesInIssue = default(decimal), decimal unitPrice = default(decimal), decimal netDealingUnits = default(decimal))
+        /// <param name="bidPrice">The price of one unit of the share class on the bid side at a valuation point: the class&#39;s NAV with the fund&#39;s holdings marked at their bid prices. Equal to the unit price when the fund is struck on the bid. Absent when a holding&#39;s bid could not be priced..</param>
+        /// <param name="offerPrice">The price of one unit of the share class on the offer side at a valuation point: the class&#39;s NAV with the fund&#39;s holdings marked at their ask prices. Equal to the unit price when the fund is struck on the ask. Absent when a holding&#39;s ask could not be priced..</param>
+        /// <param name="bidPriceIncNdc">The bid price of one unit of the share class less the class&#39;s share of the notional dealing costs of selling the fund&#39;s holdings, at a valuation point. Absent when the NAV type has no notional dealing cost table..</param>
+        /// <param name="offerPriceIncNdc">The offer price of one unit of the share class plus the class&#39;s share of the notional dealing costs of buying the fund&#39;s holdings, at a valuation point. Absent when the NAV type has no notional dealing cost table..</param>
+        public UnitisationData(decimal sharesInIssue = default(decimal), decimal unitPrice = default(decimal), decimal netDealingUnits = default(decimal), decimal? bidPrice = default(decimal?), decimal? offerPrice = default(decimal?), decimal? bidPriceIncNdc = default(decimal?), decimal? offerPriceIncNdc = default(decimal?))
         {
             this.SharesInIssue = sharesInIssue;
             this.UnitPrice = unitPrice;
             this.NetDealingUnits = netDealingUnits;
+            this.BidPrice = bidPrice;
+            this.OfferPrice = offerPrice;
+            this.BidPriceIncNdc = bidPriceIncNdc;
+            this.OfferPriceIncNdc = offerPriceIncNdc;
         }
 
         /// <summary>
@@ -68,6 +76,34 @@ namespace Lusid.Sdk.Model
         public decimal NetDealingUnits { get; set; }
 
         /// <summary>
+        /// The price of one unit of the share class on the bid side at a valuation point: the class&#39;s NAV with the fund&#39;s holdings marked at their bid prices. Equal to the unit price when the fund is struck on the bid. Absent when a holding&#39;s bid could not be priced.
+        /// </summary>
+        /// <value>The price of one unit of the share class on the bid side at a valuation point: the class&#39;s NAV with the fund&#39;s holdings marked at their bid prices. Equal to the unit price when the fund is struck on the bid. Absent when a holding&#39;s bid could not be priced.</value>
+        [DataMember(Name = "bidPrice", EmitDefaultValue = true)]
+        public decimal? BidPrice { get; set; }
+
+        /// <summary>
+        /// The price of one unit of the share class on the offer side at a valuation point: the class&#39;s NAV with the fund&#39;s holdings marked at their ask prices. Equal to the unit price when the fund is struck on the ask. Absent when a holding&#39;s ask could not be priced.
+        /// </summary>
+        /// <value>The price of one unit of the share class on the offer side at a valuation point: the class&#39;s NAV with the fund&#39;s holdings marked at their ask prices. Equal to the unit price when the fund is struck on the ask. Absent when a holding&#39;s ask could not be priced.</value>
+        [DataMember(Name = "offerPrice", EmitDefaultValue = true)]
+        public decimal? OfferPrice { get; set; }
+
+        /// <summary>
+        /// The bid price of one unit of the share class less the class&#39;s share of the notional dealing costs of selling the fund&#39;s holdings, at a valuation point. Absent when the NAV type has no notional dealing cost table.
+        /// </summary>
+        /// <value>The bid price of one unit of the share class less the class&#39;s share of the notional dealing costs of selling the fund&#39;s holdings, at a valuation point. Absent when the NAV type has no notional dealing cost table.</value>
+        [DataMember(Name = "bidPriceIncNdc", EmitDefaultValue = true)]
+        public decimal? BidPriceIncNdc { get; set; }
+
+        /// <summary>
+        /// The offer price of one unit of the share class plus the class&#39;s share of the notional dealing costs of buying the fund&#39;s holdings, at a valuation point. Absent when the NAV type has no notional dealing cost table.
+        /// </summary>
+        /// <value>The offer price of one unit of the share class plus the class&#39;s share of the notional dealing costs of buying the fund&#39;s holdings, at a valuation point. Absent when the NAV type has no notional dealing cost table.</value>
+        [DataMember(Name = "offerPriceIncNdc", EmitDefaultValue = true)]
+        public decimal? OfferPriceIncNdc { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -78,6 +114,10 @@ namespace Lusid.Sdk.Model
             sb.Append("  SharesInIssue: ").Append(SharesInIssue).Append("\n");
             sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
             sb.Append("  NetDealingUnits: ").Append(NetDealingUnits).Append("\n");
+            sb.Append("  BidPrice: ").Append(BidPrice).Append("\n");
+            sb.Append("  OfferPrice: ").Append(OfferPrice).Append("\n");
+            sb.Append("  BidPriceIncNdc: ").Append(BidPriceIncNdc).Append("\n");
+            sb.Append("  OfferPriceIncNdc: ").Append(OfferPriceIncNdc).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -124,6 +164,26 @@ namespace Lusid.Sdk.Model
                 (
                     this.NetDealingUnits == input.NetDealingUnits ||
                     this.NetDealingUnits.Equals(input.NetDealingUnits)
+                ) && 
+                (
+                    this.BidPrice == input.BidPrice ||
+                    (this.BidPrice != null &&
+                    this.BidPrice.Equals(input.BidPrice))
+                ) && 
+                (
+                    this.OfferPrice == input.OfferPrice ||
+                    (this.OfferPrice != null &&
+                    this.OfferPrice.Equals(input.OfferPrice))
+                ) && 
+                (
+                    this.BidPriceIncNdc == input.BidPriceIncNdc ||
+                    (this.BidPriceIncNdc != null &&
+                    this.BidPriceIncNdc.Equals(input.BidPriceIncNdc))
+                ) && 
+                (
+                    this.OfferPriceIncNdc == input.OfferPriceIncNdc ||
+                    (this.OfferPriceIncNdc != null &&
+                    this.OfferPriceIncNdc.Equals(input.OfferPriceIncNdc))
                 );
         }
 
@@ -139,6 +199,22 @@ namespace Lusid.Sdk.Model
                 hashCode = (hashCode * 59) + this.SharesInIssue.GetHashCode();
                 hashCode = (hashCode * 59) + this.UnitPrice.GetHashCode();
                 hashCode = (hashCode * 59) + this.NetDealingUnits.GetHashCode();
+                if (this.BidPrice != null)
+                {
+                    hashCode = (hashCode * 59) + this.BidPrice.GetHashCode();
+                }
+                if (this.OfferPrice != null)
+                {
+                    hashCode = (hashCode * 59) + this.OfferPrice.GetHashCode();
+                }
+                if (this.BidPriceIncNdc != null)
+                {
+                    hashCode = (hashCode * 59) + this.BidPriceIncNdc.GetHashCode();
+                }
+                if (this.OfferPriceIncNdc != null)
+                {
+                    hashCode = (hashCode * 59) + this.OfferPriceIncNdc.GetHashCode();
+                }
                 return hashCode;
             }
         }

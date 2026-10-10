@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Consent Event (CONS) — a voluntary corporate action where an issuer seeks approval  from security holders to amend the terms of an outstanding instrument.
+    /// A consent solicitation (CONS) or a bondholder meeting&#39;s fee (BMET): voluntary when holders respond to it, mandatory when it pays a fee to every eligible holder without an instruction.
     /// </summary>
     [DataContract(Name = "ConsentEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
@@ -42,9 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="recordDate">The entitlement determination date..</param>
         /// <param name="responseDeadline">The last date to submit instructions..</param>
         /// <param name="marketDeadline">The issuer-set outer deadline. Must be greater than or equal to ResponseDeadline..</param>
-        /// <param name="earlyResponseDeadline">Deadline for early consent. Required when a CONY-early CashOfferElection is offered.  Must be earlier than ResponseDeadline..</param>
-        /// <param name="paymentDate">Date on which the consent fee is paid. Required when any CashOfferElection is offered..</param>
-        /// <param name="cashOfferElections">List of possible cash offer elections for this event. Each tier (CONY-standard, CONY-early)  is modelled as a separate entry; the election carries the per-unit fee rate and currency..</param>
+        /// <param name="earlyResponseDeadline">Deadline for instructions that qualify for an early fee. Optional. When set, must be earlier than ResponseDeadline. Must be null on a Mandatory event..</param>
+        /// <param name="paymentDate">Date on which the fee is paid. Required when a CashOfferElection or a fee-bearing ConsentGrantedElection is offered; otherwise must be null..</param>
+        /// <param name="cashOfferElections">Options that pay a cash fee to the holder who chooses them, whatever the vote: for example a fee for voting against, for a split vote or for an ineligible-holder confirmation. Keys are free-form and unique across all election lists. The price is quoted per 1,000 of face for bonds (the current notional at the record date: amortised face for a ComplexBond, inflation-adjusted face for an InflationLinkedBond) and per unit for equities and simple instruments. On a Mandatory event, exactly one, both default and chosen..</param>
         /// <param name="lapseElections">List of possible lapse elections for this event (NOAC)..</param>
         /// <param name="consentGrantedElections">List of possible consent-granted elections for this event (CONY), each optionally carrying a consent fee..</param>
         /// <param name="consentDeniedElections">List of possible consent-denied elections for this event (CONN)..</param>
@@ -94,23 +94,23 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset MarketDeadline { get; set; }
 
         /// <summary>
-        /// Deadline for early consent. Required when a CONY-early CashOfferElection is offered.  Must be earlier than ResponseDeadline.
+        /// Deadline for instructions that qualify for an early fee. Optional. When set, must be earlier than ResponseDeadline. Must be null on a Mandatory event.
         /// </summary>
-        /// <value>Deadline for early consent. Required when a CONY-early CashOfferElection is offered.  Must be earlier than ResponseDeadline.</value>
+        /// <value>Deadline for instructions that qualify for an early fee. Optional. When set, must be earlier than ResponseDeadline. Must be null on a Mandatory event.</value>
         [DataMember(Name = "earlyResponseDeadline", EmitDefaultValue = true)]
         public DateTimeOffset? EarlyResponseDeadline { get; set; }
 
         /// <summary>
-        /// Date on which the consent fee is paid. Required when any CashOfferElection is offered.
+        /// Date on which the fee is paid. Required when a CashOfferElection or a fee-bearing ConsentGrantedElection is offered; otherwise must be null.
         /// </summary>
-        /// <value>Date on which the consent fee is paid. Required when any CashOfferElection is offered.</value>
+        /// <value>Date on which the fee is paid. Required when a CashOfferElection or a fee-bearing ConsentGrantedElection is offered; otherwise must be null.</value>
         [DataMember(Name = "paymentDate", EmitDefaultValue = true)]
         public DateTimeOffset? PaymentDate { get; set; }
 
         /// <summary>
-        /// List of possible cash offer elections for this event. Each tier (CONY-standard, CONY-early)  is modelled as a separate entry; the election carries the per-unit fee rate and currency.
+        /// Options that pay a cash fee to the holder who chooses them, whatever the vote: for example a fee for voting against, for a split vote or for an ineligible-holder confirmation. Keys are free-form and unique across all election lists. The price is quoted per 1,000 of face for bonds (the current notional at the record date: amortised face for a ComplexBond, inflation-adjusted face for an InflationLinkedBond) and per unit for equities and simple instruments. On a Mandatory event, exactly one, both default and chosen.
         /// </summary>
-        /// <value>List of possible cash offer elections for this event. Each tier (CONY-standard, CONY-early)  is modelled as a separate entry; the election carries the per-unit fee rate and currency.</value>
+        /// <value>Options that pay a cash fee to the holder who chooses them, whatever the vote: for example a fee for voting against, for a split vote or for an ineligible-holder confirmation. Keys are free-form and unique across all election lists. The price is quoted per 1,000 of face for bonds (the current notional at the record date: amortised face for a ComplexBond, inflation-adjusted face for an InflationLinkedBond) and per unit for equities and simple instruments. On a Mandatory event, exactly one, both default and chosen.</value>
         [DataMember(Name = "cashOfferElections", EmitDefaultValue = true)]
         public List<CashOfferElection> CashOfferElections { get; set; }
 

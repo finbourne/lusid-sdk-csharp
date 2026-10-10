@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Moves a NAV type&#39;s pricing basis with its net dealing flow. When the flow, as a percentage of the previous  valuation point&#39;s NAV, exceeds the threshold the fund is valued on the inflow or outflow basis instead of  the NAV type&#39;s own basis.
+    /// Deprecated and ignored; use the Fund&#39;s pricing methodology.  Moved a NAV type&#39;s pricing basis with its net dealing flow. When the flow, as a percentage of the previous  valuation point&#39;s NAV, exceeded the threshold the fund was valued on the inflow or outflow basis instead of  the NAV type&#39;s own basis.
     /// </summary>
     [DataContract(Name = "SwingPricingRule")]
     public partial class SwingPricingRule : IEquatable<SwingPricingRule>, IValidatableObject

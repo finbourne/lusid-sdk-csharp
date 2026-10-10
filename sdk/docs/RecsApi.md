@@ -1198,7 +1198,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] GetRecResult: GetRecResult
 
-Retrieve a single rec result by the run it belongs to and its id within that run.
+Retrieve a single rec result by its display id, as it stood in the run named.
 
 ### Example
 ```csharp
@@ -1242,8 +1242,8 @@ namespace Examples
             var instanceIdType = "instanceIdType_example";  // string | How the instance was created: \"WorkflowServiceTaskId\" or \"Manual\". Available values: WorkflowServiceTaskId, Manual.
             var instanceIdValue = "instanceIdValue_example";  // string | The unique identifier of the rec instance.
             var recType = "recType_example";  // string | The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.
-            var runNumber = 56;  // int | The run of the instance the result belongs to.
-            var id = "id_example";  // string | The id of the rec result within the run, e.g. \"break-3\".
+            var runNumber = 56;  // int | The run of the instance whose view of the result is read.
+            var id = "id_example";  // string | The display id of the rec result, e.g. \"break-3\".
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | The property keys to decorate onto the result. (optional) 
 
@@ -1294,8 +1294,8 @@ catch (ApiException e)
 | **instanceIdType** | **string** | How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual. |  |
 | **instanceIdValue** | **string** | The unique identifier of the rec instance. |  |
 | **recType** | **string** | The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity. |  |
-| **runNumber** | **int** | The run of the instance the result belongs to. |  |
-| **id** | **string** | The id of the rec result within the run, e.g. \&quot;break-3\&quot;. |  |
+| **runNumber** | **int** | The run of the instance whose view of the result is read. |  |
+| **id** | **string** | The display id of the rec result, e.g. \&quot;break-3\&quot;. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the result. Defaults to latest if not specified. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The property keys to decorate onto the result. | [optional]  |
 
@@ -2048,7 +2048,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] ListRecResults: ListRecResults
 
-List rec results.
+List rec results. A result's runNumber is the run that last wrote it; a run's results as they stood are read at that run's asAt.
 
 ### Example
 ```csharp

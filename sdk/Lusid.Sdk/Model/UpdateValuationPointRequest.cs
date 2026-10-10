@@ -42,7 +42,8 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">A set of properties for the diary entry..</param>
         /// <param name="applyClearDown">Defaults to null. Set to true if you want the closed period to have the clear down applied..</param>
         /// <param name="updateInclusionDateNavAdjustments">Defaults to null. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities..</param>
-        public UpdateValuationPointRequest(string valuationPointCode = default(string), string variant = default(string), string name = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool? applyClearDown = default(bool?), bool? updateInclusionDateNavAdjustments = default(bool?))
+        /// <param name="pricingMethodologyOverride">pricingMethodologyOverride.</param>
+        public UpdateValuationPointRequest(string valuationPointCode = default(string), string variant = default(string), string name = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool? applyClearDown = default(bool?), bool? updateInclusionDateNavAdjustments = default(bool?), PricingMethodologyOverrideRequest pricingMethodologyOverride = default(PricingMethodologyOverrideRequest))
         {
             // to ensure "valuationPointCode" is required (not null)
             if (valuationPointCode == null)
@@ -55,6 +56,7 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this.ApplyClearDown = applyClearDown;
             this.UpdateInclusionDateNavAdjustments = updateInclusionDateNavAdjustments;
+            this.PricingMethodologyOverride = pricingMethodologyOverride;
         }
 
         /// <summary>
@@ -100,6 +102,12 @@ namespace Lusid.Sdk.Model
         public bool? UpdateInclusionDateNavAdjustments { get; set; }
 
         /// <summary>
+        /// Gets or Sets PricingMethodologyOverride
+        /// </summary>
+        [DataMember(Name = "pricingMethodologyOverride", EmitDefaultValue = false)]
+        public PricingMethodologyOverrideRequest PricingMethodologyOverride { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -113,6 +121,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  ApplyClearDown: ").Append(ApplyClearDown).Append("\n");
             sb.Append("  UpdateInclusionDateNavAdjustments: ").Append(UpdateInclusionDateNavAdjustments).Append("\n");
+            sb.Append("  PricingMethodologyOverride: ").Append(PricingMethodologyOverride).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -178,6 +187,11 @@ namespace Lusid.Sdk.Model
                     this.UpdateInclusionDateNavAdjustments == input.UpdateInclusionDateNavAdjustments ||
                     (this.UpdateInclusionDateNavAdjustments != null &&
                     this.UpdateInclusionDateNavAdjustments.Equals(input.UpdateInclusionDateNavAdjustments))
+                ) && 
+                (
+                    this.PricingMethodologyOverride == input.PricingMethodologyOverride ||
+                    (this.PricingMethodologyOverride != null &&
+                    this.PricingMethodologyOverride.Equals(input.PricingMethodologyOverride))
                 );
         }
 
@@ -213,6 +227,10 @@ namespace Lusid.Sdk.Model
                 if (this.UpdateInclusionDateNavAdjustments != null)
                 {
                     hashCode = (hashCode * 59) + this.UpdateInclusionDateNavAdjustments.GetHashCode();
+                }
+                if (this.PricingMethodologyOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.PricingMethodologyOverride.GetHashCode();
                 }
                 return hashCode;
             }

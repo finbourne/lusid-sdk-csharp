@@ -24,6 +24,8 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Fund. | [optional] 
 **CreateInstrument** | **bool** | Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false. | [optional] 
 **ShareClasses** | [**List&lt;ShareClassDefinition&gt;**](ShareClassDefinition.md) | An optional list of Share Class definitions for the Fund. | [optional] 
+**PricingMethodology** | [**PricingMethodology**](PricingMethodology.md) |  | [optional] 
+**ReportingPrices** | [**List&lt;ReportingPrice&gt;**](ReportingPrice.md) | Share class prices the Fund publishes at each valuation point under labels of its own, alongside the dealing price, for example a mid price for performance reporting. Optional. Each source other than Mid must be published by the valuation recipe of every active NAV type. Labels must be unique and cannot be dealingPrice, dealingBid or dealingOffer. Patch the list whole at /reportingPrices. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -46,6 +48,9 @@ List<NavTypeDefinition> additionalNavTypes = new List<NavTypeDefinition>();
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 bool createInstrument = //"True";
 List<ShareClassDefinition> shareClasses = new List<ShareClassDefinition>();
+PricingMethodology? pricingMethodology = new PricingMethodology();
+
+List<ReportingPrice> reportingPrices = new List<ReportingPrice>();
 
 FundDefinitionRequest fundDefinitionRequestInstance = new FundDefinitionRequest(
     code: code,
@@ -66,7 +71,9 @@ FundDefinitionRequest fundDefinitionRequestInstance = new FundDefinitionRequest(
     additionalNavTypes: additionalNavTypes,
     properties: properties,
     createInstrument: createInstrument,
-    shareClasses: shareClasses);
+    shareClasses: shareClasses,
+    pricingMethodology: pricingMethodology,
+    reportingPrices: reportingPrices);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -17,6 +17,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 using System.Reflection;
@@ -112,6 +113,29 @@ namespace Lusid.Sdk.Model
             {
                 return newWritebackSuggestion;
             }
+
+            try
+            {
+                var discriminatorObj = JObject.Parse(jsonString)["writebackType"];
+                string discriminatorValue =  discriminatorObj == null ?string.Empty :discriminatorObj.ToString();
+                switch (discriminatorValue)
+                {
+                    case "SettleExpectedActivity":
+                        newWritebackSuggestion = new WritebackSuggestion(JsonConvert.DeserializeObject<SettleExpectedActivityWritebackSuggestion>(jsonString, WritebackSuggestion.AdditionalPropertiesSerializerSettings));
+                        return newWritebackSuggestion;
+                    case "SettleExpectedActivityWritebackSuggestion":
+                        newWritebackSuggestion = new WritebackSuggestion(JsonConvert.DeserializeObject<SettleExpectedActivityWritebackSuggestion>(jsonString, WritebackSuggestion.AdditionalPropertiesSerializerSettings));
+                        return newWritebackSuggestion;
+                    default:
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for WritebackSuggestion. Possible values: SettleExpectedActivity SettleExpectedActivityWritebackSuggestion", discriminatorValue));
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to parse the json data : `{0}` {1}", jsonString, ex.ToString()));
+            }
+
             int match = 0;
             List<string> matchedTypes = new List<string>();
 

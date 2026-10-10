@@ -55,7 +55,9 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">A set of properties for the Fund..</param>
         /// <param name="createInstrument">Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false..</param>
         /// <param name="shareClasses">An optional list of Share Class definitions for the Fund..</param>
-        public FundDefinitionRequest(string code = default(string), string shortCode = default(string), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId fundConfigurationId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), string taxTransparency = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), NavTypeDefinition primaryNavType = default(NavTypeDefinition), List<NavTypeDefinition> additionalNavTypes = default(List<NavTypeDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), List<ShareClassDefinition> shareClasses = default(List<ShareClassDefinition>))
+        /// <param name="pricingMethodology">pricingMethodology.</param>
+        /// <param name="reportingPrices">Share class prices the Fund publishes at each valuation point under labels of its own, alongside the dealing price, for example a mid price for performance reporting. Optional. Each source other than Mid must be published by the valuation recipe of every active NAV type. Labels must be unique and cannot be dealingPrice, dealingBid or dealingOffer. Patch the list whole at /reportingPrices..</param>
+        public FundDefinitionRequest(string code = default(string), string shortCode = default(string), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId fundConfigurationId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), string taxTransparency = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), NavTypeDefinition primaryNavType = default(NavTypeDefinition), List<NavTypeDefinition> additionalNavTypes = default(List<NavTypeDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), List<ShareClassDefinition> shareClasses = default(List<ShareClassDefinition>), PricingMethodology pricingMethodology = default(PricingMethodology), List<ReportingPrice> reportingPrices = default(List<ReportingPrice>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -106,6 +108,8 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this.CreateInstrument = createInstrument;
             this.ShareClasses = shareClasses;
+            this.PricingMethodology = pricingMethodology;
+            this.ReportingPrices = reportingPrices;
         }
 
         /// <summary>
@@ -240,6 +244,19 @@ namespace Lusid.Sdk.Model
         public List<ShareClassDefinition> ShareClasses { get; set; }
 
         /// <summary>
+        /// Gets or Sets PricingMethodology
+        /// </summary>
+        [DataMember(Name = "pricingMethodology", EmitDefaultValue = false)]
+        public PricingMethodology PricingMethodology { get; set; }
+
+        /// <summary>
+        /// Share class prices the Fund publishes at each valuation point under labels of its own, alongside the dealing price, for example a mid price for performance reporting. Optional. Each source other than Mid must be published by the valuation recipe of every active NAV type. Labels must be unique and cannot be dealingPrice, dealingBid or dealingOffer. Patch the list whole at /reportingPrices.
+        /// </summary>
+        /// <value>Share class prices the Fund publishes at each valuation point under labels of its own, alongside the dealing price, for example a mid price for performance reporting. Optional. Each source other than Mid must be published by the valuation recipe of every active NAV type. Labels must be unique and cannot be dealingPrice, dealingBid or dealingOffer. Patch the list whole at /reportingPrices.</value>
+        [DataMember(Name = "reportingPrices", EmitDefaultValue = true)]
+        public List<ReportingPrice> ReportingPrices { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -266,6 +283,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  CreateInstrument: ").Append(CreateInstrument).Append("\n");
             sb.Append("  ShareClasses: ").Append(ShareClasses).Append("\n");
+            sb.Append("  PricingMethodology: ").Append(PricingMethodology).Append("\n");
+            sb.Append("  ReportingPrices: ").Append(ReportingPrices).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -400,6 +419,17 @@ namespace Lusid.Sdk.Model
                     this.ShareClasses != null &&
                     input.ShareClasses != null &&
                     this.ShareClasses.SequenceEqual(input.ShareClasses)
+                ) && 
+                (
+                    this.PricingMethodology == input.PricingMethodology ||
+                    (this.PricingMethodology != null &&
+                    this.PricingMethodology.Equals(input.PricingMethodology))
+                ) && 
+                (
+                    this.ReportingPrices == input.ReportingPrices ||
+                    this.ReportingPrices != null &&
+                    input.ReportingPrices != null &&
+                    this.ReportingPrices.SequenceEqual(input.ReportingPrices)
                 );
         }
 
@@ -484,6 +514,14 @@ namespace Lusid.Sdk.Model
                 if (this.ShareClasses != null)
                 {
                     hashCode = (hashCode * 59) + this.ShareClasses.GetHashCode();
+                }
+                if (this.PricingMethodology != null)
+                {
+                    hashCode = (hashCode * 59) + this.PricingMethodology.GetHashCode();
+                }
+                if (this.ReportingPrices != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReportingPrices.GetHashCode();
                 }
                 return hashCode;
             }

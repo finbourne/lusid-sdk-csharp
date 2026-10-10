@@ -2363,7 +2363,7 @@ catch (ApiException e)
 
 <a id="geta2bmovements"></a>
 # **GetA2BMovements**
-> VersionedResourceListOfA2BMovementRecord GetA2BMovements (string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = null, string? recipeIdScope = null, string? recipeIdCode = null, List<string>? propertyKeys = null, string? filter = null)
+> VersionedResourceListOfA2BMovementRecord GetA2BMovements (string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = null, string? recipeIdScope = null, string? recipeIdCode = null, List<string>? propertyKeys = null, string? filter = null, bool? splitHeldAndTradingReturns = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
 
 GetA2BMovements: Get an A2B report at the movement level for the given portfolio.
 
@@ -2417,14 +2417,18 @@ namespace Examples
             var recipeIdCode = "recipeIdCode_example";  // string? | The code of the given recipeId (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Instrument\" domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\". (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var splitHeldAndTradingReturns = false;  // bool? | When true, P&L is split into separate Held and Trading returns: Held returns capture              market movement on the starting position, and Trading returns capture profit from buy/sell decisions made during the period.              When false (the default), the standard combined A2B report is returned. Cannot currently be combined with the timeline              parameters (timelineScope, timelineCode, closedPeriodId). (optional)  (default to false)
+            var timelineScope = "timelineScope_example";  // string? | The scope of the timeline to use for loading data per closed period. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the timeline to use for loading data per closed period. (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string? | The closed period ID. If specified, both timelineScope and timelineCode must also be specified.              When provided, the timeline A2B is filtered to only the matching closed period. The fromEffectiveAt and toEffectiveAt              parameters still define the overall query window; the closedPeriodId restricts which closed period's data is returned within that window. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // VersionedResourceListOfA2BMovementRecord result = apiInstance.GetA2BMovements(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter, opts: opts);
+                // VersionedResourceListOfA2BMovementRecord result = apiInstance.GetA2BMovements(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter, splitHeldAndTradingReturns, timelineScope, timelineCode, closedPeriodId, opts: opts);
 
                 // GetA2BMovements: Get an A2B report at the movement level for the given portfolio.
-                VersionedResourceListOfA2BMovementRecord result = apiInstance.GetA2BMovements(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter);
+                VersionedResourceListOfA2BMovementRecord result = apiInstance.GetA2BMovements(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter, splitHeldAndTradingReturns, timelineScope, timelineCode, closedPeriodId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2445,7 +2449,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetA2BMovements: Get an A2B report at the movement level for the given portfolio.
-    ApiResponse<VersionedResourceListOfA2BMovementRecord> response = apiInstance.GetA2BMovementsWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter);
+    ApiResponse<VersionedResourceListOfA2BMovementRecord> response = apiInstance.GetA2BMovementsWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter, splitHeldAndTradingReturns, timelineScope, timelineCode, closedPeriodId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2471,6 +2475,10 @@ catch (ApiException e)
 | **recipeIdCode** | **string?** | The code of the given recipeId | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **splitHeldAndTradingReturns** | **bool?** | When true, P&amp;L is split into separate Held and Trading returns: Held returns capture              market movement on the starting position, and Trading returns capture profit from buy/sell decisions made during the period.              When false (the default), the standard combined A2B report is returned. Cannot currently be combined with the timeline              parameters (timelineScope, timelineCode, closedPeriodId). | [optional] [default to false] |
+| **timelineScope** | **string?** | The scope of the timeline to use for loading data per closed period. | [optional]  |
+| **timelineCode** | **string?** | The code of the timeline to use for loading data per closed period. | [optional]  |
+| **closedPeriodId** | **string?** | The closed period ID. If specified, both timelineScope and timelineCode must also be specified.              When provided, the timeline A2B is filtered to only the matching closed period. The fromEffectiveAt and toEffectiveAt              parameters still define the overall query window; the closedPeriodId restricts which closed period&#39;s data is returned within that window. | [optional]  |
 
 ### Return type
 
@@ -2497,7 +2505,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] GetA2BMovementsTradingVsHolding: Get an A2B report at the movement level for the given portfolio, with P&L split between holding and trading returns.
 
-Get an A2B report at the movement level for the given portfolio. Each transaction in the period is treated as a  synthetic holding rather than a flow, allowing P&L to be attributed to holding returns (market movement on  the starting position) versus trading returns (profit from buy/sell decisions).
+Get an A2B report at the movement level for the given portfolio. Each transaction in the period is treated as a synthetic holding rather than a flow, allowing P&L to be attributed to holding returns (market movement on the starting position) versus trading returns (profit from buy/sell decisions).    Prefer the standard GetA2BMovements endpoint with splitHeldAndTradingReturns=true, which offers the same capability (not currently combinable with the timeline parameters).
 
 ### Example
 ```csharp

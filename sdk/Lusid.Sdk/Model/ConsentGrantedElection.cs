@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="electionKey">Unique key associated to this election. (required).</param>
         /// <param name="isDefault">Is this election automatically applied in the absence of an election having been made.  May only be true for one election if multiple are provided..</param>
         /// <param name="isChosen">Is this the election that has been explicitly chosen from multiple options..</param>
-        /// <param name="consentFeePrice">Optional. The consent fee paid per unit for granting consent..</param>
+        /// <param name="consentFeePrice">The consent fee, quoted per 1,000 of face for bonds (the current notional at the record date for amortising and inflation-linked bonds) and per unit otherwise..</param>
         /// <param name="consentFeeCurrency">Optional. Currency of the consent fee. Required if a consent fee price is provided..</param>
         public ConsentGrantedElection(string electionKey = default(string), bool isDefault = default(bool), bool isChosen = default(bool), decimal? consentFeePrice = default(decimal?), string consentFeeCurrency = default(string))
         {
@@ -77,9 +77,9 @@ namespace Lusid.Sdk.Model
         public bool IsChosen { get; set; }
 
         /// <summary>
-        /// Optional. The consent fee paid per unit for granting consent.
+        /// The consent fee, quoted per 1,000 of face for bonds (the current notional at the record date for amortising and inflation-linked bonds) and per unit otherwise.
         /// </summary>
-        /// <value>Optional. The consent fee paid per unit for granting consent.</value>
+        /// <value>The consent fee, quoted per 1,000 of face for bonds (the current notional at the record date for amortising and inflation-linked bonds) and per unit otherwise.</value>
         [DataMember(Name = "consentFeePrice", EmitDefaultValue = true)]
         public decimal? ConsentFeePrice { get; set; }
 
