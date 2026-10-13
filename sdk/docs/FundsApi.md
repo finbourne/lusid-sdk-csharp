@@ -7,12 +7,14 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**AcceptEstimateValuationPoint**](FundsApi.md#acceptestimatevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$acceptestimate | [EARLY ACCESS] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. |
 | [**AddAllocationGroups**](FundsApi.md#addallocationgroups) | **POST** /api/funds/{scope}/{code}/allocationgroups | [EARLY ACCESS] AddAllocationGroups: Add Allocation Groups to a Fund. |
 | [**AddSeries**](FundsApi.md#addseries) | **POST** /api/funds/{scope}/{code}/series | [EARLY ACCESS] AddSeries: Add Series to a Fund. |
+| [**CreateFacility**](FundsApi.md#createfacility) | **POST** /api/funds/{scope}/{code}/facilities | [EXPERIMENTAL] CreateFacility: [EXPERIMENTAL] CreateFacility: Create a Facility. |
 | [**CreateFee**](FundsApi.md#createfee) | **POST** /api/funds/{scope}/{code}/fees | [EARLY ACCESS] CreateFee: Create a Fee. |
 | [**CreateFund**](FundsApi.md#createfund) | **POST** /api/funds/{scope} | [EARLY ACCESS] CreateFund: Create a Fund. |
 | [**CreateFundV2**](FundsApi.md#createfundv2) | **POST** /api/funds/v2/{scope} | [EARLY ACCESS] CreateFundV2: Create a Fund V2 (Preview). |
 | [**CreateValuationPoint**](FundsApi.md#createvaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$create | [EARLY ACCESS] CreateValuationPoint: Create a Valuation Point. |
 | [**DeactivateNavTypes**](FundsApi.md#deactivatenavtypes) | **POST** /api/funds/{scope}/{code}/deactivateNavTypes | [EARLY ACCESS] DeactivateNavTypes: Deactivate NAV types on a Fund. |
 | [**DeleteBookmark**](FundsApi.md#deletebookmark) | **DELETE** /api/funds/{scope}/{code}/bookmarks/{bookmarkCode} | [EARLY ACCESS] DeleteBookmark: Delete a Bookmark. |
+| [**DeleteFacility**](FundsApi.md#deletefacility) | **DELETE** /api/funds/{scope}/{code}/facilities/{facilityCode} | [EXPERIMENTAL] DeleteFacility: [EXPERIMENTAL] DeleteFacility: Delete a Facility. |
 | [**DeleteFee**](FundsApi.md#deletefee) | **DELETE** /api/funds/{scope}/{code}/fees/{feeCode} | [EARLY ACCESS] DeleteFee: Delete a Fee. |
 | [**DeleteFund**](FundsApi.md#deletefund) | **DELETE** /api/funds/{scope}/{code} | [EARLY ACCESS] DeleteFund: Delete a Fund. |
 | [**DeleteNavActivityAdjustments**](FundsApi.md#deletenavactivityadjustments) | **POST** /api/funds/{scope}/{code}/navAdjustment/$delete | [EARLY ACCESS] DeleteNavActivityAdjustments: Delete Nav activity adjustments. |
@@ -20,12 +22,15 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**FinaliseCandidateValuationPoint**](FundsApi.md#finalisecandidatevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$finalisecandidate | [EARLY ACCESS] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point. |
 | [**GetA2BDataForFund**](FundsApi.md#geta2bdataforfund) | **POST** /api/funds/{scope}/{code}/valuationpoints/a2b/$query | [EARLY ACCESS] GetA2BDataForFund: Get A2B data for a Fund. |
 | [**GetA2BMovementsForFund**](FundsApi.md#geta2bmovementsforfund) | **POST** /api/funds/{scope}/{code}/valuationpoints/a2bmovements/$query | [EARLY ACCESS] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund. |
+| [**GetFacility**](FundsApi.md#getfacility) | **GET** /api/funds/{scope}/{code}/facilities/{facilityCode} | [EXPERIMENTAL] GetFacility: [EXPERIMENTAL] GetFacility: Get a Facility for a specified Fund. |
 | [**GetFee**](FundsApi.md#getfee) | **GET** /api/funds/{scope}/{code}/fees/{feeCode} | [EARLY ACCESS] GetFee: Get a Fee for a specified Fund. |
 | [**GetFeeProperties**](FundsApi.md#getfeeproperties) | **GET** /api/funds/{scope}/{code}/fees/{feeCode}/properties | [EARLY ACCESS] GetFeeProperties: Get Fee properties. |
 | [**GetFund**](FundsApi.md#getfund) | **GET** /api/funds/{scope}/{code} | [EARLY ACCESS] GetFund: Get a Fund. |
 | [**GetFundProperties**](FundsApi.md#getfundproperties) | **GET** /api/funds/{scope}/{code}/properties | [EARLY ACCESS] GetFundProperties: Get Fund properties. |
 | [**GetHoldingContributorsForFund**](FundsApi.md#getholdingcontributorsforfund) | **POST** /api/funds/{scope}/{code}/holdings/{holdingId}/contributors | [EARLY ACCESS] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund. |
 | [**GetHoldingsForFund**](FundsApi.md#getholdingsforfund) | **POST** /api/funds/{scope}/{code}/$holdings | [EARLY ACCESS] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund. |
+| [**GetPartnerUnfundedReconciliation**](FundsApi.md#getpartnerunfundedreconciliation) | **GET** /api/funds/{scope}/{code}/partners/{investorRecordId}/unfundedreconciliation | [EARLY ACCESS] GetPartnerUnfundedReconciliation: [EARLY ACCESS] GetPartnerUnfundedReconciliation: Get a partner&#39;s unfunded commitment statement. |
+| [**GetPartners**](FundsApi.md#getpartners) | **GET** /api/funds/{scope}/{code}/partners | [EARLY ACCESS] GetPartners: [EARLY ACCESS] GetPartners: Get the partners of a partnership fund. |
 | [**GetValuationForFund**](FundsApi.md#getvaluationforfund) | **POST** /api/funds/{scope}/{code}/$valuation | [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund. |
 | [**GetValuationPointData**](FundsApi.md#getvaluationpointdata) | **POST** /api/funds/{scope}/{code}/valuationpoints/$query | [EARLY ACCESS] GetValuationPointData: Get Valuation Point Data for a Fund. |
 | [**GetValuationPointJournalEntryLines**](FundsApi.md#getvaluationpointjournalentrylines) | **POST** /api/funds/{scope}/{code}/valuationpoints/journalentrylines/$query | [EARLY ACCESS] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund. |
@@ -34,6 +39,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**GetValuationPointTransactions**](FundsApi.md#getvaluationpointtransactions) | **POST** /api/funds/{scope}/{code}/valuationpoints/transactions/$query | [EARLY ACCESS] GetValuationPointTransactions: Get the Transactions for the given Fund. |
 | [**GetValuationPointTrialBalance**](FundsApi.md#getvaluationpointtrialbalance) | **POST** /api/funds/{scope}/{code}/valuationpoints/trialbalance/$query | [EARLY ACCESS] GetValuationPointTrialBalance: Get Trial Balance for the given Fund. |
 | [**GetValuationPointUnsettledTransactions**](FundsApi.md#getvaluationpointunsettledtransactions) | **POST** /api/funds/{scope}/{code}/valuationpoints/unsettledtransactions/$query | [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund. |
+| [**ListFacilities**](FundsApi.md#listfacilities) | **GET** /api/funds/{scope}/{code}/facilities | [EXPERIMENTAL] ListFacilities: [EXPERIMENTAL] ListFacilities: List Facilities for a specified Fund. |
 | [**ListFees**](FundsApi.md#listfees) | **GET** /api/funds/{scope}/{code}/fees | [EARLY ACCESS] ListFees: List Fees for a specified Fund. |
 | [**ListFundCalendar**](FundsApi.md#listfundcalendar) | **GET** /api/funds/{scope}/{code}/calendar | [EARLY ACCESS] ListFundCalendar: List Fund Calendar. |
 | [**ListFundCalendarEntries**](FundsApi.md#listfundcalendarentries) | **GET** /api/funds/{scope}/{code}/calendars | [EARLY ACCESS] ListFundCalendarEntries: List Fund Calendar Entries. |
@@ -406,6 +412,124 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The updated Fund with the added Series. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="createfacility"></a>
+# **CreateFacility**
+> Facility CreateFacility (string scope, string code, FacilityRequest facilityRequest)
+
+[EXPERIMENTAL] CreateFacility: [EXPERIMENTAL] CreateFacility: Create a Facility.
+
+Create the given Facility against a Fund.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var facilityRequest = new FacilityRequest(); // FacilityRequest | The Facility to create.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // Facility result = apiInstance.CreateFacility(scope, code, facilityRequest, opts: opts);
+
+                // [EXPERIMENTAL] CreateFacility: [EXPERIMENTAL] CreateFacility: Create a Facility.
+                Facility result = apiInstance.CreateFacility(scope, code, facilityRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.CreateFacility: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the CreateFacilityWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] CreateFacility: [EXPERIMENTAL] CreateFacility: Create a Facility.
+    ApiResponse<Facility> response = apiInstance.CreateFacilityWithHttpInfo(scope, code, facilityRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.CreateFacilityWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **facilityRequest** | [**FacilityRequest**](FacilityRequest.md) | The Facility to create. |  |
+
+### Return type
+
+[**Facility**](Facility.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | The newly created Facility. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -1118,6 +1242,124 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The datetime that the Bookmark was deleted |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="deletefacility"></a>
+# **DeleteFacility**
+> DeletedEntityResponse DeleteFacility (string scope, string code, string facilityCode)
+
+[EXPERIMENTAL] DeleteFacility: [EXPERIMENTAL] DeleteFacility: Delete a Facility.
+
+Delete the given Facility.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var facilityCode = "facilityCode_example";  // string | The code of the Facility to be deleted.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteFacility(scope, code, facilityCode, opts: opts);
+
+                // [EXPERIMENTAL] DeleteFacility: [EXPERIMENTAL] DeleteFacility: Delete a Facility.
+                DeletedEntityResponse result = apiInstance.DeleteFacility(scope, code, facilityCode);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.DeleteFacility: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DeleteFacilityWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] DeleteFacility: [EXPERIMENTAL] DeleteFacility: Delete a Facility.
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteFacilityWithHttpInfo(scope, code, facilityCode);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.DeleteFacilityWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **facilityCode** | **string** | The code of the Facility to be deleted. |  |
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The datetime that the Facility was deleted |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -1975,6 +2217,128 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
+<a id="getfacility"></a>
+# **GetFacility**
+> Facility GetFacility (string scope, string code, string facilityCode, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
+
+[EXPERIMENTAL] GetFacility: [EXPERIMENTAL] GetFacility: Get a Facility for a specified Fund.
+
+Retrieve a Facility for a specified Fund.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var facilityCode = "facilityCode_example";  // string | The code of the Facility.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the Facility. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Facility. Defaults to returning the latest version of the Facility if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // Facility result = apiInstance.GetFacility(scope, code, facilityCode, effectiveAt, asAt, opts: opts);
+
+                // [EXPERIMENTAL] GetFacility: [EXPERIMENTAL] GetFacility: Get a Facility for a specified Fund.
+                Facility result = apiInstance.GetFacility(scope, code, facilityCode, effectiveAt, asAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.GetFacility: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetFacilityWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetFacility: [EXPERIMENTAL] GetFacility: Get a Facility for a specified Fund.
+    ApiResponse<Facility> response = apiInstance.GetFacilityWithHttpInfo(scope, code, facilityCode, effectiveAt, asAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.GetFacilityWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **facilityCode** | **string** | The code of the Facility. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the Facility. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Facility. Defaults to returning the latest version of the Facility if not specified. | [optional]  |
+
+### Return type
+
+[**Facility**](Facility.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The requested Facility definition. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
 <a id="getfee"></a>
 # **GetFee**
 > Fee GetFee (string scope, string code, string feeCode, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
@@ -2722,6 +3086,256 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The holdings of transaction portfolios for a Fund |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getpartnerunfundedreconciliation"></a>
+# **GetPartnerUnfundedReconciliation**
+> FundPartnerUnfundedReconciliation GetPartnerUnfundedReconciliation (string scope, string code, string investorRecordId, DateTimeOrCutLabel from, DateTimeOrCutLabel? to = null, DateTimeOffset? asAt = null)
+
+[EARLY ACCESS] GetPartnerUnfundedReconciliation: [EARLY ACCESS] GetPartnerUnfundedReconciliation: Get a partner's unfunded commitment statement.
+
+Reconciles one partner's unfunded commitment over a period: the register's opening unfunded, less capital  called inside the commitment, plus recallable distributions, less recallable distributions that expired,  plus or minus commitment changes and transfers, gives the closing unfunded, which is checked against the  register's unfunded at the close. Every booked allocation to the partner in the period is listed with the  ILPA transaction type it is reported under.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var investorRecordId = "investorRecordId_example";  // string | The investor record of the partner.
+            var from = "from_example";  // DateTimeOrCutLabel | The effective datetime or cut label the statement opens at.
+            var to = "to_example";  // DateTimeOrCutLabel? | The effective datetime or cut label the statement closes at. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to read the register and the booked events. Defaults to returning the latest version if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // FundPartnerUnfundedReconciliation result = apiInstance.GetPartnerUnfundedReconciliation(scope, code, investorRecordId, from, to, asAt, opts: opts);
+
+                // [EARLY ACCESS] GetPartnerUnfundedReconciliation: [EARLY ACCESS] GetPartnerUnfundedReconciliation: Get a partner's unfunded commitment statement.
+                FundPartnerUnfundedReconciliation result = apiInstance.GetPartnerUnfundedReconciliation(scope, code, investorRecordId, from, to, asAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.GetPartnerUnfundedReconciliation: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetPartnerUnfundedReconciliationWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetPartnerUnfundedReconciliation: [EARLY ACCESS] GetPartnerUnfundedReconciliation: Get a partner's unfunded commitment statement.
+    ApiResponse<FundPartnerUnfundedReconciliation> response = apiInstance.GetPartnerUnfundedReconciliationWithHttpInfo(scope, code, investorRecordId, from, to, asAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.GetPartnerUnfundedReconciliationWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **investorRecordId** | **string** | The investor record of the partner. |  |
+| **from** | **DateTimeOrCutLabel** | The effective datetime or cut label the statement opens at. |  |
+| **to** | **DateTimeOrCutLabel?** | The effective datetime or cut label the statement closes at. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to read the register and the booked events. Defaults to returning the latest version if not specified. | [optional]  |
+
+### Return type
+
+[**FundPartnerUnfundedReconciliation**](FundPartnerUnfundedReconciliation.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The partner&#39;s unfunded commitment statement over the period. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getpartners"></a>
+# **GetPartners**
+> PagedResourceListOfFundPartner GetPartners (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, bool? includeClosed = null, string? page = null, int? limit = null)
+
+[EARLY ACCESS] GetPartners: [EARLY ACCESS] GetPartners: Get the partners of a partnership fund.
+
+Lists the register lines of a partnership-accounting fund with each partner's capital balances at the  requested effective date, together with totals across the whole register.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to read the register. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to read the register. Defaults to returning the latest version if not specified. (optional) 
+            var includeClosed = true;  // bool? | Whether to include register lines with no remaining commitment or funded capital. Defaults to false. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing partners; this value is returned from the previous call.              If a pagination token is provided, the effectiveAt and asAt fields must not have changed since the original request. (optional) 
+            var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfFundPartner result = apiInstance.GetPartners(scope, code, effectiveAt, asAt, includeClosed, page, limit, opts: opts);
+
+                // [EARLY ACCESS] GetPartners: [EARLY ACCESS] GetPartners: Get the partners of a partnership fund.
+                PagedResourceListOfFundPartner result = apiInstance.GetPartners(scope, code, effectiveAt, asAt, includeClosed, page, limit);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.GetPartners: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetPartnersWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetPartners: [EARLY ACCESS] GetPartners: Get the partners of a partnership fund.
+    ApiResponse<PagedResourceListOfFundPartner> response = apiInstance.GetPartnersWithHttpInfo(scope, code, effectiveAt, asAt, includeClosed, page, limit);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.GetPartnersWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to read the register. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to read the register. Defaults to returning the latest version if not specified. | [optional]  |
+| **includeClosed** | **bool?** | Whether to include register lines with no remaining commitment or funded capital. Defaults to false. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing partners; this value is returned from the previous call.              If a pagination token is provided, the effectiveAt and asAt fields must not have changed since the original request. | [optional]  |
+| **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
+
+### Return type
+
+[**PagedResourceListOfFundPartner**](PagedResourceListOfFundPartner.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The partners of the requested Fund. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -3758,6 +4372,134 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The unsettled transactions for the specified Valuation Point for a Fund. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="listfacilities"></a>
+# **ListFacilities**
+> PagedResourceListOfFacility ListFacilities (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null)
+
+[EXPERIMENTAL] ListFacilities: [EXPERIMENTAL] ListFacilities: List Facilities for a specified Fund.
+
+List all the Facilities matching a particular criteria.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the Facilities. Defaults to the current LUSID              system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Facilities. Defaults to returning the latest version of each Facility if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing facilities; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
+            var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the lender, specify \"lender eq 'Bank'\". For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfFacility result = apiInstance.ListFacilities(scope, code, effectiveAt, asAt, page, limit, filter, sortBy, opts: opts);
+
+                // [EXPERIMENTAL] ListFacilities: [EXPERIMENTAL] ListFacilities: List Facilities for a specified Fund.
+                PagedResourceListOfFacility result = apiInstance.ListFacilities(scope, code, effectiveAt, asAt, page, limit, filter, sortBy);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.ListFacilities: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListFacilitiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ListFacilities: [EXPERIMENTAL] ListFacilities: List Facilities for a specified Fund.
+    ApiResponse<PagedResourceListOfFacility> response = apiInstance.ListFacilitiesWithHttpInfo(scope, code, effectiveAt, asAt, page, limit, filter, sortBy);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.ListFacilitiesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the Facilities. Defaults to the current LUSID              system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Facilities. Defaults to returning the latest version of each Facility if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing facilities; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
+| **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the results.              For example, to filter on the lender, specify \&quot;lender eq &#39;Bank&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
+
+### Return type
+
+[**PagedResourceListOfFacility**](PagedResourceListOfFacility.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The requested Facilities. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

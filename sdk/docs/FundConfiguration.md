@@ -17,6 +17,9 @@ Name | Type | Description | Notes
 **BucketSets** | [**List&lt;BucketSetDefinition&gt;**](BucketSetDefinition.md) | The ordered set of component bucket set definitions for this fund configuration. Each bucket set defines how JE lines are grouped into buckets at VP finalisation. | [optional] 
 **ApportionmentBucketSet** | **string** | The code of the bucket set definition within this fund configuration that is designated as the apportionment bucket set. Must reference a BucketSetDefinition code within the BucketSets collection. | [optional] 
 **ApportionmentMethodProperty** | [**ApportionmentMethodProperty**](ApportionmentMethodProperty.md) |  | [optional] 
+**PartnershipAccounting** | [**PartnershipAccountingConfiguration**](PartnershipAccountingConfiguration.md) |  | [optional] 
+**FundTerms** | [**FundTerms**](FundTerms.md) |  | [optional] 
+**Closings** | [**List&lt;FundClosing&gt;**](FundClosing.md) | The register of fund closings (first close, subsequent closes, final close) for partnership funds using this configuration. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -38,6 +41,11 @@ List<BucketSetDefinition> bucketSets = new List<BucketSetDefinition>();
 string apportionmentBucketSet = "example apportionmentBucketSet";
 ApportionmentMethodProperty? apportionmentMethodProperty = new ApportionmentMethodProperty();
 
+PartnershipAccountingConfiguration? partnershipAccounting = new PartnershipAccountingConfiguration();
+
+FundTerms? fundTerms = new FundTerms();
+
+List<FundClosing> closings = new List<FundClosing>();
 List<Link> links = new List<Link>();
 
 FundConfiguration fundConfigurationInstance = new FundConfiguration(
@@ -54,6 +62,9 @@ FundConfiguration fundConfigurationInstance = new FundConfiguration(
     bucketSets: bucketSets,
     apportionmentBucketSet: apportionmentBucketSet,
     apportionmentMethodProperty: apportionmentMethodProperty,
+    partnershipAccounting: partnershipAccounting,
+    fundTerms: fundTerms,
+    closings: closings,
     links: links);
 ```
 

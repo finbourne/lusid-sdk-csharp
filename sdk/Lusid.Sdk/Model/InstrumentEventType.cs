@@ -711,7 +711,49 @@ namespace Lusid.Sdk.Model
         /// Enum InvestorLoanFacilityReinitialisationEvent for value: InvestorLoanFacilityReinitialisationEvent
         /// </summary>
         [EnumMember(Value = "InvestorLoanFacilityReinitialisationEvent")]
-        InvestorLoanFacilityReinitialisationEvent = 114
+        InvestorLoanFacilityReinitialisationEvent = 114,
+
+        /// <summary>
+        /// Enum CapitalCallReceiptEvent for value: CapitalCallReceiptEvent
+        /// </summary>
+        [EnumMember(Value = "CapitalCallReceiptEvent")]
+        CapitalCallReceiptEvent = 115,
+
+        /// <summary>
+        /// Enum RecallableCapitalExpiryEvent for value: RecallableCapitalExpiryEvent
+        /// </summary>
+        [EnumMember(Value = "RecallableCapitalExpiryEvent")]
+        RecallableCapitalExpiryEvent = 116,
+
+        /// <summary>
+        /// Enum CapitalInterestTransferEvent for value: CapitalInterestTransferEvent
+        /// </summary>
+        [EnumMember(Value = "CapitalInterestTransferEvent")]
+        CapitalInterestTransferEvent = 117,
+
+        /// <summary>
+        /// Enum FacilityDrawEvent for value: FacilityDrawEvent
+        /// </summary>
+        [EnumMember(Value = "FacilityDrawEvent")]
+        FacilityDrawEvent = 118,
+
+        /// <summary>
+        /// Enum FacilityRepaymentEvent for value: FacilityRepaymentEvent
+        /// </summary>
+        [EnumMember(Value = "FacilityRepaymentEvent")]
+        FacilityRepaymentEvent = 119,
+
+        /// <summary>
+        /// Enum FacilityInterestEvent for value: FacilityInterestEvent
+        /// </summary>
+        [EnumMember(Value = "FacilityInterestEvent")]
+        FacilityInterestEvent = 120,
+
+        /// <summary>
+        /// Enum FacilityCommitmentFeeEvent for value: FacilityCommitmentFeeEvent
+        /// </summary>
+        [EnumMember(Value = "FacilityCommitmentFeeEvent")]
+        FacilityCommitmentFeeEvent = 121
     }
 
 }

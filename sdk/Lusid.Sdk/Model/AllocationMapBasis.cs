@@ -31,7 +31,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AllocationMapBasis" /> class.
         /// </summary>
-        /// <param name="kind">How the event is weighted between the participants. ValueWeighted apportions pro rata to each participant&#39;s value; PropertyWeighted apportions pro rata to the property named in &#39;property&#39;; FixedPercentage apportions by the factors in fixedFactors. Available values: ValueWeighted, PropertyWeighted, FixedPercentage..</param>
+        /// <param name="kind">How the event is weighted between the participants. ValueWeighted apportions pro rata to each participant&#39;s value; PropertyWeighted apportions pro rata to the property named in &#39;property&#39;; FixedPercentage apportions by the factors in fixedFactors; FixedAmount takes the supplied basis values as the shares themselves. Committed, CommittedExGP, UncalledCommitment, PaidIn, PaidInForDeal, Recallable and FeeWeightedCommitment apportion pro rata to the corresponding balance on each participant&#39;s register line at the event date. Available values: ValueWeighted, PropertyWeighted, FixedPercentage, Committed, CommittedExGP, UncalledCommitment, PaidIn, PaidInForDeal, Recallable, FeeWeightedCommitment, FixedAmount..</param>
         /// <param name="property">property.</param>
         /// <param name="fixedFactors">For a FixedPercentage basis, the share of the amount each participating investor record takes. At least one is required under that kind, every factor must be positive, and the factors must sum to 1..</param>
         /// <param name="scopedToMember">Whether the basis is evaluated only over amounts booked against the structure member rather than fund-wide..</param>
@@ -44,9 +44,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// How the event is weighted between the participants. ValueWeighted apportions pro rata to each participant&#39;s value; PropertyWeighted apportions pro rata to the property named in &#39;property&#39;; FixedPercentage apportions by the factors in fixedFactors. Available values: ValueWeighted, PropertyWeighted, FixedPercentage.
+        /// How the event is weighted between the participants. ValueWeighted apportions pro rata to each participant&#39;s value; PropertyWeighted apportions pro rata to the property named in &#39;property&#39;; FixedPercentage apportions by the factors in fixedFactors; FixedAmount takes the supplied basis values as the shares themselves. Committed, CommittedExGP, UncalledCommitment, PaidIn, PaidInForDeal, Recallable and FeeWeightedCommitment apportion pro rata to the corresponding balance on each participant&#39;s register line at the event date. Available values: ValueWeighted, PropertyWeighted, FixedPercentage, Committed, CommittedExGP, UncalledCommitment, PaidIn, PaidInForDeal, Recallable, FeeWeightedCommitment, FixedAmount.
         /// </summary>
-        /// <value>How the event is weighted between the participants. ValueWeighted apportions pro rata to each participant&#39;s value; PropertyWeighted apportions pro rata to the property named in &#39;property&#39;; FixedPercentage apportions by the factors in fixedFactors. Available values: ValueWeighted, PropertyWeighted, FixedPercentage.</value>
+        /// <value>How the event is weighted between the participants. ValueWeighted apportions pro rata to each participant&#39;s value; PropertyWeighted apportions pro rata to the property named in &#39;property&#39;; FixedPercentage apportions by the factors in fixedFactors; FixedAmount takes the supplied basis values as the shares themselves. Committed, CommittedExGP, UncalledCommitment, PaidIn, PaidInForDeal, Recallable and FeeWeightedCommitment apportion pro rata to the corresponding balance on each participant&#39;s register line at the event date. Available values: ValueWeighted, PropertyWeighted, FixedPercentage, Committed, CommittedExGP, UncalledCommitment, PaidIn, PaidInForDeal, Recallable, FeeWeightedCommitment, FixedAmount.</value>
         [DataMember(Name = "kind", EmitDefaultValue = true)]
         public string Kind { get; set; }
 

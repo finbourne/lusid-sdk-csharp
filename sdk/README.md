@@ -48,8 +48,13 @@ Class | Method | HTTP request | Description
 *AllocationEventsApi* | [**CreateAllocationEvent**](docs/AllocationEventsApi.md#createallocationevent) | **POST** /api/allocationevents/{scope} | [EXPERIMENTAL] CreateAllocationEvent: Create an Allocation Event.
 *AllocationEventsApi* | [**DeleteAllocationEvent**](docs/AllocationEventsApi.md#deleteallocationevent) | **DELETE** /api/allocationevents/{scope}/{code} | [EXPERIMENTAL] DeleteAllocationEvent: Delete an Allocation Event.
 *AllocationEventsApi* | [**GetAllocationEvent**](docs/AllocationEventsApi.md#getallocationevent) | **GET** /api/allocationevents/{scope}/{code} | [EXPERIMENTAL] GetAllocationEvent: Get an Allocation Event.
+*AllocationEventsApi* | [**GetAllocationEventReceivables**](docs/AllocationEventsApi.md#getallocationeventreceivables) | **GET** /api/allocationevents/{scope}/{code}/receivables | [EXPERIMENTAL] GetAllocationEventReceivables: Get the receivables of an Allocation Event.
 *AllocationEventsApi* | [**ListAllocationEvents**](docs/AllocationEventsApi.md#listallocationevents) | **GET** /api/allocationevents | [EXPERIMENTAL] ListAllocationEvents: List Allocation Events.
+*AllocationEventsApi* | [**PlanAllocationEventBooking**](docs/AllocationEventsApi.md#planallocationeventbooking) | **POST** /api/allocationevents/{scope}/{code}/plan | [EXPERIMENTAL] PlanAllocationEventBooking: Plan the booking of an Allocation Event.
 *AllocationEventsApi* | [**ReallocateAllocationEvent**](docs/AllocationEventsApi.md#reallocateallocationevent) | **POST** /api/allocationevents/{scope}/{code}/reallocate | [EXPERIMENTAL] ReallocateAllocationEvent: Reallocate an Allocation Event.
+*AllocationEventsApi* | [**ReceiveAllocationEvent**](docs/AllocationEventsApi.md#receiveallocationevent) | **POST** /api/allocationevents/{scope}/{code}/receipts | [EXPERIMENTAL] ReceiveAllocationEvent: Record a receipt against an Allocation Event.
+*AllocationEventsApi* | [**ReverseAllocationEvent**](docs/AllocationEventsApi.md#reverseallocationevent) | **POST** /api/allocationevents/{scope}/{code}/reverse | [EXPERIMENTAL] ReverseAllocationEvent: Reverse an Allocation Event.
+*AllocationEventsApi* | [**UnbookAllocationEvent**](docs/AllocationEventsApi.md#unbookallocationevent) | **POST** /api/allocationevents/{scope}/{code}/unbook | [EXPERIMENTAL] UnbookAllocationEvent: Unbook an Allocation Event.
 *AllocationEventsApi* | [**UpsertAllocationEvent**](docs/AllocationEventsApi.md#upsertallocationevent) | **PUT** /api/allocationevents/{scope}/{code} | [EXPERIMENTAL] UpsertAllocationEvent: Upsert an Allocation Event.
 *AllocationMapsApi* | [**AddAllocationMapException**](docs/AllocationMapsApi.md#addallocationmapexception) | **POST** /api/allocationmaps/{scope}/{code}/exceptions | [EXPERIMENTAL] AddAllocationMapException: Add an exception to an Allocation Map.
 *AllocationMapsApi* | [**CreateAllocationMap**](docs/AllocationMapsApi.md#createallocationmap) | **POST** /api/allocationmaps/{scope} | [EXPERIMENTAL] CreateAllocationMap: Create an Allocation Map.
@@ -290,12 +295,14 @@ Class | Method | HTTP request | Description
 *FundsApi* | [**AcceptEstimateValuationPoint**](docs/FundsApi.md#acceptestimatevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$acceptestimate | [EARLY ACCESS] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
 *FundsApi* | [**AddAllocationGroups**](docs/FundsApi.md#addallocationgroups) | **POST** /api/funds/{scope}/{code}/allocationgroups | [EARLY ACCESS] AddAllocationGroups: Add Allocation Groups to a Fund.
 *FundsApi* | [**AddSeries**](docs/FundsApi.md#addseries) | **POST** /api/funds/{scope}/{code}/series | [EARLY ACCESS] AddSeries: Add Series to a Fund.
+*FundsApi* | [**CreateFacility**](docs/FundsApi.md#createfacility) | **POST** /api/funds/{scope}/{code}/facilities | [EXPERIMENTAL] CreateFacility: [EXPERIMENTAL] CreateFacility: Create a Facility.
 *FundsApi* | [**CreateFee**](docs/FundsApi.md#createfee) | **POST** /api/funds/{scope}/{code}/fees | [EARLY ACCESS] CreateFee: Create a Fee.
 *FundsApi* | [**CreateFund**](docs/FundsApi.md#createfund) | **POST** /api/funds/{scope} | [EARLY ACCESS] CreateFund: Create a Fund.
 *FundsApi* | [**CreateFundV2**](docs/FundsApi.md#createfundv2) | **POST** /api/funds/v2/{scope} | [EARLY ACCESS] CreateFundV2: Create a Fund V2 (Preview).
 *FundsApi* | [**CreateValuationPoint**](docs/FundsApi.md#createvaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$create | [EARLY ACCESS] CreateValuationPoint: Create a Valuation Point.
 *FundsApi* | [**DeactivateNavTypes**](docs/FundsApi.md#deactivatenavtypes) | **POST** /api/funds/{scope}/{code}/deactivateNavTypes | [EARLY ACCESS] DeactivateNavTypes: Deactivate NAV types on a Fund.
 *FundsApi* | [**DeleteBookmark**](docs/FundsApi.md#deletebookmark) | **DELETE** /api/funds/{scope}/{code}/bookmarks/{bookmarkCode} | [EARLY ACCESS] DeleteBookmark: Delete a Bookmark.
+*FundsApi* | [**DeleteFacility**](docs/FundsApi.md#deletefacility) | **DELETE** /api/funds/{scope}/{code}/facilities/{facilityCode} | [EXPERIMENTAL] DeleteFacility: [EXPERIMENTAL] DeleteFacility: Delete a Facility.
 *FundsApi* | [**DeleteFee**](docs/FundsApi.md#deletefee) | **DELETE** /api/funds/{scope}/{code}/fees/{feeCode} | [EARLY ACCESS] DeleteFee: Delete a Fee.
 *FundsApi* | [**DeleteFund**](docs/FundsApi.md#deletefund) | **DELETE** /api/funds/{scope}/{code} | [EARLY ACCESS] DeleteFund: Delete a Fund.
 *FundsApi* | [**DeleteNavActivityAdjustments**](docs/FundsApi.md#deletenavactivityadjustments) | **POST** /api/funds/{scope}/{code}/navAdjustment/$delete | [EARLY ACCESS] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
@@ -303,12 +310,15 @@ Class | Method | HTTP request | Description
 *FundsApi* | [**FinaliseCandidateValuationPoint**](docs/FundsApi.md#finalisecandidatevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$finalisecandidate | [EARLY ACCESS] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
 *FundsApi* | [**GetA2BDataForFund**](docs/FundsApi.md#geta2bdataforfund) | **POST** /api/funds/{scope}/{code}/valuationpoints/a2b/$query | [EARLY ACCESS] GetA2BDataForFund: Get A2B data for a Fund.
 *FundsApi* | [**GetA2BMovementsForFund**](docs/FundsApi.md#geta2bmovementsforfund) | **POST** /api/funds/{scope}/{code}/valuationpoints/a2bmovements/$query | [EARLY ACCESS] GetA2BMovementsForFund: Get A2B movements for transaction portfolios in a Fund.
+*FundsApi* | [**GetFacility**](docs/FundsApi.md#getfacility) | **GET** /api/funds/{scope}/{code}/facilities/{facilityCode} | [EXPERIMENTAL] GetFacility: [EXPERIMENTAL] GetFacility: Get a Facility for a specified Fund.
 *FundsApi* | [**GetFee**](docs/FundsApi.md#getfee) | **GET** /api/funds/{scope}/{code}/fees/{feeCode} | [EARLY ACCESS] GetFee: Get a Fee for a specified Fund.
 *FundsApi* | [**GetFeeProperties**](docs/FundsApi.md#getfeeproperties) | **GET** /api/funds/{scope}/{code}/fees/{feeCode}/properties | [EARLY ACCESS] GetFeeProperties: Get Fee properties.
 *FundsApi* | [**GetFund**](docs/FundsApi.md#getfund) | **GET** /api/funds/{scope}/{code} | [EARLY ACCESS] GetFund: Get a Fund.
 *FundsApi* | [**GetFundProperties**](docs/FundsApi.md#getfundproperties) | **GET** /api/funds/{scope}/{code}/properties | [EARLY ACCESS] GetFundProperties: Get Fund properties.
 *FundsApi* | [**GetHoldingContributorsForFund**](docs/FundsApi.md#getholdingcontributorsforfund) | **POST** /api/funds/{scope}/{code}/holdings/{holdingId}/contributors | [EARLY ACCESS] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
 *FundsApi* | [**GetHoldingsForFund**](docs/FundsApi.md#getholdingsforfund) | **POST** /api/funds/{scope}/{code}/$holdings | [EARLY ACCESS] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund.
+*FundsApi* | [**GetPartnerUnfundedReconciliation**](docs/FundsApi.md#getpartnerunfundedreconciliation) | **GET** /api/funds/{scope}/{code}/partners/{investorRecordId}/unfundedreconciliation | [EARLY ACCESS] GetPartnerUnfundedReconciliation: [EARLY ACCESS] GetPartnerUnfundedReconciliation: Get a partner's unfunded commitment statement.
+*FundsApi* | [**GetPartners**](docs/FundsApi.md#getpartners) | **GET** /api/funds/{scope}/{code}/partners | [EARLY ACCESS] GetPartners: [EARLY ACCESS] GetPartners: Get the partners of a partnership fund.
 *FundsApi* | [**GetValuationForFund**](docs/FundsApi.md#getvaluationforfund) | **POST** /api/funds/{scope}/{code}/$valuation | [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund.
 *FundsApi* | [**GetValuationPointData**](docs/FundsApi.md#getvaluationpointdata) | **POST** /api/funds/{scope}/{code}/valuationpoints/$query | [EARLY ACCESS] GetValuationPointData: Get Valuation Point Data for a Fund.
 *FundsApi* | [**GetValuationPointJournalEntryLines**](docs/FundsApi.md#getvaluationpointjournalentrylines) | **POST** /api/funds/{scope}/{code}/valuationpoints/journalentrylines/$query | [EARLY ACCESS] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
@@ -317,6 +327,7 @@ Class | Method | HTTP request | Description
 *FundsApi* | [**GetValuationPointTransactions**](docs/FundsApi.md#getvaluationpointtransactions) | **POST** /api/funds/{scope}/{code}/valuationpoints/transactions/$query | [EARLY ACCESS] GetValuationPointTransactions: Get the Transactions for the given Fund.
 *FundsApi* | [**GetValuationPointTrialBalance**](docs/FundsApi.md#getvaluationpointtrialbalance) | **POST** /api/funds/{scope}/{code}/valuationpoints/trialbalance/$query | [EARLY ACCESS] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
 *FundsApi* | [**GetValuationPointUnsettledTransactions**](docs/FundsApi.md#getvaluationpointunsettledtransactions) | **POST** /api/funds/{scope}/{code}/valuationpoints/unsettledtransactions/$query | [EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
+*FundsApi* | [**ListFacilities**](docs/FundsApi.md#listfacilities) | **GET** /api/funds/{scope}/{code}/facilities | [EXPERIMENTAL] ListFacilities: [EXPERIMENTAL] ListFacilities: List Facilities for a specified Fund.
 *FundsApi* | [**ListFees**](docs/FundsApi.md#listfees) | **GET** /api/funds/{scope}/{code}/fees | [EARLY ACCESS] ListFees: List Fees for a specified Fund.
 *FundsApi* | [**ListFundCalendar**](docs/FundsApi.md#listfundcalendar) | **GET** /api/funds/{scope}/{code}/calendar | [EARLY ACCESS] ListFundCalendar: List Fund Calendar.
 *FundsApi* | [**ListFundCalendarEntries**](docs/FundsApi.md#listfundcalendarentries) | **GET** /api/funds/{scope}/{code}/calendars | [EARLY ACCESS] ListFundCalendarEntries: List Fund Calendar Entries.
@@ -906,9 +917,28 @@ Class | Method | HTTP request | Description
  - [Alias](docs/Alias.md)
  - [Allocation](docs/Allocation.md)
  - [AllocationEvent](docs/AllocationEvent.md)
+ - [AllocationEventBasisDiagnostics](docs/AllocationEventBasisDiagnostics.md)
+ - [AllocationEventBasisWarning](docs/AllocationEventBasisWarning.md)
  - [AllocationEventBookRequest](docs/AllocationEventBookRequest.md)
+ - [AllocationEventBookingError](docs/AllocationEventBookingError.md)
+ - [AllocationEventBookingWarning](docs/AllocationEventBookingWarning.md)
+ - [AllocationEventComponent](docs/AllocationEventComponent.md)
+ - [AllocationEventDealFunding](docs/AllocationEventDealFunding.md)
+ - [AllocationEventEqualisation](docs/AllocationEventEqualisation.md)
+ - [AllocationEventEqualisationFeeCatchUp](docs/AllocationEventEqualisationFeeCatchUp.md)
+ - [AllocationEventEqualisationMark](docs/AllocationEventEqualisationMark.md)
  - [AllocationEventReallocateRequest](docs/AllocationEventReallocateRequest.md)
+ - [AllocationEventReceipt](docs/AllocationEventReceipt.md)
+ - [AllocationEventReceiptRequest](docs/AllocationEventReceiptRequest.md)
+ - [AllocationEventRefund](docs/AllocationEventRefund.md)
  - [AllocationEventRequest](docs/AllocationEventRequest.md)
+ - [AllocationEventReversal](docs/AllocationEventReversal.md)
+ - [AllocationEventReverseRequest](docs/AllocationEventReverseRequest.md)
+ - [AllocationEventRoundingResidual](docs/AllocationEventRoundingResidual.md)
+ - [AllocationEventTransfer](docs/AllocationEventTransfer.md)
+ - [AllocationEventTransferConsideration](docs/AllocationEventTransferConsideration.md)
+ - [AllocationEventUnbookRequest](docs/AllocationEventUnbookRequest.md)
+ - [AllocationEventUseOfProceeds](docs/AllocationEventUseOfProceeds.md)
  - [AllocationGroup](docs/AllocationGroup.md)
  - [AllocationGroupClass](docs/AllocationGroupClass.md)
  - [AllocationGroupClassDefinition](docs/AllocationGroupClassDefinition.md)
@@ -920,10 +950,18 @@ Class | Method | HTTP request | Description
  - [AllocationMapEventBasis](docs/AllocationMapEventBasis.md)
  - [AllocationMapException](docs/AllocationMapException.md)
  - [AllocationMapFixedFactor](docs/AllocationMapFixedFactor.md)
+ - [AllocationMapIlpaTransactionType](docs/AllocationMapIlpaTransactionType.md)
  - [AllocationMapParticipants](docs/AllocationMapParticipants.md)
  - [AllocationMapRequest](docs/AllocationMapRequest.md)
  - [AllocationMapResolution](docs/AllocationMapResolution.md)
  - [AllocationMapResolveRequest](docs/AllocationMapResolveRequest.md)
+ - [AllocationPostingCounts](docs/AllocationPostingCounts.md)
+ - [AllocationPostingFundLine](docs/AllocationPostingFundLine.md)
+ - [AllocationPostingLpLine](docs/AllocationPostingLpLine.md)
+ - [AllocationPostingPlan](docs/AllocationPostingPlan.md)
+ - [AllocationPostingRollUp](docs/AllocationPostingRollUp.md)
+ - [AllocationReceivable](docs/AllocationReceivable.md)
+ - [AllocationReceivablesAgeing](docs/AllocationReceivablesAgeing.md)
  - [AllocationRequest](docs/AllocationRequest.md)
  - [AllocationServiceRunResponse](docs/AllocationServiceRunResponse.md)
  - [AllocationSetRequest](docs/AllocationSetRequest.md)
@@ -1041,11 +1079,15 @@ Class | Method | HTTP request | Description
  - [CancelledOrderResult](docs/CancelledOrderResult.md)
  - [CancelledPlacementResult](docs/CancelledPlacementResult.md)
  - [CapFloor](docs/CapFloor.md)
+ - [CapabilityOverride](docs/CapabilityOverride.md)
  - [CapitalCallEvent](docs/CapitalCallEvent.md)
+ - [CapitalCallReceiptEvent](docs/CapitalCallReceiptEvent.md)
  - [CapitalDistributionEvent](docs/CapitalDistributionEvent.md)
  - [CapitalGainsDistributionEvent](docs/CapitalGainsDistributionEvent.md)
  - [CapitalInterest](docs/CapitalInterest.md)
+ - [CapitalInterestTransferEvent](docs/CapitalInterestTransferEvent.md)
  - [CapletFloorletCashFlowEvent](docs/CapletFloorletCashFlowEvent.md)
+ - [CarryParameters](docs/CarryParameters.md)
  - [Cash](docs/Cash.md)
  - [CashAndSecurityOfferElection](docs/CashAndSecurityOfferElection.md)
  - [CashDependency](docs/CashDependency.md)
@@ -1349,6 +1391,7 @@ Class | Method | HTTP request | Description
  - [EmptyModelOptions](docs/EmptyModelOptions.md)
  - [EntityIdentifier](docs/EntityIdentifier.md)
  - [EntityResolver](docs/EntityResolver.md)
+ - [EqualisationTerms](docs/EqualisationTerms.md)
  - [Equity](docs/Equity.md)
  - [EquityAllOfIdentifiers](docs/EquityAllOfIdentifiers.md)
  - [EquityCurveByPricesData](docs/EquityCurveByPricesData.md)
@@ -1376,14 +1419,23 @@ Class | Method | HTTP request | Description
  - [ExpandedGroup](docs/ExpandedGroup.md)
  - [ExpiryEvent](docs/ExpiryEvent.md)
  - [ExternalFeeComponentFilter](docs/ExternalFeeComponentFilter.md)
+ - [Facility](docs/Facility.md)
+ - [FacilityCommitmentFeeEvent](docs/FacilityCommitmentFeeEvent.md)
+ - [FacilityDrawEvent](docs/FacilityDrawEvent.md)
+ - [FacilityInterestEvent](docs/FacilityInterestEvent.md)
+ - [FacilityRepaymentEvent](docs/FacilityRepaymentEvent.md)
+ - [FacilityRequest](docs/FacilityRequest.md)
  - [Fee](docs/Fee.md)
  - [FeeAccrual](docs/FeeAccrual.md)
  - [FeeCalculationRequest](docs/FeeCalculationRequest.md)
+ - [FeeDefinition](docs/FeeDefinition.md)
  - [FeeProperties](docs/FeeProperties.md)
  - [FeeRequest](docs/FeeRequest.md)
  - [FeeRule](docs/FeeRule.md)
  - [FeeRuleUpsertRequest](docs/FeeRuleUpsertRequest.md)
  - [FeeRuleUpsertResponse](docs/FeeRuleUpsertResponse.md)
+ - [FeeSizeTier](docs/FeeSizeTier.md)
+ - [FeeStepDown](docs/FeeStepDown.md)
  - [FeeTransactionTemplateSpecification](docs/FeeTransactionTemplateSpecification.md)
  - [FeeType](docs/FeeType.md)
  - [FeeTypeRequest](docs/FeeTypeRequest.md)
@@ -1426,6 +1478,7 @@ Class | Method | HTTP request | Description
  - [FundCalendarEntryType](docs/FundCalendarEntryType.md)
  - [FundCashStatementLocalCurrency](docs/FundCashStatementLocalCurrency.md)
  - [FundCashStatementRow](docs/FundCashStatementRow.md)
+ - [FundClosing](docs/FundClosing.md)
  - [FundConfiguration](docs/FundConfiguration.md)
  - [FundConfigurationProperties](docs/FundConfigurationProperties.md)
  - [FundConfigurationRequest](docs/FundConfigurationRequest.md)
@@ -1436,6 +1489,11 @@ Class | Method | HTTP request | Description
  - [FundIdList](docs/FundIdList.md)
  - [FundInstrument](docs/FundInstrument.md)
  - [FundJournalEntryLine](docs/FundJournalEntryLine.md)
+ - [FundPartner](docs/FundPartner.md)
+ - [FundPartnerBalances](docs/FundPartnerBalances.md)
+ - [FundPartnerUnfundedReconciliation](docs/FundPartnerUnfundedReconciliation.md)
+ - [FundPartnerUnfundedReconciliationLine](docs/FundPartnerUnfundedReconciliationLine.md)
+ - [FundPartnersTotals](docs/FundPartnersTotals.md)
  - [FundPnlBreakdown](docs/FundPnlBreakdown.md)
  - [FundPreviousNAV](docs/FundPreviousNAV.md)
  - [FundProperties](docs/FundProperties.md)
@@ -1449,6 +1507,8 @@ Class | Method | HTTP request | Description
  - [FundStructureMemberRequest](docs/FundStructureMemberRequest.md)
  - [FundStructureNode](docs/FundStructureNode.md)
  - [FundStructureRequest](docs/FundStructureRequest.md)
+ - [FundTerms](docs/FundTerms.md)
+ - [FundTermsVersion](docs/FundTermsVersion.md)
  - [FundValuationPointData](docs/FundValuationPointData.md)
  - [FundValuationRequest](docs/FundValuationRequest.md)
  - [FundValuationSchedule](docs/FundValuationSchedule.md)
@@ -1807,12 +1867,14 @@ Class | Method | HTTP request | Description
  - [PagedResourceListOfDialectId](docs/PagedResourceListOfDialectId.md)
  - [PagedResourceListOfDiaryEntry](docs/PagedResourceListOfDiaryEntry.md)
  - [PagedResourceListOfExecution](docs/PagedResourceListOfExecution.md)
+ - [PagedResourceListOfFacility](docs/PagedResourceListOfFacility.md)
  - [PagedResourceListOfFee](docs/PagedResourceListOfFee.md)
  - [PagedResourceListOfFeeType](docs/PagedResourceListOfFeeType.md)
  - [PagedResourceListOfFund](docs/PagedResourceListOfFund.md)
  - [PagedResourceListOfFundCalendarEntries](docs/PagedResourceListOfFundCalendarEntries.md)
  - [PagedResourceListOfFundCalendarEntry](docs/PagedResourceListOfFundCalendarEntry.md)
  - [PagedResourceListOfFundConfiguration](docs/PagedResourceListOfFundConfiguration.md)
+ - [PagedResourceListOfFundPartner](docs/PagedResourceListOfFundPartner.md)
  - [PagedResourceListOfFundStructure](docs/PagedResourceListOfFundStructure.md)
  - [PagedResourceListOfGeneralLedgerProfileResponse](docs/PagedResourceListOfGeneralLedgerProfileResponse.md)
  - [PagedResourceListOfGetAddressKeyAliasResponse](docs/PagedResourceListOfGetAddressKeyAliasResponse.md)
@@ -1877,6 +1939,7 @@ Class | Method | HTTP request | Description
  - [Participation](docs/Participation.md)
  - [ParticipationRequest](docs/ParticipationRequest.md)
  - [ParticipationSetRequest](docs/ParticipationSetRequest.md)
+ - [PartnershipAccountingConfiguration](docs/PartnershipAccountingConfiguration.md)
  - [PaymentDetailsApplicableEntity](docs/PaymentDetailsApplicableEntity.md)
  - [PaymentDetailsReference](docs/PaymentDetailsReference.md)
  - [PaymentDetailsReferenceResponse](docs/PaymentDetailsReferenceResponse.md)
@@ -2087,6 +2150,7 @@ Class | Method | HTTP request | Description
  - [RecSubmission](docs/RecSubmission.md)
  - [RecSupersededRun](docs/RecSupersededRun.md)
  - [RecUserComment](docs/RecUserComment.md)
+ - [RecallableCapitalExpiryEvent](docs/RecallableCapitalExpiryEvent.md)
  - [RecipeBlock](docs/RecipeBlock.md)
  - [RecipeComposer](docs/RecipeComposer.md)
  - [RecipeValue](docs/RecipeValue.md)
@@ -2108,6 +2172,7 @@ Class | Method | HTTP request | Description
  - [ReconciliationRuleType](docs/ReconciliationRuleType.md)
  - [ReconciliationSideConfiguration](docs/ReconciliationSideConfiguration.md)
  - [ReconciliationTransactions](docs/ReconciliationTransactions.md)
+ - [RecyclingTerms](docs/RecyclingTerms.md)
  - [ReferenceData](docs/ReferenceData.md)
  - [ReferenceInstrument](docs/ReferenceInstrument.md)
  - [ReferenceList](docs/ReferenceList.md)
@@ -2286,6 +2351,7 @@ Class | Method | HTTP request | Description
  - [SecurityWriteOffEvent](docs/SecurityWriteOffEvent.md)
  - [SellEntitlementElection](docs/SellEntitlementElection.md)
  - [SequenceDefinition](docs/SequenceDefinition.md)
+ - [SeriesConfiguration](docs/SeriesConfiguration.md)
  - [SeriesDefinition](docs/SeriesDefinition.md)
  - [SeriesDefinitionRequest](docs/SeriesDefinitionRequest.md)
  - [SeriesIdentifierField](docs/SeriesIdentifierField.md)

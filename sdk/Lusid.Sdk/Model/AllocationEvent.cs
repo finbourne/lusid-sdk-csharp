@@ -40,19 +40,36 @@ namespace Lusid.Sdk.Model
         /// <param name="id">id (required).</param>
         /// <param name="description">A description of the Allocation Event..</param>
         /// <param name="allocationMapId">allocationMapId (required).</param>
-        /// <param name="eventType">The type of the event: CapitalCall, Distribution, FeeExpense or ValuationMove. Selects the basis rule from the map. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove. (required).</param>
+        /// <param name="eventType">The type of the event: CapitalCall, Distribution, FeeExpense, ValuationMove, Equalisation, RecallExpiry, Transfer, Default, Commitment or DealFunding. Selects the basis rule from the map. A recall is a CapitalCall with a Recall component. A Commitment event is not shared from a basis: its basis values are the signed commitment amounts per commitment line, and they must sum to the amount. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove, Commitment, Equalisation, RecallExpiry, Transfer, Default, DealFunding. (required).</param>
         /// <param name="amount">The total amount to be shared across the participants. (required).</param>
         /// <param name="currency">The ISO 4217 code of the currency of the amount. The amount may not be finer than the currency&#39;s minor unit: two decimal places for most currencies, none for JPY, three for KWD and BHD. A code with no defined minor unit, such as XAU or XAG, is taken to have two decimal places. (required).</param>
         /// <param name="eventDate">The date of the event: the point at which the map, its participants and their basis values are read. (required).</param>
-        /// <param name="status">The lifecycle status of the event: Draft until its shares are computed, Computed once they are, and Booked once posted. Available values: Draft, Computed, Booked. (required).</param>
+        /// <param name="status">The lifecycle status of the event: Draft until its shares are computed, Computed once they are, Booking while its postings are being written, Booked once they all are, and Reversed once a booked event has been backed out. Available values: Draft, Computed, Booked, Booking, Reversed. (required).</param>
         /// <param name="basisSource">Where the basis values came from when the shares were last computed..</param>
         /// <param name="allocations">The per-investor shares of the amount, as last computed. (required).</param>
         /// <param name="bookingReference">The reference under which the shares were posted. Set only once the event is booked..</param>
         /// <param name="bookedAt">The datetime at which the event was booked..</param>
         /// <param name="reallocationReason">The reason given when the event was last recomputed, if it has been..</param>
+        /// <param name="components">The parts the amount splits into, each shared on its own basis and booked to its own slot. The component amounts must sum to the event amount. Absent means the whole amount is one component: Investment for a CapitalCall, ROC for a Distribution..</param>
+        /// <param name="residuals">The minor units left over when each component&#39;s shares were rounded to the currency, and which investor records took them..</param>
+        /// <param name="basisDiagnostics">basisDiagnostics.</param>
+        /// <param name="writtenIds">The identifiers of the postings the booking has written so far, in write order. Complete once the event is Booked..</param>
+        /// <param name="bookingErrors">The postings the booking could not write. Non-empty leaves the event in Booking; book again under the same reference to resume, or unbook to cancel what was written..</param>
+        /// <param name="warnings">The validation rules the booking was allowed to proceed through under the map&#39;s policy, for instance an OverCall on a map that warns rather than refuses. Kept for the life of the event..</param>
+        /// <param name="transfers">For a Transfer event, the legs to book: each moves a fraction of one capital interest line to another. Required for a Transfer event and not allowed on any other type. The fractions out of one line must sum to at most one; the amount of a Transfer event is zero..</param>
+        /// <param name="equalisation">equalisation.</param>
+        /// <param name="useOfProceeds">For a CapitalCall, what the call pays for: rows of purpose, deal and amount that sum to the call amount. An Investment row names a deal the vehicle has funded and is shared under that deal&#39;s participation, with each investor&#39;s share recorded as paid in for that deal; when the deal was funded from a facility the row repays the draw. Not allowed with components or on any other event type..</param>
+        /// <param name="dealFunding">dealFunding.</param>
         /// <param name="varVersion">varVersion.</param>
+        /// <param name="parentAllocationEventId">parentAllocationEventId.</param>
+        /// <param name="replaces">replaces.</param>
+        /// <param name="reversal">reversal.</param>
+        /// <param name="noticeDate">The date the notice went to investors..</param>
+        /// <param name="dueDate">The date the investors&#39; cash is due..</param>
+        /// <param name="settlementDate">The date the postings settle. Defaults to the event date..</param>
+        /// <param name="receipts">The cash received against the event, in the order it was recorded..</param>
         /// <param name="links">links.</param>
-        public AllocationEvent(string href = default(string), ResourceId id = default(ResourceId), string description = default(string), ResourceId allocationMapId = default(ResourceId), string eventType = default(string), decimal amount = default(decimal), string currency = default(string), DateTimeOffset eventDate = default(DateTimeOffset), string status = default(string), string basisSource = default(string), List<AllocationMapAllocation> allocations = default(List<AllocationMapAllocation>), string bookingReference = default(string), DateTimeOffset? bookedAt = default(DateTimeOffset?), string reallocationReason = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public AllocationEvent(string href = default(string), ResourceId id = default(ResourceId), string description = default(string), ResourceId allocationMapId = default(ResourceId), string eventType = default(string), decimal amount = default(decimal), string currency = default(string), DateTimeOffset eventDate = default(DateTimeOffset), string status = default(string), string basisSource = default(string), List<AllocationMapAllocation> allocations = default(List<AllocationMapAllocation>), string bookingReference = default(string), DateTimeOffset? bookedAt = default(DateTimeOffset?), string reallocationReason = default(string), List<AllocationEventComponent> components = default(List<AllocationEventComponent>), List<AllocationEventRoundingResidual> residuals = default(List<AllocationEventRoundingResidual>), AllocationEventBasisDiagnostics basisDiagnostics = default(AllocationEventBasisDiagnostics), List<string> writtenIds = default(List<string>), List<AllocationEventBookingError> bookingErrors = default(List<AllocationEventBookingError>), List<AllocationEventBookingWarning> warnings = default(List<AllocationEventBookingWarning>), List<AllocationEventTransfer> transfers = default(List<AllocationEventTransfer>), AllocationEventEqualisation equalisation = default(AllocationEventEqualisation), List<AllocationEventUseOfProceeds> useOfProceeds = default(List<AllocationEventUseOfProceeds>), AllocationEventDealFunding dealFunding = default(AllocationEventDealFunding), ModelVersion varVersion = default(ModelVersion), ResourceId parentAllocationEventId = default(ResourceId), ResourceId replaces = default(ResourceId), AllocationEventReversal reversal = default(AllocationEventReversal), DateTimeOffset? noticeDate = default(DateTimeOffset?), DateTimeOffset? dueDate = default(DateTimeOffset?), DateTimeOffset? settlementDate = default(DateTimeOffset?), List<AllocationEventReceipt> receipts = default(List<AllocationEventReceipt>), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -98,7 +115,24 @@ namespace Lusid.Sdk.Model
             this.BookingReference = bookingReference;
             this.BookedAt = bookedAt;
             this.ReallocationReason = reallocationReason;
+            this.Components = components;
+            this.Residuals = residuals;
+            this.BasisDiagnostics = basisDiagnostics;
+            this.WrittenIds = writtenIds;
+            this.BookingErrors = bookingErrors;
+            this.Warnings = warnings;
+            this.Transfers = transfers;
+            this.Equalisation = equalisation;
+            this.UseOfProceeds = useOfProceeds;
+            this.DealFunding = dealFunding;
             this.VarVersion = varVersion;
+            this.ParentAllocationEventId = parentAllocationEventId;
+            this.Replaces = replaces;
+            this.Reversal = reversal;
+            this.NoticeDate = noticeDate;
+            this.DueDate = dueDate;
+            this.SettlementDate = settlementDate;
+            this.Receipts = receipts;
             this.Links = links;
         }
 
@@ -129,9 +163,9 @@ namespace Lusid.Sdk.Model
         public ResourceId AllocationMapId { get; set; }
 
         /// <summary>
-        /// The type of the event: CapitalCall, Distribution, FeeExpense or ValuationMove. Selects the basis rule from the map. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove.
+        /// The type of the event: CapitalCall, Distribution, FeeExpense, ValuationMove, Equalisation, RecallExpiry, Transfer, Default, Commitment or DealFunding. Selects the basis rule from the map. A recall is a CapitalCall with a Recall component. A Commitment event is not shared from a basis: its basis values are the signed commitment amounts per commitment line, and they must sum to the amount. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove, Commitment, Equalisation, RecallExpiry, Transfer, Default, DealFunding.
         /// </summary>
-        /// <value>The type of the event: CapitalCall, Distribution, FeeExpense or ValuationMove. Selects the basis rule from the map. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove.</value>
+        /// <value>The type of the event: CapitalCall, Distribution, FeeExpense, ValuationMove, Equalisation, RecallExpiry, Transfer, Default, Commitment or DealFunding. Selects the basis rule from the map. A recall is a CapitalCall with a Recall component. A Commitment event is not shared from a basis: its basis values are the signed commitment amounts per commitment line, and they must sum to the amount. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove, Commitment, Equalisation, RecallExpiry, Transfer, Default, DealFunding.</value>
         [DataMember(Name = "eventType", IsRequired = true, EmitDefaultValue = true)]
         public string EventType { get; set; }
 
@@ -157,9 +191,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset EventDate { get; set; }
 
         /// <summary>
-        /// The lifecycle status of the event: Draft until its shares are computed, Computed once they are, and Booked once posted. Available values: Draft, Computed, Booked.
+        /// The lifecycle status of the event: Draft until its shares are computed, Computed once they are, Booking while its postings are being written, Booked once they all are, and Reversed once a booked event has been backed out. Available values: Draft, Computed, Booked, Booking, Reversed.
         /// </summary>
-        /// <value>The lifecycle status of the event: Draft until its shares are computed, Computed once they are, and Booked once posted. Available values: Draft, Computed, Booked.</value>
+        /// <value>The lifecycle status of the event: Draft until its shares are computed, Computed once they are, Booking while its postings are being written, Booked once they all are, and Reversed once a booked event has been backed out. Available values: Draft, Computed, Booked, Booking, Reversed.</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 
@@ -199,10 +233,123 @@ namespace Lusid.Sdk.Model
         public string ReallocationReason { get; set; }
 
         /// <summary>
+        /// The parts the amount splits into, each shared on its own basis and booked to its own slot. The component amounts must sum to the event amount. Absent means the whole amount is one component: Investment for a CapitalCall, ROC for a Distribution.
+        /// </summary>
+        /// <value>The parts the amount splits into, each shared on its own basis and booked to its own slot. The component amounts must sum to the event amount. Absent means the whole amount is one component: Investment for a CapitalCall, ROC for a Distribution.</value>
+        [DataMember(Name = "components", EmitDefaultValue = true)]
+        public List<AllocationEventComponent> Components { get; set; }
+
+        /// <summary>
+        /// The minor units left over when each component&#39;s shares were rounded to the currency, and which investor records took them.
+        /// </summary>
+        /// <value>The minor units left over when each component&#39;s shares were rounded to the currency, and which investor records took them.</value>
+        [DataMember(Name = "residuals", EmitDefaultValue = true)]
+        public List<AllocationEventRoundingResidual> Residuals { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BasisDiagnostics
+        /// </summary>
+        [DataMember(Name = "basisDiagnostics", EmitDefaultValue = false)]
+        public AllocationEventBasisDiagnostics BasisDiagnostics { get; set; }
+
+        /// <summary>
+        /// The identifiers of the postings the booking has written so far, in write order. Complete once the event is Booked.
+        /// </summary>
+        /// <value>The identifiers of the postings the booking has written so far, in write order. Complete once the event is Booked.</value>
+        [DataMember(Name = "writtenIds", EmitDefaultValue = true)]
+        public List<string> WrittenIds { get; set; }
+
+        /// <summary>
+        /// The postings the booking could not write. Non-empty leaves the event in Booking; book again under the same reference to resume, or unbook to cancel what was written.
+        /// </summary>
+        /// <value>The postings the booking could not write. Non-empty leaves the event in Booking; book again under the same reference to resume, or unbook to cancel what was written.</value>
+        [DataMember(Name = "bookingErrors", EmitDefaultValue = true)]
+        public List<AllocationEventBookingError> BookingErrors { get; set; }
+
+        /// <summary>
+        /// The validation rules the booking was allowed to proceed through under the map&#39;s policy, for instance an OverCall on a map that warns rather than refuses. Kept for the life of the event.
+        /// </summary>
+        /// <value>The validation rules the booking was allowed to proceed through under the map&#39;s policy, for instance an OverCall on a map that warns rather than refuses. Kept for the life of the event.</value>
+        [DataMember(Name = "warnings", EmitDefaultValue = true)]
+        public List<AllocationEventBookingWarning> Warnings { get; set; }
+
+        /// <summary>
+        /// For a Transfer event, the legs to book: each moves a fraction of one capital interest line to another. Required for a Transfer event and not allowed on any other type. The fractions out of one line must sum to at most one; the amount of a Transfer event is zero.
+        /// </summary>
+        /// <value>For a Transfer event, the legs to book: each moves a fraction of one capital interest line to another. Required for a Transfer event and not allowed on any other type. The fractions out of one line must sum to at most one; the amount of a Transfer event is zero.</value>
+        [DataMember(Name = "transfers", EmitDefaultValue = true)]
+        public List<AllocationEventTransfer> Transfers { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Equalisation
+        /// </summary>
+        [DataMember(Name = "equalisation", EmitDefaultValue = false)]
+        public AllocationEventEqualisation Equalisation { get; set; }
+
+        /// <summary>
+        /// For a CapitalCall, what the call pays for: rows of purpose, deal and amount that sum to the call amount. An Investment row names a deal the vehicle has funded and is shared under that deal&#39;s participation, with each investor&#39;s share recorded as paid in for that deal; when the deal was funded from a facility the row repays the draw. Not allowed with components or on any other event type.
+        /// </summary>
+        /// <value>For a CapitalCall, what the call pays for: rows of purpose, deal and amount that sum to the call amount. An Investment row names a deal the vehicle has funded and is shared under that deal&#39;s participation, with each investor&#39;s share recorded as paid in for that deal; when the deal was funded from a facility the row repays the draw. Not allowed with components or on any other event type.</value>
+        [DataMember(Name = "useOfProceeds", EmitDefaultValue = true)]
+        public List<AllocationEventUseOfProceeds> UseOfProceeds { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DealFunding
+        /// </summary>
+        [DataMember(Name = "dealFunding", EmitDefaultValue = false)]
+        public AllocationEventDealFunding DealFunding { get; set; }
+
+        /// <summary>
         /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
         public ModelVersion VarVersion { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ParentAllocationEventId
+        /// </summary>
+        [DataMember(Name = "parentAllocationEventId", EmitDefaultValue = false)]
+        public ResourceId ParentAllocationEventId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Replaces
+        /// </summary>
+        [DataMember(Name = "replaces", EmitDefaultValue = false)]
+        public ResourceId Replaces { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Reversal
+        /// </summary>
+        [DataMember(Name = "reversal", EmitDefaultValue = false)]
+        public AllocationEventReversal Reversal { get; set; }
+
+        /// <summary>
+        /// The date the notice went to investors.
+        /// </summary>
+        /// <value>The date the notice went to investors.</value>
+        [DataMember(Name = "noticeDate", EmitDefaultValue = true)]
+        public DateTimeOffset? NoticeDate { get; set; }
+
+        /// <summary>
+        /// The date the investors&#39; cash is due.
+        /// </summary>
+        /// <value>The date the investors&#39; cash is due.</value>
+        [DataMember(Name = "dueDate", EmitDefaultValue = true)]
+        public DateTimeOffset? DueDate { get; set; }
+
+        /// <summary>
+        /// The date the postings settle. Defaults to the event date.
+        /// </summary>
+        /// <value>The date the postings settle. Defaults to the event date.</value>
+        [DataMember(Name = "settlementDate", EmitDefaultValue = true)]
+        public DateTimeOffset? SettlementDate { get; set; }
+
+        /// <summary>
+        /// The cash received against the event, in the order it was recorded.
+        /// </summary>
+        /// <value>The cash received against the event, in the order it was recorded.</value>
+        [DataMember(Name = "receipts", EmitDefaultValue = true)]
+        public List<AllocationEventReceipt> Receipts { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -232,7 +379,24 @@ namespace Lusid.Sdk.Model
             sb.Append("  BookingReference: ").Append(BookingReference).Append("\n");
             sb.Append("  BookedAt: ").Append(BookedAt).Append("\n");
             sb.Append("  ReallocationReason: ").Append(ReallocationReason).Append("\n");
+            sb.Append("  Components: ").Append(Components).Append("\n");
+            sb.Append("  Residuals: ").Append(Residuals).Append("\n");
+            sb.Append("  BasisDiagnostics: ").Append(BasisDiagnostics).Append("\n");
+            sb.Append("  WrittenIds: ").Append(WrittenIds).Append("\n");
+            sb.Append("  BookingErrors: ").Append(BookingErrors).Append("\n");
+            sb.Append("  Warnings: ").Append(Warnings).Append("\n");
+            sb.Append("  Transfers: ").Append(Transfers).Append("\n");
+            sb.Append("  Equalisation: ").Append(Equalisation).Append("\n");
+            sb.Append("  UseOfProceeds: ").Append(UseOfProceeds).Append("\n");
+            sb.Append("  DealFunding: ").Append(DealFunding).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  ParentAllocationEventId: ").Append(ParentAllocationEventId).Append("\n");
+            sb.Append("  Replaces: ").Append(Replaces).Append("\n");
+            sb.Append("  Reversal: ").Append(Reversal).Append("\n");
+            sb.Append("  NoticeDate: ").Append(NoticeDate).Append("\n");
+            sb.Append("  DueDate: ").Append(DueDate).Append("\n");
+            sb.Append("  SettlementDate: ").Append(SettlementDate).Append("\n");
+            sb.Append("  Receipts: ").Append(Receipts).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -340,9 +504,102 @@ namespace Lusid.Sdk.Model
                     this.ReallocationReason.Equals(input.ReallocationReason))
                 ) && 
                 (
+                    this.Components == input.Components ||
+                    this.Components != null &&
+                    input.Components != null &&
+                    this.Components.SequenceEqual(input.Components)
+                ) && 
+                (
+                    this.Residuals == input.Residuals ||
+                    this.Residuals != null &&
+                    input.Residuals != null &&
+                    this.Residuals.SequenceEqual(input.Residuals)
+                ) && 
+                (
+                    this.BasisDiagnostics == input.BasisDiagnostics ||
+                    (this.BasisDiagnostics != null &&
+                    this.BasisDiagnostics.Equals(input.BasisDiagnostics))
+                ) && 
+                (
+                    this.WrittenIds == input.WrittenIds ||
+                    this.WrittenIds != null &&
+                    input.WrittenIds != null &&
+                    this.WrittenIds.SequenceEqual(input.WrittenIds)
+                ) && 
+                (
+                    this.BookingErrors == input.BookingErrors ||
+                    this.BookingErrors != null &&
+                    input.BookingErrors != null &&
+                    this.BookingErrors.SequenceEqual(input.BookingErrors)
+                ) && 
+                (
+                    this.Warnings == input.Warnings ||
+                    this.Warnings != null &&
+                    input.Warnings != null &&
+                    this.Warnings.SequenceEqual(input.Warnings)
+                ) && 
+                (
+                    this.Transfers == input.Transfers ||
+                    this.Transfers != null &&
+                    input.Transfers != null &&
+                    this.Transfers.SequenceEqual(input.Transfers)
+                ) && 
+                (
+                    this.Equalisation == input.Equalisation ||
+                    (this.Equalisation != null &&
+                    this.Equalisation.Equals(input.Equalisation))
+                ) && 
+                (
+                    this.UseOfProceeds == input.UseOfProceeds ||
+                    this.UseOfProceeds != null &&
+                    input.UseOfProceeds != null &&
+                    this.UseOfProceeds.SequenceEqual(input.UseOfProceeds)
+                ) && 
+                (
+                    this.DealFunding == input.DealFunding ||
+                    (this.DealFunding != null &&
+                    this.DealFunding.Equals(input.DealFunding))
+                ) && 
+                (
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
+                ) && 
+                (
+                    this.ParentAllocationEventId == input.ParentAllocationEventId ||
+                    (this.ParentAllocationEventId != null &&
+                    this.ParentAllocationEventId.Equals(input.ParentAllocationEventId))
+                ) && 
+                (
+                    this.Replaces == input.Replaces ||
+                    (this.Replaces != null &&
+                    this.Replaces.Equals(input.Replaces))
+                ) && 
+                (
+                    this.Reversal == input.Reversal ||
+                    (this.Reversal != null &&
+                    this.Reversal.Equals(input.Reversal))
+                ) && 
+                (
+                    this.NoticeDate == input.NoticeDate ||
+                    (this.NoticeDate != null &&
+                    this.NoticeDate.Equals(input.NoticeDate))
+                ) && 
+                (
+                    this.DueDate == input.DueDate ||
+                    (this.DueDate != null &&
+                    this.DueDate.Equals(input.DueDate))
+                ) && 
+                (
+                    this.SettlementDate == input.SettlementDate ||
+                    (this.SettlementDate != null &&
+                    this.SettlementDate.Equals(input.SettlementDate))
+                ) && 
+                (
+                    this.Receipts == input.Receipts ||
+                    this.Receipts != null &&
+                    input.Receipts != null &&
+                    this.Receipts.SequenceEqual(input.Receipts)
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -414,9 +671,77 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ReallocationReason.GetHashCode();
                 }
+                if (this.Components != null)
+                {
+                    hashCode = (hashCode * 59) + this.Components.GetHashCode();
+                }
+                if (this.Residuals != null)
+                {
+                    hashCode = (hashCode * 59) + this.Residuals.GetHashCode();
+                }
+                if (this.BasisDiagnostics != null)
+                {
+                    hashCode = (hashCode * 59) + this.BasisDiagnostics.GetHashCode();
+                }
+                if (this.WrittenIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.WrittenIds.GetHashCode();
+                }
+                if (this.BookingErrors != null)
+                {
+                    hashCode = (hashCode * 59) + this.BookingErrors.GetHashCode();
+                }
+                if (this.Warnings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
+                }
+                if (this.Transfers != null)
+                {
+                    hashCode = (hashCode * 59) + this.Transfers.GetHashCode();
+                }
+                if (this.Equalisation != null)
+                {
+                    hashCode = (hashCode * 59) + this.Equalisation.GetHashCode();
+                }
+                if (this.UseOfProceeds != null)
+                {
+                    hashCode = (hashCode * 59) + this.UseOfProceeds.GetHashCode();
+                }
+                if (this.DealFunding != null)
+                {
+                    hashCode = (hashCode * 59) + this.DealFunding.GetHashCode();
+                }
                 if (this.VarVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                }
+                if (this.ParentAllocationEventId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ParentAllocationEventId.GetHashCode();
+                }
+                if (this.Replaces != null)
+                {
+                    hashCode = (hashCode * 59) + this.Replaces.GetHashCode();
+                }
+                if (this.Reversal != null)
+                {
+                    hashCode = (hashCode * 59) + this.Reversal.GetHashCode();
+                }
+                if (this.NoticeDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.NoticeDate.GetHashCode();
+                }
+                if (this.DueDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.DueDate.GetHashCode();
+                }
+                if (this.SettlementDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.SettlementDate.GetHashCode();
+                }
+                if (this.Receipts != null)
+                {
+                    hashCode = (hashCode * 59) + this.Receipts.GetHashCode();
                 }
                 if (this.Links != null)
                 {

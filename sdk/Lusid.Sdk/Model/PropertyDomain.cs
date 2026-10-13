@@ -603,7 +603,13 @@ namespace Lusid.Sdk.Model
         /// Enum JournalEntry for value: JournalEntry
         /// </summary>
         [EnumMember(Value = "JournalEntry")]
-        JournalEntry = 96
+        JournalEntry = 96,
+
+        /// <summary>
+        /// Enum EligibleCollateralSchedule for value: EligibleCollateralSchedule
+        /// </summary>
+        [EnumMember(Value = "EligibleCollateralSchedule")]
+        EligibleCollateralSchedule = 97
     }
 
 }

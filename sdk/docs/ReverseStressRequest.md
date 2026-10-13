@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **LadderPoints** | **int** | How many factors to evaluate between zero and MaxScale. All of them are valued in  one request - the rungs share market data resolution - so a finer ladder costs far less than  its rung count suggests, and a coarse one is the main source of a missed bracket. | [optional] 
 **Tolerance** | **decimal** | How close the achieved loss must be to the target, relative to the target&#39;s own size. Relative  rather than absolute because the same reverse stress is asked of books whose value differs by  orders of magnitude. | [optional] 
 **MaxIterations** | **int** | How many refinement rounds are allowed after the opening ladder. Each round costs one  valuation; on a near-linear P&amp;L the first interpolation is usually already inside tolerance,  so the default exists for the mildly curved case rather than the normal one. | [optional] 
+**MarketDataOverrides** | [**MarketDataOverrides**](MarketDataOverrides.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -30,6 +31,8 @@ ScenarioReference scenario = new ScenarioReference();decimal targetPnl = "target
 string metric = "example metric";
 string reportCurrency = "example reportCurrency";
 List<PropertyFilter> filters = new List<PropertyFilter>();decimal? maxScale = "example maxScale";decimal? tolerance = "example tolerance";
+MarketDataOverrides? marketDataOverrides = new MarketDataOverrides();
+
 
 ReverseStressRequest reverseStressRequestInstance = new ReverseStressRequest(
     recipeId: recipeId,
@@ -44,7 +47,8 @@ ReverseStressRequest reverseStressRequestInstance = new ReverseStressRequest(
     maxScale: maxScale,
     ladderPoints: ladderPoints,
     tolerance: tolerance,
-    maxIterations: maxIterations);
+    maxIterations: maxIterations,
+    marketDataOverrides: marketDataOverrides);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

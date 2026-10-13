@@ -36,13 +36,21 @@ namespace Lusid.Sdk.Model
         /// <param name="weight">The fraction of the remainder the investor record receives, or the fixed fraction of the whole amount for a FixedPercentage exception..</param>
         /// <param name="amount">The amount allocated to the investor record..</param>
         /// <param name="treatment">How the share was found. Derived means pro rata from the basis; FixedPercentage means off the top from an exception; Excluded means an exception removed the investor record and it receives nothing. Available values: Derived, FixedPercentage, Excluded..</param>
-        public AllocationMapAllocation(string investorRecordId = default(string), decimal? basisValue = default(decimal?), decimal weight = default(decimal), decimal amount = default(decimal), string treatment = default(string))
+        /// <param name="commitmentLineId">For a Commitment event, the commitment line the share is recorded against. Absent for other event types..</param>
+        /// <param name="portfolioId">portfolioId.</param>
+        /// <param name="component">The component of the event the share belongs to. Absent when the event was resolved whole..</param>
+        /// <param name="originMemberShortCode">The deal the share is for, when a capital call&#39;s use of proceeds split one component across deals. Absent when the component&#39;s own origin applies..</param>
+        public AllocationMapAllocation(string investorRecordId = default(string), decimal? basisValue = default(decimal?), decimal weight = default(decimal), decimal amount = default(decimal), string treatment = default(string), string commitmentLineId = default(string), ResourceId portfolioId = default(ResourceId), string component = default(string), string originMemberShortCode = default(string))
         {
             this.InvestorRecordId = investorRecordId;
             this.BasisValue = basisValue;
             this.Weight = weight;
             this.Amount = amount;
             this.Treatment = treatment;
+            this.CommitmentLineId = commitmentLineId;
+            this.PortfolioId = portfolioId;
+            this.Component = component;
+            this.OriginMemberShortCode = originMemberShortCode;
         }
 
         /// <summary>
@@ -81,6 +89,33 @@ namespace Lusid.Sdk.Model
         public string Treatment { get; set; }
 
         /// <summary>
+        /// For a Commitment event, the commitment line the share is recorded against. Absent for other event types.
+        /// </summary>
+        /// <value>For a Commitment event, the commitment line the share is recorded against. Absent for other event types.</value>
+        [DataMember(Name = "commitmentLineId", EmitDefaultValue = true)]
+        public string CommitmentLineId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PortfolioId
+        /// </summary>
+        [DataMember(Name = "portfolioId", EmitDefaultValue = false)]
+        public ResourceId PortfolioId { get; set; }
+
+        /// <summary>
+        /// The component of the event the share belongs to. Absent when the event was resolved whole.
+        /// </summary>
+        /// <value>The component of the event the share belongs to. Absent when the event was resolved whole.</value>
+        [DataMember(Name = "component", EmitDefaultValue = true)]
+        public string Component { get; set; }
+
+        /// <summary>
+        /// The deal the share is for, when a capital call&#39;s use of proceeds split one component across deals. Absent when the component&#39;s own origin applies.
+        /// </summary>
+        /// <value>The deal the share is for, when a capital call&#39;s use of proceeds split one component across deals. Absent when the component&#39;s own origin applies.</value>
+        [DataMember(Name = "originMemberShortCode", EmitDefaultValue = true)]
+        public string OriginMemberShortCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -93,6 +128,10 @@ namespace Lusid.Sdk.Model
             sb.Append("  Weight: ").Append(Weight).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Treatment: ").Append(Treatment).Append("\n");
+            sb.Append("  CommitmentLineId: ").Append(CommitmentLineId).Append("\n");
+            sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
+            sb.Append("  Component: ").Append(Component).Append("\n");
+            sb.Append("  OriginMemberShortCode: ").Append(OriginMemberShortCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -150,6 +189,26 @@ namespace Lusid.Sdk.Model
                     this.Treatment == input.Treatment ||
                     (this.Treatment != null &&
                     this.Treatment.Equals(input.Treatment))
+                ) && 
+                (
+                    this.CommitmentLineId == input.CommitmentLineId ||
+                    (this.CommitmentLineId != null &&
+                    this.CommitmentLineId.Equals(input.CommitmentLineId))
+                ) && 
+                (
+                    this.PortfolioId == input.PortfolioId ||
+                    (this.PortfolioId != null &&
+                    this.PortfolioId.Equals(input.PortfolioId))
+                ) && 
+                (
+                    this.Component == input.Component ||
+                    (this.Component != null &&
+                    this.Component.Equals(input.Component))
+                ) && 
+                (
+                    this.OriginMemberShortCode == input.OriginMemberShortCode ||
+                    (this.OriginMemberShortCode != null &&
+                    this.OriginMemberShortCode.Equals(input.OriginMemberShortCode))
                 );
         }
 
@@ -175,6 +234,22 @@ namespace Lusid.Sdk.Model
                 if (this.Treatment != null)
                 {
                     hashCode = (hashCode * 59) + this.Treatment.GetHashCode();
+                }
+                if (this.CommitmentLineId != null)
+                {
+                    hashCode = (hashCode * 59) + this.CommitmentLineId.GetHashCode();
+                }
+                if (this.PortfolioId != null)
+                {
+                    hashCode = (hashCode * 59) + this.PortfolioId.GetHashCode();
+                }
+                if (this.Component != null)
+                {
+                    hashCode = (hashCode * 59) + this.Component.GetHashCode();
+                }
+                if (this.OriginMemberShortCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.OriginMemberShortCode.GetHashCode();
                 }
                 return hashCode;
             }
@@ -204,6 +279,44 @@ namespace Lusid.Sdk.Model
             if (false == regexInvestorRecordId.Match(this.InvestorRecordId).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InvestorRecordId, must match a pattern of " + regexInvestorRecordId, new [] { "InvestorRecordId" });
+            }
+
+            // CommitmentLineId (string) maxLength
+            if (this.CommitmentLineId != null && this.CommitmentLineId.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommitmentLineId, length must be less than 64.", new [] { "CommitmentLineId" });
+            }
+
+            // CommitmentLineId (string) minLength
+            if (this.CommitmentLineId != null && this.CommitmentLineId.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommitmentLineId, length must be greater than 1.", new [] { "CommitmentLineId" });
+            }
+
+            // CommitmentLineId (string) pattern
+            Regex regexCommitmentLineId = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexCommitmentLineId.Match(this.CommitmentLineId).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommitmentLineId, must match a pattern of " + regexCommitmentLineId, new [] { "CommitmentLineId" });
+            }
+
+            // OriginMemberShortCode (string) maxLength
+            if (this.OriginMemberShortCode != null && this.OriginMemberShortCode.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OriginMemberShortCode, length must be less than 64.", new [] { "OriginMemberShortCode" });
+            }
+
+            // OriginMemberShortCode (string) minLength
+            if (this.OriginMemberShortCode != null && this.OriginMemberShortCode.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OriginMemberShortCode, length must be greater than 1.", new [] { "OriginMemberShortCode" });
+            }
+
+            // OriginMemberShortCode (string) pattern
+            Regex regexOriginMemberShortCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexOriginMemberShortCode.Match(this.OriginMemberShortCode).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OriginMemberShortCode, must match a pattern of " + regexOriginMemberShortCode, new [] { "OriginMemberShortCode" });
             }
 
             yield break;

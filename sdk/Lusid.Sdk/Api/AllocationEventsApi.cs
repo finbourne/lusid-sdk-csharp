@@ -150,6 +150,37 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of AllocationEvent</returns>
         Lusid.Sdk.Client.ApiResponse<AllocationEvent> GetAllocationEventWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] GetAllocationEventReceivables: Get the receivables of an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// What each investor still owes on a booked capital call as of the effective datetime, with how many days past  due it is and the ageing bucket that puts it in.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label as of which to age the receivables. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to read the Allocation Event. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>AllocationReceivablesAgeing</returns>
+        AllocationReceivablesAgeing GetAllocationEventReceivables(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllocationEventReceivables: Get the receivables of an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// What each investor still owes on a booked capital call as of the effective datetime, with how many days past  due it is and the ageing bucket that puts it in.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label as of which to age the receivables. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to read the Allocation Event. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of AllocationReceivablesAgeing</returns>
+        Lusid.Sdk.Client.ApiResponse<AllocationReceivablesAgeing> GetAllocationEventReceivablesWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] ListAllocationEvents: List Allocation Events.
         /// </summary>
         /// <remarks>
@@ -185,6 +216,37 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfAllocationEvent</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAllocationEvent> ListAllocationEventsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] PlanAllocationEventBooking: Plan the booking of an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// Show everything booking a computed Allocation Event under a booking reference would write, validated as the  booking itself would be, without writing any of it: the investors&#39; lines, the roll-ups above them through the  fund structure and the fund-side transactions. A booking that would be refused fails here with every problem  listed; warnings the map&#39;s policy lets through come back on the plan.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventBookRequest">The booking reference the plan is drawn up under.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to plan the booking. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>AllocationPostingPlan</returns>
+        AllocationPostingPlan PlanAllocationEventBooking(string scope, string code, AllocationEventBookRequest allocationEventBookRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] PlanAllocationEventBooking: Plan the booking of an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// Show everything booking a computed Allocation Event under a booking reference would write, validated as the  booking itself would be, without writing any of it: the investors&#39; lines, the roll-ups above them through the  fund structure and the fund-side transactions. A booking that would be refused fails here with every problem  listed; warnings the map&#39;s policy lets through come back on the plan.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventBookRequest">The booking reference the plan is drawn up under.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to plan the booking. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of AllocationPostingPlan</returns>
+        Lusid.Sdk.Client.ApiResponse<AllocationPostingPlan> PlanAllocationEventBookingWithHttpInfo(string scope, string code, AllocationEventBookRequest allocationEventBookRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] ReallocateAllocationEvent: Reallocate an Allocation Event.
         /// </summary>
         /// <remarks>
@@ -215,6 +277,99 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AllocationEvent</returns>
         Lusid.Sdk.Client.ApiResponse<AllocationEvent> ReallocateAllocationEventWithHttpInfo(string scope, string code, AllocationEventReallocateRequest allocationEventReallocateRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] ReceiveAllocationEvent: Record a receipt against an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// Record cash received from an investor against a booked capital call. The receipt is applied to what the  investor owes on the call; anything over is recorded as a refund payable, so the outstanding amount never  goes negative. A bank charge is borne by the partner or the fund as the map&#39;s policy says, and a receipt in  another currency is converted at the rate given.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventReceiptRequest">The investor, amount and date of the receipt.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the receipt applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>AllocationEvent</returns>
+        AllocationEvent ReceiveAllocationEvent(string scope, string code, AllocationEventReceiptRequest allocationEventReceiptRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReceiveAllocationEvent: Record a receipt against an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// Record cash received from an investor against a booked capital call. The receipt is applied to what the  investor owes on the call; anything over is recorded as a refund payable, so the outstanding amount never  goes negative. A bank charge is borne by the partner or the fund as the map&#39;s policy says, and a receipt in  another currency is converted at the rate given.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventReceiptRequest">The investor, amount and date of the receipt.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the receipt applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of AllocationEvent</returns>
+        Lusid.Sdk.Client.ApiResponse<AllocationEvent> ReceiveAllocationEventWithHttpInfo(string scope, string code, AllocationEventReceiptRequest allocationEventReceiptRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] ReverseAllocationEvent: Reverse an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// Reverse a booked Allocation Event: every posting the booking wrote is mirrored under the reversal reference and  the event is left Reversed. A reversal falling in a closed period posts in the current period unless it is  marked backdated. A reversal cannot itself be reversed; raise a new event naming the reversed one in its  replaces field to put corrected shares in the books.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventReverseRequest">The reason for the reversal and, optionally, when it should take effect.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the reversal applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>AllocationEvent</returns>
+        AllocationEvent ReverseAllocationEvent(string scope, string code, AllocationEventReverseRequest allocationEventReverseRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReverseAllocationEvent: Reverse an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// Reverse a booked Allocation Event: every posting the booking wrote is mirrored under the reversal reference and  the event is left Reversed. A reversal falling in a closed period posts in the current period unless it is  marked backdated. A reversal cannot itself be reversed; raise a new event naming the reversed one in its  replaces field to put corrected shares in the books.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventReverseRequest">The reason for the reversal and, optionally, when it should take effect.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the reversal applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of AllocationEvent</returns>
+        Lusid.Sdk.Client.ApiResponse<AllocationEvent> ReverseAllocationEventWithHttpInfo(string scope, string code, AllocationEventReverseRequest allocationEventReverseRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] UnbookAllocationEvent: Unbook an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// Take an Allocation Event whose booking stopped half way back to Computed, cancelling every posting the  booking wrote, and record why. Only an event in the Booking status can be unbooked: one that is Booked is  reversed instead.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventUnbookRequest">The reason the booking is being taken back.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the unbooking applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>AllocationEvent</returns>
+        AllocationEvent UnbookAllocationEvent(string scope, string code, AllocationEventUnbookRequest allocationEventUnbookRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] UnbookAllocationEvent: Unbook an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// Take an Allocation Event whose booking stopped half way back to Computed, cancelling every posting the  booking wrote, and record why. Only an event in the Booking status can be unbooked: one that is Booked is  reversed instead.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventUnbookRequest">The reason the booking is being taken back.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the unbooking applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of AllocationEvent</returns>
+        Lusid.Sdk.Client.ApiResponse<AllocationEvent> UnbookAllocationEventWithHttpInfo(string scope, string code, AllocationEventUnbookRequest allocationEventUnbookRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpsertAllocationEvent: Upsert an Allocation Event.
         /// </summary>
@@ -380,6 +535,39 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (AllocationEvent)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationEvent>> GetAllocationEventWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] GetAllocationEventReceivables: Get the receivables of an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// What each investor still owes on a booked capital call as of the effective datetime, with how many days past  due it is and the ageing bucket that puts it in.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label as of which to age the receivables. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to read the Allocation Event. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of AllocationReceivablesAgeing</returns>
+        System.Threading.Tasks.Task<AllocationReceivablesAgeing> GetAllocationEventReceivablesAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllocationEventReceivables: Get the receivables of an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// What each investor still owes on a booked capital call as of the effective datetime, with how many days past  due it is and the ageing bucket that puts it in.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label as of which to age the receivables. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to read the Allocation Event. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (AllocationReceivablesAgeing)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationReceivablesAgeing>> GetAllocationEventReceivablesWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] ListAllocationEvents: List Allocation Events.
         /// </summary>
         /// <remarks>
@@ -417,6 +605,39 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfAllocationEvent)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAllocationEvent>> ListAllocationEventsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] PlanAllocationEventBooking: Plan the booking of an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// Show everything booking a computed Allocation Event under a booking reference would write, validated as the  booking itself would be, without writing any of it: the investors&#39; lines, the roll-ups above them through the  fund structure and the fund-side transactions. A booking that would be refused fails here with every problem  listed; warnings the map&#39;s policy lets through come back on the plan.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventBookRequest">The booking reference the plan is drawn up under.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to plan the booking. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of AllocationPostingPlan</returns>
+        System.Threading.Tasks.Task<AllocationPostingPlan> PlanAllocationEventBookingAsync(string scope, string code, AllocationEventBookRequest allocationEventBookRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] PlanAllocationEventBooking: Plan the booking of an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// Show everything booking a computed Allocation Event under a booking reference would write, validated as the  booking itself would be, without writing any of it: the investors&#39; lines, the roll-ups above them through the  fund structure and the fund-side transactions. A booking that would be refused fails here with every problem  listed; warnings the map&#39;s policy lets through come back on the plan.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventBookRequest">The booking reference the plan is drawn up under.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to plan the booking. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (AllocationPostingPlan)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationPostingPlan>> PlanAllocationEventBookingWithHttpInfoAsync(string scope, string code, AllocationEventBookRequest allocationEventBookRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] ReallocateAllocationEvent: Reallocate an Allocation Event.
         /// </summary>
         /// <remarks>
@@ -449,6 +670,105 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AllocationEvent)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationEvent>> ReallocateAllocationEventWithHttpInfoAsync(string scope, string code, AllocationEventReallocateRequest allocationEventReallocateRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] ReceiveAllocationEvent: Record a receipt against an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// Record cash received from an investor against a booked capital call. The receipt is applied to what the  investor owes on the call; anything over is recorded as a refund payable, so the outstanding amount never  goes negative. A bank charge is borne by the partner or the fund as the map&#39;s policy says, and a receipt in  another currency is converted at the rate given.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventReceiptRequest">The investor, amount and date of the receipt.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the receipt applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of AllocationEvent</returns>
+        System.Threading.Tasks.Task<AllocationEvent> ReceiveAllocationEventAsync(string scope, string code, AllocationEventReceiptRequest allocationEventReceiptRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReceiveAllocationEvent: Record a receipt against an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// Record cash received from an investor against a booked capital call. The receipt is applied to what the  investor owes on the call; anything over is recorded as a refund payable, so the outstanding amount never  goes negative. A bank charge is borne by the partner or the fund as the map&#39;s policy says, and a receipt in  another currency is converted at the rate given.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventReceiptRequest">The investor, amount and date of the receipt.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the receipt applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (AllocationEvent)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationEvent>> ReceiveAllocationEventWithHttpInfoAsync(string scope, string code, AllocationEventReceiptRequest allocationEventReceiptRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] ReverseAllocationEvent: Reverse an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// Reverse a booked Allocation Event: every posting the booking wrote is mirrored under the reversal reference and  the event is left Reversed. A reversal falling in a closed period posts in the current period unless it is  marked backdated. A reversal cannot itself be reversed; raise a new event naming the reversed one in its  replaces field to put corrected shares in the books.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventReverseRequest">The reason for the reversal and, optionally, when it should take effect.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the reversal applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of AllocationEvent</returns>
+        System.Threading.Tasks.Task<AllocationEvent> ReverseAllocationEventAsync(string scope, string code, AllocationEventReverseRequest allocationEventReverseRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReverseAllocationEvent: Reverse an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// Reverse a booked Allocation Event: every posting the booking wrote is mirrored under the reversal reference and  the event is left Reversed. A reversal falling in a closed period posts in the current period unless it is  marked backdated. A reversal cannot itself be reversed; raise a new event naming the reversed one in its  replaces field to put corrected shares in the books.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventReverseRequest">The reason for the reversal and, optionally, when it should take effect.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the reversal applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (AllocationEvent)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationEvent>> ReverseAllocationEventWithHttpInfoAsync(string scope, string code, AllocationEventReverseRequest allocationEventReverseRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] UnbookAllocationEvent: Unbook an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// Take an Allocation Event whose booking stopped half way back to Computed, cancelling every posting the  booking wrote, and record why. Only an event in the Booking status can be unbooked: one that is Booked is  reversed instead.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventUnbookRequest">The reason the booking is being taken back.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the unbooking applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of AllocationEvent</returns>
+        System.Threading.Tasks.Task<AllocationEvent> UnbookAllocationEventAsync(string scope, string code, AllocationEventUnbookRequest allocationEventUnbookRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] UnbookAllocationEvent: Unbook an Allocation Event.
+        /// </summary>
+        /// <remarks>
+        /// Take an Allocation Event whose booking stopped half way back to Computed, cancelling every posting the  booking wrote, and record why. Only an event in the Booking status can be unbooked: one that is Booked is  reversed instead.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventUnbookRequest">The reason the booking is being taken back.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the unbooking applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (AllocationEvent)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationEvent>> UnbookAllocationEventWithHttpInfoAsync(string scope, string code, AllocationEventUnbookRequest allocationEventUnbookRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpsertAllocationEvent: Upsert an Allocation Event.
         /// </summary>
@@ -1578,6 +1898,254 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
+        /// [EXPERIMENTAL] GetAllocationEventReceivables: Get the receivables of an Allocation Event. What each investor still owes on a booked capital call as of the effective datetime, with how many days past  due it is and the ageing bucket that puts it in.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label as of which to age the receivables. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to read the Allocation Event. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>AllocationReceivablesAgeing</returns>
+        public AllocationReceivablesAgeing GetAllocationEventReceivables(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<AllocationReceivablesAgeing> localVarResponse = GetAllocationEventReceivablesWithHttpInfo(scope, code, effectiveAt, asAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllocationEventReceivables: Get the receivables of an Allocation Event. What each investor still owes on a booked capital call as of the effective datetime, with how many days past  due it is and the ageing bucket that puts it in.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label as of which to age the receivables. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to read the Allocation Event. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of AllocationReceivablesAgeing</returns>
+        public Lusid.Sdk.Client.ApiResponse<AllocationReceivablesAgeing> GetAllocationEventReceivablesWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AllocationEventsApi->GetAllocationEventReceivables");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AllocationEventsApi->GetAllocationEventReceivables");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (effectiveAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "AllocationEventsApi.GetAllocationEventReceivables";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<AllocationReceivablesAgeing>("/api/allocationevents/{scope}/{code}/receivables", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAllocationEventReceivables", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllocationEventReceivables: Get the receivables of an Allocation Event. What each investor still owes on a booked capital call as of the effective datetime, with how many days past  due it is and the ageing bucket that puts it in.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label as of which to age the receivables. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to read the Allocation Event. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of AllocationReceivablesAgeing</returns>
+        public async System.Threading.Tasks.Task<AllocationReceivablesAgeing> GetAllocationEventReceivablesAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<AllocationReceivablesAgeing> localVarResponse = await GetAllocationEventReceivablesWithHttpInfoAsync(scope, code, effectiveAt, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllocationEventReceivables: Get the receivables of an Allocation Event. What each investor still owes on a booked capital call as of the effective datetime, with how many days past  due it is and the ageing bucket that puts it in.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label as of which to age the receivables. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to read the Allocation Event. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (AllocationReceivablesAgeing)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationReceivablesAgeing>> GetAllocationEventReceivablesWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AllocationEventsApi->GetAllocationEventReceivables");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AllocationEventsApi->GetAllocationEventReceivables");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "AllocationEventsApi.GetAllocationEventReceivables";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<AllocationReceivablesAgeing>("/api/allocationevents/{scope}/{code}/receivables", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAllocationEventReceivables", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// [EXPERIMENTAL] ListAllocationEvents: List Allocation Events. List all the Allocation Events matching a particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1842,6 +2410,267 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
+        /// [EXPERIMENTAL] PlanAllocationEventBooking: Plan the booking of an Allocation Event. Show everything booking a computed Allocation Event under a booking reference would write, validated as the  booking itself would be, without writing any of it: the investors&#39; lines, the roll-ups above them through the  fund structure and the fund-side transactions. A booking that would be refused fails here with every problem  listed; warnings the map&#39;s policy lets through come back on the plan.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventBookRequest">The booking reference the plan is drawn up under.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to plan the booking. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>AllocationPostingPlan</returns>
+        public AllocationPostingPlan PlanAllocationEventBooking(string scope, string code, AllocationEventBookRequest allocationEventBookRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<AllocationPostingPlan> localVarResponse = PlanAllocationEventBookingWithHttpInfo(scope, code, allocationEventBookRequest, effectiveAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PlanAllocationEventBooking: Plan the booking of an Allocation Event. Show everything booking a computed Allocation Event under a booking reference would write, validated as the  booking itself would be, without writing any of it: the investors&#39; lines, the roll-ups above them through the  fund structure and the fund-side transactions. A booking that would be refused fails here with every problem  listed; warnings the map&#39;s policy lets through come back on the plan.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventBookRequest">The booking reference the plan is drawn up under.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to plan the booking. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of AllocationPostingPlan</returns>
+        public Lusid.Sdk.Client.ApiResponse<AllocationPostingPlan> PlanAllocationEventBookingWithHttpInfo(string scope, string code, AllocationEventBookRequest allocationEventBookRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AllocationEventsApi->PlanAllocationEventBooking");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AllocationEventsApi->PlanAllocationEventBooking");
+            }
+
+            // verify the required parameter 'allocationEventBookRequest' is set
+            if (allocationEventBookRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'allocationEventBookRequest' when calling AllocationEventsApi->PlanAllocationEventBooking");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (effectiveAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            localVarRequestOptions.Data = allocationEventBookRequest;
+
+            localVarRequestOptions.Operation = "AllocationEventsApi.PlanAllocationEventBooking";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<AllocationPostingPlan>("/api/allocationevents/{scope}/{code}/plan", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PlanAllocationEventBooking", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PlanAllocationEventBooking: Plan the booking of an Allocation Event. Show everything booking a computed Allocation Event under a booking reference would write, validated as the  booking itself would be, without writing any of it: the investors&#39; lines, the roll-ups above them through the  fund structure and the fund-side transactions. A booking that would be refused fails here with every problem  listed; warnings the map&#39;s policy lets through come back on the plan.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventBookRequest">The booking reference the plan is drawn up under.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to plan the booking. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of AllocationPostingPlan</returns>
+        public async System.Threading.Tasks.Task<AllocationPostingPlan> PlanAllocationEventBookingAsync(string scope, string code, AllocationEventBookRequest allocationEventBookRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<AllocationPostingPlan> localVarResponse = await PlanAllocationEventBookingWithHttpInfoAsync(scope, code, allocationEventBookRequest, effectiveAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PlanAllocationEventBooking: Plan the booking of an Allocation Event. Show everything booking a computed Allocation Event under a booking reference would write, validated as the  booking itself would be, without writing any of it: the investors&#39; lines, the roll-ups above them through the  fund structure and the fund-side transactions. A booking that would be refused fails here with every problem  listed; warnings the map&#39;s policy lets through come back on the plan.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventBookRequest">The booking reference the plan is drawn up under.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to plan the booking. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (AllocationPostingPlan)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationPostingPlan>> PlanAllocationEventBookingWithHttpInfoAsync(string scope, string code, AllocationEventBookRequest allocationEventBookRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AllocationEventsApi->PlanAllocationEventBooking");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AllocationEventsApi->PlanAllocationEventBooking");
+            }
+
+            // verify the required parameter 'allocationEventBookRequest' is set
+            if (allocationEventBookRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'allocationEventBookRequest' when calling AllocationEventsApi->PlanAllocationEventBooking");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            localVarRequestOptions.Data = allocationEventBookRequest;
+
+            localVarRequestOptions.Operation = "AllocationEventsApi.PlanAllocationEventBooking";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<AllocationPostingPlan>("/api/allocationevents/{scope}/{code}/plan", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PlanAllocationEventBooking", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// [EXPERIMENTAL] ReallocateAllocationEvent: Reallocate an Allocation Event. Recompute the per-investor shares of an unbooked Allocation Event against its map, from an effective  datetime, recording the reason. Any basis values supplied replace those used before. A booked Allocation  Event cannot be reallocated.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2093,6 +2922,789 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ReallocateAllocationEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReceiveAllocationEvent: Record a receipt against an Allocation Event. Record cash received from an investor against a booked capital call. The receipt is applied to what the  investor owes on the call; anything over is recorded as a refund payable, so the outstanding amount never  goes negative. A bank charge is borne by the partner or the fund as the map&#39;s policy says, and a receipt in  another currency is converted at the rate given.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventReceiptRequest">The investor, amount and date of the receipt.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the receipt applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>AllocationEvent</returns>
+        public AllocationEvent ReceiveAllocationEvent(string scope, string code, AllocationEventReceiptRequest allocationEventReceiptRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<AllocationEvent> localVarResponse = ReceiveAllocationEventWithHttpInfo(scope, code, allocationEventReceiptRequest, effectiveAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReceiveAllocationEvent: Record a receipt against an Allocation Event. Record cash received from an investor against a booked capital call. The receipt is applied to what the  investor owes on the call; anything over is recorded as a refund payable, so the outstanding amount never  goes negative. A bank charge is borne by the partner or the fund as the map&#39;s policy says, and a receipt in  another currency is converted at the rate given.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventReceiptRequest">The investor, amount and date of the receipt.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the receipt applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of AllocationEvent</returns>
+        public Lusid.Sdk.Client.ApiResponse<AllocationEvent> ReceiveAllocationEventWithHttpInfo(string scope, string code, AllocationEventReceiptRequest allocationEventReceiptRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AllocationEventsApi->ReceiveAllocationEvent");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AllocationEventsApi->ReceiveAllocationEvent");
+            }
+
+            // verify the required parameter 'allocationEventReceiptRequest' is set
+            if (allocationEventReceiptRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'allocationEventReceiptRequest' when calling AllocationEventsApi->ReceiveAllocationEvent");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (effectiveAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            localVarRequestOptions.Data = allocationEventReceiptRequest;
+
+            localVarRequestOptions.Operation = "AllocationEventsApi.ReceiveAllocationEvent";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<AllocationEvent>("/api/allocationevents/{scope}/{code}/receipts", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ReceiveAllocationEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReceiveAllocationEvent: Record a receipt against an Allocation Event. Record cash received from an investor against a booked capital call. The receipt is applied to what the  investor owes on the call; anything over is recorded as a refund payable, so the outstanding amount never  goes negative. A bank charge is borne by the partner or the fund as the map&#39;s policy says, and a receipt in  another currency is converted at the rate given.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventReceiptRequest">The investor, amount and date of the receipt.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the receipt applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of AllocationEvent</returns>
+        public async System.Threading.Tasks.Task<AllocationEvent> ReceiveAllocationEventAsync(string scope, string code, AllocationEventReceiptRequest allocationEventReceiptRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<AllocationEvent> localVarResponse = await ReceiveAllocationEventWithHttpInfoAsync(scope, code, allocationEventReceiptRequest, effectiveAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReceiveAllocationEvent: Record a receipt against an Allocation Event. Record cash received from an investor against a booked capital call. The receipt is applied to what the  investor owes on the call; anything over is recorded as a refund payable, so the outstanding amount never  goes negative. A bank charge is borne by the partner or the fund as the map&#39;s policy says, and a receipt in  another currency is converted at the rate given.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventReceiptRequest">The investor, amount and date of the receipt.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the receipt applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (AllocationEvent)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationEvent>> ReceiveAllocationEventWithHttpInfoAsync(string scope, string code, AllocationEventReceiptRequest allocationEventReceiptRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AllocationEventsApi->ReceiveAllocationEvent");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AllocationEventsApi->ReceiveAllocationEvent");
+            }
+
+            // verify the required parameter 'allocationEventReceiptRequest' is set
+            if (allocationEventReceiptRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'allocationEventReceiptRequest' when calling AllocationEventsApi->ReceiveAllocationEvent");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            localVarRequestOptions.Data = allocationEventReceiptRequest;
+
+            localVarRequestOptions.Operation = "AllocationEventsApi.ReceiveAllocationEvent";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<AllocationEvent>("/api/allocationevents/{scope}/{code}/receipts", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ReceiveAllocationEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReverseAllocationEvent: Reverse an Allocation Event. Reverse a booked Allocation Event: every posting the booking wrote is mirrored under the reversal reference and  the event is left Reversed. A reversal falling in a closed period posts in the current period unless it is  marked backdated. A reversal cannot itself be reversed; raise a new event naming the reversed one in its  replaces field to put corrected shares in the books.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventReverseRequest">The reason for the reversal and, optionally, when it should take effect.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the reversal applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>AllocationEvent</returns>
+        public AllocationEvent ReverseAllocationEvent(string scope, string code, AllocationEventReverseRequest allocationEventReverseRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<AllocationEvent> localVarResponse = ReverseAllocationEventWithHttpInfo(scope, code, allocationEventReverseRequest, effectiveAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReverseAllocationEvent: Reverse an Allocation Event. Reverse a booked Allocation Event: every posting the booking wrote is mirrored under the reversal reference and  the event is left Reversed. A reversal falling in a closed period posts in the current period unless it is  marked backdated. A reversal cannot itself be reversed; raise a new event naming the reversed one in its  replaces field to put corrected shares in the books.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventReverseRequest">The reason for the reversal and, optionally, when it should take effect.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the reversal applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of AllocationEvent</returns>
+        public Lusid.Sdk.Client.ApiResponse<AllocationEvent> ReverseAllocationEventWithHttpInfo(string scope, string code, AllocationEventReverseRequest allocationEventReverseRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AllocationEventsApi->ReverseAllocationEvent");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AllocationEventsApi->ReverseAllocationEvent");
+            }
+
+            // verify the required parameter 'allocationEventReverseRequest' is set
+            if (allocationEventReverseRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'allocationEventReverseRequest' when calling AllocationEventsApi->ReverseAllocationEvent");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (effectiveAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            localVarRequestOptions.Data = allocationEventReverseRequest;
+
+            localVarRequestOptions.Operation = "AllocationEventsApi.ReverseAllocationEvent";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<AllocationEvent>("/api/allocationevents/{scope}/{code}/reverse", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ReverseAllocationEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReverseAllocationEvent: Reverse an Allocation Event. Reverse a booked Allocation Event: every posting the booking wrote is mirrored under the reversal reference and  the event is left Reversed. A reversal falling in a closed period posts in the current period unless it is  marked backdated. A reversal cannot itself be reversed; raise a new event naming the reversed one in its  replaces field to put corrected shares in the books.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventReverseRequest">The reason for the reversal and, optionally, when it should take effect.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the reversal applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of AllocationEvent</returns>
+        public async System.Threading.Tasks.Task<AllocationEvent> ReverseAllocationEventAsync(string scope, string code, AllocationEventReverseRequest allocationEventReverseRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<AllocationEvent> localVarResponse = await ReverseAllocationEventWithHttpInfoAsync(scope, code, allocationEventReverseRequest, effectiveAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReverseAllocationEvent: Reverse an Allocation Event. Reverse a booked Allocation Event: every posting the booking wrote is mirrored under the reversal reference and  the event is left Reversed. A reversal falling in a closed period posts in the current period unless it is  marked backdated. A reversal cannot itself be reversed; raise a new event naming the reversed one in its  replaces field to put corrected shares in the books.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventReverseRequest">The reason for the reversal and, optionally, when it should take effect.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the reversal applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (AllocationEvent)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationEvent>> ReverseAllocationEventWithHttpInfoAsync(string scope, string code, AllocationEventReverseRequest allocationEventReverseRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AllocationEventsApi->ReverseAllocationEvent");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AllocationEventsApi->ReverseAllocationEvent");
+            }
+
+            // verify the required parameter 'allocationEventReverseRequest' is set
+            if (allocationEventReverseRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'allocationEventReverseRequest' when calling AllocationEventsApi->ReverseAllocationEvent");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            localVarRequestOptions.Data = allocationEventReverseRequest;
+
+            localVarRequestOptions.Operation = "AllocationEventsApi.ReverseAllocationEvent";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<AllocationEvent>("/api/allocationevents/{scope}/{code}/reverse", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ReverseAllocationEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UnbookAllocationEvent: Unbook an Allocation Event. Take an Allocation Event whose booking stopped half way back to Computed, cancelling every posting the  booking wrote, and record why. Only an event in the Booking status can be unbooked: one that is Booked is  reversed instead.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventUnbookRequest">The reason the booking is being taken back.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the unbooking applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>AllocationEvent</returns>
+        public AllocationEvent UnbookAllocationEvent(string scope, string code, AllocationEventUnbookRequest allocationEventUnbookRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<AllocationEvent> localVarResponse = UnbookAllocationEventWithHttpInfo(scope, code, allocationEventUnbookRequest, effectiveAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UnbookAllocationEvent: Unbook an Allocation Event. Take an Allocation Event whose booking stopped half way back to Computed, cancelling every posting the  booking wrote, and record why. Only an event in the Booking status can be unbooked: one that is Booked is  reversed instead.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventUnbookRequest">The reason the booking is being taken back.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the unbooking applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of AllocationEvent</returns>
+        public Lusid.Sdk.Client.ApiResponse<AllocationEvent> UnbookAllocationEventWithHttpInfo(string scope, string code, AllocationEventUnbookRequest allocationEventUnbookRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AllocationEventsApi->UnbookAllocationEvent");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AllocationEventsApi->UnbookAllocationEvent");
+            }
+
+            // verify the required parameter 'allocationEventUnbookRequest' is set
+            if (allocationEventUnbookRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'allocationEventUnbookRequest' when calling AllocationEventsApi->UnbookAllocationEvent");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (effectiveAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            localVarRequestOptions.Data = allocationEventUnbookRequest;
+
+            localVarRequestOptions.Operation = "AllocationEventsApi.UnbookAllocationEvent";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<AllocationEvent>("/api/allocationevents/{scope}/{code}/unbook", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UnbookAllocationEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UnbookAllocationEvent: Unbook an Allocation Event. Take an Allocation Event whose booking stopped half way back to Computed, cancelling every posting the  booking wrote, and record why. Only an event in the Booking status can be unbooked: one that is Booked is  reversed instead.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventUnbookRequest">The reason the booking is being taken back.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the unbooking applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of AllocationEvent</returns>
+        public async System.Threading.Tasks.Task<AllocationEvent> UnbookAllocationEventAsync(string scope, string code, AllocationEventUnbookRequest allocationEventUnbookRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<AllocationEvent> localVarResponse = await UnbookAllocationEventWithHttpInfoAsync(scope, code, allocationEventUnbookRequest, effectiveAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UnbookAllocationEvent: Unbook an Allocation Event. Take an Allocation Event whose booking stopped half way back to Computed, cancelling every posting the  booking wrote, and record why. Only an event in the Booking status can be unbooked: one that is Booked is  reversed instead.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="allocationEventUnbookRequest">The reason the booking is being taken back.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label from which the unbooking applies. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (AllocationEvent)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationEvent>> UnbookAllocationEventWithHttpInfoAsync(string scope, string code, AllocationEventUnbookRequest allocationEventUnbookRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AllocationEventsApi->UnbookAllocationEvent");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AllocationEventsApi->UnbookAllocationEvent");
+            }
+
+            // verify the required parameter 'allocationEventUnbookRequest' is set
+            if (allocationEventUnbookRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'allocationEventUnbookRequest' when calling AllocationEventsApi->UnbookAllocationEvent");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            localVarRequestOptions.Data = allocationEventUnbookRequest;
+
+            localVarRequestOptions.Operation = "AllocationEventsApi.UnbookAllocationEvent";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<AllocationEvent>("/api/allocationevents/{scope}/{code}/unbook", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UnbookAllocationEvent", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

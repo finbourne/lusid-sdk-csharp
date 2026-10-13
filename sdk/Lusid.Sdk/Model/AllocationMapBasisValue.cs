@@ -39,7 +39,9 @@ namespace Lusid.Sdk.Model
         /// <param name="investorRecordId">The investor record the basis value belongs to. (required).</param>
         /// <param name="basisValue">The value the investor record is weighted by, for example its commitment. (required).</param>
         /// <param name="currency">The currency the basis value is held in. Absent means the base currency of the map&#39;s member fund. When the basis values span more than one currency, each is translated into the fund&#39;s base currency at the spot rate on the event date, from the fund&#39;s ABOR recipe, before it weights the allocation. The rate on the event date is the latest quote at or before 00:00 UTC on that date..</param>
-        public AllocationMapBasisValue(string investorRecordId = default(string), decimal basisValue = default(decimal), string currency = default(string))
+        /// <param name="commitmentLineId">For a Commitment event, the commitment line the amount is recorded against. The basis value is then the signed commitment amount itself: positive commits, negative releases. Not used for other event types..</param>
+        /// <param name="portfolioId">portfolioId.</param>
+        public AllocationMapBasisValue(string investorRecordId = default(string), decimal basisValue = default(decimal), string currency = default(string), string commitmentLineId = default(string), ResourceId portfolioId = default(ResourceId))
         {
             // to ensure "investorRecordId" is required (not null)
             if (investorRecordId == null)
@@ -49,6 +51,8 @@ namespace Lusid.Sdk.Model
             this.InvestorRecordId = investorRecordId;
             this.BasisValue = basisValue;
             this.Currency = currency;
+            this.CommitmentLineId = commitmentLineId;
+            this.PortfolioId = portfolioId;
         }
 
         /// <summary>
@@ -73,6 +77,19 @@ namespace Lusid.Sdk.Model
         public string Currency { get; set; }
 
         /// <summary>
+        /// For a Commitment event, the commitment line the amount is recorded against. The basis value is then the signed commitment amount itself: positive commits, negative releases. Not used for other event types.
+        /// </summary>
+        /// <value>For a Commitment event, the commitment line the amount is recorded against. The basis value is then the signed commitment amount itself: positive commits, negative releases. Not used for other event types.</value>
+        [DataMember(Name = "commitmentLineId", EmitDefaultValue = true)]
+        public string CommitmentLineId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PortfolioId
+        /// </summary>
+        [DataMember(Name = "portfolioId", EmitDefaultValue = false)]
+        public ResourceId PortfolioId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +100,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  InvestorRecordId: ").Append(InvestorRecordId).Append("\n");
             sb.Append("  BasisValue: ").Append(BasisValue).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  CommitmentLineId: ").Append(CommitmentLineId).Append("\n");
+            sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,6 +150,16 @@ namespace Lusid.Sdk.Model
                     this.Currency == input.Currency ||
                     (this.Currency != null &&
                     this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.CommitmentLineId == input.CommitmentLineId ||
+                    (this.CommitmentLineId != null &&
+                    this.CommitmentLineId.Equals(input.CommitmentLineId))
+                ) && 
+                (
+                    this.PortfolioId == input.PortfolioId ||
+                    (this.PortfolioId != null &&
+                    this.PortfolioId.Equals(input.PortfolioId))
                 );
         }
 
@@ -151,6 +180,14 @@ namespace Lusid.Sdk.Model
                 if (this.Currency != null)
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
+                if (this.CommitmentLineId != null)
+                {
+                    hashCode = (hashCode * 59) + this.CommitmentLineId.GetHashCode();
+                }
+                if (this.PortfolioId != null)
+                {
+                    hashCode = (hashCode * 59) + this.PortfolioId.GetHashCode();
                 }
                 return hashCode;
             }
@@ -192,6 +229,25 @@ namespace Lusid.Sdk.Model
             if (this.Currency != null && this.Currency.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 0.", new [] { "Currency" });
+            }
+
+            // CommitmentLineId (string) maxLength
+            if (this.CommitmentLineId != null && this.CommitmentLineId.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommitmentLineId, length must be less than 64.", new [] { "CommitmentLineId" });
+            }
+
+            // CommitmentLineId (string) minLength
+            if (this.CommitmentLineId != null && this.CommitmentLineId.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommitmentLineId, length must be greater than 1.", new [] { "CommitmentLineId" });
+            }
+
+            // CommitmentLineId (string) pattern
+            Regex regexCommitmentLineId = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexCommitmentLineId.Match(this.CommitmentLineId).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommitmentLineId, must match a pattern of " + regexCommitmentLineId, new [] { "CommitmentLineId" });
             }
 
             yield break;

@@ -51,8 +51,9 @@ namespace Lusid.Sdk.Model
         /// <param name="latticeStepsPerYear">The lattice time-step density as steps per year. When supplied, the lattice uses  ceil(horizon in years x this value) steps, raised if necessary so that one step is no longer  than the shortest gap between consecutive cashflows, so the fixed LatticeSteps is ignored and  the \&quot;lattice coarser than coupon spacing\&quot; refusal cannot fire. Must be at least 1 when  supplied. Absent, the fixed LatticeSteps count applies..</param>
         /// <param name="maxLatticeNodes">A ceiling on the lattice size, counted as (steps + 1) x rate levels, that the pricer may  build for one instrument. An instrument whose lattice would exceed it is declined by the  model before any allocation, so the cost of a long-dated or finely-stepped row can be  bounded. Must be at least 1 when supplied. Absent, no ceiling applies..</param>
         /// <param name="priceAtQuoteImpliedOas">Price at the option-adjusted spread implied by the instrument&#39;s quoted price instead of at zero  spread, so the present value reproduces the quote and curve risk is measured with the spread  held. The spread is taken from an OAS quote served for the instrument (a quote with descriptor  [\&quot;OAS\&quot;] keyed by its identifiers, from a Rate-typed market data rule or a market data override)  when there is one, and is then held across every bumped valuation; otherwise it is solved  against the quote in the valuation&#39;s own market. A request for a Risk measure requires the OAS  quote, since a spread re-solved under each bump would leave the measure at zero. Also prices  compounded-in-arrears floating coupons, exercises inside an unfixed floating period and  asset-backed bonds, which are otherwise refused. For an asset-backed bond the pool is held at  its latest factor to legal final with no prepayment, so EffectiveDuration and Pv01 on those  rows are legal-final durations that ignore prepayment. A constant prepayment rate served for the  pool is not read, so the lattice, the cash flows and WeightedAverageLife all run the pool to  legal final. Rows carry the source of the spread in the Diagnostics/Model/PricingSpreadSource  valuation key. Defaults to false..</param>
+        /// <param name="ignoreOptionality">Value the instrument with its OptionalitySchedule ignored, so the lattice rolls back the  contractual cashflows with no exercise and the present value is the option-free (bullet) value.  Every measure struck from that value is then the option-stripped figure: the generic curve bumps  behind Risk/Rates/Pv01 and Risk/Rates/Delta, and the effective durations. The spread is resolved  exactly as it would be with the schedule in force: zero by default, and under  PriceAtQuoteImpliedOas the OAS anchor served for the instrument when there is one. Pair it with an  anchor solved on the exercise-aware valuation to measure the bullet at the callable&#39;s own spread, and  without an anchor the OAS is re-solved so the bullet reprices the quote. Defaults to false..</param>
         /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions. (required) (default to &quot;HullWhiteModelOptions&quot;).</param>
-        public HullWhiteModelOptions(decimal meanReversion = default(decimal), decimal volatility = default(decimal), int latticeSteps = default(int), decimal? effectiveRateBumpSize = default(decimal?), Dictionary<string, decimal> meanReversionByCurrency = default(Dictionary<string, decimal>), Dictionary<string, decimal> volatilityByCurrency = default(Dictionary<string, decimal>), decimal? volatilityMultiplier = default(decimal?), decimal? effectiveCs01BumpWidth = default(decimal?), List<string> effectiveKeyRateBuckets = default(List<string>), bool? priceToFirstReset = default(bool?), int? latticeStepsPerYear = default(int?), int? maxLatticeNodes = default(int?), bool? priceAtQuoteImpliedOas = default(bool?), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
+        public HullWhiteModelOptions(decimal meanReversion = default(decimal), decimal volatility = default(decimal), int latticeSteps = default(int), decimal? effectiveRateBumpSize = default(decimal?), Dictionary<string, decimal> meanReversionByCurrency = default(Dictionary<string, decimal>), Dictionary<string, decimal> volatilityByCurrency = default(Dictionary<string, decimal>), decimal? volatilityMultiplier = default(decimal?), decimal? effectiveCs01BumpWidth = default(decimal?), List<string> effectiveKeyRateBuckets = default(List<string>), bool? priceToFirstReset = default(bool?), int? latticeStepsPerYear = default(int?), int? maxLatticeNodes = default(int?), bool? priceAtQuoteImpliedOas = default(bool?), bool? ignoreOptionality = default(bool?), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             this.MeanReversion = meanReversion;
             this.Volatility = volatility;
@@ -67,6 +68,7 @@ namespace Lusid.Sdk.Model
             this.LatticeStepsPerYear = latticeStepsPerYear;
             this.MaxLatticeNodes = maxLatticeNodes;
             this.PriceAtQuoteImpliedOas = priceAtQuoteImpliedOas;
+            this.IgnoreOptionality = ignoreOptionality;
         }
 
         /// <summary>
@@ -161,6 +163,13 @@ namespace Lusid.Sdk.Model
         public bool? PriceAtQuoteImpliedOas { get; set; }
 
         /// <summary>
+        /// Value the instrument with its OptionalitySchedule ignored, so the lattice rolls back the  contractual cashflows with no exercise and the present value is the option-free (bullet) value.  Every measure struck from that value is then the option-stripped figure: the generic curve bumps  behind Risk/Rates/Pv01 and Risk/Rates/Delta, and the effective durations. The spread is resolved  exactly as it would be with the schedule in force: zero by default, and under  PriceAtQuoteImpliedOas the OAS anchor served for the instrument when there is one. Pair it with an  anchor solved on the exercise-aware valuation to measure the bullet at the callable&#39;s own spread, and  without an anchor the OAS is re-solved so the bullet reprices the quote. Defaults to false.
+        /// </summary>
+        /// <value>Value the instrument with its OptionalitySchedule ignored, so the lattice rolls back the  contractual cashflows with no exercise and the present value is the option-free (bullet) value.  Every measure struck from that value is then the option-stripped figure: the generic curve bumps  behind Risk/Rates/Pv01 and Risk/Rates/Delta, and the effective durations. The spread is resolved  exactly as it would be with the schedule in force: zero by default, and under  PriceAtQuoteImpliedOas the OAS anchor served for the instrument when there is one. Pair it with an  anchor solved on the exercise-aware valuation to measure the bullet at the callable&#39;s own spread, and  without an anchor the OAS is re-solved so the bullet reprices the quote. Defaults to false.</value>
+        [DataMember(Name = "ignoreOptionality", EmitDefaultValue = true)]
+        public bool? IgnoreOptionality { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -182,6 +191,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  LatticeStepsPerYear: ").Append(LatticeStepsPerYear).Append("\n");
             sb.Append("  MaxLatticeNodes: ").Append(MaxLatticeNodes).Append("\n");
             sb.Append("  PriceAtQuoteImpliedOas: ").Append(PriceAtQuoteImpliedOas).Append("\n");
+            sb.Append("  IgnoreOptionality: ").Append(IgnoreOptionality).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -281,6 +291,11 @@ namespace Lusid.Sdk.Model
                     this.PriceAtQuoteImpliedOas == input.PriceAtQuoteImpliedOas ||
                     (this.PriceAtQuoteImpliedOas != null &&
                     this.PriceAtQuoteImpliedOas.Equals(input.PriceAtQuoteImpliedOas))
+                ) && base.Equals(input) && 
+                (
+                    this.IgnoreOptionality == input.IgnoreOptionality ||
+                    (this.IgnoreOptionality != null &&
+                    this.IgnoreOptionality.Equals(input.IgnoreOptionality))
                 );
         }
 
@@ -335,6 +350,10 @@ namespace Lusid.Sdk.Model
                 if (this.PriceAtQuoteImpliedOas != null)
                 {
                     hashCode = (hashCode * 59) + this.PriceAtQuoteImpliedOas.GetHashCode();
+                }
+                if (this.IgnoreOptionality != null)
+                {
+                    hashCode = (hashCode * 59) + this.IgnoreOptionality.GetHashCode();
                 }
                 return hashCode;
             }

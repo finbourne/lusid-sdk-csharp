@@ -31,10 +31,10 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AllocationMapResolution" /> class.
         /// </summary>
-        /// <param name="eventType">The kind of allocation event that was resolved. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove..</param>
+        /// <param name="eventType">The kind of allocation event that was resolved. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove, Commitment, Equalisation, RecallExpiry, Transfer, Default, DealFunding..</param>
         /// <param name="amount">The amount that was shared..</param>
         /// <param name="currency">The currency of the amount..</param>
-        /// <param name="basisRule">The basis the map applies to this event type. Available values: ValueWeighted, PropertyWeighted, FixedPercentage..</param>
+        /// <param name="basisRule">The basis the map applies to this event type. Available values: ValueWeighted, PropertyWeighted, FixedPercentage, Committed, CommittedExGP, UncalledCommitment, PaidIn, PaidInForDeal, Recallable, FeeWeightedCommitment, FixedAmount..</param>
         /// <param name="basisPool">The sum of the basis values over the participants that share the remainder pro rata..</param>
         /// <param name="fixedTotal">The total taken off the top by FixedPercentage exceptions before the remainder is shared..</param>
         /// <param name="participantCount">The number of investor records that receive a share, whether fixed or pro rata..</param>
@@ -56,9 +56,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The kind of allocation event that was resolved. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove.
+        /// The kind of allocation event that was resolved. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove, Commitment, Equalisation, RecallExpiry, Transfer, Default, DealFunding.
         /// </summary>
-        /// <value>The kind of allocation event that was resolved. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove.</value>
+        /// <value>The kind of allocation event that was resolved. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove, Commitment, Equalisation, RecallExpiry, Transfer, Default, DealFunding.</value>
         [DataMember(Name = "eventType", EmitDefaultValue = true)]
         public string EventType { get; set; }
 
@@ -77,9 +77,9 @@ namespace Lusid.Sdk.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// The basis the map applies to this event type. Available values: ValueWeighted, PropertyWeighted, FixedPercentage.
+        /// The basis the map applies to this event type. Available values: ValueWeighted, PropertyWeighted, FixedPercentage, Committed, CommittedExGP, UncalledCommitment, PaidIn, PaidInForDeal, Recallable, FeeWeightedCommitment, FixedAmount.
         /// </summary>
-        /// <value>The basis the map applies to this event type. Available values: ValueWeighted, PropertyWeighted, FixedPercentage.</value>
+        /// <value>The basis the map applies to this event type. Available values: ValueWeighted, PropertyWeighted, FixedPercentage, Committed, CommittedExGP, UncalledCommitment, PaidIn, PaidInForDeal, Recallable, FeeWeightedCommitment, FixedAmount.</value>
         [DataMember(Name = "basisRule", EmitDefaultValue = true)]
         public string BasisRule { get; set; }
 

@@ -15,6 +15,9 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Fund Configuration. | [optional] 
 **ApportionmentBucketSet** | **string** | The code of the bucket set definition within this fund configuration that is designated as the apportionment bucket set. Must reference a BucketSetDefinition code within the BucketSets collection. | [optional] 
 **ApportionmentMethodProperty** | [**ApportionmentMethodProperty**](ApportionmentMethodProperty.md) |  | [optional] 
+**PartnershipAccounting** | [**PartnershipAccountingConfiguration**](PartnershipAccountingConfiguration.md) |  | [optional] 
+**FundTerms** | [**FundTerms**](FundTerms.md) |  | [optional] 
+**Closings** | [**List&lt;FundClosing&gt;**](FundClosing.md) | The register of fund closings (first close, subsequent closes, final close) for partnership funds using this configuration. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -32,6 +35,11 @@ Dictionary<string, Property> properties = new Dictionary<string, Property>();
 string apportionmentBucketSet = "example apportionmentBucketSet";
 ApportionmentMethodProperty? apportionmentMethodProperty = new ApportionmentMethodProperty();
 
+PartnershipAccountingConfiguration? partnershipAccounting = new PartnershipAccountingConfiguration();
+
+FundTerms? fundTerms = new FundTerms();
+
+List<FundClosing> closings = new List<FundClosing>();
 
 FundConfigurationRequest fundConfigurationRequestInstance = new FundConfigurationRequest(
     code: code,
@@ -44,7 +52,10 @@ FundConfigurationRequest fundConfigurationRequestInstance = new FundConfiguratio
     bucketSets: bucketSets,
     properties: properties,
     apportionmentBucketSet: apportionmentBucketSet,
-    apportionmentMethodProperty: apportionmentMethodProperty);
+    apportionmentMethodProperty: apportionmentMethodProperty,
+    partnershipAccounting: partnershipAccounting,
+    fundTerms: fundTerms,
+    closings: closings);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

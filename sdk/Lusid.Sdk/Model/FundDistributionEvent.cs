@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A distribution from the fund to the holder of a CapitalInterest. A recallable distribution restores  unfunded capital (the fund may call it again); a non-recallable distribution permanently returns capital.
+    /// A distribution from the fund to the holder of a CapitalInterest. A recallable distribution restores  unfunded capital (the fund may call it again); a non-recallable distribution permanently returns capital.                The total amount may optionally be broken down into slots by character (returnOfCapital, realisedGain,  dividend, interest, otherIncome, carryPaid, withholding, returnOfExcess). When any slot amount is supplied  the slot amounts must sum to the total, one transaction is booked per populated slot, and the recallable  portion of each of the five capital/income characters is given by its matching Recallable amount.  Without slots a single legacy distribution transaction is booked for the total, recallable according  to isRecallable.
     /// </summary>
     [DataContract(Name = "FundDistributionEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
@@ -39,14 +39,48 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="FundDistributionEvent" /> class.
         /// </summary>
         /// <param name="date">The date the distribution takes effect..</param>
-        /// <param name="amount">The amount distributed. Must be positive. (required).</param>
-        /// <param name="isRecallable">True when the fund may recall the distributed amount: the distribution restores unfunded capital  rather than permanently returning it. Defaults to false. This field is optional..</param>
-        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent, TotalReturnSwapCashFlowEvent, GlobalLoanFacilityReinitialisationEvent, InvestorLoanFacilityReinitialisationEvent. (required) (default to &quot;FundDistributionEvent&quot;).</param>
-        public FundDistributionEvent(DateTimeOffset date = default(DateTimeOffset), decimal amount = default(decimal), bool isRecallable = default(bool), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="amount">The total amount distributed. Must be positive. When slot amounts are supplied they must sum to this total. (required).</param>
+        /// <param name="isRecallable">Legacy flag, used only when no slot amount is supplied: true when the fund may recall the whole  distributed amount, so the distribution restores unfunded capital rather than permanently returning  it. Defaults to false. Must not be combined with slot amounts..</param>
+        /// <param name="returnOfCapitalAmount">The part of the distribution that returns capital. Optional slot; must not be negative..</param>
+        /// <param name="realisedGainAmount">The part of the distribution that is realised gain. Optional slot; must not be negative..</param>
+        /// <param name="dividendAmount">The part of the distribution that is dividend income. Optional slot; must not be negative..</param>
+        /// <param name="interestAmount">The part of the distribution that is interest income. Optional slot; must not be negative..</param>
+        /// <param name="otherIncomeAmount">The part of the distribution that is other income. Optional slot; must not be negative..</param>
+        /// <param name="returnOfCapitalRecallableAmount">The recallable portion of returnOfCapitalAmount. Optional; must not exceed returnOfCapitalAmount..</param>
+        /// <param name="realisedGainRecallableAmount">The recallable portion of realisedGainAmount. Optional; must not exceed realisedGainAmount..</param>
+        /// <param name="dividendRecallableAmount">The recallable portion of dividendAmount. Optional; must not exceed dividendAmount..</param>
+        /// <param name="interestRecallableAmount">The recallable portion of interestAmount. Optional; must not exceed interestAmount..</param>
+        /// <param name="otherIncomeRecallableAmount">The recallable portion of otherIncomeAmount. Optional; must not exceed otherIncomeAmount..</param>
+        /// <param name="carryPaidAmount">The part of the distribution that is carried interest paid to the general partner. Optional slot; must not be negative..</param>
+        /// <param name="withholdingAmount">The part of the distribution withheld for tax (a deemed distribution). Optional slot; must not be negative..</param>
+        /// <param name="returnOfExcessAmount">The part of the distribution that returns capital called in excess. Optional slot; must not be negative..</param>
+        /// <param name="recallableUntil">The date until which the recallable portions may be recalled, if limited. Must not precede the distribution date..</param>
+        /// <param name="dealId">The identifier of the deal the distribution relates to, if any..</param>
+        /// <param name="allocationEventId">The identifier of the allocation event the distribution relates to, if any..</param>
+        /// <param name="waterfallTier">The waterfall tier the distribution was paid under, if any..</param>
+        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent, TotalReturnSwapCashFlowEvent, GlobalLoanFacilityReinitialisationEvent, InvestorLoanFacilityReinitialisationEvent, CapitalCallReceiptEvent, RecallableCapitalExpiryEvent, CapitalInterestTransferEvent, FacilityDrawEvent, FacilityRepaymentEvent, FacilityInterestEvent, FacilityCommitmentFeeEvent. (required) (default to &quot;FundDistributionEvent&quot;).</param>
+        public FundDistributionEvent(DateTimeOffset date = default(DateTimeOffset), decimal amount = default(decimal), bool isRecallable = default(bool), decimal? returnOfCapitalAmount = default(decimal?), decimal? realisedGainAmount = default(decimal?), decimal? dividendAmount = default(decimal?), decimal? interestAmount = default(decimal?), decimal? otherIncomeAmount = default(decimal?), decimal? returnOfCapitalRecallableAmount = default(decimal?), decimal? realisedGainRecallableAmount = default(decimal?), decimal? dividendRecallableAmount = default(decimal?), decimal? interestRecallableAmount = default(decimal?), decimal? otherIncomeRecallableAmount = default(decimal?), decimal? carryPaidAmount = default(decimal?), decimal? withholdingAmount = default(decimal?), decimal? returnOfExcessAmount = default(decimal?), DateTimeOffset? recallableUntil = default(DateTimeOffset?), string dealId = default(string), string allocationEventId = default(string), string waterfallTier = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.Amount = amount;
             this.Date = date;
             this.IsRecallable = isRecallable;
+            this.ReturnOfCapitalAmount = returnOfCapitalAmount;
+            this.RealisedGainAmount = realisedGainAmount;
+            this.DividendAmount = dividendAmount;
+            this.InterestAmount = interestAmount;
+            this.OtherIncomeAmount = otherIncomeAmount;
+            this.ReturnOfCapitalRecallableAmount = returnOfCapitalRecallableAmount;
+            this.RealisedGainRecallableAmount = realisedGainRecallableAmount;
+            this.DividendRecallableAmount = dividendRecallableAmount;
+            this.InterestRecallableAmount = interestRecallableAmount;
+            this.OtherIncomeRecallableAmount = otherIncomeRecallableAmount;
+            this.CarryPaidAmount = carryPaidAmount;
+            this.WithholdingAmount = withholdingAmount;
+            this.ReturnOfExcessAmount = returnOfExcessAmount;
+            this.RecallableUntil = recallableUntil;
+            this.DealId = dealId;
+            this.AllocationEventId = allocationEventId;
+            this.WaterfallTier = waterfallTier;
         }
 
         /// <summary>
@@ -57,18 +91,137 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset Date { get; set; }
 
         /// <summary>
-        /// The amount distributed. Must be positive.
+        /// The total amount distributed. Must be positive. When slot amounts are supplied they must sum to this total.
         /// </summary>
-        /// <value>The amount distributed. Must be positive.</value>
+        /// <value>The total amount distributed. Must be positive. When slot amounts are supplied they must sum to this total.</value>
         [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
         public decimal Amount { get; set; }
 
         /// <summary>
-        /// True when the fund may recall the distributed amount: the distribution restores unfunded capital  rather than permanently returning it. Defaults to false. This field is optional.
+        /// Legacy flag, used only when no slot amount is supplied: true when the fund may recall the whole  distributed amount, so the distribution restores unfunded capital rather than permanently returning  it. Defaults to false. Must not be combined with slot amounts.
         /// </summary>
-        /// <value>True when the fund may recall the distributed amount: the distribution restores unfunded capital  rather than permanently returning it. Defaults to false. This field is optional.</value>
+        /// <value>Legacy flag, used only when no slot amount is supplied: true when the fund may recall the whole  distributed amount, so the distribution restores unfunded capital rather than permanently returning  it. Defaults to false. Must not be combined with slot amounts.</value>
         [DataMember(Name = "isRecallable", EmitDefaultValue = true)]
         public bool IsRecallable { get; set; }
+
+        /// <summary>
+        /// The part of the distribution that returns capital. Optional slot; must not be negative.
+        /// </summary>
+        /// <value>The part of the distribution that returns capital. Optional slot; must not be negative.</value>
+        [DataMember(Name = "returnOfCapitalAmount", EmitDefaultValue = true)]
+        public decimal? ReturnOfCapitalAmount { get; set; }
+
+        /// <summary>
+        /// The part of the distribution that is realised gain. Optional slot; must not be negative.
+        /// </summary>
+        /// <value>The part of the distribution that is realised gain. Optional slot; must not be negative.</value>
+        [DataMember(Name = "realisedGainAmount", EmitDefaultValue = true)]
+        public decimal? RealisedGainAmount { get; set; }
+
+        /// <summary>
+        /// The part of the distribution that is dividend income. Optional slot; must not be negative.
+        /// </summary>
+        /// <value>The part of the distribution that is dividend income. Optional slot; must not be negative.</value>
+        [DataMember(Name = "dividendAmount", EmitDefaultValue = true)]
+        public decimal? DividendAmount { get; set; }
+
+        /// <summary>
+        /// The part of the distribution that is interest income. Optional slot; must not be negative.
+        /// </summary>
+        /// <value>The part of the distribution that is interest income. Optional slot; must not be negative.</value>
+        [DataMember(Name = "interestAmount", EmitDefaultValue = true)]
+        public decimal? InterestAmount { get; set; }
+
+        /// <summary>
+        /// The part of the distribution that is other income. Optional slot; must not be negative.
+        /// </summary>
+        /// <value>The part of the distribution that is other income. Optional slot; must not be negative.</value>
+        [DataMember(Name = "otherIncomeAmount", EmitDefaultValue = true)]
+        public decimal? OtherIncomeAmount { get; set; }
+
+        /// <summary>
+        /// The recallable portion of returnOfCapitalAmount. Optional; must not exceed returnOfCapitalAmount.
+        /// </summary>
+        /// <value>The recallable portion of returnOfCapitalAmount. Optional; must not exceed returnOfCapitalAmount.</value>
+        [DataMember(Name = "returnOfCapitalRecallableAmount", EmitDefaultValue = true)]
+        public decimal? ReturnOfCapitalRecallableAmount { get; set; }
+
+        /// <summary>
+        /// The recallable portion of realisedGainAmount. Optional; must not exceed realisedGainAmount.
+        /// </summary>
+        /// <value>The recallable portion of realisedGainAmount. Optional; must not exceed realisedGainAmount.</value>
+        [DataMember(Name = "realisedGainRecallableAmount", EmitDefaultValue = true)]
+        public decimal? RealisedGainRecallableAmount { get; set; }
+
+        /// <summary>
+        /// The recallable portion of dividendAmount. Optional; must not exceed dividendAmount.
+        /// </summary>
+        /// <value>The recallable portion of dividendAmount. Optional; must not exceed dividendAmount.</value>
+        [DataMember(Name = "dividendRecallableAmount", EmitDefaultValue = true)]
+        public decimal? DividendRecallableAmount { get; set; }
+
+        /// <summary>
+        /// The recallable portion of interestAmount. Optional; must not exceed interestAmount.
+        /// </summary>
+        /// <value>The recallable portion of interestAmount. Optional; must not exceed interestAmount.</value>
+        [DataMember(Name = "interestRecallableAmount", EmitDefaultValue = true)]
+        public decimal? InterestRecallableAmount { get; set; }
+
+        /// <summary>
+        /// The recallable portion of otherIncomeAmount. Optional; must not exceed otherIncomeAmount.
+        /// </summary>
+        /// <value>The recallable portion of otherIncomeAmount. Optional; must not exceed otherIncomeAmount.</value>
+        [DataMember(Name = "otherIncomeRecallableAmount", EmitDefaultValue = true)]
+        public decimal? OtherIncomeRecallableAmount { get; set; }
+
+        /// <summary>
+        /// The part of the distribution that is carried interest paid to the general partner. Optional slot; must not be negative.
+        /// </summary>
+        /// <value>The part of the distribution that is carried interest paid to the general partner. Optional slot; must not be negative.</value>
+        [DataMember(Name = "carryPaidAmount", EmitDefaultValue = true)]
+        public decimal? CarryPaidAmount { get; set; }
+
+        /// <summary>
+        /// The part of the distribution withheld for tax (a deemed distribution). Optional slot; must not be negative.
+        /// </summary>
+        /// <value>The part of the distribution withheld for tax (a deemed distribution). Optional slot; must not be negative.</value>
+        [DataMember(Name = "withholdingAmount", EmitDefaultValue = true)]
+        public decimal? WithholdingAmount { get; set; }
+
+        /// <summary>
+        /// The part of the distribution that returns capital called in excess. Optional slot; must not be negative.
+        /// </summary>
+        /// <value>The part of the distribution that returns capital called in excess. Optional slot; must not be negative.</value>
+        [DataMember(Name = "returnOfExcessAmount", EmitDefaultValue = true)]
+        public decimal? ReturnOfExcessAmount { get; set; }
+
+        /// <summary>
+        /// The date until which the recallable portions may be recalled, if limited. Must not precede the distribution date.
+        /// </summary>
+        /// <value>The date until which the recallable portions may be recalled, if limited. Must not precede the distribution date.</value>
+        [DataMember(Name = "recallableUntil", EmitDefaultValue = true)]
+        public DateTimeOffset? RecallableUntil { get; set; }
+
+        /// <summary>
+        /// The identifier of the deal the distribution relates to, if any.
+        /// </summary>
+        /// <value>The identifier of the deal the distribution relates to, if any.</value>
+        [DataMember(Name = "dealId", EmitDefaultValue = true)]
+        public string DealId { get; set; }
+
+        /// <summary>
+        /// The identifier of the allocation event the distribution relates to, if any.
+        /// </summary>
+        /// <value>The identifier of the allocation event the distribution relates to, if any.</value>
+        [DataMember(Name = "allocationEventId", EmitDefaultValue = true)]
+        public string AllocationEventId { get; set; }
+
+        /// <summary>
+        /// The waterfall tier the distribution was paid under, if any.
+        /// </summary>
+        /// <value>The waterfall tier the distribution was paid under, if any.</value>
+        [DataMember(Name = "waterfallTier", EmitDefaultValue = true)]
+        public string WaterfallTier { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -82,6 +235,23 @@ namespace Lusid.Sdk.Model
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  IsRecallable: ").Append(IsRecallable).Append("\n");
+            sb.Append("  ReturnOfCapitalAmount: ").Append(ReturnOfCapitalAmount).Append("\n");
+            sb.Append("  RealisedGainAmount: ").Append(RealisedGainAmount).Append("\n");
+            sb.Append("  DividendAmount: ").Append(DividendAmount).Append("\n");
+            sb.Append("  InterestAmount: ").Append(InterestAmount).Append("\n");
+            sb.Append("  OtherIncomeAmount: ").Append(OtherIncomeAmount).Append("\n");
+            sb.Append("  ReturnOfCapitalRecallableAmount: ").Append(ReturnOfCapitalRecallableAmount).Append("\n");
+            sb.Append("  RealisedGainRecallableAmount: ").Append(RealisedGainRecallableAmount).Append("\n");
+            sb.Append("  DividendRecallableAmount: ").Append(DividendRecallableAmount).Append("\n");
+            sb.Append("  InterestRecallableAmount: ").Append(InterestRecallableAmount).Append("\n");
+            sb.Append("  OtherIncomeRecallableAmount: ").Append(OtherIncomeRecallableAmount).Append("\n");
+            sb.Append("  CarryPaidAmount: ").Append(CarryPaidAmount).Append("\n");
+            sb.Append("  WithholdingAmount: ").Append(WithholdingAmount).Append("\n");
+            sb.Append("  ReturnOfExcessAmount: ").Append(ReturnOfExcessAmount).Append("\n");
+            sb.Append("  RecallableUntil: ").Append(RecallableUntil).Append("\n");
+            sb.Append("  DealId: ").Append(DealId).Append("\n");
+            sb.Append("  AllocationEventId: ").Append(AllocationEventId).Append("\n");
+            sb.Append("  WaterfallTier: ").Append(WaterfallTier).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -129,6 +299,91 @@ namespace Lusid.Sdk.Model
                 (
                     this.IsRecallable == input.IsRecallable ||
                     this.IsRecallable.Equals(input.IsRecallable)
+                ) && base.Equals(input) && 
+                (
+                    this.ReturnOfCapitalAmount == input.ReturnOfCapitalAmount ||
+                    (this.ReturnOfCapitalAmount != null &&
+                    this.ReturnOfCapitalAmount.Equals(input.ReturnOfCapitalAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.RealisedGainAmount == input.RealisedGainAmount ||
+                    (this.RealisedGainAmount != null &&
+                    this.RealisedGainAmount.Equals(input.RealisedGainAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.DividendAmount == input.DividendAmount ||
+                    (this.DividendAmount != null &&
+                    this.DividendAmount.Equals(input.DividendAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.InterestAmount == input.InterestAmount ||
+                    (this.InterestAmount != null &&
+                    this.InterestAmount.Equals(input.InterestAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.OtherIncomeAmount == input.OtherIncomeAmount ||
+                    (this.OtherIncomeAmount != null &&
+                    this.OtherIncomeAmount.Equals(input.OtherIncomeAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.ReturnOfCapitalRecallableAmount == input.ReturnOfCapitalRecallableAmount ||
+                    (this.ReturnOfCapitalRecallableAmount != null &&
+                    this.ReturnOfCapitalRecallableAmount.Equals(input.ReturnOfCapitalRecallableAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.RealisedGainRecallableAmount == input.RealisedGainRecallableAmount ||
+                    (this.RealisedGainRecallableAmount != null &&
+                    this.RealisedGainRecallableAmount.Equals(input.RealisedGainRecallableAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.DividendRecallableAmount == input.DividendRecallableAmount ||
+                    (this.DividendRecallableAmount != null &&
+                    this.DividendRecallableAmount.Equals(input.DividendRecallableAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.InterestRecallableAmount == input.InterestRecallableAmount ||
+                    (this.InterestRecallableAmount != null &&
+                    this.InterestRecallableAmount.Equals(input.InterestRecallableAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.OtherIncomeRecallableAmount == input.OtherIncomeRecallableAmount ||
+                    (this.OtherIncomeRecallableAmount != null &&
+                    this.OtherIncomeRecallableAmount.Equals(input.OtherIncomeRecallableAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.CarryPaidAmount == input.CarryPaidAmount ||
+                    (this.CarryPaidAmount != null &&
+                    this.CarryPaidAmount.Equals(input.CarryPaidAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.WithholdingAmount == input.WithholdingAmount ||
+                    (this.WithholdingAmount != null &&
+                    this.WithholdingAmount.Equals(input.WithholdingAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.ReturnOfExcessAmount == input.ReturnOfExcessAmount ||
+                    (this.ReturnOfExcessAmount != null &&
+                    this.ReturnOfExcessAmount.Equals(input.ReturnOfExcessAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.RecallableUntil == input.RecallableUntil ||
+                    (this.RecallableUntil != null &&
+                    this.RecallableUntil.Equals(input.RecallableUntil))
+                ) && base.Equals(input) && 
+                (
+                    this.DealId == input.DealId ||
+                    (this.DealId != null &&
+                    this.DealId.Equals(input.DealId))
+                ) && base.Equals(input) && 
+                (
+                    this.AllocationEventId == input.AllocationEventId ||
+                    (this.AllocationEventId != null &&
+                    this.AllocationEventId.Equals(input.AllocationEventId))
+                ) && base.Equals(input) && 
+                (
+                    this.WaterfallTier == input.WaterfallTier ||
+                    (this.WaterfallTier != null &&
+                    this.WaterfallTier.Equals(input.WaterfallTier))
                 );
         }
 
@@ -147,6 +402,74 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.Amount.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsRecallable.GetHashCode();
+                if (this.ReturnOfCapitalAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReturnOfCapitalAmount.GetHashCode();
+                }
+                if (this.RealisedGainAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.RealisedGainAmount.GetHashCode();
+                }
+                if (this.DividendAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.DividendAmount.GetHashCode();
+                }
+                if (this.InterestAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.InterestAmount.GetHashCode();
+                }
+                if (this.OtherIncomeAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.OtherIncomeAmount.GetHashCode();
+                }
+                if (this.ReturnOfCapitalRecallableAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReturnOfCapitalRecallableAmount.GetHashCode();
+                }
+                if (this.RealisedGainRecallableAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.RealisedGainRecallableAmount.GetHashCode();
+                }
+                if (this.DividendRecallableAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.DividendRecallableAmount.GetHashCode();
+                }
+                if (this.InterestRecallableAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.InterestRecallableAmount.GetHashCode();
+                }
+                if (this.OtherIncomeRecallableAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.OtherIncomeRecallableAmount.GetHashCode();
+                }
+                if (this.CarryPaidAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.CarryPaidAmount.GetHashCode();
+                }
+                if (this.WithholdingAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.WithholdingAmount.GetHashCode();
+                }
+                if (this.ReturnOfExcessAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReturnOfExcessAmount.GetHashCode();
+                }
+                if (this.RecallableUntil != null)
+                {
+                    hashCode = (hashCode * 59) + this.RecallableUntil.GetHashCode();
+                }
+                if (this.DealId != null)
+                {
+                    hashCode = (hashCode * 59) + this.DealId.GetHashCode();
+                }
+                if (this.AllocationEventId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AllocationEventId.GetHashCode();
+                }
+                if (this.WaterfallTier != null)
+                {
+                    hashCode = (hashCode * 59) + this.WaterfallTier.GetHashCode();
+                }
                 return hashCode;
             }
         }

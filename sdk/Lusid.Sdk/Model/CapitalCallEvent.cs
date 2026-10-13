@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A call of committed capital on a CapitalInterest: the fund draws down the amount from the investor&#39;s  unfunded commitment, moving it to funded capital.
+    /// A call of committed capital on a CapitalInterest: the fund draws down the amount from the investor&#39;s  unfunded commitment, moving it to funded capital.                The total amount may optionally be broken down into slots (investment, managementFee, otherFee,  partnershipExpense, organisationalCost, recall, equalisationInterest, latePaymentInterest). When any  slot amount is supplied the slot amounts must sum to the total and one transaction is booked per  populated slot; otherwise a single legacy drawdown transaction is booked for the total.
     /// </summary>
     [DataContract(Name = "CapitalCallEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
@@ -39,12 +39,36 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="CapitalCallEvent" /> class.
         /// </summary>
         /// <param name="date">The date the capital call takes effect..</param>
-        /// <param name="amount">The amount of committed capital called. Must be positive. (required).</param>
-        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent, TotalReturnSwapCashFlowEvent, GlobalLoanFacilityReinitialisationEvent, InvestorLoanFacilityReinitialisationEvent. (required) (default to &quot;CapitalCallEvent&quot;).</param>
-        public CapitalCallEvent(DateTimeOffset date = default(DateTimeOffset), decimal amount = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="amount">The total amount of committed capital called. Must be positive. When slot amounts are  supplied they must sum to this total. (required).</param>
+        /// <param name="investmentAmount">The part of the call that funds investments. Optional slot; must not be negative..</param>
+        /// <param name="managementFeeAmount">The part of the call that pays management fees. Optional slot; must not be negative..</param>
+        /// <param name="otherFeeAmount">The part of the call that pays other fees. Optional slot; must not be negative..</param>
+        /// <param name="partnershipExpenseAmount">The part of the call that pays partnership expenses. Optional slot; must not be negative..</param>
+        /// <param name="organisationalCostAmount">The part of the call that pays organisational costs. Optional slot; must not be negative..</param>
+        /// <param name="recallAmount">The part of the call that re-draws previously distributed recallable capital. Optional slot; must not be negative..</param>
+        /// <param name="equalisationInterestAmount">The part of the call that is equalisation interest. Optional slot; must not be negative..</param>
+        /// <param name="latePaymentInterestAmount">The part of the call that is late payment interest. Optional slot; must not be negative..</param>
+        /// <param name="outsideCommitmentSlots">The slots (names without the Amount suffix, e.g. \&quot;managementFee\&quot;) called outside the commitment,  so that they do not reduce the uncalled commitment. When omitted, defaults to equalisationInterest  and latePaymentInterest..</param>
+        /// <param name="dealId">The identifier of the deal the call relates to, if any..</param>
+        /// <param name="allocationEventId">The identifier of the allocation event the call relates to, if any..</param>
+        /// <param name="noticeDate">The date the call notice was issued, if known..</param>
+        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent, TotalReturnSwapCashFlowEvent, GlobalLoanFacilityReinitialisationEvent, InvestorLoanFacilityReinitialisationEvent, CapitalCallReceiptEvent, RecallableCapitalExpiryEvent, CapitalInterestTransferEvent, FacilityDrawEvent, FacilityRepaymentEvent, FacilityInterestEvent, FacilityCommitmentFeeEvent. (required) (default to &quot;CapitalCallEvent&quot;).</param>
+        public CapitalCallEvent(DateTimeOffset date = default(DateTimeOffset), decimal amount = default(decimal), decimal? investmentAmount = default(decimal?), decimal? managementFeeAmount = default(decimal?), decimal? otherFeeAmount = default(decimal?), decimal? partnershipExpenseAmount = default(decimal?), decimal? organisationalCostAmount = default(decimal?), decimal? recallAmount = default(decimal?), decimal? equalisationInterestAmount = default(decimal?), decimal? latePaymentInterestAmount = default(decimal?), List<string> outsideCommitmentSlots = default(List<string>), string dealId = default(string), string allocationEventId = default(string), DateTimeOffset? noticeDate = default(DateTimeOffset?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.Amount = amount;
             this.Date = date;
+            this.InvestmentAmount = investmentAmount;
+            this.ManagementFeeAmount = managementFeeAmount;
+            this.OtherFeeAmount = otherFeeAmount;
+            this.PartnershipExpenseAmount = partnershipExpenseAmount;
+            this.OrganisationalCostAmount = organisationalCostAmount;
+            this.RecallAmount = recallAmount;
+            this.EqualisationInterestAmount = equalisationInterestAmount;
+            this.LatePaymentInterestAmount = latePaymentInterestAmount;
+            this.OutsideCommitmentSlots = outsideCommitmentSlots;
+            this.DealId = dealId;
+            this.AllocationEventId = allocationEventId;
+            this.NoticeDate = noticeDate;
         }
 
         /// <summary>
@@ -55,11 +79,95 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset Date { get; set; }
 
         /// <summary>
-        /// The amount of committed capital called. Must be positive.
+        /// The total amount of committed capital called. Must be positive. When slot amounts are  supplied they must sum to this total.
         /// </summary>
-        /// <value>The amount of committed capital called. Must be positive.</value>
+        /// <value>The total amount of committed capital called. Must be positive. When slot amounts are  supplied they must sum to this total.</value>
         [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
         public decimal Amount { get; set; }
+
+        /// <summary>
+        /// The part of the call that funds investments. Optional slot; must not be negative.
+        /// </summary>
+        /// <value>The part of the call that funds investments. Optional slot; must not be negative.</value>
+        [DataMember(Name = "investmentAmount", EmitDefaultValue = true)]
+        public decimal? InvestmentAmount { get; set; }
+
+        /// <summary>
+        /// The part of the call that pays management fees. Optional slot; must not be negative.
+        /// </summary>
+        /// <value>The part of the call that pays management fees. Optional slot; must not be negative.</value>
+        [DataMember(Name = "managementFeeAmount", EmitDefaultValue = true)]
+        public decimal? ManagementFeeAmount { get; set; }
+
+        /// <summary>
+        /// The part of the call that pays other fees. Optional slot; must not be negative.
+        /// </summary>
+        /// <value>The part of the call that pays other fees. Optional slot; must not be negative.</value>
+        [DataMember(Name = "otherFeeAmount", EmitDefaultValue = true)]
+        public decimal? OtherFeeAmount { get; set; }
+
+        /// <summary>
+        /// The part of the call that pays partnership expenses. Optional slot; must not be negative.
+        /// </summary>
+        /// <value>The part of the call that pays partnership expenses. Optional slot; must not be negative.</value>
+        [DataMember(Name = "partnershipExpenseAmount", EmitDefaultValue = true)]
+        public decimal? PartnershipExpenseAmount { get; set; }
+
+        /// <summary>
+        /// The part of the call that pays organisational costs. Optional slot; must not be negative.
+        /// </summary>
+        /// <value>The part of the call that pays organisational costs. Optional slot; must not be negative.</value>
+        [DataMember(Name = "organisationalCostAmount", EmitDefaultValue = true)]
+        public decimal? OrganisationalCostAmount { get; set; }
+
+        /// <summary>
+        /// The part of the call that re-draws previously distributed recallable capital. Optional slot; must not be negative.
+        /// </summary>
+        /// <value>The part of the call that re-draws previously distributed recallable capital. Optional slot; must not be negative.</value>
+        [DataMember(Name = "recallAmount", EmitDefaultValue = true)]
+        public decimal? RecallAmount { get; set; }
+
+        /// <summary>
+        /// The part of the call that is equalisation interest. Optional slot; must not be negative.
+        /// </summary>
+        /// <value>The part of the call that is equalisation interest. Optional slot; must not be negative.</value>
+        [DataMember(Name = "equalisationInterestAmount", EmitDefaultValue = true)]
+        public decimal? EqualisationInterestAmount { get; set; }
+
+        /// <summary>
+        /// The part of the call that is late payment interest. Optional slot; must not be negative.
+        /// </summary>
+        /// <value>The part of the call that is late payment interest. Optional slot; must not be negative.</value>
+        [DataMember(Name = "latePaymentInterestAmount", EmitDefaultValue = true)]
+        public decimal? LatePaymentInterestAmount { get; set; }
+
+        /// <summary>
+        /// The slots (names without the Amount suffix, e.g. \&quot;managementFee\&quot;) called outside the commitment,  so that they do not reduce the uncalled commitment. When omitted, defaults to equalisationInterest  and latePaymentInterest.
+        /// </summary>
+        /// <value>The slots (names without the Amount suffix, e.g. \&quot;managementFee\&quot;) called outside the commitment,  so that they do not reduce the uncalled commitment. When omitted, defaults to equalisationInterest  and latePaymentInterest.</value>
+        [DataMember(Name = "outsideCommitmentSlots", EmitDefaultValue = true)]
+        public List<string> OutsideCommitmentSlots { get; set; }
+
+        /// <summary>
+        /// The identifier of the deal the call relates to, if any.
+        /// </summary>
+        /// <value>The identifier of the deal the call relates to, if any.</value>
+        [DataMember(Name = "dealId", EmitDefaultValue = true)]
+        public string DealId { get; set; }
+
+        /// <summary>
+        /// The identifier of the allocation event the call relates to, if any.
+        /// </summary>
+        /// <value>The identifier of the allocation event the call relates to, if any.</value>
+        [DataMember(Name = "allocationEventId", EmitDefaultValue = true)]
+        public string AllocationEventId { get; set; }
+
+        /// <summary>
+        /// The date the call notice was issued, if known.
+        /// </summary>
+        /// <value>The date the call notice was issued, if known.</value>
+        [DataMember(Name = "noticeDate", EmitDefaultValue = true)]
+        public DateTimeOffset? NoticeDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,6 +180,18 @@ namespace Lusid.Sdk.Model
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  InvestmentAmount: ").Append(InvestmentAmount).Append("\n");
+            sb.Append("  ManagementFeeAmount: ").Append(ManagementFeeAmount).Append("\n");
+            sb.Append("  OtherFeeAmount: ").Append(OtherFeeAmount).Append("\n");
+            sb.Append("  PartnershipExpenseAmount: ").Append(PartnershipExpenseAmount).Append("\n");
+            sb.Append("  OrganisationalCostAmount: ").Append(OrganisationalCostAmount).Append("\n");
+            sb.Append("  RecallAmount: ").Append(RecallAmount).Append("\n");
+            sb.Append("  EqualisationInterestAmount: ").Append(EqualisationInterestAmount).Append("\n");
+            sb.Append("  LatePaymentInterestAmount: ").Append(LatePaymentInterestAmount).Append("\n");
+            sb.Append("  OutsideCommitmentSlots: ").Append(OutsideCommitmentSlots).Append("\n");
+            sb.Append("  DealId: ").Append(DealId).Append("\n");
+            sb.Append("  AllocationEventId: ").Append(AllocationEventId).Append("\n");
+            sb.Append("  NoticeDate: ").Append(NoticeDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,6 +235,67 @@ namespace Lusid.Sdk.Model
                 (
                     this.Amount == input.Amount ||
                     this.Amount.Equals(input.Amount)
+                ) && base.Equals(input) && 
+                (
+                    this.InvestmentAmount == input.InvestmentAmount ||
+                    (this.InvestmentAmount != null &&
+                    this.InvestmentAmount.Equals(input.InvestmentAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.ManagementFeeAmount == input.ManagementFeeAmount ||
+                    (this.ManagementFeeAmount != null &&
+                    this.ManagementFeeAmount.Equals(input.ManagementFeeAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.OtherFeeAmount == input.OtherFeeAmount ||
+                    (this.OtherFeeAmount != null &&
+                    this.OtherFeeAmount.Equals(input.OtherFeeAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.PartnershipExpenseAmount == input.PartnershipExpenseAmount ||
+                    (this.PartnershipExpenseAmount != null &&
+                    this.PartnershipExpenseAmount.Equals(input.PartnershipExpenseAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.OrganisationalCostAmount == input.OrganisationalCostAmount ||
+                    (this.OrganisationalCostAmount != null &&
+                    this.OrganisationalCostAmount.Equals(input.OrganisationalCostAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.RecallAmount == input.RecallAmount ||
+                    (this.RecallAmount != null &&
+                    this.RecallAmount.Equals(input.RecallAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.EqualisationInterestAmount == input.EqualisationInterestAmount ||
+                    (this.EqualisationInterestAmount != null &&
+                    this.EqualisationInterestAmount.Equals(input.EqualisationInterestAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.LatePaymentInterestAmount == input.LatePaymentInterestAmount ||
+                    (this.LatePaymentInterestAmount != null &&
+                    this.LatePaymentInterestAmount.Equals(input.LatePaymentInterestAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.OutsideCommitmentSlots == input.OutsideCommitmentSlots ||
+                    this.OutsideCommitmentSlots != null &&
+                    input.OutsideCommitmentSlots != null &&
+                    this.OutsideCommitmentSlots.SequenceEqual(input.OutsideCommitmentSlots)
+                ) && base.Equals(input) && 
+                (
+                    this.DealId == input.DealId ||
+                    (this.DealId != null &&
+                    this.DealId.Equals(input.DealId))
+                ) && base.Equals(input) && 
+                (
+                    this.AllocationEventId == input.AllocationEventId ||
+                    (this.AllocationEventId != null &&
+                    this.AllocationEventId.Equals(input.AllocationEventId))
+                ) && base.Equals(input) && 
+                (
+                    this.NoticeDate == input.NoticeDate ||
+                    (this.NoticeDate != null &&
+                    this.NoticeDate.Equals(input.NoticeDate))
                 );
         }
 
@@ -132,6 +313,54 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.Date.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                if (this.InvestmentAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.InvestmentAmount.GetHashCode();
+                }
+                if (this.ManagementFeeAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.ManagementFeeAmount.GetHashCode();
+                }
+                if (this.OtherFeeAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.OtherFeeAmount.GetHashCode();
+                }
+                if (this.PartnershipExpenseAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.PartnershipExpenseAmount.GetHashCode();
+                }
+                if (this.OrganisationalCostAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.OrganisationalCostAmount.GetHashCode();
+                }
+                if (this.RecallAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.RecallAmount.GetHashCode();
+                }
+                if (this.EqualisationInterestAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.EqualisationInterestAmount.GetHashCode();
+                }
+                if (this.LatePaymentInterestAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.LatePaymentInterestAmount.GetHashCode();
+                }
+                if (this.OutsideCommitmentSlots != null)
+                {
+                    hashCode = (hashCode * 59) + this.OutsideCommitmentSlots.GetHashCode();
+                }
+                if (this.DealId != null)
+                {
+                    hashCode = (hashCode * 59) + this.DealId.GetHashCode();
+                }
+                if (this.AllocationEventId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AllocationEventId.GetHashCode();
+                }
+                if (this.NoticeDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.NoticeDate.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -47,7 +47,10 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">A set of properties for the Fund Configuration..</param>
         /// <param name="apportionmentBucketSet">The code of the bucket set definition within this fund configuration that is designated as the apportionment bucket set. Must reference a BucketSetDefinition code within the BucketSets collection..</param>
         /// <param name="apportionmentMethodProperty">apportionmentMethodProperty.</param>
-        public FundConfigurationRequest(string code = default(string), string displayName = default(string), string description = default(string), List<ComponentFilter> dealingFilters = default(List<ComponentFilter>), List<ComponentFilter> pnlFilters = default(List<ComponentFilter>), List<ComponentFilter> backOutFilters = default(List<ComponentFilter>), List<ExternalFeeComponentFilter> externalFeeFilters = default(List<ExternalFeeComponentFilter>), List<BucketSetDefinition> bucketSets = default(List<BucketSetDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string apportionmentBucketSet = default(string), ApportionmentMethodProperty apportionmentMethodProperty = default(ApportionmentMethodProperty))
+        /// <param name="partnershipAccounting">partnershipAccounting.</param>
+        /// <param name="fundTerms">fundTerms.</param>
+        /// <param name="closings">The register of fund closings (first close, subsequent closes, final close) for partnership funds using this configuration..</param>
+        public FundConfigurationRequest(string code = default(string), string displayName = default(string), string description = default(string), List<ComponentFilter> dealingFilters = default(List<ComponentFilter>), List<ComponentFilter> pnlFilters = default(List<ComponentFilter>), List<ComponentFilter> backOutFilters = default(List<ComponentFilter>), List<ExternalFeeComponentFilter> externalFeeFilters = default(List<ExternalFeeComponentFilter>), List<BucketSetDefinition> bucketSets = default(List<BucketSetDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string apportionmentBucketSet = default(string), ApportionmentMethodProperty apportionmentMethodProperty = default(ApportionmentMethodProperty), PartnershipAccountingConfiguration partnershipAccounting = default(PartnershipAccountingConfiguration), FundTerms fundTerms = default(FundTerms), List<FundClosing> closings = default(List<FundClosing>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -65,6 +68,9 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this.ApportionmentBucketSet = apportionmentBucketSet;
             this.ApportionmentMethodProperty = apportionmentMethodProperty;
+            this.PartnershipAccounting = partnershipAccounting;
+            this.FundTerms = fundTerms;
+            this.Closings = closings;
         }
 
         /// <summary>
@@ -143,6 +149,25 @@ namespace Lusid.Sdk.Model
         public ApportionmentMethodProperty ApportionmentMethodProperty { get; set; }
 
         /// <summary>
+        /// Gets or Sets PartnershipAccounting
+        /// </summary>
+        [DataMember(Name = "partnershipAccounting", EmitDefaultValue = false)]
+        public PartnershipAccountingConfiguration PartnershipAccounting { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FundTerms
+        /// </summary>
+        [DataMember(Name = "fundTerms", EmitDefaultValue = false)]
+        public FundTerms FundTerms { get; set; }
+
+        /// <summary>
+        /// The register of fund closings (first close, subsequent closes, final close) for partnership funds using this configuration.
+        /// </summary>
+        /// <value>The register of fund closings (first close, subsequent closes, final close) for partnership funds using this configuration.</value>
+        [DataMember(Name = "closings", EmitDefaultValue = true)]
+        public List<FundClosing> Closings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -161,6 +186,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  ApportionmentBucketSet: ").Append(ApportionmentBucketSet).Append("\n");
             sb.Append("  ApportionmentMethodProperty: ").Append(ApportionmentMethodProperty).Append("\n");
+            sb.Append("  PartnershipAccounting: ").Append(PartnershipAccounting).Append("\n");
+            sb.Append("  FundTerms: ").Append(FundTerms).Append("\n");
+            sb.Append("  Closings: ").Append(Closings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -256,6 +284,22 @@ namespace Lusid.Sdk.Model
                     this.ApportionmentMethodProperty == input.ApportionmentMethodProperty ||
                     (this.ApportionmentMethodProperty != null &&
                     this.ApportionmentMethodProperty.Equals(input.ApportionmentMethodProperty))
+                ) && 
+                (
+                    this.PartnershipAccounting == input.PartnershipAccounting ||
+                    (this.PartnershipAccounting != null &&
+                    this.PartnershipAccounting.Equals(input.PartnershipAccounting))
+                ) && 
+                (
+                    this.FundTerms == input.FundTerms ||
+                    (this.FundTerms != null &&
+                    this.FundTerms.Equals(input.FundTerms))
+                ) && 
+                (
+                    this.Closings == input.Closings ||
+                    this.Closings != null &&
+                    input.Closings != null &&
+                    this.Closings.SequenceEqual(input.Closings)
                 );
         }
 
@@ -311,6 +355,18 @@ namespace Lusid.Sdk.Model
                 if (this.ApportionmentMethodProperty != null)
                 {
                     hashCode = (hashCode * 59) + this.ApportionmentMethodProperty.GetHashCode();
+                }
+                if (this.PartnershipAccounting != null)
+                {
+                    hashCode = (hashCode * 59) + this.PartnershipAccounting.GetHashCode();
+                }
+                if (this.FundTerms != null)
+                {
+                    hashCode = (hashCode * 59) + this.FundTerms.GetHashCode();
+                }
+                if (this.Closings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Closings.GetHashCode();
                 }
                 return hashCode;
             }

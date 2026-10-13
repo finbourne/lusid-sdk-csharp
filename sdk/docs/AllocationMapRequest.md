@@ -11,7 +11,9 @@ Name | Type | Description | Notes
 **StructureMemberId** | [**ResourceId**](ResourceId.md) |  | 
 **InheritsFrom** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Participants** | [**AllocationMapParticipants**](AllocationMapParticipants.md) |  | [optional] 
-**BasisByEventType** | [**List&lt;AllocationMapEventBasis&gt;**](AllocationMapEventBasis.md) | The basis on which each kind of allocation event is shared between the participants. At most one entry per event type. | [optional] 
+**BasisByEventType** | [**List&lt;AllocationMapEventBasis&gt;**](AllocationMapEventBasis.md) | The basis on which each kind of allocation event is shared between the participants. At most one entry per event type and component; an entry without a component is the default for the event type. | [optional] 
+**RoundingPartnerLine** | **string** | The investor record that takes every minor unit left over when the shares of an event are rounded. Absent means the leftover is spread one minor unit at a time over the largest remainders. | [optional] 
+**IlpaTransactionTypes** | [**List&lt;AllocationMapIlpaTransactionType&gt;**](AllocationMapIlpaTransactionType.md) | The ILPA transaction types the map reports particular kinds of allocation event under, where they differ from the default for the event type and component. At most one entry per event type and component; an entry without a component is the default for the event type. Every value must be one the system IlpaTransactionType data type lists. | [optional] 
 **EffectiveAt** | **DateTimeOffset?** | The effective datetime from which the Allocation Map applies. Defaults to the beginning of time if not specified, so that the map is visible at every effective datetime. | [optional] 
 
 ```csharp
@@ -27,6 +29,8 @@ ResourceId? inheritsFrom = new ResourceId();
 AllocationMapParticipants? participants = new AllocationMapParticipants();
 
 List<AllocationMapEventBasis> basisByEventType = new List<AllocationMapEventBasis>();
+string roundingPartnerLine = "example roundingPartnerLine";
+List<AllocationMapIlpaTransactionType> ilpaTransactionTypes = new List<AllocationMapIlpaTransactionType>();
 
 AllocationMapRequest allocationMapRequestInstance = new AllocationMapRequest(
     code: code,
@@ -36,6 +40,8 @@ AllocationMapRequest allocationMapRequestInstance = new AllocationMapRequest(
     inheritsFrom: inheritsFrom,
     participants: participants,
     basisByEventType: basisByEventType,
+    roundingPartnerLine: roundingPartnerLine,
+    ilpaTransactionTypes: ilpaTransactionTypes,
     effectiveAt: effectiveAt);
 ```
 

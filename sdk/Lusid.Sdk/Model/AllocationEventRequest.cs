@@ -38,14 +38,23 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the event. (required).</param>
         /// <param name="allocationMapId">allocationMapId (required).</param>
-        /// <param name="eventType">The type of the event: CapitalCall, Distribution, FeeExpense or ValuationMove. Selects the basis rule from the map. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove. (required).</param>
+        /// <param name="eventType">The type of the event: CapitalCall, Distribution, FeeExpense, ValuationMove, Equalisation, RecallExpiry, Transfer, Default, Commitment or DealFunding. Selects the basis rule from the map. A recall is a CapitalCall with a Recall component. A Commitment event is not shared from a basis: its basis values are the signed commitment amounts per commitment line, and they must sum to the amount. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove, Commitment, Equalisation, RecallExpiry, Transfer, Default, DealFunding. (required).</param>
         /// <param name="amount">The total amount to be shared across the participants. (required).</param>
         /// <param name="currency">The ISO 4217 code of the currency of the amount. The amount may not be finer than the currency&#39;s minor unit: two decimal places for most currencies, none for JPY, three for KWD and BHD. A code with no defined minor unit, such as XAU or XAG, is taken to have two decimal places. (required).</param>
         /// <param name="eventDate">The date of the event: the point at which the map, its participants and their basis values are read. (required).</param>
         /// <param name="description">A description of the Allocation Event..</param>
         /// <param name="basisValues">Optional basis values per investor record, used when the map&#39;s basis is not resolvable from stored data..</param>
+        /// <param name="components">The parts the amount splits into, each shared on its own basis and booked to its own slot. The component amounts must sum to the event amount. Absent means the whole amount is one component: Investment for a CapitalCall, ROC for a Distribution..</param>
+        /// <param name="transfers">For a Transfer event, the legs to book: each moves a fraction of one capital interest line to another. Required for a Transfer event and not allowed on any other type. The fractions out of one line must sum to at most one; the amount of a Transfer event is zero..</param>
+        /// <param name="equalisation">equalisation.</param>
+        /// <param name="useOfProceeds">For a CapitalCall, what the call pays for: rows of purpose, deal and amount that sum to the call amount. An Investment row names a deal the vehicle has funded and is shared under that deal&#39;s participation, with each investor&#39;s share recorded as paid in for that deal; when the deal was funded from a facility the row repays the draw. Not allowed with components or on any other event type..</param>
+        /// <param name="dealFunding">dealFunding.</param>
         /// <param name="effectiveAt">The effective datetime at which the event is created or replaced. Defaults to the earliest effective time on create and the current LUSID system datetime on replace..</param>
-        public AllocationEventRequest(string code = default(string), ResourceId allocationMapId = default(ResourceId), string eventType = default(string), decimal amount = default(decimal), string currency = default(string), DateTimeOffset eventDate = default(DateTimeOffset), string description = default(string), List<AllocationMapBasisValue> basisValues = default(List<AllocationMapBasisValue>), DateTimeOffset? effectiveAt = default(DateTimeOffset?))
+        /// <param name="replaces">replaces.</param>
+        /// <param name="noticeDate">The date the notice went to investors..</param>
+        /// <param name="dueDate">The date the investors&#39; cash is due..</param>
+        /// <param name="settlementDate">The date the postings settle. Defaults to the event date..</param>
+        public AllocationEventRequest(string code = default(string), ResourceId allocationMapId = default(ResourceId), string eventType = default(string), decimal amount = default(decimal), string currency = default(string), DateTimeOffset eventDate = default(DateTimeOffset), string description = default(string), List<AllocationMapBasisValue> basisValues = default(List<AllocationMapBasisValue>), List<AllocationEventComponent> components = default(List<AllocationEventComponent>), List<AllocationEventTransfer> transfers = default(List<AllocationEventTransfer>), AllocationEventEqualisation equalisation = default(AllocationEventEqualisation), List<AllocationEventUseOfProceeds> useOfProceeds = default(List<AllocationEventUseOfProceeds>), AllocationEventDealFunding dealFunding = default(AllocationEventDealFunding), DateTimeOffset? effectiveAt = default(DateTimeOffset?), ResourceId replaces = default(ResourceId), DateTimeOffset? noticeDate = default(DateTimeOffset?), DateTimeOffset? dueDate = default(DateTimeOffset?), DateTimeOffset? settlementDate = default(DateTimeOffset?))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -75,7 +84,16 @@ namespace Lusid.Sdk.Model
             this.EventDate = eventDate;
             this.Description = description;
             this.BasisValues = basisValues;
+            this.Components = components;
+            this.Transfers = transfers;
+            this.Equalisation = equalisation;
+            this.UseOfProceeds = useOfProceeds;
+            this.DealFunding = dealFunding;
             this.EffectiveAt = effectiveAt;
+            this.Replaces = replaces;
+            this.NoticeDate = noticeDate;
+            this.DueDate = dueDate;
+            this.SettlementDate = settlementDate;
         }
 
         /// <summary>
@@ -92,9 +110,9 @@ namespace Lusid.Sdk.Model
         public ResourceId AllocationMapId { get; set; }
 
         /// <summary>
-        /// The type of the event: CapitalCall, Distribution, FeeExpense or ValuationMove. Selects the basis rule from the map. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove.
+        /// The type of the event: CapitalCall, Distribution, FeeExpense, ValuationMove, Equalisation, RecallExpiry, Transfer, Default, Commitment or DealFunding. Selects the basis rule from the map. A recall is a CapitalCall with a Recall component. A Commitment event is not shared from a basis: its basis values are the signed commitment amounts per commitment line, and they must sum to the amount. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove, Commitment, Equalisation, RecallExpiry, Transfer, Default, DealFunding.
         /// </summary>
-        /// <value>The type of the event: CapitalCall, Distribution, FeeExpense or ValuationMove. Selects the basis rule from the map. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove.</value>
+        /// <value>The type of the event: CapitalCall, Distribution, FeeExpense, ValuationMove, Equalisation, RecallExpiry, Transfer, Default, Commitment or DealFunding. Selects the basis rule from the map. A recall is a CapitalCall with a Recall component. A Commitment event is not shared from a basis: its basis values are the signed commitment amounts per commitment line, and they must sum to the amount. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove, Commitment, Equalisation, RecallExpiry, Transfer, Default, DealFunding.</value>
         [DataMember(Name = "eventType", IsRequired = true, EmitDefaultValue = true)]
         public string EventType { get; set; }
 
@@ -134,11 +152,71 @@ namespace Lusid.Sdk.Model
         public List<AllocationMapBasisValue> BasisValues { get; set; }
 
         /// <summary>
+        /// The parts the amount splits into, each shared on its own basis and booked to its own slot. The component amounts must sum to the event amount. Absent means the whole amount is one component: Investment for a CapitalCall, ROC for a Distribution.
+        /// </summary>
+        /// <value>The parts the amount splits into, each shared on its own basis and booked to its own slot. The component amounts must sum to the event amount. Absent means the whole amount is one component: Investment for a CapitalCall, ROC for a Distribution.</value>
+        [DataMember(Name = "components", EmitDefaultValue = true)]
+        public List<AllocationEventComponent> Components { get; set; }
+
+        /// <summary>
+        /// For a Transfer event, the legs to book: each moves a fraction of one capital interest line to another. Required for a Transfer event and not allowed on any other type. The fractions out of one line must sum to at most one; the amount of a Transfer event is zero.
+        /// </summary>
+        /// <value>For a Transfer event, the legs to book: each moves a fraction of one capital interest line to another. Required for a Transfer event and not allowed on any other type. The fractions out of one line must sum to at most one; the amount of a Transfer event is zero.</value>
+        [DataMember(Name = "transfers", EmitDefaultValue = true)]
+        public List<AllocationEventTransfer> Transfers { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Equalisation
+        /// </summary>
+        [DataMember(Name = "equalisation", EmitDefaultValue = false)]
+        public AllocationEventEqualisation Equalisation { get; set; }
+
+        /// <summary>
+        /// For a CapitalCall, what the call pays for: rows of purpose, deal and amount that sum to the call amount. An Investment row names a deal the vehicle has funded and is shared under that deal&#39;s participation, with each investor&#39;s share recorded as paid in for that deal; when the deal was funded from a facility the row repays the draw. Not allowed with components or on any other event type.
+        /// </summary>
+        /// <value>For a CapitalCall, what the call pays for: rows of purpose, deal and amount that sum to the call amount. An Investment row names a deal the vehicle has funded and is shared under that deal&#39;s participation, with each investor&#39;s share recorded as paid in for that deal; when the deal was funded from a facility the row repays the draw. Not allowed with components or on any other event type.</value>
+        [DataMember(Name = "useOfProceeds", EmitDefaultValue = true)]
+        public List<AllocationEventUseOfProceeds> UseOfProceeds { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DealFunding
+        /// </summary>
+        [DataMember(Name = "dealFunding", EmitDefaultValue = false)]
+        public AllocationEventDealFunding DealFunding { get; set; }
+
+        /// <summary>
         /// The effective datetime at which the event is created or replaced. Defaults to the earliest effective time on create and the current LUSID system datetime on replace.
         /// </summary>
         /// <value>The effective datetime at which the event is created or replaced. Defaults to the earliest effective time on create and the current LUSID system datetime on replace.</value>
         [DataMember(Name = "effectiveAt", EmitDefaultValue = true)]
         public DateTimeOffset? EffectiveAt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Replaces
+        /// </summary>
+        [DataMember(Name = "replaces", EmitDefaultValue = false)]
+        public ResourceId Replaces { get; set; }
+
+        /// <summary>
+        /// The date the notice went to investors.
+        /// </summary>
+        /// <value>The date the notice went to investors.</value>
+        [DataMember(Name = "noticeDate", EmitDefaultValue = true)]
+        public DateTimeOffset? NoticeDate { get; set; }
+
+        /// <summary>
+        /// The date the investors&#39; cash is due.
+        /// </summary>
+        /// <value>The date the investors&#39; cash is due.</value>
+        [DataMember(Name = "dueDate", EmitDefaultValue = true)]
+        public DateTimeOffset? DueDate { get; set; }
+
+        /// <summary>
+        /// The date the postings settle. Defaults to the event date.
+        /// </summary>
+        /// <value>The date the postings settle. Defaults to the event date.</value>
+        [DataMember(Name = "settlementDate", EmitDefaultValue = true)]
+        public DateTimeOffset? SettlementDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -156,7 +234,16 @@ namespace Lusid.Sdk.Model
             sb.Append("  EventDate: ").Append(EventDate).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  BasisValues: ").Append(BasisValues).Append("\n");
+            sb.Append("  Components: ").Append(Components).Append("\n");
+            sb.Append("  Transfers: ").Append(Transfers).Append("\n");
+            sb.Append("  Equalisation: ").Append(Equalisation).Append("\n");
+            sb.Append("  UseOfProceeds: ").Append(UseOfProceeds).Append("\n");
+            sb.Append("  DealFunding: ").Append(DealFunding).Append("\n");
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
+            sb.Append("  Replaces: ").Append(Replaces).Append("\n");
+            sb.Append("  NoticeDate: ").Append(NoticeDate).Append("\n");
+            sb.Append("  DueDate: ").Append(DueDate).Append("\n");
+            sb.Append("  SettlementDate: ").Append(SettlementDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -233,9 +320,57 @@ namespace Lusid.Sdk.Model
                     this.BasisValues.SequenceEqual(input.BasisValues)
                 ) && 
                 (
+                    this.Components == input.Components ||
+                    this.Components != null &&
+                    input.Components != null &&
+                    this.Components.SequenceEqual(input.Components)
+                ) && 
+                (
+                    this.Transfers == input.Transfers ||
+                    this.Transfers != null &&
+                    input.Transfers != null &&
+                    this.Transfers.SequenceEqual(input.Transfers)
+                ) && 
+                (
+                    this.Equalisation == input.Equalisation ||
+                    (this.Equalisation != null &&
+                    this.Equalisation.Equals(input.Equalisation))
+                ) && 
+                (
+                    this.UseOfProceeds == input.UseOfProceeds ||
+                    this.UseOfProceeds != null &&
+                    input.UseOfProceeds != null &&
+                    this.UseOfProceeds.SequenceEqual(input.UseOfProceeds)
+                ) && 
+                (
+                    this.DealFunding == input.DealFunding ||
+                    (this.DealFunding != null &&
+                    this.DealFunding.Equals(input.DealFunding))
+                ) && 
+                (
                     this.EffectiveAt == input.EffectiveAt ||
                     (this.EffectiveAt != null &&
                     this.EffectiveAt.Equals(input.EffectiveAt))
+                ) && 
+                (
+                    this.Replaces == input.Replaces ||
+                    (this.Replaces != null &&
+                    this.Replaces.Equals(input.Replaces))
+                ) && 
+                (
+                    this.NoticeDate == input.NoticeDate ||
+                    (this.NoticeDate != null &&
+                    this.NoticeDate.Equals(input.NoticeDate))
+                ) && 
+                (
+                    this.DueDate == input.DueDate ||
+                    (this.DueDate != null &&
+                    this.DueDate.Equals(input.DueDate))
+                ) && 
+                (
+                    this.SettlementDate == input.SettlementDate ||
+                    (this.SettlementDate != null &&
+                    this.SettlementDate.Equals(input.SettlementDate))
                 );
         }
 
@@ -277,9 +412,45 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.BasisValues.GetHashCode();
                 }
+                if (this.Components != null)
+                {
+                    hashCode = (hashCode * 59) + this.Components.GetHashCode();
+                }
+                if (this.Transfers != null)
+                {
+                    hashCode = (hashCode * 59) + this.Transfers.GetHashCode();
+                }
+                if (this.Equalisation != null)
+                {
+                    hashCode = (hashCode * 59) + this.Equalisation.GetHashCode();
+                }
+                if (this.UseOfProceeds != null)
+                {
+                    hashCode = (hashCode * 59) + this.UseOfProceeds.GetHashCode();
+                }
+                if (this.DealFunding != null)
+                {
+                    hashCode = (hashCode * 59) + this.DealFunding.GetHashCode();
+                }
                 if (this.EffectiveAt != null)
                 {
                     hashCode = (hashCode * 59) + this.EffectiveAt.GetHashCode();
+                }
+                if (this.Replaces != null)
+                {
+                    hashCode = (hashCode * 59) + this.Replaces.GetHashCode();
+                }
+                if (this.NoticeDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.NoticeDate.GetHashCode();
+                }
+                if (this.DueDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.DueDate.GetHashCode();
+                }
+                if (this.SettlementDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.SettlementDate.GetHashCode();
                 }
                 return hashCode;
             }

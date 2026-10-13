@@ -497,7 +497,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] PatchFundConfiguration: Patch Fund Configuration.
 
-Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters, BucketSets, ApportionmentBucketSet, ApportionmentMethodProperty.
+Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters, BucketSets, ApportionmentBucketSet, ApportionmentMethodProperty, PartnershipAccounting, FundTerms, Closings.
 
 ### Example
 ```csharp

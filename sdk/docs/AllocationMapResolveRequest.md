@@ -5,7 +5,7 @@ A dry run of an Allocation Map: the event to share, and the basis values to shar
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EventType** | **string** | The kind of allocation event to resolve: CapitalCall, Distribution, FeeExpense or ValuationMove. The map must define a basis for it. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove. | 
+**EventType** | **string** | The kind of allocation event to resolve: CapitalCall, Distribution, FeeExpense or ValuationMove. The map must define a basis for it. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove, Commitment, Equalisation, RecallExpiry, Transfer, Default, DealFunding. | 
 **Amount** | **decimal** | The amount of the event to share between the participants, in the event currency. | 
 **Currency** | **string** | The currency of the amount. | 
 **BasisValues** | [**List&lt;AllocationMapBasisValue&gt;**](AllocationMapBasisValue.md) | For a ValueWeighted or PropertyWeighted basis, the basis value of each participating investor record, supplied by the caller until investor records are read from LUSID. Under the AllCommittedToMembers rule these also name the committed investor records. Not needed for a FixedPercentage basis. | [optional] 

@@ -43,10 +43,12 @@ namespace Lusid.Sdk.Model
         /// <param name="structureMemberId">structureMemberId (required).</param>
         /// <param name="inheritsFrom">inheritsFrom.</param>
         /// <param name="participants">participants (required).</param>
-        /// <param name="basisByEventType">The basis on which each kind of allocation event is shared between the participants. At most one entry per event type. (required).</param>
+        /// <param name="basisByEventType">The basis on which each kind of allocation event is shared between the participants. At most one entry per event type and component; an entry without a component is the default for the event type. (required).</param>
+        /// <param name="roundingPartnerLine">The investor record that takes every minor unit left over when the shares of an event are rounded. Absent means the leftover is spread one minor unit at a time over the largest remainders..</param>
+        /// <param name="ilpaTransactionTypes">The ILPA transaction types the map reports particular kinds of allocation event under, where they differ from the default for the event type and component. At most one entry per event type and component; an entry without a component is the default for the event type. Every value must be one the system IlpaTransactionType data type lists..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public AllocationMap(string href = default(string), ResourceId id = default(ResourceId), string name = default(string), string description = default(string), ResourceId structureMemberId = default(ResourceId), ResourceId inheritsFrom = default(ResourceId), AllocationMapParticipants participants = default(AllocationMapParticipants), List<AllocationMapEventBasis> basisByEventType = default(List<AllocationMapEventBasis>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public AllocationMap(string href = default(string), ResourceId id = default(ResourceId), string name = default(string), string description = default(string), ResourceId structureMemberId = default(ResourceId), ResourceId inheritsFrom = default(ResourceId), AllocationMapParticipants participants = default(AllocationMapParticipants), List<AllocationMapEventBasis> basisByEventType = default(List<AllocationMapEventBasis>), string roundingPartnerLine = default(string), List<AllocationMapIlpaTransactionType> ilpaTransactionTypes = default(List<AllocationMapIlpaTransactionType>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -81,6 +83,8 @@ namespace Lusid.Sdk.Model
             this.Href = href;
             this.Description = description;
             this.InheritsFrom = inheritsFrom;
+            this.RoundingPartnerLine = roundingPartnerLine;
+            this.IlpaTransactionTypes = ilpaTransactionTypes;
             this.VarVersion = varVersion;
             this.Links = links;
         }
@@ -131,11 +135,25 @@ namespace Lusid.Sdk.Model
         public AllocationMapParticipants Participants { get; set; }
 
         /// <summary>
-        /// The basis on which each kind of allocation event is shared between the participants. At most one entry per event type.
+        /// The basis on which each kind of allocation event is shared between the participants. At most one entry per event type and component; an entry without a component is the default for the event type.
         /// </summary>
-        /// <value>The basis on which each kind of allocation event is shared between the participants. At most one entry per event type.</value>
+        /// <value>The basis on which each kind of allocation event is shared between the participants. At most one entry per event type and component; an entry without a component is the default for the event type.</value>
         [DataMember(Name = "basisByEventType", IsRequired = true, EmitDefaultValue = true)]
         public List<AllocationMapEventBasis> BasisByEventType { get; set; }
+
+        /// <summary>
+        /// The investor record that takes every minor unit left over when the shares of an event are rounded. Absent means the leftover is spread one minor unit at a time over the largest remainders.
+        /// </summary>
+        /// <value>The investor record that takes every minor unit left over when the shares of an event are rounded. Absent means the leftover is spread one minor unit at a time over the largest remainders.</value>
+        [DataMember(Name = "roundingPartnerLine", EmitDefaultValue = true)]
+        public string RoundingPartnerLine { get; set; }
+
+        /// <summary>
+        /// The ILPA transaction types the map reports particular kinds of allocation event under, where they differ from the default for the event type and component. At most one entry per event type and component; an entry without a component is the default for the event type. Every value must be one the system IlpaTransactionType data type lists.
+        /// </summary>
+        /// <value>The ILPA transaction types the map reports particular kinds of allocation event under, where they differ from the default for the event type and component. At most one entry per event type and component; an entry without a component is the default for the event type. Every value must be one the system IlpaTransactionType data type lists.</value>
+        [DataMember(Name = "ilpaTransactionTypes", EmitDefaultValue = true)]
+        public List<AllocationMapIlpaTransactionType> IlpaTransactionTypes { get; set; }
 
         /// <summary>
         /// Gets or Sets VarVersion
@@ -165,6 +183,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  InheritsFrom: ").Append(InheritsFrom).Append("\n");
             sb.Append("  Participants: ").Append(Participants).Append("\n");
             sb.Append("  BasisByEventType: ").Append(BasisByEventType).Append("\n");
+            sb.Append("  RoundingPartnerLine: ").Append(RoundingPartnerLine).Append("\n");
+            sb.Append("  IlpaTransactionTypes: ").Append(IlpaTransactionTypes).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -244,6 +264,17 @@ namespace Lusid.Sdk.Model
                     this.BasisByEventType.SequenceEqual(input.BasisByEventType)
                 ) && 
                 (
+                    this.RoundingPartnerLine == input.RoundingPartnerLine ||
+                    (this.RoundingPartnerLine != null &&
+                    this.RoundingPartnerLine.Equals(input.RoundingPartnerLine))
+                ) && 
+                (
+                    this.IlpaTransactionTypes == input.IlpaTransactionTypes ||
+                    this.IlpaTransactionTypes != null &&
+                    input.IlpaTransactionTypes != null &&
+                    this.IlpaTransactionTypes.SequenceEqual(input.IlpaTransactionTypes)
+                ) && 
+                (
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
@@ -297,6 +328,14 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.BasisByEventType.GetHashCode();
                 }
+                if (this.RoundingPartnerLine != null)
+                {
+                    hashCode = (hashCode * 59) + this.RoundingPartnerLine.GetHashCode();
+                }
+                if (this.IlpaTransactionTypes != null)
+                {
+                    hashCode = (hashCode * 59) + this.IlpaTransactionTypes.GetHashCode();
+                }
                 if (this.VarVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
@@ -345,6 +384,25 @@ namespace Lusid.Sdk.Model
             if (false == regexDescription.Match(this.Description).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
+            }
+
+            // RoundingPartnerLine (string) maxLength
+            if (this.RoundingPartnerLine != null && this.RoundingPartnerLine.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoundingPartnerLine, length must be less than 64.", new [] { "RoundingPartnerLine" });
+            }
+
+            // RoundingPartnerLine (string) minLength
+            if (this.RoundingPartnerLine != null && this.RoundingPartnerLine.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoundingPartnerLine, length must be greater than 1.", new [] { "RoundingPartnerLine" });
+            }
+
+            // RoundingPartnerLine (string) pattern
+            Regex regexRoundingPartnerLine = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexRoundingPartnerLine.Match(this.RoundingPartnerLine).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RoundingPartnerLine, must match a pattern of " + regexRoundingPartnerLine, new [] { "RoundingPartnerLine" });
             }
 
             yield break;

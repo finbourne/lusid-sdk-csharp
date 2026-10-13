@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Cs01BumpWidth** | **decimal?** | The TOTAL width of the central-difference stencil behind the CS01/Central measure: the  instrument&#39;s own z-spread is repriced at spread ± width/2, so a width of 0.0001 means  ±0.5bp reprice points. The width is the whole distance between the two reprice points,  NOT the half-shift. The reported measure is always per one basis point of widening  whatever width is configured. Must be strictly positive.  Defaults to 0.0001 (1bp, repriced at ±0.5bp) when not supplied. | [optional] 
 **SpreadAnchorSource** | **string** | Where the spread anchor comes from when no CreditSpreadCurve is served for the instrument. Only  read when SpreadAnchoredRisk is true.                Supported string (enumeration) values are: [MarketData, SolvedFromPrice].  Defaults to MarketData - the original behaviour, where a ZSpread quote must be served from the  quote store or as a market data override - when not supplied.                SolvedFromPrice: a served CreditSpreadCurve or ZSpread quote still wins. When neither is served,  the bond is valued exactly as the plain lookup values it, and the anchor is the z-spread its  looked-up price implies over the discounting curve (the value Analytic/ZSpread returns). Risk  measures, carry and scenario columns solve that anchor against the unperturbed market and hold it,  so no spread has to be stored or sent. | [optional] 
 **SpreadTermStructure** | **bool?** | In spread-anchored mode with a credit-spread curve (a served CreditSpreadCurve, or the curve the  risk engine builds from the ZSpread quote), discount each cash flow at the curve&#39;s level on its own  payment date instead of discounting every flow at the level at maturity. Pointwise and bucketed  Risk/Credit ladders then split CS01 by cash flow, and the curve built from a quote carries one pillar  per remaining payment date. The price is unchanged on a flat curve (and so on any curve built from a  quote) but not on a sloped served curve.  Defaults to false - the level at maturity - when not supplied. | [optional] 
+**Workout** | **string** | The redemption date a callable ComplexBond is struck to.                Supported string (enumeration) values are: [Maturity, NextCall].  Defaults to Maturity - the bond&#39;s flows to final maturity - when not supplied.                NextCall: the spread-anchored valuation (and so every Risk/Rates and Risk/Credit bump of it), the  anchor solved from the price, and the z-spread family (Analytic/ZSpread, SpreadDuration, CS01,  CS01/Central) discount the flows the bond pays if redeemed at its next call: no flow after the call,  the principal outstanding on the call date repaid at the call strike. The looked-up PV is unchanged,  and Valuation/Diagnostics/Model/PricingHorizon reports the call date. A bond with no live call is  struck to maturity; a shape the workout truncation refuses fails by name. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -18,12 +19,14 @@ using System;
 bool spreadAnchoredRisk = //"True";
 string spreadAnchorSource = "example spreadAnchorSource";
 bool? spreadTermStructure = //"True";
+string workout = "example workout";
 
 BondLookupModelOptions bondLookupModelOptionsInstance = new BondLookupModelOptions(
     spreadAnchoredRisk: spreadAnchoredRisk,
     cs01BumpWidth: cs01BumpWidth,
     spreadAnchorSource: spreadAnchorSource,
-    spreadTermStructure: spreadTermStructure);
+    spreadTermStructure: spreadTermStructure,
+    workout: workout);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
