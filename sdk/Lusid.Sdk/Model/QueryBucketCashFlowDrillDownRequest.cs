@@ -48,7 +48,8 @@ namespace Lusid.Sdk.Model
         /// <param name="excludeUnsettledTrades">If set to true, unsettled trades are excluded from the result set. Set this to match the value used on the bucketed cash flow query being drilled into, so the individual cash flows reconcile with the bucket. Note that the drill-down returns the complete resolved stream including transaction-sourced cashflows; if the bucketed query used the (default) InstrumentCashFlow representation, also exclude rows with a sourceType of &#39;Transaction&#39; when reconciling..</param>
         /// <param name="haircutRules">Optional ordered haircut rules applied to cashflow inflows; the first matching rule wins and a rule with no criteria acts as a catch-all. When supplied, each returned cashflow carries its gross amount, haircut fraction, net amount and the rule that was applied; with no rules those fields are omitted and the results are unchanged..</param>
         /// <param name="cashType">Which date basis buckets cash flows: TradeDate uses each cash flow&#39;s transaction date, SettleDate (default) uses its payment date. The response&#39;s CashFlowDetail.PaymentDate reflects whichever basis was used. Available values: TradeDate, SettleDate..</param>
-        public QueryBucketCashFlowDrillDownRequest(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset bucketStart = default(DateTimeOffset), DateTimeOffset bucketEnd = default(DateTimeOffset), bool startInclusive = default(bool), bool endInclusive = default(bool), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), DateTimeOffset effectiveAt = default(DateTimeOffset), ResourceId recipeId = default(ResourceId), string reportCurrency = default(string), bool excludeUnsettledTrades = default(bool), List<CashFlowHaircutRule> haircutRules = default(List<CashFlowHaircutRule>), string cashType = default(string))
+        /// <param name="fxRateType">Which FX rate converts each cashflow into the ReportCurrency. FxSpot (default) uses the spot rate. FxForward uses the forward rate for the cashflow&#39;s payment date, read from the FX forward curve the recipe resolves for the currency pair as at the valuation (EffectiveAt) date; a cashflow with no such forward rate reports an Error and has no converted amount. ForwardThenSpot uses the forward rate where the recipe resolves one and the spot rate where it does not. FxForward and ForwardThenSpot require a ReportCurrency. A cashflow paid after the last point of the recipe&#39;s forward curve takes the last point&#39;s forward rate when the curve&#39;s back extrapolation is Flat (the default), and reports an Error when it is None. Where ForwardThenSpot falls back, the spot rate is the one FxSpot uses: read on the cashflow&#39;s own transaction date, not the valuation date. The response&#39;s CashFlowDetail.FxRateTypeApplied says which rate each cashflow received. Available values: FxSpot, FxForward, ForwardThenSpot..</param>
+        public QueryBucketCashFlowDrillDownRequest(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset bucketStart = default(DateTimeOffset), DateTimeOffset bucketEnd = default(DateTimeOffset), bool startInclusive = default(bool), bool endInclusive = default(bool), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), DateTimeOffset effectiveAt = default(DateTimeOffset), ResourceId recipeId = default(ResourceId), string reportCurrency = default(string), bool excludeUnsettledTrades = default(bool), List<CashFlowHaircutRule> haircutRules = default(List<CashFlowHaircutRule>), string cashType = default(string), string fxRateType = default(string))
         {
             this.BucketStart = bucketStart;
             this.BucketEnd = bucketEnd;
@@ -72,6 +73,7 @@ namespace Lusid.Sdk.Model
             this.ExcludeUnsettledTrades = excludeUnsettledTrades;
             this.HaircutRules = haircutRules;
             this.CashType = cashType;
+            this.FxRateType = fxRateType;
         }
 
         /// <summary>
@@ -158,6 +160,13 @@ namespace Lusid.Sdk.Model
         public string CashType { get; set; }
 
         /// <summary>
+        /// Which FX rate converts each cashflow into the ReportCurrency. FxSpot (default) uses the spot rate. FxForward uses the forward rate for the cashflow&#39;s payment date, read from the FX forward curve the recipe resolves for the currency pair as at the valuation (EffectiveAt) date; a cashflow with no such forward rate reports an Error and has no converted amount. ForwardThenSpot uses the forward rate where the recipe resolves one and the spot rate where it does not. FxForward and ForwardThenSpot require a ReportCurrency. A cashflow paid after the last point of the recipe&#39;s forward curve takes the last point&#39;s forward rate when the curve&#39;s back extrapolation is Flat (the default), and reports an Error when it is None. Where ForwardThenSpot falls back, the spot rate is the one FxSpot uses: read on the cashflow&#39;s own transaction date, not the valuation date. The response&#39;s CashFlowDetail.FxRateTypeApplied says which rate each cashflow received. Available values: FxSpot, FxForward, ForwardThenSpot.
+        /// </summary>
+        /// <value>Which FX rate converts each cashflow into the ReportCurrency. FxSpot (default) uses the spot rate. FxForward uses the forward rate for the cashflow&#39;s payment date, read from the FX forward curve the recipe resolves for the currency pair as at the valuation (EffectiveAt) date; a cashflow with no such forward rate reports an Error and has no converted amount. ForwardThenSpot uses the forward rate where the recipe resolves one and the spot rate where it does not. FxForward and ForwardThenSpot require a ReportCurrency. A cashflow paid after the last point of the recipe&#39;s forward curve takes the last point&#39;s forward rate when the curve&#39;s back extrapolation is Flat (the default), and reports an Error when it is None. Where ForwardThenSpot falls back, the spot rate is the one FxSpot uses: read on the cashflow&#39;s own transaction date, not the valuation date. The response&#39;s CashFlowDetail.FxRateTypeApplied says which rate each cashflow received. Available values: FxSpot, FxForward, ForwardThenSpot.</value>
+        [DataMember(Name = "fxRateType", EmitDefaultValue = true)]
+        public string FxRateType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -177,6 +186,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ExcludeUnsettledTrades: ").Append(ExcludeUnsettledTrades).Append("\n");
             sb.Append("  HaircutRules: ").Append(HaircutRules).Append("\n");
             sb.Append("  CashType: ").Append(CashType).Append("\n");
+            sb.Append("  FxRateType: ").Append(FxRateType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -270,6 +280,11 @@ namespace Lusid.Sdk.Model
                     this.CashType == input.CashType ||
                     (this.CashType != null &&
                     this.CashType.Equals(input.CashType))
+                ) && 
+                (
+                    this.FxRateType == input.FxRateType ||
+                    (this.FxRateType != null &&
+                    this.FxRateType.Equals(input.FxRateType))
                 );
         }
 
@@ -320,6 +335,10 @@ namespace Lusid.Sdk.Model
                 if (this.CashType != null)
                 {
                     hashCode = (hashCode * 59) + this.CashType.GetHashCode();
+                }
+                if (this.FxRateType != null)
+                {
+                    hashCode = (hashCode * 59) + this.FxRateType.GetHashCode();
                 }
                 return hashCode;
             }

@@ -6,7 +6,7 @@ One item of a batch review request: applies review content to its targeted rec r
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InstanceId** | [**RecInstanceId**](RecInstanceId.md) |  | 
-**RecType** | **string** | The rec type whose results this item targets (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity. | 
+**RecType** | **string** | The rec type whose results this item targets (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External. | 
 **RunNumber** | **int** | The run of the instance whose results this item targets. | 
 **RecResultIds** | **List&lt;string&gt;** | The rec results targeted by this batch item. Exactly one, except FixAsGroup/ForceMatch which require two or more. | 
 **Decision** | [**RecResultDecisionUpdate**](RecResultDecisionUpdate.md) |  | [optional] 

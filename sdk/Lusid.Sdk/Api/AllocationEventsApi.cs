@@ -150,6 +150,39 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of AllocationEvent</returns>
         Lusid.Sdk.Client.ApiResponse<AllocationEvent> GetAllocationEventWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] GetAllocationEventNotices: [EARLY ACCESS] GetAllocationEventNotices: Get the notices an allocation event issues to its partners.
+        /// </summary>
+        /// <remarks>
+        /// One notice per partner allocation, listing the ILPA transaction lines, the net amount due, the partner&#39;s  unfunded commitment reconciliation across the event and their cumulative position alongside the general  partner&#39;s. Notices carry a DRAFT watermark until the event is booked.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">Restrict the notices to this partner&#39;s investor record. (optional)</param>
+        /// <param name="includeZero">Whether to include notices whose every line is zero. Defaults to false. (optional, default to false)</param>
+        /// <param name="asAt">The asAt datetime at which to read the event. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfAllocationEventNotice</returns>
+        ResourceListOfAllocationEventNotice GetAllocationEventNotices(string scope, string code, string? investorRecordId = default(string?), bool? includeZero = default(bool?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] GetAllocationEventNotices: [EARLY ACCESS] GetAllocationEventNotices: Get the notices an allocation event issues to its partners.
+        /// </summary>
+        /// <remarks>
+        /// One notice per partner allocation, listing the ILPA transaction lines, the net amount due, the partner&#39;s  unfunded commitment reconciliation across the event and their cumulative position alongside the general  partner&#39;s. Notices carry a DRAFT watermark until the event is booked.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">Restrict the notices to this partner&#39;s investor record. (optional)</param>
+        /// <param name="includeZero">Whether to include notices whose every line is zero. Defaults to false. (optional, default to false)</param>
+        /// <param name="asAt">The asAt datetime at which to read the event. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfAllocationEventNotice</returns>
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocationEventNotice> GetAllocationEventNoticesWithHttpInfo(string scope, string code, string? investorRecordId = default(string?), bool? includeZero = default(bool?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] GetAllocationEventReceivables: Get the receivables of an Allocation Event.
         /// </summary>
         /// <remarks>
@@ -216,6 +249,35 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfAllocationEvent</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAllocationEvent> ListAllocationEventsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] ListAllocationPaymentHolds: [EARLY ACCESS] ListAllocationPaymentHolds: List the holds placed on a partner&#39;s payment.
+        /// </summary>
+        /// <remarks>
+        /// Every hold placed on the partner&#39;s payment against the event, newest first, including released ones.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">The investor record of the partner whose holds are listed.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfAllocationPaymentHold</returns>
+        ResourceListOfAllocationPaymentHold ListAllocationPaymentHolds(string scope, string code, string investorRecordId, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] ListAllocationPaymentHolds: [EARLY ACCESS] ListAllocationPaymentHolds: List the holds placed on a partner&#39;s payment.
+        /// </summary>
+        /// <remarks>
+        /// Every hold placed on the partner&#39;s payment against the event, newest first, including released ones.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">The investor record of the partner whose holds are listed.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfAllocationPaymentHold</returns>
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocationPaymentHold> ListAllocationPaymentHoldsWithHttpInfo(string scope, string code, string investorRecordId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] PlanAllocationEventBooking: Plan the booking of an Allocation Event.
         /// </summary>
         /// <remarks>
@@ -246,6 +308,37 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AllocationPostingPlan</returns>
         Lusid.Sdk.Client.ApiResponse<AllocationPostingPlan> PlanAllocationEventBookingWithHttpInfo(string scope, string code, AllocationEventBookRequest allocationEventBookRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] PutAllocationPaymentHold: [EARLY ACCESS] PutAllocationPaymentHold: Place, move or release a hold on a partner&#39;s payment.
+        /// </summary>
+        /// <remarks>
+        /// A Blocked or Escrow hold stops the partner&#39;s allocation being received against the event until it is  Released. A hold may only be released by a user other than the one who placed it.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">The investor record of the partner whose payment is held.</param>
+        /// <param name="allocationPaymentHoldRequest">The hold to record: its status, and optionally a reason and an external reference.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>AllocationPaymentHold</returns>
+        AllocationPaymentHold PutAllocationPaymentHold(string scope, string code, string investorRecordId, AllocationPaymentHoldRequest allocationPaymentHoldRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] PutAllocationPaymentHold: [EARLY ACCESS] PutAllocationPaymentHold: Place, move or release a hold on a partner&#39;s payment.
+        /// </summary>
+        /// <remarks>
+        /// A Blocked or Escrow hold stops the partner&#39;s allocation being received against the event until it is  Released. A hold may only be released by a user other than the one who placed it.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">The investor record of the partner whose payment is held.</param>
+        /// <param name="allocationPaymentHoldRequest">The hold to record: its status, and optionally a reason and an external reference.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of AllocationPaymentHold</returns>
+        Lusid.Sdk.Client.ApiResponse<AllocationPaymentHold> PutAllocationPaymentHoldWithHttpInfo(string scope, string code, string investorRecordId, AllocationPaymentHoldRequest allocationPaymentHoldRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ReallocateAllocationEvent: Reallocate an Allocation Event.
         /// </summary>
@@ -535,6 +628,41 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (AllocationEvent)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationEvent>> GetAllocationEventWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] GetAllocationEventNotices: [EARLY ACCESS] GetAllocationEventNotices: Get the notices an allocation event issues to its partners.
+        /// </summary>
+        /// <remarks>
+        /// One notice per partner allocation, listing the ILPA transaction lines, the net amount due, the partner&#39;s  unfunded commitment reconciliation across the event and their cumulative position alongside the general  partner&#39;s. Notices carry a DRAFT watermark until the event is booked.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">Restrict the notices to this partner&#39;s investor record. (optional)</param>
+        /// <param name="includeZero">Whether to include notices whose every line is zero. Defaults to false. (optional, default to false)</param>
+        /// <param name="asAt">The asAt datetime at which to read the event. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfAllocationEventNotice</returns>
+        System.Threading.Tasks.Task<ResourceListOfAllocationEventNotice> GetAllocationEventNoticesAsync(string scope, string code, string? investorRecordId = default(string?), bool? includeZero = default(bool?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] GetAllocationEventNotices: [EARLY ACCESS] GetAllocationEventNotices: Get the notices an allocation event issues to its partners.
+        /// </summary>
+        /// <remarks>
+        /// One notice per partner allocation, listing the ILPA transaction lines, the net amount due, the partner&#39;s  unfunded commitment reconciliation across the event and their cumulative position alongside the general  partner&#39;s. Notices carry a DRAFT watermark until the event is booked.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">Restrict the notices to this partner&#39;s investor record. (optional)</param>
+        /// <param name="includeZero">Whether to include notices whose every line is zero. Defaults to false. (optional, default to false)</param>
+        /// <param name="asAt">The asAt datetime at which to read the event. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfAllocationEventNotice)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocationEventNotice>> GetAllocationEventNoticesWithHttpInfoAsync(string scope, string code, string? investorRecordId = default(string?), bool? includeZero = default(bool?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] GetAllocationEventReceivables: Get the receivables of an Allocation Event.
         /// </summary>
         /// <remarks>
@@ -605,6 +733,37 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfAllocationEvent)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAllocationEvent>> ListAllocationEventsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] ListAllocationPaymentHolds: [EARLY ACCESS] ListAllocationPaymentHolds: List the holds placed on a partner&#39;s payment.
+        /// </summary>
+        /// <remarks>
+        /// Every hold placed on the partner&#39;s payment against the event, newest first, including released ones.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">The investor record of the partner whose holds are listed.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfAllocationPaymentHold</returns>
+        System.Threading.Tasks.Task<ResourceListOfAllocationPaymentHold> ListAllocationPaymentHoldsAsync(string scope, string code, string investorRecordId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] ListAllocationPaymentHolds: [EARLY ACCESS] ListAllocationPaymentHolds: List the holds placed on a partner&#39;s payment.
+        /// </summary>
+        /// <remarks>
+        /// Every hold placed on the partner&#39;s payment against the event, newest first, including released ones.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">The investor record of the partner whose holds are listed.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfAllocationPaymentHold)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocationPaymentHold>> ListAllocationPaymentHoldsWithHttpInfoAsync(string scope, string code, string investorRecordId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] PlanAllocationEventBooking: Plan the booking of an Allocation Event.
         /// </summary>
         /// <remarks>
@@ -637,6 +796,39 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AllocationPostingPlan)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationPostingPlan>> PlanAllocationEventBookingWithHttpInfoAsync(string scope, string code, AllocationEventBookRequest allocationEventBookRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] PutAllocationPaymentHold: [EARLY ACCESS] PutAllocationPaymentHold: Place, move or release a hold on a partner&#39;s payment.
+        /// </summary>
+        /// <remarks>
+        /// A Blocked or Escrow hold stops the partner&#39;s allocation being received against the event until it is  Released. A hold may only be released by a user other than the one who placed it.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">The investor record of the partner whose payment is held.</param>
+        /// <param name="allocationPaymentHoldRequest">The hold to record: its status, and optionally a reason and an external reference.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of AllocationPaymentHold</returns>
+        System.Threading.Tasks.Task<AllocationPaymentHold> PutAllocationPaymentHoldAsync(string scope, string code, string investorRecordId, AllocationPaymentHoldRequest allocationPaymentHoldRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] PutAllocationPaymentHold: [EARLY ACCESS] PutAllocationPaymentHold: Place, move or release a hold on a partner&#39;s payment.
+        /// </summary>
+        /// <remarks>
+        /// A Blocked or Escrow hold stops the partner&#39;s allocation being received against the event until it is  Released. A hold may only be released by a user other than the one who placed it.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">The investor record of the partner whose payment is held.</param>
+        /// <param name="allocationPaymentHoldRequest">The hold to record: its status, and optionally a reason and an external reference.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (AllocationPaymentHold)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationPaymentHold>> PutAllocationPaymentHoldWithHttpInfoAsync(string scope, string code, string investorRecordId, AllocationPaymentHoldRequest allocationPaymentHoldRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ReallocateAllocationEvent: Reallocate an Allocation Event.
         /// </summary>
@@ -1898,6 +2090,267 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
+        /// [EARLY ACCESS] GetAllocationEventNotices: [EARLY ACCESS] GetAllocationEventNotices: Get the notices an allocation event issues to its partners. One notice per partner allocation, listing the ILPA transaction lines, the net amount due, the partner&#39;s  unfunded commitment reconciliation across the event and their cumulative position alongside the general  partner&#39;s. Notices carry a DRAFT watermark until the event is booked.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">Restrict the notices to this partner&#39;s investor record. (optional)</param>
+        /// <param name="includeZero">Whether to include notices whose every line is zero. Defaults to false. (optional, default to false)</param>
+        /// <param name="asAt">The asAt datetime at which to read the event. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfAllocationEventNotice</returns>
+        public ResourceListOfAllocationEventNotice GetAllocationEventNotices(string scope, string code, string? investorRecordId = default(string?), bool? includeZero = default(bool?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocationEventNotice> localVarResponse = GetAllocationEventNoticesWithHttpInfo(scope, code, investorRecordId, includeZero, asAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetAllocationEventNotices: [EARLY ACCESS] GetAllocationEventNotices: Get the notices an allocation event issues to its partners. One notice per partner allocation, listing the ILPA transaction lines, the net amount due, the partner&#39;s  unfunded commitment reconciliation across the event and their cumulative position alongside the general  partner&#39;s. Notices carry a DRAFT watermark until the event is booked.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">Restrict the notices to this partner&#39;s investor record. (optional)</param>
+        /// <param name="includeZero">Whether to include notices whose every line is zero. Defaults to false. (optional, default to false)</param>
+        /// <param name="asAt">The asAt datetime at which to read the event. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfAllocationEventNotice</returns>
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocationEventNotice> GetAllocationEventNoticesWithHttpInfo(string scope, string code, string? investorRecordId = default(string?), bool? includeZero = default(bool?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AllocationEventsApi->GetAllocationEventNotices");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AllocationEventsApi->GetAllocationEventNotices");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (investorRecordId != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "investorRecordId", investorRecordId));
+            }
+            if (includeZero != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeZero", includeZero));
+            }
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "AllocationEventsApi.GetAllocationEventNotices";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ResourceListOfAllocationEventNotice>("/api/allocationevents/{scope}/{code}/notices", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAllocationEventNotices", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetAllocationEventNotices: [EARLY ACCESS] GetAllocationEventNotices: Get the notices an allocation event issues to its partners. One notice per partner allocation, listing the ILPA transaction lines, the net amount due, the partner&#39;s  unfunded commitment reconciliation across the event and their cumulative position alongside the general  partner&#39;s. Notices carry a DRAFT watermark until the event is booked.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">Restrict the notices to this partner&#39;s investor record. (optional)</param>
+        /// <param name="includeZero">Whether to include notices whose every line is zero. Defaults to false. (optional, default to false)</param>
+        /// <param name="asAt">The asAt datetime at which to read the event. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfAllocationEventNotice</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfAllocationEventNotice> GetAllocationEventNoticesAsync(string scope, string code, string? investorRecordId = default(string?), bool? includeZero = default(bool?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocationEventNotice> localVarResponse = await GetAllocationEventNoticesWithHttpInfoAsync(scope, code, investorRecordId, includeZero, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetAllocationEventNotices: [EARLY ACCESS] GetAllocationEventNotices: Get the notices an allocation event issues to its partners. One notice per partner allocation, listing the ILPA transaction lines, the net amount due, the partner&#39;s  unfunded commitment reconciliation across the event and their cumulative position alongside the general  partner&#39;s. Notices carry a DRAFT watermark until the event is booked.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">Restrict the notices to this partner&#39;s investor record. (optional)</param>
+        /// <param name="includeZero">Whether to include notices whose every line is zero. Defaults to false. (optional, default to false)</param>
+        /// <param name="asAt">The asAt datetime at which to read the event. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfAllocationEventNotice)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocationEventNotice>> GetAllocationEventNoticesWithHttpInfoAsync(string scope, string code, string? investorRecordId = default(string?), bool? includeZero = default(bool?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AllocationEventsApi->GetAllocationEventNotices");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AllocationEventsApi->GetAllocationEventNotices");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (investorRecordId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "investorRecordId", investorRecordId));
+            }
+            if (includeZero != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeZero", includeZero));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "AllocationEventsApi.GetAllocationEventNotices";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfAllocationEventNotice>("/api/allocationevents/{scope}/{code}/notices", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAllocationEventNotices", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// [EXPERIMENTAL] GetAllocationEventReceivables: Get the receivables of an Allocation Event. What each investor still owes on a booked capital call as of the effective datetime, with how many days past  due it is and the ageing bucket that puts it in.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2410,6 +2863,246 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
+        /// [EARLY ACCESS] ListAllocationPaymentHolds: [EARLY ACCESS] ListAllocationPaymentHolds: List the holds placed on a partner&#39;s payment. Every hold placed on the partner&#39;s payment against the event, newest first, including released ones.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">The investor record of the partner whose holds are listed.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfAllocationPaymentHold</returns>
+        public ResourceListOfAllocationPaymentHold ListAllocationPaymentHolds(string scope, string code, string investorRecordId, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocationPaymentHold> localVarResponse = ListAllocationPaymentHoldsWithHttpInfo(scope, code, investorRecordId, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ListAllocationPaymentHolds: [EARLY ACCESS] ListAllocationPaymentHolds: List the holds placed on a partner&#39;s payment. Every hold placed on the partner&#39;s payment against the event, newest first, including released ones.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">The investor record of the partner whose holds are listed.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfAllocationPaymentHold</returns>
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocationPaymentHold> ListAllocationPaymentHoldsWithHttpInfo(string scope, string code, string investorRecordId, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AllocationEventsApi->ListAllocationPaymentHolds");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AllocationEventsApi->ListAllocationPaymentHolds");
+            }
+
+            // verify the required parameter 'investorRecordId' is set
+            if (investorRecordId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'investorRecordId' when calling AllocationEventsApi->ListAllocationPaymentHolds");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("investorRecordId", Lusid.Sdk.Client.ClientUtils.ParameterToString(investorRecordId)); // path parameter
+
+            localVarRequestOptions.Operation = "AllocationEventsApi.ListAllocationPaymentHolds";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ResourceListOfAllocationPaymentHold>("/api/allocationevents/{scope}/{code}/allocations/{investorRecordId}/holds", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListAllocationPaymentHolds", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ListAllocationPaymentHolds: [EARLY ACCESS] ListAllocationPaymentHolds: List the holds placed on a partner&#39;s payment. Every hold placed on the partner&#39;s payment against the event, newest first, including released ones.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">The investor record of the partner whose holds are listed.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfAllocationPaymentHold</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfAllocationPaymentHold> ListAllocationPaymentHoldsAsync(string scope, string code, string investorRecordId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocationPaymentHold> localVarResponse = await ListAllocationPaymentHoldsWithHttpInfoAsync(scope, code, investorRecordId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ListAllocationPaymentHolds: [EARLY ACCESS] ListAllocationPaymentHolds: List the holds placed on a partner&#39;s payment. Every hold placed on the partner&#39;s payment against the event, newest first, including released ones.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">The investor record of the partner whose holds are listed.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfAllocationPaymentHold)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocationPaymentHold>> ListAllocationPaymentHoldsWithHttpInfoAsync(string scope, string code, string investorRecordId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AllocationEventsApi->ListAllocationPaymentHolds");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AllocationEventsApi->ListAllocationPaymentHolds");
+            }
+
+            // verify the required parameter 'investorRecordId' is set
+            if (investorRecordId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'investorRecordId' when calling AllocationEventsApi->ListAllocationPaymentHolds");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("investorRecordId", Lusid.Sdk.Client.ClientUtils.ParameterToString(investorRecordId)); // path parameter
+
+            localVarRequestOptions.Operation = "AllocationEventsApi.ListAllocationPaymentHolds";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfAllocationPaymentHold>("/api/allocationevents/{scope}/{code}/allocations/{investorRecordId}/holds", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListAllocationPaymentHolds", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// [EXPERIMENTAL] PlanAllocationEventBooking: Plan the booking of an Allocation Event. Show everything booking a computed Allocation Event under a booking reference would write, validated as the  booking itself would be, without writing any of it: the investors&#39; lines, the roll-ups above them through the  fund structure and the fund-side transactions. A booking that would be refused fails here with every problem  listed; warnings the map&#39;s policy lets through come back on the plan.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2661,6 +3354,272 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PlanAllocationEventBooking", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] PutAllocationPaymentHold: [EARLY ACCESS] PutAllocationPaymentHold: Place, move or release a hold on a partner&#39;s payment. A Blocked or Escrow hold stops the partner&#39;s allocation being received against the event until it is  Released. A hold may only be released by a user other than the one who placed it.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">The investor record of the partner whose payment is held.</param>
+        /// <param name="allocationPaymentHoldRequest">The hold to record: its status, and optionally a reason and an external reference.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>AllocationPaymentHold</returns>
+        public AllocationPaymentHold PutAllocationPaymentHold(string scope, string code, string investorRecordId, AllocationPaymentHoldRequest allocationPaymentHoldRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<AllocationPaymentHold> localVarResponse = PutAllocationPaymentHoldWithHttpInfo(scope, code, investorRecordId, allocationPaymentHoldRequest, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] PutAllocationPaymentHold: [EARLY ACCESS] PutAllocationPaymentHold: Place, move or release a hold on a partner&#39;s payment. A Blocked or Escrow hold stops the partner&#39;s allocation being received against the event until it is  Released. A hold may only be released by a user other than the one who placed it.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">The investor record of the partner whose payment is held.</param>
+        /// <param name="allocationPaymentHoldRequest">The hold to record: its status, and optionally a reason and an external reference.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of AllocationPaymentHold</returns>
+        public Lusid.Sdk.Client.ApiResponse<AllocationPaymentHold> PutAllocationPaymentHoldWithHttpInfo(string scope, string code, string investorRecordId, AllocationPaymentHoldRequest allocationPaymentHoldRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AllocationEventsApi->PutAllocationPaymentHold");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AllocationEventsApi->PutAllocationPaymentHold");
+            }
+
+            // verify the required parameter 'investorRecordId' is set
+            if (investorRecordId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'investorRecordId' when calling AllocationEventsApi->PutAllocationPaymentHold");
+            }
+
+            // verify the required parameter 'allocationPaymentHoldRequest' is set
+            if (allocationPaymentHoldRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'allocationPaymentHoldRequest' when calling AllocationEventsApi->PutAllocationPaymentHold");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("investorRecordId", Lusid.Sdk.Client.ClientUtils.ParameterToString(investorRecordId)); // path parameter
+            localVarRequestOptions.Data = allocationPaymentHoldRequest;
+
+            localVarRequestOptions.Operation = "AllocationEventsApi.PutAllocationPaymentHold";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<AllocationPaymentHold>("/api/allocationevents/{scope}/{code}/allocations/{investorRecordId}/hold", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PutAllocationPaymentHold", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] PutAllocationPaymentHold: [EARLY ACCESS] PutAllocationPaymentHold: Place, move or release a hold on a partner&#39;s payment. A Blocked or Escrow hold stops the partner&#39;s allocation being received against the event until it is  Released. A hold may only be released by a user other than the one who placed it.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">The investor record of the partner whose payment is held.</param>
+        /// <param name="allocationPaymentHoldRequest">The hold to record: its status, and optionally a reason and an external reference.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of AllocationPaymentHold</returns>
+        public async System.Threading.Tasks.Task<AllocationPaymentHold> PutAllocationPaymentHoldAsync(string scope, string code, string investorRecordId, AllocationPaymentHoldRequest allocationPaymentHoldRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<AllocationPaymentHold> localVarResponse = await PutAllocationPaymentHoldWithHttpInfoAsync(scope, code, investorRecordId, allocationPaymentHoldRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] PutAllocationPaymentHold: [EARLY ACCESS] PutAllocationPaymentHold: Place, move or release a hold on a partner&#39;s payment. A Blocked or Escrow hold stops the partner&#39;s allocation being received against the event until it is  Released. A hold may only be released by a user other than the one who placed it.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Allocation Event.</param>
+        /// <param name="code">The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.</param>
+        /// <param name="investorRecordId">The investor record of the partner whose payment is held.</param>
+        /// <param name="allocationPaymentHoldRequest">The hold to record: its status, and optionally a reason and an external reference.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (AllocationPaymentHold)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationPaymentHold>> PutAllocationPaymentHoldWithHttpInfoAsync(string scope, string code, string investorRecordId, AllocationPaymentHoldRequest allocationPaymentHoldRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AllocationEventsApi->PutAllocationPaymentHold");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AllocationEventsApi->PutAllocationPaymentHold");
+            }
+
+            // verify the required parameter 'investorRecordId' is set
+            if (investorRecordId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'investorRecordId' when calling AllocationEventsApi->PutAllocationPaymentHold");
+            }
+
+            // verify the required parameter 'allocationPaymentHoldRequest' is set
+            if (allocationPaymentHoldRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'allocationPaymentHoldRequest' when calling AllocationEventsApi->PutAllocationPaymentHold");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("investorRecordId", Lusid.Sdk.Client.ClientUtils.ParameterToString(investorRecordId)); // path parameter
+            localVarRequestOptions.Data = allocationPaymentHoldRequest;
+
+            localVarRequestOptions.Operation = "AllocationEventsApi.PutAllocationPaymentHold";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<AllocationPaymentHold>("/api/allocationevents/{scope}/{code}/allocations/{investorRecordId}/hold", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PutAllocationPaymentHold", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

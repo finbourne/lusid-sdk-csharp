@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **DeliveryType** | **string** | Is the option cash settled or physical delivery of the underlying TBA.                Supported string (enumeration) values are: [Cash, Physical]. | 
 **Underlying** | [**MasteredInstrument**](MasteredInstrument.md) |  | 
 **ExerciseType** | **string** | Type of optionality that is present; European only in this scope.                Supported string (enumeration) values are: [European]. | 
-**Premium** | [**Premium**](Premium.md) |  | 
+**Premium** | [**Premium**](Premium.md) |  | [optional] 
 **DeliveryDays** | **int** | Number of business days between exercise date and settlement of the option payoff or underlying.  Defaults to 0 if not set. | [optional] 
 **BusinessDayConvention** | **string** | Business day convention for option exercise date to settlement date calculation.  Default value: F. Available values: NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest, Invalid. | [optional] 
 **SettlementCalendars** | **List&lt;string&gt;** | Holiday calendar for option exercise date to settlement date calculation. | [optional] 
@@ -31,7 +31,8 @@ string optionType = "optionType";decimal strike = "strike";
 string deliveryType = "deliveryType";
 MasteredInstrument underlying = new MasteredInstrument();
 string exerciseType = "exerciseType";
-Premium premium = new Premium();
+Premium? premium = new Premium();
+
 string businessDayConvention = "example businessDayConvention";
 List<string> settlementCalendars = new List<string>();
 TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();

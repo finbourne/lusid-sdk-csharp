@@ -37,17 +37,18 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="UpdateMatchingRulesetRequest" /> class.
         /// </summary>
         /// <param name="displayName">The name of the matching ruleset. (required).</param>
-        /// <param name="recType">The type of reconciliation to perform. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity. (required).</param>
+        /// <param name="recType">The type of reconciliation to perform. External reconciles non-native data on both sides, described by the datasetSchemas and the externalRecType. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External. (required).</param>
+        /// <param name="externalRecType">externalRecType.</param>
         /// <param name="datasetSchemas">datasetSchemas.</param>
         /// <param name="filters">filters.</param>
         /// <param name="coreRules">The core comparison rules evaluated as derivation formulae against each side of the reconciliation. (required).</param>
         /// <param name="aggregateRules">The aggregate comparison rules evaluated as derivation formulae against values on each side of the reconciliation and operation to aggregate those values. (required).</param>
         /// <param name="coreTolerances">Tolerance configurations applied to core rule matching, in the specified order..</param>
         /// <param name="aggregateTolerances">Tolerance configurations applied to aggregate rule matching..</param>
-        /// <param name="allowPartialMatching">Whether to permit partial matches when applying rules..</param>
+        /// <param name="allowPartialMatching">Whether to permit partial matches when applying rules. Optional, defaults to true if a value is not provided..</param>
         /// <param name="supplementalAttributes">Supplemental attributes that decorate reconciliation results with additional values without participating in the reconciliation itself..</param>
         /// <param name="writebackConfigurations">The writeback suggestions generated against this ruleset&#39;s results. Suggestions are made at item level on target-side items only, and are suggestions only: a user is expected to review them before acting. Optional, and may be empty..</param>
-        public UpdateMatchingRulesetRequest(string displayName = default(string), string recType = default(string), RecDatasetSchemas datasetSchemas = default(RecDatasetSchemas), GroupReconciliationFilters filters = default(GroupReconciliationFilters), List<CoreMatchingRule> coreRules = default(List<CoreMatchingRule>), List<AggregateMatchingRule> aggregateRules = default(List<AggregateMatchingRule>), List<ToleranceBase> coreTolerances = default(List<ToleranceBase>), List<ToleranceBase> aggregateTolerances = default(List<ToleranceBase>), bool allowPartialMatching = default(bool), List<SupplementalAttribute> supplementalAttributes = default(List<SupplementalAttribute>), List<WritebackConfiguration> writebackConfigurations = default(List<WritebackConfiguration>))
+        public UpdateMatchingRulesetRequest(string displayName = default(string), string recType = default(string), ExternalRecType externalRecType = default(ExternalRecType), RecDatasetSchemas datasetSchemas = default(RecDatasetSchemas), GroupReconciliationFilters filters = default(GroupReconciliationFilters), List<CoreMatchingRule> coreRules = default(List<CoreMatchingRule>), List<AggregateMatchingRule> aggregateRules = default(List<AggregateMatchingRule>), List<ToleranceBase> coreTolerances = default(List<ToleranceBase>), List<ToleranceBase> aggregateTolerances = default(List<ToleranceBase>), bool allowPartialMatching = default(bool), List<SupplementalAttribute> supplementalAttributes = default(List<SupplementalAttribute>), List<WritebackConfiguration> writebackConfigurations = default(List<WritebackConfiguration>))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -73,6 +74,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("aggregateRules is a required property for UpdateMatchingRulesetRequest and cannot be null");
             }
             this.AggregateRules = aggregateRules;
+            this.ExternalRecType = externalRecType;
             this.DatasetSchemas = datasetSchemas;
             this.Filters = filters;
             this.CoreTolerances = coreTolerances;
@@ -90,11 +92,17 @@ namespace Lusid.Sdk.Model
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// The type of reconciliation to perform. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.
+        /// The type of reconciliation to perform. External reconciles non-native data on both sides, described by the datasetSchemas and the externalRecType. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External.
         /// </summary>
-        /// <value>The type of reconciliation to perform. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</value>
+        /// <value>The type of reconciliation to perform. External reconciles non-native data on both sides, described by the datasetSchemas and the externalRecType. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External.</value>
         [DataMember(Name = "recType", IsRequired = true, EmitDefaultValue = true)]
         public string RecType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExternalRecType
+        /// </summary>
+        [DataMember(Name = "externalRecType", EmitDefaultValue = false)]
+        public ExternalRecType ExternalRecType { get; set; }
 
         /// <summary>
         /// Gets or Sets DatasetSchemas
@@ -137,9 +145,9 @@ namespace Lusid.Sdk.Model
         public List<ToleranceBase> AggregateTolerances { get; set; }
 
         /// <summary>
-        /// Whether to permit partial matches when applying rules.
+        /// Whether to permit partial matches when applying rules. Optional, defaults to true if a value is not provided.
         /// </summary>
-        /// <value>Whether to permit partial matches when applying rules.</value>
+        /// <value>Whether to permit partial matches when applying rules. Optional, defaults to true if a value is not provided.</value>
         [DataMember(Name = "allowPartialMatching", EmitDefaultValue = true)]
         public bool AllowPartialMatching { get; set; }
 
@@ -167,6 +175,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class UpdateMatchingRulesetRequest {\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  RecType: ").Append(RecType).Append("\n");
+            sb.Append("  ExternalRecType: ").Append(ExternalRecType).Append("\n");
             sb.Append("  DatasetSchemas: ").Append(DatasetSchemas).Append("\n");
             sb.Append("  Filters: ").Append(Filters).Append("\n");
             sb.Append("  CoreRules: ").Append(CoreRules).Append("\n");
@@ -220,6 +229,11 @@ namespace Lusid.Sdk.Model
                     this.RecType == input.RecType ||
                     (this.RecType != null &&
                     this.RecType.Equals(input.RecType))
+                ) && 
+                (
+                    this.ExternalRecType == input.ExternalRecType ||
+                    (this.ExternalRecType != null &&
+                    this.ExternalRecType.Equals(input.ExternalRecType))
                 ) && 
                 (
                     this.DatasetSchemas == input.DatasetSchemas ||
@@ -289,6 +303,10 @@ namespace Lusid.Sdk.Model
                 if (this.RecType != null)
                 {
                     hashCode = (hashCode * 59) + this.RecType.GetHashCode();
+                }
+                if (this.ExternalRecType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExternalRecType.GetHashCode();
                 }
                 if (this.DatasetSchemas != null)
                 {

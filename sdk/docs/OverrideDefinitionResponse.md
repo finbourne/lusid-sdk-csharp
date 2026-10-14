@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The transaction properties stored for the replacement transaction. | [optional] 
 **CounterpartyId** | **string** | The identifier for the counterparty of the replacement transaction. | [optional] 
 **Source** | **string** | The source of the replacement transaction. | [optional] 
+**CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **PrecedesEvent** | **bool?** | True when this replacement&#39;s trade date is earlier than the target instrument event&#39;s current effective date, which orphans the entry it belongs to. | [optional] 
 
 ```csharp
@@ -37,6 +38,8 @@ string tradeCurrency = "example tradeCurrency";
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 string counterpartyId = "example counterpartyId";
 string source = "example source";
+ResourceId? custodianAccountId = new ResourceId();
+
 bool? precedesEvent = //"True";
 
 OverrideDefinitionResponse overrideDefinitionResponseInstance = new OverrideDefinitionResponse(
@@ -53,6 +56,7 @@ OverrideDefinitionResponse overrideDefinitionResponseInstance = new OverrideDefi
     properties: properties,
     counterpartyId: counterpartyId,
     source: source,
+    custodianAccountId: custodianAccountId,
     precedesEvent: precedesEvent);
 ```
 

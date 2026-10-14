@@ -38,7 +38,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="shareClassShortCode">A short code that uniquely identifies the share class within the Fund and is attached to the transaction. (required).</param>
         /// <param name="apportionmentFactor">Only used for fixed percentage method or be zero, must equal 1 or 0 across all classes in the fund..</param>
-        public AllocationGroupClassDefinition(string shareClassShortCode = default(string), decimal? apportionmentFactor = default(decimal?))
+        /// <param name="shareClassSeriesCode">The series of the share class the member refers to. Not yet supported: an allocation group is apportioned by share class, so a member that names a series is rejected..</param>
+        public AllocationGroupClassDefinition(string shareClassShortCode = default(string), decimal? apportionmentFactor = default(decimal?), string shareClassSeriesCode = default(string))
         {
             // to ensure "shareClassShortCode" is required (not null)
             if (shareClassShortCode == null)
@@ -47,6 +48,7 @@ namespace Lusid.Sdk.Model
             }
             this.ShareClassShortCode = shareClassShortCode;
             this.ApportionmentFactor = apportionmentFactor;
+            this.ShareClassSeriesCode = shareClassSeriesCode;
         }
 
         /// <summary>
@@ -64,6 +66,13 @@ namespace Lusid.Sdk.Model
         public decimal? ApportionmentFactor { get; set; }
 
         /// <summary>
+        /// The series of the share class the member refers to. Not yet supported: an allocation group is apportioned by share class, so a member that names a series is rejected.
+        /// </summary>
+        /// <value>The series of the share class the member refers to. Not yet supported: an allocation group is apportioned by share class, so a member that names a series is rejected.</value>
+        [DataMember(Name = "shareClassSeriesCode", EmitDefaultValue = true)]
+        public string ShareClassSeriesCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +82,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class AllocationGroupClassDefinition {\n");
             sb.Append("  ShareClassShortCode: ").Append(ShareClassShortCode).Append("\n");
             sb.Append("  ApportionmentFactor: ").Append(ApportionmentFactor).Append("\n");
+            sb.Append("  ShareClassSeriesCode: ").Append(ShareClassSeriesCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -117,6 +127,11 @@ namespace Lusid.Sdk.Model
                     this.ApportionmentFactor == input.ApportionmentFactor ||
                     (this.ApportionmentFactor != null &&
                     this.ApportionmentFactor.Equals(input.ApportionmentFactor))
+                ) && 
+                (
+                    this.ShareClassSeriesCode == input.ShareClassSeriesCode ||
+                    (this.ShareClassSeriesCode != null &&
+                    this.ShareClassSeriesCode.Equals(input.ShareClassSeriesCode))
                 );
         }
 
@@ -136,6 +151,10 @@ namespace Lusid.Sdk.Model
                 if (this.ApportionmentFactor != null)
                 {
                     hashCode = (hashCode * 59) + this.ApportionmentFactor.GetHashCode();
+                }
+                if (this.ShareClassSeriesCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShareClassSeriesCode.GetHashCode();
                 }
                 return hashCode;
             }
@@ -158,6 +177,18 @@ namespace Lusid.Sdk.Model
             if (this.ShareClassShortCode != null && this.ShareClassShortCode.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShareClassShortCode, length must be greater than 1.", new [] { "ShareClassShortCode" });
+            }
+
+            // ShareClassSeriesCode (string) maxLength
+            if (this.ShareClassSeriesCode != null && this.ShareClassSeriesCode.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShareClassSeriesCode, length must be less than 64.", new [] { "ShareClassSeriesCode" });
+            }
+
+            // ShareClassSeriesCode (string) minLength
+            if (this.ShareClassSeriesCode != null && this.ShareClassSeriesCode.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShareClassSeriesCode, length must be greater than 1.", new [] { "ShareClassSeriesCode" });
             }
 
             yield break;

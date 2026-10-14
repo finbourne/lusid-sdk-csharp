@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | A list of unique transaction properties and associated values to store for the replacement transaction. Each property must be from the &#39;Transaction&#39; domain. | [optional] 
 **CounterpartyId** | **string** | The identifier for the counterparty of the replacement transaction. | [optional] 
 **Source** | **string** | The source of the replacement transaction. This is used to look up the appropriate transaction group set in the transaction type configuration. | [optional] 
+**CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -36,6 +37,8 @@ string tradeCurrency = "example tradeCurrency";
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 string counterpartyId = "example counterpartyId";
 string source = "example source";
+ResourceId? custodianAccountId = new ResourceId();
+
 
 OverrideDefinitionRequest overrideDefinitionRequestInstance = new OverrideDefinitionRequest(
     transactionId: transactionId,
@@ -50,7 +53,8 @@ OverrideDefinitionRequest overrideDefinitionRequestInstance = new OverrideDefini
     tradeCurrency: tradeCurrency,
     properties: properties,
     counterpartyId: counterpartyId,
-    source: source);
+    source: source,
+    custodianAccountId: custodianAccountId);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

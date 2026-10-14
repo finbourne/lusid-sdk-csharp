@@ -59,7 +59,8 @@ namespace Lusid.Sdk.Model
         /// <param name="inflationConvexity">inflationConvexity.</param>
         /// <param name="allowFallbackOnModelDecline">When true, a model that refuses an instrument outright - because the instrument is outside  what that model can represent, not because data was missing - hands the instrument to the  next model this recipe&#39;s rules offer for it, and to the default model for its type after  those. The row is then priced by the first model that accepts it, and carries a diagnostic  naming the model that stood down, its objection, and the model that served it. The caller  must be entitled to the model that serves the row; where none of the alternatives is both  licensed and willing, the row keeps the original refusal.  When false (default), a refusal ends the row however many other models the recipe offers.  A failure that is not a refusal - a missing curve, an unresolved fixing, a malformed model  option - always ends the row, whatever this is set to, because another model&#39;s number would  hide the gap rather than close it..</param>
         /// <param name="namedPrices">Names a valuation request can use to ask for a pricing side and a notional dealing cost  treatment in one column, as Valuation/PV(NamedPrice&#x3D;name) (and likewise PvInReportCcy and  PvInPortfolioCcy). For example a fund might define \&quot;creation\&quot; as the offer side plus the  buy-side dealing cost, \&quot;cancellation\&quot; as the bid side less the sell-side cost, and  \&quot;perfRef\&quot; as the plain mid. Each name must start with a letter, contain only letters and  digits, and be unique within the recipe ignoring case; a request must spell the name exactly as  defined. Absent or empty defines no names..</param>
-        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), string riskEngine = default(string), string findOrCalculate = default(string), bool produceSeparateResultForLinearOtcLegs = default(bool), bool fxForwardContractsAsUnitsInBothLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool fixedIncomeValuationsUsingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool), bool useInstrumentScaleFactorAsDefault = default(bool), bool scaleInstrumentAccruedOverrideByContractSize = default(bool), RiskBumpOptions riskBumpOptions = default(RiskBumpOptions), Dictionary<string, string> fundingCurveByCurrency = default(Dictionary<string, string>), bool defaultPoolFactorsToUnity = default(bool), bool findOrCalculateWriteThrough = default(bool), InflationConvexityOptions inflationConvexity = default(InflationConvexityOptions), bool allowFallbackOnModelDecline = default(bool), List<NamedPrice> namedPrices = default(List<NamedPrice>))
+        /// <param name="suppressAutomaticLoanPrincipalRepayment">If true, FlexibleLoans held as contracts on a LoanFacility do not automatically generate a  LoanPrincipalRepaymentEvent at the end of their schedule. Users must then book rollovers or explicit  LoanPrincipalRepaymentEvents themselves, otherwise the contract stays open and may fail to value once matured.  Stand-alone and WholeLoanFacility FlexibleLoans, interest repayments and upserted repayment events are unaffected. Only takes  effect on the recipe used to generate instrument events. Defaults to false..</param>
+        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), string riskEngine = default(string), string findOrCalculate = default(string), bool produceSeparateResultForLinearOtcLegs = default(bool), bool fxForwardContractsAsUnitsInBothLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool fixedIncomeValuationsUsingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool), bool useInstrumentScaleFactorAsDefault = default(bool), bool scaleInstrumentAccruedOverrideByContractSize = default(bool), RiskBumpOptions riskBumpOptions = default(RiskBumpOptions), Dictionary<string, string> fundingCurveByCurrency = default(Dictionary<string, string>), bool defaultPoolFactorsToUnity = default(bool), bool findOrCalculateWriteThrough = default(bool), InflationConvexityOptions inflationConvexity = default(InflationConvexityOptions), bool allowFallbackOnModelDecline = default(bool), List<NamedPrice> namedPrices = default(List<NamedPrice>), bool suppressAutomaticLoanPrincipalRepayment = default(bool))
         {
             this.ModelSelection = modelSelection;
             this.UseInstrumentTypeToDeterminePricer = useInstrumentTypeToDeterminePricer;
@@ -89,6 +90,7 @@ namespace Lusid.Sdk.Model
             this.InflationConvexity = inflationConvexity;
             this.AllowFallbackOnModelDecline = allowFallbackOnModelDecline;
             this.NamedPrices = namedPrices;
+            this.SuppressAutomaticLoanPrincipalRepayment = suppressAutomaticLoanPrincipalRepayment;
         }
 
         /// <summary>
@@ -283,6 +285,13 @@ namespace Lusid.Sdk.Model
         public List<NamedPrice> NamedPrices { get; set; }
 
         /// <summary>
+        /// If true, FlexibleLoans held as contracts on a LoanFacility do not automatically generate a  LoanPrincipalRepaymentEvent at the end of their schedule. Users must then book rollovers or explicit  LoanPrincipalRepaymentEvents themselves, otherwise the contract stays open and may fail to value once matured.  Stand-alone and WholeLoanFacility FlexibleLoans, interest repayments and upserted repayment events are unaffected. Only takes  effect on the recipe used to generate instrument events. Defaults to false.
+        /// </summary>
+        /// <value>If true, FlexibleLoans held as contracts on a LoanFacility do not automatically generate a  LoanPrincipalRepaymentEvent at the end of their schedule. Users must then book rollovers or explicit  LoanPrincipalRepaymentEvents themselves, otherwise the contract stays open and may fail to value once matured.  Stand-alone and WholeLoanFacility FlexibleLoans, interest repayments and upserted repayment events are unaffected. Only takes  effect on the recipe used to generate instrument events. Defaults to false.</value>
+        [DataMember(Name = "suppressAutomaticLoanPrincipalRepayment", EmitDefaultValue = true)]
+        public bool SuppressAutomaticLoanPrincipalRepayment { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -318,6 +327,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InflationConvexity: ").Append(InflationConvexity).Append("\n");
             sb.Append("  AllowFallbackOnModelDecline: ").Append(AllowFallbackOnModelDecline).Append("\n");
             sb.Append("  NamedPrices: ").Append(NamedPrices).Append("\n");
+            sb.Append("  SuppressAutomaticLoanPrincipalRepayment: ").Append(SuppressAutomaticLoanPrincipalRepayment).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -475,6 +485,10 @@ namespace Lusid.Sdk.Model
                     this.NamedPrices != null &&
                     input.NamedPrices != null &&
                     this.NamedPrices.SequenceEqual(input.NamedPrices)
+                ) && 
+                (
+                    this.SuppressAutomaticLoanPrincipalRepayment == input.SuppressAutomaticLoanPrincipalRepayment ||
+                    this.SuppressAutomaticLoanPrincipalRepayment.Equals(input.SuppressAutomaticLoanPrincipalRepayment)
                 );
         }
 
@@ -542,6 +556,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.NamedPrices.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.SuppressAutomaticLoanPrincipalRepayment.GetHashCode();
                 return hashCode;
             }
         }

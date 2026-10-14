@@ -124,10 +124,11 @@ namespace Lusid.Sdk.Api
         /// <param name="side">The label to uniquely identify the side.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
+        /// <param name="includeSystemTypes">Whether the default definitions of the sides that LUSID&#39;s own transaction              types reference, which LUSID provides to every scope that lacks them, may be returned. Defaults to false,              so a side is found only if the scope stored it itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>SideDefinition</returns>
-        SideDefinition GetSideDefinition(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        SideDefinition GetSideDefinition(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetSideDefinition: Get the side definition for a given side name( or label)
@@ -139,10 +140,11 @@ namespace Lusid.Sdk.Api
         /// <param name="side">The label to uniquely identify the side.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
+        /// <param name="includeSystemTypes">Whether the default definitions of the sides that LUSID&#39;s own transaction              types reference, which LUSID provides to every scope that lacks them, may be returned. Defaults to false,              so a side is found only if the scope stored it itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of SideDefinition</returns>
-        Lusid.Sdk.Client.ApiResponse<SideDefinition> GetSideDefinitionWithHttpInfo(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<SideDefinition> GetSideDefinitionWithHttpInfo(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetTransactionType: Get a single transaction configuration type
         /// </summary>
@@ -154,10 +156,11 @@ namespace Lusid.Sdk.Api
         /// <param name="type">One of the type&#39;s aliases</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether the transaction types LUSID provides to every scope under the              &#39;pa-system&#39; source may be returned. Defaults to false, so a type in that source is found only if the scope              stored it there itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionType</returns>
-        TransactionType GetTransactionType(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        TransactionType GetTransactionType(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetTransactionType: Get a single transaction configuration type
@@ -170,10 +173,11 @@ namespace Lusid.Sdk.Api
         /// <param name="type">One of the type&#39;s aliases</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether the transaction types LUSID provides to every scope under the              &#39;pa-system&#39; source may be returned. Defaults to false, so a type in that source is found only if the scope              stored it there itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionType</returns>
-        Lusid.Sdk.Client.ApiResponse<TransactionType> GetTransactionTypeWithHttpInfo(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<TransactionType> GetTransactionTypeWithHttpInfo(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListSideDefinitions: List the side definitions
         /// </summary>
@@ -183,10 +187,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. Use &#39;*&#39; to list across all scopes. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether the default definitions of the sides that LUSID&#39;s own transaction              types reference, which LUSID provides to every scope that lacks them, are listed. Defaults to false, so              only the sides the scope stored itself are listed. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfSideDefinition</returns>
-        ResourceListOfSideDefinition ListSideDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ResourceListOfSideDefinition ListSideDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListSideDefinitions: List the side definitions
@@ -197,10 +202,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. Use &#39;*&#39; to list across all scopes. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether the default definitions of the sides that LUSID&#39;s own transaction              types reference, which LUSID provides to every scope that lacks them, are listed. Defaults to false, so              only the sides the scope stored itself are listed. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfSideDefinition</returns>
-        Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> ListSideDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> ListSideDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListTransactionTypes: List transaction types
         /// </summary>
@@ -210,10 +216,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the transaction types exist. When not supplied the scope is &#39;default&#39;. Use &#39;*&#39; to list across all scopes. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether to include the transaction types LUSID provides to every scope under              the &#39;pa-system&#39; source, which portfolios in the scope can book with. Defaults to false, so that source shows              only what the scope stored there itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Dictionary&lt;string, List&lt;TransactionType&gt;&gt;</returns>
-        Dictionary<string, List<TransactionType>> ListTransactionTypes(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Dictionary<string, List<TransactionType>> ListTransactionTypes(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListTransactionTypes: List transaction types
@@ -224,10 +231,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the transaction types exist. When not supplied the scope is &#39;default&#39;. Use &#39;*&#39; to list across all scopes. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether to include the transaction types LUSID provides to every scope under              the &#39;pa-system&#39; source, which portfolios in the scope can book with. Defaults to false, so that source shows              only what the scope stored there itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Dictionary&lt;string, List&lt;TransactionType&gt;&gt;</returns>
-        Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>> ListTransactionTypesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>> ListTransactionTypesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// SetSideDefinition: Set a side definition
         /// </summary>
@@ -452,11 +460,12 @@ namespace Lusid.Sdk.Api
         /// <param name="side">The label to uniquely identify the side.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
+        /// <param name="includeSystemTypes">Whether the default definitions of the sides that LUSID&#39;s own transaction              types reference, which LUSID provides to every scope that lacks them, may be returned. Defaults to false,              so a side is found only if the scope stored it itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of SideDefinition</returns>
-        System.Threading.Tasks.Task<SideDefinition> GetSideDefinitionAsync(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<SideDefinition> GetSideDefinitionAsync(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetSideDefinition: Get the side definition for a given side name( or label)
@@ -468,11 +477,12 @@ namespace Lusid.Sdk.Api
         /// <param name="side">The label to uniquely identify the side.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
+        /// <param name="includeSystemTypes">Whether the default definitions of the sides that LUSID&#39;s own transaction              types reference, which LUSID provides to every scope that lacks them, may be returned. Defaults to false,              so a side is found only if the scope stored it itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (SideDefinition)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<SideDefinition>> GetSideDefinitionWithHttpInfoAsync(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<SideDefinition>> GetSideDefinitionWithHttpInfoAsync(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetTransactionType: Get a single transaction configuration type
         /// </summary>
@@ -484,11 +494,12 @@ namespace Lusid.Sdk.Api
         /// <param name="type">One of the type&#39;s aliases</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether the transaction types LUSID provides to every scope under the              &#39;pa-system&#39; source may be returned. Defaults to false, so a type in that source is found only if the scope              stored it there itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionType</returns>
-        System.Threading.Tasks.Task<TransactionType> GetTransactionTypeAsync(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<TransactionType> GetTransactionTypeAsync(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetTransactionType: Get a single transaction configuration type
@@ -501,11 +512,12 @@ namespace Lusid.Sdk.Api
         /// <param name="type">One of the type&#39;s aliases</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether the transaction types LUSID provides to every scope under the              &#39;pa-system&#39; source may be returned. Defaults to false, so a type in that source is found only if the scope              stored it there itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionType)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionType>> GetTransactionTypeWithHttpInfoAsync(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionType>> GetTransactionTypeWithHttpInfoAsync(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListSideDefinitions: List the side definitions
         /// </summary>
@@ -515,11 +527,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. Use &#39;*&#39; to list across all scopes. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether the default definitions of the sides that LUSID&#39;s own transaction              types reference, which LUSID provides to every scope that lacks them, are listed. Defaults to false, so              only the sides the scope stored itself are listed. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfSideDefinition</returns>
-        System.Threading.Tasks.Task<ResourceListOfSideDefinition> ListSideDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ResourceListOfSideDefinition> ListSideDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListSideDefinitions: List the side definitions
@@ -530,11 +543,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. Use &#39;*&#39; to list across all scopes. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether the default definitions of the sides that LUSID&#39;s own transaction              types reference, which LUSID provides to every scope that lacks them, are listed. Defaults to false, so              only the sides the scope stored itself are listed. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfSideDefinition)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition>> ListSideDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition>> ListSideDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListTransactionTypes: List transaction types
         /// </summary>
@@ -544,11 +558,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the transaction types exist. When not supplied the scope is &#39;default&#39;. Use &#39;*&#39; to list across all scopes. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether to include the transaction types LUSID provides to every scope under              the &#39;pa-system&#39; source, which portfolios in the scope can book with. Defaults to false, so that source shows              only what the scope stored there itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Dictionary&lt;string, List&lt;TransactionType&gt;&gt;</returns>
-        System.Threading.Tasks.Task<Dictionary<string, List<TransactionType>>> ListTransactionTypesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Dictionary<string, List<TransactionType>>> ListTransactionTypesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListTransactionTypes: List transaction types
@@ -559,11 +574,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the transaction types exist. When not supplied the scope is &#39;default&#39;. Use &#39;*&#39; to list across all scopes. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether to include the transaction types LUSID provides to every scope under              the &#39;pa-system&#39; source, which portfolios in the scope can book with. Defaults to false, so that source shows              only what the scope stored there itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;TransactionType&gt;&gt;)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>>> ListTransactionTypesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>>> ListTransactionTypesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// SetSideDefinition: Set a side definition
         /// </summary>
@@ -1487,12 +1503,13 @@ namespace Lusid.Sdk.Api
         /// <param name="side">The label to uniquely identify the side.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
+        /// <param name="includeSystemTypes">Whether the default definitions of the sides that LUSID&#39;s own transaction              types reference, which LUSID provides to every scope that lacks them, may be returned. Defaults to false,              so a side is found only if the scope stored it itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>SideDefinition</returns>
-        public SideDefinition GetSideDefinition(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public SideDefinition GetSideDefinition(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<SideDefinition> localVarResponse = GetSideDefinitionWithHttpInfo(side, scope, asAt, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<SideDefinition> localVarResponse = GetSideDefinitionWithHttpInfo(side, scope, asAt, includeSystemTypes, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1503,10 +1520,11 @@ namespace Lusid.Sdk.Api
         /// <param name="side">The label to uniquely identify the side.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
+        /// <param name="includeSystemTypes">Whether the default definitions of the sides that LUSID&#39;s own transaction              types reference, which LUSID provides to every scope that lacks them, may be returned. Defaults to false,              so a side is found only if the scope stored it itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of SideDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<SideDefinition> GetSideDefinitionWithHttpInfo(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<SideDefinition> GetSideDefinitionWithHttpInfo(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'side' is set
             if (side == null)
@@ -1558,6 +1576,11 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (includeSystemTypes != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeSystemTypes", includeSystemTypes));
             }
 
             localVarRequestOptions.Operation = "TransactionConfigurationApi.GetSideDefinition";
@@ -1601,13 +1624,14 @@ namespace Lusid.Sdk.Api
         /// <param name="side">The label to uniquely identify the side.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
+        /// <param name="includeSystemTypes">Whether the default definitions of the sides that LUSID&#39;s own transaction              types reference, which LUSID provides to every scope that lacks them, may be returned. Defaults to false,              so a side is found only if the scope stored it itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of SideDefinition</returns>
-        public async System.Threading.Tasks.Task<SideDefinition> GetSideDefinitionAsync(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<SideDefinition> GetSideDefinitionAsync(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<SideDefinition> localVarResponse = await GetSideDefinitionWithHttpInfoAsync(side, scope, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<SideDefinition> localVarResponse = await GetSideDefinitionWithHttpInfoAsync(side, scope, asAt, includeSystemTypes, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1618,11 +1642,12 @@ namespace Lusid.Sdk.Api
         /// <param name="side">The label to uniquely identify the side.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
+        /// <param name="includeSystemTypes">Whether the default definitions of the sides that LUSID&#39;s own transaction              types reference, which LUSID provides to every scope that lacks them, may be returned. Defaults to false,              so a side is found only if the scope stored it itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (SideDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<SideDefinition>> GetSideDefinitionWithHttpInfoAsync(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<SideDefinition>> GetSideDefinitionWithHttpInfoAsync(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'side' is set
             if (side == null)
@@ -1673,6 +1698,10 @@ namespace Lusid.Sdk.Api
             if (asAt != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (includeSystemTypes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeSystemTypes", includeSystemTypes));
             }
 
             localVarRequestOptions.Operation = "TransactionConfigurationApi.GetSideDefinition";
@@ -1718,12 +1747,13 @@ namespace Lusid.Sdk.Api
         /// <param name="type">One of the type&#39;s aliases</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether the transaction types LUSID provides to every scope under the              &#39;pa-system&#39; source may be returned. Defaults to false, so a type in that source is found only if the scope              stored it there itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionType</returns>
-        public TransactionType GetTransactionType(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public TransactionType GetTransactionType(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionType> localVarResponse = GetTransactionTypeWithHttpInfo(source, type, asAt, scope, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<TransactionType> localVarResponse = GetTransactionTypeWithHttpInfo(source, type, asAt, scope, includeSystemTypes, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1735,10 +1765,11 @@ namespace Lusid.Sdk.Api
         /// <param name="type">One of the type&#39;s aliases</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether the transaction types LUSID provides to every scope under the              &#39;pa-system&#39; source may be returned. Defaults to false, so a type in that source is found only if the scope              stored it there itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionType</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionType> GetTransactionTypeWithHttpInfo(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<TransactionType> GetTransactionTypeWithHttpInfo(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'source' is set
             if (source == null)
@@ -1797,6 +1828,11 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            }
+            if (includeSystemTypes != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeSystemTypes", includeSystemTypes));
             }
 
             localVarRequestOptions.Operation = "TransactionConfigurationApi.GetTransactionType";
@@ -1841,13 +1877,14 @@ namespace Lusid.Sdk.Api
         /// <param name="type">One of the type&#39;s aliases</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether the transaction types LUSID provides to every scope under the              &#39;pa-system&#39; source may be returned. Defaults to false, so a type in that source is found only if the scope              stored it there itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionType</returns>
-        public async System.Threading.Tasks.Task<TransactionType> GetTransactionTypeAsync(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<TransactionType> GetTransactionTypeAsync(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionType> localVarResponse = await GetTransactionTypeWithHttpInfoAsync(source, type, asAt, scope, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionType> localVarResponse = await GetTransactionTypeWithHttpInfoAsync(source, type, asAt, scope, includeSystemTypes, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1859,11 +1896,12 @@ namespace Lusid.Sdk.Api
         /// <param name="type">One of the type&#39;s aliases</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether the transaction types LUSID provides to every scope under the              &#39;pa-system&#39; source may be returned. Defaults to false, so a type in that source is found only if the scope              stored it there itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionType)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionType>> GetTransactionTypeWithHttpInfoAsync(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionType>> GetTransactionTypeWithHttpInfoAsync(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'source' is set
             if (source == null)
@@ -1922,6 +1960,10 @@ namespace Lusid.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
+            if (includeSystemTypes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeSystemTypes", includeSystemTypes));
+            }
 
             localVarRequestOptions.Operation = "TransactionConfigurationApi.GetTransactionType";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1964,12 +2006,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. Use &#39;*&#39; to list across all scopes. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether the default definitions of the sides that LUSID&#39;s own transaction              types reference, which LUSID provides to every scope that lacks them, are listed. Defaults to false, so              only the sides the scope stored itself are listed. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfSideDefinition</returns>
-        public ResourceListOfSideDefinition ListSideDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ResourceListOfSideDefinition ListSideDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> localVarResponse = ListSideDefinitionsWithHttpInfo(asAt, scope, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> localVarResponse = ListSideDefinitionsWithHttpInfo(asAt, scope, includeSystemTypes, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1979,10 +2022,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. Use &#39;*&#39; to list across all scopes. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether the default definitions of the sides that LUSID&#39;s own transaction              types reference, which LUSID provides to every scope that lacks them, are listed. Defaults to false, so              only the sides the scope stored itself are listed. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfSideDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> ListSideDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> ListSideDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
@@ -2027,6 +2071,11 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            }
+            if (includeSystemTypes != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeSystemTypes", includeSystemTypes));
             }
 
             localVarRequestOptions.Operation = "TransactionConfigurationApi.ListSideDefinitions";
@@ -2069,13 +2118,14 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. Use &#39;*&#39; to list across all scopes. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether the default definitions of the sides that LUSID&#39;s own transaction              types reference, which LUSID provides to every scope that lacks them, are listed. Defaults to false, so              only the sides the scope stored itself are listed. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfSideDefinition</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfSideDefinition> ListSideDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ResourceListOfSideDefinition> ListSideDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> localVarResponse = await ListSideDefinitionsWithHttpInfoAsync(asAt, scope, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> localVarResponse = await ListSideDefinitionsWithHttpInfoAsync(asAt, scope, includeSystemTypes, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2085,11 +2135,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. Use &#39;*&#39; to list across all scopes. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether the default definitions of the sides that LUSID&#39;s own transaction              types reference, which LUSID provides to every scope that lacks them, are listed. Defaults to false, so              only the sides the scope stored itself are listed. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfSideDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition>> ListSideDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition>> ListSideDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -2133,6 +2184,10 @@ namespace Lusid.Sdk.Api
             if (scope != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            }
+            if (includeSystemTypes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeSystemTypes", includeSystemTypes));
             }
 
             localVarRequestOptions.Operation = "TransactionConfigurationApi.ListSideDefinitions";
@@ -2176,12 +2231,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the transaction types exist. When not supplied the scope is &#39;default&#39;. Use &#39;*&#39; to list across all scopes. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether to include the transaction types LUSID provides to every scope under              the &#39;pa-system&#39; source, which portfolios in the scope can book with. Defaults to false, so that source shows              only what the scope stored there itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Dictionary&lt;string, List&lt;TransactionType&gt;&gt;</returns>
-        public Dictionary<string, List<TransactionType>> ListTransactionTypes(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Dictionary<string, List<TransactionType>> ListTransactionTypes(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>> localVarResponse = ListTransactionTypesWithHttpInfo(asAt, scope, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>> localVarResponse = ListTransactionTypesWithHttpInfo(asAt, scope, includeSystemTypes, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2191,10 +2247,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the transaction types exist. When not supplied the scope is &#39;default&#39;. Use &#39;*&#39; to list across all scopes. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether to include the transaction types LUSID provides to every scope under              the &#39;pa-system&#39; source, which portfolios in the scope can book with. Defaults to false, so that source shows              only what the scope stored there itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Dictionary&lt;string, List&lt;TransactionType&gt;&gt;</returns>
-        public Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>> ListTransactionTypesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>> ListTransactionTypesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
@@ -2239,6 +2296,11 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            }
+            if (includeSystemTypes != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeSystemTypes", includeSystemTypes));
             }
 
             localVarRequestOptions.Operation = "TransactionConfigurationApi.ListTransactionTypes";
@@ -2281,13 +2343,14 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the transaction types exist. When not supplied the scope is &#39;default&#39;. Use &#39;*&#39; to list across all scopes. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether to include the transaction types LUSID provides to every scope under              the &#39;pa-system&#39; source, which portfolios in the scope can book with. Defaults to false, so that source shows              only what the scope stored there itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Dictionary&lt;string, List&lt;TransactionType&gt;&gt;</returns>
-        public async System.Threading.Tasks.Task<Dictionary<string, List<TransactionType>>> ListTransactionTypesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Dictionary<string, List<TransactionType>>> ListTransactionTypesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>> localVarResponse = await ListTransactionTypesWithHttpInfoAsync(asAt, scope, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>> localVarResponse = await ListTransactionTypesWithHttpInfoAsync(asAt, scope, includeSystemTypes, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2297,11 +2360,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the transaction types exist. When not supplied the scope is &#39;default&#39;. Use &#39;*&#39; to list across all scopes. (optional, default to &quot;default&quot;)</param>
+        /// <param name="includeSystemTypes">Whether to include the transaction types LUSID provides to every scope under              the &#39;pa-system&#39; source, which portfolios in the scope can book with. Defaults to false, so that source shows              only what the scope stored there itself. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;TransactionType&gt;&gt;)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>>> ListTransactionTypesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>>> ListTransactionTypesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), bool? includeSystemTypes = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -2345,6 +2409,10 @@ namespace Lusid.Sdk.Api
             if (scope != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            }
+            if (includeSystemTypes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeSystemTypes", includeSystemTypes));
             }
 
             localVarRequestOptions.Operation = "TransactionConfigurationApi.ListTransactionTypes";

@@ -46,7 +46,7 @@ namespace Lusid.Sdk.Model
         /// <param name="deliveryType">Is the option cash settled or physical delivery of the underlying TBA.                Supported string (enumeration) values are: [Cash, Physical]. (required).</param>
         /// <param name="underlying">underlying (required).</param>
         /// <param name="exerciseType">Type of optionality that is present; European only in this scope.                Supported string (enumeration) values are: [European]. (required).</param>
-        /// <param name="premium">premium (required).</param>
+        /// <param name="premium">premium.</param>
         /// <param name="deliveryDays">Number of business days between exercise date and settlement of the option payoff or underlying.  Defaults to 0 if not set..</param>
         /// <param name="businessDayConvention">Business day convention for option exercise date to settlement date calculation.  Default value: F. Available values: NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest, Invalid..</param>
         /// <param name="settlementCalendars">Holiday calendar for option exercise date to settlement date calculation..</param>
@@ -88,11 +88,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("exerciseType is a required property for ToBeAnnouncedOption and cannot be null");
             }
             this.ExerciseType = exerciseType;
-            // to ensure "premium" is required (not null)
-            if (premium == null)
-            {
-                throw new ArgumentNullException("premium is a required property for ToBeAnnouncedOption and cannot be null");
-            }
             this.Premium = premium;
             this.DeliveryDays = deliveryDays;
             this.BusinessDayConvention = businessDayConvention;
@@ -159,7 +154,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets Premium
         /// </summary>
-        [DataMember(Name = "premium", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "premium", EmitDefaultValue = false)]
         public Premium Premium { get; set; }
 
         /// <summary>

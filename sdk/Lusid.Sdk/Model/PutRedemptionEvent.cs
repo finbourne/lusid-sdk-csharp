@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Put Redemption (BPUT) — early redemption of a bond at the holder&#39;s election under an  indenture-defined put option. Supports both Voluntary (the AMI-SeCo canonical shape) and  Mandatory (a deliberate market extension beyond SCoRE) participation on Bond, ComplexBond,  and InflationLinkedBond instruments. Cloned from RepurchaseOfferEvent (BIDS) and narrowed  to debt with a fixed event-level OfferPrice instead of a per-election holder-bid price.
+    /// Put Redemption (BPUT) — early redemption of a bond at the holder&#39;s election under an  indenture-defined put option. Supports both Voluntary (the AMI-SeCo canonical shape) and  Mandatory (a deliberate market extension beyond SCoRE) participation on Bond, ComplexBond,  and InflationLinkedBond instruments. Cloned from RepurchaseOfferEvent (BIDS) and narrowed  to debt. The put price and the settlement currency can be set at the event level or on the  sole CashOfferElection.
     /// </summary>
     [DataContract(Name = "PutRedemptionEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
@@ -39,9 +39,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="PutRedemptionEvent" /> class.
         /// </summary>
         /// <param name="paymentDate">Settlement date for the cash + security legs of the put redemption..</param>
-        /// <param name="offerPrice">Put price per unit of face value (AMI-SeCo OFFR). Per-100 PRCT semantics —  &#x60;OfferPrice &#x3D; 100.00&#x60; means par; &#x60;97.50&#x60; means 97.5% of par. Must be strictly positive. (required).</param>
-        /// <param name="currency">Settlement currency of the cash leg (ISO 4217 3-letter code). (required).</param>
-        /// <param name="cashOfferElections">List of possible CashOfferElections. Exactly one entry per event in both Mandatory and Voluntary paths. (required).</param>
+        /// <param name="offerPrice">Put price per unit of face value (AMI-SeCo OFFR). Per-100 PRCT semantics —  &#x60;OfferPrice &#x3D; 100.00&#x60; means par; &#x60;97.50&#x60; means 97.5% of par. Must be strictly positive.  Optional. When it is omitted, the cashOfferPrice of the sole CashOfferElection is the put price,  and it must be strictly positive. When both are set, this value is used..</param>
+        /// <param name="currency">Settlement currency of the cash leg (ISO 4217 3-letter code). Optional. When it is omitted, the  cashOfferCurrency of the sole CashOfferElection is the settlement currency. When both are set,  this value is used..</param>
+        /// <param name="cashOfferElections">List of possible CashOfferElections. Exactly one entry per event in both Mandatory and Voluntary paths.  Its cashOfferPrice and cashOfferCurrency are the put price and the settlement currency when  offerPrice and currency are omitted. (required).</param>
         /// <param name="lapseElections">List of possible LapseElections. Exactly one entry for Voluntary (NOAC default). Empty for Mandatory. (required).</param>
         /// <param name="marketDeadlineDate">Issuer / agent deadline for holder instructions. Required for Voluntary participation;  optional for Mandatory (no holder-deadline concept)..</param>
         /// <param name="responseDeadlineDate">Account-servicer deadline. Defaults to MarketDeadlineDate when omitted.  If set, must be on or before MarketDeadlineDate..</param>
@@ -52,16 +52,9 @@ namespace Lusid.Sdk.Model
         /// <param name="prorationRate">Issuer-side aggregate proration cap (AMI-SeCo PROR). Default 1.0; range (0, 1]..</param>
         /// <param name="retainElections">List of possible retain elections for this event (PROX) — keep the holding rather than redeem..</param>
         /// <param name="unknownProceedsElections">List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known..</param>
-        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent, TotalReturnSwapCashFlowEvent, GlobalLoanFacilityReinitialisationEvent, InvestorLoanFacilityReinitialisationEvent, CapitalCallReceiptEvent, RecallableCapitalExpiryEvent, CapitalInterestTransferEvent, FacilityDrawEvent, FacilityRepaymentEvent, FacilityInterestEvent, FacilityCommitmentFeeEvent. (required) (default to &quot;PutRedemptionEvent&quot;).</param>
-        public PutRedemptionEvent(DateTimeOffset paymentDate = default(DateTimeOffset), decimal offerPrice = default(decimal), string currency = default(string), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), List<LapseElection> lapseElections = default(List<LapseElection>), DateTimeOffset? marketDeadlineDate = default(DateTimeOffset?), DateTimeOffset? responseDeadlineDate = default(DateTimeOffset?), DateTimeOffset? earlyResponseDeadline = default(DateTimeOffset?), DateTimeOffset? exDate = default(DateTimeOffset?), DateTimeOffset? announcementDate = default(DateTimeOffset?), decimal? accruedInterestPerUnit = default(decimal?), decimal prorationRate = default(decimal), List<RetainElection> retainElections = default(List<RetainElection>), List<UnknownProceedsElection> unknownProceedsElections = default(List<UnknownProceedsElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent, TotalReturnSwapCashFlowEvent, GlobalLoanFacilityReinitialisationEvent, InvestorLoanFacilityReinitialisationEvent, CapitalCallReceiptEvent, RecallableCapitalExpiryEvent, CapitalInterestTransferEvent, FacilityDrawEvent, FacilityRepaymentEvent, FacilityInterestEvent, FacilityCommitmentFeeEvent, InstalmentCallEvent. (required) (default to &quot;PutRedemptionEvent&quot;).</param>
+        public PutRedemptionEvent(DateTimeOffset paymentDate = default(DateTimeOffset), decimal? offerPrice = default(decimal?), string currency = default(string), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), List<LapseElection> lapseElections = default(List<LapseElection>), DateTimeOffset? marketDeadlineDate = default(DateTimeOffset?), DateTimeOffset? responseDeadlineDate = default(DateTimeOffset?), DateTimeOffset? earlyResponseDeadline = default(DateTimeOffset?), DateTimeOffset? exDate = default(DateTimeOffset?), DateTimeOffset? announcementDate = default(DateTimeOffset?), decimal? accruedInterestPerUnit = default(decimal?), decimal prorationRate = default(decimal), List<RetainElection> retainElections = default(List<RetainElection>), List<UnknownProceedsElection> unknownProceedsElections = default(List<UnknownProceedsElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.OfferPrice = offerPrice;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for PutRedemptionEvent and cannot be null");
-            }
-            this.Currency = currency;
             // to ensure "cashOfferElections" is required (not null)
             if (cashOfferElections == null)
             {
@@ -75,6 +68,8 @@ namespace Lusid.Sdk.Model
             }
             this.LapseElections = lapseElections;
             this.PaymentDate = paymentDate;
+            this.OfferPrice = offerPrice;
+            this.Currency = currency;
             this.MarketDeadlineDate = marketDeadlineDate;
             this.ResponseDeadlineDate = responseDeadlineDate;
             this.EarlyResponseDeadline = earlyResponseDeadline;
@@ -94,23 +89,23 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
-        /// Put price per unit of face value (AMI-SeCo OFFR). Per-100 PRCT semantics —  &#x60;OfferPrice &#x3D; 100.00&#x60; means par; &#x60;97.50&#x60; means 97.5% of par. Must be strictly positive.
+        /// Put price per unit of face value (AMI-SeCo OFFR). Per-100 PRCT semantics —  &#x60;OfferPrice &#x3D; 100.00&#x60; means par; &#x60;97.50&#x60; means 97.5% of par. Must be strictly positive.  Optional. When it is omitted, the cashOfferPrice of the sole CashOfferElection is the put price,  and it must be strictly positive. When both are set, this value is used.
         /// </summary>
-        /// <value>Put price per unit of face value (AMI-SeCo OFFR). Per-100 PRCT semantics —  &#x60;OfferPrice &#x3D; 100.00&#x60; means par; &#x60;97.50&#x60; means 97.5% of par. Must be strictly positive.</value>
-        [DataMember(Name = "offerPrice", IsRequired = true, EmitDefaultValue = true)]
-        public decimal OfferPrice { get; set; }
+        /// <value>Put price per unit of face value (AMI-SeCo OFFR). Per-100 PRCT semantics —  &#x60;OfferPrice &#x3D; 100.00&#x60; means par; &#x60;97.50&#x60; means 97.5% of par. Must be strictly positive.  Optional. When it is omitted, the cashOfferPrice of the sole CashOfferElection is the put price,  and it must be strictly positive. When both are set, this value is used.</value>
+        [DataMember(Name = "offerPrice", EmitDefaultValue = true)]
+        public decimal? OfferPrice { get; set; }
 
         /// <summary>
-        /// Settlement currency of the cash leg (ISO 4217 3-letter code).
+        /// Settlement currency of the cash leg (ISO 4217 3-letter code). Optional. When it is omitted, the  cashOfferCurrency of the sole CashOfferElection is the settlement currency. When both are set,  this value is used.
         /// </summary>
-        /// <value>Settlement currency of the cash leg (ISO 4217 3-letter code).</value>
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>Settlement currency of the cash leg (ISO 4217 3-letter code). Optional. When it is omitted, the  cashOfferCurrency of the sole CashOfferElection is the settlement currency. When both are set,  this value is used.</value>
+        [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
-        /// List of possible CashOfferElections. Exactly one entry per event in both Mandatory and Voluntary paths.
+        /// List of possible CashOfferElections. Exactly one entry per event in both Mandatory and Voluntary paths.  Its cashOfferPrice and cashOfferCurrency are the put price and the settlement currency when  offerPrice and currency are omitted.
         /// </summary>
-        /// <value>List of possible CashOfferElections. Exactly one entry per event in both Mandatory and Voluntary paths.</value>
+        /// <value>List of possible CashOfferElections. Exactly one entry per event in both Mandatory and Voluntary paths.  Its cashOfferPrice and cashOfferCurrency are the put price and the settlement currency when  offerPrice and currency are omitted.</value>
         [DataMember(Name = "cashOfferElections", IsRequired = true, EmitDefaultValue = true)]
         public List<CashOfferElection> CashOfferElections { get; set; }
 
@@ -249,7 +244,8 @@ namespace Lusid.Sdk.Model
                 ) && base.Equals(input) && 
                 (
                     this.OfferPrice == input.OfferPrice ||
-                    this.OfferPrice.Equals(input.OfferPrice)
+                    (this.OfferPrice != null &&
+                    this.OfferPrice.Equals(input.OfferPrice))
                 ) && base.Equals(input) && 
                 (
                     this.Currency == input.Currency ||
@@ -329,7 +325,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.OfferPrice.GetHashCode();
+                if (this.OfferPrice != null)
+                {
+                    hashCode = (hashCode * 59) + this.OfferPrice.GetHashCode();
+                }
                 if (this.Currency != null)
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();

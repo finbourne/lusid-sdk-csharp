@@ -49,7 +49,8 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">A list of unique transaction properties and associated values to store for the replacement transaction. Each property must be from the &#39;Transaction&#39; domain..</param>
         /// <param name="counterpartyId">The identifier for the counterparty of the replacement transaction..</param>
         /// <param name="source">The source of the replacement transaction. This is used to look up the appropriate transaction group set in the transaction type configuration..</param>
-        public OverrideDefinitionRequest(string transactionId = default(string), string type = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), DateTimeOrCutLabel tradeDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel settlementDate = default(DateTimeOrCutLabel), decimal units = default(decimal), TransactionPrice tradePrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal? exchangeRate = default(decimal?), string tradeCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string))
+        /// <param name="custodianAccountId">custodianAccountId.</param>
+        public OverrideDefinitionRequest(string transactionId = default(string), string type = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), DateTimeOrCutLabel tradeDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel settlementDate = default(DateTimeOrCutLabel), decimal units = default(decimal), TransactionPrice tradePrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal? exchangeRate = default(decimal?), string tradeCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), ResourceId custodianAccountId = default(ResourceId))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -94,6 +95,7 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this.CounterpartyId = counterpartyId;
             this.Source = source;
+            this.CustodianAccountId = custodianAccountId;
         }
 
         /// <summary>
@@ -186,6 +188,12 @@ namespace Lusid.Sdk.Model
         public string Source { get; set; }
 
         /// <summary>
+        /// Gets or Sets CustodianAccountId
+        /// </summary>
+        [DataMember(Name = "custodianAccountId", EmitDefaultValue = false)]
+        public ResourceId CustodianAccountId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -206,6 +214,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  CounterpartyId: ").Append(CounterpartyId).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("  CustodianAccountId: ").Append(CustodianAccountId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -306,6 +315,11 @@ namespace Lusid.Sdk.Model
                     this.Source == input.Source ||
                     (this.Source != null &&
                     this.Source.Equals(input.Source))
+                ) && 
+                (
+                    this.CustodianAccountId == input.CustodianAccountId ||
+                    (this.CustodianAccountId != null &&
+                    this.CustodianAccountId.Equals(input.CustodianAccountId))
                 );
         }
 
@@ -366,6 +380,10 @@ namespace Lusid.Sdk.Model
                 if (this.Source != null)
                 {
                     hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                }
+                if (this.CustodianAccountId != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustodianAccountId.GetHashCode();
                 }
                 return hashCode;
             }

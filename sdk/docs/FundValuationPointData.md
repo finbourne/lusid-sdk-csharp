@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Nav** | **decimal** | The Net Asset Value of the Fund or Share Class at the Valuation Point. This represents the GAV with any fees applied in the period. | 
 **Miscellaneous** | [**Dictionary&lt;string, FundAmount&gt;**](FundAmount.md) | Not used directly by the LUSID engines but serves as a holding area for any custom derived data points that may be useful in, for example, fee calculations). | [optional] 
 **PreviousValuationPointData** | [**PreviousFundValuationPointData**](PreviousFundValuationPointData.md) |  | [optional] 
+**PartnershipAccounting** | [**PartnershipAccountingValuationPointData**](PartnershipAccountingValuationPointData.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -27,6 +28,8 @@ Dictionary<string, FeeAccrual> fees = new Dictionary<string, FeeAccrual>();decim
 Dictionary<string, FundAmount> miscellaneous = new Dictionary<string, FundAmount>();
 PreviousFundValuationPointData? previousValuationPointData = new PreviousFundValuationPointData();
 
+PartnershipAccountingValuationPointData? partnershipAccounting = new PartnershipAccountingValuationPointData();
+
 
 FundValuationPointData fundValuationPointDataInstance = new FundValuationPointData(
     backOut: backOut,
@@ -36,7 +39,8 @@ FundValuationPointData fundValuationPointDataInstance = new FundValuationPointDa
     fees: fees,
     nav: nav,
     miscellaneous: miscellaneous,
-    previousValuationPointData: previousValuationPointData);
+    previousValuationPointData: previousValuationPointData,
+    partnershipAccounting: partnershipAccounting);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

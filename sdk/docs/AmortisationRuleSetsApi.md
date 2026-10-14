@@ -8,6 +8,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**DeleteAmortisationRuleset**](AmortisationRuleSetsApi.md#deleteamortisationruleset) | **DELETE** /api/amortisation/rulesets/{scope}/{code} | [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set. |
 | [**GetAmortisationRuleSet**](AmortisationRuleSetsApi.md#getamortisationruleset) | **GET** /api/amortisation/rulesets/{scope}/{code} | [EXPERIMENTAL] GetAmortisationRuleSet: Retrieve the definition of a single amortisation rule set |
 | [**ListAmortisationRuleSets**](AmortisationRuleSetsApi.md#listamortisationrulesets) | **GET** /api/amortisation/rulesets | [EXPERIMENTAL] ListAmortisationRuleSets: List amortisation rule sets. |
+| [**ListAmortisationRulesIntervals**](AmortisationRuleSetsApi.md#listamortisationrulesintervals) | **GET** /api/amortisation/rulesets/{scope}/{code}/rulesIntervals | ListAmortisationRulesIntervals: List the rules intervals of an amortisation rule set. |
 | [**SetAmortisationRules**](AmortisationRuleSetsApi.md#setamortisationrules) | **PUT** /api/amortisation/rulesets/{scope}/{code}/rules | [EXPERIMENTAL] SetAmortisationRules: Set Amortisation Rules on an existing Amortisation Rule Set. |
 | [**UpdateAmortisationRuleSetDetails**](AmortisationRuleSetsApi.md#updateamortisationrulesetdetails) | **PUT** /api/amortisation/rulesets/{scope}/{code}/details | [EXPERIMENTAL] UpdateAmortisationRuleSetDetails: Update an amortisation rule set. |
 
@@ -482,6 +483,128 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A list of rule sets available. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="listamortisationrulesintervals"></a>
+# **ListAmortisationRulesIntervals**
+> ResourceListOfRulesInterval ListAmortisationRulesIntervals (string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = null, DateTimeOrCutLabel? toEffectiveAt = null, DateTimeOffset? asAt = null)
+
+ListAmortisationRulesIntervals: List the rules intervals of an amortisation rule set.
+
+Lists the rules intervals of the rule set, ordered by from date. Each interval applies from its from date  until the next interval starts. The last interval has no until date.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AmortisationRuleSetsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AmortisationRuleSetsApi>();
+            var scope = "scope_example";  // string | The rule set scope.
+            var code = "code_example";  // string | The rule set code.
+            var fromEffectiveAt = "fromEffectiveAt_example";  // DateTimeOrCutLabel? | Return only the intervals that overlap the effective range starting at this datetime or cut label.  There is no lower bound if not specified. (optional) 
+            var toEffectiveAt = "toEffectiveAt_example";  // DateTimeOrCutLabel? | Return only the intervals that overlap the effective range ending at this datetime or cut label.  There is no upper bound if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the rules intervals. Defaults to returning the latest version if not  specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfRulesInterval result = apiInstance.ListAmortisationRulesIntervals(scope, code, fromEffectiveAt, toEffectiveAt, asAt, opts: opts);
+
+                // ListAmortisationRulesIntervals: List the rules intervals of an amortisation rule set.
+                ResourceListOfRulesInterval result = apiInstance.ListAmortisationRulesIntervals(scope, code, fromEffectiveAt, toEffectiveAt, asAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling AmortisationRuleSetsApi.ListAmortisationRulesIntervals: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListAmortisationRulesIntervalsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // ListAmortisationRulesIntervals: List the rules intervals of an amortisation rule set.
+    ApiResponse<ResourceListOfRulesInterval> response = apiInstance.ListAmortisationRulesIntervalsWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling AmortisationRuleSetsApi.ListAmortisationRulesIntervalsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The rule set scope. |  |
+| **code** | **string** | The rule set code. |  |
+| **fromEffectiveAt** | **DateTimeOrCutLabel?** | Return only the intervals that overlap the effective range starting at this datetime or cut label.  There is no lower bound if not specified. | [optional]  |
+| **toEffectiveAt** | **DateTimeOrCutLabel?** | Return only the intervals that overlap the effective range ending at this datetime or cut label.  There is no upper bound if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the rules intervals. Defaults to returning the latest version if not  specified. | [optional]  |
+
+### Return type
+
+[**ResourceListOfRulesInterval**](ResourceListOfRulesInterval.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The rules intervals of the rule set. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

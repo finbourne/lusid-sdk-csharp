@@ -45,16 +45,16 @@ namespace Lusid.Sdk.Model
         /// <param name="portfolioId">portfolioId (required).</param>
         /// <param name="flowType">The type of the cashflow, e.g. Coupon, Principal or Premium..</param>
         /// <param name="movementName">The name of the movement that produced the cashflow (e.g. Coupon, Side1), falling back to the flow type when the movement is unnamed. Not present when the cashflow could not be valued..</param>
-        /// <param name="payReceive">Indicates whether the cashflow is paid or received..</param>
         /// <param name="grossAmount">grossAmount.</param>
         /// <param name="haircutFraction">The fraction of the gross amount removed by the haircut, in the range [0, 1]. Zero for outflows and for cashflows no rule matched. Only populated when haircut rules were supplied on the request..</param>
         /// <param name="netAmount">netAmount.</param>
         /// <param name="haircutRuleApplied">The identifier of the haircut rule that was applied to the cashflow, or not present when no rule matched or no haircut rules were supplied on the request..</param>
         /// <param name="error">Present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. In that case the amount is null rather than zero. Error may also be set when only the report-currency FX lookup failed (see ReportCurrencyAmount), in which case the base Amount remains populated and only ReportCurrencyAmount and TradeToReportCurrencyRate are null..</param>
         /// <param name="reportCurrencyAmount">reportCurrencyAmount.</param>
-        /// <param name="tradeToReportCurrencyRate">The FX rate used to convert the cashflow amount from its own payment currency (see Amount) into the request&#39;s report currency, resolved at the cashflow&#39;s transaction (trade) date, not its payment date. Only present when ReportCurrency was supplied on the request; not present when it was omitted, or when the rate could not be resolved (see Error)..</param>
+        /// <param name="tradeToReportCurrencyRate">The FX rate used to convert the cashflow amount from its own payment currency (see Amount) into the request&#39;s report currency. For the default FxSpot rate type it is resolved at the cashflow&#39;s transaction (trade) date, not its payment date; for FxForward it is the forward rate for the payment date (see QueryBucketCashFlowDrillDownRequest.FxRateType and FxRateTypeApplied). Only present when ReportCurrency was supplied on the request; not present when it was omitted, or when the rate could not be resolved (see Error)..</param>
+        /// <param name="fxRateTypeApplied">Which rate type produced TradeToReportCurrencyRate: FxSpot or FxForward. Under the ForwardThenSpot request option this shows whether a cashflow received the forward rate or fell back to spot. Only present when the cashflow was converted into the ReportCurrency..</param>
         /// <param name="links">links.</param>
-        public CashFlowDetail(DateTimeOffset paymentDate = default(DateTimeOffset), CurrencyAndAmount amount = default(CurrencyAndAmount), string sourceType = default(string), string instrumentId = default(string), string instrumentDisplayName = default(string), string transactionId = default(string), ResourceId portfolioId = default(ResourceId), string flowType = default(string), string movementName = default(string), string payReceive = default(string), CurrencyAndAmount grossAmount = default(CurrencyAndAmount), decimal? haircutFraction = default(decimal?), CurrencyAndAmount netAmount = default(CurrencyAndAmount), string haircutRuleApplied = default(string), string error = default(string), CurrencyAndAmount reportCurrencyAmount = default(CurrencyAndAmount), decimal? tradeToReportCurrencyRate = default(decimal?), List<Link> links = default(List<Link>))
+        public CashFlowDetail(DateTimeOffset paymentDate = default(DateTimeOffset), CurrencyAndAmount amount = default(CurrencyAndAmount), string sourceType = default(string), string instrumentId = default(string), string instrumentDisplayName = default(string), string transactionId = default(string), ResourceId portfolioId = default(ResourceId), string flowType = default(string), string movementName = default(string), CurrencyAndAmount grossAmount = default(CurrencyAndAmount), decimal? haircutFraction = default(decimal?), CurrencyAndAmount netAmount = default(CurrencyAndAmount), string haircutRuleApplied = default(string), string error = default(string), CurrencyAndAmount reportCurrencyAmount = default(CurrencyAndAmount), decimal? tradeToReportCurrencyRate = default(decimal?), string fxRateTypeApplied = default(string), List<Link> links = default(List<Link>))
         {
             this.PaymentDate = paymentDate;
             // to ensure "sourceType" is required (not null)
@@ -80,7 +80,6 @@ namespace Lusid.Sdk.Model
             this.TransactionId = transactionId;
             this.FlowType = flowType;
             this.MovementName = movementName;
-            this.PayReceive = payReceive;
             this.GrossAmount = grossAmount;
             this.HaircutFraction = haircutFraction;
             this.NetAmount = netAmount;
@@ -88,6 +87,7 @@ namespace Lusid.Sdk.Model
             this.Error = error;
             this.ReportCurrencyAmount = reportCurrencyAmount;
             this.TradeToReportCurrencyRate = tradeToReportCurrencyRate;
+            this.FxRateTypeApplied = fxRateTypeApplied;
             this.Links = links;
         }
 
@@ -153,13 +153,6 @@ namespace Lusid.Sdk.Model
         public string MovementName { get; set; }
 
         /// <summary>
-        /// Indicates whether the cashflow is paid or received.
-        /// </summary>
-        /// <value>Indicates whether the cashflow is paid or received.</value>
-        [DataMember(Name = "payReceive", EmitDefaultValue = true)]
-        public string PayReceive { get; set; }
-
-        /// <summary>
         /// Gets or Sets GrossAmount
         /// </summary>
         [DataMember(Name = "grossAmount", EmitDefaultValue = false)]
@@ -199,11 +192,18 @@ namespace Lusid.Sdk.Model
         public CurrencyAndAmount ReportCurrencyAmount { get; set; }
 
         /// <summary>
-        /// The FX rate used to convert the cashflow amount from its own payment currency (see Amount) into the request&#39;s report currency, resolved at the cashflow&#39;s transaction (trade) date, not its payment date. Only present when ReportCurrency was supplied on the request; not present when it was omitted, or when the rate could not be resolved (see Error).
+        /// The FX rate used to convert the cashflow amount from its own payment currency (see Amount) into the request&#39;s report currency. For the default FxSpot rate type it is resolved at the cashflow&#39;s transaction (trade) date, not its payment date; for FxForward it is the forward rate for the payment date (see QueryBucketCashFlowDrillDownRequest.FxRateType and FxRateTypeApplied). Only present when ReportCurrency was supplied on the request; not present when it was omitted, or when the rate could not be resolved (see Error).
         /// </summary>
-        /// <value>The FX rate used to convert the cashflow amount from its own payment currency (see Amount) into the request&#39;s report currency, resolved at the cashflow&#39;s transaction (trade) date, not its payment date. Only present when ReportCurrency was supplied on the request; not present when it was omitted, or when the rate could not be resolved (see Error).</value>
+        /// <value>The FX rate used to convert the cashflow amount from its own payment currency (see Amount) into the request&#39;s report currency. For the default FxSpot rate type it is resolved at the cashflow&#39;s transaction (trade) date, not its payment date; for FxForward it is the forward rate for the payment date (see QueryBucketCashFlowDrillDownRequest.FxRateType and FxRateTypeApplied). Only present when ReportCurrency was supplied on the request; not present when it was omitted, or when the rate could not be resolved (see Error).</value>
         [DataMember(Name = "tradeToReportCurrencyRate", EmitDefaultValue = true)]
         public decimal? TradeToReportCurrencyRate { get; set; }
+
+        /// <summary>
+        /// Which rate type produced TradeToReportCurrencyRate: FxSpot or FxForward. Under the ForwardThenSpot request option this shows whether a cashflow received the forward rate or fell back to spot. Only present when the cashflow was converted into the ReportCurrency.
+        /// </summary>
+        /// <value>Which rate type produced TradeToReportCurrencyRate: FxSpot or FxForward. Under the ForwardThenSpot request option this shows whether a cashflow received the forward rate or fell back to spot. Only present when the cashflow was converted into the ReportCurrency.</value>
+        [DataMember(Name = "fxRateTypeApplied", EmitDefaultValue = true)]
+        public string FxRateTypeApplied { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -228,7 +228,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
             sb.Append("  FlowType: ").Append(FlowType).Append("\n");
             sb.Append("  MovementName: ").Append(MovementName).Append("\n");
-            sb.Append("  PayReceive: ").Append(PayReceive).Append("\n");
             sb.Append("  GrossAmount: ").Append(GrossAmount).Append("\n");
             sb.Append("  HaircutFraction: ").Append(HaircutFraction).Append("\n");
             sb.Append("  NetAmount: ").Append(NetAmount).Append("\n");
@@ -236,6 +235,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  ReportCurrencyAmount: ").Append(ReportCurrencyAmount).Append("\n");
             sb.Append("  TradeToReportCurrencyRate: ").Append(TradeToReportCurrencyRate).Append("\n");
+            sb.Append("  FxRateTypeApplied: ").Append(FxRateTypeApplied).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -318,11 +318,6 @@ namespace Lusid.Sdk.Model
                     this.MovementName.Equals(input.MovementName))
                 ) && 
                 (
-                    this.PayReceive == input.PayReceive ||
-                    (this.PayReceive != null &&
-                    this.PayReceive.Equals(input.PayReceive))
-                ) && 
-                (
                     this.GrossAmount == input.GrossAmount ||
                     (this.GrossAmount != null &&
                     this.GrossAmount.Equals(input.GrossAmount))
@@ -356,6 +351,11 @@ namespace Lusid.Sdk.Model
                     this.TradeToReportCurrencyRate == input.TradeToReportCurrencyRate ||
                     (this.TradeToReportCurrencyRate != null &&
                     this.TradeToReportCurrencyRate.Equals(input.TradeToReportCurrencyRate))
+                ) && 
+                (
+                    this.FxRateTypeApplied == input.FxRateTypeApplied ||
+                    (this.FxRateTypeApplied != null &&
+                    this.FxRateTypeApplied.Equals(input.FxRateTypeApplied))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -410,10 +410,6 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.MovementName.GetHashCode();
                 }
-                if (this.PayReceive != null)
-                {
-                    hashCode = (hashCode * 59) + this.PayReceive.GetHashCode();
-                }
                 if (this.GrossAmount != null)
                 {
                     hashCode = (hashCode * 59) + this.GrossAmount.GetHashCode();
@@ -441,6 +437,10 @@ namespace Lusid.Sdk.Model
                 if (this.TradeToReportCurrencyRate != null)
                 {
                     hashCode = (hashCode * 59) + this.TradeToReportCurrencyRate.GetHashCode();
+                }
+                if (this.FxRateTypeApplied != null)
+                {
+                    hashCode = (hashCode * 59) + this.FxRateTypeApplied.GetHashCode();
                 }
                 if (this.Links != null)
                 {

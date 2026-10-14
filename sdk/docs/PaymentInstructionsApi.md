@@ -8,6 +8,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**GetPaymentInstruction**](PaymentInstructionsApi.md#getpaymentinstruction) | **GET** /api/paymentinstructions/{scope}/{code} | [EXPERIMENTAL] GetPaymentInstruction: Get Payment Instruction |
 | [**GetPaymentInstructionsByPaymentRecordIds**](PaymentInstructionsApi.md#getpaymentinstructionsbypaymentrecordids) | **POST** /api/paymentinstructions/$getByPaymentRecordIds | [EXPERIMENTAL] GetPaymentInstructionsByPaymentRecordIds: Get Payment Instructions by Payment Record Ids |
 | [**ListPaymentInstructions**](PaymentInstructionsApi.md#listpaymentinstructions) | **GET** /api/paymentinstructions | [EXPERIMENTAL] ListPaymentInstructions: List Payment Instructions |
+| [**TransitionPaymentInstructionStatuses**](PaymentInstructionsApi.md#transitionpaymentinstructionstatuses) | **POST** /api/paymentinstructions/$transitionStatuses | [EXPERIMENTAL] TransitionPaymentInstructionStatuses: Transition Payment Instruction Statuses |
 | [**UpsertPaymentInstructions**](PaymentInstructionsApi.md#upsertpaymentinstructions) | **POST** /api/paymentinstructions | [EXPERIMENTAL] UpsertPaymentInstructions: Upsert Payment Instructions |
 
 <a id="deletepaymentinstruction"></a>
@@ -489,6 +490,122 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The payment instructions matching the given criteria |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="transitionpaymentinstructionstatuses"></a>
+# **TransitionPaymentInstructionStatuses**
+> TransitionPaymentInstructionsResponse TransitionPaymentInstructionStatuses (Dictionary<string, PaymentInstructionStatusTransitionRequest> requestBody, List<string>? propertyKeys = null)
+
+[EXPERIMENTAL] TransitionPaymentInstructionStatuses: Transition Payment Instruction Statuses
+
+Move a collection of Payment Instructions to new statuses. A Payment Instruction's status is not settable on  the upsert endpoint; this endpoint is the state machine that controls its lifecycle, which runs  Created, Staged, Released, Instructed, Sent, with Cancelled reachable before the instruction is Instructed and  Failed reachable once it has been. Each requested transition is validated against the instruction's current  status on its own, and those that are permitted are applied together.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PaymentInstructionsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PaymentInstructionsApi>();
+            var requestBody = new Dictionary<string, PaymentInstructionStatusTransitionRequest>(); // Dictionary<string, PaymentInstructionStatusTransitionRequest> | A collection of requests to transition the status of Payment Instructions.
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"PaymentInstruction\" domain to decorate onto each              transitioned payment instruction. These take the format {domain}/{scope}/{code} e.g. \"PaymentInstruction/myScope/myProperty\". (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // TransitionPaymentInstructionsResponse result = apiInstance.TransitionPaymentInstructionStatuses(requestBody, propertyKeys, opts: opts);
+
+                // [EXPERIMENTAL] TransitionPaymentInstructionStatuses: Transition Payment Instruction Statuses
+                TransitionPaymentInstructionsResponse result = apiInstance.TransitionPaymentInstructionStatuses(requestBody, propertyKeys);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling PaymentInstructionsApi.TransitionPaymentInstructionStatuses: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the TransitionPaymentInstructionStatusesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] TransitionPaymentInstructionStatuses: Transition Payment Instruction Statuses
+    ApiResponse<TransitionPaymentInstructionsResponse> response = apiInstance.TransitionPaymentInstructionStatusesWithHttpInfo(requestBody, propertyKeys);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling PaymentInstructionsApi.TransitionPaymentInstructionStatusesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **requestBody** | [**Dictionary&lt;string, PaymentInstructionStatusTransitionRequest&gt;**](PaymentInstructionStatusTransitionRequest.md) | A collection of requests to transition the status of Payment Instructions. |  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;PaymentInstruction\&quot; domain to decorate onto each              transitioned payment instruction. These take the format {domain}/{scope}/{code} e.g. \&quot;PaymentInstruction/myScope/myProperty\&quot;. | [optional]  |
+
+### Return type
+
+[**TransitionPaymentInstructionsResponse**](TransitionPaymentInstructionsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The successfully transitioned payment instructions at their new status, along with any failures |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class CreateDerivedPropertyDefinitionRequest : IEquatable<CreateDerivedPropertyDefinitionRequest>, IValidatableObject
     {
         /// <summary>
-        /// The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/docs/what-is-an-entity. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition, RecResult, JournalEntry, EligibleCollateralSchedule.
+        /// The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/docs/what-is-an-entity. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, ProcessingGroup, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition, RecResult, JournalEntry, CollateralAgreement, EligibleCollateralSchedule.
         /// </summary>
-        /// <value>The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/docs/what-is-an-entity. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition, RecResult, JournalEntry, EligibleCollateralSchedule.</value>
+        /// <value>The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/docs/what-is-an-entity. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, ProcessingGroup, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition, RecResult, JournalEntry, CollateralAgreement, EligibleCollateralSchedule.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum DomainEnum
         {
@@ -270,359 +270,371 @@ namespace Lusid.Sdk.Model
             FundStructure = 39,
 
             /// <summary>
+            /// Enum ProcessingGroup for value: ProcessingGroup
+            /// </summary>
+            [EnumMember(Value = "ProcessingGroup")]
+            ProcessingGroup = 40,
+
+            /// <summary>
             /// Enum Fee for value: Fee
             /// </summary>
             [EnumMember(Value = "Fee")]
-            Fee = 40,
+            Fee = 41,
 
             /// <summary>
             /// Enum Reconciliation for value: Reconciliation
             /// </summary>
             [EnumMember(Value = "Reconciliation")]
-            Reconciliation = 41,
+            Reconciliation = 42,
 
             /// <summary>
             /// Enum PropertyDefinition for value: PropertyDefinition
             /// </summary>
             [EnumMember(Value = "PropertyDefinition")]
-            PropertyDefinition = 42,
+            PropertyDefinition = 43,
 
             /// <summary>
             /// Enum Compliance for value: Compliance
             /// </summary>
             [EnumMember(Value = "Compliance")]
-            Compliance = 43,
+            Compliance = 44,
 
             /// <summary>
             /// Enum DiaryEntry for value: DiaryEntry
             /// </summary>
             [EnumMember(Value = "DiaryEntry")]
-            DiaryEntry = 44,
+            DiaryEntry = 45,
 
             /// <summary>
             /// Enum Leg for value: Leg
             /// </summary>
             [EnumMember(Value = "Leg")]
-            Leg = 45,
+            Leg = 46,
 
             /// <summary>
             /// Enum DerivedValuation for value: DerivedValuation
             /// </summary>
             [EnumMember(Value = "DerivedValuation")]
-            DerivedValuation = 46,
+            DerivedValuation = 47,
 
             /// <summary>
             /// Enum Timeline for value: Timeline
             /// </summary>
             [EnumMember(Value = "Timeline")]
-            Timeline = 47,
+            Timeline = 48,
 
             /// <summary>
             /// Enum ClosedPeriod for value: ClosedPeriod
             /// </summary>
             [EnumMember(Value = "ClosedPeriod")]
-            ClosedPeriod = 48,
+            ClosedPeriod = 49,
 
             /// <summary>
             /// Enum AddressKeyDefinition for value: AddressKeyDefinition
             /// </summary>
             [EnumMember(Value = "AddressKeyDefinition")]
-            AddressKeyDefinition = 49,
+            AddressKeyDefinition = 50,
 
             /// <summary>
             /// Enum AmortisationRuleSet for value: AmortisationRuleSet
             /// </summary>
             [EnumMember(Value = "AmortisationRuleSet")]
-            AmortisationRuleSet = 50,
+            AmortisationRuleSet = 51,
 
             /// <summary>
             /// Enum AnalyticsSetInventory for value: AnalyticsSetInventory
             /// </summary>
             [EnumMember(Value = "AnalyticsSetInventory")]
-            AnalyticsSetInventory = 51,
+            AnalyticsSetInventory = 52,
 
             /// <summary>
             /// Enum AtomUnitResult for value: AtomUnitResult
             /// </summary>
             [EnumMember(Value = "AtomUnitResult")]
-            AtomUnitResult = 52,
+            AtomUnitResult = 53,
 
             /// <summary>
             /// Enum CleardownModule for value: CleardownModule
             /// </summary>
             [EnumMember(Value = "CleardownModule")]
-            CleardownModule = 53,
+            CleardownModule = 54,
 
             /// <summary>
             /// Enum ComplexMarketData for value: ComplexMarketData
             /// </summary>
             [EnumMember(Value = "ComplexMarketData")]
-            ComplexMarketData = 54,
+            ComplexMarketData = 55,
 
             /// <summary>
             /// Enum ComplianceRunSummary for value: ComplianceRunSummary
             /// </summary>
             [EnumMember(Value = "ComplianceRunSummary")]
-            ComplianceRunSummary = 55,
+            ComplianceRunSummary = 56,
 
             /// <summary>
             /// Enum ComplianceRule for value: ComplianceRule
             /// </summary>
             [EnumMember(Value = "ComplianceRule")]
-            ComplianceRule = 56,
+            ComplianceRule = 57,
 
             /// <summary>
             /// Enum ComplianceRunInfo for value: ComplianceRunInfo
             /// </summary>
             [EnumMember(Value = "ComplianceRunInfo")]
-            ComplianceRunInfo = 57,
+            ComplianceRunInfo = 58,
 
             /// <summary>
             /// Enum CorporateActionSource for value: CorporateActionSource
             /// </summary>
             [EnumMember(Value = "CorporateActionSource")]
-            CorporateActionSource = 58,
+            CorporateActionSource = 59,
 
             /// <summary>
             /// Enum CounterpartyAgreement for value: CounterpartyAgreement
             /// </summary>
             [EnumMember(Value = "CounterpartyAgreement")]
-            CounterpartyAgreement = 59,
+            CounterpartyAgreement = 60,
 
             /// <summary>
             /// Enum CustomEntityDefinition for value: CustomEntityDefinition
             /// </summary>
             [EnumMember(Value = "CustomEntityDefinition")]
-            CustomEntityDefinition = 60,
+            CustomEntityDefinition = 61,
 
             /// <summary>
             /// Enum DataType for value: DataType
             /// </summary>
             [EnumMember(Value = "DataType")]
-            DataType = 61,
+            DataType = 62,
 
             /// <summary>
             /// Enum Dialect for value: Dialect
             /// </summary>
             [EnumMember(Value = "Dialect")]
-            Dialect = 62,
+            Dialect = 63,
 
             /// <summary>
             /// Enum EventHandler for value: EventHandler
             /// </summary>
             [EnumMember(Value = "EventHandler")]
-            EventHandler = 63,
+            EventHandler = 64,
 
             /// <summary>
             /// Enum GeneralLedgerProfile for value: GeneralLedgerProfile
             /// </summary>
             [EnumMember(Value = "GeneralLedgerProfile")]
-            GeneralLedgerProfile = 64,
+            GeneralLedgerProfile = 65,
 
             /// <summary>
             /// Enum PostingModule for value: PostingModule
             /// </summary>
             [EnumMember(Value = "PostingModule")]
-            PostingModule = 65,
+            PostingModule = 66,
 
             /// <summary>
             /// Enum Quote for value: Quote
             /// </summary>
             [EnumMember(Value = "Quote")]
-            Quote = 66,
+            Quote = 67,
 
             /// <summary>
             /// Enum RecipeComposer for value: RecipeComposer
             /// </summary>
             [EnumMember(Value = "RecipeComposer")]
-            RecipeComposer = 67,
+            RecipeComposer = 68,
 
             /// <summary>
             /// Enum ReconciliationRunBreak for value: ReconciliationRunBreak
             /// </summary>
             [EnumMember(Value = "ReconciliationRunBreak")]
-            ReconciliationRunBreak = 68,
+            ReconciliationRunBreak = 69,
 
             /// <summary>
             /// Enum ReferenceList for value: ReferenceList
             /// </summary>
             [EnumMember(Value = "ReferenceList")]
-            ReferenceList = 69,
+            ReferenceList = 70,
 
             /// <summary>
             /// Enum RelationDefinition for value: RelationDefinition
             /// </summary>
             [EnumMember(Value = "RelationDefinition")]
-            RelationDefinition = 70,
+            RelationDefinition = 71,
 
             /// <summary>
             /// Enum ReturnBlockIndex for value: ReturnBlockIndex
             /// </summary>
             [EnumMember(Value = "ReturnBlockIndex")]
-            ReturnBlockIndex = 71,
+            ReturnBlockIndex = 72,
 
             /// <summary>
             /// Enum SRSDocument for value: SRSDocument
             /// </summary>
             [EnumMember(Value = "SRSDocument")]
-            SRSDocument = 72,
+            SRSDocument = 73,
 
             /// <summary>
             /// Enum SRSIndex for value: SRSIndex
             /// </summary>
             [EnumMember(Value = "SRSIndex")]
-            SRSIndex = 73,
+            SRSIndex = 74,
 
             /// <summary>
             /// Enum TransactionTemplate for value: TransactionTemplate
             /// </summary>
             [EnumMember(Value = "TransactionTemplate")]
-            TransactionTemplate = 74,
+            TransactionTemplate = 75,
 
             /// <summary>
             /// Enum TransactionTemplateScope for value: TransactionTemplateScope
             /// </summary>
             [EnumMember(Value = "TransactionTemplateScope")]
-            TransactionTemplateScope = 75,
+            TransactionTemplateScope = 76,
 
             /// <summary>
             /// Enum TransactionType for value: TransactionType
             /// </summary>
             [EnumMember(Value = "TransactionType")]
-            TransactionType = 76,
+            TransactionType = 77,
 
             /// <summary>
             /// Enum TransactionTypeConfig for value: TransactionTypeConfig
             /// </summary>
             [EnumMember(Value = "TransactionTypeConfig")]
-            TransactionTypeConfig = 77,
+            TransactionTypeConfig = 78,
 
             /// <summary>
             /// Enum TranslationScript for value: TranslationScript
             /// </summary>
             [EnumMember(Value = "TranslationScript")]
-            TranslationScript = 78,
+            TranslationScript = 79,
 
             /// <summary>
             /// Enum TaskDefinition for value: TaskDefinition
             /// </summary>
             [EnumMember(Value = "TaskDefinition")]
-            TaskDefinition = 79,
+            TaskDefinition = 80,
 
             /// <summary>
             /// Enum TaskInstance for value: TaskInstance
             /// </summary>
             [EnumMember(Value = "TaskInstance")]
-            TaskInstance = 80,
+            TaskInstance = 81,
 
             /// <summary>
             /// Enum Worker for value: Worker
             /// </summary>
             [EnumMember(Value = "Worker")]
-            Worker = 81,
+            Worker = 82,
 
             /// <summary>
             /// Enum Workflow for value: Workflow
             /// </summary>
             [EnumMember(Value = "Workflow")]
-            Workflow = 82,
+            Workflow = 83,
 
             /// <summary>
             /// Enum StagingRuleSet for value: StagingRuleSet
             /// </summary>
             [EnumMember(Value = "StagingRuleSet")]
-            StagingRuleSet = 83,
+            StagingRuleSet = 84,
 
             /// <summary>
             /// Enum IdentifierDefinition for value: IdentifierDefinition
             /// </summary>
             [EnumMember(Value = "IdentifierDefinition")]
-            IdentifierDefinition = 84,
+            IdentifierDefinition = 85,
 
             /// <summary>
             /// Enum SettlementInstruction for value: SettlementInstruction
             /// </summary>
             [EnumMember(Value = "SettlementInstruction")]
-            SettlementInstruction = 85,
+            SettlementInstruction = 86,
 
             /// <summary>
             /// Enum TransactionFeeType for value: TransactionFeeType
             /// </summary>
             [EnumMember(Value = "TransactionFeeType")]
-            TransactionFeeType = 86,
+            TransactionFeeType = 87,
 
             /// <summary>
             /// Enum AllocationMethod for value: AllocationMethod
             /// </summary>
             [EnumMember(Value = "AllocationMethod")]
-            AllocationMethod = 87,
+            AllocationMethod = 88,
 
             /// <summary>
             /// Enum TransactionFee for value: TransactionFee
             /// </summary>
             [EnumMember(Value = "TransactionFee")]
-            TransactionFee = 88,
+            TransactionFee = 89,
 
             /// <summary>
             /// Enum Subscription for value: Subscription
             /// </summary>
             [EnumMember(Value = "Subscription")]
-            Subscription = 89,
+            Subscription = 90,
 
             /// <summary>
             /// Enum ScenarioDefinition for value: ScenarioDefinition
             /// </summary>
             [EnumMember(Value = "ScenarioDefinition")]
-            ScenarioDefinition = 90,
+            ScenarioDefinition = 91,
 
             /// <summary>
             /// Enum PaymentInstruction for value: PaymentInstruction
             /// </summary>
             [EnumMember(Value = "PaymentInstruction")]
-            PaymentInstruction = 91,
+            PaymentInstruction = 92,
 
             /// <summary>
             /// Enum Transfer for value: Transfer
             /// </summary>
             [EnumMember(Value = "Transfer")]
-            Transfer = 92,
+            Transfer = 93,
 
             /// <summary>
             /// Enum CurrencyGroup for value: CurrencyGroup
             /// </summary>
             [EnumMember(Value = "CurrencyGroup")]
-            CurrencyGroup = 93,
+            CurrencyGroup = 94,
 
             /// <summary>
             /// Enum RecDefinition for value: RecDefinition
             /// </summary>
             [EnumMember(Value = "RecDefinition")]
-            RecDefinition = 94,
+            RecDefinition = 95,
 
             /// <summary>
             /// Enum RecResult for value: RecResult
             /// </summary>
             [EnumMember(Value = "RecResult")]
-            RecResult = 95,
+            RecResult = 96,
 
             /// <summary>
             /// Enum JournalEntry for value: JournalEntry
             /// </summary>
             [EnumMember(Value = "JournalEntry")]
-            JournalEntry = 96,
+            JournalEntry = 97,
+
+            /// <summary>
+            /// Enum CollateralAgreement for value: CollateralAgreement
+            /// </summary>
+            [EnumMember(Value = "CollateralAgreement")]
+            CollateralAgreement = 98,
 
             /// <summary>
             /// Enum EligibleCollateralSchedule for value: EligibleCollateralSchedule
             /// </summary>
             [EnumMember(Value = "EligibleCollateralSchedule")]
-            EligibleCollateralSchedule = 97
+            EligibleCollateralSchedule = 99
         }
 
 
         /// <summary>
-        /// The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/docs/what-is-an-entity. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition, RecResult, JournalEntry, EligibleCollateralSchedule.
+        /// The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/docs/what-is-an-entity. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, ProcessingGroup, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition, RecResult, JournalEntry, CollateralAgreement, EligibleCollateralSchedule.
         /// </summary>
-        /// <value>The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/docs/what-is-an-entity. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition, RecResult, JournalEntry, EligibleCollateralSchedule.</value>
+        /// <value>The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/docs/what-is-an-entity. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, ProcessingGroup, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition, RecResult, JournalEntry, CollateralAgreement, EligibleCollateralSchedule.</value>
         [DataMember(Name = "domain", IsRequired = true, EmitDefaultValue = true)]
         public DomainEnum Domain { get; set; }
         /// <summary>
@@ -633,7 +645,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateDerivedPropertyDefinitionRequest" /> class.
         /// </summary>
-        /// <param name="domain">The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/docs/what-is-an-entity. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition, RecResult, JournalEntry, EligibleCollateralSchedule. (required).</param>
+        /// <param name="domain">The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/docs/what-is-an-entity. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, ProcessingGroup, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition, RecResult, JournalEntry, CollateralAgreement, EligibleCollateralSchedule. (required).</param>
         /// <param name="scope">The scope that the property exists in. (required).</param>
         /// <param name="code">The code of the property. Together with the domain and scope this uniquely identifies the property. (required).</param>
         /// <param name="displayName">The display name of the property. (required).</param>

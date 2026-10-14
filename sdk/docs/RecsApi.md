@@ -1241,7 +1241,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RecsApi>();
             var instanceIdType = "instanceIdType_example";  // string | How the instance was created: \"WorkflowServiceTaskId\" or \"Manual\". Available values: WorkflowServiceTaskId, Manual.
             var instanceIdValue = "instanceIdValue_example";  // string | The unique identifier of the rec instance.
-            var recType = "recType_example";  // string | The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.
+            var recType = "recType_example";  // string | The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External.
             var runNumber = 56;  // int | The run of the instance whose view of the result is read.
             var id = "id_example";  // string | The display id of the rec result, e.g. \"break-3\".
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional) 
@@ -1293,7 +1293,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **instanceIdType** | **string** | How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual. |  |
 | **instanceIdValue** | **string** | The unique identifier of the rec instance. |  |
-| **recType** | **string** | The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity. |  |
+| **recType** | **string** | The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External. |  |
 | **runNumber** | **int** | The run of the instance whose view of the result is read. |  |
 | **id** | **string** | The display id of the rec result, e.g. \&quot;break-3\&quot;. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the result. Defaults to latest if not specified. | [optional]  |

@@ -52,10 +52,10 @@ namespace Lusid.Sdk.Model
         /// <param name="principal">The face-value or principal for the bond at outset. (required).</param>
         /// <param name="principalProtection">If true then the principal is protected in that the redemption amount will be at least the face value (Principal).  This is typically set to true for inflation linked bonds issued by the United States and France (for example).  This is typically set to false for inflation linked bonds issued by the United Kingdom (post 2005).  For other sovereigns this can vary from issue to issue.  If not set this property defaults to true.  This is sometimes referred to as Deflation protection or an inflation floor of 0%..</param>
         /// <param name="stubType">StubType. Most Inflation linked bonds have a ShortFront stub type so this is the default, however in some cases  with a long front stub LongFront should be selected.  StubType Both is not supported for InflationLinkedBonds.    Supported string (enumeration) values are: [ShortFront, ShortBack, LongBack, LongFront, Both]..</param>
-        /// <param name="firstCouponPayDate">Optional. The date on which the first coupon is paid. Set this date for an irregular first coupon period.  If this date is an adjusted date, also set SecondPeriodStartDate..</param>
-        /// <param name="secondPeriodStartDate">Optional. The date on which the second coupon period starts. This is also the accrual end date of the first coupon period.  Set this date together with FirstCouponPayDate when the first coupon pay date is an adjusted date..</param>
-        /// <param name="penultimateCouponPayDate">Optional. The date on which the penultimate coupon is paid. Set this date for an irregular last coupon period.  If this date is an adjusted date, also set LastPeriodStartDate..</param>
-        /// <param name="lastPeriodStartDate">Optional. The date on which the last coupon period starts. This is also the accrual end date of the penultimate coupon period.  Set this date together with PenultimateCouponPayDate when the penultimate coupon pay date is an adjusted date..</param>
+        /// <param name="firstCouponPayDate">Optional. The date on which the first coupon is paid. Set this date for an irregular first coupon period.  When SecondPeriodStartDate is not set, this date is also the end of the first coupon period and the regular coupon periods roll forward from it.  If this date is an adjusted date, also set SecondPeriodStartDate..</param>
+        /// <param name="secondPeriodStartDate">Optional. The date on which the second coupon period starts. This is also the accrual end date of the first coupon period.  The regular coupon periods roll forward from this date, whatever the stub type, and the last period ends on the maturity date.  Set this date together with FirstCouponPayDate when the first coupon pay date is an adjusted date..</param>
+        /// <param name="penultimateCouponPayDate">Optional. The date on which the penultimate coupon is paid. Set this date for an irregular last coupon period.  When LastPeriodStartDate is not set, this date is also the start of the last coupon period.  If this date is an adjusted date, also set LastPeriodStartDate..</param>
+        /// <param name="lastPeriodStartDate">Optional. The date on which the last coupon period starts. This is also the accrual end date of the penultimate coupon period.  When the first coupon period is not given explicitly, the regular coupon periods roll backward from this date, whatever the stub type.  Set this date together with PenultimateCouponPayDate when the penultimate coupon pay date is an adjusted date..</param>
         /// <param name="roundingConventions">Rounding conventions for analytics, if any..</param>
         /// <param name="tradingConventions">tradingConventions.</param>
         /// <param name="originalIssuePrice">The price the bond was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%..</param>
@@ -198,30 +198,30 @@ namespace Lusid.Sdk.Model
         public string StubType { get; set; }
 
         /// <summary>
-        /// Optional. The date on which the first coupon is paid. Set this date for an irregular first coupon period.  If this date is an adjusted date, also set SecondPeriodStartDate.
+        /// Optional. The date on which the first coupon is paid. Set this date for an irregular first coupon period.  When SecondPeriodStartDate is not set, this date is also the end of the first coupon period and the regular coupon periods roll forward from it.  If this date is an adjusted date, also set SecondPeriodStartDate.
         /// </summary>
-        /// <value>Optional. The date on which the first coupon is paid. Set this date for an irregular first coupon period.  If this date is an adjusted date, also set SecondPeriodStartDate.</value>
+        /// <value>Optional. The date on which the first coupon is paid. Set this date for an irregular first coupon period.  When SecondPeriodStartDate is not set, this date is also the end of the first coupon period and the regular coupon periods roll forward from it.  If this date is an adjusted date, also set SecondPeriodStartDate.</value>
         [DataMember(Name = "firstCouponPayDate", EmitDefaultValue = true)]
         public DateTimeOffset? FirstCouponPayDate { get; set; }
 
         /// <summary>
-        /// Optional. The date on which the second coupon period starts. This is also the accrual end date of the first coupon period.  Set this date together with FirstCouponPayDate when the first coupon pay date is an adjusted date.
+        /// Optional. The date on which the second coupon period starts. This is also the accrual end date of the first coupon period.  The regular coupon periods roll forward from this date, whatever the stub type, and the last period ends on the maturity date.  Set this date together with FirstCouponPayDate when the first coupon pay date is an adjusted date.
         /// </summary>
-        /// <value>Optional. The date on which the second coupon period starts. This is also the accrual end date of the first coupon period.  Set this date together with FirstCouponPayDate when the first coupon pay date is an adjusted date.</value>
+        /// <value>Optional. The date on which the second coupon period starts. This is also the accrual end date of the first coupon period.  The regular coupon periods roll forward from this date, whatever the stub type, and the last period ends on the maturity date.  Set this date together with FirstCouponPayDate when the first coupon pay date is an adjusted date.</value>
         [DataMember(Name = "secondPeriodStartDate", EmitDefaultValue = true)]
         public DateTimeOffset? SecondPeriodStartDate { get; set; }
 
         /// <summary>
-        /// Optional. The date on which the penultimate coupon is paid. Set this date for an irregular last coupon period.  If this date is an adjusted date, also set LastPeriodStartDate.
+        /// Optional. The date on which the penultimate coupon is paid. Set this date for an irregular last coupon period.  When LastPeriodStartDate is not set, this date is also the start of the last coupon period.  If this date is an adjusted date, also set LastPeriodStartDate.
         /// </summary>
-        /// <value>Optional. The date on which the penultimate coupon is paid. Set this date for an irregular last coupon period.  If this date is an adjusted date, also set LastPeriodStartDate.</value>
+        /// <value>Optional. The date on which the penultimate coupon is paid. Set this date for an irregular last coupon period.  When LastPeriodStartDate is not set, this date is also the start of the last coupon period.  If this date is an adjusted date, also set LastPeriodStartDate.</value>
         [DataMember(Name = "penultimateCouponPayDate", EmitDefaultValue = true)]
         public DateTimeOffset? PenultimateCouponPayDate { get; set; }
 
         /// <summary>
-        /// Optional. The date on which the last coupon period starts. This is also the accrual end date of the penultimate coupon period.  Set this date together with PenultimateCouponPayDate when the penultimate coupon pay date is an adjusted date.
+        /// Optional. The date on which the last coupon period starts. This is also the accrual end date of the penultimate coupon period.  When the first coupon period is not given explicitly, the regular coupon periods roll backward from this date, whatever the stub type.  Set this date together with PenultimateCouponPayDate when the penultimate coupon pay date is an adjusted date.
         /// </summary>
-        /// <value>Optional. The date on which the last coupon period starts. This is also the accrual end date of the penultimate coupon period.  Set this date together with PenultimateCouponPayDate when the penultimate coupon pay date is an adjusted date.</value>
+        /// <value>Optional. The date on which the last coupon period starts. This is also the accrual end date of the penultimate coupon period.  When the first coupon period is not given explicitly, the regular coupon periods roll backward from this date, whatever the stub type.  Set this date together with PenultimateCouponPayDate when the penultimate coupon pay date is an adjusted date.</value>
         [DataMember(Name = "lastPeriodStartDate", EmitDefaultValue = true)]
         public DateTimeOffset? LastPeriodStartDate { get; set; }
 

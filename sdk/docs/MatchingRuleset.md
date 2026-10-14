@@ -6,14 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | [**ResourceId**](ResourceId.md) |  | 
 **DisplayName** | **string** | The name of the matching ruleset. | 
-**RecType** | **string** | The type of reconciliation to perform. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity. | 
+**RecType** | **string** | The type of reconciliation to perform. External reconciles non-native data on both sides, described by the datasetSchemas and the externalRecType. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External. | 
+**ExternalRecType** | [**ExternalRecType**](ExternalRecType.md) |  | [optional] 
 **DatasetSchemas** | [**RecDatasetSchemas**](RecDatasetSchemas.md) |  | 
 **Filters** | [**GroupReconciliationFilters**](GroupReconciliationFilters.md) |  | [optional] 
 **CoreRules** | [**List&lt;CoreMatchingRule&gt;**](CoreMatchingRule.md) | The core comparison rules evaluated as derivation formulae against each side of the reconciliation. | 
 **AggregateRules** | [**List&lt;AggregateMatchingRule&gt;**](AggregateMatchingRule.md) | The aggregate comparison rules evaluated as derivation formulae against values on each side of the reconciliation and operation to aggregate those values. | 
 **CoreTolerances** | [**List&lt;ToleranceBase&gt;**](ToleranceBase.md) | Tolerance configurations applied to core rule matching, in the specified order. | [optional] 
 **AggregateTolerances** | [**List&lt;ToleranceBase&gt;**](ToleranceBase.md) | Tolerance configurations applied to aggregate rule matching. | [optional] 
-**AllowPartialMatching** | **bool** | Whether to permit partial matches when applying rules. | [optional] 
+**AllowPartialMatching** | **bool** | Whether to permit partial matches when applying rules. Optional, defaults to true if a value is not provided. | [optional] 
 **SupplementalAttributes** | [**List&lt;SupplementalAttribute&gt;**](SupplementalAttribute.md) | Supplemental attributes that decorate reconciliation results with additional values without participating in the reconciliation itself. | [optional] 
 **WritebackConfigurations** | [**List&lt;WritebackConfiguration&gt;**](WritebackConfiguration.md) | The writeback suggestions generated against this ruleset&#39;s results. Suggestions are made at item level on target-side items only, and are suggestions only: a user is expected to review them before acting. Optional, and may be empty. | [optional] 
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
@@ -27,6 +28,8 @@ using System;
 ResourceId id = new ResourceId();
 string displayName = "displayName";
 string recType = "recType";
+ExternalRecType? externalRecType = new ExternalRecType();
+
 RecDatasetSchemas datasetSchemas = new RecDatasetSchemas();
 GroupReconciliationFilters? filters = new GroupReconciliationFilters();
 
@@ -46,6 +49,7 @@ MatchingRuleset matchingRulesetInstance = new MatchingRuleset(
     id: id,
     displayName: displayName,
     recType: recType,
+    externalRecType: externalRecType,
     datasetSchemas: datasetSchemas,
     filters: filters,
     coreRules: coreRules,

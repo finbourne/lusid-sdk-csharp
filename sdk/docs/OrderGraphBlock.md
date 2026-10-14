@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **DerivedComplianceState** | **string** | The overall compliance state of a block, derived from the block&#39;s orders. Available values: Pending, Failed, Passed, ManuallyApproved, PartiallyOverridden, Warning. | 
 **DerivedApprovalState** | **string** | The overall approval state of a block, derived from approval of the block&#39;s orders. Available values: Pending, Rejected, Approved, Placed. | 
 **DerivedDirection** | **int?** | The overall direction of a block, derived from its orders&#39; transaction types: 1 the block increases the position (longer), -1 it decreases it (shorter), 0 its orders net flat, null when no direction could be resolved (including unsolicited blocks). | [optional] 
+**LatestActivityDate** | **DateTimeOffset** | The most recent AsAt at which the block, or any of its orders, placements, executions or allocations, was modified. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -39,7 +40,8 @@ OrderGraphBlock orderGraphBlockInstance = new OrderGraphBlock(
     derivedState: derivedState,
     derivedComplianceState: derivedComplianceState,
     derivedApprovalState: derivedApprovalState,
-    derivedDirection: derivedDirection);
+    derivedDirection: derivedDirection,
+    latestActivityDate: latestActivityDate);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

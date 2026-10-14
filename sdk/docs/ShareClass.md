@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | Unique instrument identifiers | [optional] 
+**Series** | [**List&lt;Series&gt;**](Series.md) | The series that belong to this Share Class - only relevant if InvestorType is Series. | [optional] 
 **Name** | **string** | The display name of the Share Class. | 
 **Description** | **string** | An optional description for the Share Class. | [optional] 
 **ShareClassShortCode** | **string** | A short code that uniquely identifies the share class within the Fund. | 
@@ -20,12 +21,14 @@ Name | Type | Description | Notes
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 **DistributionPaymentType** | **string** | The tax treatment applied to distributions. Available values: Invalid, Gross, Net. | [optional] 
 **Hedging** | **string** | Indicates whether the ShareClass applies currency hedging. Available values: Invalid, None, ApplyHedging. | [optional] 
+**WhtParameters** | [**WhtParameters**](WhtParameters.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 
 Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+List<Series> series = new List<Series>();
 string name = "name";
 string description = "example description";
 string shareClassShortCode = "shareClassShortCode";
@@ -41,9 +44,12 @@ TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
 
 string distributionPaymentType = "example distributionPaymentType";
 string hedging = "example hedging";
+WhtParameters? whtParameters = new WhtParameters();
+
 
 ShareClass shareClassInstance = new ShareClass(
     instrumentIdentifiers: instrumentIdentifiers,
+    series: series,
     name: name,
     description: description,
     shareClassShortCode: shareClassShortCode,
@@ -58,7 +64,8 @@ ShareClass shareClassInstance = new ShareClass(
     roundingConventionsUnits: roundingConventionsUnits,
     timeZoneConventions: timeZoneConventions,
     distributionPaymentType: distributionPaymentType,
-    hedging: hedging);
+    hedging: hedging,
+    whtParameters: whtParameters);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

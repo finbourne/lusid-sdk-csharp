@@ -12,6 +12,9 @@ Name | Type | Description | Notes
 **PreviousAccrual** | **decimal** | The previous valuation point&#39;s total accrual. | [optional] 
 **PreviousTotalAccrual** | **decimal** | The previous valuation point&#39;s total accrual. | [optional] 
 **TotalAccrual** | **decimal** | The sum of the PreviousAccrual and Amount. | [optional] 
+**CapPeriodAccrual** | **decimal** | The amount accrued so far in the current fee year (from the fee&#39;s AnchorDate), in the fund currency, against which an annual FeeCap is assessed. | [optional] 
+**FeeCapApplied** | **bool** | Whether the FeeCap reduced the amount accrued at this valuation point. | [optional] 
+**FeeFloorApplied** | **bool** | Whether the FeeFloor raised the amount accrued at this valuation point. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -19,7 +22,9 @@ using Lusid.Sdk.Model;
 using System;
 
 string code = "code";
-string name = "name";decimal? calculationBase = "example calculationBase";decimal? amount = "example amount";decimal? previousAccrual = "example previousAccrual";decimal? previousTotalAccrual = "example previousTotalAccrual";decimal? totalAccrual = "example totalAccrual";
+string name = "name";decimal? calculationBase = "example calculationBase";decimal? amount = "example amount";decimal? previousAccrual = "example previousAccrual";decimal? previousTotalAccrual = "example previousTotalAccrual";decimal? totalAccrual = "example totalAccrual";decimal? capPeriodAccrual = "example capPeriodAccrual";
+bool feeCapApplied = //"True";
+bool feeFloorApplied = //"True";
 List<Link> links = new List<Link>();
 
 FeeAccrual feeAccrualInstance = new FeeAccrual(
@@ -31,6 +36,9 @@ FeeAccrual feeAccrualInstance = new FeeAccrual(
     previousAccrual: previousAccrual,
     previousTotalAccrual: previousTotalAccrual,
     totalAccrual: totalAccrual,
+    capPeriodAccrual: capPeriodAccrual,
+    feeCapApplied: feeCapApplied,
+    feeFloorApplied: feeFloorApplied,
     links: links);
 ```
 

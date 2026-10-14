@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Model
         /// <param name="accrualCurrency">The accrual currency. (required).</param>
         /// <param name="treatment">The accrual period of the Fee. Available values: Daily, Monthly. (required).</param>
         /// <param name="totalAnnualAccrualAmount">The total annual accrued amount for the Fee. (TotalAnnualAccrualAmount and CalculationBase cannot both be present).</param>
-        /// <param name="feeRatePercentage">The fee rate percentage. (Required when CalculationBase is present and not compatible with TotalAnnualAccrualAmount).</param>
+        /// <param name="feeRatePercentage">The annual rate applied to the CalculationBase for a &#39;FixedPercentage&#39; Fee, expressed as a multiplier rather than a percentage: 0.052 means 5.2% of the base per year. (Required when CalculationBase is present and not compatible with TotalAnnualAccrualAmount).</param>
         /// <param name="payableFrequency">The payable frequency for the Fee. Available values: Annually, Quarterly, Monthly. (required).</param>
         /// <param name="businessDayConvention">The business day convention to use for Fee calculations on weekends or holidays. Available values: None, P, Previous, F, Following. (required).</param>
         /// <param name="startDate">The start date of the Fee. (required).</param>
@@ -54,7 +54,14 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">The Fee properties. These will be from the &#39;Fee&#39; domain..</param>
         /// <param name="portfolioId">portfolioId.</param>
         /// <param name="shareClasses">The short codes of the ShareClasses that the Fee should be applied to. Optional: if this is null or empty, then the Fee will be divided between all the ShareClasses of the Fund according to the capital ratio..</param>
-        public FeeRequest(string code = default(string), ResourceId feeTypeId = default(ResourceId), string displayName = default(string), string description = default(string), string origin = default(string), string calculationBase = default(string), string accrualCurrency = default(string), string treatment = default(string), decimal? totalAnnualAccrualAmount = default(decimal?), decimal? feeRatePercentage = default(decimal?), string payableFrequency = default(string), string businessDayConvention = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset? endDate = default(DateTimeOffset?), DayMonth anchorDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ResourceId portfolioId = default(ResourceId), List<string> shareClasses = default(List<string>))
+        /// <param name="feeCalculationType">How the Fee accrual amount is calculated. Supported values: &#39;FixedAnnual&#39; (a fixed annual amount, requires TotalAnnualAccrualAmount), &#39;FixedDaily&#39; (a fixed daily amount, requires DailyAccrualAmount), &#39;FixedPercentage&#39; (a fixed percentage of the CalculationBase, requires FeeRatePercentage), &#39;VariablePercentage&#39; (a percentage of the CalculationBase resolved from a rate source at each accrual date, requires VariablePercentageSource), &#39;Tiered&#39; (a single rate applied to the whole CalculationBase, chosen by the tier the base falls in, requires Tiers), &#39;Blended&#39; (each tier&#39;s rate applied to the portion of the CalculationBase within that tier, requires Tiers). Optional: when not provided it is inferred as &#39;FixedAnnual&#39; if TotalAnnualAccrualAmount is populated and &#39;FixedPercentage&#39; otherwise, so existing requests keep their behaviour; the new calculation types must be requested explicitly. Available values: FixedAnnual, FixedDaily, FixedPercentage, VariablePercentage, Tiered, Blended..</param>
+        /// <param name="dailyAccrualAmount">The fixed daily accrued amount for a &#39;FixedDaily&#39; Fee, in the fund currency. The amount accrues for each day of the accrual period with no annualisation or day-count proration; Treatment does not affect it..</param>
+        /// <param name="variablePercentageSource">The source of the rate for a &#39;VariablePercentage&#39; Fee, in the form \&quot;scope/provider/instrumentIdType/instrumentId\&quot; identifying a Rate quote series in the quote store. At each accrual date the most recent rate at or before that date is used; if no rate can be found the valuation point calculation fails. The quote&#39;s normalised value (its value divided by any scale factor) is applied like FeeRatePercentage, as a multiplier of the CalculationBase: a rate of 5.2% must normalise to 0.052..</param>
+        /// <param name="variablePercentageSourceOffset">An optional adjustment added to the rate resolved from the VariablePercentageSource, expressed as a factor like FeeRatePercentage (e.g. 0.0025 adds 25 basis points)..</param>
+        /// <param name="tiers">The rate tiers for a &#39;Tiered&#39; or &#39;Blended&#39; Fee: between 2 and 10 tiers over the CalculationBase. Every tier except the last must have a Threshold, and thresholds must be positive and strictly increasing; a base equal to a Threshold falls in that tier, and the final tier covers the balance above the last threshold. A &#39;Tiered&#39; Fee applies the rate of the tier the whole base falls in; a &#39;Blended&#39; Fee applies each tier&#39;s rate to the portion of the base within that tier..</param>
+        /// <param name="feeCap">An optional annual cap on the accrued fee for &#39;FixedPercentage&#39;, &#39;VariablePercentage&#39;, &#39;Tiered&#39; and &#39;Blended&#39; Fees, in the fund currency and assessed period-to-date. Each day accrues only up to the amount left under the cap for the current fee year, which runs from one AnchorDate to the next; once the cap is reached nothing further accrues until the next AnchorDate..</param>
+        /// <param name="feeFloor">An optional annual floor on the calculated fee for &#39;FixedPercentage&#39;, &#39;VariablePercentage&#39;, &#39;Tiered&#39; and &#39;Blended&#39; Fees, in the fund currency. The annualised fee amount is raised to the floor before being prorated to each accrual day..</param>
+        public FeeRequest(string code = default(string), ResourceId feeTypeId = default(ResourceId), string displayName = default(string), string description = default(string), string origin = default(string), string calculationBase = default(string), string accrualCurrency = default(string), string treatment = default(string), decimal? totalAnnualAccrualAmount = default(decimal?), decimal? feeRatePercentage = default(decimal?), string payableFrequency = default(string), string businessDayConvention = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset? endDate = default(DateTimeOffset?), DayMonth anchorDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ResourceId portfolioId = default(ResourceId), List<string> shareClasses = default(List<string>), string feeCalculationType = default(string), decimal? dailyAccrualAmount = default(decimal?), string variablePercentageSource = default(string), decimal? variablePercentageSourceOffset = default(decimal?), List<FeeRateTier> tiers = default(List<FeeRateTier>), decimal? feeCap = default(decimal?), decimal? feeFloor = default(decimal?))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -109,6 +116,13 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this.PortfolioId = portfolioId;
             this.ShareClasses = shareClasses;
+            this.FeeCalculationType = feeCalculationType;
+            this.DailyAccrualAmount = dailyAccrualAmount;
+            this.VariablePercentageSource = variablePercentageSource;
+            this.VariablePercentageSourceOffset = variablePercentageSourceOffset;
+            this.Tiers = tiers;
+            this.FeeCap = feeCap;
+            this.FeeFloor = feeFloor;
         }
 
         /// <summary>
@@ -174,9 +188,9 @@ namespace Lusid.Sdk.Model
         public decimal? TotalAnnualAccrualAmount { get; set; }
 
         /// <summary>
-        /// The fee rate percentage. (Required when CalculationBase is present and not compatible with TotalAnnualAccrualAmount)
+        /// The annual rate applied to the CalculationBase for a &#39;FixedPercentage&#39; Fee, expressed as a multiplier rather than a percentage: 0.052 means 5.2% of the base per year. (Required when CalculationBase is present and not compatible with TotalAnnualAccrualAmount)
         /// </summary>
-        /// <value>The fee rate percentage. (Required when CalculationBase is present and not compatible with TotalAnnualAccrualAmount)</value>
+        /// <value>The annual rate applied to the CalculationBase for a &#39;FixedPercentage&#39; Fee, expressed as a multiplier rather than a percentage: 0.052 means 5.2% of the base per year. (Required when CalculationBase is present and not compatible with TotalAnnualAccrualAmount)</value>
         [DataMember(Name = "feeRatePercentage", EmitDefaultValue = true)]
         public decimal? FeeRatePercentage { get; set; }
 
@@ -235,6 +249,55 @@ namespace Lusid.Sdk.Model
         public List<string> ShareClasses { get; set; }
 
         /// <summary>
+        /// How the Fee accrual amount is calculated. Supported values: &#39;FixedAnnual&#39; (a fixed annual amount, requires TotalAnnualAccrualAmount), &#39;FixedDaily&#39; (a fixed daily amount, requires DailyAccrualAmount), &#39;FixedPercentage&#39; (a fixed percentage of the CalculationBase, requires FeeRatePercentage), &#39;VariablePercentage&#39; (a percentage of the CalculationBase resolved from a rate source at each accrual date, requires VariablePercentageSource), &#39;Tiered&#39; (a single rate applied to the whole CalculationBase, chosen by the tier the base falls in, requires Tiers), &#39;Blended&#39; (each tier&#39;s rate applied to the portion of the CalculationBase within that tier, requires Tiers). Optional: when not provided it is inferred as &#39;FixedAnnual&#39; if TotalAnnualAccrualAmount is populated and &#39;FixedPercentage&#39; otherwise, so existing requests keep their behaviour; the new calculation types must be requested explicitly. Available values: FixedAnnual, FixedDaily, FixedPercentage, VariablePercentage, Tiered, Blended.
+        /// </summary>
+        /// <value>How the Fee accrual amount is calculated. Supported values: &#39;FixedAnnual&#39; (a fixed annual amount, requires TotalAnnualAccrualAmount), &#39;FixedDaily&#39; (a fixed daily amount, requires DailyAccrualAmount), &#39;FixedPercentage&#39; (a fixed percentage of the CalculationBase, requires FeeRatePercentage), &#39;VariablePercentage&#39; (a percentage of the CalculationBase resolved from a rate source at each accrual date, requires VariablePercentageSource), &#39;Tiered&#39; (a single rate applied to the whole CalculationBase, chosen by the tier the base falls in, requires Tiers), &#39;Blended&#39; (each tier&#39;s rate applied to the portion of the CalculationBase within that tier, requires Tiers). Optional: when not provided it is inferred as &#39;FixedAnnual&#39; if TotalAnnualAccrualAmount is populated and &#39;FixedPercentage&#39; otherwise, so existing requests keep their behaviour; the new calculation types must be requested explicitly. Available values: FixedAnnual, FixedDaily, FixedPercentage, VariablePercentage, Tiered, Blended.</value>
+        [DataMember(Name = "feeCalculationType", EmitDefaultValue = true)]
+        public string FeeCalculationType { get; set; }
+
+        /// <summary>
+        /// The fixed daily accrued amount for a &#39;FixedDaily&#39; Fee, in the fund currency. The amount accrues for each day of the accrual period with no annualisation or day-count proration; Treatment does not affect it.
+        /// </summary>
+        /// <value>The fixed daily accrued amount for a &#39;FixedDaily&#39; Fee, in the fund currency. The amount accrues for each day of the accrual period with no annualisation or day-count proration; Treatment does not affect it.</value>
+        [DataMember(Name = "dailyAccrualAmount", EmitDefaultValue = true)]
+        public decimal? DailyAccrualAmount { get; set; }
+
+        /// <summary>
+        /// The source of the rate for a &#39;VariablePercentage&#39; Fee, in the form \&quot;scope/provider/instrumentIdType/instrumentId\&quot; identifying a Rate quote series in the quote store. At each accrual date the most recent rate at or before that date is used; if no rate can be found the valuation point calculation fails. The quote&#39;s normalised value (its value divided by any scale factor) is applied like FeeRatePercentage, as a multiplier of the CalculationBase: a rate of 5.2% must normalise to 0.052.
+        /// </summary>
+        /// <value>The source of the rate for a &#39;VariablePercentage&#39; Fee, in the form \&quot;scope/provider/instrumentIdType/instrumentId\&quot; identifying a Rate quote series in the quote store. At each accrual date the most recent rate at or before that date is used; if no rate can be found the valuation point calculation fails. The quote&#39;s normalised value (its value divided by any scale factor) is applied like FeeRatePercentage, as a multiplier of the CalculationBase: a rate of 5.2% must normalise to 0.052.</value>
+        [DataMember(Name = "variablePercentageSource", EmitDefaultValue = true)]
+        public string VariablePercentageSource { get; set; }
+
+        /// <summary>
+        /// An optional adjustment added to the rate resolved from the VariablePercentageSource, expressed as a factor like FeeRatePercentage (e.g. 0.0025 adds 25 basis points).
+        /// </summary>
+        /// <value>An optional adjustment added to the rate resolved from the VariablePercentageSource, expressed as a factor like FeeRatePercentage (e.g. 0.0025 adds 25 basis points).</value>
+        [DataMember(Name = "variablePercentageSourceOffset", EmitDefaultValue = true)]
+        public decimal? VariablePercentageSourceOffset { get; set; }
+
+        /// <summary>
+        /// The rate tiers for a &#39;Tiered&#39; or &#39;Blended&#39; Fee: between 2 and 10 tiers over the CalculationBase. Every tier except the last must have a Threshold, and thresholds must be positive and strictly increasing; a base equal to a Threshold falls in that tier, and the final tier covers the balance above the last threshold. A &#39;Tiered&#39; Fee applies the rate of the tier the whole base falls in; a &#39;Blended&#39; Fee applies each tier&#39;s rate to the portion of the base within that tier.
+        /// </summary>
+        /// <value>The rate tiers for a &#39;Tiered&#39; or &#39;Blended&#39; Fee: between 2 and 10 tiers over the CalculationBase. Every tier except the last must have a Threshold, and thresholds must be positive and strictly increasing; a base equal to a Threshold falls in that tier, and the final tier covers the balance above the last threshold. A &#39;Tiered&#39; Fee applies the rate of the tier the whole base falls in; a &#39;Blended&#39; Fee applies each tier&#39;s rate to the portion of the base within that tier.</value>
+        [DataMember(Name = "tiers", EmitDefaultValue = true)]
+        public List<FeeRateTier> Tiers { get; set; }
+
+        /// <summary>
+        /// An optional annual cap on the accrued fee for &#39;FixedPercentage&#39;, &#39;VariablePercentage&#39;, &#39;Tiered&#39; and &#39;Blended&#39; Fees, in the fund currency and assessed period-to-date. Each day accrues only up to the amount left under the cap for the current fee year, which runs from one AnchorDate to the next; once the cap is reached nothing further accrues until the next AnchorDate.
+        /// </summary>
+        /// <value>An optional annual cap on the accrued fee for &#39;FixedPercentage&#39;, &#39;VariablePercentage&#39;, &#39;Tiered&#39; and &#39;Blended&#39; Fees, in the fund currency and assessed period-to-date. Each day accrues only up to the amount left under the cap for the current fee year, which runs from one AnchorDate to the next; once the cap is reached nothing further accrues until the next AnchorDate.</value>
+        [DataMember(Name = "feeCap", EmitDefaultValue = true)]
+        public decimal? FeeCap { get; set; }
+
+        /// <summary>
+        /// An optional annual floor on the calculated fee for &#39;FixedPercentage&#39;, &#39;VariablePercentage&#39;, &#39;Tiered&#39; and &#39;Blended&#39; Fees, in the fund currency. The annualised fee amount is raised to the floor before being prorated to each accrual day.
+        /// </summary>
+        /// <value>An optional annual floor on the calculated fee for &#39;FixedPercentage&#39;, &#39;VariablePercentage&#39;, &#39;Tiered&#39; and &#39;Blended&#39; Fees, in the fund currency. The annualised fee amount is raised to the floor before being prorated to each accrual day.</value>
+        [DataMember(Name = "feeFloor", EmitDefaultValue = true)]
+        public decimal? FeeFloor { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -260,6 +323,13 @@ namespace Lusid.Sdk.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
             sb.Append("  ShareClasses: ").Append(ShareClasses).Append("\n");
+            sb.Append("  FeeCalculationType: ").Append(FeeCalculationType).Append("\n");
+            sb.Append("  DailyAccrualAmount: ").Append(DailyAccrualAmount).Append("\n");
+            sb.Append("  VariablePercentageSource: ").Append(VariablePercentageSource).Append("\n");
+            sb.Append("  VariablePercentageSourceOffset: ").Append(VariablePercentageSourceOffset).Append("\n");
+            sb.Append("  Tiers: ").Append(Tiers).Append("\n");
+            sb.Append("  FeeCap: ").Append(FeeCap).Append("\n");
+            sb.Append("  FeeFloor: ").Append(FeeFloor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -386,6 +456,42 @@ namespace Lusid.Sdk.Model
                     this.ShareClasses != null &&
                     input.ShareClasses != null &&
                     this.ShareClasses.SequenceEqual(input.ShareClasses)
+                ) && 
+                (
+                    this.FeeCalculationType == input.FeeCalculationType ||
+                    (this.FeeCalculationType != null &&
+                    this.FeeCalculationType.Equals(input.FeeCalculationType))
+                ) && 
+                (
+                    this.DailyAccrualAmount == input.DailyAccrualAmount ||
+                    (this.DailyAccrualAmount != null &&
+                    this.DailyAccrualAmount.Equals(input.DailyAccrualAmount))
+                ) && 
+                (
+                    this.VariablePercentageSource == input.VariablePercentageSource ||
+                    (this.VariablePercentageSource != null &&
+                    this.VariablePercentageSource.Equals(input.VariablePercentageSource))
+                ) && 
+                (
+                    this.VariablePercentageSourceOffset == input.VariablePercentageSourceOffset ||
+                    (this.VariablePercentageSourceOffset != null &&
+                    this.VariablePercentageSourceOffset.Equals(input.VariablePercentageSourceOffset))
+                ) && 
+                (
+                    this.Tiers == input.Tiers ||
+                    this.Tiers != null &&
+                    input.Tiers != null &&
+                    this.Tiers.SequenceEqual(input.Tiers)
+                ) && 
+                (
+                    this.FeeCap == input.FeeCap ||
+                    (this.FeeCap != null &&
+                    this.FeeCap.Equals(input.FeeCap))
+                ) && 
+                (
+                    this.FeeFloor == input.FeeFloor ||
+                    (this.FeeFloor != null &&
+                    this.FeeFloor.Equals(input.FeeFloor))
                 );
         }
 
@@ -469,6 +575,34 @@ namespace Lusid.Sdk.Model
                 if (this.ShareClasses != null)
                 {
                     hashCode = (hashCode * 59) + this.ShareClasses.GetHashCode();
+                }
+                if (this.FeeCalculationType != null)
+                {
+                    hashCode = (hashCode * 59) + this.FeeCalculationType.GetHashCode();
+                }
+                if (this.DailyAccrualAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.DailyAccrualAmount.GetHashCode();
+                }
+                if (this.VariablePercentageSource != null)
+                {
+                    hashCode = (hashCode * 59) + this.VariablePercentageSource.GetHashCode();
+                }
+                if (this.VariablePercentageSourceOffset != null)
+                {
+                    hashCode = (hashCode * 59) + this.VariablePercentageSourceOffset.GetHashCode();
+                }
+                if (this.Tiers != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tiers.GetHashCode();
+                }
+                if (this.FeeCap != null)
+                {
+                    hashCode = (hashCode * 59) + this.FeeCap.GetHashCode();
+                }
+                if (this.FeeFloor != null)
+                {
+                    hashCode = (hashCode * 59) + this.FeeFloor.GetHashCode();
                 }
                 return hashCode;
             }
@@ -590,6 +724,18 @@ namespace Lusid.Sdk.Model
             if (this.BusinessDayConvention != null && this.BusinessDayConvention.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BusinessDayConvention, length must be greater than 1.", new [] { "BusinessDayConvention" });
+            }
+
+            // VariablePercentageSource (string) maxLength
+            if (this.VariablePercentageSource != null && this.VariablePercentageSource.Length > 512)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VariablePercentageSource, length must be less than 512.", new [] { "VariablePercentageSource" });
+            }
+
+            // VariablePercentageSource (string) minLength
+            if (this.VariablePercentageSource != null && this.VariablePercentageSource.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VariablePercentageSource, length must be greater than 1.", new [] { "VariablePercentageSource" });
             }
 
             yield break;

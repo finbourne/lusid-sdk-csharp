@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **ShareClasses** | [**List&lt;ShareClassDefinition&gt;**](ShareClassDefinition.md) | An optional list of Share Class definitions for the Fund. | [optional] 
 **PricingMethodology** | [**PricingMethodology**](PricingMethodology.md) |  | [optional] 
 **ReportingPrices** | [**List&lt;ReportingPrice&gt;**](ReportingPrice.md) | Share class prices the Fund publishes at each valuation point under labels of its own, alongside the dealing price, for example a mid price for performance reporting. Optional. Each source other than Mid must be published by the valuation recipe of every active NAV type. Labels must be unique and cannot be dealingPrice, dealingBid or dealingOffer. Patch the list whole at /reportingPrices. | [optional] 
+**WhtParameters** | [**WhtParameters**](WhtParameters.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -51,6 +52,8 @@ List<ShareClassDefinition> shareClasses = new List<ShareClassDefinition>();
 PricingMethodology? pricingMethodology = new PricingMethodology();
 
 List<ReportingPrice> reportingPrices = new List<ReportingPrice>();
+WhtParameters? whtParameters = new WhtParameters();
+
 
 FundDefinitionRequest fundDefinitionRequestInstance = new FundDefinitionRequest(
     code: code,
@@ -73,7 +76,8 @@ FundDefinitionRequest fundDefinitionRequestInstance = new FundDefinitionRequest(
     createInstrument: createInstrument,
     shareClasses: shareClasses,
     pricingMethodology: pricingMethodology,
-    reportingPrices: reportingPrices);
+    reportingPrices: reportingPrices,
+    whtParameters: whtParameters);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

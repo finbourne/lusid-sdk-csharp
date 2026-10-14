@@ -127,7 +127,7 @@ catch (ApiException e)
 
 <a id="getreferencelist"></a>
 # **GetReferenceList**
-> ReferenceListResponse GetReferenceList (string scope, string code, DateTimeOffset? asAt = null)
+> ReferenceListResponse GetReferenceList (string scope, string code, DateTimeOffset? asAt = null, string? filter = null)
 
 GetReferenceList: Get Reference List
 
@@ -175,14 +175,15 @@ namespace Examples
             var scope = "scope_example";  // string | The scope to which the Reference List belongs.
             var code = "code_example";  // string | The Reference List's unique identifier.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Reference List. Defaults to return the latest version of the Reference List if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the values of the Reference List by its underlying type:              fund lists filter on the fund (for example \"id.Code eq 'FundCode'\"), id lists on Scope and Code,              property lists on Key and Value, and scalar lists on Value. Defaults to returning all values if not specified. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ReferenceListResponse result = apiInstance.GetReferenceList(scope, code, asAt, opts: opts);
+                // ReferenceListResponse result = apiInstance.GetReferenceList(scope, code, asAt, filter, opts: opts);
 
                 // GetReferenceList: Get Reference List
-                ReferenceListResponse result = apiInstance.GetReferenceList(scope, code, asAt);
+                ReferenceListResponse result = apiInstance.GetReferenceList(scope, code, asAt, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -203,7 +204,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetReferenceList: Get Reference List
-    ApiResponse<ReferenceListResponse> response = apiInstance.GetReferenceListWithHttpInfo(scope, code, asAt);
+    ApiResponse<ReferenceListResponse> response = apiInstance.GetReferenceListWithHttpInfo(scope, code, asAt, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -223,6 +224,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope to which the Reference List belongs. |  |
 | **code** | **string** | The Reference List&#39;s unique identifier. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Reference List. Defaults to return the latest version of the Reference List if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the values of the Reference List by its underlying type:              fund lists filter on the fund (for example \&quot;id.Code eq &#39;FundCode&#39;\&quot;), id lists on Scope and Code,              property lists on Key and Value, and scalar lists on Value. Defaults to returning all values if not specified. | [optional]  |
 
 ### Return type
 

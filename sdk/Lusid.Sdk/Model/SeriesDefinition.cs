@@ -42,7 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="launchPriceType">The type of launch price for the Series. Available values: Manual, Calculated. (required).</param>
         /// <param name="domCcy">The denomination currency of the Series. (required).</param>
         /// <param name="properties">An optional set of properties to associate with the Series. Only applied if createInstrument is set to true on the parent Fund..</param>
-        public SeriesDefinition(string seriesIdentifier = default(string), string seriesType = default(string), DateTimeOffset launchDate = default(DateTimeOffset), string launchPriceType = default(string), string domCcy = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        /// <param name="launchPrice">The launch price of the Series. Required when LaunchPriceType is Manual; ignored when it is Calculated..</param>
+        /// <param name="status">The lifecycle status of the Series: Open, Closed or Rolled. Defaults to Open. Available values: Open, Closed, Rolled..</param>
+        public SeriesDefinition(string seriesIdentifier = default(string), string seriesType = default(string), DateTimeOffset launchDate = default(DateTimeOffset), string launchPriceType = default(string), string domCcy = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), decimal? launchPrice = default(decimal?), string status = default(string))
         {
             // to ensure "seriesIdentifier" is required (not null)
             if (seriesIdentifier == null)
@@ -70,6 +72,8 @@ namespace Lusid.Sdk.Model
             }
             this.DomCcy = domCcy;
             this.Properties = properties;
+            this.LaunchPrice = launchPrice;
+            this.Status = status;
         }
 
         /// <summary>
@@ -115,6 +119,20 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
+        /// The launch price of the Series. Required when LaunchPriceType is Manual; ignored when it is Calculated.
+        /// </summary>
+        /// <value>The launch price of the Series. Required when LaunchPriceType is Manual; ignored when it is Calculated.</value>
+        [DataMember(Name = "launchPrice", EmitDefaultValue = true)]
+        public decimal? LaunchPrice { get; set; }
+
+        /// <summary>
+        /// The lifecycle status of the Series: Open, Closed or Rolled. Defaults to Open. Available values: Open, Closed, Rolled.
+        /// </summary>
+        /// <value>The lifecycle status of the Series: Open, Closed or Rolled. Defaults to Open. Available values: Open, Closed, Rolled.</value>
+        [DataMember(Name = "status", EmitDefaultValue = true)]
+        public string Status { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -128,6 +146,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  LaunchPriceType: ").Append(LaunchPriceType).Append("\n");
             sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  LaunchPrice: ").Append(LaunchPrice).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -193,6 +213,16 @@ namespace Lusid.Sdk.Model
                     this.Properties != null &&
                     input.Properties != null &&
                     this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
+                    this.LaunchPrice == input.LaunchPrice ||
+                    (this.LaunchPrice != null &&
+                    this.LaunchPrice.Equals(input.LaunchPrice))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 );
         }
 
@@ -228,6 +258,14 @@ namespace Lusid.Sdk.Model
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                }
+                if (this.LaunchPrice != null)
+                {
+                    hashCode = (hashCode * 59) + this.LaunchPrice.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
                 return hashCode;
             }

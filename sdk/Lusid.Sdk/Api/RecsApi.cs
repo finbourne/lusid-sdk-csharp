@@ -314,7 +314,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceIdType">How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual.</param>
         /// <param name="instanceIdValue">The unique identifier of the rec instance.</param>
-        /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</param>
+        /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External.</param>
         /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
         /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
@@ -333,7 +333,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceIdType">How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual.</param>
         /// <param name="instanceIdValue">The unique identifier of the rec instance.</param>
-        /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</param>
+        /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External.</param>
         /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
         /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
@@ -1022,7 +1022,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceIdType">How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual.</param>
         /// <param name="instanceIdValue">The unique identifier of the rec instance.</param>
-        /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</param>
+        /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External.</param>
         /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
         /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
@@ -1042,7 +1042,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceIdType">How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual.</param>
         /// <param name="instanceIdValue">The unique identifier of the rec instance.</param>
-        /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</param>
+        /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External.</param>
         /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
         /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
@@ -3839,7 +3839,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceIdType">How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual.</param>
         /// <param name="instanceIdValue">The unique identifier of the rec instance.</param>
-        /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</param>
+        /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External.</param>
         /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
         /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
@@ -3859,7 +3859,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceIdType">How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual.</param>
         /// <param name="instanceIdValue">The unique identifier of the rec instance.</param>
-        /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</param>
+        /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External.</param>
         /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
         /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
@@ -3983,7 +3983,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceIdType">How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual.</param>
         /// <param name="instanceIdValue">The unique identifier of the rec instance.</param>
-        /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</param>
+        /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External.</param>
         /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
         /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
@@ -4004,7 +4004,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceIdType">How the instance was created: \&quot;WorkflowServiceTaskId\&quot; or \&quot;Manual\&quot;. Available values: WorkflowServiceTaskId, Manual.</param>
         /// <param name="instanceIdValue">The unique identifier of the rec instance.</param>
-        /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</param>
+        /// <param name="recType">The rec type the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External.</param>
         /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
         /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>

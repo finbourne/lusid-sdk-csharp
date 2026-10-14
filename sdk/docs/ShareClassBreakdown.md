@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **ShareClassToFundFxRate** | **decimal** | The fx rate from the Share Class currency to the fund currency at this valuation point. | 
 **CapitalRatio** | **decimal** | The proportion of the fund&#39;s non-class-specific P&amp;L apportioned to this share class. Sums to 1 across the fund&#39;s share classes. | 
 **PreviousShareClassBreakdown** | [**PreviousShareClassBreakdown**](PreviousShareClassBreakdown.md) |  | 
+**SeriesBreakdowns** | [**List&lt;SeriesBreakdown&gt;**](SeriesBreakdown.md) | The share class NAV split across the series within the share class, one entry per series. Empty for a share class without series. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -33,6 +34,7 @@ Dictionary<string, ShareClassAmount> miscellaneous = new Dictionary<string, Shar
 decimal capitalRatio = "capitalRatio";
 
 PreviousShareClassBreakdown previousShareClassBreakdown = new PreviousShareClassBreakdown();
+List<SeriesBreakdown> seriesBreakdowns = new List<SeriesBreakdown>();
 
 ShareClassBreakdown shareClassBreakdownInstance = new ShareClassBreakdown(
     backOut: backOut,
@@ -45,7 +47,8 @@ ShareClassBreakdown shareClassBreakdownInstance = new ShareClassBreakdown(
     miscellaneous: miscellaneous,
     shareClassToFundFxRate: shareClassToFundFxRate,
     capitalRatio: capitalRatio,
-    previousShareClassBreakdown: previousShareClassBreakdown);
+    previousShareClassBreakdown: previousShareClassBreakdown,
+    seriesBreakdowns: seriesBreakdowns);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

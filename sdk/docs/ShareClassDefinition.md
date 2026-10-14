@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 **DistributionPaymentType** | **string** | The tax treatment applied to distributions. Available values: Invalid, Gross, Net. | [optional] 
 **Hedging** | **string** | Indicates whether the ShareClass applies currency hedging. Available values: Invalid, None, ApplyHedging. | [optional] 
+**WhtParameters** | [**WhtParameters**](WhtParameters.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -41,6 +42,8 @@ TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
 
 string distributionPaymentType = "example distributionPaymentType";
 string hedging = "example hedging";
+WhtParameters? whtParameters = new WhtParameters();
+
 
 ShareClassDefinition shareClassDefinitionInstance = new ShareClassDefinition(
     instrumentIdentifiers: instrumentIdentifiers,
@@ -58,7 +61,8 @@ ShareClassDefinition shareClassDefinitionInstance = new ShareClassDefinition(
     roundingConventionsUnits: roundingConventionsUnits,
     timeZoneConventions: timeZoneConventions,
     distributionPaymentType: distributionPaymentType,
-    hedging: hedging);
+    hedging: hedging,
+    whtParameters: whtParameters);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

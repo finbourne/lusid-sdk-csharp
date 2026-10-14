@@ -753,7 +753,13 @@ namespace Lusid.Sdk.Model
         /// Enum FacilityCommitmentFeeEvent for value: FacilityCommitmentFeeEvent
         /// </summary>
         [EnumMember(Value = "FacilityCommitmentFeeEvent")]
-        FacilityCommitmentFeeEvent = 121
+        FacilityCommitmentFeeEvent = 121,
+
+        /// <summary>
+        /// Enum InstalmentCallEvent for value: InstalmentCallEvent
+        /// </summary>
+        [EnumMember(Value = "InstalmentCallEvent")]
+        InstalmentCallEvent = 122
     }
 
 }

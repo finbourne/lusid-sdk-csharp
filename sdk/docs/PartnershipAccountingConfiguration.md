@@ -6,12 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Enabled** | **bool** |  | 
 **ConfigPack** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**CommitmentCurrencyPolicy** | **string** | Available values: FundCurrencyOnly. | [optional] 
+**CommitmentCurrencyPolicy** | **string** | Available values: FundCurrencyOnly, AllowLineCurrency. | [optional] 
 **RegisterPortfolioGroup** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **CapitalModel** | **string** | Available values: PartnershipCapitalAccounts, SeriesUnitised. | [optional] 
 **CapabilityOverrides** | [**List&lt;CapabilityOverride&gt;**](CapabilityOverride.md) |  | [optional] 
 **Series** | [**SeriesConfiguration**](SeriesConfiguration.md) |  | [optional] 
 **EffectiveCapabilities** | **Dictionary&lt;string, string&gt;** | Derived on the way out; ignored on the way in. | [optional] 
+**Presentation** | [**PresentationConfiguration**](PresentationConfiguration.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -28,6 +29,8 @@ List<CapabilityOverride> capabilityOverrides = new List<CapabilityOverride>();
 SeriesConfiguration? series = new SeriesConfiguration();
 
 Dictionary<string, string> effectiveCapabilities = new Dictionary<string, string>();
+PresentationConfiguration? presentation = new PresentationConfiguration();
+
 
 PartnershipAccountingConfiguration partnershipAccountingConfigurationInstance = new PartnershipAccountingConfiguration(
     enabled: enabled,
@@ -37,7 +40,8 @@ PartnershipAccountingConfiguration partnershipAccountingConfigurationInstance = 
     capitalModel: capitalModel,
     capabilityOverrides: capabilityOverrides,
     series: series,
-    effectiveCapabilities: effectiveCapabilities);
+    effectiveCapabilities: effectiveCapabilities,
+    presentation: presentation);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

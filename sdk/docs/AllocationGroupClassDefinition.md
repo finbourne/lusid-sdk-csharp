@@ -6,16 +6,19 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ShareClassShortCode** | **string** | A short code that uniquely identifies the share class within the Fund and is attached to the transaction. | 
 **ApportionmentFactor** | **decimal?** | Only used for fixed percentage method or be zero, must equal 1 or 0 across all classes in the fund. | [optional] 
+**ShareClassSeriesCode** | **string** | The series of the share class the member refers to. Not yet supported: an allocation group is apportioned by share class, so a member that names a series is rejected. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 
 string shareClassShortCode = "shareClassShortCode";
+string shareClassSeriesCode = "example shareClassSeriesCode";
 
 AllocationGroupClassDefinition allocationGroupClassDefinitionInstance = new AllocationGroupClassDefinition(
     shareClassShortCode: shareClassShortCode,
-    apportionmentFactor: apportionmentFactor);
+    apportionmentFactor: apportionmentFactor,
+    shareClassSeriesCode: shareClassSeriesCode);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

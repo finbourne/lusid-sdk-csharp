@@ -68,10 +68,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the Reference List belongs.</param>
         /// <param name="code">The Reference List&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Reference List. Defaults to return the latest version of the Reference List if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the values of the Reference List by its underlying type:              fund lists filter on the fund (for example \&quot;id.Code eq &#39;FundCode&#39;\&quot;), id lists on Scope and Code,              property lists on Key and Value, and scalar lists on Value. Defaults to returning all values if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ReferenceListResponse</returns>
-        ReferenceListResponse GetReferenceList(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ReferenceListResponse GetReferenceList(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetReferenceList: Get Reference List
@@ -83,10 +84,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the Reference List belongs.</param>
         /// <param name="code">The Reference List&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Reference List. Defaults to return the latest version of the Reference List if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the values of the Reference List by its underlying type:              fund lists filter on the fund (for example \&quot;id.Code eq &#39;FundCode&#39;\&quot;), id lists on Scope and Code,              property lists on Key and Value, and scalar lists on Value. Defaults to returning all values if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ReferenceListResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<ReferenceListResponse> GetReferenceListWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ReferenceListResponse> GetReferenceListWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListReferenceLists: List Reference Lists
         /// </summary>
@@ -191,11 +193,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the Reference List belongs.</param>
         /// <param name="code">The Reference List&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Reference List. Defaults to return the latest version of the Reference List if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the values of the Reference List by its underlying type:              fund lists filter on the fund (for example \&quot;id.Code eq &#39;FundCode&#39;\&quot;), id lists on Scope and Code,              property lists on Key and Value, and scalar lists on Value. Defaults to returning all values if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ReferenceListResponse</returns>
-        System.Threading.Tasks.Task<ReferenceListResponse> GetReferenceListAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ReferenceListResponse> GetReferenceListAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetReferenceList: Get Reference List
@@ -207,11 +210,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the Reference List belongs.</param>
         /// <param name="code">The Reference List&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Reference List. Defaults to return the latest version of the Reference List if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the values of the Reference List by its underlying type:              fund lists filter on the fund (for example \&quot;id.Code eq &#39;FundCode&#39;\&quot;), id lists on Scope and Code,              property lists on Key and Value, and scalar lists on Value. Defaults to returning all values if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ReferenceListResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ReferenceListResponse>> GetReferenceListWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ReferenceListResponse>> GetReferenceListWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListReferenceLists: List Reference Lists
         /// </summary>
@@ -624,12 +628,13 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the Reference List belongs.</param>
         /// <param name="code">The Reference List&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Reference List. Defaults to return the latest version of the Reference List if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the values of the Reference List by its underlying type:              fund lists filter on the fund (for example \&quot;id.Code eq &#39;FundCode&#39;\&quot;), id lists on Scope and Code,              property lists on Key and Value, and scalar lists on Value. Defaults to returning all values if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ReferenceListResponse</returns>
-        public ReferenceListResponse GetReferenceList(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ReferenceListResponse GetReferenceList(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ReferenceListResponse> localVarResponse = GetReferenceListWithHttpInfo(scope, code, asAt, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ReferenceListResponse> localVarResponse = GetReferenceListWithHttpInfo(scope, code, asAt, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -640,10 +645,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the Reference List belongs.</param>
         /// <param name="code">The Reference List&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Reference List. Defaults to return the latest version of the Reference List if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the values of the Reference List by its underlying type:              fund lists filter on the fund (for example \&quot;id.Code eq &#39;FundCode&#39;\&quot;), id lists on Scope and Code,              property lists on Key and Value, and scalar lists on Value. Defaults to returning all values if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ReferenceListResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ReferenceListResponse> GetReferenceListWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ReferenceListResponse> GetReferenceListWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -697,6 +703,11 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (filter != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
 
             localVarRequestOptions.Operation = "ReferenceListsApi.GetReferenceList";
@@ -740,13 +751,14 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the Reference List belongs.</param>
         /// <param name="code">The Reference List&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Reference List. Defaults to return the latest version of the Reference List if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the values of the Reference List by its underlying type:              fund lists filter on the fund (for example \&quot;id.Code eq &#39;FundCode&#39;\&quot;), id lists on Scope and Code,              property lists on Key and Value, and scalar lists on Value. Defaults to returning all values if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ReferenceListResponse</returns>
-        public async System.Threading.Tasks.Task<ReferenceListResponse> GetReferenceListAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ReferenceListResponse> GetReferenceListAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ReferenceListResponse> localVarResponse = await GetReferenceListWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ReferenceListResponse> localVarResponse = await GetReferenceListWithHttpInfoAsync(scope, code, asAt, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -757,11 +769,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the Reference List belongs.</param>
         /// <param name="code">The Reference List&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Reference List. Defaults to return the latest version of the Reference List if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the values of the Reference List by its underlying type:              fund lists filter on the fund (for example \&quot;id.Code eq &#39;FundCode&#39;\&quot;), id lists on Scope and Code,              property lists on Key and Value, and scalar lists on Value. Defaults to returning all values if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ReferenceListResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ReferenceListResponse>> GetReferenceListWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ReferenceListResponse>> GetReferenceListWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -815,6 +828,10 @@ namespace Lusid.Sdk.Api
             if (asAt != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
 
             localVarRequestOptions.Operation = "ReferenceListsApi.GetReferenceList";

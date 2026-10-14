@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **TaxLotSelectionCostBasis** | **string** | The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Supply Default to explicitly reset it; a reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost. | [optional] 
 **FractionalUnitsTrueUpConfiguration** | [**FractionalUnitsTrueUpConfiguration**](FractionalUnitsTrueUpConfiguration.md) |  | [optional] 
 **HoldingsFungibility** | **string** | Whether the portfolio&#39;s holdings are fungible across the currencies of a currency group. This can be: Default or Enabled. Defaults to Default if not specified, which currently means holdings fungibility is not applied. Supply Default to explicitly reset it; a reset or never-configured flag reads back as absent. Available values: Default, Enabled. | [optional] 
+**WhtParameters** | [**WhtParameters**](WhtParameters.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -68,6 +69,8 @@ string taxLotSelectionCostBasis = "example taxLotSelectionCostBasis";
 FractionalUnitsTrueUpConfiguration? fractionalUnitsTrueUpConfiguration = new FractionalUnitsTrueUpConfiguration();
 
 string holdingsFungibility = "example holdingsFungibility";
+WhtParameters? whtParameters = new WhtParameters();
+
 List<Link> links = new List<Link>();
 
 PortfolioWithoutHref portfolioWithoutHrefInstance = new PortfolioWithoutHref(
@@ -97,6 +100,7 @@ PortfolioWithoutHref portfolioWithoutHrefInstance = new PortfolioWithoutHref(
     taxLotSelectionCostBasis: taxLotSelectionCostBasis,
     fractionalUnitsTrueUpConfiguration: fractionalUnitsTrueUpConfiguration,
     holdingsFungibility: holdingsFungibility,
+    whtParameters: whtParameters,
     links: links);
 ```
 

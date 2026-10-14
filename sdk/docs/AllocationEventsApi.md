@@ -8,9 +8,12 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**CreateAllocationEvent**](AllocationEventsApi.md#createallocationevent) | **POST** /api/allocationevents/{scope} | [EXPERIMENTAL] CreateAllocationEvent: Create an Allocation Event. |
 | [**DeleteAllocationEvent**](AllocationEventsApi.md#deleteallocationevent) | **DELETE** /api/allocationevents/{scope}/{code} | [EXPERIMENTAL] DeleteAllocationEvent: Delete an Allocation Event. |
 | [**GetAllocationEvent**](AllocationEventsApi.md#getallocationevent) | **GET** /api/allocationevents/{scope}/{code} | [EXPERIMENTAL] GetAllocationEvent: Get an Allocation Event. |
+| [**GetAllocationEventNotices**](AllocationEventsApi.md#getallocationeventnotices) | **GET** /api/allocationevents/{scope}/{code}/notices | [EARLY ACCESS] GetAllocationEventNotices: [EARLY ACCESS] GetAllocationEventNotices: Get the notices an allocation event issues to its partners. |
 | [**GetAllocationEventReceivables**](AllocationEventsApi.md#getallocationeventreceivables) | **GET** /api/allocationevents/{scope}/{code}/receivables | [EXPERIMENTAL] GetAllocationEventReceivables: Get the receivables of an Allocation Event. |
 | [**ListAllocationEvents**](AllocationEventsApi.md#listallocationevents) | **GET** /api/allocationevents | [EXPERIMENTAL] ListAllocationEvents: List Allocation Events. |
+| [**ListAllocationPaymentHolds**](AllocationEventsApi.md#listallocationpaymentholds) | **GET** /api/allocationevents/{scope}/{code}/allocations/{investorRecordId}/holds | [EARLY ACCESS] ListAllocationPaymentHolds: [EARLY ACCESS] ListAllocationPaymentHolds: List the holds placed on a partner&#39;s payment. |
 | [**PlanAllocationEventBooking**](AllocationEventsApi.md#planallocationeventbooking) | **POST** /api/allocationevents/{scope}/{code}/plan | [EXPERIMENTAL] PlanAllocationEventBooking: Plan the booking of an Allocation Event. |
+| [**PutAllocationPaymentHold**](AllocationEventsApi.md#putallocationpaymenthold) | **PUT** /api/allocationevents/{scope}/{code}/allocations/{investorRecordId}/hold | [EARLY ACCESS] PutAllocationPaymentHold: [EARLY ACCESS] PutAllocationPaymentHold: Place, move or release a hold on a partner&#39;s payment. |
 | [**ReallocateAllocationEvent**](AllocationEventsApi.md#reallocateallocationevent) | **POST** /api/allocationevents/{scope}/{code}/reallocate | [EXPERIMENTAL] ReallocateAllocationEvent: Reallocate an Allocation Event. |
 | [**ReceiveAllocationEvent**](AllocationEventsApi.md#receiveallocationevent) | **POST** /api/allocationevents/{scope}/{code}/receipts | [EXPERIMENTAL] ReceiveAllocationEvent: Record a receipt against an Allocation Event. |
 | [**ReverseAllocationEvent**](AllocationEventsApi.md#reverseallocationevent) | **POST** /api/allocationevents/{scope}/{code}/reverse | [EXPERIMENTAL] ReverseAllocationEvent: Reverse an Allocation Event. |
@@ -491,6 +494,128 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
+<a id="getallocationeventnotices"></a>
+# **GetAllocationEventNotices**
+> ResourceListOfAllocationEventNotice GetAllocationEventNotices (string scope, string code, string? investorRecordId = null, bool? includeZero = null, DateTimeOffset? asAt = null)
+
+[EARLY ACCESS] GetAllocationEventNotices: [EARLY ACCESS] GetAllocationEventNotices: Get the notices an allocation event issues to its partners.
+
+One notice per partner allocation, listing the ILPA transaction lines, the net amount due, the partner's  unfunded commitment reconciliation across the event and their cumulative position alongside the general  partner's. Notices carry a DRAFT watermark until the event is booked.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AllocationEventsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AllocationEventsApi>();
+            var scope = "scope_example";  // string | The scope of the Allocation Event.
+            var code = "code_example";  // string | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.
+            var investorRecordId = "investorRecordId_example";  // string? | Restrict the notices to this partner's investor record. (optional) 
+            var includeZero = false;  // bool? | Whether to include notices whose every line is zero. Defaults to false. (optional)  (default to false)
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to read the event. Defaults to returning the latest version if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfAllocationEventNotice result = apiInstance.GetAllocationEventNotices(scope, code, investorRecordId, includeZero, asAt, opts: opts);
+
+                // [EARLY ACCESS] GetAllocationEventNotices: [EARLY ACCESS] GetAllocationEventNotices: Get the notices an allocation event issues to its partners.
+                ResourceListOfAllocationEventNotice result = apiInstance.GetAllocationEventNotices(scope, code, investorRecordId, includeZero, asAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling AllocationEventsApi.GetAllocationEventNotices: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetAllocationEventNoticesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetAllocationEventNotices: [EARLY ACCESS] GetAllocationEventNotices: Get the notices an allocation event issues to its partners.
+    ApiResponse<ResourceListOfAllocationEventNotice> response = apiInstance.GetAllocationEventNoticesWithHttpInfo(scope, code, investorRecordId, includeZero, asAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling AllocationEventsApi.GetAllocationEventNoticesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Allocation Event. |  |
+| **code** | **string** | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event. |  |
+| **investorRecordId** | **string?** | Restrict the notices to this partner&#39;s investor record. | [optional]  |
+| **includeZero** | **bool?** | Whether to include notices whose every line is zero. Defaults to false. | [optional] [default to false] |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to read the event. Defaults to returning the latest version if not specified. | [optional]  |
+
+### Return type
+
+[**ResourceListOfAllocationEventNotice**](ResourceListOfAllocationEventNotice.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The notices the allocation event issues. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
 <a id="getallocationeventreceivables"></a>
 # **GetAllocationEventReceivables**
 > AllocationReceivablesAgeing GetAllocationEventReceivables (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
@@ -735,6 +860,124 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
+<a id="listallocationpaymentholds"></a>
+# **ListAllocationPaymentHolds**
+> ResourceListOfAllocationPaymentHold ListAllocationPaymentHolds (string scope, string code, string investorRecordId)
+
+[EARLY ACCESS] ListAllocationPaymentHolds: [EARLY ACCESS] ListAllocationPaymentHolds: List the holds placed on a partner's payment.
+
+Every hold placed on the partner's payment against the event, newest first, including released ones.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AllocationEventsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AllocationEventsApi>();
+            var scope = "scope_example";  // string | The scope of the Allocation Event.
+            var code = "code_example";  // string | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.
+            var investorRecordId = "investorRecordId_example";  // string | The investor record of the partner whose holds are listed.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfAllocationPaymentHold result = apiInstance.ListAllocationPaymentHolds(scope, code, investorRecordId, opts: opts);
+
+                // [EARLY ACCESS] ListAllocationPaymentHolds: [EARLY ACCESS] ListAllocationPaymentHolds: List the holds placed on a partner's payment.
+                ResourceListOfAllocationPaymentHold result = apiInstance.ListAllocationPaymentHolds(scope, code, investorRecordId);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling AllocationEventsApi.ListAllocationPaymentHolds: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListAllocationPaymentHoldsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ListAllocationPaymentHolds: [EARLY ACCESS] ListAllocationPaymentHolds: List the holds placed on a partner's payment.
+    ApiResponse<ResourceListOfAllocationPaymentHold> response = apiInstance.ListAllocationPaymentHoldsWithHttpInfo(scope, code, investorRecordId);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling AllocationEventsApi.ListAllocationPaymentHoldsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Allocation Event. |  |
+| **code** | **string** | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event. |  |
+| **investorRecordId** | **string** | The investor record of the partner whose holds are listed. |  |
+
+### Return type
+
+[**ResourceListOfAllocationPaymentHold**](ResourceListOfAllocationPaymentHold.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The holds placed on the partner&#39;s payment. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
 <a id="planallocationeventbooking"></a>
 # **PlanAllocationEventBooking**
 > AllocationPostingPlan PlanAllocationEventBooking (string scope, string code, AllocationEventBookRequest allocationEventBookRequest, DateTimeOrCutLabel? effectiveAt = null)
@@ -850,6 +1093,126 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The postings the booking would write. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="putallocationpaymenthold"></a>
+# **PutAllocationPaymentHold**
+> AllocationPaymentHold PutAllocationPaymentHold (string scope, string code, string investorRecordId, AllocationPaymentHoldRequest allocationPaymentHoldRequest)
+
+[EARLY ACCESS] PutAllocationPaymentHold: [EARLY ACCESS] PutAllocationPaymentHold: Place, move or release a hold on a partner's payment.
+
+A Blocked or Escrow hold stops the partner's allocation being received against the event until it is  Released. A hold may only be released by a user other than the one who placed it.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AllocationEventsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AllocationEventsApi>();
+            var scope = "scope_example";  // string | The scope of the Allocation Event.
+            var code = "code_example";  // string | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.
+            var investorRecordId = "investorRecordId_example";  // string | The investor record of the partner whose payment is held.
+            var allocationPaymentHoldRequest = new AllocationPaymentHoldRequest(); // AllocationPaymentHoldRequest | The hold to record: its status, and optionally a reason and an external reference.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // AllocationPaymentHold result = apiInstance.PutAllocationPaymentHold(scope, code, investorRecordId, allocationPaymentHoldRequest, opts: opts);
+
+                // [EARLY ACCESS] PutAllocationPaymentHold: [EARLY ACCESS] PutAllocationPaymentHold: Place, move or release a hold on a partner's payment.
+                AllocationPaymentHold result = apiInstance.PutAllocationPaymentHold(scope, code, investorRecordId, allocationPaymentHoldRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling AllocationEventsApi.PutAllocationPaymentHold: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the PutAllocationPaymentHoldWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] PutAllocationPaymentHold: [EARLY ACCESS] PutAllocationPaymentHold: Place, move or release a hold on a partner's payment.
+    ApiResponse<AllocationPaymentHold> response = apiInstance.PutAllocationPaymentHoldWithHttpInfo(scope, code, investorRecordId, allocationPaymentHoldRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling AllocationEventsApi.PutAllocationPaymentHoldWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Allocation Event. |  |
+| **code** | **string** | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event. |  |
+| **investorRecordId** | **string** | The investor record of the partner whose payment is held. |  |
+| **allocationPaymentHoldRequest** | [**AllocationPaymentHoldRequest**](AllocationPaymentHoldRequest.md) | The hold to record: its status, and optionally a reason and an external reference. |  |
+
+### Return type
+
+[**AllocationPaymentHold**](AllocationPaymentHold.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The hold as recorded. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
