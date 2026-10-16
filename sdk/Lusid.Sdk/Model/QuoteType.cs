@@ -146,7 +146,13 @@ namespace Lusid.Sdk.Model
         /// Enum DiscountFactor for value: DiscountFactor
         /// </summary>
         [EnumMember(Value = "DiscountFactor")]
-        DiscountFactor = 20
+        DiscountFactor = 20,
+
+        /// <summary>
+        /// Enum PrincipalDistributed for value: PrincipalDistributed
+        /// </summary>
+        [EnumMember(Value = "PrincipalDistributed")]
+        PrincipalDistributed = 21
     }
 
 }

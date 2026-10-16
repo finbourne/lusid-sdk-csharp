@@ -4,23 +4,23 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateItem**](WorkspaceApi.md#createitem) | **POST** /api/workspaces/{visibility}/{workspaceName}/items | [EXPERIMENTAL] CreateItem: Create a new item in a workspace. |
-| [**CreateWorkspace**](WorkspaceApi.md#createworkspace) | **POST** /api/workspaces/{visibility} | [EXPERIMENTAL] CreateWorkspace: Create a new workspace. |
-| [**DeleteItem**](WorkspaceApi.md#deleteitem) | **DELETE** /api/workspaces/{visibility}/{workspaceName}/items/{groupName}/{itemName} | [EXPERIMENTAL] DeleteItem: Delete an item from a workspace. |
-| [**DeleteWorkspace**](WorkspaceApi.md#deleteworkspace) | **DELETE** /api/workspaces/{visibility}/{workspaceName} | [EXPERIMENTAL] DeleteWorkspace: Delete a workspace. |
-| [**GetItem**](WorkspaceApi.md#getitem) | **GET** /api/workspaces/{visibility}/{workspaceName}/items/{groupName}/{itemName} | [EXPERIMENTAL] GetItem: Get a single workspace item. |
-| [**GetWorkspace**](WorkspaceApi.md#getworkspace) | **GET** /api/workspaces/{visibility}/{workspaceName} | [EXPERIMENTAL] GetWorkspace: Get a workspace. |
-| [**ListItems**](WorkspaceApi.md#listitems) | **GET** /api/workspaces/{visibility}/{workspaceName}/items | [EXPERIMENTAL] ListItems: List the items in a workspace. |
-| [**ListWorkspaces**](WorkspaceApi.md#listworkspaces) | **GET** /api/workspaces/{visibility} | [EXPERIMENTAL] ListWorkspaces: List workspaces. |
-| [**SearchItems**](WorkspaceApi.md#searchitems) | **GET** /api/workspaces/{visibility}/items | [EXPERIMENTAL] SearchItems: List items across all workspaces. |
-| [**UpdateItem**](WorkspaceApi.md#updateitem) | **PUT** /api/workspaces/{visibility}/{workspaceName}/items/{groupName}/{itemName} | [EXPERIMENTAL] UpdateItem: Update an item in a workspace. |
-| [**UpdateWorkspace**](WorkspaceApi.md#updateworkspace) | **PUT** /api/workspaces/{visibility}/{workspaceName} | [EXPERIMENTAL] UpdateWorkspace: Update a workspace. |
+| [**CreateItem**](WorkspaceApi.md#createitem) | **POST** /api/workspaces/{visibility}/{workspaceName}/items | CreateItem: Create a new item in a workspace. |
+| [**CreateWorkspace**](WorkspaceApi.md#createworkspace) | **POST** /api/workspaces/{visibility} | CreateWorkspace: Create a new workspace. |
+| [**DeleteItem**](WorkspaceApi.md#deleteitem) | **DELETE** /api/workspaces/{visibility}/{workspaceName}/items/{groupName}/{itemName} | DeleteItem: Delete an item from a workspace. |
+| [**DeleteWorkspace**](WorkspaceApi.md#deleteworkspace) | **DELETE** /api/workspaces/{visibility}/{workspaceName} | DeleteWorkspace: Delete a workspace. |
+| [**GetItem**](WorkspaceApi.md#getitem) | **GET** /api/workspaces/{visibility}/{workspaceName}/items/{groupName}/{itemName} | GetItem: Get a single workspace item. |
+| [**GetWorkspace**](WorkspaceApi.md#getworkspace) | **GET** /api/workspaces/{visibility}/{workspaceName} | GetWorkspace: Get a workspace. |
+| [**ListItems**](WorkspaceApi.md#listitems) | **GET** /api/workspaces/{visibility}/{workspaceName}/items | ListItems: List the items in a workspace. |
+| [**ListWorkspaces**](WorkspaceApi.md#listworkspaces) | **GET** /api/workspaces/{visibility} | ListWorkspaces: List workspaces. |
+| [**SearchItems**](WorkspaceApi.md#searchitems) | **GET** /api/workspaces/{visibility}/items | SearchItems: List items across all workspaces. |
+| [**UpdateItem**](WorkspaceApi.md#updateitem) | **PUT** /api/workspaces/{visibility}/{workspaceName}/items/{groupName}/{itemName} | UpdateItem: Update an item in a workspace. |
+| [**UpdateWorkspace**](WorkspaceApi.md#updateworkspace) | **PUT** /api/workspaces/{visibility}/{workspaceName} | UpdateWorkspace: Update a workspace. |
 
 <a id="createitem"></a>
 # **CreateItem**
 > WorkspaceItem CreateItem (string visibility, string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = null)
 
-[EXPERIMENTAL] CreateItem: Create a new item in a workspace.
+CreateItem: Create a new item in a workspace.
 
 Create a new item in a workspace.
 
@@ -72,7 +72,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // WorkspaceItem result = apiInstance.CreateItem(visibility, workspaceName, workspaceItemCreationRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreateItem: Create a new item in a workspace.
+                // CreateItem: Create a new item in a workspace.
                 WorkspaceItem result = apiInstance.CreateItem(visibility, workspaceName, workspaceItemCreationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -93,7 +93,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateItem: Create a new item in a workspace.
+    // CreateItem: Create a new item in a workspace.
     ApiResponse<WorkspaceItem> response = apiInstance.CreateItemWithHttpInfo(visibility, workspaceName, workspaceItemCreationRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -138,7 +138,7 @@ catch (ApiException e)
 # **CreateWorkspace**
 > Workspace CreateWorkspace (string visibility, WorkspaceCreationRequest workspaceCreationRequest, bool? includeItemAccess = null)
 
-[EXPERIMENTAL] CreateWorkspace: Create a new workspace.
+CreateWorkspace: Create a new workspace.
 
 Create a new workspace.
 
@@ -190,7 +190,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Workspace result = apiInstance.CreateWorkspace(visibility, workspaceCreationRequest, includeItemAccess, opts: opts);
 
-                // [EXPERIMENTAL] CreateWorkspace: Create a new workspace.
+                // CreateWorkspace: Create a new workspace.
                 Workspace result = apiInstance.CreateWorkspace(visibility, workspaceCreationRequest, includeItemAccess);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -211,7 +211,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateWorkspace: Create a new workspace.
+    // CreateWorkspace: Create a new workspace.
     ApiResponse<Workspace> response = apiInstance.CreateWorkspaceWithHttpInfo(visibility, workspaceCreationRequest, includeItemAccess);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -256,7 +256,7 @@ catch (ApiException e)
 # **DeleteItem**
 > DeletedEntityResponse DeleteItem (string visibility, string workspaceName, string groupName, string itemName)
 
-[EXPERIMENTAL] DeleteItem: Delete an item from a workspace.
+DeleteItem: Delete an item from a workspace.
 
 Delete an item from a workspace.
 
@@ -309,7 +309,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteItem(visibility, workspaceName, groupName, itemName, opts: opts);
 
-                // [EXPERIMENTAL] DeleteItem: Delete an item from a workspace.
+                // DeleteItem: Delete an item from a workspace.
                 DeletedEntityResponse result = apiInstance.DeleteItem(visibility, workspaceName, groupName, itemName);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -330,7 +330,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteItem: Delete an item from a workspace.
+    // DeleteItem: Delete an item from a workspace.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteItemWithHttpInfo(visibility, workspaceName, groupName, itemName);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -376,7 +376,7 @@ catch (ApiException e)
 # **DeleteWorkspace**
 > DeletedEntityResponse DeleteWorkspace (string visibility, string workspaceName, bool? recurse = null)
 
-[EXPERIMENTAL] DeleteWorkspace: Delete a workspace.
+DeleteWorkspace: Delete a workspace.
 
 Delete a workspace.
 
@@ -428,7 +428,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteWorkspace(visibility, workspaceName, recurse, opts: opts);
 
-                // [EXPERIMENTAL] DeleteWorkspace: Delete a workspace.
+                // DeleteWorkspace: Delete a workspace.
                 DeletedEntityResponse result = apiInstance.DeleteWorkspace(visibility, workspaceName, recurse);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -449,7 +449,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteWorkspace: Delete a workspace.
+    // DeleteWorkspace: Delete a workspace.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteWorkspaceWithHttpInfo(visibility, workspaceName, recurse);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -494,7 +494,7 @@ catch (ApiException e)
 # **GetItem**
 > WorkspaceItem GetItem (string visibility, string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetItem: Get a single workspace item.
+GetItem: Get a single workspace item.
 
 Get a single workspace item.
 
@@ -548,7 +548,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // WorkspaceItem result = apiInstance.GetItem(visibility, workspaceName, groupName, itemName, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetItem: Get a single workspace item.
+                // GetItem: Get a single workspace item.
                 WorkspaceItem result = apiInstance.GetItem(visibility, workspaceName, groupName, itemName, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -569,7 +569,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetItem: Get a single workspace item.
+    // GetItem: Get a single workspace item.
     ApiResponse<WorkspaceItem> response = apiInstance.GetItemWithHttpInfo(visibility, workspaceName, groupName, itemName, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -616,7 +616,7 @@ catch (ApiException e)
 # **GetWorkspace**
 > Workspace GetWorkspace (string visibility, string workspaceName, DateTimeOffset? asAt = null, bool? includeItemAccess = null)
 
-[EXPERIMENTAL] GetWorkspace: Get a workspace.
+GetWorkspace: Get a workspace.
 
 Get a workspace.
 
@@ -669,7 +669,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Workspace result = apiInstance.GetWorkspace(visibility, workspaceName, asAt, includeItemAccess, opts: opts);
 
-                // [EXPERIMENTAL] GetWorkspace: Get a workspace.
+                // GetWorkspace: Get a workspace.
                 Workspace result = apiInstance.GetWorkspace(visibility, workspaceName, asAt, includeItemAccess);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -690,7 +690,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetWorkspace: Get a workspace.
+    // GetWorkspace: Get a workspace.
     ApiResponse<Workspace> response = apiInstance.GetWorkspaceWithHttpInfo(visibility, workspaceName, asAt, includeItemAccess);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -736,7 +736,7 @@ catch (ApiException e)
 # **ListItems**
 > PagedResourceListOfWorkspaceItem ListItems (string visibility, string workspaceName, DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null)
 
-[EXPERIMENTAL] ListItems: List the items in a workspace.
+ListItems: List the items in a workspace.
 
 List the items in a workspace.
 
@@ -792,7 +792,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfWorkspaceItem result = apiInstance.ListItems(visibility, workspaceName, asAt, page, sortBy, limit, filter, opts: opts);
 
-                // [EXPERIMENTAL] ListItems: List the items in a workspace.
+                // ListItems: List the items in a workspace.
                 PagedResourceListOfWorkspaceItem result = apiInstance.ListItems(visibility, workspaceName, asAt, page, sortBy, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -813,7 +813,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListItems: List the items in a workspace.
+    // ListItems: List the items in a workspace.
     ApiResponse<PagedResourceListOfWorkspaceItem> response = apiInstance.ListItemsWithHttpInfo(visibility, workspaceName, asAt, page, sortBy, limit, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -862,7 +862,7 @@ catch (ApiException e)
 # **ListWorkspaces**
 > PagedResourceListOfWorkspace ListWorkspaces (string visibility, DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null, bool? includeItemAccess = null)
 
-[EXPERIMENTAL] ListWorkspaces: List workspaces.
+ListWorkspaces: List workspaces.
 
 List workspaces.
 
@@ -918,7 +918,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfWorkspace result = apiInstance.ListWorkspaces(visibility, asAt, page, sortBy, limit, filter, includeItemAccess, opts: opts);
 
-                // [EXPERIMENTAL] ListWorkspaces: List workspaces.
+                // ListWorkspaces: List workspaces.
                 PagedResourceListOfWorkspace result = apiInstance.ListWorkspaces(visibility, asAt, page, sortBy, limit, filter, includeItemAccess);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -939,7 +939,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListWorkspaces: List workspaces.
+    // ListWorkspaces: List workspaces.
     ApiResponse<PagedResourceListOfWorkspace> response = apiInstance.ListWorkspacesWithHttpInfo(visibility, asAt, page, sortBy, limit, filter, includeItemAccess);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -988,7 +988,7 @@ catch (ApiException e)
 # **SearchItems**
 > PagedResourceListOfItemAndWorkspace SearchItems (string visibility, DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null)
 
-[EXPERIMENTAL] SearchItems: List items across all workspaces.
+SearchItems: List items across all workspaces.
 
 List items across all workspaces.
 
@@ -1043,7 +1043,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfItemAndWorkspace result = apiInstance.SearchItems(visibility, asAt, page, sortBy, limit, filter, opts: opts);
 
-                // [EXPERIMENTAL] SearchItems: List items across all workspaces.
+                // SearchItems: List items across all workspaces.
                 PagedResourceListOfItemAndWorkspace result = apiInstance.SearchItems(visibility, asAt, page, sortBy, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1064,7 +1064,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] SearchItems: List items across all workspaces.
+    // SearchItems: List items across all workspaces.
     ApiResponse<PagedResourceListOfItemAndWorkspace> response = apiInstance.SearchItemsWithHttpInfo(visibility, asAt, page, sortBy, limit, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1112,7 +1112,7 @@ catch (ApiException e)
 # **UpdateItem**
 > WorkspaceItem UpdateItem (string visibility, string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = null)
 
-[EXPERIMENTAL] UpdateItem: Update an item in a workspace.
+UpdateItem: Update an item in a workspace.
 
 Update an item in a workspace.
 
@@ -1166,7 +1166,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // WorkspaceItem result = apiInstance.UpdateItem(visibility, workspaceName, groupName, itemName, workspaceItemUpdateRequest, opts: opts);
 
-                // [EXPERIMENTAL] UpdateItem: Update an item in a workspace.
+                // UpdateItem: Update an item in a workspace.
                 WorkspaceItem result = apiInstance.UpdateItem(visibility, workspaceName, groupName, itemName, workspaceItemUpdateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1187,7 +1187,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpdateItem: Update an item in a workspace.
+    // UpdateItem: Update an item in a workspace.
     ApiResponse<WorkspaceItem> response = apiInstance.UpdateItemWithHttpInfo(visibility, workspaceName, groupName, itemName, workspaceItemUpdateRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1234,7 +1234,7 @@ catch (ApiException e)
 # **UpdateWorkspace**
 > Workspace UpdateWorkspace (string visibility, string workspaceName, WorkspaceUpdateRequest workspaceUpdateRequest, bool? includeItemAccess = null)
 
-[EXPERIMENTAL] UpdateWorkspace: Update a workspace.
+UpdateWorkspace: Update a workspace.
 
 Update a workspace.
 
@@ -1287,7 +1287,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Workspace result = apiInstance.UpdateWorkspace(visibility, workspaceName, workspaceUpdateRequest, includeItemAccess, opts: opts);
 
-                // [EXPERIMENTAL] UpdateWorkspace: Update a workspace.
+                // UpdateWorkspace: Update a workspace.
                 Workspace result = apiInstance.UpdateWorkspace(visibility, workspaceName, workspaceUpdateRequest, includeItemAccess);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1308,7 +1308,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpdateWorkspace: Update a workspace.
+    // UpdateWorkspace: Update a workspace.
     ApiResponse<Workspace> response = apiInstance.UpdateWorkspaceWithHttpInfo(visibility, workspaceName, workspaceUpdateRequest, includeItemAccess);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

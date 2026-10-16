@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **TheyPost** | [**PartyTerms**](PartyTerms.md) |  | 
 **EligibleCollateral** | [**EligibleCollateralReferences**](EligibleCollateralReferences.md) |  | [optional] 
 **Calculation** | [**MarginCalculation**](MarginCalculation.md) |  | 
+**MarginAccounts** | [**MarginAccounts**](MarginAccounts.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -27,6 +28,8 @@ PartyTerms theyPost = new PartyTerms();
 EligibleCollateralReferences? eligibleCollateral = new EligibleCollateralReferences();
 
 MarginCalculation calculation = new MarginCalculation();
+MarginAccounts? marginAccounts = new MarginAccounts();
+
 
 MarginItem marginItemInstance = new MarginItem(
     code: code,
@@ -36,7 +39,8 @@ MarginItem marginItemInstance = new MarginItem(
     wePost: wePost,
     theyPost: theyPost,
     eligibleCollateral: eligibleCollateral,
-    calculation: calculation);
+    calculation: calculation,
+    marginAccounts: marginAccounts);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

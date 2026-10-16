@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="shareClassShortCode">A short code that uniquely identifies the share class within the Fund. (required).</param>
         /// <param name="launchPrice">The launch price set when a shareclass is added to the fund. Defaults to 1..</param>
         /// <param name="launchDate">The launch date set when a shareclass is added to the fund. Defaults to Fund Inception Date..</param>
-        /// <param name="properties">An optional set of properties to attach to the auto-created Instrument. Only applied when createInstrument is true..</param>
+        /// <param name="properties">An optional set of properties for the Share Class. These must be from the &#39;Instrument&#39; domain..</param>
         /// <param name="investorType">The Type of Share Class. Available values: Unitised. (required).</param>
         /// <param name="distributionType">The type of distribution the ShareClass will calculate. Available values: Income, Accumulation..</param>
         /// <param name="domCcy">The domestic currency of the ShareClass instrument. (required).</param>
@@ -142,9 +142,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? LaunchDate { get; set; }
 
         /// <summary>
-        /// An optional set of properties to attach to the auto-created Instrument. Only applied when createInstrument is true.
+        /// An optional set of properties for the Share Class. These must be from the &#39;Instrument&#39; domain.
         /// </summary>
-        /// <value>An optional set of properties to attach to the auto-created Instrument. Only applied when createInstrument is true.</value>
+        /// <value>An optional set of properties for the Share Class. These must be from the &#39;Instrument&#39; domain.</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, Property> Properties { get; set; }
 

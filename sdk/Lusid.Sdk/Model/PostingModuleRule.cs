@@ -39,7 +39,9 @@ namespace Lusid.Sdk.Model
         /// <param name="ruleId">The identifier for the Posting Rule. (required).</param>
         /// <param name="generalLedgerAccountCode">The general ledger account to post the Activity credit or debit to. (required).</param>
         /// <param name="ruleFilter">The filter syntax for the Posting Rule. See https://support.lusid.com/docs/assigning-economic-activity-to-general-ledger-accounts-using-posting-rules for more information on filter syntax. (required).</param>
-        public PostingModuleRule(string ruleId = default(string), string generalLedgerAccountCode = default(string), string ruleFilter = default(string))
+        /// <param name="effectiveFrom">The inclusive accounting date from which the Posting Rule applies. If not set, the rule applies from the beginning of time..</param>
+        /// <param name="effectiveUntil">The exclusive accounting date until which the Posting Rule applies. If not set, the rule applies until the end of time..</param>
+        public PostingModuleRule(string ruleId = default(string), string generalLedgerAccountCode = default(string), string ruleFilter = default(string), DateTimeOffset? effectiveFrom = default(DateTimeOffset?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?))
         {
             // to ensure "ruleId" is required (not null)
             if (ruleId == null)
@@ -59,6 +61,8 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("ruleFilter is a required property for PostingModuleRule and cannot be null");
             }
             this.RuleFilter = ruleFilter;
+            this.EffectiveFrom = effectiveFrom;
+            this.EffectiveUntil = effectiveUntil;
         }
 
         /// <summary>
@@ -83,6 +87,20 @@ namespace Lusid.Sdk.Model
         public string RuleFilter { get; set; }
 
         /// <summary>
+        /// The inclusive accounting date from which the Posting Rule applies. If not set, the rule applies from the beginning of time.
+        /// </summary>
+        /// <value>The inclusive accounting date from which the Posting Rule applies. If not set, the rule applies from the beginning of time.</value>
+        [DataMember(Name = "effectiveFrom", EmitDefaultValue = true)]
+        public DateTimeOffset? EffectiveFrom { get; set; }
+
+        /// <summary>
+        /// The exclusive accounting date until which the Posting Rule applies. If not set, the rule applies until the end of time.
+        /// </summary>
+        /// <value>The exclusive accounting date until which the Posting Rule applies. If not set, the rule applies until the end of time.</value>
+        [DataMember(Name = "effectiveUntil", EmitDefaultValue = true)]
+        public DateTimeOffset? EffectiveUntil { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -93,6 +111,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  RuleId: ").Append(RuleId).Append("\n");
             sb.Append("  GeneralLedgerAccountCode: ").Append(GeneralLedgerAccountCode).Append("\n");
             sb.Append("  RuleFilter: ").Append(RuleFilter).Append("\n");
+            sb.Append("  EffectiveFrom: ").Append(EffectiveFrom).Append("\n");
+            sb.Append("  EffectiveUntil: ").Append(EffectiveUntil).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,6 +162,16 @@ namespace Lusid.Sdk.Model
                     this.RuleFilter == input.RuleFilter ||
                     (this.RuleFilter != null &&
                     this.RuleFilter.Equals(input.RuleFilter))
+                ) && 
+                (
+                    this.EffectiveFrom == input.EffectiveFrom ||
+                    (this.EffectiveFrom != null &&
+                    this.EffectiveFrom.Equals(input.EffectiveFrom))
+                ) && 
+                (
+                    this.EffectiveUntil == input.EffectiveUntil ||
+                    (this.EffectiveUntil != null &&
+                    this.EffectiveUntil.Equals(input.EffectiveUntil))
                 );
         }
 
@@ -165,6 +195,14 @@ namespace Lusid.Sdk.Model
                 if (this.RuleFilter != null)
                 {
                     hashCode = (hashCode * 59) + this.RuleFilter.GetHashCode();
+                }
+                if (this.EffectiveFrom != null)
+                {
+                    hashCode = (hashCode * 59) + this.EffectiveFrom.GetHashCode();
+                }
+                if (this.EffectiveUntil != null)
+                {
+                    hashCode = (hashCode * 59) + this.EffectiveUntil.GetHashCode();
                 }
                 return hashCode;
             }

@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="contractCode">The contract code used by the exchange, e.g. “CL” for Crude Oil, “ES” for E-mini SP 500, “FGBL” for Bund Futures, etc. (required).</param>
         /// <param name="contractMonth">Which month does the contract trade for.    Supported string (enumeration) values are: [F, G, H, J, K, M, N, Q, U, V, X, Z].  Defaults to \&quot;Unknown\&quot; if not set..</param>
         /// <param name="contractSize">Size of a single contract. (required).</param>
-        /// <param name="convention">If appropriate, the day count convention method used in pricing (rates futures).  For more information on day counts, see [Day count conventions supported by LUSID](https://support.lusid.com/docs/day-count-conventions-supported-by-lusid)                Supported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM]..</param>
+        /// <param name="convention">If appropriate, the day count convention method used in pricing (rates futures).  For more information on day counts, see [Day count conventions supported by LUSID](https://support.lusid.com/docs/day-count-conventions-supported-by-lusid)                Supported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIcma, ActActIsma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM]..</param>
         /// <param name="country">Country (code) for the exchange..</param>
         /// <param name="description">Description of contract..</param>
         /// <param name="exchangeCode">Exchange code for contract. This can be any string to uniquely identify the exchange (e.g. Exchange Name, MIC, BBG code). (required).</param>
@@ -55,7 +55,8 @@ namespace Lusid.Sdk.Model
         /// <param name="deliverableMaxMaturityYears">For physically-delivered bond futures: the maximum remaining maturity, in years, measured from the first  day of the delivery month, for a bond to be eligible for delivery against this contract.  Optional: if not set, no upper bound is applied when matching eligible bonds..</param>
         /// <param name="excludeCallableBonds">For physically-delivered bond futures: whether callable bonds are excluded from delivery against this  contract. Optional: defaults to false (callable bonds are not excluded)..</param>
         /// <param name="deliverableMinAmountOutstanding">For physically-delivered bond futures: the minimum amount outstanding, in the domestic currency of the  contract, for a bond issue to be eligible for delivery against this contract.  Optional: if not set, no minimum is applied when matching eligible bonds..</param>
-        public FuturesContractDetails(string domCcy = default(string), string fgnCcy = default(string), string assetClass = default(string), string contractCode = default(string), string contractMonth = default(string), decimal contractSize = default(decimal), string convention = default(string), string country = default(string), string description = default(string), string exchangeCode = default(string), string exchangeName = default(string), decimal tickerStep = default(decimal), decimal unitValue = default(decimal), List<string> calendars = default(List<string>), string deliveryType = default(string), decimal? deliverableMinMaturityYears = default(decimal?), decimal? deliverableMaxMaturityYears = default(decimal?), bool excludeCallableBonds = default(bool), decimal? deliverableMinAmountOutstanding = default(decimal?))
+        /// <param name="deliverableIsins">ISINs of the bonds deliverable into this contract for its delivery month. When set, the deliverable  basket is these bonds only; when empty, every active bond in the portfolio&#39;s instrument scope is a candidate.  Bonds not yet issued on the valuation date are left out of the basket.  Update it when the exchange notifies a new deliverable; the list is not effective-dated..</param>
+        public FuturesContractDetails(string domCcy = default(string), string fgnCcy = default(string), string assetClass = default(string), string contractCode = default(string), string contractMonth = default(string), decimal contractSize = default(decimal), string convention = default(string), string country = default(string), string description = default(string), string exchangeCode = default(string), string exchangeName = default(string), decimal tickerStep = default(decimal), decimal unitValue = default(decimal), List<string> calendars = default(List<string>), string deliveryType = default(string), decimal? deliverableMinMaturityYears = default(decimal?), decimal? deliverableMaxMaturityYears = default(decimal?), bool excludeCallableBonds = default(bool), decimal? deliverableMinAmountOutstanding = default(decimal?), List<string> deliverableIsins = default(List<string>))
         {
             // to ensure "domCcy" is required (not null)
             if (domCcy == null)
@@ -91,6 +92,7 @@ namespace Lusid.Sdk.Model
             this.DeliverableMaxMaturityYears = deliverableMaxMaturityYears;
             this.ExcludeCallableBonds = excludeCallableBonds;
             this.DeliverableMinAmountOutstanding = deliverableMinAmountOutstanding;
+            this.DeliverableIsins = deliverableIsins;
         }
 
         /// <summary>
@@ -136,9 +138,9 @@ namespace Lusid.Sdk.Model
         public decimal ContractSize { get; set; }
 
         /// <summary>
-        /// If appropriate, the day count convention method used in pricing (rates futures).  For more information on day counts, see [Day count conventions supported by LUSID](https://support.lusid.com/docs/day-count-conventions-supported-by-lusid)                Supported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM].
+        /// If appropriate, the day count convention method used in pricing (rates futures).  For more information on day counts, see [Day count conventions supported by LUSID](https://support.lusid.com/docs/day-count-conventions-supported-by-lusid)                Supported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIcma, ActActIsma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM].
         /// </summary>
-        /// <value>If appropriate, the day count convention method used in pricing (rates futures).  For more information on day counts, see [Day count conventions supported by LUSID](https://support.lusid.com/docs/day-count-conventions-supported-by-lusid)                Supported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM].</value>
+        /// <value>If appropriate, the day count convention method used in pricing (rates futures).  For more information on day counts, see [Day count conventions supported by LUSID](https://support.lusid.com/docs/day-count-conventions-supported-by-lusid)                Supported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIcma, ActActIsma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM].</value>
         [DataMember(Name = "convention", EmitDefaultValue = true)]
         public string Convention { get; set; }
 
@@ -227,6 +229,13 @@ namespace Lusid.Sdk.Model
         public decimal? DeliverableMinAmountOutstanding { get; set; }
 
         /// <summary>
+        /// ISINs of the bonds deliverable into this contract for its delivery month. When set, the deliverable  basket is these bonds only; when empty, every active bond in the portfolio&#39;s instrument scope is a candidate.  Bonds not yet issued on the valuation date are left out of the basket.  Update it when the exchange notifies a new deliverable; the list is not effective-dated.
+        /// </summary>
+        /// <value>ISINs of the bonds deliverable into this contract for its delivery month. When set, the deliverable  basket is these bonds only; when empty, every active bond in the portfolio&#39;s instrument scope is a candidate.  Bonds not yet issued on the valuation date are left out of the basket.  Update it when the exchange notifies a new deliverable; the list is not effective-dated.</value>
+        [DataMember(Name = "deliverableIsins", EmitDefaultValue = true)]
+        public List<string> DeliverableIsins { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -253,6 +262,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DeliverableMaxMaturityYears: ").Append(DeliverableMaxMaturityYears).Append("\n");
             sb.Append("  ExcludeCallableBonds: ").Append(ExcludeCallableBonds).Append("\n");
             sb.Append("  DeliverableMinAmountOutstanding: ").Append(DeliverableMinAmountOutstanding).Append("\n");
+            sb.Append("  DeliverableIsins: ").Append(DeliverableIsins).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -379,6 +389,12 @@ namespace Lusid.Sdk.Model
                     this.DeliverableMinAmountOutstanding == input.DeliverableMinAmountOutstanding ||
                     (this.DeliverableMinAmountOutstanding != null &&
                     this.DeliverableMinAmountOutstanding.Equals(input.DeliverableMinAmountOutstanding))
+                ) && 
+                (
+                    this.DeliverableIsins == input.DeliverableIsins ||
+                    this.DeliverableIsins != null &&
+                    input.DeliverableIsins != null &&
+                    this.DeliverableIsins.SequenceEqual(input.DeliverableIsins)
                 );
         }
 
@@ -454,6 +470,10 @@ namespace Lusid.Sdk.Model
                 if (this.DeliverableMinAmountOutstanding != null)
                 {
                     hashCode = (hashCode * 59) + this.DeliverableMinAmountOutstanding.GetHashCode();
+                }
+                if (this.DeliverableIsins != null)
+                {
+                    hashCode = (hashCode * 59) + this.DeliverableIsins.GetHashCode();
                 }
                 return hashCode;
             }

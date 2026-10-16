@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreateItem: Create a new item in a workspace.
+        /// CreateItem: Create a new item in a workspace.
         /// </summary>
         /// <remarks>
         /// Create a new item in a workspace.
@@ -47,7 +47,7 @@ namespace Lusid.Sdk.Api
         WorkspaceItem CreateItem(string visibility, string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateItem: Create a new item in a workspace.
+        /// CreateItem: Create a new item in a workspace.
         /// </summary>
         /// <remarks>
         /// Create a new item in a workspace.
@@ -61,7 +61,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of WorkspaceItem</returns>
         Lusid.Sdk.Client.ApiResponse<WorkspaceItem> CreateItemWithHttpInfo(string visibility, string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] CreateWorkspace: Create a new workspace.
+        /// CreateWorkspace: Create a new workspace.
         /// </summary>
         /// <remarks>
         /// Create a new workspace.
@@ -76,7 +76,7 @@ namespace Lusid.Sdk.Api
         Workspace CreateWorkspace(string visibility, WorkspaceCreationRequest workspaceCreationRequest, bool? includeItemAccess = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateWorkspace: Create a new workspace.
+        /// CreateWorkspace: Create a new workspace.
         /// </summary>
         /// <remarks>
         /// Create a new workspace.
@@ -90,7 +90,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Workspace</returns>
         Lusid.Sdk.Client.ApiResponse<Workspace> CreateWorkspaceWithHttpInfo(string visibility, WorkspaceCreationRequest workspaceCreationRequest, bool? includeItemAccess = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteItem: Delete an item from a workspace.
+        /// DeleteItem: Delete an item from a workspace.
         /// </summary>
         /// <remarks>
         /// Delete an item from a workspace.
@@ -106,7 +106,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteItem(string visibility, string workspaceName, string groupName, string itemName, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteItem: Delete an item from a workspace.
+        /// DeleteItem: Delete an item from a workspace.
         /// </summary>
         /// <remarks>
         /// Delete an item from a workspace.
@@ -121,7 +121,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteItemWithHttpInfo(string visibility, string workspaceName, string groupName, string itemName, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteWorkspace: Delete a workspace.
+        /// DeleteWorkspace: Delete a workspace.
         /// </summary>
         /// <remarks>
         /// Delete a workspace.
@@ -136,7 +136,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteWorkspace(string visibility, string workspaceName, bool? recurse = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteWorkspace: Delete a workspace.
+        /// DeleteWorkspace: Delete a workspace.
         /// </summary>
         /// <remarks>
         /// Delete a workspace.
@@ -150,7 +150,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteWorkspaceWithHttpInfo(string visibility, string workspaceName, bool? recurse = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetItem: Get a single workspace item.
+        /// GetItem: Get a single workspace item.
         /// </summary>
         /// <remarks>
         /// Get a single workspace item.
@@ -167,7 +167,7 @@ namespace Lusid.Sdk.Api
         WorkspaceItem GetItem(string visibility, string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetItem: Get a single workspace item.
+        /// GetItem: Get a single workspace item.
         /// </summary>
         /// <remarks>
         /// Get a single workspace item.
@@ -183,7 +183,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of WorkspaceItem</returns>
         Lusid.Sdk.Client.ApiResponse<WorkspaceItem> GetItemWithHttpInfo(string visibility, string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetWorkspace: Get a workspace.
+        /// GetWorkspace: Get a workspace.
         /// </summary>
         /// <remarks>
         /// Get a workspace.
@@ -199,7 +199,7 @@ namespace Lusid.Sdk.Api
         Workspace GetWorkspace(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeItemAccess = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetWorkspace: Get a workspace.
+        /// GetWorkspace: Get a workspace.
         /// </summary>
         /// <remarks>
         /// Get a workspace.
@@ -214,7 +214,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Workspace</returns>
         Lusid.Sdk.Client.ApiResponse<Workspace> GetWorkspaceWithHttpInfo(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeItemAccess = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListItems: List the items in a workspace.
+        /// ListItems: List the items in a workspace.
         /// </summary>
         /// <remarks>
         /// List the items in a workspace.
@@ -233,7 +233,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfWorkspaceItem ListItems(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListItems: List the items in a workspace.
+        /// ListItems: List the items in a workspace.
         /// </summary>
         /// <remarks>
         /// List the items in a workspace.
@@ -251,7 +251,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfWorkspaceItem</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem> ListItemsWithHttpInfo(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListWorkspaces: List workspaces.
+        /// ListWorkspaces: List workspaces.
         /// </summary>
         /// <remarks>
         /// List workspaces.
@@ -270,7 +270,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfWorkspace ListWorkspaces(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), bool? includeItemAccess = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListWorkspaces: List workspaces.
+        /// ListWorkspaces: List workspaces.
         /// </summary>
         /// <remarks>
         /// List workspaces.
@@ -288,7 +288,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfWorkspace</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace> ListWorkspacesWithHttpInfo(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), bool? includeItemAccess = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] SearchItems: List items across all workspaces.
+        /// SearchItems: List items across all workspaces.
         /// </summary>
         /// <remarks>
         /// List items across all workspaces.
@@ -306,7 +306,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfItemAndWorkspace SearchItems(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] SearchItems: List items across all workspaces.
+        /// SearchItems: List items across all workspaces.
         /// </summary>
         /// <remarks>
         /// List items across all workspaces.
@@ -323,7 +323,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfItemAndWorkspace</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfItemAndWorkspace> SearchItemsWithHttpInfo(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateItem: Update an item in a workspace.
+        /// UpdateItem: Update an item in a workspace.
         /// </summary>
         /// <remarks>
         /// Update an item in a workspace.
@@ -340,7 +340,7 @@ namespace Lusid.Sdk.Api
         WorkspaceItem UpdateItem(string visibility, string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateItem: Update an item in a workspace.
+        /// UpdateItem: Update an item in a workspace.
         /// </summary>
         /// <remarks>
         /// Update an item in a workspace.
@@ -356,7 +356,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of WorkspaceItem</returns>
         Lusid.Sdk.Client.ApiResponse<WorkspaceItem> UpdateItemWithHttpInfo(string visibility, string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateWorkspace: Update a workspace.
+        /// UpdateWorkspace: Update a workspace.
         /// </summary>
         /// <remarks>
         /// Update a workspace.
@@ -372,7 +372,7 @@ namespace Lusid.Sdk.Api
         Workspace UpdateWorkspace(string visibility, string workspaceName, WorkspaceUpdateRequest workspaceUpdateRequest, bool? includeItemAccess = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateWorkspace: Update a workspace.
+        /// UpdateWorkspace: Update a workspace.
         /// </summary>
         /// <remarks>
         /// Update a workspace.
@@ -396,7 +396,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreateItem: Create a new item in a workspace.
+        /// CreateItem: Create a new item in a workspace.
         /// </summary>
         /// <remarks>
         /// Create a new item in a workspace.
@@ -412,7 +412,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<WorkspaceItem> CreateItemAsync(string visibility, string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateItem: Create a new item in a workspace.
+        /// CreateItem: Create a new item in a workspace.
         /// </summary>
         /// <remarks>
         /// Create a new item in a workspace.
@@ -427,7 +427,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> CreateItemWithHttpInfoAsync(string visibility, string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] CreateWorkspace: Create a new workspace.
+        /// CreateWorkspace: Create a new workspace.
         /// </summary>
         /// <remarks>
         /// Create a new workspace.
@@ -443,7 +443,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Workspace> CreateWorkspaceAsync(string visibility, WorkspaceCreationRequest workspaceCreationRequest, bool? includeItemAccess = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateWorkspace: Create a new workspace.
+        /// CreateWorkspace: Create a new workspace.
         /// </summary>
         /// <remarks>
         /// Create a new workspace.
@@ -458,7 +458,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Workspace)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> CreateWorkspaceWithHttpInfoAsync(string visibility, WorkspaceCreationRequest workspaceCreationRequest, bool? includeItemAccess = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteItem: Delete an item from a workspace.
+        /// DeleteItem: Delete an item from a workspace.
         /// </summary>
         /// <remarks>
         /// Delete an item from a workspace.
@@ -475,7 +475,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteItemAsync(string visibility, string workspaceName, string groupName, string itemName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteItem: Delete an item from a workspace.
+        /// DeleteItem: Delete an item from a workspace.
         /// </summary>
         /// <remarks>
         /// Delete an item from a workspace.
@@ -491,7 +491,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteItemWithHttpInfoAsync(string visibility, string workspaceName, string groupName, string itemName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteWorkspace: Delete a workspace.
+        /// DeleteWorkspace: Delete a workspace.
         /// </summary>
         /// <remarks>
         /// Delete a workspace.
@@ -507,7 +507,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteWorkspaceAsync(string visibility, string workspaceName, bool? recurse = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteWorkspace: Delete a workspace.
+        /// DeleteWorkspace: Delete a workspace.
         /// </summary>
         /// <remarks>
         /// Delete a workspace.
@@ -522,7 +522,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteWorkspaceWithHttpInfoAsync(string visibility, string workspaceName, bool? recurse = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetItem: Get a single workspace item.
+        /// GetItem: Get a single workspace item.
         /// </summary>
         /// <remarks>
         /// Get a single workspace item.
@@ -540,7 +540,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<WorkspaceItem> GetItemAsync(string visibility, string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetItem: Get a single workspace item.
+        /// GetItem: Get a single workspace item.
         /// </summary>
         /// <remarks>
         /// Get a single workspace item.
@@ -557,7 +557,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> GetItemWithHttpInfoAsync(string visibility, string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetWorkspace: Get a workspace.
+        /// GetWorkspace: Get a workspace.
         /// </summary>
         /// <remarks>
         /// Get a workspace.
@@ -574,7 +574,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Workspace> GetWorkspaceAsync(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeItemAccess = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetWorkspace: Get a workspace.
+        /// GetWorkspace: Get a workspace.
         /// </summary>
         /// <remarks>
         /// Get a workspace.
@@ -590,7 +590,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Workspace)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> GetWorkspaceWithHttpInfoAsync(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeItemAccess = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListItems: List the items in a workspace.
+        /// ListItems: List the items in a workspace.
         /// </summary>
         /// <remarks>
         /// List the items in a workspace.
@@ -610,7 +610,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfWorkspaceItem> ListItemsAsync(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListItems: List the items in a workspace.
+        /// ListItems: List the items in a workspace.
         /// </summary>
         /// <remarks>
         /// List the items in a workspace.
@@ -629,7 +629,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfWorkspaceItem)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem>> ListItemsWithHttpInfoAsync(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListWorkspaces: List workspaces.
+        /// ListWorkspaces: List workspaces.
         /// </summary>
         /// <remarks>
         /// List workspaces.
@@ -649,7 +649,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfWorkspace> ListWorkspacesAsync(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), bool? includeItemAccess = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListWorkspaces: List workspaces.
+        /// ListWorkspaces: List workspaces.
         /// </summary>
         /// <remarks>
         /// List workspaces.
@@ -668,7 +668,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfWorkspace)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace>> ListWorkspacesWithHttpInfoAsync(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), bool? includeItemAccess = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] SearchItems: List items across all workspaces.
+        /// SearchItems: List items across all workspaces.
         /// </summary>
         /// <remarks>
         /// List items across all workspaces.
@@ -687,7 +687,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfItemAndWorkspace> SearchItemsAsync(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] SearchItems: List items across all workspaces.
+        /// SearchItems: List items across all workspaces.
         /// </summary>
         /// <remarks>
         /// List items across all workspaces.
@@ -705,7 +705,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfItemAndWorkspace)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfItemAndWorkspace>> SearchItemsWithHttpInfoAsync(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateItem: Update an item in a workspace.
+        /// UpdateItem: Update an item in a workspace.
         /// </summary>
         /// <remarks>
         /// Update an item in a workspace.
@@ -723,7 +723,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<WorkspaceItem> UpdateItemAsync(string visibility, string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateItem: Update an item in a workspace.
+        /// UpdateItem: Update an item in a workspace.
         /// </summary>
         /// <remarks>
         /// Update an item in a workspace.
@@ -740,7 +740,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> UpdateItemWithHttpInfoAsync(string visibility, string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateWorkspace: Update a workspace.
+        /// UpdateWorkspace: Update a workspace.
         /// </summary>
         /// <remarks>
         /// Update a workspace.
@@ -757,7 +757,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Workspace> UpdateWorkspaceAsync(string visibility, string workspaceName, WorkspaceUpdateRequest workspaceUpdateRequest, bool? includeItemAccess = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateWorkspace: Update a workspace.
+        /// UpdateWorkspace: Update a workspace.
         /// </summary>
         /// <remarks>
         /// Update a workspace.
@@ -896,7 +896,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateItem: Create a new item in a workspace. Create a new item in a workspace.
+        /// CreateItem: Create a new item in a workspace. Create a new item in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -912,7 +912,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateItem: Create a new item in a workspace. Create a new item in a workspace.
+        /// CreateItem: Create a new item in a workspace. Create a new item in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -1012,7 +1012,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateItem: Create a new item in a workspace. Create a new item in a workspace.
+        /// CreateItem: Create a new item in a workspace. Create a new item in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -1029,7 +1029,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateItem: Create a new item in a workspace. Create a new item in a workspace.
+        /// CreateItem: Create a new item in a workspace. Create a new item in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -1132,7 +1132,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateWorkspace: Create a new workspace. Create a new workspace.
+        /// CreateWorkspace: Create a new workspace. Create a new workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace being created; case is important. Available values: shared, personal.</param>
@@ -1148,7 +1148,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateWorkspace: Create a new workspace. Create a new workspace.
+        /// CreateWorkspace: Create a new workspace. Create a new workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace being created; case is important. Available values: shared, personal.</param>
@@ -1252,7 +1252,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateWorkspace: Create a new workspace. Create a new workspace.
+        /// CreateWorkspace: Create a new workspace. Create a new workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace being created; case is important. Available values: shared, personal.</param>
@@ -1269,7 +1269,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateWorkspace: Create a new workspace. Create a new workspace.
+        /// CreateWorkspace: Create a new workspace. Create a new workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace being created; case is important. Available values: shared, personal.</param>
@@ -1375,7 +1375,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteItem: Delete an item from a workspace. Delete an item from a workspace.
+        /// DeleteItem: Delete an item from a workspace. Delete an item from a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -1392,7 +1392,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteItem: Delete an item from a workspace. Delete an item from a workspace.
+        /// DeleteItem: Delete an item from a workspace. Delete an item from a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -1502,7 +1502,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteItem: Delete an item from a workspace. Delete an item from a workspace.
+        /// DeleteItem: Delete an item from a workspace. Delete an item from a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -1520,7 +1520,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteItem: Delete an item from a workspace. Delete an item from a workspace.
+        /// DeleteItem: Delete an item from a workspace. Delete an item from a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -1633,7 +1633,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteWorkspace: Delete a workspace. Delete a workspace.
+        /// DeleteWorkspace: Delete a workspace. Delete a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace; case is important. Available values: shared, personal.</param>
@@ -1649,7 +1649,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteWorkspace: Delete a workspace. Delete a workspace.
+        /// DeleteWorkspace: Delete a workspace. Delete a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace; case is important. Available values: shared, personal.</param>
@@ -1749,7 +1749,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteWorkspace: Delete a workspace. Delete a workspace.
+        /// DeleteWorkspace: Delete a workspace. Delete a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace; case is important. Available values: shared, personal.</param>
@@ -1766,7 +1766,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteWorkspace: Delete a workspace. Delete a workspace.
+        /// DeleteWorkspace: Delete a workspace. Delete a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace; case is important. Available values: shared, personal.</param>
@@ -1868,7 +1868,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetItem: Get a single workspace item. Get a single workspace item.
+        /// GetItem: Get a single workspace item. Get a single workspace item.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -1886,7 +1886,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetItem: Get a single workspace item. Get a single workspace item.
+        /// GetItem: Get a single workspace item. Get a single workspace item.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -2002,7 +2002,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetItem: Get a single workspace item. Get a single workspace item.
+        /// GetItem: Get a single workspace item. Get a single workspace item.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -2021,7 +2021,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetItem: Get a single workspace item. Get a single workspace item.
+        /// GetItem: Get a single workspace item. Get a single workspace item.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -2139,7 +2139,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetWorkspace: Get a workspace. Get a workspace.
+        /// GetWorkspace: Get a workspace. Get a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace; case is important. Available values: shared, personal.</param>
@@ -2156,7 +2156,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetWorkspace: Get a workspace. Get a workspace.
+        /// GetWorkspace: Get a workspace. Get a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace; case is important. Available values: shared, personal.</param>
@@ -2262,7 +2262,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetWorkspace: Get a workspace. Get a workspace.
+        /// GetWorkspace: Get a workspace. Get a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace; case is important. Available values: shared, personal.</param>
@@ -2280,7 +2280,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetWorkspace: Get a workspace. Get a workspace.
+        /// GetWorkspace: Get a workspace. Get a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace; case is important. Available values: shared, personal.</param>
@@ -2387,7 +2387,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListItems: List the items in a workspace. List the items in a workspace.
+        /// ListItems: List the items in a workspace. List the items in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -2407,7 +2407,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListItems: List the items in a workspace. List the items in a workspace.
+        /// ListItems: List the items in a workspace. List the items in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -2531,7 +2531,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListItems: List the items in a workspace. List the items in a workspace.
+        /// ListItems: List the items in a workspace. List the items in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -2552,7 +2552,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListItems: List the items in a workspace. List the items in a workspace.
+        /// ListItems: List the items in a workspace. List the items in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -2674,7 +2674,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListWorkspaces: List workspaces. List workspaces.
+        /// ListWorkspaces: List workspaces. List workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspaces; case is important. Available values: shared, personal.</param>
@@ -2694,7 +2694,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListWorkspaces: List workspaces. List workspaces.
+        /// ListWorkspaces: List workspaces. List workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspaces; case is important. Available values: shared, personal.</param>
@@ -2816,7 +2816,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListWorkspaces: List workspaces. List workspaces.
+        /// ListWorkspaces: List workspaces. List workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspaces; case is important. Available values: shared, personal.</param>
@@ -2837,7 +2837,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListWorkspaces: List workspaces. List workspaces.
+        /// ListWorkspaces: List workspaces. List workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspaces; case is important. Available values: shared, personal.</param>
@@ -2956,7 +2956,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SearchItems: List items across all workspaces. List items across all workspaces.
+        /// SearchItems: List items across all workspaces. List items across all workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -2975,7 +2975,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SearchItems: List items across all workspaces. List items across all workspaces.
+        /// SearchItems: List items across all workspaces. List items across all workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -3091,7 +3091,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SearchItems: List items across all workspaces. List items across all workspaces.
+        /// SearchItems: List items across all workspaces. List items across all workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -3111,7 +3111,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SearchItems: List items across all workspaces. List items across all workspaces.
+        /// SearchItems: List items across all workspaces. List items across all workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -3225,7 +3225,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateItem: Update an item in a workspace. Update an item in a workspace.
+        /// UpdateItem: Update an item in a workspace. Update an item in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -3243,7 +3243,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateItem: Update an item in a workspace. Update an item in a workspace.
+        /// UpdateItem: Update an item in a workspace. Update an item in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -3359,7 +3359,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateItem: Update an item in a workspace. Update an item in a workspace.
+        /// UpdateItem: Update an item in a workspace. Update an item in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -3378,7 +3378,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateItem: Update an item in a workspace. Update an item in a workspace.
+        /// UpdateItem: Update an item in a workspace. Update an item in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the containing workspace; case is important. Available values: shared, personal.</param>
@@ -3497,7 +3497,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateWorkspace: Update a workspace. Update a workspace.
+        /// UpdateWorkspace: Update a workspace. Update a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace; case is important. Available values: shared, personal.</param>
@@ -3514,7 +3514,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateWorkspace: Update a workspace. Update a workspace.
+        /// UpdateWorkspace: Update a workspace. Update a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace; case is important. Available values: shared, personal.</param>
@@ -3626,7 +3626,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateWorkspace: Update a workspace. Update a workspace.
+        /// UpdateWorkspace: Update a workspace. Update a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace; case is important. Available values: shared, personal.</param>
@@ -3644,7 +3644,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateWorkspace: Update a workspace. Update a workspace.
+        /// UpdateWorkspace: Update a workspace. Update a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace; case is important. Available values: shared, personal.</param>

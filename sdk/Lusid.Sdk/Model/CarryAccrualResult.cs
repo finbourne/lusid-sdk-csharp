@@ -41,7 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="source">The waterfall or model the carry amounts came from. (required).</param>
         /// <param name="lines">The accrual movement per partner. (required).</param>
         /// <param name="bookedTransactionIds">The identifiers of the transactions booked, if any. (required).</param>
-        public CarryAccrualResult(ResourceId fundId = default(ResourceId), DateTimeOffset periodEnd = default(DateTimeOffset), string source = default(string), List<CarryAccrualLine> lines = default(List<CarryAccrualLine>), List<string> bookedTransactionIds = default(List<string>))
+        /// <param name="laterRunIds">The run identifiers of carry accruals already on the ledger with an effective date after this period end. Restating an earlier period moves the to-date balance those runs were accrued against; re-run them to roll the restatement forward. (required).</param>
+        public CarryAccrualResult(ResourceId fundId = default(ResourceId), DateTimeOffset periodEnd = default(DateTimeOffset), string source = default(string), List<CarryAccrualLine> lines = default(List<CarryAccrualLine>), List<string> bookedTransactionIds = default(List<string>), List<string> laterRunIds = default(List<string>))
         {
             // to ensure "fundId" is required (not null)
             if (fundId == null)
@@ -68,6 +69,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("bookedTransactionIds is a required property for CarryAccrualResult and cannot be null");
             }
             this.BookedTransactionIds = bookedTransactionIds;
+            // to ensure "laterRunIds" is required (not null)
+            if (laterRunIds == null)
+            {
+                throw new ArgumentNullException("laterRunIds is a required property for CarryAccrualResult and cannot be null");
+            }
+            this.LaterRunIds = laterRunIds;
         }
 
         /// <summary>
@@ -105,6 +112,13 @@ namespace Lusid.Sdk.Model
         public List<string> BookedTransactionIds { get; set; }
 
         /// <summary>
+        /// The run identifiers of carry accruals already on the ledger with an effective date after this period end. Restating an earlier period moves the to-date balance those runs were accrued against; re-run them to roll the restatement forward.
+        /// </summary>
+        /// <value>The run identifiers of carry accruals already on the ledger with an effective date after this period end. Restating an earlier period moves the to-date balance those runs were accrued against; re-run them to roll the restatement forward.</value>
+        [DataMember(Name = "laterRunIds", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> LaterRunIds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -117,6 +131,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  Lines: ").Append(Lines).Append("\n");
             sb.Append("  BookedTransactionIds: ").Append(BookedTransactionIds).Append("\n");
+            sb.Append("  LaterRunIds: ").Append(LaterRunIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -178,6 +193,12 @@ namespace Lusid.Sdk.Model
                     this.BookedTransactionIds != null &&
                     input.BookedTransactionIds != null &&
                     this.BookedTransactionIds.SequenceEqual(input.BookedTransactionIds)
+                ) && 
+                (
+                    this.LaterRunIds == input.LaterRunIds ||
+                    this.LaterRunIds != null &&
+                    input.LaterRunIds != null &&
+                    this.LaterRunIds.SequenceEqual(input.LaterRunIds)
                 );
         }
 
@@ -209,6 +230,10 @@ namespace Lusid.Sdk.Model
                 if (this.BookedTransactionIds != null)
                 {
                     hashCode = (hashCode * 59) + this.BookedTransactionIds.GetHashCode();
+                }
+                if (this.LaterRunIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.LaterRunIds.GetHashCode();
                 }
                 return hashCode;
             }

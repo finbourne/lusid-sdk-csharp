@@ -44,7 +44,8 @@ namespace Lusid.Sdk.Model
         /// <param name="theyPost">theyPost (required).</param>
         /// <param name="eligibleCollateral">eligibleCollateral.</param>
         /// <param name="calculation">calculation (required).</param>
-        public MarginItem(string code = default(string), string tradeFilter = default(string), string settlement = default(string), string legalMechanism = default(string), PartyTerms wePost = default(PartyTerms), PartyTerms theyPost = default(PartyTerms), EligibleCollateralReferences eligibleCollateral = default(EligibleCollateralReferences), MarginCalculation calculation = default(MarginCalculation))
+        /// <param name="marginAccounts">marginAccounts.</param>
+        public MarginItem(string code = default(string), string tradeFilter = default(string), string settlement = default(string), string legalMechanism = default(string), PartyTerms wePost = default(PartyTerms), PartyTerms theyPost = default(PartyTerms), EligibleCollateralReferences eligibleCollateral = default(EligibleCollateralReferences), MarginCalculation calculation = default(MarginCalculation), MarginAccounts marginAccounts = default(MarginAccounts))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -74,6 +75,7 @@ namespace Lusid.Sdk.Model
             this.Settlement = settlement;
             this.LegalMechanism = legalMechanism;
             this.EligibleCollateral = eligibleCollateral;
+            this.MarginAccounts = marginAccounts;
         }
 
         /// <summary>
@@ -129,6 +131,12 @@ namespace Lusid.Sdk.Model
         public MarginCalculation Calculation { get; set; }
 
         /// <summary>
+        /// Gets or Sets MarginAccounts
+        /// </summary>
+        [DataMember(Name = "marginAccounts", EmitDefaultValue = false)]
+        public MarginAccounts MarginAccounts { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -144,6 +152,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  TheyPost: ").Append(TheyPost).Append("\n");
             sb.Append("  EligibleCollateral: ").Append(EligibleCollateral).Append("\n");
             sb.Append("  Calculation: ").Append(Calculation).Append("\n");
+            sb.Append("  MarginAccounts: ").Append(MarginAccounts).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -218,6 +227,11 @@ namespace Lusid.Sdk.Model
                     this.Calculation == input.Calculation ||
                     (this.Calculation != null &&
                     this.Calculation.Equals(input.Calculation))
+                ) && 
+                (
+                    this.MarginAccounts == input.MarginAccounts ||
+                    (this.MarginAccounts != null &&
+                    this.MarginAccounts.Equals(input.MarginAccounts))
                 );
         }
 
@@ -261,6 +275,10 @@ namespace Lusid.Sdk.Model
                 if (this.Calculation != null)
                 {
                     hashCode = (hashCode * 59) + this.Calculation.GetHashCode();
+                }
+                if (this.MarginAccounts != null)
+                {
+                    hashCode = (hashCode * 59) + this.MarginAccounts.GetHashCode();
                 }
                 return hashCode;
             }
