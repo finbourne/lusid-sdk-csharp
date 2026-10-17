@@ -42,13 +42,15 @@ namespace Lusid.Sdk.Model
         /// <param name="description">description.</param>
         /// <param name="portfolioId">portfolioId (required).</param>
         /// <param name="timelineId">timelineId.</param>
+        /// <param name="timelineProperty">A portfolio property key (Portfolio/scope/code) naming a perpetual portfolio property whose value  (scope/code) identifies the timeline for each portfolio. Mutually exclusive with timelineId.  The property must be defined, with a data type of value type ResourceId or String..</param>
+        /// <param name="portfolioFilter">A filter, in the syntax of the list portfolios filter, that narrows a wildcard portfolioId to the portfolios  of the scope that match it. Only valid when portfolioId.code is \&quot;*\&quot;. It may use the portfolio&#39;s own fields and  its perpetual Portfolio properties; time-variant and derived properties and relationships are not supported.  A portfolio that starts or stops matching joins or leaves the subscription..</param>
         /// <param name="addressKeys">The set of addresses the subscriber wishes to receive..</param>
         /// <param name="byTaxLots">byTaxLots.</param>
         /// <param name="subscriptionType">Required. The kind of data the subscription streams: before/after effects per  holding (holdings), the transactions themselves (transactions), or each changed holding&#39;s  complete current state (positions). Address keys and byTaxLots are not valid for a  transactions subscription. Available values: Holdings, Transactions, Positions. (required).</param>
         /// <param name="startEffectiveAt">startEffectiveAt.</param>
         /// <param name="endEffectiveAt">Deprecated and no longer honoured: a fixed forward date stops being a forward view once  the live edge passes it. Use effectiveForwardDays instead. Still accepted and echoed back  so existing subscriptions keep round-tripping..</param>
         /// <param name="effectiveForwardDays">How far forward the subscription reports, as a number of calendar days past the live  edge — a rolling forward view that advances as time passes..</param>
-        public SubscriptionDefinition(string scope = default(string), string code = default(string), string displayName = default(string), string description = default(string), ResourceId portfolioId = default(ResourceId), ResourceId timelineId = default(ResourceId), List<string> addressKeys = default(List<string>), bool byTaxLots = default(bool), string subscriptionType = default(string), DateTimeOffset? startEffectiveAt = default(DateTimeOffset?), DateTimeOffset? endEffectiveAt = default(DateTimeOffset?), int? effectiveForwardDays = default(int?))
+        public SubscriptionDefinition(string scope = default(string), string code = default(string), string displayName = default(string), string description = default(string), ResourceId portfolioId = default(ResourceId), ResourceId timelineId = default(ResourceId), string timelineProperty = default(string), string portfolioFilter = default(string), List<string> addressKeys = default(List<string>), bool byTaxLots = default(bool), string subscriptionType = default(string), DateTimeOffset? startEffectiveAt = default(DateTimeOffset?), DateTimeOffset? endEffectiveAt = default(DateTimeOffset?), int? effectiveForwardDays = default(int?))
         {
             // to ensure "scope" is required (not null)
             if (scope == null)
@@ -77,6 +79,8 @@ namespace Lusid.Sdk.Model
             this.DisplayName = displayName;
             this.Description = description;
             this.TimelineId = timelineId;
+            this.TimelineProperty = timelineProperty;
+            this.PortfolioFilter = portfolioFilter;
             this.AddressKeys = addressKeys;
             this.ByTaxLots = byTaxLots;
             this.StartEffectiveAt = startEffectiveAt;
@@ -119,6 +123,20 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "timelineId", EmitDefaultValue = false)]
         public ResourceId TimelineId { get; set; }
+
+        /// <summary>
+        /// A portfolio property key (Portfolio/scope/code) naming a perpetual portfolio property whose value  (scope/code) identifies the timeline for each portfolio. Mutually exclusive with timelineId.  The property must be defined, with a data type of value type ResourceId or String.
+        /// </summary>
+        /// <value>A portfolio property key (Portfolio/scope/code) naming a perpetual portfolio property whose value  (scope/code) identifies the timeline for each portfolio. Mutually exclusive with timelineId.  The property must be defined, with a data type of value type ResourceId or String.</value>
+        [DataMember(Name = "timelineProperty", EmitDefaultValue = true)]
+        public string TimelineProperty { get; set; }
+
+        /// <summary>
+        /// A filter, in the syntax of the list portfolios filter, that narrows a wildcard portfolioId to the portfolios  of the scope that match it. Only valid when portfolioId.code is \&quot;*\&quot;. It may use the portfolio&#39;s own fields and  its perpetual Portfolio properties; time-variant and derived properties and relationships are not supported.  A portfolio that starts or stops matching joins or leaves the subscription.
+        /// </summary>
+        /// <value>A filter, in the syntax of the list portfolios filter, that narrows a wildcard portfolioId to the portfolios  of the scope that match it. Only valid when portfolioId.code is \&quot;*\&quot;. It may use the portfolio&#39;s own fields and  its perpetual Portfolio properties; time-variant and derived properties and relationships are not supported.  A portfolio that starts or stops matching joins or leaves the subscription.</value>
+        [DataMember(Name = "portfolioFilter", EmitDefaultValue = true)]
+        public string PortfolioFilter { get; set; }
 
         /// <summary>
         /// The set of addresses the subscriber wishes to receive.
@@ -174,6 +192,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
             sb.Append("  TimelineId: ").Append(TimelineId).Append("\n");
+            sb.Append("  TimelineProperty: ").Append(TimelineProperty).Append("\n");
+            sb.Append("  PortfolioFilter: ").Append(PortfolioFilter).Append("\n");
             sb.Append("  AddressKeys: ").Append(AddressKeys).Append("\n");
             sb.Append("  ByTaxLots: ").Append(ByTaxLots).Append("\n");
             sb.Append("  SubscriptionType: ").Append(SubscriptionType).Append("\n");
@@ -246,6 +266,16 @@ namespace Lusid.Sdk.Model
                     this.TimelineId.Equals(input.TimelineId))
                 ) && 
                 (
+                    this.TimelineProperty == input.TimelineProperty ||
+                    (this.TimelineProperty != null &&
+                    this.TimelineProperty.Equals(input.TimelineProperty))
+                ) && 
+                (
+                    this.PortfolioFilter == input.PortfolioFilter ||
+                    (this.PortfolioFilter != null &&
+                    this.PortfolioFilter.Equals(input.PortfolioFilter))
+                ) && 
+                (
                     this.AddressKeys == input.AddressKeys ||
                     this.AddressKeys != null &&
                     input.AddressKeys != null &&
@@ -309,6 +339,14 @@ namespace Lusid.Sdk.Model
                 if (this.TimelineId != null)
                 {
                     hashCode = (hashCode * 59) + this.TimelineId.GetHashCode();
+                }
+                if (this.TimelineProperty != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimelineProperty.GetHashCode();
+                }
+                if (this.PortfolioFilter != null)
+                {
+                    hashCode = (hashCode * 59) + this.PortfolioFilter.GetHashCode();
                 }
                 if (this.AddressKeys != null)
                 {
@@ -409,6 +447,37 @@ namespace Lusid.Sdk.Model
             if (false == regexDescription.Match(this.Description).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
+            }
+
+            // TimelineProperty (string) maxLength
+            if (this.TimelineProperty != null && this.TimelineProperty.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineProperty, length must be less than 256.", new [] { "TimelineProperty" });
+            }
+
+            // TimelineProperty (string) minLength
+            if (this.TimelineProperty != null && this.TimelineProperty.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineProperty, length must be greater than 0.", new [] { "TimelineProperty" });
+            }
+
+            // PortfolioFilter (string) maxLength
+            if (this.PortfolioFilter != null && this.PortfolioFilter.Length > 16384)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PortfolioFilter, length must be less than 16384.", new [] { "PortfolioFilter" });
+            }
+
+            // PortfolioFilter (string) minLength
+            if (this.PortfolioFilter != null && this.PortfolioFilter.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PortfolioFilter, length must be greater than 0.", new [] { "PortfolioFilter" });
+            }
+
+            // PortfolioFilter (string) pattern
+            Regex regexPortfolioFilter = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexPortfolioFilter.Match(this.PortfolioFilter).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PortfolioFilter, must match a pattern of " + regexPortfolioFilter, new [] { "PortfolioFilter" });
             }
 
             // SubscriptionType (string) minLength
