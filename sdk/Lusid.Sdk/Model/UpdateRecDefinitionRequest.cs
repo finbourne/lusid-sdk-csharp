@@ -38,17 +38,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="displayName">The name of the rec definition. (required).</param>
         /// <param name="description">A description of the rec definition..</param>
-        /// <param name="definitionType">What this definition reconciles, naming the kind of dataset that must be present on at least one side. Only PortfolioContents is currently supported. Available values: PortfolioContents, LusidEntity, RelationalData. (required).</param>
         /// <param name="sideNames">sideNames.</param>
-        /// <param name="leftPortfolioSources">The portfolios, portfolio groups and funds contributing to the left side. Empty when the left side draws on relational data instead, which requires every ruleset to declare relational data for that side. Both sides cannot be empty..</param>
-        /// <param name="rightPortfolioSources">The portfolios, portfolio groups and funds contributing to the right side. Empty when the right side draws on relational data instead, which requires every ruleset to declare relational data for that side. Both sides cannot be empty..</param>
-        /// <param name="valuationRecipes">valuationRecipes.</param>
-        /// <param name="currencies">currencies.</param>
-        /// <param name="rulesets">The types of reconciliation included in the group, each naming the matching ruleset that drives it. At least one entry is required, and each rec type may appear at most once. (required).</param>
+        /// <param name="details">details (required).</param>
         /// <param name="reviewConfiguration">reviewConfiguration.</param>
         /// <param name="datePolicy">datePolicy.</param>
         /// <param name="properties">Properties in the RecDefinition domain. On update, a property with a null value is deleted and omitted properties are left unchanged. Filterable and sortable..</param>
-        public UpdateRecDefinitionRequest(string displayName = default(string), string description = default(string), string definitionType = default(string), RecDefSideNames sideNames = default(RecDefSideNames), List<RecDefSource> leftPortfolioSources = default(List<RecDefSource>), List<RecDefSource> rightPortfolioSources = default(List<RecDefSource>), RecDefRecipeIds valuationRecipes = default(RecDefRecipeIds), RecDefCurrencies currencies = default(RecDefCurrencies), List<RecDefRuleset> rulesets = default(List<RecDefRuleset>), RecReviewConfiguration reviewConfiguration = default(RecReviewConfiguration), RecDatePolicy datePolicy = default(RecDatePolicy), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
+        public UpdateRecDefinitionRequest(string displayName = default(string), string description = default(string), RecDefSideNames sideNames = default(RecDefSideNames), RecDefinitionDetails details = default(RecDefinitionDetails), RecReviewConfiguration reviewConfiguration = default(RecReviewConfiguration), RecDatePolicy datePolicy = default(RecDatePolicy), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -56,24 +51,14 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("displayName is a required property for UpdateRecDefinitionRequest and cannot be null");
             }
             this.DisplayName = displayName;
-            // to ensure "definitionType" is required (not null)
-            if (definitionType == null)
+            // to ensure "details" is required (not null)
+            if (details == null)
             {
-                throw new ArgumentNullException("definitionType is a required property for UpdateRecDefinitionRequest and cannot be null");
+                throw new ArgumentNullException("details is a required property for UpdateRecDefinitionRequest and cannot be null");
             }
-            this.DefinitionType = definitionType;
-            // to ensure "rulesets" is required (not null)
-            if (rulesets == null)
-            {
-                throw new ArgumentNullException("rulesets is a required property for UpdateRecDefinitionRequest and cannot be null");
-            }
-            this.Rulesets = rulesets;
+            this.Details = details;
             this.Description = description;
             this.SideNames = sideNames;
-            this.LeftPortfolioSources = leftPortfolioSources;
-            this.RightPortfolioSources = rightPortfolioSources;
-            this.ValuationRecipes = valuationRecipes;
-            this.Currencies = currencies;
             this.ReviewConfiguration = reviewConfiguration;
             this.DatePolicy = datePolicy;
             this.Properties = properties;
@@ -94,50 +79,16 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// What this definition reconciles, naming the kind of dataset that must be present on at least one side. Only PortfolioContents is currently supported. Available values: PortfolioContents, LusidEntity, RelationalData.
-        /// </summary>
-        /// <value>What this definition reconciles, naming the kind of dataset that must be present on at least one side. Only PortfolioContents is currently supported. Available values: PortfolioContents, LusidEntity, RelationalData.</value>
-        [DataMember(Name = "definitionType", IsRequired = true, EmitDefaultValue = true)]
-        public string DefinitionType { get; set; }
-
-        /// <summary>
         /// Gets or Sets SideNames
         /// </summary>
         [DataMember(Name = "sideNames", EmitDefaultValue = false)]
         public RecDefSideNames SideNames { get; set; }
 
         /// <summary>
-        /// The portfolios, portfolio groups and funds contributing to the left side. Empty when the left side draws on relational data instead, which requires every ruleset to declare relational data for that side. Both sides cannot be empty.
+        /// Gets or Sets Details
         /// </summary>
-        /// <value>The portfolios, portfolio groups and funds contributing to the left side. Empty when the left side draws on relational data instead, which requires every ruleset to declare relational data for that side. Both sides cannot be empty.</value>
-        [DataMember(Name = "leftPortfolioSources", EmitDefaultValue = true)]
-        public List<RecDefSource> LeftPortfolioSources { get; set; }
-
-        /// <summary>
-        /// The portfolios, portfolio groups and funds contributing to the right side. Empty when the right side draws on relational data instead, which requires every ruleset to declare relational data for that side. Both sides cannot be empty.
-        /// </summary>
-        /// <value>The portfolios, portfolio groups and funds contributing to the right side. Empty when the right side draws on relational data instead, which requires every ruleset to declare relational data for that side. Both sides cannot be empty.</value>
-        [DataMember(Name = "rightPortfolioSources", EmitDefaultValue = true)]
-        public List<RecDefSource> RightPortfolioSources { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ValuationRecipes
-        /// </summary>
-        [DataMember(Name = "valuationRecipes", EmitDefaultValue = false)]
-        public RecDefRecipeIds ValuationRecipes { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Currencies
-        /// </summary>
-        [DataMember(Name = "currencies", EmitDefaultValue = false)]
-        public RecDefCurrencies Currencies { get; set; }
-
-        /// <summary>
-        /// The types of reconciliation included in the group, each naming the matching ruleset that drives it. At least one entry is required, and each rec type may appear at most once.
-        /// </summary>
-        /// <value>The types of reconciliation included in the group, each naming the matching ruleset that drives it. At least one entry is required, and each rec type may appear at most once.</value>
-        [DataMember(Name = "rulesets", IsRequired = true, EmitDefaultValue = true)]
-        public List<RecDefRuleset> Rulesets { get; set; }
+        [DataMember(Name = "details", IsRequired = true, EmitDefaultValue = true)]
+        public RecDefinitionDetails Details { get; set; }
 
         /// <summary>
         /// Gets or Sets ReviewConfiguration
@@ -168,13 +119,8 @@ namespace Lusid.Sdk.Model
             sb.Append("class UpdateRecDefinitionRequest {\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  DefinitionType: ").Append(DefinitionType).Append("\n");
             sb.Append("  SideNames: ").Append(SideNames).Append("\n");
-            sb.Append("  LeftPortfolioSources: ").Append(LeftPortfolioSources).Append("\n");
-            sb.Append("  RightPortfolioSources: ").Append(RightPortfolioSources).Append("\n");
-            sb.Append("  ValuationRecipes: ").Append(ValuationRecipes).Append("\n");
-            sb.Append("  Currencies: ").Append(Currencies).Append("\n");
-            sb.Append("  Rulesets: ").Append(Rulesets).Append("\n");
+            sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("  ReviewConfiguration: ").Append(ReviewConfiguration).Append("\n");
             sb.Append("  DatePolicy: ").Append(DatePolicy).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
@@ -224,42 +170,14 @@ namespace Lusid.Sdk.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.DefinitionType == input.DefinitionType ||
-                    (this.DefinitionType != null &&
-                    this.DefinitionType.Equals(input.DefinitionType))
-                ) && 
-                (
                     this.SideNames == input.SideNames ||
                     (this.SideNames != null &&
                     this.SideNames.Equals(input.SideNames))
                 ) && 
                 (
-                    this.LeftPortfolioSources == input.LeftPortfolioSources ||
-                    this.LeftPortfolioSources != null &&
-                    input.LeftPortfolioSources != null &&
-                    this.LeftPortfolioSources.SequenceEqual(input.LeftPortfolioSources)
-                ) && 
-                (
-                    this.RightPortfolioSources == input.RightPortfolioSources ||
-                    this.RightPortfolioSources != null &&
-                    input.RightPortfolioSources != null &&
-                    this.RightPortfolioSources.SequenceEqual(input.RightPortfolioSources)
-                ) && 
-                (
-                    this.ValuationRecipes == input.ValuationRecipes ||
-                    (this.ValuationRecipes != null &&
-                    this.ValuationRecipes.Equals(input.ValuationRecipes))
-                ) && 
-                (
-                    this.Currencies == input.Currencies ||
-                    (this.Currencies != null &&
-                    this.Currencies.Equals(input.Currencies))
-                ) && 
-                (
-                    this.Rulesets == input.Rulesets ||
-                    this.Rulesets != null &&
-                    input.Rulesets != null &&
-                    this.Rulesets.SequenceEqual(input.Rulesets)
+                    this.Details == input.Details ||
+                    (this.Details != null &&
+                    this.Details.Equals(input.Details))
                 ) && 
                 (
                     this.ReviewConfiguration == input.ReviewConfiguration ||
@@ -296,33 +214,13 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
-                if (this.DefinitionType != null)
-                {
-                    hashCode = (hashCode * 59) + this.DefinitionType.GetHashCode();
-                }
                 if (this.SideNames != null)
                 {
                     hashCode = (hashCode * 59) + this.SideNames.GetHashCode();
                 }
-                if (this.LeftPortfolioSources != null)
+                if (this.Details != null)
                 {
-                    hashCode = (hashCode * 59) + this.LeftPortfolioSources.GetHashCode();
-                }
-                if (this.RightPortfolioSources != null)
-                {
-                    hashCode = (hashCode * 59) + this.RightPortfolioSources.GetHashCode();
-                }
-                if (this.ValuationRecipes != null)
-                {
-                    hashCode = (hashCode * 59) + this.ValuationRecipes.GetHashCode();
-                }
-                if (this.Currencies != null)
-                {
-                    hashCode = (hashCode * 59) + this.Currencies.GetHashCode();
-                }
-                if (this.Rulesets != null)
-                {
-                    hashCode = (hashCode * 59) + this.Rulesets.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Details.GetHashCode();
                 }
                 if (this.ReviewConfiguration != null)
                 {
@@ -369,12 +267,6 @@ namespace Lusid.Sdk.Model
             if (this.Description != null && this.Description.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
-            }
-
-            // DefinitionType (string) minLength
-            if (this.DefinitionType != null && this.DefinitionType.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DefinitionType, length must be greater than 1.", new [] { "DefinitionType" });
             }
 
             yield break;

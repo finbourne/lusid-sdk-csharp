@@ -37,6 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="RecResultSet" /> class.
         /// </summary>
         /// <param name="recType">The type of rec that this result set belongs to (e.g. Holding). Together with the rec instance, this uniquely identifies the result set. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External. (required).</param>
+        /// <param name="externalRecTypeName">The client&#39;s name for an External rec type, as stamped from the matching ruleset&#39;s externalRecType when the run executed. Null for native rec types. Filterable..</param>
         /// <param name="recInstance">recInstance (required).</param>
         /// <param name="runNumber">The run number within the instance. Increments with each re-run. (required).</param>
         /// <param name="runAsAt">The asAt datetime at which the run happened. (required).</param>
@@ -52,7 +53,7 @@ namespace Lusid.Sdk.Model
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public RecResultSet(string recType = default(string), RecInstanceSummary recInstance = default(RecInstanceSummary), int runNumber = default(int), DateTimeOffset runAsAt = default(DateTimeOffset), RecExecution execution = default(RecExecution), RecDatesReconciled datesReconciled = default(RecDatesReconciled), RecResultCounts resultCounts = default(RecResultCounts), RecReview review = default(RecReview), string approvalStatus = default(string), List<RecRequiredApproval> requiredApprovals = default(List<RecRequiredApproval>), List<RecSubmission> submissions = default(List<RecSubmission>), List<RecApprovalDecision> decisions = default(List<RecApprovalDecision>), List<RecSupersededRun> previousRuns = default(List<RecSupersededRun>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public RecResultSet(string recType = default(string), string externalRecTypeName = default(string), RecInstanceSummary recInstance = default(RecInstanceSummary), int runNumber = default(int), DateTimeOffset runAsAt = default(DateTimeOffset), RecExecution execution = default(RecExecution), RecDatesReconciled datesReconciled = default(RecDatesReconciled), RecResultCounts resultCounts = default(RecResultCounts), RecReview review = default(RecReview), string approvalStatus = default(string), List<RecRequiredApproval> requiredApprovals = default(List<RecRequiredApproval>), List<RecSubmission> submissions = default(List<RecSubmission>), List<RecApprovalDecision> decisions = default(List<RecApprovalDecision>), List<RecSupersededRun> previousRuns = default(List<RecSupersededRun>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "recType" is required (not null)
             if (recType == null)
@@ -122,6 +123,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("previousRuns is a required property for RecResultSet and cannot be null");
             }
             this.PreviousRuns = previousRuns;
+            this.ExternalRecTypeName = externalRecTypeName;
             this.Href = href;
             this.VarVersion = varVersion;
             this.Links = links;
@@ -133,6 +135,13 @@ namespace Lusid.Sdk.Model
         /// <value>The type of rec that this result set belongs to (e.g. Holding). Together with the rec instance, this uniquely identifies the result set. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External.</value>
         [DataMember(Name = "recType", IsRequired = true, EmitDefaultValue = true)]
         public string RecType { get; set; }
+
+        /// <summary>
+        /// The client&#39;s name for an External rec type, as stamped from the matching ruleset&#39;s externalRecType when the run executed. Null for native rec types. Filterable.
+        /// </summary>
+        /// <value>The client&#39;s name for an External rec type, as stamped from the matching ruleset&#39;s externalRecType when the run executed. Null for native rec types. Filterable.</value>
+        [DataMember(Name = "externalRecTypeName", EmitDefaultValue = true)]
+        public string ExternalRecTypeName { get; set; }
 
         /// <summary>
         /// Gets or Sets RecInstance
@@ -241,6 +250,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class RecResultSet {\n");
             sb.Append("  RecType: ").Append(RecType).Append("\n");
+            sb.Append("  ExternalRecTypeName: ").Append(ExternalRecTypeName).Append("\n");
             sb.Append("  RecInstance: ").Append(RecInstance).Append("\n");
             sb.Append("  RunNumber: ").Append(RunNumber).Append("\n");
             sb.Append("  RunAsAt: ").Append(RunAsAt).Append("\n");
@@ -295,6 +305,11 @@ namespace Lusid.Sdk.Model
                     this.RecType == input.RecType ||
                     (this.RecType != null &&
                     this.RecType.Equals(input.RecType))
+                ) && 
+                (
+                    this.ExternalRecTypeName == input.ExternalRecTypeName ||
+                    (this.ExternalRecTypeName != null &&
+                    this.ExternalRecTypeName.Equals(input.ExternalRecTypeName))
                 ) && 
                 (
                     this.RecInstance == input.RecInstance ||
@@ -389,6 +404,10 @@ namespace Lusid.Sdk.Model
                 if (this.RecType != null)
                 {
                     hashCode = (hashCode * 59) + this.RecType.GetHashCode();
+                }
+                if (this.ExternalRecTypeName != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExternalRecTypeName.GetHashCode();
                 }
                 if (this.RecInstance != null)
                 {

@@ -5,12 +5,14 @@ An individual item that makes up (one side of) a rec result. Polymorphic by item
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ItemType** | **string** | The polymorphic item-type discriminator: Holding, ValuedHolding, Transaction or SettlementActivity. Names the item rather than the rec type: Holding and CashHolding recs produce Holding items, a Valuation rec produces ValuedHolding items, and both transaction rec types produce Transaction items. Available values: SettlementActivity, Holding, Transaction, ValuedHolding. | 
+**ItemType** | **string** | The polymorphic item-type discriminator: Holding, ValuedHolding, Transaction, SettlementActivity or RelationalDataPoint. Names the item rather than the rec type: Holding and CashHolding recs produce Holding items, a Valuation rec produces ValuedHolding items, both transaction rec types produce Transaction items, and a relational dataset side produces RelationalDataPoint items whatever the rec type. Available values: SettlementActivity, Holding, Transaction, ValuedHolding, RelationalDataPoint. | 
 **RuleAndAttributeValues** | **Dictionary&lt;string, string&gt;** | The core rule, aggregate rule and supplemental attribute values for the item, keyed by name. | [optional] 
 **WritebackSuggestions** | [**List&lt;WritebackSuggestion&gt;**](WritebackSuggestion.md) | The writebacks suggested against this item, as configured by the matching ruleset&#39;s writebackConfigurations. Only ever populated on target-side items. Suggestions only: a user is expected to review them before acting. Required, but may be empty. | [readonly] 
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | 
 **HoldingId** | **string** | The holding identifier, at holding level: the same id whichever granularity the holding was read at, so that items of different rec types over one holding name it alike. | [optional] 
 **TaxLotId** | **string** | The tax lot the item is, where the source row was a single lot: a lot of a position read by tax lot, or a cash commitment. Null for an aggregated position and for a cash balance. Opaque: compare it whole, do not parse it. | [optional] 
+**RelationalDatasetDefinitionId** | [**ResourceId**](ResourceId.md) |  | 
+**RelationalDataPointUniqueId** | **string** | The unique id of the relational data point the run read, as minted by the relational dataset store. Opaque: compare it whole, do not parse it. | 
 **ActivityId** | **string** | The settlement activity identifier. | [optional] 
 **TransactionId** | **string** | The transaction identifier. | [optional] 
 **SettlementInstructionId** | **string** | The settlement instruction identifier. | [optional] 
@@ -30,6 +32,7 @@ using System;
 var recResultItemInstance = new recResultItem(recResultHoldingItemInstance)
 
 
+ * [RecResultRelationalDataItem](./RecResultRelationalDataItem.md)
  * [RecResultSettlementActivityItem](./RecResultSettlementActivityItem.md)
  * [RecResultTransactionItem](./RecResultTransactionItem.md)
 

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ResultNumber** | **int** | The result&#39;s number within its result type. Kept across runs while the result keeps its type; never reused once assigned. | 
 **FirstRunSeen** | **int** | The run in which the result was first assigned its id. | 
 **RecType** | **string** | The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External. | 
+**ExternalRecTypeName** | **string** | The client&#39;s name for an External rec type, as stamped from the matching ruleset&#39;s externalRecType when the run executed. Null for native rec types. Filterable. | [optional] 
 **InstanceId** | [**RecInstanceId**](RecInstanceId.md) |  | 
 **RecDefinitionId** | [**ResourceId**](ResourceId.md) |  | 
 **RunNumber** | **int** | The run number within the instance. Increments with each re-run. | 
@@ -38,6 +39,7 @@ using System;
 
 string id = "id";
 string recType = "recType";
+string externalRecTypeName = "example externalRecTypeName";
 RecInstanceId instanceId = new RecInstanceId();
 ResourceId recDefinitionId = new ResourceId();
 RecDatesReconciled datesReconciled = new RecDatesReconciled();
@@ -66,6 +68,7 @@ RecResult recResultInstance = new RecResult(
     resultNumber: resultNumber,
     firstRunSeen: firstRunSeen,
     recType: recType,
+    externalRecTypeName: externalRecTypeName,
     instanceId: instanceId,
     recDefinitionId: recDefinitionId,
     runNumber: runNumber,

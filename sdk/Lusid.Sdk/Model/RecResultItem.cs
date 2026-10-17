@@ -45,6 +45,18 @@ namespace Lusid.Sdk.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RecResultItem" /> class
+        /// with the <see cref="RecResultRelationalDataItem" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of RecResultRelationalDataItem.</param>
+        public RecResultItem(RecResultRelationalDataItem actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RecResultItem" /> class
         /// with the <see cref="RecResultSettlementActivityItem" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of RecResultSettlementActivityItem.</param>
@@ -85,6 +97,10 @@ namespace Lusid.Sdk.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(RecResultRelationalDataItem) || value is RecResultRelationalDataItem)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(RecResultSettlementActivityItem) || value is RecResultSettlementActivityItem)
                 {
                     this._actualInstance = value;
@@ -95,7 +111,7 @@ namespace Lusid.Sdk.Model
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: RecResultHoldingItem, RecResultSettlementActivityItem, RecResultTransactionItem");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: RecResultHoldingItem, RecResultRelationalDataItem, RecResultSettlementActivityItem, RecResultTransactionItem");
                 }
             }
         }
@@ -108,6 +124,16 @@ namespace Lusid.Sdk.Model
         public RecResultHoldingItem GetRecResultHoldingItem()
         {
             return (RecResultHoldingItem)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `RecResultRelationalDataItem`. If the actual instance is not `RecResultRelationalDataItem`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of RecResultRelationalDataItem</returns>
+        public RecResultRelationalDataItem GetRecResultRelationalDataItem()
+        {
+            return (RecResultRelationalDataItem)this.ActualInstance;
         }
 
         /// <summary>
@@ -175,6 +201,9 @@ namespace Lusid.Sdk.Model
                     case "Holding":
                         newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultHoldingItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
                         return newRecResultItem;
+                    case "RelationalDataPoint":
+                        newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultRelationalDataItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
+                        return newRecResultItem;
                     case "SettlementActivity":
                         newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultSettlementActivityItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
                         return newRecResultItem;
@@ -187,6 +216,9 @@ namespace Lusid.Sdk.Model
                     case "RecResultHoldingItem":
                         newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultHoldingItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
                         return newRecResultItem;
+                    case "RecResultRelationalDataItem":
+                        newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultRelationalDataItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
+                        return newRecResultItem;
                     case "RecResultSettlementActivityItem":
                         newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultSettlementActivityItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
                         return newRecResultItem;
@@ -194,7 +226,7 @@ namespace Lusid.Sdk.Model
                         newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultTransactionItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
                         return newRecResultItem;
                     default:
-                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for RecResultItem. Possible values: Holding SettlementActivity Transaction ValuedHolding RecResultHoldingItem RecResultSettlementActivityItem RecResultTransactionItem", discriminatorValue));
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for RecResultItem. Possible values: Holding RelationalDataPoint SettlementActivity Transaction ValuedHolding RecResultHoldingItem RecResultRelationalDataItem RecResultSettlementActivityItem RecResultTransactionItem", discriminatorValue));
                         break;
                 }
             }
@@ -224,6 +256,26 @@ namespace Lusid.Sdk.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into RecResultHoldingItem: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(RecResultRelationalDataItem).GetProperty("AdditionalProperties") == null)
+                {
+                    newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultRelationalDataItem>(jsonString, RecResultItem.SerializerSettings));
+                }
+                else
+                {
+                    newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultRelationalDataItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("RecResultRelationalDataItem");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into RecResultRelationalDataItem: {1}", jsonString, exception.ToString()));
             }
 
             try

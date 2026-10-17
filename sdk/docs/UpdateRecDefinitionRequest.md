@@ -6,13 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DisplayName** | **string** | The name of the rec definition. | 
 **Description** | **string** | A description of the rec definition. | [optional] 
-**DefinitionType** | **string** | What this definition reconciles, naming the kind of dataset that must be present on at least one side. Only PortfolioContents is currently supported. Available values: PortfolioContents, LusidEntity, RelationalData. | 
 **SideNames** | [**RecDefSideNames**](RecDefSideNames.md) |  | [optional] 
-**LeftPortfolioSources** | [**List&lt;RecDefSource&gt;**](RecDefSource.md) | The portfolios, portfolio groups and funds contributing to the left side. Empty when the left side draws on relational data instead, which requires every ruleset to declare relational data for that side. Both sides cannot be empty. | [optional] 
-**RightPortfolioSources** | [**List&lt;RecDefSource&gt;**](RecDefSource.md) | The portfolios, portfolio groups and funds contributing to the right side. Empty when the right side draws on relational data instead, which requires every ruleset to declare relational data for that side. Both sides cannot be empty. | [optional] 
-**ValuationRecipes** | [**RecDefRecipeIds**](RecDefRecipeIds.md) |  | [optional] 
-**Currencies** | [**RecDefCurrencies**](RecDefCurrencies.md) |  | [optional] 
-**Rulesets** | [**List&lt;RecDefRuleset&gt;**](RecDefRuleset.md) | The types of reconciliation included in the group, each naming the matching ruleset that drives it. At least one entry is required, and each rec type may appear at most once. | 
+**Details** | [**RecDefinitionDetails**](RecDefinitionDetails.md) |  | 
 **ReviewConfiguration** | [**RecReviewConfiguration**](RecReviewConfiguration.md) |  | [optional] 
 **DatePolicy** | [**RecDatePolicy**](RecDatePolicy.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Properties in the RecDefinition domain. On update, a property with a null value is deleted and omitted properties are left unchanged. Filterable and sortable. | [optional] 
@@ -23,16 +18,9 @@ using System;
 
 string displayName = "displayName";
 string description = "example description";
-string definitionType = "definitionType";
 RecDefSideNames? sideNames = new RecDefSideNames();
 
-List<RecDefSource> leftPortfolioSources = new List<RecDefSource>();
-List<RecDefSource> rightPortfolioSources = new List<RecDefSource>();
-RecDefRecipeIds? valuationRecipes = new RecDefRecipeIds();
-
-RecDefCurrencies? currencies = new RecDefCurrencies();
-
-List<RecDefRuleset> rulesets = new List<RecDefRuleset>();
+RecDefinitionDetails details = new RecDefinitionDetails();
 RecReviewConfiguration? reviewConfiguration = new RecReviewConfiguration();
 
 RecDatePolicy? datePolicy = new RecDatePolicy();
@@ -42,13 +30,8 @@ Dictionary<string, PerpetualProperty> properties = new Dictionary<string, Perpet
 UpdateRecDefinitionRequest updateRecDefinitionRequestInstance = new UpdateRecDefinitionRequest(
     displayName: displayName,
     description: description,
-    definitionType: definitionType,
     sideNames: sideNames,
-    leftPortfolioSources: leftPortfolioSources,
-    rightPortfolioSources: rightPortfolioSources,
-    valuationRecipes: valuationRecipes,
-    currencies: currencies,
-    rulesets: rulesets,
+    details: details,
     reviewConfiguration: reviewConfiguration,
     datePolicy: datePolicy,
     properties: properties);

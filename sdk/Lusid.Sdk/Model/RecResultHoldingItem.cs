@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="portfolioId">portfolioId (required).</param>
         /// <param name="holdingId">The holding identifier, at holding level: the same id whichever granularity the holding was read at, so that items of different rec types over one holding name it alike..</param>
         /// <param name="taxLotId">The tax lot the item is, where the source row was a single lot: a lot of a position read by tax lot, or a cash commitment. Null for an aggregated position and for a cash balance. Opaque: compare it whole, do not parse it..</param>
-        /// <param name="itemType">The polymorphic item-type discriminator: Holding, ValuedHolding, Transaction or SettlementActivity. Names the item rather than the rec type: Holding and CashHolding recs produce Holding items, a Valuation rec produces ValuedHolding items, and both transaction rec types produce Transaction items. Available values: SettlementActivity, Holding, Transaction, ValuedHolding. (required).</param>
+        /// <param name="itemType">The polymorphic item-type discriminator: Holding, ValuedHolding, Transaction, SettlementActivity or RelationalDataPoint. Names the item rather than the rec type: Holding and CashHolding recs produce Holding items, a Valuation rec produces ValuedHolding items, both transaction rec types produce Transaction items, and a relational dataset side produces RelationalDataPoint items whatever the rec type. Available values: SettlementActivity, Holding, Transaction, ValuedHolding, RelationalDataPoint. (required).</param>
         /// <param name="ruleAndAttributeValues">The core rule, aggregate rule and supplemental attribute values for the item, keyed by name..</param>
         public RecResultHoldingItem(ResourceId portfolioId = default(ResourceId), string holdingId = default(string), string taxLotId = default(string), string itemType = default(string), Dictionary<string, string> ruleAndAttributeValues = default(Dictionary<string, string>))
         {
@@ -81,9 +81,9 @@ namespace Lusid.Sdk.Model
         public string TaxLotId { get; set; }
 
         /// <summary>
-        /// The polymorphic item-type discriminator: Holding, ValuedHolding, Transaction or SettlementActivity. Names the item rather than the rec type: Holding and CashHolding recs produce Holding items, a Valuation rec produces ValuedHolding items, and both transaction rec types produce Transaction items. Available values: SettlementActivity, Holding, Transaction, ValuedHolding.
+        /// The polymorphic item-type discriminator: Holding, ValuedHolding, Transaction, SettlementActivity or RelationalDataPoint. Names the item rather than the rec type: Holding and CashHolding recs produce Holding items, a Valuation rec produces ValuedHolding items, both transaction rec types produce Transaction items, and a relational dataset side produces RelationalDataPoint items whatever the rec type. Available values: SettlementActivity, Holding, Transaction, ValuedHolding, RelationalDataPoint.
         /// </summary>
-        /// <value>The polymorphic item-type discriminator: Holding, ValuedHolding, Transaction or SettlementActivity. Names the item rather than the rec type: Holding and CashHolding recs produce Holding items, a Valuation rec produces ValuedHolding items, and both transaction rec types produce Transaction items. Available values: SettlementActivity, Holding, Transaction, ValuedHolding.</value>
+        /// <value>The polymorphic item-type discriminator: Holding, ValuedHolding, Transaction, SettlementActivity or RelationalDataPoint. Names the item rather than the rec type: Holding and CashHolding recs produce Holding items, a Valuation rec produces ValuedHolding items, both transaction rec types produce Transaction items, and a relational dataset side produces RelationalDataPoint items whatever the rec type. Available values: SettlementActivity, Holding, Transaction, ValuedHolding, RelationalDataPoint.</value>
         [DataMember(Name = "itemType", IsRequired = true, EmitDefaultValue = true)]
         public string ItemType { get; set; }
 
