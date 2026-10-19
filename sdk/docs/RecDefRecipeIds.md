@@ -4,15 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Left** | [**ResourceId**](ResourceId.md) |  | 
-**Right** | [**ResourceId**](ResourceId.md) |  | 
+**Left** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**Right** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 
-ResourceId left = new ResourceId();
-ResourceId right = new ResourceId();
+ResourceId? left = new ResourceId();
+
+ResourceId? right = new ResourceId();
+
 
 RecDefRecipeIds recDefRecipeIdsInstance = new RecDefRecipeIds(
     left: left,

@@ -31,41 +31,26 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RecDefCurrencies" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected RecDefCurrencies() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RecDefCurrencies" /> class.
-        /// </summary>
-        /// <param name="left">The currency used on the left side of the reconciliation. (required).</param>
-        /// <param name="right">The currency used on the right side of the reconciliation. (required).</param>
+        /// <param name="left">The currency used on the left side of the reconciliation. Required when the left side has portfolio sources; must be null when it draws on relational data..</param>
+        /// <param name="right">The currency used on the right side of the reconciliation. Required when the right side has portfolio sources; must be null when it draws on relational data..</param>
         public RecDefCurrencies(string left = default(string), string right = default(string))
         {
-            // to ensure "left" is required (not null)
-            if (left == null)
-            {
-                throw new ArgumentNullException("left is a required property for RecDefCurrencies and cannot be null");
-            }
             this.Left = left;
-            // to ensure "right" is required (not null)
-            if (right == null)
-            {
-                throw new ArgumentNullException("right is a required property for RecDefCurrencies and cannot be null");
-            }
             this.Right = right;
         }
 
         /// <summary>
-        /// The currency used on the left side of the reconciliation.
+        /// The currency used on the left side of the reconciliation. Required when the left side has portfolio sources; must be null when it draws on relational data.
         /// </summary>
-        /// <value>The currency used on the left side of the reconciliation.</value>
-        [DataMember(Name = "left", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>The currency used on the left side of the reconciliation. Required when the left side has portfolio sources; must be null when it draws on relational data.</value>
+        [DataMember(Name = "left", EmitDefaultValue = true)]
         public string Left { get; set; }
 
         /// <summary>
-        /// The currency used on the right side of the reconciliation.
+        /// The currency used on the right side of the reconciliation. Required when the right side has portfolio sources; must be null when it draws on relational data.
         /// </summary>
-        /// <value>The currency used on the right side of the reconciliation.</value>
-        [DataMember(Name = "right", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>The currency used on the right side of the reconciliation. Required when the right side has portfolio sources; must be null when it draws on relational data.</value>
+        [DataMember(Name = "right", EmitDefaultValue = true)]
         public string Right { get; set; }
 
         /// <summary>

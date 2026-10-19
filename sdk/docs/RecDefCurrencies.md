@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Left** | **string** | The currency used on the left side of the reconciliation. | 
-**Right** | **string** | The currency used on the right side of the reconciliation. | 
+**Left** | **string** | The currency used on the left side of the reconciliation. Required when the left side has portfolio sources; must be null when it draws on relational data. | [optional] 
+**Right** | **string** | The currency used on the right side of the reconciliation. Required when the right side has portfolio sources; must be null when it draws on relational data. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 
-string left = "left";
-string right = "right";
+string left = "example left";
+string right = "example right";
 
 RecDefCurrencies recDefCurrenciesInstance = new RecDefCurrencies(
     left: left,
