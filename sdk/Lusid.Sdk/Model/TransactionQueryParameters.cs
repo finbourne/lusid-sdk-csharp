@@ -73,7 +73,8 @@ namespace Lusid.Sdk.Model
         /// <param name="includeSettlementStatus">By default is false. When set to true the Settlement Status data would be populated in the response..</param>
         /// <param name="settlementStatusDate">Optional date used to specify end of an extended window for settlement information. When provided, transactions will be returned between start and end date, but settlement information between start date and this date will be included. When provided, the value must be greater than or equal to end date..</param>
         /// <param name="returnExcludedTransactions">Option to specify whether or not to include transactions that are marked as excluded by the portfolio&#39;s transaction exclusion filter. Excluded transactions do not affect holdings. Defaults to false if not specified..</param>
-        public TransactionQueryParameters(DateTimeOrCutLabel startDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel endDate = default(DateTimeOrCutLabel), QueryModeEnum ?queryMode = default(QueryModeEnum?), bool showCancelledTransactions = default(bool), string timelineScope = default(string), string timelineCode = default(string), bool includeEconomics = default(bool), bool includeSettlementStatus = default(bool), DateTimeOrCutLabel settlementStatusDate = default(DateTimeOrCutLabel), bool returnExcludedTransactions = default(bool))
+        /// <param name="allocationExpansion">How an input transaction that was split into allocation slices (strategy tag allocations or a prorated allocation method) is presented. &#39;Expanded&#39; (the default) returns one output transaction per slice. &#39;Combined&#39; returns one output transaction per input transaction with units, consideration and realised gain/loss summed over the slices, with every realised gain/loss record of each slice, including zero-realised ones, listed with its own transaction type and sub-holding key properties. For a prorated type with no units side the combined units are the total position the slices were prorated over, not the input&#39;s units. Transaction filters apply per slice, so a filter on a slice-level property combines only the matching slices. Sequence numbers are assigned after combining. Holdings and tax lots are identical in both modes. Available values: Expanded, Combined..</param>
+        public TransactionQueryParameters(DateTimeOrCutLabel startDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel endDate = default(DateTimeOrCutLabel), QueryModeEnum ?queryMode = default(QueryModeEnum?), bool showCancelledTransactions = default(bool), string timelineScope = default(string), string timelineCode = default(string), bool includeEconomics = default(bool), bool includeSettlementStatus = default(bool), DateTimeOrCutLabel settlementStatusDate = default(DateTimeOrCutLabel), bool returnExcludedTransactions = default(bool), string allocationExpansion = default(string))
         {
             // to ensure "startDate" is required (not null)
             if (startDate == null)
@@ -95,6 +96,7 @@ namespace Lusid.Sdk.Model
             this.IncludeSettlementStatus = includeSettlementStatus;
             this.SettlementStatusDate = settlementStatusDate;
             this.ReturnExcludedTransactions = returnExcludedTransactions;
+            this.AllocationExpansion = allocationExpansion;
         }
 
         /// <summary>
@@ -161,6 +163,13 @@ namespace Lusid.Sdk.Model
         public bool ReturnExcludedTransactions { get; set; }
 
         /// <summary>
+        /// How an input transaction that was split into allocation slices (strategy tag allocations or a prorated allocation method) is presented. &#39;Expanded&#39; (the default) returns one output transaction per slice. &#39;Combined&#39; returns one output transaction per input transaction with units, consideration and realised gain/loss summed over the slices, with every realised gain/loss record of each slice, including zero-realised ones, listed with its own transaction type and sub-holding key properties. For a prorated type with no units side the combined units are the total position the slices were prorated over, not the input&#39;s units. Transaction filters apply per slice, so a filter on a slice-level property combines only the matching slices. Sequence numbers are assigned after combining. Holdings and tax lots are identical in both modes. Available values: Expanded, Combined.
+        /// </summary>
+        /// <value>How an input transaction that was split into allocation slices (strategy tag allocations or a prorated allocation method) is presented. &#39;Expanded&#39; (the default) returns one output transaction per slice. &#39;Combined&#39; returns one output transaction per input transaction with units, consideration and realised gain/loss summed over the slices, with every realised gain/loss record of each slice, including zero-realised ones, listed with its own transaction type and sub-holding key properties. For a prorated type with no units side the combined units are the total position the slices were prorated over, not the input&#39;s units. Transaction filters apply per slice, so a filter on a slice-level property combines only the matching slices. Sequence numbers are assigned after combining. Holdings and tax lots are identical in both modes. Available values: Expanded, Combined.</value>
+        [DataMember(Name = "allocationExpansion", EmitDefaultValue = true)]
+        public string AllocationExpansion { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -178,6 +187,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  IncludeSettlementStatus: ").Append(IncludeSettlementStatus).Append("\n");
             sb.Append("  SettlementStatusDate: ").Append(SettlementStatusDate).Append("\n");
             sb.Append("  ReturnExcludedTransactions: ").Append(ReturnExcludedTransactions).Append("\n");
+            sb.Append("  AllocationExpansion: ").Append(AllocationExpansion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -257,6 +267,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.ReturnExcludedTransactions == input.ReturnExcludedTransactions ||
                     this.ReturnExcludedTransactions.Equals(input.ReturnExcludedTransactions)
+                ) && 
+                (
+                    this.AllocationExpansion == input.AllocationExpansion ||
+                    (this.AllocationExpansion != null &&
+                    this.AllocationExpansion.Equals(input.AllocationExpansion))
                 );
         }
 
@@ -294,6 +309,10 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.SettlementStatusDate.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ReturnExcludedTransactions.GetHashCode();
+                if (this.AllocationExpansion != null)
+                {
+                    hashCode = (hashCode * 59) + this.AllocationExpansion.GetHashCode();
+                }
                 return hashCode;
             }
         }

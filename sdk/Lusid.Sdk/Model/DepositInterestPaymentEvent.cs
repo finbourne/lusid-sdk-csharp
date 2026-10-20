@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Event to signify the repayment of interest accrued against a deposit holding.
+    /// Event to signify the repayment of interest accrued against a deposit holding. Not applied when upserted  for a period the deposit settles partly or wholly in kind, as its scheduled events settle that period&#39;s interest.
     /// </summary>
     [DataContract(Name = "DepositInterestPaymentEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
@@ -41,8 +41,10 @@ namespace Lusid.Sdk.Model
         /// <param name="paymentDate">Date that the interest is due to be paid..</param>
         /// <param name="exDate">Date that the accrued interest is calculated up until..</param>
         /// <param name="currency">Currency of the repayment. (required).</param>
+        /// <param name="fraction">Fraction of the accrued interest to be paid, between 0 and 1 inclusive. Defaults to 1 if not set..</param>
+        /// <param name="lapseElections">Election for controlling whether the interest is paid. Stored but not yet acted on, so a chosen  lapse election does not stop the payment. Optional; if provided, exactly one..</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent, TotalReturnSwapCashFlowEvent, GlobalLoanFacilityReinitialisationEvent, InvestorLoanFacilityReinitialisationEvent, CapitalCallReceiptEvent, RecallableCapitalExpiryEvent, CapitalInterestTransferEvent, FacilityDrawEvent, FacilityRepaymentEvent, FacilityInterestEvent, FacilityCommitmentFeeEvent, InstalmentCallEvent, DepositInterestCapitalisationEvent. (required) (default to &quot;DepositInterestPaymentEvent&quot;).</param>
-        public DepositInterestPaymentEvent(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset exDate = default(DateTimeOffset), string currency = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public DepositInterestPaymentEvent(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset exDate = default(DateTimeOffset), string currency = default(string), decimal fraction = default(decimal), List<LapseElection> lapseElections = default(List<LapseElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "currency" is required (not null)
             if (currency == null)
@@ -52,6 +54,8 @@ namespace Lusid.Sdk.Model
             this.Currency = currency;
             this.PaymentDate = paymentDate;
             this.ExDate = exDate;
+            this.Fraction = fraction;
+            this.LapseElections = lapseElections;
         }
 
         /// <summary>
@@ -76,6 +80,20 @@ namespace Lusid.Sdk.Model
         public string Currency { get; set; }
 
         /// <summary>
+        /// Fraction of the accrued interest to be paid, between 0 and 1 inclusive. Defaults to 1 if not set.
+        /// </summary>
+        /// <value>Fraction of the accrued interest to be paid, between 0 and 1 inclusive. Defaults to 1 if not set.</value>
+        [DataMember(Name = "fraction", EmitDefaultValue = true)]
+        public decimal Fraction { get; set; }
+
+        /// <summary>
+        /// Election for controlling whether the interest is paid. Stored but not yet acted on, so a chosen  lapse election does not stop the payment. Optional; if provided, exactly one.
+        /// </summary>
+        /// <value>Election for controlling whether the interest is paid. Stored but not yet acted on, so a chosen  lapse election does not stop the payment. Optional; if provided, exactly one.</value>
+        [DataMember(Name = "lapseElections", EmitDefaultValue = true)]
+        public List<LapseElection> LapseElections { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -87,6 +105,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("  ExDate: ").Append(ExDate).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  Fraction: ").Append(Fraction).Append("\n");
+            sb.Append("  LapseElections: ").Append(LapseElections).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,6 +156,16 @@ namespace Lusid.Sdk.Model
                     this.Currency == input.Currency ||
                     (this.Currency != null &&
                     this.Currency.Equals(input.Currency))
+                ) && base.Equals(input) && 
+                (
+                    this.Fraction == input.Fraction ||
+                    this.Fraction.Equals(input.Fraction)
+                ) && base.Equals(input) && 
+                (
+                    this.LapseElections == input.LapseElections ||
+                    this.LapseElections != null &&
+                    input.LapseElections != null &&
+                    this.LapseElections.SequenceEqual(input.LapseElections)
                 );
         }
 
@@ -159,6 +189,11 @@ namespace Lusid.Sdk.Model
                 if (this.Currency != null)
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Fraction.GetHashCode();
+                if (this.LapseElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.LapseElections.GetHashCode();
                 }
                 return hashCode;
             }

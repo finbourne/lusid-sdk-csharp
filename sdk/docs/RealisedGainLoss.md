@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **TaxLotId** | **string** | The identifier of the tax lot with which this gain or loss is associated. | [optional] 
 **RealisedAmortisation** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **TradeDateToSettlementDateRealisedCurrency** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**TransactionType** | **string** | The transaction type resolved for the allocation slice that realised this record, which can differ from the output transaction&#39;s type when a slice resolves against the opposite side of the book (for example a Buy whose slice covers a short). | [optional] 
+**Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The sub-holding key properties of the holding this record was realised against, identifying the allocation slice it belongs to. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -40,6 +42,8 @@ CurrencyAndAmount? realisedAmortisation = new CurrencyAndAmount();
 
 CurrencyAndAmount? tradeDateToSettlementDateRealisedCurrency = new CurrencyAndAmount();
 
+string transactionType = "example transactionType";
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 
 RealisedGainLoss realisedGainLossInstance = new RealisedGainLoss(
     instrumentScope: instrumentScope,
@@ -56,7 +60,9 @@ RealisedGainLoss realisedGainLossInstance = new RealisedGainLoss(
     realisedCurrency: realisedCurrency,
     taxLotId: taxLotId,
     realisedAmortisation: realisedAmortisation,
-    tradeDateToSettlementDateRealisedCurrency: tradeDateToSettlementDateRealisedCurrency);
+    tradeDateToSettlementDateRealisedCurrency: tradeDateToSettlementDateRealisedCurrency,
+    transactionType: transactionType,
+    properties: properties);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

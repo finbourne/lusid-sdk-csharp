@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Event used to represent a roll on a FlexibleDeposit instrument.
+    /// Event used to represent a roll on a FlexibleDeposit instrument. Its interest updates are not applied in a period  the deposit settles partly or wholly in kind, as that period&#39;s interest is settled by its scheduled events.
     /// </summary>
     [DataContract(Name = "DepositRollEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]

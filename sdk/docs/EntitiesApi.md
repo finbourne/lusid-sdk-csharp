@@ -13,6 +13,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**GetEntityHistory**](EntitiesApi.md#getentityhistory) | **GET** /api/entities/{entityType}/{entityUniqueId}/history | GetEntityHistory: List an entity&#39;s history information |
 | [**GetInstrumentByEntityUniqueId**](EntitiesApi.md#getinstrumentbyentityuniqueid) | **GET** /api/entities/instruments/{entityUniqueId} | GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId |
 | [**GetInstrumentEventByEntityUniqueId**](EntitiesApi.md#getinstrumenteventbyentityuniqueid) | **GET** /api/entities/instrumentevents/{entityUniqueId} | [EARLY ACCESS] GetInstrumentEventByEntityUniqueId: Get instrument event by EntityUniqueId |
+| [**GetInstrumentEventInstructionByEntityUniqueId**](EntitiesApi.md#getinstrumenteventinstructionbyentityuniqueid) | **GET** /api/entities/instrumenteventinstructions/{entityUniqueId} | GetInstrumentEventInstructionByEntityUniqueId: Get instrument event instruction by EntityUniqueId |
 | [**GetPortfolioByEntityUniqueId**](EntitiesApi.md#getportfoliobyentityuniqueid) | **GET** /api/entities/portfolios/{entityUniqueId} | GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId |
 | [**GetPortfolioChanges**](EntitiesApi.md#getportfoliochanges) | **GET** /api/entities/changes/portfolios | GetPortfolioChanges: Get the next change to each portfolio in a scope. |
 | [**GetPropertyDefinitionByEntityUniqueId**](EntitiesApi.md#getpropertydefinitionbyentityuniqueid) | **GET** /api/entities/propertydefinitions/{entityUniqueId} | GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId |
@@ -1092,6 +1093,124 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The requested instrument event entity |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getinstrumenteventinstructionbyentityuniqueid"></a>
+# **GetInstrumentEventInstructionByEntityUniqueId**
+> InstrumentEventInstructionEntity GetInstrumentEventInstructionByEntityUniqueId (string entityUniqueId, DateTimeOffset? asAt = null, List<string>? previews = null)
+
+GetInstrumentEventInstructionByEntityUniqueId: Get instrument event instruction by EntityUniqueId
+
+Retrieve a particular instrument event instruction by its entity unique identifier.    If the instruction or its portfolio is deleted, this will return the state of the instruction immediately prior to deletion.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<EntitiesApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<EntitiesApi>();
+            var entityUniqueId = "entityUniqueId_example";  // string | The entity unique identifier of the instrument event instruction. The expected format is '{portfolioEntityUniqueId}_{instrumentEventInstructionId}'.
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the instrument event instruction. Defaults to returning the latest version of the instrument event instruction if not specified. (optional) 
+            var previews = new List<string>?(); // List<string>? | The ids of the staged modifications to be previewed in the response, applied in the order given. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // InstrumentEventInstructionEntity result = apiInstance.GetInstrumentEventInstructionByEntityUniqueId(entityUniqueId, asAt, previews, opts: opts);
+
+                // GetInstrumentEventInstructionByEntityUniqueId: Get instrument event instruction by EntityUniqueId
+                InstrumentEventInstructionEntity result = apiInstance.GetInstrumentEventInstructionByEntityUniqueId(entityUniqueId, asAt, previews);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling EntitiesApi.GetInstrumentEventInstructionByEntityUniqueId: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetInstrumentEventInstructionByEntityUniqueIdWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // GetInstrumentEventInstructionByEntityUniqueId: Get instrument event instruction by EntityUniqueId
+    ApiResponse<InstrumentEventInstructionEntity> response = apiInstance.GetInstrumentEventInstructionByEntityUniqueIdWithHttpInfo(entityUniqueId, asAt, previews);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling EntitiesApi.GetInstrumentEventInstructionByEntityUniqueIdWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **entityUniqueId** | **string** | The entity unique identifier of the instrument event instruction. The expected format is &#39;{portfolioEntityUniqueId}_{instrumentEventInstructionId}&#39;. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the instrument event instruction. Defaults to returning the latest version of the instrument event instruction if not specified. | [optional]  |
+| **previews** | [**List&lt;string&gt;?**](string.md) | The ids of the staged modifications to be previewed in the response, applied in the order given. | [optional]  |
+
+### Return type
+
+[**InstrumentEventInstructionEntity**](InstrumentEventInstructionEntity.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The requested instrument event instruction entity |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

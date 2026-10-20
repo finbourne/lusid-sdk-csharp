@@ -14,6 +14,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**ListWithholdingTaxConfigurations**](WithholdingTaxApi.md#listwithholdingtaxconfigurations) | **GET** /api/withholdingtax/configurations | [EARLY ACCESS] ListWithholdingTaxConfigurations: List Withholding Tax Configurations. |
 | [**ListWithholdingTaxDatasetDefinitions**](WithholdingTaxApi.md#listwithholdingtaxdatasetdefinitions) | **GET** /api/withholdingtax/datasetdefinitions | [EARLY ACCESS] ListWithholdingTaxDatasetDefinitions: List Withholding Tax dataset definitions. |
 | [**PatchWithholdingTaxDatasetDefinition**](WithholdingTaxApi.md#patchwithholdingtaxdatasetdefinition) | **PATCH** /api/withholdingtax/datasetdefinitions/{scope}/{code} | [EARLY ACCESS] PatchWithholdingTaxDatasetDefinition: Patch a Withholding Tax dataset definition. |
+| [**ResolveWithholdingTax**](WithholdingTaxApi.md#resolvewithholdingtax) | **POST** /api/withholdingtax/$resolve | [EARLY ACCESS] ResolveWithholdingTax: Resolve the Withholding Tax rate that booking would apply. |
 | [**UpsertWithholdingTaxConfiguration**](WithholdingTaxApi.md#upsertwithholdingtaxconfiguration) | **POST** /api/withholdingtax/configurations/{scope}/{code} | [EARLY ACCESS] UpsertWithholdingTaxConfiguration: Upsert a Withholding Tax Configuration. |
 
 <a id="batchdeletewithholdingtaxrates"></a>
@@ -1199,6 +1200,126 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The amended Withholding Tax dataset. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="resolvewithholdingtax"></a>
+# **ResolveWithholdingTax**
+> WithholdingTaxResolution ResolveWithholdingTax (ResolveWithholdingTaxRequest resolveWithholdingTaxRequest, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, int? limit = null)
+
+[EARLY ACCESS] ResolveWithholdingTax: Resolve the Withholding Tax rate that booking would apply.
+
+A read-only lookup that runs the same resolution as booking, without a transaction: it works down the source  priority and, at each source, checks the anomaly dataset before the main dataset. Nothing is booked, and only  rates are returned. Supply a Withholding Tax Configuration to predict what booking will post; replace its  datasets or source priority to ask what would resolve instead. Supply the dimension values directly, or name an  instrument so that the configuration's value sources read them from it, as booking reads a transaction's instrument.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WithholdingTaxApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WithholdingTaxApi>();
+            var resolveWithholdingTaxRequest = new ResolveWithholdingTaxRequest(); // ResolveWithholdingTaxRequest | The tax identity, the dimension values or the instrument, and the configuration or datasets to resolve against.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to resolve, in place of the transaction's trade              date. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to read the configuration and the rates. Defaults to the latest version              if not specified. (optional) 
+            var limit = 100;  // int? | The most combinations of values that couldAlsoMatch tries, fewest values first. (optional)  (default to 100)
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // WithholdingTaxResolution result = apiInstance.ResolveWithholdingTax(resolveWithholdingTaxRequest, effectiveAt, asAt, limit, opts: opts);
+
+                // [EARLY ACCESS] ResolveWithholdingTax: Resolve the Withholding Tax rate that booking would apply.
+                WithholdingTaxResolution result = apiInstance.ResolveWithholdingTax(resolveWithholdingTaxRequest, effectiveAt, asAt, limit);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling WithholdingTaxApi.ResolveWithholdingTax: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ResolveWithholdingTaxWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ResolveWithholdingTax: Resolve the Withholding Tax rate that booking would apply.
+    ApiResponse<WithholdingTaxResolution> response = apiInstance.ResolveWithholdingTaxWithHttpInfo(resolveWithholdingTaxRequest, effectiveAt, asAt, limit);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling WithholdingTaxApi.ResolveWithholdingTaxWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **resolveWithholdingTaxRequest** | [**ResolveWithholdingTaxRequest**](ResolveWithholdingTaxRequest.md) | The tax identity, the dimension values or the instrument, and the configuration or datasets to resolve against. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to resolve, in place of the transaction&#39;s trade              date. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to read the configuration and the rates. Defaults to the latest version              if not specified. | [optional]  |
+| **limit** | **int?** | The most combinations of values that couldAlsoMatch tries, fewest values first. | [optional] [default to 100] |
+
+### Return type
+
+[**WithholdingTaxResolution**](WithholdingTaxResolution.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The Withholding Tax rate that booking would apply. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
