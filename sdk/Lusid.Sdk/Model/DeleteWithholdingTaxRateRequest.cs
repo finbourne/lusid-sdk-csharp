@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteWithholdingTaxRateRequest" /> class.
         /// </summary>
-        /// <param name="seriesIdentifiers">The identifiers that uniquely define this DataSeries, if any, structured according to the FieldSchema of the parent RelationalDatasetDefinition..</param>
+        /// <param name="seriesIdentifiers">The series identifiers that, with effectiveAt, identify the rate row: taxCountry, profileType and the dataset&#39;s own matching dimensions, structured according to its field schema. ruleSource is not accepted here: pass it as the ruleSource query parameter, which applies it to every row in the batch, and omit it for rows that apply at every source..</param>
         /// <param name="effectiveAt">The effectiveAt or cut-label datetime of the DataPoint. (required).</param>
         public DeleteWithholdingTaxRateRequest(Dictionary<string, Object> seriesIdentifiers = default(Dictionary<string, Object>), string effectiveAt = default(string))
         {
@@ -50,9 +50,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The identifiers that uniquely define this DataSeries, if any, structured according to the FieldSchema of the parent RelationalDatasetDefinition.
+        /// The series identifiers that, with effectiveAt, identify the rate row: taxCountry, profileType and the dataset&#39;s own matching dimensions, structured according to its field schema. ruleSource is not accepted here: pass it as the ruleSource query parameter, which applies it to every row in the batch, and omit it for rows that apply at every source.
         /// </summary>
-        /// <value>The identifiers that uniquely define this DataSeries, if any, structured according to the FieldSchema of the parent RelationalDatasetDefinition.</value>
+        /// <value>The series identifiers that, with effectiveAt, identify the rate row: taxCountry, profileType and the dataset&#39;s own matching dimensions, structured according to its field schema. ruleSource is not accepted here: pass it as the ruleSource query parameter, which applies it to every row in the batch, and omit it for rows that apply at every source.</value>
         [DataMember(Name = "seriesIdentifiers", EmitDefaultValue = true)]
         public Dictionary<string, Object> SeriesIdentifiers { get; set; }
 

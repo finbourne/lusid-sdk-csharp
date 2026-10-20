@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="RecDatasetSchema" /> class.
         /// </summary>
         /// <param name="type">The kind of dataset this side draws on. At most one side may be RelationalData. Available values: PortfolioContents, LusidEntity, RelationalData. (required).</param>
-        /// <param name="entityType">The entity within the dataset. Required when type is PortfolioContents, in which case it is one of: Holding, Valuation, Transaction, OutputTransaction, SettlementActivity. Must be omitted when type is RelationalData. Available values: Holding, Valuation, Transaction, OutputTransaction, SettlementActivity..</param>
+        /// <param name="entityType">The entity within the dataset. Required when type is PortfolioContents, in which case it is one of: Holding, Valuation, Transaction, OutputTransaction, SettlementActivity. Required when type is LusidEntity, in which case it is Instrument. Must be omitted when type is RelationalData. Available values: Holding, Valuation, Transaction, OutputTransaction, SettlementActivity, Instrument..</param>
         /// <param name="relationalDatasetDefinitionId">relationalDatasetDefinitionId.</param>
         public RecDatasetSchema(string type = default(string), string entityType = default(string), ResourceId relationalDatasetDefinitionId = default(ResourceId))
         {
@@ -59,9 +59,9 @@ namespace Lusid.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// The entity within the dataset. Required when type is PortfolioContents, in which case it is one of: Holding, Valuation, Transaction, OutputTransaction, SettlementActivity. Must be omitted when type is RelationalData. Available values: Holding, Valuation, Transaction, OutputTransaction, SettlementActivity.
+        /// The entity within the dataset. Required when type is PortfolioContents, in which case it is one of: Holding, Valuation, Transaction, OutputTransaction, SettlementActivity. Required when type is LusidEntity, in which case it is Instrument. Must be omitted when type is RelationalData. Available values: Holding, Valuation, Transaction, OutputTransaction, SettlementActivity, Instrument.
         /// </summary>
-        /// <value>The entity within the dataset. Required when type is PortfolioContents, in which case it is one of: Holding, Valuation, Transaction, OutputTransaction, SettlementActivity. Must be omitted when type is RelationalData. Available values: Holding, Valuation, Transaction, OutputTransaction, SettlementActivity.</value>
+        /// <value>The entity within the dataset. Required when type is PortfolioContents, in which case it is one of: Holding, Valuation, Transaction, OutputTransaction, SettlementActivity. Required when type is LusidEntity, in which case it is Instrument. Must be omitted when type is RelationalData. Available values: Holding, Valuation, Transaction, OutputTransaction, SettlementActivity, Instrument.</value>
         [DataMember(Name = "entityType", EmitDefaultValue = true)]
         public string EntityType { get; set; }
 

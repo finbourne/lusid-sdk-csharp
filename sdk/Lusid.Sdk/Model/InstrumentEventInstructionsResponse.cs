@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The collection of successfully upserted instructions, and the collection of failures for those instructions that could not be upserted
+    /// The collection of successfully upserted instructions, the collection of those staged pending approval, and the collection of failures for those instructions that could not be upserted
     /// </summary>
     [DataContract(Name = "InstrumentEventInstructionsResponse")]
     public partial class InstrumentEventInstructionsResponse : IEquatable<InstrumentEventInstructionsResponse>, IValidatableObject
@@ -33,10 +33,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="values">The collection of successfully upserted instructions.</param>
         /// <param name="failed">The collection of error information for instructions that could not be upserted.</param>
-        public InstrumentEventInstructionsResponse(Dictionary<string, InstrumentEventInstruction> values = default(Dictionary<string, InstrumentEventInstruction>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>))
+        /// <param name="staged">The instructions that have been staged pending approval..</param>
+        public InstrumentEventInstructionsResponse(Dictionary<string, InstrumentEventInstruction> values = default(Dictionary<string, InstrumentEventInstruction>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), Dictionary<string, InstrumentEventInstruction> staged = default(Dictionary<string, InstrumentEventInstruction>))
         {
             this.Values = values;
             this.Failed = failed;
+            this.Staged = staged;
         }
 
         /// <summary>
@@ -54,6 +56,13 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, ErrorDetail> Failed { get; set; }
 
         /// <summary>
+        /// The instructions that have been staged pending approval.
+        /// </summary>
+        /// <value>The instructions that have been staged pending approval.</value>
+        [DataMember(Name = "staged", EmitDefaultValue = true)]
+        public Dictionary<string, InstrumentEventInstruction> Staged { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +72,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class InstrumentEventInstructionsResponse {\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  Failed: ").Append(Failed).Append("\n");
+            sb.Append("  Staged: ").Append(Staged).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,6 +119,12 @@ namespace Lusid.Sdk.Model
                     this.Failed != null &&
                     input.Failed != null &&
                     this.Failed.SequenceEqual(input.Failed)
+                ) && 
+                (
+                    this.Staged == input.Staged ||
+                    this.Staged != null &&
+                    input.Staged != null &&
+                    this.Staged.SequenceEqual(input.Staged)
                 );
         }
 
@@ -128,6 +144,10 @@ namespace Lusid.Sdk.Model
                 if (this.Failed != null)
                 {
                     hashCode = (hashCode * 59) + this.Failed.GetHashCode();
+                }
+                if (this.Staged != null)
+                {
+                    hashCode = (hashCode * 59) + this.Staged.GetHashCode();
                 }
                 return hashCode;
             }

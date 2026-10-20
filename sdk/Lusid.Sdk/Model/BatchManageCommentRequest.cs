@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="BatchManageCommentRequest" /> class.
         /// </summary>
         /// <param name="instanceId">instanceId (required).</param>
-        /// <param name="recType">The rec type whose results this item targets (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External. (required).</param>
+        /// <param name="recType">The rec type whose results this item targets (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument. (required).</param>
         /// <param name="runNumber">The run of the instance whose results this item targets. (required).</param>
         /// <param name="recResultId">The rec result the comment operation targets. (required).</param>
         /// <param name="commentId">The comment id. Null with text &#x3D; add; provided with text &#x3D; edit; provided with null text &#x3D; delete..</param>
@@ -74,9 +74,9 @@ namespace Lusid.Sdk.Model
         public RecInstanceId InstanceId { get; set; }
 
         /// <summary>
-        /// The rec type whose results this item targets (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External.
+        /// The rec type whose results this item targets (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument.
         /// </summary>
-        /// <value>The rec type whose results this item targets (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External.</value>
+        /// <value>The rec type whose results this item targets (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument.</value>
         [DataMember(Name = "recType", IsRequired = true, EmitDefaultValue = true)]
         public string RecType { get; set; }
 

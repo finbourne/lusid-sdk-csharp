@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="displayName">The name of the matching ruleset. (required).</param>
-        /// <param name="recType">The type of reconciliation to perform. External reconciles non-native data on both sides, described by the datasetSchemas and the externalRecType. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External. (required).</param>
+        /// <param name="recType">The type of reconciliation to perform. External reconciles non-native data on both sides, described by the datasetSchemas and the externalRecType. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument. (required).</param>
         /// <param name="externalRecType">externalRecType.</param>
         /// <param name="datasetSchemas">datasetSchemas (required).</param>
         /// <param name="filters">filters.</param>
@@ -49,10 +49,11 @@ namespace Lusid.Sdk.Model
         /// <param name="allowPartialMatching">Whether to permit partial matches when applying rules. Optional, defaults to true if a value is not provided..</param>
         /// <param name="supplementalAttributes">Supplemental attributes that decorate reconciliation results with additional values without participating in the reconciliation itself..</param>
         /// <param name="writebackConfigurations">The writeback suggestions generated against this ruleset&#39;s results. Suggestions are made at item level on target-side items only, and are suggestions only: a user is expected to review them before acting. Optional, and may be empty..</param>
+        /// <param name="populateResultProperties">The RecResult properties to populate on this ruleset&#39;s results, each from a formula over the result. Optional, and may be empty; at most 20..</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public MatchingRuleset(ResourceId id = default(ResourceId), string displayName = default(string), string recType = default(string), ExternalRecType externalRecType = default(ExternalRecType), RecDatasetSchemas datasetSchemas = default(RecDatasetSchemas), GroupReconciliationFilters filters = default(GroupReconciliationFilters), List<CoreMatchingRule> coreRules = default(List<CoreMatchingRule>), List<AggregateMatchingRule> aggregateRules = default(List<AggregateMatchingRule>), List<ToleranceBase> coreTolerances = default(List<ToleranceBase>), List<ToleranceBase> aggregateTolerances = default(List<ToleranceBase>), bool allowPartialMatching = default(bool), List<SupplementalAttribute> supplementalAttributes = default(List<SupplementalAttribute>), List<WritebackConfiguration> writebackConfigurations = default(List<WritebackConfiguration>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public MatchingRuleset(ResourceId id = default(ResourceId), string displayName = default(string), string recType = default(string), ExternalRecType externalRecType = default(ExternalRecType), RecDatasetSchemas datasetSchemas = default(RecDatasetSchemas), GroupReconciliationFilters filters = default(GroupReconciliationFilters), List<CoreMatchingRule> coreRules = default(List<CoreMatchingRule>), List<AggregateMatchingRule> aggregateRules = default(List<AggregateMatchingRule>), List<ToleranceBase> coreTolerances = default(List<ToleranceBase>), List<ToleranceBase> aggregateTolerances = default(List<ToleranceBase>), bool allowPartialMatching = default(bool), List<SupplementalAttribute> supplementalAttributes = default(List<SupplementalAttribute>), List<WritebackConfiguration> writebackConfigurations = default(List<WritebackConfiguration>), List<PopulateResultProperty> populateResultProperties = default(List<PopulateResultProperty>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -97,6 +98,7 @@ namespace Lusid.Sdk.Model
             this.AllowPartialMatching = allowPartialMatching;
             this.SupplementalAttributes = supplementalAttributes;
             this.WritebackConfigurations = writebackConfigurations;
+            this.PopulateResultProperties = populateResultProperties;
             this.Href = href;
             this.VarVersion = varVersion;
             this.Links = links;
@@ -116,9 +118,9 @@ namespace Lusid.Sdk.Model
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// The type of reconciliation to perform. External reconciles non-native data on both sides, described by the datasetSchemas and the externalRecType. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External.
+        /// The type of reconciliation to perform. External reconciles non-native data on both sides, described by the datasetSchemas and the externalRecType. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument.
         /// </summary>
-        /// <value>The type of reconciliation to perform. External reconciles non-native data on both sides, described by the datasetSchemas and the externalRecType. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External.</value>
+        /// <value>The type of reconciliation to perform. External reconciles non-native data on both sides, described by the datasetSchemas and the externalRecType. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument.</value>
         [DataMember(Name = "recType", IsRequired = true, EmitDefaultValue = true)]
         public string RecType { get; set; }
 
@@ -190,6 +192,13 @@ namespace Lusid.Sdk.Model
         public List<WritebackConfiguration> WritebackConfigurations { get; set; }
 
         /// <summary>
+        /// The RecResult properties to populate on this ruleset&#39;s results, each from a formula over the result. Optional, and may be empty; at most 20.
+        /// </summary>
+        /// <value>The RecResult properties to populate on this ruleset&#39;s results, each from a formula over the result. Optional, and may be empty; at most 20.</value>
+        [DataMember(Name = "populateResultProperties", EmitDefaultValue = true)]
+        public List<PopulateResultProperty> PopulateResultProperties { get; set; }
+
+        /// <summary>
         /// The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
         /// </summary>
         /// <value>The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.</value>
@@ -229,6 +238,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AllowPartialMatching: ").Append(AllowPartialMatching).Append("\n");
             sb.Append("  SupplementalAttributes: ").Append(SupplementalAttributes).Append("\n");
             sb.Append("  WritebackConfigurations: ").Append(WritebackConfigurations).Append("\n");
+            sb.Append("  PopulateResultProperties: ").Append(PopulateResultProperties).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -338,6 +348,12 @@ namespace Lusid.Sdk.Model
                     this.WritebackConfigurations.SequenceEqual(input.WritebackConfigurations)
                 ) && 
                 (
+                    this.PopulateResultProperties == input.PopulateResultProperties ||
+                    this.PopulateResultProperties != null &&
+                    input.PopulateResultProperties != null &&
+                    this.PopulateResultProperties.SequenceEqual(input.PopulateResultProperties)
+                ) && 
+                (
                     this.Href == input.Href ||
                     (this.Href != null &&
                     this.Href.Equals(input.Href))
@@ -412,6 +428,10 @@ namespace Lusid.Sdk.Model
                 if (this.WritebackConfigurations != null)
                 {
                     hashCode = (hashCode * 59) + this.WritebackConfigurations.GetHashCode();
+                }
+                if (this.PopulateResultProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.PopulateResultProperties.GetHashCode();
                 }
                 if (this.Href != null)
                 {

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | [**ResourceId**](ResourceId.md) |  | 
 **DisplayName** | **string** | The name of the matching ruleset. | 
-**RecType** | **string** | The type of reconciliation to perform. External reconciles non-native data on both sides, described by the datasetSchemas and the externalRecType. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External. | 
+**RecType** | **string** | The type of reconciliation to perform. External reconciles non-native data on both sides, described by the datasetSchemas and the externalRecType. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument. | 
 **ExternalRecType** | [**ExternalRecType**](ExternalRecType.md) |  | [optional] 
 **DatasetSchemas** | [**RecDatasetSchemas**](RecDatasetSchemas.md) |  | 
 **Filters** | [**GroupReconciliationFilters**](GroupReconciliationFilters.md) |  | [optional] 
@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **AllowPartialMatching** | **bool** | Whether to permit partial matches when applying rules. Optional, defaults to true if a value is not provided. | [optional] 
 **SupplementalAttributes** | [**List&lt;SupplementalAttribute&gt;**](SupplementalAttribute.md) | Supplemental attributes that decorate reconciliation results with additional values without participating in the reconciliation itself. | [optional] 
 **WritebackConfigurations** | [**List&lt;WritebackConfiguration&gt;**](WritebackConfiguration.md) | The writeback suggestions generated against this ruleset&#39;s results. Suggestions are made at item level on target-side items only, and are suggestions only: a user is expected to review them before acting. Optional, and may be empty. | [optional] 
+**PopulateResultProperties** | [**List&lt;PopulateResultProperty&gt;**](PopulateResultProperty.md) | The RecResult properties to populate on this ruleset&#39;s results, each from a formula over the result. Optional, and may be empty; at most 20. | [optional] 
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
@@ -40,6 +41,7 @@ List<ToleranceBase> aggregateTolerances = new List<ToleranceBase>();
 bool allowPartialMatching = //"True";
 List<SupplementalAttribute> supplementalAttributes = new List<SupplementalAttribute>();
 List<WritebackConfiguration> writebackConfigurations = new List<WritebackConfiguration>();
+List<PopulateResultProperty> populateResultProperties = new List<PopulateResultProperty>();
 string href = "example href";
 ModelVersion? varVersion = new ModelVersion();
 
@@ -59,6 +61,7 @@ MatchingRuleset matchingRulesetInstance = new MatchingRuleset(
     allowPartialMatching: allowPartialMatching,
     supplementalAttributes: supplementalAttributes,
     writebackConfigurations: writebackConfigurations,
+    populateResultProperties: populateResultProperties,
     href: href,
     varVersion: varVersion,
     links: links);

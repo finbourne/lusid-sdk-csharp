@@ -43,8 +43,9 @@ namespace Lusid.Sdk.Model
         /// <param name="quantityInstructed">quantityInstructed.</param>
         /// <param name="taxLotId">For loan facility holding instructions, the tax lot id of the holding for which the instruction will apply.</param>
         /// <param name="ignoreCostImpact">For loan facility holding instructions, set this flag to &#39;true&#39; if you want the event to not impact cost. If you want to use this option, do not add multiple instructions to the same tax lot or you will get undefined behaviour..</param>
+        /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="links">links.</param>
-        public InstrumentEventInstruction(string instrumentEventInstructionId = default(string), ResourceId portfolioId = default(ResourceId), string instrumentEventId = default(string), string instructionType = default(string), string electionKey = default(string), long? holdingId = default(long?), ModelVersion varVersion = default(ModelVersion), string href = default(string), DateTimeOffset? entitlementDateInstructed = default(DateTimeOffset?), QuantityInstructed quantityInstructed = default(QuantityInstructed), string taxLotId = default(string), bool ignoreCostImpact = default(bool), List<Link> links = default(List<Link>))
+        public InstrumentEventInstruction(string instrumentEventInstructionId = default(string), ResourceId portfolioId = default(ResourceId), string instrumentEventId = default(string), string instructionType = default(string), string electionKey = default(string), long? holdingId = default(long?), ModelVersion varVersion = default(ModelVersion), string href = default(string), DateTimeOffset? entitlementDateInstructed = default(DateTimeOffset?), QuantityInstructed quantityInstructed = default(QuantityInstructed), string taxLotId = default(string), bool ignoreCostImpact = default(bool), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<Link> links = default(List<Link>))
         {
             this.InstrumentEventInstructionId = instrumentEventInstructionId;
             this.PortfolioId = portfolioId;
@@ -58,6 +59,7 @@ namespace Lusid.Sdk.Model
             this.QuantityInstructed = quantityInstructed;
             this.TaxLotId = taxLotId;
             this.IgnoreCostImpact = ignoreCostImpact;
+            this.StagedModifications = stagedModifications;
             this.Links = links;
         }
 
@@ -143,6 +145,12 @@ namespace Lusid.Sdk.Model
         public bool IgnoreCostImpact { get; set; }
 
         /// <summary>
+        /// Gets or Sets StagedModifications
+        /// </summary>
+        [DataMember(Name = "stagedModifications", EmitDefaultValue = false)]
+        public StagedModificationsInfo StagedModifications { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -168,6 +176,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  QuantityInstructed: ").Append(QuantityInstructed).Append("\n");
             sb.Append("  TaxLotId: ").Append(TaxLotId).Append("\n");
             sb.Append("  IgnoreCostImpact: ").Append(IgnoreCostImpact).Append("\n");
+            sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -264,6 +273,11 @@ namespace Lusid.Sdk.Model
                     this.IgnoreCostImpact.Equals(input.IgnoreCostImpact)
                 ) && 
                 (
+                    this.StagedModifications == input.StagedModifications ||
+                    (this.StagedModifications != null &&
+                    this.StagedModifications.Equals(input.StagedModifications))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -325,6 +339,10 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.TaxLotId.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.IgnoreCostImpact.GetHashCode();
+                if (this.StagedModifications != null)
+                {
+                    hashCode = (hashCode * 59) + this.StagedModifications.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

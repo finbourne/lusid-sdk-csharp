@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **BusinessDayConvention** | **string** | When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day.                If not set, defaults to the value of RollConvention. Available values: NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest, Invalid. | [optional] 
 **AccrualDayCountConvention** | **string** | Optional, if not set the main DayCountConvention is used for all accrual calculations.  This only needs to be set when accrual uses a different day count to the coupon calculation. | [optional] 
 **CouponPaymentLag** | [**RelativeDateOffset**](RelativeDateOffset.md) |  | [optional] 
+**PrincipalPaymentLag** | [**RelativeDateOffset**](RelativeDateOffset.md) |  | [optional] 
 **Scope** | **string** | The scope used when updating or inserting the convention. | [optional] 
 **Code** | **string** | The code of the convention. | [optional] 
 
@@ -37,6 +38,8 @@ string businessDayConvention = "example businessDayConvention";
 string accrualDayCountConvention = "example accrualDayCountConvention";
 RelativeDateOffset? couponPaymentLag = new RelativeDateOffset();
 
+RelativeDateOffset? principalPaymentLag = new RelativeDateOffset();
+
 string scope = "example scope";
 string code = "example code";
 
@@ -54,6 +57,7 @@ FlowConventions flowConventionsInstance = new FlowConventions(
     businessDayConvention: businessDayConvention,
     accrualDayCountConvention: accrualDayCountConvention,
     couponPaymentLag: couponPaymentLag,
+    principalPaymentLag: principalPaymentLag,
     scope: scope,
     code: code);
 ```

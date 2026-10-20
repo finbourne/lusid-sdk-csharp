@@ -42,10 +42,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Code of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="requestBody">The rate rows to delete, keyed by a correlation id echoed back in the response.</param>
         /// <param name="successMode">Atomic or Partial; defaults to Atomic. In Partial mode failures are returned              in the response body with a 200 status. (optional, default to &quot;Atomic&quot;)</param>
+        /// <param name="ruleSource">The source of the rows to delete, since it is part of each row&#39;s identity. Omit it              to delete rows that apply at every source; a source&#39;s rows are only deleted when it is given. A row may not              carry ruleSource in its own series identifiers. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BatchDeleteRelationalDataResponse</returns>
-        BatchDeleteRelationalDataResponse BatchDeleteWithholdingTaxRates(string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        BatchDeleteRelationalDataResponse BatchDeleteWithholdingTaxRates(string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), string? ruleSource = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] BatchDeleteWithholdingTaxRates: Batch delete Withholding Tax rate rows from a rate dataset.
@@ -58,41 +59,44 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Code of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="requestBody">The rate rows to delete, keyed by a correlation id echoed back in the response.</param>
         /// <param name="successMode">Atomic or Partial; defaults to Atomic. In Partial mode failures are returned              in the response body with a 200 status. (optional, default to &quot;Atomic&quot;)</param>
+        /// <param name="ruleSource">The source of the rows to delete, since it is part of each row&#39;s identity. Omit it              to delete rows that apply at every source; a source&#39;s rows are only deleted when it is given. A row may not              carry ruleSource in its own series identifiers. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BatchDeleteRelationalDataResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<BatchDeleteRelationalDataResponse> BatchDeleteWithholdingTaxRatesWithHttpInfo(string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<BatchDeleteRelationalDataResponse> BatchDeleteWithholdingTaxRatesWithHttpInfo(string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), string? ruleSource = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands.
         /// </summary>
         /// <remarks>
-        /// Row identity is the matching dimensions plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same dimensions.
+        /// Row identity is the series identifiers plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same series identifiers. One batch carries one rule source, so a feed mixing rows  from a source with rows that apply at every source is loaded in two calls.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The Scope of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="code">The Code of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="requestBody">The rate rows to upsert, keyed by a correlation id echoed back in the response.</param>
         /// <param name="successMode">Atomic or Partial; defaults to Atomic, because a partly loaded feed silently              under-withholds. In Partial mode failures are returned in the response body with a 200 status. (optional, default to &quot;Atomic&quot;)</param>
+        /// <param name="ruleSource">The source every row in the batch is attributed to, compared against the              configuration&#39;s source priority. Omit it for rows that apply at every source. A row may not carry ruleSource              in its own series identifiers. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BatchUpsertWithholdingTaxRatesResponse</returns>
-        BatchUpsertWithholdingTaxRatesResponse BatchUpsertWithholdingTaxRates(string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        BatchUpsertWithholdingTaxRatesResponse BatchUpsertWithholdingTaxRates(string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), string? ruleSource = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands.
         /// </summary>
         /// <remarks>
-        /// Row identity is the matching dimensions plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same dimensions.
+        /// Row identity is the series identifiers plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same series identifiers. One batch carries one rule source, so a feed mixing rows  from a source with rows that apply at every source is loaded in two calls.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The Scope of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="code">The Code of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="requestBody">The rate rows to upsert, keyed by a correlation id echoed back in the response.</param>
         /// <param name="successMode">Atomic or Partial; defaults to Atomic, because a partly loaded feed silently              under-withholds. In Partial mode failures are returned in the response body with a 200 status. (optional, default to &quot;Atomic&quot;)</param>
+        /// <param name="ruleSource">The source every row in the batch is attributed to, compared against the              configuration&#39;s source priority. Omit it for rows that apply at every source. A row may not carry ruleSource              in its own series identifiers. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BatchUpsertWithholdingTaxRatesResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<BatchUpsertWithholdingTaxRatesResponse> BatchUpsertWithholdingTaxRatesWithHttpInfo(string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<BatchUpsertWithholdingTaxRatesResponse> BatchUpsertWithholdingTaxRatesWithHttpInfo(string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), string? ruleSource = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CreateWithholdingTaxDatasetDefinitions: Create the Withholding Tax dataset definitions.
         /// </summary>
@@ -374,11 +378,12 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Code of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="requestBody">The rate rows to delete, keyed by a correlation id echoed back in the response.</param>
         /// <param name="successMode">Atomic or Partial; defaults to Atomic. In Partial mode failures are returned              in the response body with a 200 status. (optional, default to &quot;Atomic&quot;)</param>
+        /// <param name="ruleSource">The source of the rows to delete, since it is part of each row&#39;s identity. Omit it              to delete rows that apply at every source; a source&#39;s rows are only deleted when it is given. A row may not              carry ruleSource in its own series identifiers. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BatchDeleteRelationalDataResponse</returns>
-        System.Threading.Tasks.Task<BatchDeleteRelationalDataResponse> BatchDeleteWithholdingTaxRatesAsync(string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<BatchDeleteRelationalDataResponse> BatchDeleteWithholdingTaxRatesAsync(string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), string? ruleSource = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] BatchDeleteWithholdingTaxRates: Batch delete Withholding Tax rate rows from a rate dataset.
@@ -391,44 +396,47 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Code of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="requestBody">The rate rows to delete, keyed by a correlation id echoed back in the response.</param>
         /// <param name="successMode">Atomic or Partial; defaults to Atomic. In Partial mode failures are returned              in the response body with a 200 status. (optional, default to &quot;Atomic&quot;)</param>
+        /// <param name="ruleSource">The source of the rows to delete, since it is part of each row&#39;s identity. Omit it              to delete rows that apply at every source; a source&#39;s rows are only deleted when it is given. A row may not              carry ruleSource in its own series identifiers. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BatchDeleteRelationalDataResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchDeleteRelationalDataResponse>> BatchDeleteWithholdingTaxRatesWithHttpInfoAsync(string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchDeleteRelationalDataResponse>> BatchDeleteWithholdingTaxRatesWithHttpInfoAsync(string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), string? ruleSource = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands.
         /// </summary>
         /// <remarks>
-        /// Row identity is the matching dimensions plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same dimensions.
+        /// Row identity is the series identifiers plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same series identifiers. One batch carries one rule source, so a feed mixing rows  from a source with rows that apply at every source is loaded in two calls.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The Scope of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="code">The Code of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="requestBody">The rate rows to upsert, keyed by a correlation id echoed back in the response.</param>
         /// <param name="successMode">Atomic or Partial; defaults to Atomic, because a partly loaded feed silently              under-withholds. In Partial mode failures are returned in the response body with a 200 status. (optional, default to &quot;Atomic&quot;)</param>
+        /// <param name="ruleSource">The source every row in the batch is attributed to, compared against the              configuration&#39;s source priority. Omit it for rows that apply at every source. A row may not carry ruleSource              in its own series identifiers. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BatchUpsertWithholdingTaxRatesResponse</returns>
-        System.Threading.Tasks.Task<BatchUpsertWithholdingTaxRatesResponse> BatchUpsertWithholdingTaxRatesAsync(string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<BatchUpsertWithholdingTaxRatesResponse> BatchUpsertWithholdingTaxRatesAsync(string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), string? ruleSource = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands.
         /// </summary>
         /// <remarks>
-        /// Row identity is the matching dimensions plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same dimensions.
+        /// Row identity is the series identifiers plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same series identifiers. One batch carries one rule source, so a feed mixing rows  from a source with rows that apply at every source is loaded in two calls.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The Scope of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="code">The Code of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="requestBody">The rate rows to upsert, keyed by a correlation id echoed back in the response.</param>
         /// <param name="successMode">Atomic or Partial; defaults to Atomic, because a partly loaded feed silently              under-withholds. In Partial mode failures are returned in the response body with a 200 status. (optional, default to &quot;Atomic&quot;)</param>
+        /// <param name="ruleSource">The source every row in the batch is attributed to, compared against the              configuration&#39;s source priority. Omit it for rows that apply at every source. A row may not carry ruleSource              in its own series identifiers. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BatchUpsertWithholdingTaxRatesResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertWithholdingTaxRatesResponse>> BatchUpsertWithholdingTaxRatesWithHttpInfoAsync(string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertWithholdingTaxRatesResponse>> BatchUpsertWithholdingTaxRatesWithHttpInfoAsync(string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), string? ruleSource = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CreateWithholdingTaxDatasetDefinitions: Create the Withholding Tax dataset definitions.
         /// </summary>
@@ -839,12 +847,13 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Code of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="requestBody">The rate rows to delete, keyed by a correlation id echoed back in the response.</param>
         /// <param name="successMode">Atomic or Partial; defaults to Atomic. In Partial mode failures are returned              in the response body with a 200 status. (optional, default to &quot;Atomic&quot;)</param>
+        /// <param name="ruleSource">The source of the rows to delete, since it is part of each row&#39;s identity. Omit it              to delete rows that apply at every source; a source&#39;s rows are only deleted when it is given. A row may not              carry ruleSource in its own series identifiers. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BatchDeleteRelationalDataResponse</returns>
-        public BatchDeleteRelationalDataResponse BatchDeleteWithholdingTaxRates(string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public BatchDeleteRelationalDataResponse BatchDeleteWithholdingTaxRates(string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), string? ruleSource = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<BatchDeleteRelationalDataResponse> localVarResponse = BatchDeleteWithholdingTaxRatesWithHttpInfo(scope, code, requestBody, successMode, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<BatchDeleteRelationalDataResponse> localVarResponse = BatchDeleteWithholdingTaxRatesWithHttpInfo(scope, code, requestBody, successMode, ruleSource, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -856,10 +865,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Code of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="requestBody">The rate rows to delete, keyed by a correlation id echoed back in the response.</param>
         /// <param name="successMode">Atomic or Partial; defaults to Atomic. In Partial mode failures are returned              in the response body with a 200 status. (optional, default to &quot;Atomic&quot;)</param>
+        /// <param name="ruleSource">The source of the rows to delete, since it is part of each row&#39;s identity. Omit it              to delete rows that apply at every source; a source&#39;s rows are only deleted when it is given. A row may not              carry ruleSource in its own series identifiers. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BatchDeleteRelationalDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<BatchDeleteRelationalDataResponse> BatchDeleteWithholdingTaxRatesWithHttpInfo(string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<BatchDeleteRelationalDataResponse> BatchDeleteWithholdingTaxRatesWithHttpInfo(string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), string? ruleSource = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -923,6 +933,11 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
+            }
+            if (ruleSource != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "ruleSource", ruleSource));
             }
             localVarRequestOptions.Data = requestBody;
 
@@ -968,13 +983,14 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Code of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="requestBody">The rate rows to delete, keyed by a correlation id echoed back in the response.</param>
         /// <param name="successMode">Atomic or Partial; defaults to Atomic. In Partial mode failures are returned              in the response body with a 200 status. (optional, default to &quot;Atomic&quot;)</param>
+        /// <param name="ruleSource">The source of the rows to delete, since it is part of each row&#39;s identity. Omit it              to delete rows that apply at every source; a source&#39;s rows are only deleted when it is given. A row may not              carry ruleSource in its own series identifiers. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BatchDeleteRelationalDataResponse</returns>
-        public async System.Threading.Tasks.Task<BatchDeleteRelationalDataResponse> BatchDeleteWithholdingTaxRatesAsync(string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<BatchDeleteRelationalDataResponse> BatchDeleteWithholdingTaxRatesAsync(string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), string? ruleSource = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<BatchDeleteRelationalDataResponse> localVarResponse = await BatchDeleteWithholdingTaxRatesWithHttpInfoAsync(scope, code, requestBody, successMode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<BatchDeleteRelationalDataResponse> localVarResponse = await BatchDeleteWithholdingTaxRatesWithHttpInfoAsync(scope, code, requestBody, successMode, ruleSource, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -986,11 +1002,12 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Code of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="requestBody">The rate rows to delete, keyed by a correlation id echoed back in the response.</param>
         /// <param name="successMode">Atomic or Partial; defaults to Atomic. In Partial mode failures are returned              in the response body with a 200 status. (optional, default to &quot;Atomic&quot;)</param>
+        /// <param name="ruleSource">The source of the rows to delete, since it is part of each row&#39;s identity. Omit it              to delete rows that apply at every source; a source&#39;s rows are only deleted when it is given. A row may not              carry ruleSource in its own series identifiers. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BatchDeleteRelationalDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchDeleteRelationalDataResponse>> BatchDeleteWithholdingTaxRatesWithHttpInfoAsync(string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchDeleteRelationalDataResponse>> BatchDeleteWithholdingTaxRatesWithHttpInfoAsync(string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), string? ruleSource = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1055,6 +1072,10 @@ namespace Lusid.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
             }
+            if (ruleSource != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "ruleSource", ruleSource));
+            }
             localVarRequestOptions.Data = requestBody;
 
             localVarRequestOptions.Operation = "WithholdingTaxApi.BatchDeleteWithholdingTaxRates";
@@ -1093,34 +1114,36 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands. Row identity is the matching dimensions plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same dimensions.
+        /// [EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands. Row identity is the series identifiers plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same series identifiers. One batch carries one rule source, so a feed mixing rows  from a source with rows that apply at every source is loaded in two calls.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The Scope of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="code">The Code of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="requestBody">The rate rows to upsert, keyed by a correlation id echoed back in the response.</param>
         /// <param name="successMode">Atomic or Partial; defaults to Atomic, because a partly loaded feed silently              under-withholds. In Partial mode failures are returned in the response body with a 200 status. (optional, default to &quot;Atomic&quot;)</param>
+        /// <param name="ruleSource">The source every row in the batch is attributed to, compared against the              configuration&#39;s source priority. Omit it for rows that apply at every source. A row may not carry ruleSource              in its own series identifiers. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BatchUpsertWithholdingTaxRatesResponse</returns>
-        public BatchUpsertWithholdingTaxRatesResponse BatchUpsertWithholdingTaxRates(string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public BatchUpsertWithholdingTaxRatesResponse BatchUpsertWithholdingTaxRates(string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), string? ruleSource = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<BatchUpsertWithholdingTaxRatesResponse> localVarResponse = BatchUpsertWithholdingTaxRatesWithHttpInfo(scope, code, requestBody, successMode, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<BatchUpsertWithholdingTaxRatesResponse> localVarResponse = BatchUpsertWithholdingTaxRatesWithHttpInfo(scope, code, requestBody, successMode, ruleSource, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands. Row identity is the matching dimensions plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same dimensions.
+        /// [EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands. Row identity is the series identifiers plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same series identifiers. One batch carries one rule source, so a feed mixing rows  from a source with rows that apply at every source is loaded in two calls.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The Scope of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="code">The Code of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="requestBody">The rate rows to upsert, keyed by a correlation id echoed back in the response.</param>
         /// <param name="successMode">Atomic or Partial; defaults to Atomic, because a partly loaded feed silently              under-withholds. In Partial mode failures are returned in the response body with a 200 status. (optional, default to &quot;Atomic&quot;)</param>
+        /// <param name="ruleSource">The source every row in the batch is attributed to, compared against the              configuration&#39;s source priority. Omit it for rows that apply at every source. A row may not carry ruleSource              in its own series identifiers. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BatchUpsertWithholdingTaxRatesResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<BatchUpsertWithholdingTaxRatesResponse> BatchUpsertWithholdingTaxRatesWithHttpInfo(string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<BatchUpsertWithholdingTaxRatesResponse> BatchUpsertWithholdingTaxRatesWithHttpInfo(string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), string? ruleSource = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1185,6 +1208,11 @@ namespace Lusid.Sdk.Api
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
             }
+            if (ruleSource != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "ruleSource", ruleSource));
+            }
             localVarRequestOptions.Data = requestBody;
 
             localVarRequestOptions.Operation = "WithholdingTaxApi.BatchUpsertWithholdingTaxRates";
@@ -1222,36 +1250,38 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands. Row identity is the matching dimensions plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same dimensions.
+        /// [EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands. Row identity is the series identifiers plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same series identifiers. One batch carries one rule source, so a feed mixing rows  from a source with rows that apply at every source is loaded in two calls.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The Scope of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="code">The Code of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="requestBody">The rate rows to upsert, keyed by a correlation id echoed back in the response.</param>
         /// <param name="successMode">Atomic or Partial; defaults to Atomic, because a partly loaded feed silently              under-withholds. In Partial mode failures are returned in the response body with a 200 status. (optional, default to &quot;Atomic&quot;)</param>
+        /// <param name="ruleSource">The source every row in the batch is attributed to, compared against the              configuration&#39;s source priority. Omit it for rows that apply at every source. A row may not carry ruleSource              in its own series identifiers. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BatchUpsertWithholdingTaxRatesResponse</returns>
-        public async System.Threading.Tasks.Task<BatchUpsertWithholdingTaxRatesResponse> BatchUpsertWithholdingTaxRatesAsync(string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<BatchUpsertWithholdingTaxRatesResponse> BatchUpsertWithholdingTaxRatesAsync(string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), string? ruleSource = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<BatchUpsertWithholdingTaxRatesResponse> localVarResponse = await BatchUpsertWithholdingTaxRatesWithHttpInfoAsync(scope, code, requestBody, successMode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<BatchUpsertWithholdingTaxRatesResponse> localVarResponse = await BatchUpsertWithholdingTaxRatesWithHttpInfoAsync(scope, code, requestBody, successMode, ruleSource, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands. Row identity is the matching dimensions plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same dimensions.
+        /// [EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands. Row identity is the series identifiers plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same series identifiers. One batch carries one rule source, so a feed mixing rows  from a source with rows that apply at every source is loaded in two calls.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The Scope of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="code">The Code of the rate dataset&#39;s relational dataset definition.</param>
         /// <param name="requestBody">The rate rows to upsert, keyed by a correlation id echoed back in the response.</param>
         /// <param name="successMode">Atomic or Partial; defaults to Atomic, because a partly loaded feed silently              under-withholds. In Partial mode failures are returned in the response body with a 200 status. (optional, default to &quot;Atomic&quot;)</param>
+        /// <param name="ruleSource">The source every row in the batch is attributed to, compared against the              configuration&#39;s source priority. Omit it for rows that apply at every source. A row may not carry ruleSource              in its own series identifiers. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BatchUpsertWithholdingTaxRatesResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertWithholdingTaxRatesResponse>> BatchUpsertWithholdingTaxRatesWithHttpInfoAsync(string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertWithholdingTaxRatesResponse>> BatchUpsertWithholdingTaxRatesWithHttpInfoAsync(string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = default(string?), string? ruleSource = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1315,6 +1345,10 @@ namespace Lusid.Sdk.Api
             if (successMode != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
+            }
+            if (ruleSource != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "ruleSource", ruleSource));
             }
             localVarRequestOptions.Data = requestBody;
 

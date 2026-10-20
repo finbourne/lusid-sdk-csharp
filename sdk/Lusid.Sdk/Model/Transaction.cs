@@ -128,7 +128,7 @@ namespace Lusid.Sdk.Model
         /// <param name="varVersion">varVersion.</param>
         /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="custodianEntries">A list of Custodian Entries associated with the transaction..</param>
-        /// <param name="entityLinks">Links to the entities related to this transaction..</param>
+        /// <param name="entityLinks">Links to the entities that manage this transaction..</param>
         public Transaction(string transactionId = default(string), string type = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal? exchangeRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), DateTimeOffset entryDateTime = default(DateTimeOffset), OtcConfirmation otcConfirmation = default(OtcConfirmation), TransactionStatusEnum ?transactionStatus = default(TransactionStatusEnum?), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), List<Strategy> strategyTag = default(List<Strategy>), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails), DataModelMembership dataModelMembership = default(DataModelMembership), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<CustodianEntry> custodianEntries = default(List<CustodianEntry>), List<TransactionEntityLink> entityLinks = default(List<TransactionEntityLink>))
         {
             // to ensure "transactionId" is required (not null)
@@ -370,9 +370,9 @@ namespace Lusid.Sdk.Model
         public List<CustodianEntry> CustodianEntries { get; set; }
 
         /// <summary>
-        /// Links to the entities related to this transaction.
+        /// Links to the entities that manage this transaction.
         /// </summary>
-        /// <value>Links to the entities related to this transaction.</value>
+        /// <value>Links to the entities that manage this transaction.</value>
         [DataMember(Name = "entityLinks", EmitDefaultValue = true)]
         public List<TransactionEntityLink> EntityLinks { get; set; }
 

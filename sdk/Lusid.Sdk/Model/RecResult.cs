@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="id">The id of the result within its run: its result type and result number, e.g. &#39;break-3&#39;. Unique within one run of one rec type of an instance; the same id in another run of the instance names the same result, for as long as it keeps its result type. (required).</param>
         /// <param name="resultNumber">The result&#39;s number within its result type. Kept across runs while the result keeps its type; never reused once assigned. (required).</param>
         /// <param name="firstRunSeen">The run in which the result was first assigned its id. (required).</param>
-        /// <param name="recType">The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External. (required).</param>
+        /// <param name="recType">The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument. (required).</param>
         /// <param name="externalRecTypeName">The client&#39;s name for an External rec type, as stamped from the matching ruleset&#39;s externalRecType when the run executed. Null for native rec types. Filterable..</param>
         /// <param name="instanceId">instanceId (required).</param>
         /// <param name="recDefinitionId">recDefinitionId (required).</param>
@@ -191,9 +191,9 @@ namespace Lusid.Sdk.Model
         public int FirstRunSeen { get; set; }
 
         /// <summary>
-        /// The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External.
+        /// The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument.
         /// </summary>
-        /// <value>The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External.</value>
+        /// <value>The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument.</value>
         [DataMember(Name = "recType", IsRequired = true, EmitDefaultValue = true)]
         public string RecType { get; set; }
 

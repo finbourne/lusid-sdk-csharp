@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="id">id (required).</param>
         /// <param name="anomalyDataset">anomalyDataset (required).</param>
         /// <param name="mainDataset">mainDataset (required).</param>
-        /// <param name="sourcePriority">The rule sources in priority order, most preferred first. Optional: a single-source customer configures none and leaves ruleSource blank on every rate row, in which case no source filter is applied and specificity alone decides..</param>
+        /// <param name="sourcePriority">The rule sources in priority order, most preferred first. Optional: a single-source customer configures none and loads its rate rows without a ruleSource, in which case no source filter is applied and specificity alone decides..</param>
         /// <param name="valueSources">One declaration per customer-defined matching dimension across both datasets, naming where the engine reads that dimension&#39;s value from. A dataset column name cannot imply a storage location, so a declaration is required for every customer dimension: an unmapped dimension is never supplied by the matching request, so no row ever matches on it and the customer silently gets a broader rate than they configured. No declaration is required for taxCountry or profileType, which the engine fills from the waterfall, nor for ruleSource, which is compared against SourcePriority..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
@@ -97,9 +97,9 @@ namespace Lusid.Sdk.Model
         public ResourceId MainDataset { get; set; }
 
         /// <summary>
-        /// The rule sources in priority order, most preferred first. Optional: a single-source customer configures none and leaves ruleSource blank on every rate row, in which case no source filter is applied and specificity alone decides.
+        /// The rule sources in priority order, most preferred first. Optional: a single-source customer configures none and loads its rate rows without a ruleSource, in which case no source filter is applied and specificity alone decides.
         /// </summary>
-        /// <value>The rule sources in priority order, most preferred first. Optional: a single-source customer configures none and leaves ruleSource blank on every rate row, in which case no source filter is applied and specificity alone decides.</value>
+        /// <value>The rule sources in priority order, most preferred first. Optional: a single-source customer configures none and loads its rate rows without a ruleSource, in which case no source filter is applied and specificity alone decides.</value>
         [DataMember(Name = "sourcePriority", EmitDefaultValue = true)]
         public List<string> SourcePriority { get; set; }
 

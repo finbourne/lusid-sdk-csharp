@@ -18,7 +18,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 <a id="batchdeletewithholdingtaxrates"></a>
 # **BatchDeleteWithholdingTaxRates**
-> BatchDeleteRelationalDataResponse BatchDeleteWithholdingTaxRates (string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = null)
+> BatchDeleteRelationalDataResponse BatchDeleteWithholdingTaxRates (string scope, string code, Dictionary<string, DeleteWithholdingTaxRateRequest> requestBody, string? successMode = null, string? ruleSource = null)
 
 [EARLY ACCESS] BatchDeleteWithholdingTaxRates: Batch delete Withholding Tax rate rows from a rate dataset.
 
@@ -67,14 +67,15 @@ namespace Examples
             var code = "code_example";  // string | The Code of the rate dataset's relational dataset definition.
             var requestBody = new Dictionary<string, DeleteWithholdingTaxRateRequest>(); // Dictionary<string, DeleteWithholdingTaxRateRequest> | The rate rows to delete, keyed by a correlation id echoed back in the response.
             var successMode = "\"Atomic\"";  // string? | Atomic or Partial; defaults to Atomic. In Partial mode failures are returned              in the response body with a 200 status. (optional)  (default to "Atomic")
+            var ruleSource = "ruleSource_example";  // string? | The source of the rows to delete, since it is part of each row's identity. Omit it              to delete rows that apply at every source; a source's rows are only deleted when it is given. A row may not              carry ruleSource in its own series identifiers. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // BatchDeleteRelationalDataResponse result = apiInstance.BatchDeleteWithholdingTaxRates(scope, code, requestBody, successMode, opts: opts);
+                // BatchDeleteRelationalDataResponse result = apiInstance.BatchDeleteWithholdingTaxRates(scope, code, requestBody, successMode, ruleSource, opts: opts);
 
                 // [EARLY ACCESS] BatchDeleteWithholdingTaxRates: Batch delete Withholding Tax rate rows from a rate dataset.
-                BatchDeleteRelationalDataResponse result = apiInstance.BatchDeleteWithholdingTaxRates(scope, code, requestBody, successMode);
+                BatchDeleteRelationalDataResponse result = apiInstance.BatchDeleteWithholdingTaxRates(scope, code, requestBody, successMode, ruleSource);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -95,7 +96,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] BatchDeleteWithholdingTaxRates: Batch delete Withholding Tax rate rows from a rate dataset.
-    ApiResponse<BatchDeleteRelationalDataResponse> response = apiInstance.BatchDeleteWithholdingTaxRatesWithHttpInfo(scope, code, requestBody, successMode);
+    ApiResponse<BatchDeleteRelationalDataResponse> response = apiInstance.BatchDeleteWithholdingTaxRatesWithHttpInfo(scope, code, requestBody, successMode, ruleSource);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -116,6 +117,7 @@ catch (ApiException e)
 | **code** | **string** | The Code of the rate dataset&#39;s relational dataset definition. |  |
 | **requestBody** | [**Dictionary&lt;string, DeleteWithholdingTaxRateRequest&gt;**](DeleteWithholdingTaxRateRequest.md) | The rate rows to delete, keyed by a correlation id echoed back in the response. |  |
 | **successMode** | **string?** | Atomic or Partial; defaults to Atomic. In Partial mode failures are returned              in the response body with a 200 status. | [optional] [default to &quot;Atomic&quot;] |
+| **ruleSource** | **string?** | The source of the rows to delete, since it is part of each row&#39;s identity. Omit it              to delete rows that apply at every source; a source&#39;s rows are only deleted when it is given. A row may not              carry ruleSource in its own series identifiers. | [optional]  |
 
 ### Return type
 
@@ -138,11 +140,11 @@ catch (ApiException e)
 
 <a id="batchupsertwithholdingtaxrates"></a>
 # **BatchUpsertWithholdingTaxRates**
-> BatchUpsertWithholdingTaxRatesResponse BatchUpsertWithholdingTaxRates (string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = null)
+> BatchUpsertWithholdingTaxRatesResponse BatchUpsertWithholdingTaxRates (string scope, string code, Dictionary<string, UpsertWithholdingTaxRateRequest> requestBody, string? successMode = null, string? ruleSource = null)
 
 [EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands.
 
-Row identity is the matching dimensions plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same dimensions.
+Row identity is the series identifiers plus effectiveAt; a rate is superseded by loading a row with a  later effectiveAt for the same series identifiers. One batch carries one rule source, so a feed mixing rows  from a source with rows that apply at every source is loaded in two calls.
 
 ### Example
 ```csharp
@@ -187,14 +189,15 @@ namespace Examples
             var code = "code_example";  // string | The Code of the rate dataset's relational dataset definition.
             var requestBody = new Dictionary<string, UpsertWithholdingTaxRateRequest>(); // Dictionary<string, UpsertWithholdingTaxRateRequest> | The rate rows to upsert, keyed by a correlation id echoed back in the response.
             var successMode = "\"Atomic\"";  // string? | Atomic or Partial; defaults to Atomic, because a partly loaded feed silently              under-withholds. In Partial mode failures are returned in the response body with a 200 status. (optional)  (default to "Atomic")
+            var ruleSource = "ruleSource_example";  // string? | The source every row in the batch is attributed to, compared against the              configuration's source priority. Omit it for rows that apply at every source. A row may not carry ruleSource              in its own series identifiers. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // BatchUpsertWithholdingTaxRatesResponse result = apiInstance.BatchUpsertWithholdingTaxRates(scope, code, requestBody, successMode, opts: opts);
+                // BatchUpsertWithholdingTaxRatesResponse result = apiInstance.BatchUpsertWithholdingTaxRates(scope, code, requestBody, successMode, ruleSource, opts: opts);
 
                 // [EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands.
-                BatchUpsertWithholdingTaxRatesResponse result = apiInstance.BatchUpsertWithholdingTaxRates(scope, code, requestBody, successMode);
+                BatchUpsertWithholdingTaxRatesResponse result = apiInstance.BatchUpsertWithholdingTaxRates(scope, code, requestBody, successMode, ruleSource);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -215,7 +218,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands.
-    ApiResponse<BatchUpsertWithholdingTaxRatesResponse> response = apiInstance.BatchUpsertWithholdingTaxRatesWithHttpInfo(scope, code, requestBody, successMode);
+    ApiResponse<BatchUpsertWithholdingTaxRatesResponse> response = apiInstance.BatchUpsertWithholdingTaxRatesWithHttpInfo(scope, code, requestBody, successMode, ruleSource);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -236,6 +239,7 @@ catch (ApiException e)
 | **code** | **string** | The Code of the rate dataset&#39;s relational dataset definition. |  |
 | **requestBody** | [**Dictionary&lt;string, UpsertWithholdingTaxRateRequest&gt;**](UpsertWithholdingTaxRateRequest.md) | The rate rows to upsert, keyed by a correlation id echoed back in the response. |  |
 | **successMode** | **string?** | Atomic or Partial; defaults to Atomic, because a partly loaded feed silently              under-withholds. In Partial mode failures are returned in the response body with a 200 status. | [optional] [default to &quot;Atomic&quot;] |
+| **ruleSource** | **string?** | The source every row in the batch is attributed to, compared against the              configuration&#39;s source priority. Omit it for rows that apply at every source. A row may not carry ruleSource              in its own series identifiers. | [optional]  |
 
 ### Return type
 

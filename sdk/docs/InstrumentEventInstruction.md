@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **QuantityInstructed** | [**QuantityInstructed**](QuantityInstructed.md) |  | [optional] 
 **TaxLotId** | **string** | For loan facility holding instructions, the tax lot id of the holding for which the instruction will apply | [optional] 
 **IgnoreCostImpact** | **bool** | For loan facility holding instructions, set this flag to &#39;true&#39; if you want the event to not impact cost. If you want to use this option, do not add multiple instructions to the same tax lot or you will get undefined behaviour. | [optional] 
+**StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -36,6 +37,8 @@ QuantityInstructed? quantityInstructed = new QuantityInstructed();
 
 string taxLotId = "example taxLotId";
 bool ignoreCostImpact = //"True";
+StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
+
 List<Link> links = new List<Link>();
 
 InstrumentEventInstruction instrumentEventInstructionInstance = new InstrumentEventInstruction(
@@ -51,6 +54,7 @@ InstrumentEventInstruction instrumentEventInstructionInstance = new InstrumentEv
     quantityInstructed: quantityInstructed,
     taxLotId: taxLotId,
     ignoreCostImpact: ignoreCostImpact,
+    stagedModifications: stagedModifications,
     links: links);
 ```
 
