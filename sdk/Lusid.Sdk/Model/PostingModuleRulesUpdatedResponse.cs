@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Model
         /// <param name="varVersion">varVersion.</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="links">links.</param>
-        public PostingModuleRulesUpdatedResponse(List<PostingModuleRule> rules = default(List<PostingModuleRule>), ModelVersion varVersion = default(ModelVersion), string href = default(string), List<Link> links = default(List<Link>))
+        public PostingModuleRulesUpdatedResponse(List<PostingModuleRuleResponse> rules = default(List<PostingModuleRuleResponse>), ModelVersion varVersion = default(ModelVersion), string href = default(string), List<Link> links = default(List<Link>))
         {
             this.Rules = rules;
             this.VarVersion = varVersion;
@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The Posting Rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection.</value>
         [DataMember(Name = "rules", EmitDefaultValue = true)]
-        public List<PostingModuleRule> Rules { get; set; }
+        public List<PostingModuleRuleResponse> Rules { get; set; }
 
         /// <summary>
         /// Gets or Sets VarVersion

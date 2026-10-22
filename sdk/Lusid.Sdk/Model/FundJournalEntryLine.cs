@@ -49,6 +49,7 @@ namespace Lusid.Sdk.Model
         /// <param name="units">Units held for the Journal Entry Line. (required).</param>
         /// <param name="postingModuleCode">The code of the posting module where the posting rules derived the Journal Entry lines..</param>
         /// <param name="postingRule">The rule generating the Journal Entry Line. (required).</param>
+        /// <param name="postingRuleVersion">The version of the rule generating the Journal Entry Line. Null where no rule matched the line..</param>
         /// <param name="asAtDate">The corresponding input date and time of the Transaction generating the Journal Entry Line. (required).</param>
         /// <param name="activitiesDescription">This would be the description of the business activities this Journal Entry Line is for..</param>
         /// <param name="sourceType">The type of source for the Journal Entry Line. Available values: LusidTransaction, LusidValuation, Manual, External. (required).</param>
@@ -71,7 +72,7 @@ namespace Lusid.Sdk.Model
         /// <param name="custodianAccountType">Indicates the Account Type of the resolved Custodian Account for this Journal Entry Line..</param>
         /// <param name="bucketMemberships">The bucket this Journal Entry Line is assigned to in each of the Fund Configuration&#39;s bucket sets that covers the NAV type, in bucket set definition order. Each bucket set classifies the line independently, so a line normally carries one entry per bucket set..</param>
         /// <param name="links">links.</param>
-        public FundJournalEntryLine(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string generalLedgerAccountCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount varBase = default(CurrencyAndAmount), decimal units = default(decimal), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string txnType = default(string), string holdingType = default(string), string economicBucket = default(string), string economicBucketComponent = default(string), string economicBucketVariant = default(string), List<string> levels = default(List<string>), List<string> sourceLevels = default(List<string>), string movementSign = default(string), string holdingSign = default(string), string ledgerColumn = default(string), string journalEntryLineType = default(string), List<JournalEntryLineShareClassBreakdown> shareClassBreakdowns = default(List<JournalEntryLineShareClassBreakdown>), ResourceId custodianAccountId = default(ResourceId), string custodianAccountType = default(string), List<BucketMembership> bucketMemberships = default(List<BucketMembership>), List<Link> links = default(List<Link>))
+        public FundJournalEntryLine(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string generalLedgerAccountCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount varBase = default(CurrencyAndAmount), decimal units = default(decimal), string postingModuleCode = default(string), string postingRule = default(string), int? postingRuleVersion = default(int?), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string txnType = default(string), string holdingType = default(string), string economicBucket = default(string), string economicBucketComponent = default(string), string economicBucketVariant = default(string), List<string> levels = default(List<string>), List<string> sourceLevels = default(List<string>), string movementSign = default(string), string holdingSign = default(string), string ledgerColumn = default(string), string journalEntryLineType = default(string), List<JournalEntryLineShareClassBreakdown> shareClassBreakdowns = default(List<JournalEntryLineShareClassBreakdown>), ResourceId custodianAccountId = default(ResourceId), string custodianAccountType = default(string), List<BucketMembership> bucketMemberships = default(List<BucketMembership>), List<Link> links = default(List<Link>))
         {
             this.AccountingDate = accountingDate;
             this.ActivityDate = activityDate;
@@ -146,6 +147,7 @@ namespace Lusid.Sdk.Model
             this.SubHoldingKeys = subHoldingKeys;
             this.TaxLotId = taxLotId;
             this.PostingModuleCode = postingModuleCode;
+            this.PostingRuleVersion = postingRuleVersion;
             this.ActivitiesDescription = activitiesDescription;
             this.Properties = properties;
             this.MovementName = movementName;
@@ -252,6 +254,13 @@ namespace Lusid.Sdk.Model
         /// <value>The rule generating the Journal Entry Line.</value>
         [DataMember(Name = "postingRule", IsRequired = true, EmitDefaultValue = true)]
         public string PostingRule { get; set; }
+
+        /// <summary>
+        /// The version of the rule generating the Journal Entry Line. Null where no rule matched the line.
+        /// </summary>
+        /// <value>The version of the rule generating the Journal Entry Line. Null where no rule matched the line.</value>
+        [DataMember(Name = "postingRuleVersion", EmitDefaultValue = true)]
+        public int? PostingRuleVersion { get; set; }
 
         /// <summary>
         /// The corresponding input date and time of the Transaction generating the Journal Entry Line.
@@ -426,6 +435,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Units: ").Append(Units).Append("\n");
             sb.Append("  PostingModuleCode: ").Append(PostingModuleCode).Append("\n");
             sb.Append("  PostingRule: ").Append(PostingRule).Append("\n");
+            sb.Append("  PostingRuleVersion: ").Append(PostingRuleVersion).Append("\n");
             sb.Append("  AsAtDate: ").Append(AsAtDate).Append("\n");
             sb.Append("  ActivitiesDescription: ").Append(ActivitiesDescription).Append("\n");
             sb.Append("  SourceType: ").Append(SourceType).Append("\n");
@@ -547,6 +557,11 @@ namespace Lusid.Sdk.Model
                     this.PostingRule == input.PostingRule ||
                     (this.PostingRule != null &&
                     this.PostingRule.Equals(input.PostingRule))
+                ) && 
+                (
+                    this.PostingRuleVersion == input.PostingRuleVersion ||
+                    (this.PostingRuleVersion != null &&
+                    this.PostingRuleVersion.Equals(input.PostingRuleVersion))
                 ) && 
                 (
                     this.AsAtDate == input.AsAtDate ||
@@ -723,6 +738,10 @@ namespace Lusid.Sdk.Model
                 if (this.PostingRule != null)
                 {
                     hashCode = (hashCode * 59) + this.PostingRule.GetHashCode();
+                }
+                if (this.PostingRuleVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.PostingRuleVersion.GetHashCode();
                 }
                 if (this.AsAtDate != null)
                 {

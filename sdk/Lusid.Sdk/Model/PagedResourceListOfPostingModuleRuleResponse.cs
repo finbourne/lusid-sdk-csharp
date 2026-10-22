@@ -23,30 +23,30 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// PagedResourceListOfPostingModuleRule
+    /// PagedResourceListOfPostingModuleRuleResponse
     /// </summary>
-    [DataContract(Name = "PagedResourceListOfPostingModuleRule")]
-    public partial class PagedResourceListOfPostingModuleRule : IEquatable<PagedResourceListOfPostingModuleRule>, IValidatableObject
+    [DataContract(Name = "PagedResourceListOfPostingModuleRuleResponse")]
+    public partial class PagedResourceListOfPostingModuleRuleResponse : IEquatable<PagedResourceListOfPostingModuleRuleResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PagedResourceListOfPostingModuleRule" /> class.
+        /// Initializes a new instance of the <see cref="PagedResourceListOfPostingModuleRuleResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PagedResourceListOfPostingModuleRule() { }
+        protected PagedResourceListOfPostingModuleRuleResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PagedResourceListOfPostingModuleRule" /> class.
+        /// Initializes a new instance of the <see cref="PagedResourceListOfPostingModuleRuleResponse" /> class.
         /// </summary>
         /// <param name="nextPage">nextPage.</param>
         /// <param name="previousPage">previousPage.</param>
         /// <param name="values">values (required).</param>
         /// <param name="href">href.</param>
         /// <param name="links">links.</param>
-        public PagedResourceListOfPostingModuleRule(string nextPage = default(string), string previousPage = default(string), List<PostingModuleRule> values = default(List<PostingModuleRule>), string href = default(string), List<Link> links = default(List<Link>))
+        public PagedResourceListOfPostingModuleRuleResponse(string nextPage = default(string), string previousPage = default(string), List<PostingModuleRuleResponse> values = default(List<PostingModuleRuleResponse>), string href = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "values" is required (not null)
             if (values == null)
             {
-                throw new ArgumentNullException("values is a required property for PagedResourceListOfPostingModuleRule and cannot be null");
+                throw new ArgumentNullException("values is a required property for PagedResourceListOfPostingModuleRuleResponse and cannot be null");
             }
             this.Values = values;
             this.NextPage = nextPage;
@@ -71,7 +71,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Values
         /// </summary>
         [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = true)]
-        public List<PostingModuleRule> Values { get; set; }
+        public List<PostingModuleRuleResponse> Values { get; set; }
 
         /// <summary>
         /// Gets or Sets Href
@@ -92,7 +92,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PagedResourceListOfPostingModuleRule {\n");
+            sb.Append("class PagedResourceListOfPostingModuleRuleResponse {\n");
             sb.Append("  NextPage: ").Append(NextPage).Append("\n");
             sb.Append("  PreviousPage: ").Append(PreviousPage).Append("\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
@@ -118,15 +118,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PagedResourceListOfPostingModuleRule);
+            return this.Equals(input as PagedResourceListOfPostingModuleRuleResponse);
         }
 
         /// <summary>
-        /// Returns true if PagedResourceListOfPostingModuleRule instances are equal
+        /// Returns true if PagedResourceListOfPostingModuleRuleResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PagedResourceListOfPostingModuleRule to be compared</param>
+        /// <param name="input">Instance of PagedResourceListOfPostingModuleRuleResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PagedResourceListOfPostingModuleRule input)
+        public bool Equals(PagedResourceListOfPostingModuleRuleResponse input)
         {
             if (input == null)
             {

@@ -364,19 +364,19 @@ namespace Lusid.Sdk.Model
             }
 
             // Currency (string) maxLength
-            if (this.Currency != null && this.Currency.Length > 64)
+            if (this.Currency != null && this.Currency.Length > 5)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than 64.", new [] { "Currency" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than 5.", new [] { "Currency" });
             }
 
             // Currency (string) minLength
-            if (this.Currency != null && this.Currency.Length < 1)
+            if (this.Currency != null && this.Currency.Length < 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 1.", new [] { "Currency" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 3.", new [] { "Currency" });
             }
 
             // Currency (string) pattern
-            Regex regexCurrency = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            Regex regexCurrency = new Regex(@"^[a-zA-Z]*$", RegexOptions.CultureInvariant);
             if (false == regexCurrency.Match(this.Currency).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, must match a pattern of " + regexCurrency, new [] { "Currency" });

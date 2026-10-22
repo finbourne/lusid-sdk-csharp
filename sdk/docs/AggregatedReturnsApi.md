@@ -132,7 +132,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] GetAggregatedReturns: Calculate aggregated returns for an entity.
 
-Calculate time-weighted returns for the entity specified in the request body over the              effective window. Currently, supports a single entity of type Portfolio and calculates a daily              return grid. The recipe, fee handling, and flow-discrepancy handling are taken from the persisted              Returns entity identified by the supplied returns id; the request fails if no such entity exists.
+Report daily returns for the entity specified in the request body over the effective window.              Currently, supports a single entity of type Portfolio and a daily return grid. Returns upserted to the              Returns store under the supplied returns id take precedence: if any exist in the window they are              reported as-is and nothing is calculated. Otherwise time-weighted returns are calculated using the              recipe, fee handling and flow-discrepancy handling of the persisted Returns entity identified by the              returns id, and the request fails if no such entity exists. When a reporting currency is requested the              Returns entity is also required, as its recipe supplies the FX rates.
 
 ### Example
 ```csharp
@@ -173,7 +173,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AggregatedReturnsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AggregatedReturnsApi>();
-            var aggregatedReturnsEntityRequest = new AggregatedReturnsEntityRequest(); // AggregatedReturnsEntityRequest | The entity to calculate returns for, the Returns entity that configures the              calculation, the effective window and the metrics to calculate.
+            var aggregatedReturnsEntityRequest = new AggregatedReturnsEntityRequest(); // AggregatedReturnsEntityRequest | The entity to report returns for, the returns id under which upserted returns              are stored and the Returns entity that configures a calculation, the effective window and the metrics              to report.
 
             try
             {
@@ -219,7 +219,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **aggregatedReturnsEntityRequest** | [**AggregatedReturnsEntityRequest**](AggregatedReturnsEntityRequest.md) | The entity to calculate returns for, the Returns entity that configures the              calculation, the effective window and the metrics to calculate. |  |
+| **aggregatedReturnsEntityRequest** | [**AggregatedReturnsEntityRequest**](AggregatedReturnsEntityRequest.md) | The entity to report returns for, the returns id under which upserted returns              are stored and the Returns entity that configures a calculation, the effective window and the metrics              to report. |  |
 
 ### Return type
 

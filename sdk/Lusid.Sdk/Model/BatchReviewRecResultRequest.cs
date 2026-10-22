@@ -44,7 +44,7 @@ namespace Lusid.Sdk.Model
         /// <param name="assignedUser">assignedUser.</param>
         /// <param name="assignedRole">assignedRole.</param>
         /// <param name="addCommentText">Optional comment text to add to each targeted result..</param>
-        /// <param name="properties">Properties in the RecResult domain. Filterable and sortable..</param>
+        /// <param name="properties">Properties in the RecResult domain. Filterable and sortable. Always includes the properties the matching ruleset populates, with a null value where the result holds none yet..</param>
         public BatchReviewRecResultRequest(RecInstanceId instanceId = default(RecInstanceId), string recType = default(string), int runNumber = default(int), List<string> recResultIds = default(List<string>), RecResultDecisionUpdate decision = default(RecResultDecisionUpdate), RecResultAssignmentUpdate assignedUser = default(RecResultAssignmentUpdate), RecResultAssignmentUpdate assignedRole = default(RecResultAssignmentUpdate), string addCommentText = default(string), List<PerpetualProperty> properties = default(List<PerpetualProperty>))
         {
             // to ensure "instanceId" is required (not null)
@@ -126,9 +126,9 @@ namespace Lusid.Sdk.Model
         public string AddCommentText { get; set; }
 
         /// <summary>
-        /// Properties in the RecResult domain. Filterable and sortable.
+        /// Properties in the RecResult domain. Filterable and sortable. Always includes the properties the matching ruleset populates, with a null value where the result holds none yet.
         /// </summary>
-        /// <value>Properties in the RecResult domain. Filterable and sortable.</value>
+        /// <value>Properties in the RecResult domain. Filterable and sortable. Always includes the properties the matching ruleset populates, with a null value where the result holds none yet.</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public List<PerpetualProperty> Properties { get; set; }
 

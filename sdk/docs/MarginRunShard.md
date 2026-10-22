@@ -11,7 +11,8 @@ Name | Type | Description | Notes
 **Status** | **string** | The status of the shard. One of Pending, Running, Completed or Failed. | 
 **CallCount** | **int** | The number of margin calls the shard published. | 
 **LineCount** | **int** | The number of margin lines the shard published. | 
-**Detail** | **string** | Why the shard failed, when it did. | [optional] 
+**Detail** | **string** | Why the shard failed, or which of its netting sets it completed without figures and why. | [optional] 
+**AsAt** | **DateTimeOffset?** | When the shard was valued: the run&#39;s as-at, or the time of the retry that valued it. Null until the shard has finished. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -31,7 +32,8 @@ MarginRunShard marginRunShardInstance = new MarginRunShard(
     status: status,
     callCount: callCount,
     lineCount: lineCount,
-    detail: detail);
+    detail: detail,
+    asAt: asAt);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

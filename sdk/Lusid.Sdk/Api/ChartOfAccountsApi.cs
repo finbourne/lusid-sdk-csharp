@@ -718,8 +718,8 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>PagedResourceListOfPostingModuleRule</returns>
-        PagedResourceListOfPostingModuleRule ListPostingModuleRules(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>PagedResourceListOfPostingModuleRuleResponse</returns>
+        PagedResourceListOfPostingModuleRuleResponse ListPostingModuleRules(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListPostingModuleRules: List Posting Module Rules
@@ -737,8 +737,8 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of PagedResourceListOfPostingModuleRule</returns>
-        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRule> ListPostingModuleRulesWithHttpInfo(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of PagedResourceListOfPostingModuleRuleResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRuleResponse> ListPostingModuleRulesWithHttpInfo(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListPostingModules: List Posting Modules
         /// </summary>
@@ -1022,6 +1022,39 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PostingModuleRulesUpdatedResponse</returns>
         Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> SetPostingModuleRulesWithHttpInfo(string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] SupersedePostingModuleRule: Supersede a rule of a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Supersede a Posting Rule by one or more rules in a single write. Every rule in the request records the superseded  ruleId as its originalRuleId. At most one of them may have the superseded ruleId: it becomes the rule&#39;s next  version, and the rule&#39;s latest version stops applying from its effectiveFrom, unless it already ends by then; it  is never extended. Any other rule is new and must not have the ruleId of an existing rule. The rules take the  latest version&#39;s place in the rule list, in the order given.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule to supersede. Its latest version is closed.</param>
+        /// <param name="supersedePostingModuleRuleRequest">The rules that take over from the superseded rule.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PostingModuleRulesUpdatedResponse</returns>
+        PostingModuleRulesUpdatedResponse SupersedePostingModuleRule(string scope, string code, string postingModuleCode, string ruleId, List<SupersedePostingModuleRuleRequest> supersedePostingModuleRuleRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] SupersedePostingModuleRule: Supersede a rule of a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Supersede a Posting Rule by one or more rules in a single write. Every rule in the request records the superseded  ruleId as its originalRuleId. At most one of them may have the superseded ruleId: it becomes the rule&#39;s next  version, and the rule&#39;s latest version stops applying from its effectiveFrom, unless it already ends by then; it  is never extended. Any other rule is new and must not have the ruleId of an existing rule. The rules take the  latest version&#39;s place in the rule list, in the order given.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule to supersede. Its latest version is closed.</param>
+        /// <param name="supersedePostingModuleRuleRequest">The rules that take over from the superseded rule.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PostingModuleRulesUpdatedResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> SupersedePostingModuleRuleWithHttpInfo(string scope, string code, string postingModuleCode, string ruleId, List<SupersedePostingModuleRuleRequest> supersedePostingModuleRuleRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertAccountProperties: Upsert account properties
         /// </summary>
@@ -1850,8 +1883,8 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of PagedResourceListOfPostingModuleRule</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfPostingModuleRule> ListPostingModuleRulesAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of PagedResourceListOfPostingModuleRuleResponse</returns>
+        System.Threading.Tasks.Task<PagedResourceListOfPostingModuleRuleResponse> ListPostingModuleRulesAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListPostingModuleRules: List Posting Module Rules
@@ -1870,8 +1903,8 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (PagedResourceListOfPostingModuleRule)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRule>> ListPostingModuleRulesWithHttpInfoAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (PagedResourceListOfPostingModuleRuleResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRuleResponse>> ListPostingModuleRulesWithHttpInfoAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListPostingModules: List Posting Modules
         /// </summary>
@@ -2173,6 +2206,41 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PostingModuleRulesUpdatedResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse>> SetPostingModuleRulesWithHttpInfoAsync(string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] SupersedePostingModuleRule: Supersede a rule of a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Supersede a Posting Rule by one or more rules in a single write. Every rule in the request records the superseded  ruleId as its originalRuleId. At most one of them may have the superseded ruleId: it becomes the rule&#39;s next  version, and the rule&#39;s latest version stops applying from its effectiveFrom, unless it already ends by then; it  is never extended. Any other rule is new and must not have the ruleId of an existing rule. The rules take the  latest version&#39;s place in the rule list, in the order given.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule to supersede. Its latest version is closed.</param>
+        /// <param name="supersedePostingModuleRuleRequest">The rules that take over from the superseded rule.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PostingModuleRulesUpdatedResponse</returns>
+        System.Threading.Tasks.Task<PostingModuleRulesUpdatedResponse> SupersedePostingModuleRuleAsync(string scope, string code, string postingModuleCode, string ruleId, List<SupersedePostingModuleRuleRequest> supersedePostingModuleRuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] SupersedePostingModuleRule: Supersede a rule of a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Supersede a Posting Rule by one or more rules in a single write. Every rule in the request records the superseded  ruleId as its originalRuleId. At most one of them may have the superseded ruleId: it becomes the rule&#39;s next  version, and the rule&#39;s latest version stops applying from its effectiveFrom, unless it already ends by then; it  is never extended. Any other rule is new and must not have the ruleId of an existing rule. The rules take the  latest version&#39;s place in the rule list, in the order given.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule to supersede. Its latest version is closed.</param>
+        /// <param name="supersedePostingModuleRuleRequest">The rules that take over from the superseded rule.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PostingModuleRulesUpdatedResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse>> SupersedePostingModuleRuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, string ruleId, List<SupersedePostingModuleRuleRequest> supersedePostingModuleRuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertAccountProperties: Upsert account properties
         /// </summary>
@@ -7837,10 +7905,10 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>PagedResourceListOfPostingModuleRule</returns>
-        public PagedResourceListOfPostingModuleRule ListPostingModuleRules(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>PagedResourceListOfPostingModuleRuleResponse</returns>
+        public PagedResourceListOfPostingModuleRuleResponse ListPostingModuleRules(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRule> localVarResponse = ListPostingModuleRulesWithHttpInfo(scope, code, postingModuleCode, asAt, page, limit, filter, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRuleResponse> localVarResponse = ListPostingModuleRulesWithHttpInfo(scope, code, postingModuleCode, asAt, page, limit, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -7857,8 +7925,8 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of PagedResourceListOfPostingModuleRule</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRule> ListPostingModuleRulesWithHttpInfo(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of PagedResourceListOfPostingModuleRuleResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRuleResponse> ListPostingModuleRulesWithHttpInfo(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -7957,7 +8025,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedResourceListOfPostingModuleRule>("/api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedResourceListOfPostingModuleRuleResponse>("/api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListPostingModuleRules", localVarResponse);
@@ -7984,10 +8052,10 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of PagedResourceListOfPostingModuleRule</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfPostingModuleRule> ListPostingModuleRulesAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of PagedResourceListOfPostingModuleRuleResponse</returns>
+        public async System.Threading.Tasks.Task<PagedResourceListOfPostingModuleRuleResponse> ListPostingModuleRulesAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRule> localVarResponse = await ListPostingModuleRulesWithHttpInfoAsync(scope, code, postingModuleCode, asAt, page, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRuleResponse> localVarResponse = await ListPostingModuleRulesWithHttpInfoAsync(scope, code, postingModuleCode, asAt, page, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8005,8 +8073,8 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (PagedResourceListOfPostingModuleRule)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRule>> ListPostingModuleRulesWithHttpInfoAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (PagedResourceListOfPostingModuleRuleResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRuleResponse>> ListPostingModuleRulesWithHttpInfoAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -8102,7 +8170,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfPostingModuleRule>("/api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfPostingModuleRuleResponse>("/api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -10504,6 +10572,290 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SetPostingModuleRules", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] SupersedePostingModuleRule: Supersede a rule of a Posting Module Supersede a Posting Rule by one or more rules in a single write. Every rule in the request records the superseded  ruleId as its originalRuleId. At most one of them may have the superseded ruleId: it becomes the rule&#39;s next  version, and the rule&#39;s latest version stops applying from its effectiveFrom, unless it already ends by then; it  is never extended. Any other rule is new and must not have the ruleId of an existing rule. The rules take the  latest version&#39;s place in the rule list, in the order given.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule to supersede. Its latest version is closed.</param>
+        /// <param name="supersedePostingModuleRuleRequest">The rules that take over from the superseded rule.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PostingModuleRulesUpdatedResponse</returns>
+        public PostingModuleRulesUpdatedResponse SupersedePostingModuleRule(string scope, string code, string postingModuleCode, string ruleId, List<SupersedePostingModuleRuleRequest> supersedePostingModuleRuleRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> localVarResponse = SupersedePostingModuleRuleWithHttpInfo(scope, code, postingModuleCode, ruleId, supersedePostingModuleRuleRequest, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] SupersedePostingModuleRule: Supersede a rule of a Posting Module Supersede a Posting Rule by one or more rules in a single write. Every rule in the request records the superseded  ruleId as its originalRuleId. At most one of them may have the superseded ruleId: it becomes the rule&#39;s next  version, and the rule&#39;s latest version stops applying from its effectiveFrom, unless it already ends by then; it  is never extended. Any other rule is new and must not have the ruleId of an existing rule. The rules take the  latest version&#39;s place in the rule list, in the order given.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule to supersede. Its latest version is closed.</param>
+        /// <param name="supersedePostingModuleRuleRequest">The rules that take over from the superseded rule.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PostingModuleRulesUpdatedResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> SupersedePostingModuleRuleWithHttpInfo(string scope, string code, string postingModuleCode, string ruleId, List<SupersedePostingModuleRuleRequest> supersedePostingModuleRuleRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->SupersedePostingModuleRule");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->SupersedePostingModuleRule");
+            }
+
+            // verify the required parameter 'postingModuleCode' is set
+            if (postingModuleCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'postingModuleCode' when calling ChartOfAccountsApi->SupersedePostingModuleRule");
+            }
+
+            // verify the required parameter 'ruleId' is set
+            if (ruleId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleId' when calling ChartOfAccountsApi->SupersedePostingModuleRule");
+            }
+
+            // verify the required parameter 'supersedePostingModuleRuleRequest' is set
+            if (supersedePostingModuleRuleRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'supersedePostingModuleRuleRequest' when calling ChartOfAccountsApi->SupersedePostingModuleRule");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("postingModuleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(postingModuleCode)); // path parameter
+            localVarRequestOptions.PathParameters.Add("ruleId", Lusid.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
+            localVarRequestOptions.Data = supersedePostingModuleRuleRequest;
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.SupersedePostingModuleRule";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<PostingModuleRulesUpdatedResponse>("/api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules/{ruleId}/$supersede", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SupersedePostingModuleRule", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] SupersedePostingModuleRule: Supersede a rule of a Posting Module Supersede a Posting Rule by one or more rules in a single write. Every rule in the request records the superseded  ruleId as its originalRuleId. At most one of them may have the superseded ruleId: it becomes the rule&#39;s next  version, and the rule&#39;s latest version stops applying from its effectiveFrom, unless it already ends by then; it  is never extended. Any other rule is new and must not have the ruleId of an existing rule. The rules take the  latest version&#39;s place in the rule list, in the order given.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule to supersede. Its latest version is closed.</param>
+        /// <param name="supersedePostingModuleRuleRequest">The rules that take over from the superseded rule.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PostingModuleRulesUpdatedResponse</returns>
+        public async System.Threading.Tasks.Task<PostingModuleRulesUpdatedResponse> SupersedePostingModuleRuleAsync(string scope, string code, string postingModuleCode, string ruleId, List<SupersedePostingModuleRuleRequest> supersedePostingModuleRuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> localVarResponse = await SupersedePostingModuleRuleWithHttpInfoAsync(scope, code, postingModuleCode, ruleId, supersedePostingModuleRuleRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] SupersedePostingModuleRule: Supersede a rule of a Posting Module Supersede a Posting Rule by one or more rules in a single write. Every rule in the request records the superseded  ruleId as its originalRuleId. At most one of them may have the superseded ruleId: it becomes the rule&#39;s next  version, and the rule&#39;s latest version stops applying from its effectiveFrom, unless it already ends by then; it  is never extended. Any other rule is new and must not have the ruleId of an existing rule. The rules take the  latest version&#39;s place in the rule list, in the order given.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule to supersede. Its latest version is closed.</param>
+        /// <param name="supersedePostingModuleRuleRequest">The rules that take over from the superseded rule.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PostingModuleRulesUpdatedResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse>> SupersedePostingModuleRuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, string ruleId, List<SupersedePostingModuleRuleRequest> supersedePostingModuleRuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->SupersedePostingModuleRule");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->SupersedePostingModuleRule");
+            }
+
+            // verify the required parameter 'postingModuleCode' is set
+            if (postingModuleCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'postingModuleCode' when calling ChartOfAccountsApi->SupersedePostingModuleRule");
+            }
+
+            // verify the required parameter 'ruleId' is set
+            if (ruleId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleId' when calling ChartOfAccountsApi->SupersedePostingModuleRule");
+            }
+
+            // verify the required parameter 'supersedePostingModuleRuleRequest' is set
+            if (supersedePostingModuleRuleRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'supersedePostingModuleRuleRequest' when calling ChartOfAccountsApi->SupersedePostingModuleRule");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("postingModuleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(postingModuleCode)); // path parameter
+            localVarRequestOptions.PathParameters.Add("ruleId", Lusid.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
+            localVarRequestOptions.Data = supersedePostingModuleRuleRequest;
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.SupersedePostingModuleRule";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<PostingModuleRulesUpdatedResponse>("/api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules/{ruleId}/$supersede", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SupersedePostingModuleRule", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

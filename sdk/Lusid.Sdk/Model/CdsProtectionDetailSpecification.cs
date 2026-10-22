@@ -33,9 +33,9 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="seniority">The seniority level of the CDS. Default value: SUB. Available values: Unknown, SNR, SUB, JRSUBUT2, PREFT1, SECDOM, SNRFOR, SUBLT2. (default to &quot;SUB&quot;).</param>
         /// <param name="restructuringType">The restructuring clause. Default value: MM. Available values: Unknown, CR, MR, MM, XR, XR14, CR14, MR14, MM14. (default to &quot;MM&quot;).</param>
-        /// <param name="protectStartDay">Does the protection leg pay out in the case of default on the start date. Defaults to true if not set. (default to true).</param>
+        /// <param name="protectStartDay">Does the protection leg pay out in the case of default on the start date. Defaults to false if not set.  If true, the trade date is not included in the accrued interest that a transaction pays or receives. (default to false).</param>
         /// <param name="payAccruedInterestOnDefault">Should accrued interest on the premium leg be paid if a credit event occurs. Defaults to true if not set. (default to true).</param>
-        public CdsProtectionDetailSpecification(string seniority = @"SUB", string restructuringType = @"MM", bool protectStartDay = true, bool payAccruedInterestOnDefault = true)
+        public CdsProtectionDetailSpecification(string seniority = @"SUB", string restructuringType = @"MM", bool protectStartDay = false, bool payAccruedInterestOnDefault = true)
         {
             // use default value if no "seniority" provided
             this.Seniority = seniority ?? @"SUB";
@@ -60,9 +60,9 @@ namespace Lusid.Sdk.Model
         public string RestructuringType { get; set; }
 
         /// <summary>
-        /// Does the protection leg pay out in the case of default on the start date. Defaults to true if not set.
+        /// Does the protection leg pay out in the case of default on the start date. Defaults to false if not set.  If true, the trade date is not included in the accrued interest that a transaction pays or receives.
         /// </summary>
-        /// <value>Does the protection leg pay out in the case of default on the start date. Defaults to true if not set.</value>
+        /// <value>Does the protection leg pay out in the case of default on the start date. Defaults to false if not set.  If true, the trade date is not included in the accrued interest that a transaction pays or receives.</value>
         [DataMember(Name = "protectStartDay", EmitDefaultValue = true)]
         public bool ProtectStartDay { get; set; }
 

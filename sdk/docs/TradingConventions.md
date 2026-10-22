@@ -9,18 +9,21 @@ Name | Type | Description | Notes
 **MinimumOrderSize** | **decimal** | The Minimum Order Size  Must be non-negative and defaults to 0 if not set. | [optional] 
 **MinimumOrderIncrement** | **decimal** | The Minimum Order Increment  Must be non-negative and defaults to 0 if not set. | [optional] 
 **PriceQuotationType** | **string** | Conventional price quotation type of the instrument.  Whether its quoted price excludes accrued interest (Clean) or includes it (Dirty).  Defaults to Clean if not set.                Supported string (enumeration) values are: [Clean, Dirty]. Available values: Clean, Dirty. | [optional] 
+**PriceFractionConvention** | **string** | The fractional grid on which the market conventionally quotes the instrument&#39;s price, such as 32nds for  US Treasuries. Declarative only: prices are stored and valued as decimals regardless, and consumers use  this to convert between decimal and fractional notation at entry and display.  Defaults to Decimal if not set.                Supported string (enumeration) values are: [Decimal, ThirtySeconds, SixtyFourths, OneHundredTwentyEighths, TwoHundredFiftySixths]. Available values: Decimal, ThirtySeconds, SixtyFourths, OneHundredTwentyEighths, TwoHundredFiftySixths. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 decimal? priceScaleFactor = "example priceScaleFactor";decimal? minimumOrderSize = "example minimumOrderSize";decimal? minimumOrderIncrement = "example minimumOrderIncrement";
 string priceQuotationType = "example priceQuotationType";
+string priceFractionConvention = "example priceFractionConvention";
 
 TradingConventions tradingConventionsInstance = new TradingConventions(
     priceScaleFactor: priceScaleFactor,
     minimumOrderSize: minimumOrderSize,
     minimumOrderIncrement: minimumOrderIncrement,
-    priceQuotationType: priceQuotationType);
+    priceQuotationType: priceQuotationType,
+    priceFractionConvention: priceFractionConvention);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

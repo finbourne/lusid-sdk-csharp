@@ -42,8 +42,11 @@ namespace Lusid.Sdk.Model
         /// <param name="paymentDate">The payment date of the principal.</param>
         /// <param name="currency">The currency in which the principal is paid (required).</param>
         /// <param name="principalPerUnit">The principal amount received for each unit of the instrument held on the ex date.</param>
+        /// <param name="pricePerUnit">Redemption price per unit (OFFR / 100) of principal repaid. Clean price convention: a value of 1 is par.  Optional; a null is read as 1, so an omitted price is par. Separates the cash paid from the principal extinguished..</param>
+        /// <param name="previousFactor">The pool factor in force until the redemption (factor) date, as notified (AMI-SeCo Previous Factor).  Optional; recorded for reconciliation and not consumed by the transaction template. Must be supplied together with nextFactor..</param>
+        /// <param name="nextFactor">The pool factor applicable after the redemption (factor) date, as notified (AMI-SeCo Next Factor).  Optional; recorded for reconciliation and not consumed by the transaction template. Must be supplied together with previousFactor..</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent, TotalReturnSwapCashFlowEvent, GlobalLoanFacilityReinitialisationEvent, InvestorLoanFacilityReinitialisationEvent, CapitalCallReceiptEvent, RecallableCapitalExpiryEvent, CapitalInterestTransferEvent, FacilityDrawEvent, FacilityRepaymentEvent, FacilityInterestEvent, FacilityCommitmentFeeEvent, InstalmentCallEvent, DepositInterestCapitalisationEvent. (required) (default to &quot;MbsPrincipalEvent&quot;).</param>
-        public MbsPrincipalEvent(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal? principalPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public MbsPrincipalEvent(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal? principalPerUnit = default(decimal?), decimal? pricePerUnit = default(decimal?), decimal? previousFactor = default(decimal?), decimal? nextFactor = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "currency" is required (not null)
             if (currency == null)
@@ -54,6 +57,9 @@ namespace Lusid.Sdk.Model
             this.ExDate = exDate;
             this.PaymentDate = paymentDate;
             this.PrincipalPerUnit = principalPerUnit;
+            this.PricePerUnit = pricePerUnit;
+            this.PreviousFactor = previousFactor;
+            this.NextFactor = nextFactor;
         }
 
         /// <summary>
@@ -85,6 +91,27 @@ namespace Lusid.Sdk.Model
         public decimal? PrincipalPerUnit { get; set; }
 
         /// <summary>
+        /// Redemption price per unit (OFFR / 100) of principal repaid. Clean price convention: a value of 1 is par.  Optional; a null is read as 1, so an omitted price is par. Separates the cash paid from the principal extinguished.
+        /// </summary>
+        /// <value>Redemption price per unit (OFFR / 100) of principal repaid. Clean price convention: a value of 1 is par.  Optional; a null is read as 1, so an omitted price is par. Separates the cash paid from the principal extinguished.</value>
+        [DataMember(Name = "pricePerUnit", EmitDefaultValue = true)]
+        public decimal? PricePerUnit { get; set; }
+
+        /// <summary>
+        /// The pool factor in force until the redemption (factor) date, as notified (AMI-SeCo Previous Factor).  Optional; recorded for reconciliation and not consumed by the transaction template. Must be supplied together with nextFactor.
+        /// </summary>
+        /// <value>The pool factor in force until the redemption (factor) date, as notified (AMI-SeCo Previous Factor).  Optional; recorded for reconciliation and not consumed by the transaction template. Must be supplied together with nextFactor.</value>
+        [DataMember(Name = "previousFactor", EmitDefaultValue = true)]
+        public decimal? PreviousFactor { get; set; }
+
+        /// <summary>
+        /// The pool factor applicable after the redemption (factor) date, as notified (AMI-SeCo Next Factor).  Optional; recorded for reconciliation and not consumed by the transaction template. Must be supplied together with previousFactor.
+        /// </summary>
+        /// <value>The pool factor applicable after the redemption (factor) date, as notified (AMI-SeCo Next Factor).  Optional; recorded for reconciliation and not consumed by the transaction template. Must be supplied together with previousFactor.</value>
+        [DataMember(Name = "nextFactor", EmitDefaultValue = true)]
+        public decimal? NextFactor { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -97,6 +124,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  PrincipalPerUnit: ").Append(PrincipalPerUnit).Append("\n");
+            sb.Append("  PricePerUnit: ").Append(PricePerUnit).Append("\n");
+            sb.Append("  PreviousFactor: ").Append(PreviousFactor).Append("\n");
+            sb.Append("  NextFactor: ").Append(NextFactor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -151,6 +181,21 @@ namespace Lusid.Sdk.Model
                     this.PrincipalPerUnit == input.PrincipalPerUnit ||
                     (this.PrincipalPerUnit != null &&
                     this.PrincipalPerUnit.Equals(input.PrincipalPerUnit))
+                ) && base.Equals(input) && 
+                (
+                    this.PricePerUnit == input.PricePerUnit ||
+                    (this.PricePerUnit != null &&
+                    this.PricePerUnit.Equals(input.PricePerUnit))
+                ) && base.Equals(input) && 
+                (
+                    this.PreviousFactor == input.PreviousFactor ||
+                    (this.PreviousFactor != null &&
+                    this.PreviousFactor.Equals(input.PreviousFactor))
+                ) && base.Equals(input) && 
+                (
+                    this.NextFactor == input.NextFactor ||
+                    (this.NextFactor != null &&
+                    this.NextFactor.Equals(input.NextFactor))
                 );
         }
 
@@ -178,6 +223,18 @@ namespace Lusid.Sdk.Model
                 if (this.PrincipalPerUnit != null)
                 {
                     hashCode = (hashCode * 59) + this.PrincipalPerUnit.GetHashCode();
+                }
+                if (this.PricePerUnit != null)
+                {
+                    hashCode = (hashCode * 59) + this.PricePerUnit.GetHashCode();
+                }
+                if (this.PreviousFactor != null)
+                {
+                    hashCode = (hashCode * 59) + this.PreviousFactor.GetHashCode();
+                }
+                if (this.NextFactor != null)
+                {
+                    hashCode = (hashCode * 59) + this.NextFactor.GetHashCode();
                 }
                 return hashCode;
             }

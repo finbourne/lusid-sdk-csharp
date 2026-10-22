@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **AssignedUser** | [**RecResultAssignmentUpdate**](RecResultAssignmentUpdate.md) |  | [optional] 
 **AssignedRole** | [**RecResultAssignmentUpdate**](RecResultAssignmentUpdate.md) |  | [optional] 
 **AddCommentText** | **string** | Optional comment text to add to each targeted result. | [optional] 
-**Properties** | [**List&lt;PerpetualProperty&gt;**](PerpetualProperty.md) | Properties in the RecResult domain. Filterable and sortable. | [optional] 
+**Properties** | [**List&lt;PerpetualProperty&gt;**](PerpetualProperty.md) | Properties in the RecResult domain. Filterable and sortable. Always includes the properties the matching ruleset populates, with a null value where the result holds none yet. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

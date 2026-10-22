@@ -1245,7 +1245,7 @@ namespace Examples
             var runNumber = 56;  // int | The run of the instance whose view of the result is read.
             var id = "id_example";  // string | The display id of the rec result, e.g. \"break-3\".
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | The property keys to decorate onto the result. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | The property keys to decorate onto the result. The keys its matching ruleset populates always come back, so list only others here. (optional) 
 
             try
             {
@@ -1297,7 +1297,7 @@ catch (ApiException e)
 | **runNumber** | **int** | The run of the instance whose view of the result is read. |  |
 | **id** | **string** | The display id of the rec result, e.g. \&quot;break-3\&quot;. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the result. Defaults to latest if not specified. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The property keys to decorate onto the result. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The property keys to decorate onto the result. The keys its matching ruleset populates always come back, so list only others here. | [optional]  |
 
 ### Return type
 
@@ -2094,7 +2094,7 @@ namespace Examples
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names suffixed by \" ASC\" or \" DESC\". (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | The property keys to decorate onto each result. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | The property keys to decorate onto each result. The keys its matching ruleset populates always come back, so list only others here. (optional) 
 
             try
             {
@@ -2145,7 +2145,7 @@ catch (ApiException e)
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The property keys to decorate onto each result. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The property keys to decorate onto each result. The keys its matching ruleset populates always come back, so list only others here. | [optional]  |
 
 ### Return type
 

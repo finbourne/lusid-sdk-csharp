@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **ShardCount** | **int** | The number of valuation shards the run was planned as. | 
 **CompletedShards** | **int** | The number of shards that have completed. | 
 **FailedShards** | **int** | The number of shards that failed to value. | 
-**Issues** | [**List&lt;MarginRunIssue&gt;**](MarginRunIssue.md) | Agreements the run could not value, or the caller may not calculate margin for, with the reason. | 
+**Issues** | [**List&lt;MarginRunIssue&gt;**](MarginRunIssue.md) | Agreements the run could not value or roll up into a call, or the caller may not calculate margin for, with the reason. | 
 **Shards** | [**List&lt;MarginRunShard&gt;**](MarginRunShard.md) | The valuation shards the run is planned as, with their progress. | 
 
 ```csharp

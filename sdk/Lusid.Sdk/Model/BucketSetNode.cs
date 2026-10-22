@@ -41,9 +41,9 @@ namespace Lusid.Sdk.Model
         /// <param name="nav">The net asset value at this node, in the fund currency..</param>
         /// <param name="capitalRatio">The share class&#39;s capital ratio (its share of the fund NAV). Omitted on the fund node..</param>
         /// <param name="buckets">The buckets on this node, each with its period movement and cumulative values. (required).</param>
-        /// <param name="perUnitValue">The share class&#39;s NAV per unit in issue, in the fund currency, rounded to the share class&#39;s PricePrecision (left unrounded where the share class declares none). Omitted on the fund node, for a share class that is not unitised, and for a unitised share class with no units in issue to divide by (SharesInIssue is then reported as zero). The dealing price - in the share class currency, with its instrument&#39;s rounding convention applied - is on the share class breakdown&#39;s unitisation data..</param>
+        /// <param name="perUnitValue">The share class&#39;s NAV per unit in issue, in the fund currency, unrounded whatever the share class&#39;s price rounding convention. Omitted on the fund node, for a share class that is not unitised, and for a unitised share class with no units in issue to divide by (SharesInIssue is then reported as zero). The dealing price - in the share class currency, with its rounding convention applied - is on the share class breakdown&#39;s unitisation data..</param>
         /// <param name="sharesInIssue">The share class&#39;s units in issue at the end of the period. Omitted on the fund node and for a share class that is not unitised..</param>
-        /// <param name="previousPerUnitValue">The share class&#39;s NAV per unit at the previous valuation point, on the same basis as PerUnitValue. Omitted on the fund node, for a share class that is not unitised, and where the share class had no units in issue at the previous valuation point (including the fund&#39;s first valuation point)..</param>
+        /// <param name="previousPerUnitValue">The share class&#39;s NAV per unit at the previous valuation point, as that point stored it. Omitted on the fund node, for a share class that is not unitised, and where the share class had no units in issue at the previous valuation point (including the fund&#39;s first valuation point)..</param>
         /// <param name="previousSharesInIssue">The share class&#39;s units in issue at the start of the period. Omitted on the fund node and for a share class that is not unitised; zero at the fund&#39;s first valuation point..</param>
         /// <param name="label">A display label for the node: the fund&#39;s display name on the fund node, the share class&#39;s name on a share class node..</param>
         /// <param name="previousNav">The net asset value this node carried at the previous valuation point, in the fund currency. Zero at the fund&#39;s first valuation point..</param>
@@ -118,9 +118,9 @@ namespace Lusid.Sdk.Model
         public List<BucketSetResultBucket> Buckets { get; set; }
 
         /// <summary>
-        /// The share class&#39;s NAV per unit in issue, in the fund currency, rounded to the share class&#39;s PricePrecision (left unrounded where the share class declares none). Omitted on the fund node, for a share class that is not unitised, and for a unitised share class with no units in issue to divide by (SharesInIssue is then reported as zero). The dealing price - in the share class currency, with its instrument&#39;s rounding convention applied - is on the share class breakdown&#39;s unitisation data.
+        /// The share class&#39;s NAV per unit in issue, in the fund currency, unrounded whatever the share class&#39;s price rounding convention. Omitted on the fund node, for a share class that is not unitised, and for a unitised share class with no units in issue to divide by (SharesInIssue is then reported as zero). The dealing price - in the share class currency, with its rounding convention applied - is on the share class breakdown&#39;s unitisation data.
         /// </summary>
-        /// <value>The share class&#39;s NAV per unit in issue, in the fund currency, rounded to the share class&#39;s PricePrecision (left unrounded where the share class declares none). Omitted on the fund node, for a share class that is not unitised, and for a unitised share class with no units in issue to divide by (SharesInIssue is then reported as zero). The dealing price - in the share class currency, with its instrument&#39;s rounding convention applied - is on the share class breakdown&#39;s unitisation data.</value>
+        /// <value>The share class&#39;s NAV per unit in issue, in the fund currency, unrounded whatever the share class&#39;s price rounding convention. Omitted on the fund node, for a share class that is not unitised, and for a unitised share class with no units in issue to divide by (SharesInIssue is then reported as zero). The dealing price - in the share class currency, with its rounding convention applied - is on the share class breakdown&#39;s unitisation data.</value>
         [DataMember(Name = "perUnitValue", EmitDefaultValue = true)]
         public decimal? PerUnitValue { get; set; }
 
@@ -132,9 +132,9 @@ namespace Lusid.Sdk.Model
         public decimal? SharesInIssue { get; set; }
 
         /// <summary>
-        /// The share class&#39;s NAV per unit at the previous valuation point, on the same basis as PerUnitValue. Omitted on the fund node, for a share class that is not unitised, and where the share class had no units in issue at the previous valuation point (including the fund&#39;s first valuation point).
+        /// The share class&#39;s NAV per unit at the previous valuation point, as that point stored it. Omitted on the fund node, for a share class that is not unitised, and where the share class had no units in issue at the previous valuation point (including the fund&#39;s first valuation point).
         /// </summary>
-        /// <value>The share class&#39;s NAV per unit at the previous valuation point, on the same basis as PerUnitValue. Omitted on the fund node, for a share class that is not unitised, and where the share class had no units in issue at the previous valuation point (including the fund&#39;s first valuation point).</value>
+        /// <value>The share class&#39;s NAV per unit at the previous valuation point, as that point stored it. Omitted on the fund node, for a share class that is not unitised, and where the share class had no units in issue at the previous valuation point (including the fund&#39;s first valuation point).</value>
         [DataMember(Name = "previousPerUnitValue", EmitDefaultValue = true)]
         public decimal? PreviousPerUnitValue { get; set; }
 

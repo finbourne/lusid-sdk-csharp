@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **AccountNumber** | **string** | The Custodian Account Number | 
 **AccountName** | **string** | The identifiable name given to the Custodian Account | 
 **AccountingMethod** | **string** | The Accounting method to be used. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency. | 
-**Currency** | **string** | The Currency for the Account | 
+**Currency** | **string** | The Currency for the Account. Optional, with no default. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | Set of unique Custodian Account properties and associated values to store with the Custodian Account. Each property must be from the &#39;CustodianAccount&#39; domain. | [optional] 
 **Custodian** | [**LegalEntity**](LegalEntity.md) |  | 
 **AccountType** | **string** | The type of the Custodian Account. This is a free-text field that accepts any value. Optional, with no default. | [optional] 
@@ -24,7 +24,7 @@ string status = "status";
 string accountNumber = "accountNumber";
 string accountName = "accountName";
 string accountingMethod = "accountingMethod";
-string currency = "currency";
+string currency = "example currency";
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 LegalEntity custodian = new LegalEntity();
 string accountType = "example accountType";

@@ -5,7 +5,7 @@ A Posting Module rules update response
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Rules** | [**List&lt;PostingModuleRule&gt;**](PostingModuleRule.md) | The Posting Rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection. | [optional] 
+**Rules** | [**List&lt;PostingModuleRuleResponse&gt;**](PostingModuleRuleResponse.md) | The Posting Rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 using Lusid.Sdk.Model;
 using System;
 
-List<PostingModuleRule> rules = new List<PostingModuleRule>();
+List<PostingModuleRuleResponse> rules = new List<PostingModuleRuleResponse>();
 ModelVersion? varVersion = new ModelVersion();
 
 string href = "example href";

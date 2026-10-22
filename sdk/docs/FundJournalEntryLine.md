@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **Units** | **decimal** | Units held for the Journal Entry Line. | 
 **PostingModuleCode** | **string** | The code of the posting module where the posting rules derived the Journal Entry lines. | [optional] 
 **PostingRule** | **string** | The rule generating the Journal Entry Line. | 
+**PostingRuleVersion** | **int?** | The version of the rule generating the Journal Entry Line. Null where no rule matched the line. | [optional] 
 **AsAtDate** | **DateTimeOffset** | The corresponding input date and time of the Transaction generating the Journal Entry Line. | 
 **ActivitiesDescription** | **string** | This would be the description of the business activities this Journal Entry Line is for. | [optional] 
 **SourceType** | **string** | The type of source for the Journal Entry Line. Available values: LusidTransaction, LusidValuation, Manual, External. | 
@@ -93,6 +94,7 @@ FundJournalEntryLine fundJournalEntryLineInstance = new FundJournalEntryLine(
     units: units,
     postingModuleCode: postingModuleCode,
     postingRule: postingRule,
+    postingRuleVersion: postingRuleVersion,
     asAtDate: asAtDate,
     activitiesDescription: activitiesDescription,
     sourceType: sourceType,

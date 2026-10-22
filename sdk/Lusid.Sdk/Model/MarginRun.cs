@@ -47,7 +47,7 @@ namespace Lusid.Sdk.Model
         /// <param name="shardCount">The number of valuation shards the run was planned as. (required).</param>
         /// <param name="completedShards">The number of shards that have completed. (required).</param>
         /// <param name="failedShards">The number of shards that failed to value. (required).</param>
-        /// <param name="issues">Agreements the run could not value, or the caller may not calculate margin for, with the reason. (required).</param>
+        /// <param name="issues">Agreements the run could not value or roll up into a call, or the caller may not calculate margin for, with the reason. (required).</param>
         /// <param name="shards">The valuation shards the run is planned as, with their progress. (required).</param>
         public MarginRun(string href = default(string), string id = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), string status = default(string), List<ResourceId> agreements = default(List<ResourceId>), int callCount = default(int), int lineCount = default(int), int shardCount = default(int), int completedShards = default(int), int failedShards = default(int), List<MarginRunIssue> issues = default(List<MarginRunIssue>), List<MarginRunShard> shards = default(List<MarginRunShard>))
         {
@@ -169,9 +169,9 @@ namespace Lusid.Sdk.Model
         public int FailedShards { get; set; }
 
         /// <summary>
-        /// Agreements the run could not value, or the caller may not calculate margin for, with the reason.
+        /// Agreements the run could not value or roll up into a call, or the caller may not calculate margin for, with the reason.
         /// </summary>
-        /// <value>Agreements the run could not value, or the caller may not calculate margin for, with the reason.</value>
+        /// <value>Agreements the run could not value or roll up into a call, or the caller may not calculate margin for, with the reason.</value>
         [DataMember(Name = "issues", IsRequired = true, EmitDefaultValue = true)]
         public List<MarginRunIssue> Issues { get; set; }
 

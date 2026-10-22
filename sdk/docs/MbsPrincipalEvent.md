@@ -10,6 +10,9 @@ Name | Type | Description | Notes
 **PaymentDate** | **DateTimeOffset** | The payment date of the principal | [optional] 
 **Currency** | **string** | The currency in which the principal is paid | 
 **PrincipalPerUnit** | **decimal?** | The principal amount received for each unit of the instrument held on the ex date | [optional] 
+**PricePerUnit** | **decimal?** | Redemption price per unit (OFFR / 100) of principal repaid. Clean price convention: a value of 1 is par.  Optional; a null is read as 1, so an omitted price is par. Separates the cash paid from the principal extinguished. | [optional] 
+**PreviousFactor** | **decimal?** | The pool factor in force until the redemption (factor) date, as notified (AMI-SeCo Previous Factor).  Optional; recorded for reconciliation and not consumed by the transaction template. Must be supplied together with nextFactor. | [optional] 
+**NextFactor** | **decimal?** | The pool factor applicable after the redemption (factor) date, as notified (AMI-SeCo Next Factor).  Optional; recorded for reconciliation and not consumed by the transaction template. Must be supplied together with previousFactor. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -21,7 +24,10 @@ MbsPrincipalEvent mbsPrincipalEventInstance = new MbsPrincipalEvent(
     exDate: exDate,
     paymentDate: paymentDate,
     currency: currency,
-    principalPerUnit: principalPerUnit);
+    principalPerUnit: principalPerUnit,
+    pricePerUnit: pricePerUnit,
+    previousFactor: previousFactor,
+    nextFactor: nextFactor);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

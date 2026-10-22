@@ -1,4 +1,4 @@
-# Lusid.Sdk.Model.PagedResourceListOfPostingModuleRule
+# Lusid.Sdk.Model.PagedResourceListOfPostingModuleRuleResponse
 
 ## Properties
 
@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NextPage** | **string** |  | [optional] 
 **PreviousPage** | **string** |  | [optional] 
-**Values** | [**List&lt;PostingModuleRule&gt;**](PostingModuleRule.md) |  | 
+**Values** | [**List&lt;PostingModuleRuleResponse&gt;**](PostingModuleRuleResponse.md) |  | 
 **Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
@@ -16,11 +16,11 @@ using System;
 
 string nextPage = "example nextPage";
 string previousPage = "example previousPage";
-List<PostingModuleRule> values = new List<PostingModuleRule>();
+List<PostingModuleRuleResponse> values = new List<PostingModuleRuleResponse>();
 string href = "example href";
 List<Link> links = new List<Link>();
 
-PagedResourceListOfPostingModuleRule pagedResourceListOfPostingModuleRuleInstance = new PagedResourceListOfPostingModuleRule(
+PagedResourceListOfPostingModuleRuleResponse pagedResourceListOfPostingModuleRuleResponseInstance = new PagedResourceListOfPostingModuleRuleResponse(
     nextPage: nextPage,
     previousPage: previousPage,
     values: values,

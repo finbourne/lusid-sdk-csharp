@@ -42,8 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="status">The status of the shard. One of Pending, Running, Completed or Failed. (required).</param>
         /// <param name="callCount">The number of margin calls the shard published. (required).</param>
         /// <param name="lineCount">The number of margin lines the shard published. (required).</param>
-        /// <param name="detail">Why the shard failed, when it did..</param>
-        public MarginRunShard(string id = default(string), ResourceId recipeId = default(ResourceId), List<ResourceId> agreements = default(List<ResourceId>), string status = default(string), int callCount = default(int), int lineCount = default(int), string detail = default(string))
+        /// <param name="detail">Why the shard failed, or which of its netting sets it completed without figures and why..</param>
+        /// <param name="asAt">When the shard was valued: the run&#39;s as-at, or the time of the retry that valued it. Null until the shard has finished..</param>
+        public MarginRunShard(string id = default(string), ResourceId recipeId = default(ResourceId), List<ResourceId> agreements = default(List<ResourceId>), string status = default(string), int callCount = default(int), int lineCount = default(int), string detail = default(string), DateTimeOffset? asAt = default(DateTimeOffset?))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -67,6 +68,7 @@ namespace Lusid.Sdk.Model
             this.LineCount = lineCount;
             this.RecipeId = recipeId;
             this.Detail = detail;
+            this.AsAt = asAt;
         }
 
         /// <summary>
@@ -111,11 +113,18 @@ namespace Lusid.Sdk.Model
         public int LineCount { get; set; }
 
         /// <summary>
-        /// Why the shard failed, when it did.
+        /// Why the shard failed, or which of its netting sets it completed without figures and why.
         /// </summary>
-        /// <value>Why the shard failed, when it did.</value>
+        /// <value>Why the shard failed, or which of its netting sets it completed without figures and why.</value>
         [DataMember(Name = "detail", EmitDefaultValue = true)]
         public string Detail { get; set; }
+
+        /// <summary>
+        /// When the shard was valued: the run&#39;s as-at, or the time of the retry that valued it. Null until the shard has finished.
+        /// </summary>
+        /// <value>When the shard was valued: the run&#39;s as-at, or the time of the retry that valued it. Null until the shard has finished.</value>
+        [DataMember(Name = "asAt", EmitDefaultValue = true)]
+        public DateTimeOffset? AsAt { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -132,6 +141,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CallCount: ").Append(CallCount).Append("\n");
             sb.Append("  LineCount: ").Append(LineCount).Append("\n");
             sb.Append("  Detail: ").Append(Detail).Append("\n");
+            sb.Append("  AsAt: ").Append(AsAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -200,6 +210,11 @@ namespace Lusid.Sdk.Model
                     this.Detail == input.Detail ||
                     (this.Detail != null &&
                     this.Detail.Equals(input.Detail))
+                ) && 
+                (
+                    this.AsAt == input.AsAt ||
+                    (this.AsAt != null &&
+                    this.AsAt.Equals(input.AsAt))
                 );
         }
 
@@ -233,6 +248,10 @@ namespace Lusid.Sdk.Model
                 if (this.Detail != null)
                 {
                     hashCode = (hashCode * 59) + this.Detail.GetHashCode();
+                }
+                if (this.AsAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.AsAt.GetHashCode();
                 }
                 return hashCode;
             }

@@ -35,6 +35,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**SetGeneralLedgerProfileMappings**](ChartOfAccountsApi.md#setgeneralledgerprofilemappings) | **PUT** /api/chartofaccounts/{scope}/{code}/generalledgerprofile/{generalLedgerProfileCode}/mappings | [EARLY ACCESS] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings. |
 | [**SetPostingModuleDetails**](ChartOfAccountsApi.md#setpostingmoduledetails) | **PUT** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode} | [EARLY ACCESS] SetPostingModuleDetails: Set the details of a Posting Module |
 | [**SetPostingModuleRules**](ChartOfAccountsApi.md#setpostingmodulerules) | **PUT** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules | [EARLY ACCESS] SetPostingModuleRules: Set the rules of a Posting Module |
+| [**SupersedePostingModuleRule**](ChartOfAccountsApi.md#supersedepostingmodulerule) | **POST** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules/{ruleId}/$supersede | [EARLY ACCESS] SupersedePostingModuleRule: Supersede a rule of a Posting Module |
 | [**UpsertAccountProperties**](ChartOfAccountsApi.md#upsertaccountproperties) | **POST** /api/chartofaccounts/{scope}/{code}/accounts/{accountCode}/properties/$upsert | [EARLY ACCESS] UpsertAccountProperties: Upsert account properties |
 | [**UpsertAccounts**](ChartOfAccountsApi.md#upsertaccounts) | **POST** /api/chartofaccounts/{scope}/{code}/accounts | [EARLY ACCESS] UpsertAccounts: Upsert Accounts |
 | [**UpsertChartOfAccountsProperties**](ChartOfAccountsApi.md#upsertchartofaccountsproperties) | **POST** /api/chartofaccounts/{scope}/{code}/properties/$upsert | [EARLY ACCESS] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties |
@@ -2581,7 +2582,7 @@ catch (ApiException e)
 
 <a id="listpostingmodulerules"></a>
 # **ListPostingModuleRules**
-> PagedResourceListOfPostingModuleRule ListPostingModuleRules (string scope, string code, string postingModuleCode, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null)
+> PagedResourceListOfPostingModuleRuleResponse ListPostingModuleRules (string scope, string code, string postingModuleCode, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null)
 
 [EARLY ACCESS] ListPostingModuleRules: List Posting Module Rules
 
@@ -2637,10 +2638,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfPostingModuleRule result = apiInstance.ListPostingModuleRules(scope, code, postingModuleCode, asAt, page, limit, filter, opts: opts);
+                // PagedResourceListOfPostingModuleRuleResponse result = apiInstance.ListPostingModuleRules(scope, code, postingModuleCode, asAt, page, limit, filter, opts: opts);
 
                 // [EARLY ACCESS] ListPostingModuleRules: List Posting Module Rules
-                PagedResourceListOfPostingModuleRule result = apiInstance.ListPostingModuleRules(scope, code, postingModuleCode, asAt, page, limit, filter);
+                PagedResourceListOfPostingModuleRuleResponse result = apiInstance.ListPostingModuleRules(scope, code, postingModuleCode, asAt, page, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2661,7 +2662,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] ListPostingModuleRules: List Posting Module Rules
-    ApiResponse<PagedResourceListOfPostingModuleRule> response = apiInstance.ListPostingModuleRulesWithHttpInfo(scope, code, postingModuleCode, asAt, page, limit, filter);
+    ApiResponse<PagedResourceListOfPostingModuleRuleResponse> response = apiInstance.ListPostingModuleRulesWithHttpInfo(scope, code, postingModuleCode, asAt, page, limit, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2688,7 +2689,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**PagedResourceListOfPostingModuleRule**](PagedResourceListOfPostingModuleRule.md)
+[**PagedResourceListOfPostingModuleRuleResponse**](PagedResourceListOfPostingModuleRuleResponse.md)
 
 ### HTTP request headers
 
@@ -3769,6 +3770,128 @@ catch (ApiException e)
 | **code** | **string** | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. |  |
 | **postingModuleCode** | **string** | The code of the Posting Module to be updated. |  |
 | **postingModuleRule** | [**List&lt;PostingModuleRule&gt;**](PostingModuleRule.md) | The new rule set for the Posting Module. |  |
+
+### Return type
+
+[**PostingModuleRulesUpdatedResponse**](PostingModuleRulesUpdatedResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The Posting Module with updated rules. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="supersedepostingmodulerule"></a>
+# **SupersedePostingModuleRule**
+> PostingModuleRulesUpdatedResponse SupersedePostingModuleRule (string scope, string code, string postingModuleCode, string ruleId, List<SupersedePostingModuleRuleRequest> supersedePostingModuleRuleRequest)
+
+[EARLY ACCESS] SupersedePostingModuleRule: Supersede a rule of a Posting Module
+
+Supersede a Posting Rule by one or more rules in a single write. Every rule in the request records the superseded  ruleId as its originalRuleId. At most one of them may have the superseded ruleId: it becomes the rule's next  version, and the rule's latest version stops applying from its effectiveFrom, unless it already ends by then; it  is never extended. Any other rule is new and must not have the ruleId of an existing rule. The rules take the  latest version's place in the rule list, in the order given.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
+            var scope = "scope_example";  // string | The scope of the Chart of Accounts.
+            var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
+            var postingModuleCode = "postingModuleCode_example";  // string | The code of the Posting Module to be updated.
+            var ruleId = "ruleId_example";  // string | The identifier of the Posting Rule to supersede. Its latest version is closed.
+            var supersedePostingModuleRuleRequest = new List<SupersedePostingModuleRuleRequest>(); // List<SupersedePostingModuleRuleRequest> | The rules that take over from the superseded rule.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PostingModuleRulesUpdatedResponse result = apiInstance.SupersedePostingModuleRule(scope, code, postingModuleCode, ruleId, supersedePostingModuleRuleRequest, opts: opts);
+
+                // [EARLY ACCESS] SupersedePostingModuleRule: Supersede a rule of a Posting Module
+                PostingModuleRulesUpdatedResponse result = apiInstance.SupersedePostingModuleRule(scope, code, postingModuleCode, ruleId, supersedePostingModuleRuleRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling ChartOfAccountsApi.SupersedePostingModuleRule: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SupersedePostingModuleRuleWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] SupersedePostingModuleRule: Supersede a rule of a Posting Module
+    ApiResponse<PostingModuleRulesUpdatedResponse> response = apiInstance.SupersedePostingModuleRuleWithHttpInfo(scope, code, postingModuleCode, ruleId, supersedePostingModuleRuleRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling ChartOfAccountsApi.SupersedePostingModuleRuleWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Chart of Accounts. |  |
+| **code** | **string** | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. |  |
+| **postingModuleCode** | **string** | The code of the Posting Module to be updated. |  |
+| **ruleId** | **string** | The identifier of the Posting Rule to supersede. Its latest version is closed. |  |
+| **supersedePostingModuleRuleRequest** | [**List&lt;SupersedePostingModuleRuleRequest&gt;**](SupersedePostingModuleRuleRequest.md) | The rules that take over from the superseded rule. |  |
 
 ### Return type
 

@@ -58,7 +58,7 @@ namespace Lusid.Sdk.Model
         /// <param name="statementReference">A reference to the counterparty&#39;s statement, such as a Drive path..</param>
         /// <param name="demandNote">A note recorded with the counterparty&#39;s demand..</param>
         /// <param name="agreedAmount">The amount agreed to move, once the call is accepted or disputed..</param>
-        /// <param name="disputedAmount">The part of the counterparty&#39;s demand left in dispute..</param>
+        /// <param name="disputedAmount">The part of the larger of our call and the counterparty&#39;s demand left in dispute..</param>
         /// <param name="disputeReason">Why the call is disputed..</param>
         /// <param name="disputeOwner">Who owns the dispute..</param>
         /// <param name="state">Where the call is in its lifecycle. One of Calculated, Accepted or Disputed. Filterable. (required).</param>
@@ -298,9 +298,9 @@ namespace Lusid.Sdk.Model
         public decimal? AgreedAmount { get; set; }
 
         /// <summary>
-        /// The part of the counterparty&#39;s demand left in dispute.
+        /// The part of the larger of our call and the counterparty&#39;s demand left in dispute.
         /// </summary>
-        /// <value>The part of the counterparty&#39;s demand left in dispute.</value>
+        /// <value>The part of the larger of our call and the counterparty&#39;s demand left in dispute.</value>
         [DataMember(Name = "disputedAmount", EmitDefaultValue = true)]
         public decimal? DisputedAmount { get; set; }
 

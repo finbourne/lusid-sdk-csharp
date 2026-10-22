@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **ChartOfAccountsId** | [**ResourceId**](ResourceId.md) |  | 
 **DisplayName** | **string** | The name of the Posting Module. | 
 **Description** | **string** | A description for the Posting Module. | [optional] 
-**Rules** | [**List&lt;PostingModuleRule&gt;**](PostingModuleRule.md) | The Posting Rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection. | [optional] 
+**Rules** | [**List&lt;PostingModuleRuleResponse&gt;**](PostingModuleRuleResponse.md) | The Posting Rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection. | [optional] 
 **Status** | **string** | The Posting Module status. Default value: Active. Available values: Active, Inactive, Deleted. | 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
@@ -24,7 +24,7 @@ string postingModuleCode = "postingModuleCode";
 ResourceId chartOfAccountsId = new ResourceId();
 string displayName = "displayName";
 string description = "example description";
-List<PostingModuleRule> rules = new List<PostingModuleRule>();
+List<PostingModuleRuleResponse> rules = new List<PostingModuleRuleResponse>();
 string status = "status";
 ModelVersion? varVersion = new ModelVersion();
 

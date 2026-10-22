@@ -57,7 +57,7 @@ namespace Lusid.Sdk.Model
         /// <param name="items">items (required).</param>
         /// <param name="linkedResults">Results of other rec types in the same rec instance run whose items share an identifier with this result&#39;s items. Only exceptions link, and only to exceptions; symmetric. Set by the linking pass once every rec type of the run has completed, so empty until then. (required).</param>
         /// <param name="comments">User-authored comments attached to the result. Carried forward across runs. (required).</param>
-        /// <param name="properties">Properties in the RecResult domain. Filterable and sortable..</param>
+        /// <param name="properties">Properties in the RecResult domain. Filterable and sortable. Always includes the properties the matching ruleset populates, with a null value where the result holds none yet..</param>
         /// <param name="assignedUser">The LUSID user id assigned to the result..</param>
         /// <param name="assignedRole">The LUSID IAM role id assigned to the result..</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
@@ -311,9 +311,9 @@ namespace Lusid.Sdk.Model
         public List<RecUserComment> Comments { get; set; }
 
         /// <summary>
-        /// Properties in the RecResult domain. Filterable and sortable.
+        /// Properties in the RecResult domain. Filterable and sortable. Always includes the properties the matching ruleset populates, with a null value where the result holds none yet.
         /// </summary>
-        /// <value>Properties in the RecResult domain. Filterable and sortable.</value>
+        /// <value>Properties in the RecResult domain. Filterable and sortable. Always includes the properties the matching ruleset populates, with a null value where the result holds none yet.</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, PerpetualProperty> Properties { get; set; }
 

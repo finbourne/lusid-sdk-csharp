@@ -318,7 +318,7 @@ namespace Lusid.Sdk.Api
         /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
         /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
-        /// <param name="propertyKeys">The property keys to decorate onto the result. (optional)</param>
+        /// <param name="propertyKeys">The property keys to decorate onto the result. The keys its matching ruleset populates always come back, so list only others here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>RecResult</returns>
@@ -337,7 +337,7 @@ namespace Lusid.Sdk.Api
         /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
         /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
-        /// <param name="propertyKeys">The property keys to decorate onto the result. (optional)</param>
+        /// <param name="propertyKeys">The property keys to decorate onto the result. The keys its matching ruleset populates always come back, so list only others here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of RecResult</returns>
@@ -544,7 +544,7 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">The property keys to decorate onto each result. (optional)</param>
+        /// <param name="propertyKeys">The property keys to decorate onto each result. The keys its matching ruleset populates always come back, so list only others here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfRecResult</returns>
@@ -562,7 +562,7 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">The property keys to decorate onto each result. (optional)</param>
+        /// <param name="propertyKeys">The property keys to decorate onto each result. The keys its matching ruleset populates always come back, so list only others here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfRecResult</returns>
@@ -1026,7 +1026,7 @@ namespace Lusid.Sdk.Api
         /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
         /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
-        /// <param name="propertyKeys">The property keys to decorate onto the result. (optional)</param>
+        /// <param name="propertyKeys">The property keys to decorate onto the result. The keys its matching ruleset populates always come back, so list only others here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1046,7 +1046,7 @@ namespace Lusid.Sdk.Api
         /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
         /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
-        /// <param name="propertyKeys">The property keys to decorate onto the result. (optional)</param>
+        /// <param name="propertyKeys">The property keys to decorate onto the result. The keys its matching ruleset populates always come back, so list only others here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1266,7 +1266,7 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">The property keys to decorate onto each result. (optional)</param>
+        /// <param name="propertyKeys">The property keys to decorate onto each result. The keys its matching ruleset populates always come back, so list only others here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1285,7 +1285,7 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">The property keys to decorate onto each result. (optional)</param>
+        /// <param name="propertyKeys">The property keys to decorate onto each result. The keys its matching ruleset populates always come back, so list only others here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3843,7 +3843,7 @@ namespace Lusid.Sdk.Api
         /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
         /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
-        /// <param name="propertyKeys">The property keys to decorate onto the result. (optional)</param>
+        /// <param name="propertyKeys">The property keys to decorate onto the result. The keys its matching ruleset populates always come back, so list only others here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>RecResult</returns>
@@ -3863,7 +3863,7 @@ namespace Lusid.Sdk.Api
         /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
         /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
-        /// <param name="propertyKeys">The property keys to decorate onto the result. (optional)</param>
+        /// <param name="propertyKeys">The property keys to decorate onto the result. The keys its matching ruleset populates always come back, so list only others here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of RecResult</returns>
@@ -3987,7 +3987,7 @@ namespace Lusid.Sdk.Api
         /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
         /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
-        /// <param name="propertyKeys">The property keys to decorate onto the result. (optional)</param>
+        /// <param name="propertyKeys">The property keys to decorate onto the result. The keys its matching ruleset populates always come back, so list only others here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4008,7 +4008,7 @@ namespace Lusid.Sdk.Api
         /// <param name="runNumber">The run of the instance whose view of the result is read.</param>
         /// <param name="id">The display id of the rec result, e.g. \&quot;break-3\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the result. Defaults to latest if not specified. (optional)</param>
-        /// <param name="propertyKeys">The property keys to decorate onto the result. (optional)</param>
+        /// <param name="propertyKeys">The property keys to decorate onto the result. The keys its matching ruleset populates always come back, so list only others here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -5604,7 +5604,7 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">The property keys to decorate onto each result. (optional)</param>
+        /// <param name="propertyKeys">The property keys to decorate onto each result. The keys its matching ruleset populates always come back, so list only others here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfRecResult</returns>
@@ -5623,7 +5623,7 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">The property keys to decorate onto each result. (optional)</param>
+        /// <param name="propertyKeys">The property keys to decorate onto each result. The keys its matching ruleset populates always come back, so list only others here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfRecResult</returns>
@@ -5737,7 +5737,7 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">The property keys to decorate onto each result. (optional)</param>
+        /// <param name="propertyKeys">The property keys to decorate onto each result. The keys its matching ruleset populates always come back, so list only others here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -5757,7 +5757,7 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">The property keys to decorate onto each result. (optional)</param>
+        /// <param name="propertyKeys">The property keys to decorate onto each result. The keys its matching ruleset populates always come back, so list only others here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
