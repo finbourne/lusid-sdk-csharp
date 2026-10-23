@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Model
         /// <param name="partnerRole">The role of the register line. Available values: GPRegister, LPInvestment. (required).</param>
         /// <param name="commitmentCurrency">The currency of the partner&#39;s commitment. (required).</param>
         /// <param name="balances">balances (required).</param>
-        /// <param name="shareOfCommitments">The partner&#39;s committed capital as a decimal fraction of the fund&#39;s total commitments. (required).</param>
+        /// <param name="shareOfCommitments">The partner&#39;s committed capital as a decimal fraction of the fund&#39;s total commitments in the same commitment currency. (required).</param>
         /// <param name="admittedOn">The date the partner was admitted, being the date of their first commitment..</param>
         /// <param name="totals">totals (required).</param>
         public FundPartner(string investorRecordId = default(string), string displayName = default(string), string commitmentLineId = default(string), string lusidInstrumentId = default(string), ResourceId portfolioId = default(ResourceId), bool isVehicle = default(bool), string partnerRole = default(string), string commitmentCurrency = default(string), FundPartnerBalances balances = default(FundPartnerBalances), decimal shareOfCommitments = default(decimal), DateTimeOffset? admittedOn = default(DateTimeOffset?), FundPartnersTotals totals = default(FundPartnersTotals))
@@ -166,9 +166,9 @@ namespace Lusid.Sdk.Model
         public FundPartnerBalances Balances { get; set; }
 
         /// <summary>
-        /// The partner&#39;s committed capital as a decimal fraction of the fund&#39;s total commitments.
+        /// The partner&#39;s committed capital as a decimal fraction of the fund&#39;s total commitments in the same commitment currency.
         /// </summary>
-        /// <value>The partner&#39;s committed capital as a decimal fraction of the fund&#39;s total commitments.</value>
+        /// <value>The partner&#39;s committed capital as a decimal fraction of the fund&#39;s total commitments in the same commitment currency.</value>
         [DataMember(Name = "shareOfCommitments", IsRequired = true, EmitDefaultValue = true)]
         public decimal ShareOfCommitments { get; set; }
 

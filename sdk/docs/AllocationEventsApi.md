@@ -70,7 +70,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Allocation Event.
             var code = "code_example";  // string | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.
             var allocationEventBookRequest = new AllocationEventBookRequest(); // AllocationEventBookRequest | The booking reference to freeze the event under.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label from which the booking applies. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to read the Allocation Event to book. The booking is recorded on the version in force at that time, from that version's own effective date. Defaults to the current LUSID system datetime if not specified. (optional) 
 
             try
             {
@@ -119,7 +119,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Allocation Event. |  |
 | **code** | **string** | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event. |  |
 | **allocationEventBookRequest** | [**AllocationEventBookRequest**](AllocationEventBookRequest.md) | The booking reference to freeze the event under. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label from which the booking applies. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to read the Allocation Event to book. The booking is recorded on the version in force at that time, from that version&#39;s own effective date. Defaults to the current LUSID system datetime if not specified. | [optional]  |
 
 ### Return type
 
@@ -262,7 +262,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] DeleteAllocationEvent: Delete an Allocation Event.
 
-Delete an Allocation Event from an effective datetime. The Allocation Event remains retrievable at earlier  effective datetimes.
+Delete an Allocation Event. Given an effective datetime, the Allocation Event is deleted from that datetime  and remains retrievable at earlier effective datetimes. Given none, an Allocation Event that was created  without an effective datetime is removed from the beginning of time, so that its code can be reused;  otherwise it is deleted from the current LUSID system datetime. Only an Allocation Event that has not been  booked can be deleted.
 
 ### Example
 ```csharp
@@ -305,7 +305,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AllocationEventsApi>();
             var scope = "scope_example";  // string | The scope of the Allocation Event.
             var code = "code_example";  // string | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label from which to delete the Allocation Event. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label from which to delete the Allocation Event. If not specified, an Allocation Event created without an effective datetime is removed from the beginning of time; any other is deleted from the current LUSID system datetime. (optional) 
 
             try
             {
@@ -353,7 +353,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Allocation Event. |  |
 | **code** | **string** | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label from which to delete the Allocation Event. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label from which to delete the Allocation Event. If not specified, an Allocation Event created without an effective datetime is removed from the beginning of time; any other is deleted from the current LUSID system datetime. | [optional]  |
 
 ### Return type
 
@@ -1268,7 +1268,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Allocation Event.
             var code = "code_example";  // string | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.
             var allocationEventReallocateRequest = new AllocationEventReallocateRequest(); // AllocationEventReallocateRequest | The reason for the reallocation and any basis values to use.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label from which the reallocation applies. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label from which the reallocation applies. If not specified, the version in force now is recomputed in place from its own effective date. (optional) 
 
             try
             {
@@ -1317,7 +1317,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Allocation Event. |  |
 | **code** | **string** | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event. |  |
 | **allocationEventReallocateRequest** | [**AllocationEventReallocateRequest**](AllocationEventReallocateRequest.md) | The reason for the reallocation and any basis values to use. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label from which the reallocation applies. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label from which the reallocation applies. If not specified, the version in force now is recomputed in place from its own effective date. | [optional]  |
 
 ### Return type
 
@@ -1388,7 +1388,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Allocation Event.
             var code = "code_example";  // string | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.
             var allocationEventReceiptRequest = new AllocationEventReceiptRequest(); // AllocationEventReceiptRequest | The investor, amount and date of the receipt.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label from which the receipt applies. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to read the Allocation Event receiving cash. The receipt is recorded on the version in force at that time, from that version's own effective date; the receipt postings are dated by the request. Defaults to the current LUSID system datetime if not specified. (optional) 
 
             try
             {
@@ -1437,7 +1437,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Allocation Event. |  |
 | **code** | **string** | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event. |  |
 | **allocationEventReceiptRequest** | [**AllocationEventReceiptRequest**](AllocationEventReceiptRequest.md) | The investor, amount and date of the receipt. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label from which the receipt applies. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to read the Allocation Event receiving cash. The receipt is recorded on the version in force at that time, from that version&#39;s own effective date; the receipt postings are dated by the request. Defaults to the current LUSID system datetime if not specified. | [optional]  |
 
 ### Return type
 
@@ -1508,7 +1508,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Allocation Event.
             var code = "code_example";  // string | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.
             var allocationEventReverseRequest = new AllocationEventReverseRequest(); // AllocationEventReverseRequest | The reason for the reversal and, optionally, when it should take effect.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label from which the reversal applies. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to read the Allocation Event to reverse. The reversed status is recorded on the version in force at that time, from that version's own effective date; the mirror postings are dated by the request. Defaults to the current LUSID system datetime if not specified. (optional) 
 
             try
             {
@@ -1557,7 +1557,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Allocation Event. |  |
 | **code** | **string** | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event. |  |
 | **allocationEventReverseRequest** | [**AllocationEventReverseRequest**](AllocationEventReverseRequest.md) | The reason for the reversal and, optionally, when it should take effect. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label from which the reversal applies. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to read the Allocation Event to reverse. The reversed status is recorded on the version in force at that time, from that version&#39;s own effective date; the mirror postings are dated by the request. Defaults to the current LUSID system datetime if not specified. | [optional]  |
 
 ### Return type
 
@@ -1628,7 +1628,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Allocation Event.
             var code = "code_example";  // string | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.
             var allocationEventUnbookRequest = new AllocationEventUnbookRequest(); // AllocationEventUnbookRequest | The reason the booking is being taken back.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label from which the unbooking applies. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to read the Allocation Event to unbook. The unbooking is recorded on the version in force at that time, from that version's own effective date. Defaults to the current LUSID system datetime if not specified. (optional) 
 
             try
             {
@@ -1677,7 +1677,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Allocation Event. |  |
 | **code** | **string** | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event. |  |
 | **allocationEventUnbookRequest** | [**AllocationEventUnbookRequest**](AllocationEventUnbookRequest.md) | The reason the booking is being taken back. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label from which the unbooking applies. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to read the Allocation Event to unbook. The unbooking is recorded on the version in force at that time, from that version&#39;s own effective date. Defaults to the current LUSID system datetime if not specified. | [optional]  |
 
 ### Return type
 
