@@ -28,6 +28,9 @@ Name | Type | Description | Notes
 **NonRecallableCapitalAmount** | **decimal?** | The non-recallable capital received by the destination line. Used on the &#39;In&#39; side only; must not be negative. | [optional] 
 **FundedCapitalAmount** | **decimal?** | The funded capital received by the destination line, for a line whose drawdowns were booked against the stored funded balance rather than paid-in capital. Used on the &#39;In&#39; side only; must not be negative. | [optional] 
 **ExcessCapitalReturnedAmount** | **decimal?** | The cumulative excess capital returned that the destination line takes over from the source line. Used on the &#39;In&#39; side only; must not be negative. | [optional] 
+**PaidInCapitalPortfolioCcyAmount** | **decimal?** | The paid-in capital the destination line takes over, already in the portfolio&#39;s base currency: the source line&#39;s PaidInCapitalPortfolioCcy balance share, accumulated at historical rates, not a spot conversion of PaidInCapitalAmount. Used on the &#39;In&#39; side only; must not be negative. | [optional] 
+**ReturnedCapitalPortfolioCcyAmount** | **decimal?** | The returned capital the destination line takes over, already in the portfolio&#39;s base currency at the source line&#39;s historical rates. Used on the &#39;In&#39; side only; must not be negative. | [optional] 
+**ExcessCapitalReturnedPortfolioCcyAmount** | **decimal?** | The cumulative excess capital returned that the destination line takes over, already in the portfolio&#39;s base currency at the source line&#39;s historical rates. Used on the &#39;In&#39; side only; must not be negative. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -68,7 +71,10 @@ CapitalInterestTransferEvent capitalInterestTransferEventInstance = new CapitalI
     recallableCapitalAmount: recallableCapitalAmount,
     nonRecallableCapitalAmount: nonRecallableCapitalAmount,
     fundedCapitalAmount: fundedCapitalAmount,
-    excessCapitalReturnedAmount: excessCapitalReturnedAmount);
+    excessCapitalReturnedAmount: excessCapitalReturnedAmount,
+    paidInCapitalPortfolioCcyAmount: paidInCapitalPortfolioCcyAmount,
+    returnedCapitalPortfolioCcyAmount: returnedCapitalPortfolioCcyAmount,
+    excessCapitalReturnedPortfolioCcyAmount: excessCapitalReturnedPortfolioCcyAmount);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -39,7 +39,8 @@ namespace Lusid.Sdk.Model
         /// <param name="effectiveAt">The business date, datetime or cut label to value the agreements at. (required).</param>
         /// <param name="asAt">The asAt datetime to read agreements, portfolios and market data at. Defaults to the current LUSID system datetime if not specified..</param>
         /// <param name="agreementFilter">An expression selecting the collateral agreements to run, in the same syntax as listing collateral agreements. Every agreement the caller may calculate margin for is run if not specified..</param>
-        public MarginRunRequest(DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string agreementFilter = default(string))
+        /// <param name="scenario">scenario.</param>
+        public MarginRunRequest(DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string agreementFilter = default(string), ResourceId scenario = default(ResourceId))
         {
             // to ensure "effectiveAt" is required (not null)
             if (effectiveAt == null)
@@ -49,6 +50,7 @@ namespace Lusid.Sdk.Model
             this.EffectiveAt = effectiveAt;
             this.AsAt = asAt;
             this.AgreementFilter = agreementFilter;
+            this.Scenario = scenario;
         }
 
         /// <summary>
@@ -73,6 +75,12 @@ namespace Lusid.Sdk.Model
         public string AgreementFilter { get; set; }
 
         /// <summary>
+        /// Gets or Sets Scenario
+        /// </summary>
+        [DataMember(Name = "scenario", EmitDefaultValue = false)]
+        public ResourceId Scenario { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +91,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("  AsAt: ").Append(AsAt).Append("\n");
             sb.Append("  AgreementFilter: ").Append(AgreementFilter).Append("\n");
+            sb.Append("  Scenario: ").Append(Scenario).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -132,6 +141,11 @@ namespace Lusid.Sdk.Model
                     this.AgreementFilter == input.AgreementFilter ||
                     (this.AgreementFilter != null &&
                     this.AgreementFilter.Equals(input.AgreementFilter))
+                ) && 
+                (
+                    this.Scenario == input.Scenario ||
+                    (this.Scenario != null &&
+                    this.Scenario.Equals(input.Scenario))
                 );
         }
 
@@ -155,6 +169,10 @@ namespace Lusid.Sdk.Model
                 if (this.AgreementFilter != null)
                 {
                     hashCode = (hashCode * 59) + this.AgreementFilter.GetHashCode();
+                }
+                if (this.Scenario != null)
+                {
+                    hashCode = (hashCode * 59) + this.Scenario.GetHashCode();
                 }
                 return hashCode;
             }
