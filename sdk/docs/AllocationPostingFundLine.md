@@ -7,7 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | The deterministic identifier of the posting: the booking reference, investor record, commitment line, component and side. | [optional] 
 **Portfolio** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**TransactionType** | **string** | The transaction type written on the fund side, for instance PA.ContributionCalled. | [optional] 
+**TransactionType** | **string** | The transaction type the booking writes on the fund side, for instance PECall: the type the fund&#39;s configuration maps the partnership transaction type to. | [optional] 
+**PartnershipTransactionType** | **string** | The partnership transaction type the fund-side posting is classified as, for instance PA.ContributionCalled. | [optional] 
 **Amount** | **decimal** | The amount posted, in the event currency. | [optional] 
 **Component** | **string** | The component of the event the posting carries. | [optional] 
 **InvestorRecordId** | **string** | The investor record the posting is for. | [optional] 
@@ -21,7 +22,8 @@ using System;
 string id = "example id";
 ResourceId? portfolio = new ResourceId();
 
-string transactionType = "example transactionType";decimal? amount = "example amount";
+string transactionType = "example transactionType";
+string partnershipTransactionType = "example partnershipTransactionType";decimal? amount = "example amount";
 string component = "example component";
 string investorRecordId = "example investorRecordId";
 string viaVehicle = "example viaVehicle";
@@ -31,6 +33,7 @@ AllocationPostingFundLine allocationPostingFundLineInstance = new AllocationPost
     id: id,
     portfolio: portfolio,
     transactionType: transactionType,
+    partnershipTransactionType: partnershipTransactionType,
     amount: amount,
     component: component,
     investorRecordId: investorRecordId,

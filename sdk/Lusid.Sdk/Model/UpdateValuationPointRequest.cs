@@ -43,7 +43,8 @@ namespace Lusid.Sdk.Model
         /// <param name="applyClearDown">Defaults to null. Set to true if you want the closed period to have the clear down applied..</param>
         /// <param name="updateInclusionDateNavAdjustments">Defaults to null. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities..</param>
         /// <param name="pricingMethodologyOverride">pricingMethodologyOverride.</param>
-        public UpdateValuationPointRequest(string valuationPointCode = default(string), string variant = default(string), string name = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool? applyClearDown = default(bool?), bool? updateInclusionDateNavAdjustments = default(bool?), PricingMethodologyOverrideRequest pricingMethodologyOverride = default(PricingMethodologyOverrideRequest))
+        /// <param name="bucketSetSeeds">Defaults to null. The closing balances to seed for bucket sets at this estimate valuation point, at most one per bucket set. They replace the seeds this variant of the valuation point had, and none removes them. Null leaves them as they are. While the valuation point is an estimate, each seeded bucket set&#39;s flow bucket values are its seed; finalising the valuation point stores them, and the next valuation point opens from them. A bucket set can only be seeded when the previous final valuation point has no values for it. The seed is trusted input: it is not reconciled to the share class NAVs..</param>
+        public UpdateValuationPointRequest(string valuationPointCode = default(string), string variant = default(string), string name = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool? applyClearDown = default(bool?), bool? updateInclusionDateNavAdjustments = default(bool?), PricingMethodologyOverrideRequest pricingMethodologyOverride = default(PricingMethodologyOverrideRequest), List<BucketSetSeedRequest> bucketSetSeeds = default(List<BucketSetSeedRequest>))
         {
             // to ensure "valuationPointCode" is required (not null)
             if (valuationPointCode == null)
@@ -57,6 +58,7 @@ namespace Lusid.Sdk.Model
             this.ApplyClearDown = applyClearDown;
             this.UpdateInclusionDateNavAdjustments = updateInclusionDateNavAdjustments;
             this.PricingMethodologyOverride = pricingMethodologyOverride;
+            this.BucketSetSeeds = bucketSetSeeds;
         }
 
         /// <summary>
@@ -108,6 +110,13 @@ namespace Lusid.Sdk.Model
         public PricingMethodologyOverrideRequest PricingMethodologyOverride { get; set; }
 
         /// <summary>
+        /// Defaults to null. The closing balances to seed for bucket sets at this estimate valuation point, at most one per bucket set. They replace the seeds this variant of the valuation point had, and none removes them. Null leaves them as they are. While the valuation point is an estimate, each seeded bucket set&#39;s flow bucket values are its seed; finalising the valuation point stores them, and the next valuation point opens from them. A bucket set can only be seeded when the previous final valuation point has no values for it. The seed is trusted input: it is not reconciled to the share class NAVs.
+        /// </summary>
+        /// <value>Defaults to null. The closing balances to seed for bucket sets at this estimate valuation point, at most one per bucket set. They replace the seeds this variant of the valuation point had, and none removes them. Null leaves them as they are. While the valuation point is an estimate, each seeded bucket set&#39;s flow bucket values are its seed; finalising the valuation point stores them, and the next valuation point opens from them. A bucket set can only be seeded when the previous final valuation point has no values for it. The seed is trusted input: it is not reconciled to the share class NAVs.</value>
+        [DataMember(Name = "bucketSetSeeds", EmitDefaultValue = true)]
+        public List<BucketSetSeedRequest> BucketSetSeeds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -122,6 +131,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ApplyClearDown: ").Append(ApplyClearDown).Append("\n");
             sb.Append("  UpdateInclusionDateNavAdjustments: ").Append(UpdateInclusionDateNavAdjustments).Append("\n");
             sb.Append("  PricingMethodologyOverride: ").Append(PricingMethodologyOverride).Append("\n");
+            sb.Append("  BucketSetSeeds: ").Append(BucketSetSeeds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -192,6 +202,12 @@ namespace Lusid.Sdk.Model
                     this.PricingMethodologyOverride == input.PricingMethodologyOverride ||
                     (this.PricingMethodologyOverride != null &&
                     this.PricingMethodologyOverride.Equals(input.PricingMethodologyOverride))
+                ) && 
+                (
+                    this.BucketSetSeeds == input.BucketSetSeeds ||
+                    this.BucketSetSeeds != null &&
+                    input.BucketSetSeeds != null &&
+                    this.BucketSetSeeds.SequenceEqual(input.BucketSetSeeds)
                 );
         }
 
@@ -231,6 +247,10 @@ namespace Lusid.Sdk.Model
                 if (this.PricingMethodologyOverride != null)
                 {
                     hashCode = (hashCode * 59) + this.PricingMethodologyOverride.GetHashCode();
+                }
+                if (this.BucketSetSeeds != null)
+                {
+                    hashCode = (hashCode * 59) + this.BucketSetSeeds.GetHashCode();
                 }
                 return hashCode;
             }

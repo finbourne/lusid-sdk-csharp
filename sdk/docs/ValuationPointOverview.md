@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **HoldingsAsAtOverride** | **DateTimeOffset?** | The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to QueryAsAt. | [optional] 
 **ValuationsAsAtOverride** | **DateTimeOffset?** | The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to QueryAsAt. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The Fee properties. These will be from the &#39;Fee&#39; domain. | [optional] 
+**BucketSetSeeds** | [**List&lt;BucketSetSeed&gt;**](BucketSetSeed.md) | The bucket set seeds set on this variant of the Valuation Point. Null when it has none. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -31,6 +32,7 @@ string status = "status";decimal gav = "gav";
 decimal nav = "nav";
 
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
+List<BucketSetSeed> bucketSetSeeds = new List<BucketSetSeed>();
 List<Link> links = new List<Link>();
 
 ValuationPointOverview valuationPointOverviewInstance = new ValuationPointOverview(
@@ -47,6 +49,7 @@ ValuationPointOverview valuationPointOverviewInstance = new ValuationPointOvervi
     holdingsAsAtOverride: holdingsAsAtOverride,
     valuationsAsAtOverride: valuationsAsAtOverride,
     properties: properties,
+    bucketSetSeeds: bucketSetSeeds,
     links: links);
 ```
 

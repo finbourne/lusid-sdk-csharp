@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="fundCode">The code of the Fund referenced by this node. (required).</param>
         /// <param name="role">The role of this node within the structure. Must be one of the acceptable values of the structure&#39;s role data type. (required).</param>
         /// <param name="allocationBasis">allocationBasis.</param>
-        /// <param name="pnlFlowMode">How profit and loss reaches this member from the members it holds. EquityPickup (the default) revalues the position in each held member; BucketFlowThrough receives one line per economic bucket, tagged with its origin; TransactionFlowThrough receives every line, tagged with its origin and path. Available values: EquityPickup, BucketFlowThrough, TransactionFlowThrough..</param>
+        /// <param name="pnlFlowMode">How this member&#39;s profit and loss reaches the member that holds it. Set on the held member, not on the holder: it has no effect on a member no edge holds. EquityPickup (the default) leaves the holder revaluing its position in this member; BucketFlowThrough passes the holder one line per economic bucket, tagged with its origin; TransactionFlowThrough passes the holder every line, tagged with its origin and path. Available values: EquityPickup, BucketFlowThrough, TransactionFlowThrough..</param>
         /// <param name="allocationMapId">allocationMapId.</param>
         /// <param name="driftMateriality">driftMateriality.</param>
         public FundStructureNode(string nodeCode = default(string), string fundScope = default(string), string fundCode = default(string), string role = default(string), FundStructureAllocationBasis allocationBasis = default(FundStructureAllocationBasis), string pnlFlowMode = default(string), ResourceId allocationMapId = default(ResourceId), FundStructureDriftMateriality driftMateriality = default(FundStructureDriftMateriality))
@@ -111,9 +111,9 @@ namespace Lusid.Sdk.Model
         public FundStructureAllocationBasis AllocationBasis { get; set; }
 
         /// <summary>
-        /// How profit and loss reaches this member from the members it holds. EquityPickup (the default) revalues the position in each held member; BucketFlowThrough receives one line per economic bucket, tagged with its origin; TransactionFlowThrough receives every line, tagged with its origin and path. Available values: EquityPickup, BucketFlowThrough, TransactionFlowThrough.
+        /// How this member&#39;s profit and loss reaches the member that holds it. Set on the held member, not on the holder: it has no effect on a member no edge holds. EquityPickup (the default) leaves the holder revaluing its position in this member; BucketFlowThrough passes the holder one line per economic bucket, tagged with its origin; TransactionFlowThrough passes the holder every line, tagged with its origin and path. Available values: EquityPickup, BucketFlowThrough, TransactionFlowThrough.
         /// </summary>
-        /// <value>How profit and loss reaches this member from the members it holds. EquityPickup (the default) revalues the position in each held member; BucketFlowThrough receives one line per economic bucket, tagged with its origin; TransactionFlowThrough receives every line, tagged with its origin and path. Available values: EquityPickup, BucketFlowThrough, TransactionFlowThrough.</value>
+        /// <value>How this member&#39;s profit and loss reaches the member that holds it. Set on the held member, not on the holder: it has no effect on a member no edge holds. EquityPickup (the default) leaves the holder revaluing its position in this member; BucketFlowThrough passes the holder one line per economic bucket, tagged with its origin; TransactionFlowThrough passes the holder every line, tagged with its origin and path. Available values: EquityPickup, BucketFlowThrough, TransactionFlowThrough.</value>
         [DataMember(Name = "pnlFlowMode", EmitDefaultValue = true)]
         public string PnlFlowMode { get; set; }
 

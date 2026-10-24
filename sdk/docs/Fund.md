@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **AdditionalNavTypes** | [**List&lt;NavType&gt;**](NavType.md) | The definitions for any additional NAVs on the Fund. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Fund. | [optional] 
 **CreateInstrument** | **bool** | Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false. | [optional] 
+**InstrumentScope** | **string** | The scope in which the instruments are created when CreateInstrument is true. Defaults to the default instrument scope. Legacy share class instruments are resolved in ShareClassInstrumentScopes instead. | [optional] 
 **AllocationGroups** | [**List&lt;AllocationGroup&gt;**](AllocationGroup.md) | An optional list of Allocation Group definitions for the Fund. | [optional] 
 **ShareClasses** | [**List&lt;ShareClass&gt;**](ShareClass.md) | An optional list of Share Class definitions for the Fund. | [optional] 
 **FundInstrument** | [**FundInstrument**](FundInstrument.md) |  | [optional] 
@@ -60,6 +61,7 @@ NavType? primaryNavType = new NavType();
 List<NavType> additionalNavTypes = new List<NavType>();
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 bool createInstrument = //"True";
+string instrumentScope = "example instrumentScope";
 List<AllocationGroup> allocationGroups = new List<AllocationGroup>();
 List<ShareClass> shareClasses = new List<ShareClass>();
 FundInstrument? fundInstrument = new FundInstrument();
@@ -94,6 +96,7 @@ Fund fundInstance = new Fund(
     additionalNavTypes: additionalNavTypes,
     properties: properties,
     createInstrument: createInstrument,
+    instrumentScope: instrumentScope,
     allocationGroups: allocationGroups,
     shareClasses: shareClasses,
     fundInstrument: fundInstrument,

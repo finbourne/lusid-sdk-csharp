@@ -5,7 +5,7 @@ The partnership accounting view of a valuation point: what is left on the income
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UnallocatedIncomeSummary** | **decimal** | The balance on the income summary account over the valuation point&#39;s period that has not yet been allocated to the partners. Must be zero before the valuation point can be finalised. | 
+**UnallocatedIncomeSummary** | **decimal** | The profit and loss of the valuation point&#39;s period that has not yet been allocated to the partners: what the period&#39;s income, gain and expense lines would pool, less what the partner allocation has posted for the period. Must be zero before the valuation point can be finalised. | 
 **ConfigPackScope** | **string** | The scope of the configuration pack. | 
 **ConfigPackCode** | **string** | The code of the configuration pack. | 
 

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Description** | **string** | The description of the transaction template. | 
 **Scope** | **string** | The scope in which the transaction template resides. | 
 **ComponentTransactions** | [**List&lt;ComponentTransaction&gt;**](ComponentTransaction.md) | A set of component transactions that relate to the template to be created. | 
+**Warnings** | [**List&lt;Warning&gt;**](Warning.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -20,6 +21,7 @@ string instrumentEventType = "instrumentEventType";
 string description = "description";
 string scope = "scope";
 List<ComponentTransaction> componentTransactions = new List<ComponentTransaction>();
+List<Warning> warnings = new List<Warning>();
 List<Link> links = new List<Link>();
 
 TransactionTemplate transactionTemplateInstance = new TransactionTemplate(
@@ -28,6 +30,7 @@ TransactionTemplate transactionTemplateInstance = new TransactionTemplate(
     description: description,
     scope: scope,
     componentTransactions: componentTransactions,
+    warnings: warnings,
     links: links);
 ```
 

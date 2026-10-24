@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Series** | [**SeriesConfiguration**](SeriesConfiguration.md) |  | [optional] 
 **EffectiveCapabilities** | **Dictionary&lt;string, string&gt;** | Derived on the way out; ignored on the way in. | [optional] 
 **Presentation** | [**PresentationConfiguration**](PresentationConfiguration.md) |  | [optional] 
+**AllocationBases** | [**List&lt;AllocationBasisRule&gt;**](AllocationBasisRule.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -31,6 +32,7 @@ SeriesConfiguration? series = new SeriesConfiguration();
 Dictionary<string, string> effectiveCapabilities = new Dictionary<string, string>();
 PresentationConfiguration? presentation = new PresentationConfiguration();
 
+List<AllocationBasisRule> allocationBases = new List<AllocationBasisRule>();
 
 PartnershipAccountingConfiguration partnershipAccountingConfigurationInstance = new PartnershipAccountingConfiguration(
     enabled: enabled,
@@ -41,7 +43,8 @@ PartnershipAccountingConfiguration partnershipAccountingConfigurationInstance = 
     capabilityOverrides: capabilityOverrides,
     series: series,
     effectiveCapabilities: effectiveCapabilities,
-    presentation: presentation);
+    presentation: presentation,
+    allocationBases: allocationBases);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

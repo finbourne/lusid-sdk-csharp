@@ -2582,7 +2582,7 @@ catch (ApiException e)
 
 <a id="listpostingmodulerules"></a>
 # **ListPostingModuleRules**
-> PagedResourceListOfPostingModuleRuleResponse ListPostingModuleRules (string scope, string code, string postingModuleCode, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null)
+> PagedResourceListOfPostingModuleRuleResponse ListPostingModuleRules (string scope, string code, string postingModuleCode, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, DateTimeOrCutLabel? effectiveAt = null)
 
 [EARLY ACCESS] ListPostingModuleRules: List Posting Module Rules
 
@@ -2631,17 +2631,18 @@ namespace Examples
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
             var postingModuleCode = "postingModuleCode_example";  // string | The code of the posting module.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the rule id, specify \"ruleId eq 'rule 1'\". For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the rules. If specified, only              the rules whose effective window contains this date are returned. Defaults to returning all rules if not specified. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfPostingModuleRuleResponse result = apiInstance.ListPostingModuleRules(scope, code, postingModuleCode, asAt, page, limit, filter, opts: opts);
+                // PagedResourceListOfPostingModuleRuleResponse result = apiInstance.ListPostingModuleRules(scope, code, postingModuleCode, asAt, page, limit, filter, effectiveAt, opts: opts);
 
                 // [EARLY ACCESS] ListPostingModuleRules: List Posting Module Rules
-                PagedResourceListOfPostingModuleRuleResponse result = apiInstance.ListPostingModuleRules(scope, code, postingModuleCode, asAt, page, limit, filter);
+                PagedResourceListOfPostingModuleRuleResponse result = apiInstance.ListPostingModuleRules(scope, code, postingModuleCode, asAt, page, limit, filter, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2662,7 +2663,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] ListPostingModuleRules: List Posting Module Rules
-    ApiResponse<PagedResourceListOfPostingModuleRuleResponse> response = apiInstance.ListPostingModuleRulesWithHttpInfo(scope, code, postingModuleCode, asAt, page, limit, filter);
+    ApiResponse<PagedResourceListOfPostingModuleRuleResponse> response = apiInstance.ListPostingModuleRulesWithHttpInfo(scope, code, postingModuleCode, asAt, page, limit, filter, effectiveAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2683,9 +2684,10 @@ catch (ApiException e)
 | **code** | **string** | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. |  |
 | **postingModuleCode** | **string** | The code of the posting module. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the rules. If specified, only              the rules whose effective window contains this date are returned. Defaults to returning all rules if not specified. | [optional]  |
 
 ### Return type
 

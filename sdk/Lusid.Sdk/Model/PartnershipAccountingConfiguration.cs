@@ -45,7 +45,8 @@ namespace Lusid.Sdk.Model
         /// <param name="series">series.</param>
         /// <param name="effectiveCapabilities">Derived on the way out; ignored on the way in..</param>
         /// <param name="presentation">presentation.</param>
-        public PartnershipAccountingConfiguration(bool enabled = default(bool), ResourceId configPack = default(ResourceId), string commitmentCurrencyPolicy = default(string), ResourceId registerPortfolioGroup = default(ResourceId), string capitalModel = default(string), List<CapabilityOverride> capabilityOverrides = default(List<CapabilityOverride>), SeriesConfiguration series = default(SeriesConfiguration), Dictionary<string, string> effectiveCapabilities = default(Dictionary<string, string>), PresentationConfiguration presentation = default(PresentationConfiguration))
+        /// <param name="allocationBases">allocationBases.</param>
+        public PartnershipAccountingConfiguration(bool enabled = default(bool), ResourceId configPack = default(ResourceId), string commitmentCurrencyPolicy = default(string), ResourceId registerPortfolioGroup = default(ResourceId), string capitalModel = default(string), List<CapabilityOverride> capabilityOverrides = default(List<CapabilityOverride>), SeriesConfiguration series = default(SeriesConfiguration), Dictionary<string, string> effectiveCapabilities = default(Dictionary<string, string>), PresentationConfiguration presentation = default(PresentationConfiguration), List<AllocationBasisRule> allocationBases = default(List<AllocationBasisRule>))
         {
             this.Enabled = enabled;
             this.ConfigPack = configPack;
@@ -56,6 +57,7 @@ namespace Lusid.Sdk.Model
             this.Series = series;
             this.EffectiveCapabilities = effectiveCapabilities;
             this.Presentation = presentation;
+            this.AllocationBases = allocationBases;
         }
 
         /// <summary>
@@ -116,6 +118,12 @@ namespace Lusid.Sdk.Model
         public PresentationConfiguration Presentation { get; set; }
 
         /// <summary>
+        /// Gets or Sets AllocationBases
+        /// </summary>
+        [DataMember(Name = "allocationBases", EmitDefaultValue = true)]
+        public List<AllocationBasisRule> AllocationBases { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -132,6 +140,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Series: ").Append(Series).Append("\n");
             sb.Append("  EffectiveCapabilities: ").Append(EffectiveCapabilities).Append("\n");
             sb.Append("  Presentation: ").Append(Presentation).Append("\n");
+            sb.Append("  AllocationBases: ").Append(AllocationBases).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -212,6 +221,12 @@ namespace Lusid.Sdk.Model
                     this.Presentation == input.Presentation ||
                     (this.Presentation != null &&
                     this.Presentation.Equals(input.Presentation))
+                ) && 
+                (
+                    this.AllocationBases == input.AllocationBases ||
+                    this.AllocationBases != null &&
+                    input.AllocationBases != null &&
+                    this.AllocationBases.SequenceEqual(input.AllocationBases)
                 );
         }
 
@@ -256,6 +271,10 @@ namespace Lusid.Sdk.Model
                 if (this.Presentation != null)
                 {
                     hashCode = (hashCode * 59) + this.Presentation.GetHashCode();
+                }
+                if (this.AllocationBases != null)
+                {
+                    hashCode = (hashCode * 59) + this.AllocationBases.GetHashCode();
                 }
                 return hashCode;
             }

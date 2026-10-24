@@ -50,8 +50,9 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">The Valuation Point properties. These are from the &#39;DiaryEntry&#39; domain..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="stagedModifications">stagedModifications.</param>
+        /// <param name="bucketSetSeeds">The bucket set seeds set on this variant of the Valuation Point. Null when it has none..</param>
         /// <param name="links">links.</param>
-        public ValuationPoint(string href = default(string), string valuationPointCode = default(string), string variant = default(string), string name = default(string), string status = default(string), bool applyClearDown = default(bool), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset queryAsAt = default(DateTimeOffset), DateTimeOffset holdingsAsAt = default(DateTimeOffset), DateTimeOffset valuationAsAt = default(DateTimeOffset), PreviousValuationPoint previous = default(PreviousValuationPoint), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<Link> links = default(List<Link>))
+        public ValuationPoint(string href = default(string), string valuationPointCode = default(string), string variant = default(string), string name = default(string), string status = default(string), bool applyClearDown = default(bool), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset queryAsAt = default(DateTimeOffset), DateTimeOffset holdingsAsAt = default(DateTimeOffset), DateTimeOffset valuationAsAt = default(DateTimeOffset), PreviousValuationPoint previous = default(PreviousValuationPoint), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<BucketSetSeed> bucketSetSeeds = default(List<BucketSetSeed>), List<Link> links = default(List<Link>))
         {
             // to ensure "status" is required (not null)
             if (status == null)
@@ -72,6 +73,7 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this.VarVersion = varVersion;
             this.StagedModifications = stagedModifications;
+            this.BucketSetSeeds = bucketSetSeeds;
             this.Links = links;
         }
 
@@ -171,6 +173,13 @@ namespace Lusid.Sdk.Model
         public StagedModificationsInfo StagedModifications { get; set; }
 
         /// <summary>
+        /// The bucket set seeds set on this variant of the Valuation Point. Null when it has none.
+        /// </summary>
+        /// <value>The bucket set seeds set on this variant of the Valuation Point. Null when it has none.</value>
+        [DataMember(Name = "bucketSetSeeds", EmitDefaultValue = true)]
+        public List<BucketSetSeed> BucketSetSeeds { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -198,6 +207,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
+            sb.Append("  BucketSetSeeds: ").Append(BucketSetSeeds).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -305,6 +315,12 @@ namespace Lusid.Sdk.Model
                     this.StagedModifications.Equals(input.StagedModifications))
                 ) && 
                 (
+                    this.BucketSetSeeds == input.BucketSetSeeds ||
+                    this.BucketSetSeeds != null &&
+                    input.BucketSetSeeds != null &&
+                    this.BucketSetSeeds.SequenceEqual(input.BucketSetSeeds)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -373,6 +389,10 @@ namespace Lusid.Sdk.Model
                 if (this.StagedModifications != null)
                 {
                     hashCode = (hashCode * 59) + this.StagedModifications.GetHashCode();
+                }
+                if (this.BucketSetSeeds != null)
+                {
+                    hashCode = (hashCode * 59) + this.BucketSetSeeds.GetHashCode();
                 }
                 if (this.Links != null)
                 {

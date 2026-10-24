@@ -713,13 +713,14 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the posting module.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the rules. If specified, only              the rules whose effective window contains this date are returned. Defaults to returning all rules if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPostingModuleRuleResponse</returns>
-        PagedResourceListOfPostingModuleRuleResponse ListPostingModuleRules(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        PagedResourceListOfPostingModuleRuleResponse ListPostingModuleRules(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListPostingModuleRules: List Posting Module Rules
@@ -732,13 +733,14 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the posting module.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the rules. If specified, only              the rules whose effective window contains this date are returned. Defaults to returning all rules if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPostingModuleRuleResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRuleResponse> ListPostingModuleRulesWithHttpInfo(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRuleResponse> ListPostingModuleRulesWithHttpInfo(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListPostingModules: List Posting Modules
         /// </summary>
@@ -1877,14 +1879,15 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the posting module.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the rules. If specified, only              the rules whose effective window contains this date are returned. Defaults to returning all rules if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfPostingModuleRuleResponse</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfPostingModuleRuleResponse> ListPostingModuleRulesAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<PagedResourceListOfPostingModuleRuleResponse> ListPostingModuleRulesAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListPostingModuleRules: List Posting Module Rules
@@ -1897,14 +1900,15 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the posting module.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the rules. If specified, only              the rules whose effective window contains this date are returned. Defaults to returning all rules if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPostingModuleRuleResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRuleResponse>> ListPostingModuleRulesWithHttpInfoAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRuleResponse>> ListPostingModuleRulesWithHttpInfoAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListPostingModules: List Posting Modules
         /// </summary>
@@ -7900,15 +7904,16 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the posting module.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the rules. If specified, only              the rules whose effective window contains this date are returned. Defaults to returning all rules if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPostingModuleRuleResponse</returns>
-        public PagedResourceListOfPostingModuleRuleResponse ListPostingModuleRules(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public PagedResourceListOfPostingModuleRuleResponse ListPostingModuleRules(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRuleResponse> localVarResponse = ListPostingModuleRulesWithHttpInfo(scope, code, postingModuleCode, asAt, page, limit, filter, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRuleResponse> localVarResponse = ListPostingModuleRulesWithHttpInfo(scope, code, postingModuleCode, asAt, page, limit, filter, effectiveAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -7920,13 +7925,14 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the posting module.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the rules. If specified, only              the rules whose effective window contains this date are returned. Defaults to returning all rules if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPostingModuleRuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRuleResponse> ListPostingModuleRulesWithHttpInfo(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRuleResponse> ListPostingModuleRulesWithHttpInfo(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -8002,6 +8008,11 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (effectiveAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
             }
 
             localVarRequestOptions.Operation = "ChartOfAccountsApi.ListPostingModuleRules";
@@ -8046,16 +8057,17 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the posting module.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the rules. If specified, only              the rules whose effective window contains this date are returned. Defaults to returning all rules if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfPostingModuleRuleResponse</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfPostingModuleRuleResponse> ListPostingModuleRulesAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<PagedResourceListOfPostingModuleRuleResponse> ListPostingModuleRulesAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRuleResponse> localVarResponse = await ListPostingModuleRulesWithHttpInfoAsync(scope, code, postingModuleCode, asAt, page, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRuleResponse> localVarResponse = await ListPostingModuleRulesWithHttpInfoAsync(scope, code, postingModuleCode, asAt, page, limit, filter, effectiveAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8067,14 +8079,15 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the posting module.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the rules. If specified, only              the rules whose effective window contains this date are returned. Defaults to returning all rules if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPostingModuleRuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRuleResponse>> ListPostingModuleRulesWithHttpInfoAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRuleResponse>> ListPostingModuleRulesWithHttpInfoAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -8147,6 +8160,10 @@ namespace Lusid.Sdk.Api
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
             }
 
             localVarRequestOptions.Operation = "ChartOfAccountsApi.ListPostingModuleRules";

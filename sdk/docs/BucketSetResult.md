@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Nodes** | [**List&lt;BucketSetNode&gt;**](BucketSetNode.md) | The nodes making up the bucket set: the fund aggregate and one per share class. | 
 **DisplayName** | **string** | The display name of the bucket set, as configured on the fund configuration. | [optional] 
 **IsBackfilled** | **bool** | Set to True if this bucket set was backfilled from fund inception at this valuation point, because the previous valuation point has no results for it. Its values then hold the whole history, and its previous cumulative values are zero. False otherwise. | [optional] 
+**IsSeeded** | **bool** | Set to True if this bucket set&#39;s flow bucket values at this valuation point are the seed set on this variant of the valuation point rather than its journal entry lines. The next valuation point opens from them. False otherwise. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -20,13 +21,15 @@ bool isApportionment = //"True";
 List<BucketSetNode> nodes = new List<BucketSetNode>();
 string displayName = "example displayName";
 bool isBackfilled = //"True";
+bool isSeeded = //"True";
 
 BucketSetResult bucketSetResultInstance = new BucketSetResult(
     bucketSetCode: bucketSetCode,
     isApportionment: isApportionment,
     nodes: nodes,
     displayName: displayName,
-    isBackfilled: isBackfilled);
+    isBackfilled: isBackfilled,
+    isSeeded: isSeeded);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

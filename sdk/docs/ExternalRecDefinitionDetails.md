@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **MatchingRulesetId** | [**ResourceId**](ResourceId.md) |  | 
 **LeftFilter** | **string** | Optional filter over the left dataset&#39;s rows, in the dataset&#39;s own grammar, e.g. \&quot;Values[custodian] eq &#39;something&#39;\&quot;. | [optional] 
 **RightFilter** | **string** | Optional filter over the right dataset&#39;s rows, in the dataset&#39;s own grammar. | [optional] 
-**DefinitionType** | **string** | What this definition reconciles, and so which shape of details it carries. PortfolioContents and External are supported; LusidEntity is not yet. Available values: PortfolioContents, LusidEntity, External. | 
+**DefinitionType** | **string** | What this definition reconciles, and so which shape of details it carries. Available values: PortfolioContents, LusidEntity, External. | 
 
 ```csharp
 using Lusid.Sdk.Model;

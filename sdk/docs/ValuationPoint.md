@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The Valuation Point properties. These are from the &#39;DiaryEntry&#39; domain. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
+**BucketSetSeeds** | [**List&lt;BucketSetSeed&gt;**](BucketSetSeed.md) | The bucket set seeds set on this variant of the Valuation Point. Null when it has none. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -37,6 +38,7 @@ ModelVersion? varVersion = new ModelVersion();
 
 StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
 
+List<BucketSetSeed> bucketSetSeeds = new List<BucketSetSeed>();
 List<Link> links = new List<Link>();
 
 ValuationPoint valuationPointInstance = new ValuationPoint(
@@ -54,6 +56,7 @@ ValuationPoint valuationPointInstance = new ValuationPoint(
     properties: properties,
     varVersion: varVersion,
     stagedModifications: stagedModifications,
+    bucketSetSeeds: bucketSetSeeds,
     links: links);
 ```
 

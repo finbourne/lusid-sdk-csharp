@@ -56,6 +56,7 @@ namespace Lusid.Sdk.Model
         /// <param name="additionalNavTypes">The definitions for any additional NAVs on the Fund..</param>
         /// <param name="properties">A set of properties for the Fund..</param>
         /// <param name="createInstrument">Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false..</param>
+        /// <param name="instrumentScope">The scope in which the instruments are created when CreateInstrument is true. Defaults to the default instrument scope. Legacy share class instruments are resolved in ShareClassInstrumentScopes instead..</param>
         /// <param name="allocationGroups">An optional list of Allocation Group definitions for the Fund..</param>
         /// <param name="shareClasses">An optional list of Share Class definitions for the Fund..</param>
         /// <param name="fundInstrument">fundInstrument.</param>
@@ -64,7 +65,7 @@ namespace Lusid.Sdk.Model
         /// <param name="varVersion">varVersion.</param>
         /// <param name="whtParameters">whtParameters.</param>
         /// <param name="links">links.</param>
-        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), string shortCode = default(string), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), string taxTransparency = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavType primaryNavType = default(NavType), List<NavType> additionalNavTypes = default(List<NavType>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<ShareClass> shareClasses = default(List<ShareClass>), FundInstrument fundInstrument = default(FundInstrument), PricingMethodology pricingMethodology = default(PricingMethodology), List<ReportingPrice> reportingPrices = default(List<ReportingPrice>), ModelVersion varVersion = default(ModelVersion), WhtParameters whtParameters = default(WhtParameters), List<Link> links = default(List<Link>))
+        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), string shortCode = default(string), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), string taxTransparency = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavType primaryNavType = default(NavType), List<NavType> additionalNavTypes = default(List<NavType>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), string instrumentScope = default(string), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<ShareClass> shareClasses = default(List<ShareClass>), FundInstrument fundInstrument = default(FundInstrument), PricingMethodology pricingMethodology = default(PricingMethodology), List<ReportingPrice> reportingPrices = default(List<ReportingPrice>), ModelVersion varVersion = default(ModelVersion), WhtParameters whtParameters = default(WhtParameters), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -96,6 +97,7 @@ namespace Lusid.Sdk.Model
             this.AdditionalNavTypes = additionalNavTypes;
             this.Properties = properties;
             this.CreateInstrument = createInstrument;
+            this.InstrumentScope = instrumentScope;
             this.AllocationGroups = allocationGroups;
             this.ShareClasses = shareClasses;
             this.FundInstrument = fundInstrument;
@@ -242,6 +244,13 @@ namespace Lusid.Sdk.Model
         public bool CreateInstrument { get; set; }
 
         /// <summary>
+        /// The scope in which the instruments are created when CreateInstrument is true. Defaults to the default instrument scope. Legacy share class instruments are resolved in ShareClassInstrumentScopes instead.
+        /// </summary>
+        /// <value>The scope in which the instruments are created when CreateInstrument is true. Defaults to the default instrument scope. Legacy share class instruments are resolved in ShareClassInstrumentScopes instead.</value>
+        [DataMember(Name = "instrumentScope", EmitDefaultValue = true)]
+        public string InstrumentScope { get; set; }
+
+        /// <summary>
         /// An optional list of Allocation Group definitions for the Fund.
         /// </summary>
         /// <value>An optional list of Allocation Group definitions for the Fund.</value>
@@ -320,6 +329,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AdditionalNavTypes: ").Append(AdditionalNavTypes).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  CreateInstrument: ").Append(CreateInstrument).Append("\n");
+            sb.Append("  InstrumentScope: ").Append(InstrumentScope).Append("\n");
             sb.Append("  AllocationGroups: ").Append(AllocationGroups).Append("\n");
             sb.Append("  ShareClasses: ").Append(ShareClasses).Append("\n");
             sb.Append("  FundInstrument: ").Append(FundInstrument).Append("\n");
@@ -467,6 +477,11 @@ namespace Lusid.Sdk.Model
                     this.CreateInstrument.Equals(input.CreateInstrument)
                 ) && 
                 (
+                    this.InstrumentScope == input.InstrumentScope ||
+                    (this.InstrumentScope != null &&
+                    this.InstrumentScope.Equals(input.InstrumentScope))
+                ) && 
+                (
                     this.AllocationGroups == input.AllocationGroups ||
                     this.AllocationGroups != null &&
                     input.AllocationGroups != null &&
@@ -598,6 +613,10 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.CreateInstrument.GetHashCode();
+                if (this.InstrumentScope != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstrumentScope.GetHashCode();
+                }
                 if (this.AllocationGroups != null)
                 {
                     hashCode = (hashCode * 59) + this.AllocationGroups.GetHashCode();
@@ -688,6 +707,25 @@ namespace Lusid.Sdk.Model
             if (this.DecimalPlaces < (int?)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DecimalPlaces, must be a value greater than or equal to 0.", new [] { "DecimalPlaces" });
+            }
+
+            // InstrumentScope (string) maxLength
+            if (this.InstrumentScope != null && this.InstrumentScope.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstrumentScope, length must be less than 64.", new [] { "InstrumentScope" });
+            }
+
+            // InstrumentScope (string) minLength
+            if (this.InstrumentScope != null && this.InstrumentScope.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstrumentScope, length must be greater than 1.", new [] { "InstrumentScope" });
+            }
+
+            // InstrumentScope (string) pattern
+            Regex regexInstrumentScope = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexInstrumentScope.Match(this.InstrumentScope).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstrumentScope, must match a pattern of " + regexInstrumentScope, new [] { "InstrumentScope" });
             }
 
             yield break;

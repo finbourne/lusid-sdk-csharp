@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **RecallableCapitalAmount** | **decimal?** | The recallable capital received by the destination line. Used on the &#39;In&#39; side only; must not be negative. | [optional] 
 **NonRecallableCapitalAmount** | **decimal?** | The non-recallable capital received by the destination line. Used on the &#39;In&#39; side only; must not be negative. | [optional] 
 **FundedCapitalAmount** | **decimal?** | The funded capital received by the destination line, for a line whose drawdowns were booked against the stored funded balance rather than paid-in capital. Used on the &#39;In&#39; side only; must not be negative. | [optional] 
+**ExcessCapitalReturnedAmount** | **decimal?** | The cumulative excess capital returned that the destination line takes over from the source line. Used on the &#39;In&#39; side only; must not be negative. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -66,7 +67,8 @@ CapitalInterestTransferEvent capitalInterestTransferEventInstance = new CapitalI
     returnedCapitalAmount: returnedCapitalAmount,
     recallableCapitalAmount: recallableCapitalAmount,
     nonRecallableCapitalAmount: nonRecallableCapitalAmount,
-    fundedCapitalAmount: fundedCapitalAmount);
+    fundedCapitalAmount: fundedCapitalAmount,
+    excessCapitalReturnedAmount: excessCapitalReturnedAmount);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

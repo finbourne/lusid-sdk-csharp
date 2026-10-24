@@ -33,17 +33,19 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="id">The deterministic identifier of the posting: the booking reference, investor record, commitment line, component and side..</param>
         /// <param name="portfolio">portfolio.</param>
-        /// <param name="transactionType">The transaction type written on the fund side, for instance PA.ContributionCalled..</param>
+        /// <param name="transactionType">The transaction type the booking writes on the fund side, for instance PECall: the type the fund&#39;s configuration maps the partnership transaction type to..</param>
+        /// <param name="partnershipTransactionType">The partnership transaction type the fund-side posting is classified as, for instance PA.ContributionCalled..</param>
         /// <param name="amount">The amount posted, in the event currency..</param>
         /// <param name="component">The component of the event the posting carries..</param>
         /// <param name="investorRecordId">The investor record the posting is for..</param>
         /// <param name="viaVehicle">The vehicle the investor&#39;s share reached the fund through, when it did not come direct..</param>
         /// <param name="admissionVehicle">The vehicle the investor was admitted to..</param>
-        public AllocationPostingFundLine(string id = default(string), ResourceId portfolio = default(ResourceId), string transactionType = default(string), decimal amount = default(decimal), string component = default(string), string investorRecordId = default(string), string viaVehicle = default(string), string admissionVehicle = default(string))
+        public AllocationPostingFundLine(string id = default(string), ResourceId portfolio = default(ResourceId), string transactionType = default(string), string partnershipTransactionType = default(string), decimal amount = default(decimal), string component = default(string), string investorRecordId = default(string), string viaVehicle = default(string), string admissionVehicle = default(string))
         {
             this.Id = id;
             this.Portfolio = portfolio;
             this.TransactionType = transactionType;
+            this.PartnershipTransactionType = partnershipTransactionType;
             this.Amount = amount;
             this.Component = component;
             this.InvestorRecordId = investorRecordId;
@@ -65,11 +67,18 @@ namespace Lusid.Sdk.Model
         public ResourceId Portfolio { get; set; }
 
         /// <summary>
-        /// The transaction type written on the fund side, for instance PA.ContributionCalled.
+        /// The transaction type the booking writes on the fund side, for instance PECall: the type the fund&#39;s configuration maps the partnership transaction type to.
         /// </summary>
-        /// <value>The transaction type written on the fund side, for instance PA.ContributionCalled.</value>
+        /// <value>The transaction type the booking writes on the fund side, for instance PECall: the type the fund&#39;s configuration maps the partnership transaction type to.</value>
         [DataMember(Name = "transactionType", EmitDefaultValue = true)]
         public string TransactionType { get; set; }
+
+        /// <summary>
+        /// The partnership transaction type the fund-side posting is classified as, for instance PA.ContributionCalled.
+        /// </summary>
+        /// <value>The partnership transaction type the fund-side posting is classified as, for instance PA.ContributionCalled.</value>
+        [DataMember(Name = "partnershipTransactionType", EmitDefaultValue = true)]
+        public string PartnershipTransactionType { get; set; }
 
         /// <summary>
         /// The amount posted, in the event currency.
@@ -117,6 +126,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Portfolio: ").Append(Portfolio).Append("\n");
             sb.Append("  TransactionType: ").Append(TransactionType).Append("\n");
+            sb.Append("  PartnershipTransactionType: ").Append(PartnershipTransactionType).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Component: ").Append(Component).Append("\n");
             sb.Append("  InvestorRecordId: ").Append(InvestorRecordId).Append("\n");
@@ -173,6 +183,11 @@ namespace Lusid.Sdk.Model
                     this.TransactionType.Equals(input.TransactionType))
                 ) && 
                 (
+                    this.PartnershipTransactionType == input.PartnershipTransactionType ||
+                    (this.PartnershipTransactionType != null &&
+                    this.PartnershipTransactionType.Equals(input.PartnershipTransactionType))
+                ) && 
+                (
                     this.Amount == input.Amount ||
                     this.Amount.Equals(input.Amount)
                 ) && 
@@ -218,6 +233,10 @@ namespace Lusid.Sdk.Model
                 if (this.TransactionType != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionType.GetHashCode();
+                }
+                if (this.PartnershipTransactionType != null)
+                {
+                    hashCode = (hashCode * 59) + this.PartnershipTransactionType.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Amount.GetHashCode();
                 if (this.Component != null)

@@ -45,6 +45,18 @@ namespace Lusid.Sdk.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RecDefinitionDetails" /> class
+        /// with the <see cref="LusidEntityRecDefinitionDetails" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of LusidEntityRecDefinitionDetails.</param>
+        public RecDefinitionDetails(LusidEntityRecDefinitionDetails actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RecDefinitionDetails" /> class
         /// with the <see cref="PortfolioContentsRecDefinitionDetails" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of PortfolioContentsRecDefinitionDetails.</param>
@@ -73,13 +85,17 @@ namespace Lusid.Sdk.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(LusidEntityRecDefinitionDetails) || value is LusidEntityRecDefinitionDetails)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(PortfolioContentsRecDefinitionDetails) || value is PortfolioContentsRecDefinitionDetails)
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: ExternalRecDefinitionDetails, PortfolioContentsRecDefinitionDetails");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: ExternalRecDefinitionDetails, LusidEntityRecDefinitionDetails, PortfolioContentsRecDefinitionDetails");
                 }
             }
         }
@@ -92,6 +108,16 @@ namespace Lusid.Sdk.Model
         public ExternalRecDefinitionDetails GetExternalRecDefinitionDetails()
         {
             return (ExternalRecDefinitionDetails)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `LusidEntityRecDefinitionDetails`. If the actual instance is not `LusidEntityRecDefinitionDetails`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of LusidEntityRecDefinitionDetails</returns>
+        public LusidEntityRecDefinitionDetails GetLusidEntityRecDefinitionDetails()
+        {
+            return (LusidEntityRecDefinitionDetails)this.ActualInstance;
         }
 
         /// <summary>
@@ -149,17 +175,23 @@ namespace Lusid.Sdk.Model
                     case "External":
                         newRecDefinitionDetails = new RecDefinitionDetails(JsonConvert.DeserializeObject<ExternalRecDefinitionDetails>(jsonString, RecDefinitionDetails.AdditionalPropertiesSerializerSettings));
                         return newRecDefinitionDetails;
+                    case "LusidEntity":
+                        newRecDefinitionDetails = new RecDefinitionDetails(JsonConvert.DeserializeObject<LusidEntityRecDefinitionDetails>(jsonString, RecDefinitionDetails.AdditionalPropertiesSerializerSettings));
+                        return newRecDefinitionDetails;
                     case "PortfolioContents":
                         newRecDefinitionDetails = new RecDefinitionDetails(JsonConvert.DeserializeObject<PortfolioContentsRecDefinitionDetails>(jsonString, RecDefinitionDetails.AdditionalPropertiesSerializerSettings));
                         return newRecDefinitionDetails;
                     case "ExternalRecDefinitionDetails":
                         newRecDefinitionDetails = new RecDefinitionDetails(JsonConvert.DeserializeObject<ExternalRecDefinitionDetails>(jsonString, RecDefinitionDetails.AdditionalPropertiesSerializerSettings));
                         return newRecDefinitionDetails;
+                    case "LusidEntityRecDefinitionDetails":
+                        newRecDefinitionDetails = new RecDefinitionDetails(JsonConvert.DeserializeObject<LusidEntityRecDefinitionDetails>(jsonString, RecDefinitionDetails.AdditionalPropertiesSerializerSettings));
+                        return newRecDefinitionDetails;
                     case "PortfolioContentsRecDefinitionDetails":
                         newRecDefinitionDetails = new RecDefinitionDetails(JsonConvert.DeserializeObject<PortfolioContentsRecDefinitionDetails>(jsonString, RecDefinitionDetails.AdditionalPropertiesSerializerSettings));
                         return newRecDefinitionDetails;
                     default:
-                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for RecDefinitionDetails. Possible values: External PortfolioContents ExternalRecDefinitionDetails PortfolioContentsRecDefinitionDetails", discriminatorValue));
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for RecDefinitionDetails. Possible values: External LusidEntity PortfolioContents ExternalRecDefinitionDetails LusidEntityRecDefinitionDetails PortfolioContentsRecDefinitionDetails", discriminatorValue));
                         break;
                 }
             }
@@ -189,6 +221,26 @@ namespace Lusid.Sdk.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ExternalRecDefinitionDetails: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(LusidEntityRecDefinitionDetails).GetProperty("AdditionalProperties") == null)
+                {
+                    newRecDefinitionDetails = new RecDefinitionDetails(JsonConvert.DeserializeObject<LusidEntityRecDefinitionDetails>(jsonString, RecDefinitionDetails.SerializerSettings));
+                }
+                else
+                {
+                    newRecDefinitionDetails = new RecDefinitionDetails(JsonConvert.DeserializeObject<LusidEntityRecDefinitionDetails>(jsonString, RecDefinitionDetails.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("LusidEntityRecDefinitionDetails");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into LusidEntityRecDefinitionDetails: {1}", jsonString, exception.ToString()));
             }
 
             try

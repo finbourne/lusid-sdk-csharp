@@ -41,8 +41,9 @@ namespace Lusid.Sdk.Model
         /// <param name="description">The description of the transaction template. (required).</param>
         /// <param name="scope">The scope in which the transaction template resides. (required).</param>
         /// <param name="componentTransactions">A set of component transactions that relate to the template to be created. (required).</param>
+        /// <param name="warnings">warnings.</param>
         /// <param name="links">links.</param>
-        public TransactionTemplate(string instrumentType = default(string), string instrumentEventType = default(string), string description = default(string), string scope = default(string), List<ComponentTransaction> componentTransactions = default(List<ComponentTransaction>), List<Link> links = default(List<Link>))
+        public TransactionTemplate(string instrumentType = default(string), string instrumentEventType = default(string), string description = default(string), string scope = default(string), List<ComponentTransaction> componentTransactions = default(List<ComponentTransaction>), List<Warning> warnings = default(List<Warning>), List<Link> links = default(List<Link>))
         {
             // to ensure "instrumentType" is required (not null)
             if (instrumentType == null)
@@ -74,6 +75,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("componentTransactions is a required property for TransactionTemplate and cannot be null");
             }
             this.ComponentTransactions = componentTransactions;
+            this.Warnings = warnings;
             this.Links = links;
         }
 
@@ -113,6 +115,12 @@ namespace Lusid.Sdk.Model
         public List<ComponentTransaction> ComponentTransactions { get; set; }
 
         /// <summary>
+        /// Gets or Sets Warnings
+        /// </summary>
+        [DataMember(Name = "warnings", EmitDefaultValue = true)]
+        public List<Warning> Warnings { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -131,6 +139,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  ComponentTransactions: ").Append(ComponentTransactions).Append("\n");
+            sb.Append("  Warnings: ").Append(Warnings).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -194,6 +203,12 @@ namespace Lusid.Sdk.Model
                     this.ComponentTransactions.SequenceEqual(input.ComponentTransactions)
                 ) && 
                 (
+                    this.Warnings == input.Warnings ||
+                    this.Warnings != null &&
+                    input.Warnings != null &&
+                    this.Warnings.SequenceEqual(input.Warnings)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -229,6 +244,10 @@ namespace Lusid.Sdk.Model
                 if (this.ComponentTransactions != null)
                 {
                     hashCode = (hashCode * 59) + this.ComponentTransactions.GetHashCode();
+                }
+                if (this.Warnings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
                 }
                 if (this.Links != null)
                 {

@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PartnershipAccountingValuationPointData" /> class.
         /// </summary>
-        /// <param name="unallocatedIncomeSummary">The balance on the income summary account over the valuation point&#39;s period that has not yet been allocated to the partners. Must be zero before the valuation point can be finalised. (required).</param>
+        /// <param name="unallocatedIncomeSummary">The profit and loss of the valuation point&#39;s period that has not yet been allocated to the partners: what the period&#39;s income, gain and expense lines would pool, less what the partner allocation has posted for the period. Must be zero before the valuation point can be finalised. (required).</param>
         /// <param name="configPackScope">The scope of the configuration pack. (required).</param>
         /// <param name="configPackCode">The code of the configuration pack. (required).</param>
         public PartnershipAccountingValuationPointData(decimal unallocatedIncomeSummary = default(decimal), string configPackScope = default(string), string configPackCode = default(string))
@@ -57,9 +57,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The balance on the income summary account over the valuation point&#39;s period that has not yet been allocated to the partners. Must be zero before the valuation point can be finalised.
+        /// The profit and loss of the valuation point&#39;s period that has not yet been allocated to the partners: what the period&#39;s income, gain and expense lines would pool, less what the partner allocation has posted for the period. Must be zero before the valuation point can be finalised.
         /// </summary>
-        /// <value>The balance on the income summary account over the valuation point&#39;s period that has not yet been allocated to the partners. Must be zero before the valuation point can be finalised.</value>
+        /// <value>The profit and loss of the valuation point&#39;s period that has not yet been allocated to the partners: what the period&#39;s income, gain and expense lines would pool, less what the partner allocation has posted for the period. Must be zero before the valuation point can be finalised.</value>
         [DataMember(Name = "unallocatedIncomeSummary", IsRequired = true, EmitDefaultValue = true)]
         public decimal UnallocatedIncomeSummary { get; set; }
 

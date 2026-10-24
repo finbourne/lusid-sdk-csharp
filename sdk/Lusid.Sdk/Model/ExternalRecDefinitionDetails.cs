@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="matchingRulesetId">matchingRulesetId (required).</param>
         /// <param name="leftFilter">Optional filter over the left dataset&#39;s rows, in the dataset&#39;s own grammar, e.g. \&quot;Values[custodian] eq &#39;something&#39;\&quot;..</param>
         /// <param name="rightFilter">Optional filter over the right dataset&#39;s rows, in the dataset&#39;s own grammar..</param>
-        /// <param name="definitionType">What this definition reconciles, and so which shape of details it carries. PortfolioContents and External are supported; LusidEntity is not yet. Available values: PortfolioContents, LusidEntity, External. (required).</param>
+        /// <param name="definitionType">What this definition reconciles, and so which shape of details it carries. Available values: PortfolioContents, LusidEntity, External. (required).</param>
         public ExternalRecDefinitionDetails(ResourceId matchingRulesetId = default(ResourceId), string leftFilter = default(string), string rightFilter = default(string), string definitionType = default(string))
         {
             // to ensure "matchingRulesetId" is required (not null)
@@ -79,9 +79,9 @@ namespace Lusid.Sdk.Model
         public string RightFilter { get; set; }
 
         /// <summary>
-        /// What this definition reconciles, and so which shape of details it carries. PortfolioContents and External are supported; LusidEntity is not yet. Available values: PortfolioContents, LusidEntity, External.
+        /// What this definition reconciles, and so which shape of details it carries. Available values: PortfolioContents, LusidEntity, External.
         /// </summary>
-        /// <value>What this definition reconciles, and so which shape of details it carries. PortfolioContents and External are supported; LusidEntity is not yet. Available values: PortfolioContents, LusidEntity, External.</value>
+        /// <value>What this definition reconciles, and so which shape of details it carries. Available values: PortfolioContents, LusidEntity, External.</value>
         [DataMember(Name = "definitionType", IsRequired = true, EmitDefaultValue = true)]
         public string DefinitionType { get; set; }
 

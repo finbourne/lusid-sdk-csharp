@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **ValuationRecipes** | [**RecDefRecipeIds**](RecDefRecipeIds.md) |  | [optional] 
 **Currencies** | [**RecDefCurrencies**](RecDefCurrencies.md) |  | [optional] 
 **Rulesets** | [**List&lt;RecDefRuleset&gt;**](RecDefRuleset.md) | The types of reconciliation included in the group, each naming the matching ruleset that drives it. At least one entry is required, and each rec type may appear at most once. | 
-**DefinitionType** | **string** | What this definition reconciles, and so which shape of details it carries. PortfolioContents and External are supported; LusidEntity is not yet. Available values: PortfolioContents, LusidEntity, External. | 
+**DefinitionType** | **string** | What this definition reconciles, and so which shape of details it carries. Available values: PortfolioContents, LusidEntity, External. | 
 
 ```csharp
 using Lusid.Sdk.Model;
