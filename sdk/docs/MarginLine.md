@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **Pv** | **decimal?** | The present value of the holding in the agreement&#39;s base currency, when it contributes to exposure. | [optional] 
 **VariationMargin** | **decimal?** | The holding&#39;s contribution to variation margin, when it contributes to exposure. | [optional] 
 **CollateralValue** | **decimal?** | The holding&#39;s value as collateral after haircuts, when it is held as collateral. | [optional] 
+**InitialMarginItem** | **string** | The initial-margin item the line falls under, when the holding matched one. Filterable. | [optional] 
+**InitialMargin** | **decimal?** | The holding&#39;s share of its netting set&#39;s initial margin, before the threshold, when it contributes to it. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -34,6 +36,7 @@ string custodianAccountCode = "example custodianAccountCode";
 string custodianAccountName = "example custodianAccountName";
 Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();decimal units = "units";
 
+string initialMarginItem = "example initialMarginItem";
 
 MarginLine marginLineInstance = new MarginLine(
     runId: runId,
@@ -48,7 +51,9 @@ MarginLine marginLineInstance = new MarginLine(
     units: units,
     pv: pv,
     variationMargin: variationMargin,
-    collateralValue: collateralValue);
+    collateralValue: collateralValue,
+    initialMarginItem: initialMarginItem,
+    initialMargin: initialMargin);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

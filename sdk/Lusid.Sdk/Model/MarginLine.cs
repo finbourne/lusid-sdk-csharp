@@ -49,7 +49,9 @@ namespace Lusid.Sdk.Model
         /// <param name="pv">The present value of the holding in the agreement&#39;s base currency, when it contributes to exposure..</param>
         /// <param name="variationMargin">The holding&#39;s contribution to variation margin, when it contributes to exposure..</param>
         /// <param name="collateralValue">The holding&#39;s value as collateral after haircuts, when it is held as collateral..</param>
-        public MarginLine(string runId = default(string), ResourceId agreementId = default(ResourceId), string item = default(string), ResourceId portfolioId = default(ResourceId), string holdingId = default(string), string custodianAccountScope = default(string), string custodianAccountCode = default(string), string custodianAccountName = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal units = default(decimal), decimal? pv = default(decimal?), decimal? variationMargin = default(decimal?), decimal? collateralValue = default(decimal?))
+        /// <param name="initialMarginItem">The initial-margin item the line falls under, when the holding matched one. Filterable..</param>
+        /// <param name="initialMargin">The holding&#39;s share of its netting set&#39;s initial margin, before the threshold, when it contributes to it..</param>
+        public MarginLine(string runId = default(string), ResourceId agreementId = default(ResourceId), string item = default(string), ResourceId portfolioId = default(ResourceId), string holdingId = default(string), string custodianAccountScope = default(string), string custodianAccountCode = default(string), string custodianAccountName = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal units = default(decimal), decimal? pv = default(decimal?), decimal? variationMargin = default(decimal?), decimal? collateralValue = default(decimal?), string initialMarginItem = default(string), decimal? initialMargin = default(decimal?))
         {
             // to ensure "runId" is required (not null)
             if (runId == null)
@@ -84,6 +86,8 @@ namespace Lusid.Sdk.Model
             this.Pv = pv;
             this.VariationMargin = variationMargin;
             this.CollateralValue = collateralValue;
+            this.InitialMarginItem = initialMarginItem;
+            this.InitialMargin = initialMargin;
         }
 
         /// <summary>
@@ -176,6 +180,20 @@ namespace Lusid.Sdk.Model
         public decimal? CollateralValue { get; set; }
 
         /// <summary>
+        /// The initial-margin item the line falls under, when the holding matched one. Filterable.
+        /// </summary>
+        /// <value>The initial-margin item the line falls under, when the holding matched one. Filterable.</value>
+        [DataMember(Name = "initialMarginItem", EmitDefaultValue = true)]
+        public string InitialMarginItem { get; set; }
+
+        /// <summary>
+        /// The holding&#39;s share of its netting set&#39;s initial margin, before the threshold, when it contributes to it.
+        /// </summary>
+        /// <value>The holding&#39;s share of its netting set&#39;s initial margin, before the threshold, when it contributes to it.</value>
+        [DataMember(Name = "initialMargin", EmitDefaultValue = true)]
+        public decimal? InitialMargin { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -196,6 +214,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  Pv: ").Append(Pv).Append("\n");
             sb.Append("  VariationMargin: ").Append(VariationMargin).Append("\n");
             sb.Append("  CollateralValue: ").Append(CollateralValue).Append("\n");
+            sb.Append("  InitialMarginItem: ").Append(InitialMarginItem).Append("\n");
+            sb.Append("  InitialMargin: ").Append(InitialMargin).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -295,6 +315,16 @@ namespace Lusid.Sdk.Model
                     this.CollateralValue == input.CollateralValue ||
                     (this.CollateralValue != null &&
                     this.CollateralValue.Equals(input.CollateralValue))
+                ) && 
+                (
+                    this.InitialMarginItem == input.InitialMarginItem ||
+                    (this.InitialMarginItem != null &&
+                    this.InitialMarginItem.Equals(input.InitialMarginItem))
+                ) && 
+                (
+                    this.InitialMargin == input.InitialMargin ||
+                    (this.InitialMargin != null &&
+                    this.InitialMargin.Equals(input.InitialMargin))
                 );
         }
 
@@ -355,6 +385,14 @@ namespace Lusid.Sdk.Model
                 if (this.CollateralValue != null)
                 {
                     hashCode = (hashCode * 59) + this.CollateralValue.GetHashCode();
+                }
+                if (this.InitialMarginItem != null)
+                {
+                    hashCode = (hashCode * 59) + this.InitialMarginItem.GetHashCode();
+                }
+                if (this.InitialMargin != null)
+                {
+                    hashCode = (hashCode * 59) + this.InitialMargin.GetHashCode();
                 }
                 return hashCode;
             }
@@ -460,6 +498,25 @@ namespace Lusid.Sdk.Model
             if (false == regexCustodianAccountName.Match(this.CustodianAccountName).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustodianAccountName, must match a pattern of " + regexCustodianAccountName, new [] { "CustodianAccountName" });
+            }
+
+            // InitialMarginItem (string) maxLength
+            if (this.InitialMarginItem != null && this.InitialMarginItem.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InitialMarginItem, length must be less than 64.", new [] { "InitialMarginItem" });
+            }
+
+            // InitialMarginItem (string) minLength
+            if (this.InitialMarginItem != null && this.InitialMarginItem.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InitialMarginItem, length must be greater than 1.", new [] { "InitialMarginItem" });
+            }
+
+            // InitialMarginItem (string) pattern
+            Regex regexInitialMarginItem = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexInitialMarginItem.Match(this.InitialMarginItem).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InitialMarginItem, must match a pattern of " + regexInitialMarginItem, new [] { "InitialMarginItem" });
             }
 
             yield break;
