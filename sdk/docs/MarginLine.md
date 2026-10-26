@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **CollateralValue** | **decimal?** | The holding&#39;s value as collateral after haircuts, when it is held as collateral. | [optional] 
 **InitialMarginItem** | **string** | The initial-margin item the line falls under, when the holding matched one. Filterable. | [optional] 
 **InitialMargin** | **decimal?** | The holding&#39;s share of its netting set&#39;s initial margin, before the threshold, when it contributes to it. | [optional] 
+**Scenario** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -37,6 +38,8 @@ string custodianAccountName = "example custodianAccountName";
 Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();decimal units = "units";
 
 string initialMarginItem = "example initialMarginItem";
+ResourceId? scenario = new ResourceId();
+
 
 MarginLine marginLineInstance = new MarginLine(
     runId: runId,
@@ -53,7 +56,8 @@ MarginLine marginLineInstance = new MarginLine(
     variationMargin: variationMargin,
     collateralValue: collateralValue,
     initialMarginItem: initialMarginItem,
-    initialMargin: initialMargin);
+    initialMargin: initialMargin,
+    scenario: scenario);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

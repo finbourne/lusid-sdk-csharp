@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **Supersedes** | [**MarginCallReference**](MarginCallReference.md) |  | [optional] 
 **CarriedFrom** | [**MarginCallReference**](MarginCallReference.md) |  | [optional] 
 **CarriedDisputedAmount** | **decimal?** | The amount left in dispute on the carried call. Informational; not added to this call. | [optional] 
+**Scenario** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -64,6 +65,8 @@ string state = "state";
 MarginCallReference? supersedes = new MarginCallReference();
 
 MarginCallReference? carriedFrom = new MarginCallReference();
+
+ResourceId? scenario = new ResourceId();
 
 
 MarginCall marginCallInstance = new MarginCall(
@@ -96,7 +99,8 @@ MarginCall marginCallInstance = new MarginCall(
     deadline: deadline,
     supersedes: supersedes,
     carriedFrom: carriedFrom,
-    carriedDisputedAmount: carriedDisputedAmount);
+    carriedDisputedAmount: carriedDisputedAmount,
+    scenario: scenario);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

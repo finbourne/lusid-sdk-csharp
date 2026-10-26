@@ -40,28 +40,23 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="startDate">The start date of the EquitySwap. (required).</param>
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
-        /// <param name="code">The code of the underlying. (required).</param>
+        /// <param name="code">The code of the underlying..</param>
         /// <param name="equityFlowConventions">equityFlowConventions (required).</param>
         /// <param name="fundingLeg">fundingLeg (required).</param>
         /// <param name="includeDividends">Dividend inclusion flag, if true dividends are included in the equity leg (total return). (required).</param>
         /// <param name="initialPrice">The initial equity price of the Equity Swap. (required).</param>
         /// <param name="notionalReset">Notional reset flag, if true the notional of the funding leg is reset at the start of every  coupon to match the value of the equity leg (equity price at start of coupon times quantity). (required).</param>
         /// <param name="quantity">The quantity or number of shares in the Equity Swap. (required).</param>
-        /// <param name="underlyingIdentifier">External market codes and identifiers for the EquitySwap, e.g. RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]. (required).</param>
+        /// <param name="underlyingIdentifier">External market codes and identifiers for the EquitySwap, e.g. RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]..</param>
+        /// <param name="underlying">underlying.</param>
         /// <param name="equitySwapDividendPaymentTiming">Determines how the payment of dividends is handled for the equity swap.  Defaults to paying at the next Equity coupon date.                Supported string (enumeration) values are: [PayAtNextEquityCouponDate, PayAtMaturityOfSwap, PayAtNextFundingLegCouponDate, PayAtPaymentDateOfDividendEvent]..</param>
         /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven equity swap.  The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap, BondForward, PreferredShare, CapitalInterest, WholeLoanFacility. (required) (default to &quot;EquitySwap&quot;).</param>
-        public EquitySwap(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string code = default(string), FlowConventions equityFlowConventions = default(FlowConventions), InstrumentLeg fundingLeg = default(InstrumentLeg), bool includeDividends = default(bool), decimal initialPrice = default(decimal), bool notionalReset = default(bool), decimal quantity = default(decimal), string underlyingIdentifier = default(string), string equitySwapDividendPaymentTiming = default(string), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public EquitySwap(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string code = default(string), FlowConventions equityFlowConventions = default(FlowConventions), InstrumentLeg fundingLeg = default(InstrumentLeg), bool includeDividends = default(bool), decimal initialPrice = default(decimal), bool notionalReset = default(bool), decimal quantity = default(decimal), string underlyingIdentifier = default(string), LusidInstrument underlying = default(LusidInstrument), string equitySwapDividendPaymentTiming = default(string), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
-            // to ensure "code" is required (not null)
-            if (code == null)
-            {
-                throw new ArgumentNullException("code is a required property for EquitySwap and cannot be null");
-            }
-            this.Code = code;
             // to ensure "equityFlowConventions" is required (not null)
             if (equityFlowConventions == null)
             {
@@ -78,12 +73,9 @@ namespace Lusid.Sdk.Model
             this.InitialPrice = initialPrice;
             this.NotionalReset = notionalReset;
             this.Quantity = quantity;
-            // to ensure "underlyingIdentifier" is required (not null)
-            if (underlyingIdentifier == null)
-            {
-                throw new ArgumentNullException("underlyingIdentifier is a required property for EquitySwap and cannot be null");
-            }
+            this.Code = code;
             this.UnderlyingIdentifier = underlyingIdentifier;
+            this.Underlying = underlying;
             this.EquitySwapDividendPaymentTiming = equitySwapDividendPaymentTiming;
             this.AdditionalPayments = additionalPayments;
             this.TimeZoneConventions = timeZoneConventions;
@@ -107,7 +99,7 @@ namespace Lusid.Sdk.Model
         /// The code of the underlying.
         /// </summary>
         /// <value>The code of the underlying.</value>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "code", EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
@@ -154,8 +146,14 @@ namespace Lusid.Sdk.Model
         /// External market codes and identifiers for the EquitySwap, e.g. RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].
         /// </summary>
         /// <value>External market codes and identifiers for the EquitySwap, e.g. RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].</value>
-        [DataMember(Name = "underlyingIdentifier", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "underlyingIdentifier", EmitDefaultValue = true)]
         public string UnderlyingIdentifier { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Underlying
+        /// </summary>
+        [DataMember(Name = "underlying", EmitDefaultValue = false)]
+        public LusidInstrument Underlying { get; set; }
 
         /// <summary>
         /// Determines how the payment of dividends is handled for the equity swap.  Defaults to paying at the next Equity coupon date.                Supported string (enumeration) values are: [PayAtNextEquityCouponDate, PayAtMaturityOfSwap, PayAtNextFundingLegCouponDate, PayAtPaymentDateOfDividendEvent].
@@ -196,6 +194,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  NotionalReset: ").Append(NotionalReset).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  UnderlyingIdentifier: ").Append(UnderlyingIdentifier).Append("\n");
+            sb.Append("  Underlying: ").Append(Underlying).Append("\n");
             sb.Append("  EquitySwapDividendPaymentTiming: ").Append(EquitySwapDividendPaymentTiming).Append("\n");
             sb.Append("  AdditionalPayments: ").Append(AdditionalPayments).Append("\n");
             sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
@@ -281,6 +280,11 @@ namespace Lusid.Sdk.Model
                     this.UnderlyingIdentifier.Equals(input.UnderlyingIdentifier))
                 ) && base.Equals(input) && 
                 (
+                    this.Underlying == input.Underlying ||
+                    (this.Underlying != null &&
+                    this.Underlying.Equals(input.Underlying))
+                ) && base.Equals(input) && 
+                (
                     this.EquitySwapDividendPaymentTiming == input.EquitySwapDividendPaymentTiming ||
                     (this.EquitySwapDividendPaymentTiming != null &&
                     this.EquitySwapDividendPaymentTiming.Equals(input.EquitySwapDividendPaymentTiming))
@@ -335,6 +339,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.UnderlyingIdentifier.GetHashCode();
                 }
+                if (this.Underlying != null)
+                {
+                    hashCode = (hashCode * 59) + this.Underlying.GetHashCode();
+                }
                 if (this.EquitySwapDividendPaymentTiming != null)
                 {
                     hashCode = (hashCode * 59) + this.EquitySwapDividendPaymentTiming.GetHashCode();
@@ -372,18 +380,6 @@ namespace Lusid.Sdk.Model
             {
                 yield return x;
             }
-            // Code (string) minLength
-            if (this.Code != null && this.Code.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 1.", new [] { "Code" });
-            }
-
-            // UnderlyingIdentifier (string) minLength
-            if (this.UnderlyingIdentifier != null && this.UnderlyingIdentifier.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnderlyingIdentifier, length must be greater than 1.", new [] { "UnderlyingIdentifier" });
-            }
-
             yield break;
         }
     }

@@ -51,7 +51,8 @@ namespace Lusid.Sdk.Model
         /// <param name="collateralValue">The holding&#39;s value as collateral after haircuts, when it is held as collateral..</param>
         /// <param name="initialMarginItem">The initial-margin item the line falls under, when the holding matched one. Filterable..</param>
         /// <param name="initialMargin">The holding&#39;s share of its netting set&#39;s initial margin, before the threshold, when it contributes to it..</param>
-        public MarginLine(string runId = default(string), ResourceId agreementId = default(ResourceId), string item = default(string), ResourceId portfolioId = default(ResourceId), string holdingId = default(string), string custodianAccountScope = default(string), string custodianAccountCode = default(string), string custodianAccountName = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal units = default(decimal), decimal? pv = default(decimal?), decimal? variationMargin = default(decimal?), decimal? collateralValue = default(decimal?), string initialMarginItem = default(string), decimal? initialMargin = default(decimal?))
+        /// <param name="scenario">scenario.</param>
+        public MarginLine(string runId = default(string), ResourceId agreementId = default(ResourceId), string item = default(string), ResourceId portfolioId = default(ResourceId), string holdingId = default(string), string custodianAccountScope = default(string), string custodianAccountCode = default(string), string custodianAccountName = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal units = default(decimal), decimal? pv = default(decimal?), decimal? variationMargin = default(decimal?), decimal? collateralValue = default(decimal?), string initialMarginItem = default(string), decimal? initialMargin = default(decimal?), ResourceId scenario = default(ResourceId))
         {
             // to ensure "runId" is required (not null)
             if (runId == null)
@@ -88,6 +89,7 @@ namespace Lusid.Sdk.Model
             this.CollateralValue = collateralValue;
             this.InitialMarginItem = initialMarginItem;
             this.InitialMargin = initialMargin;
+            this.Scenario = scenario;
         }
 
         /// <summary>
@@ -194,6 +196,12 @@ namespace Lusid.Sdk.Model
         public decimal? InitialMargin { get; set; }
 
         /// <summary>
+        /// Gets or Sets Scenario
+        /// </summary>
+        [DataMember(Name = "scenario", EmitDefaultValue = false)]
+        public ResourceId Scenario { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -216,6 +224,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CollateralValue: ").Append(CollateralValue).Append("\n");
             sb.Append("  InitialMarginItem: ").Append(InitialMarginItem).Append("\n");
             sb.Append("  InitialMargin: ").Append(InitialMargin).Append("\n");
+            sb.Append("  Scenario: ").Append(Scenario).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -325,6 +334,11 @@ namespace Lusid.Sdk.Model
                     this.InitialMargin == input.InitialMargin ||
                     (this.InitialMargin != null &&
                     this.InitialMargin.Equals(input.InitialMargin))
+                ) && 
+                (
+                    this.Scenario == input.Scenario ||
+                    (this.Scenario != null &&
+                    this.Scenario.Equals(input.Scenario))
                 );
         }
 
@@ -393,6 +407,10 @@ namespace Lusid.Sdk.Model
                 if (this.InitialMargin != null)
                 {
                     hashCode = (hashCode * 59) + this.InitialMargin.GetHashCode();
+                }
+                if (this.Scenario != null)
+                {
+                    hashCode = (hashCode * 59) + this.Scenario.GetHashCode();
                 }
                 return hashCode;
             }

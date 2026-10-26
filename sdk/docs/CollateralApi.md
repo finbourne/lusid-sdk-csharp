@@ -753,11 +753,11 @@ catch (ApiException e)
 
 <a id="listmargincalls"></a>
 # **ListMarginCalls**
-> PagedResourceListOfMarginCall ListMarginCalls (DateTimeOrCutLabel? effectiveAt = null, string? runId = null, string? page = null, int? limit = null, string? filter = null)
+> PagedResourceListOfMarginCall ListMarginCalls (DateTimeOrCutLabel? effectiveAt = null, string? runId = null, string? page = null, int? limit = null, string? filter = null, List<string>? scenarios = null, DateTimeOrCutLabel? effectiveFrom = null)
 
 [EXPERIMENTAL] ListMarginCalls: List margin calls.
 
-List the margin calls of one run when a run id is given. Otherwise list the current calls for a business date:  those of the latest run for the date, with an agreement that run could not value served from the most recent run  that did. Restricted to the agreements the caller may read.
+List the margin calls of one run when a run id is given. Otherwise list the current calls for a business date:  those of the latest run for the date, with an agreement that run could not value served from the most recent run  that did. With an effectiveFrom the current calls of each date from it to effectiveAt are listed, in date order.  Restricted to the agreements the caller may read.
 
 ### Example
 ```csharp
@@ -798,19 +798,21 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CollateralApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CollateralApi>();
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The business date, datetime or cut label to list the current margin calls for. Defaults to today if not specified. Ignored when a run id is given. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The business date, datetime or cut label to list the current margin calls for, or the last date of the range when effectiveFrom is given. Defaults to today if not specified. Ignored when a run id is given. (optional) 
             var runId = "runId_example";  // string? | The identifier of the margin run to list the calls of. Lists the current calls for the business date if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing margin calls; this value is returned from the previous call. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the results. The filterable fields are RunId, AgreementId.Scope, AgreementId.Code, Counterparty.Code, Counterparty.IdTypeScope, Counterparty.IdTypeCode, Item, MarginType, Method, Settlement, Direction, Currency, Required, Held, Call, CounterpartyDemand, Difference, MatchStatus, AgreedAmount, DisputedAmount, DisputeOwner, State and Deadline. For example, to find the breaks, specify \"MatchStatus eq 'Break'\". For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional) 
+            var scenarios = new List<string>?(); // List<string>? | The scenarios, each as scope/code, whose calls are listed beside the base case calls, which are always listed. Lists the base case calls only if not specified. (optional) 
+            var effectiveFrom = "effectiveFrom_example";  // DateTimeOrCutLabel? | The first business date, datetime or cut label of a range ending at effectiveAt, for a time series of calls. Lists the one business date if not specified. Ignored when a run id is given. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfMarginCall result = apiInstance.ListMarginCalls(effectiveAt, runId, page, limit, filter, opts: opts);
+                // PagedResourceListOfMarginCall result = apiInstance.ListMarginCalls(effectiveAt, runId, page, limit, filter, scenarios, effectiveFrom, opts: opts);
 
                 // [EXPERIMENTAL] ListMarginCalls: List margin calls.
-                PagedResourceListOfMarginCall result = apiInstance.ListMarginCalls(effectiveAt, runId, page, limit, filter);
+                PagedResourceListOfMarginCall result = apiInstance.ListMarginCalls(effectiveAt, runId, page, limit, filter, scenarios, effectiveFrom);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -831,7 +833,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] ListMarginCalls: List margin calls.
-    ApiResponse<PagedResourceListOfMarginCall> response = apiInstance.ListMarginCallsWithHttpInfo(effectiveAt, runId, page, limit, filter);
+    ApiResponse<PagedResourceListOfMarginCall> response = apiInstance.ListMarginCallsWithHttpInfo(effectiveAt, runId, page, limit, filter, scenarios, effectiveFrom);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -848,11 +850,13 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **effectiveAt** | **DateTimeOrCutLabel?** | The business date, datetime or cut label to list the current margin calls for. Defaults to today if not specified. Ignored when a run id is given. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The business date, datetime or cut label to list the current margin calls for, or the last date of the range when effectiveFrom is given. Defaults to today if not specified. Ignored when a run id is given. | [optional]  |
 | **runId** | **string?** | The identifier of the margin run to list the calls of. Lists the current calls for the business date if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing margin calls; this value is returned from the previous call. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the results. The filterable fields are RunId, AgreementId.Scope, AgreementId.Code, Counterparty.Code, Counterparty.IdTypeScope, Counterparty.IdTypeCode, Item, MarginType, Method, Settlement, Direction, Currency, Required, Held, Call, CounterpartyDemand, Difference, MatchStatus, AgreedAmount, DisputedAmount, DisputeOwner, State and Deadline. For example, to find the breaks, specify \&quot;MatchStatus eq &#39;Break&#39;\&quot;. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. | [optional]  |
+| **scenarios** | [**List&lt;string&gt;?**](string.md) | The scenarios, each as scope/code, whose calls are listed beside the base case calls, which are always listed. Lists the base case calls only if not specified. | [optional]  |
+| **effectiveFrom** | **DateTimeOrCutLabel?** | The first business date, datetime or cut label of a range ending at effectiveAt, for a time series of calls. Lists the one business date if not specified. Ignored when a run id is given. | [optional]  |
 
 ### Return type
 
@@ -875,7 +879,7 @@ catch (ApiException e)
 
 <a id="listmarginlines"></a>
 # **ListMarginLines**
-> PagedResourceListOfMarginLine ListMarginLines (string runId, string? page = null, int? limit = null, string? filter = null)
+> PagedResourceListOfMarginLine ListMarginLines (string runId, string? page = null, int? limit = null, string? filter = null, List<string>? scenarios = null)
 
 [EXPERIMENTAL] ListMarginLines: List the margin lines of a run.
 
@@ -924,14 +928,15 @@ namespace Examples
             var page = "page_example";  // string? | The pagination token to use to continue listing margin lines; this value is returned from the previous call. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the results. The filterable fields are AgreementId.Scope, AgreementId.Code, Item, PortfolioId.Scope, PortfolioId.Code, HoldingId, CustodianAccountScope, CustodianAccountCode, CustodianAccountName, Units, Pv, VariationMargin and CollateralValue. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional) 
+            var scenarios = new List<string>?(); // List<string>? | The scenarios, each as scope/code, whose lines are listed beside the base case lines, which are always listed. Lists the base case lines only if not specified. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfMarginLine result = apiInstance.ListMarginLines(runId, page, limit, filter, opts: opts);
+                // PagedResourceListOfMarginLine result = apiInstance.ListMarginLines(runId, page, limit, filter, scenarios, opts: opts);
 
                 // [EXPERIMENTAL] ListMarginLines: List the margin lines of a run.
-                PagedResourceListOfMarginLine result = apiInstance.ListMarginLines(runId, page, limit, filter);
+                PagedResourceListOfMarginLine result = apiInstance.ListMarginLines(runId, page, limit, filter, scenarios);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -952,7 +957,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] ListMarginLines: List the margin lines of a run.
-    ApiResponse<PagedResourceListOfMarginLine> response = apiInstance.ListMarginLinesWithHttpInfo(runId, page, limit, filter);
+    ApiResponse<PagedResourceListOfMarginLine> response = apiInstance.ListMarginLinesWithHttpInfo(runId, page, limit, filter, scenarios);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -973,6 +978,7 @@ catch (ApiException e)
 | **page** | **string?** | The pagination token to use to continue listing margin lines; this value is returned from the previous call. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the results. The filterable fields are AgreementId.Scope, AgreementId.Code, Item, PortfolioId.Scope, PortfolioId.Code, HoldingId, CustodianAccountScope, CustodianAccountCode, CustodianAccountName, Units, Pv, VariationMargin and CollateralValue. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. | [optional]  |
+| **scenarios** | [**List&lt;string&gt;?**](string.md) | The scenarios, each as scope/code, whose lines are listed beside the base case lines, which are always listed. Lists the base case lines only if not specified. | [optional]  |
 
 ### Return type
 
@@ -1353,11 +1359,11 @@ catch (ApiException e)
 
 <a id="runmargincalculation"></a>
 # **RunMarginCalculation**
-> MarginRun RunMarginCalculation (MarginRunRequest marginRunRequest)
+> PagedResourceListOfMarginRun RunMarginCalculation (MarginRunRequest marginRunRequest)
 
 [EXPERIMENTAL] RunMarginCalculation: Run the margin calculation.
 
-Value the collateral agreements for a business date in the background and publish their margin calls as a run.  The run is returned as planned; poll GetMarginRun for its progress, and list its calls as they are published.
+Value the collateral agreements for a business date, or for each weekday of a span, in the background and publish  their margin calls as a run for each date. The base case is always valued, with each scenario named in the request  valued beside it as a case of the same run. A date after the asAt is a projection on the market as at the asAt.  The runs are returned as planned, in date order; poll GetMarginRun for the progress of each, and list the calls as they are published.
 
 ### Example
 ```csharp
@@ -1398,15 +1404,15 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CollateralApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CollateralApi>();
-            var marginRunRequest = new MarginRunRequest(); // MarginRunRequest | The business date to value, and optionally the asAt and the agreements to include.
+            var marginRunRequest = new MarginRunRequest(); // MarginRunRequest | The business date to value, or the span of dates ending at it, and optionally the asAt, the agreements to include and the scenarios to value beside the base case.
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // MarginRun result = apiInstance.RunMarginCalculation(marginRunRequest, opts: opts);
+                // PagedResourceListOfMarginRun result = apiInstance.RunMarginCalculation(marginRunRequest, opts: opts);
 
                 // [EXPERIMENTAL] RunMarginCalculation: Run the margin calculation.
-                MarginRun result = apiInstance.RunMarginCalculation(marginRunRequest);
+                PagedResourceListOfMarginRun result = apiInstance.RunMarginCalculation(marginRunRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1427,7 +1433,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] RunMarginCalculation: Run the margin calculation.
-    ApiResponse<MarginRun> response = apiInstance.RunMarginCalculationWithHttpInfo(marginRunRequest);
+    ApiResponse<PagedResourceListOfMarginRun> response = apiInstance.RunMarginCalculationWithHttpInfo(marginRunRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1444,11 +1450,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **marginRunRequest** | [**MarginRunRequest**](MarginRunRequest.md) | The business date to value, and optionally the asAt and the agreements to include. |  |
+| **marginRunRequest** | [**MarginRunRequest**](MarginRunRequest.md) | The business date to value, or the span of dates ending at it, and optionally the asAt, the agreements to include and the scenarios to value beside the base case. |  |
 
 ### Return type
 
-[**MarginRun**](MarginRun.md)
+[**PagedResourceListOfMarginRun**](PagedResourceListOfMarginRun.md)
 
 ### HTTP request headers
 
@@ -1459,7 +1465,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | The margin run as planned. |  -  |
+| **202** | The margin runs as planned, one for each date valued. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

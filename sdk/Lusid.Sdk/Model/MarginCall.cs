@@ -66,7 +66,8 @@ namespace Lusid.Sdk.Model
         /// <param name="supersedes">supersedes.</param>
         /// <param name="carriedFrom">carriedFrom.</param>
         /// <param name="carriedDisputedAmount">The amount left in dispute on the carried call. Informational; not added to this call..</param>
-        public MarginCall(string href = default(string), string id = default(string), string runId = default(string), ResourceId agreementId = default(ResourceId), CounterpartyIdentifier counterparty = default(CounterpartyIdentifier), string item = default(string), string marginType = default(string), string method = default(string), string settlement = default(string), string direction = default(string), string currency = default(string), decimal required = default(decimal), decimal held = default(decimal), decimal call = default(decimal), decimal? matchTolerance = default(decimal?), decimal? counterpartyDemand = default(decimal?), decimal? difference = default(decimal?), string matchStatus = default(string), DateTimeOffset? demandReceivedAt = default(DateTimeOffset?), string statementReference = default(string), string demandNote = default(string), decimal? agreedAmount = default(decimal?), decimal? disputedAmount = default(decimal?), string disputeReason = default(string), string disputeOwner = default(string), string state = default(string), DateTimeOffset? deadline = default(DateTimeOffset?), MarginCallReference supersedes = default(MarginCallReference), MarginCallReference carriedFrom = default(MarginCallReference), decimal? carriedDisputedAmount = default(decimal?))
+        /// <param name="scenario">scenario.</param>
+        public MarginCall(string href = default(string), string id = default(string), string runId = default(string), ResourceId agreementId = default(ResourceId), CounterpartyIdentifier counterparty = default(CounterpartyIdentifier), string item = default(string), string marginType = default(string), string method = default(string), string settlement = default(string), string direction = default(string), string currency = default(string), decimal required = default(decimal), decimal held = default(decimal), decimal call = default(decimal), decimal? matchTolerance = default(decimal?), decimal? counterpartyDemand = default(decimal?), decimal? difference = default(decimal?), string matchStatus = default(string), DateTimeOffset? demandReceivedAt = default(DateTimeOffset?), string statementReference = default(string), string demandNote = default(string), decimal? agreedAmount = default(decimal?), decimal? disputedAmount = default(decimal?), string disputeReason = default(string), string disputeOwner = default(string), string state = default(string), DateTimeOffset? deadline = default(DateTimeOffset?), MarginCallReference supersedes = default(MarginCallReference), MarginCallReference carriedFrom = default(MarginCallReference), decimal? carriedDisputedAmount = default(decimal?), ResourceId scenario = default(ResourceId))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -143,6 +144,7 @@ namespace Lusid.Sdk.Model
             this.Supersedes = supersedes;
             this.CarriedFrom = carriedFrom;
             this.CarriedDisputedAmount = carriedDisputedAmount;
+            this.Scenario = scenario;
         }
 
         /// <summary>
@@ -352,6 +354,12 @@ namespace Lusid.Sdk.Model
         public decimal? CarriedDisputedAmount { get; set; }
 
         /// <summary>
+        /// Gets or Sets Scenario
+        /// </summary>
+        [DataMember(Name = "scenario", EmitDefaultValue = false)]
+        public ResourceId Scenario { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -389,6 +397,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Supersedes: ").Append(Supersedes).Append("\n");
             sb.Append("  CarriedFrom: ").Append(CarriedFrom).Append("\n");
             sb.Append("  CarriedDisputedAmount: ").Append(CarriedDisputedAmount).Append("\n");
+            sb.Append("  Scenario: ").Append(Scenario).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -570,6 +579,11 @@ namespace Lusid.Sdk.Model
                     this.CarriedDisputedAmount == input.CarriedDisputedAmount ||
                     (this.CarriedDisputedAmount != null &&
                     this.CarriedDisputedAmount.Equals(input.CarriedDisputedAmount))
+                ) && 
+                (
+                    this.Scenario == input.Scenario ||
+                    (this.Scenario != null &&
+                    this.Scenario.Equals(input.Scenario))
                 );
         }
 
@@ -692,6 +706,10 @@ namespace Lusid.Sdk.Model
                 if (this.CarriedDisputedAmount != null)
                 {
                     hashCode = (hashCode * 59) + this.CarriedDisputedAmount.GetHashCode();
+                }
+                if (this.Scenario != null)
+                {
+                    hashCode = (hashCode * 59) + this.Scenario.GetHashCode();
                 }
                 return hashCode;
             }

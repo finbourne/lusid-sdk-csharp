@@ -44,13 +44,14 @@ namespace Lusid.Sdk.Model
         /// <param name="originalIssuePrice">The price the complex bond was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%..</param>
         /// <param name="parPerUnit">Optional value used to scale accrued interest and coupon amounts only (not CleanPV), in addition to  currentNotional and units. If you do not set this field, the value is 1 and no amount changes.  A model that calculates the price from the cash flows, for example Discounting, includes the scaled coupons   in the PV and thus in the CleanPV. The CleanPV exclusion applies to a quoted price..</param>
         /// <param name="issueDate">The date the bond was issued to the market. This may be after the StartDate (dated date) from which interest accrues, for example for agency mortgage-backed securities. The payment schedule is unchanged, but no coupon entitlement (ex-dividend) date can fall before this date: a buyer settling on the issue date is entitled to the first coupon, and accrued interest includes completed-but-unpaid coupons until their entitlement passes..</param>
+        /// <param name="underlying">underlying.</param>
         /// <param name="roundingConventions">Rounding conventions for analytics, if any..</param>
         /// <param name="assetBacked">If this flag is set to true, then the outstanding notional and principal repayments will be calculated based  on pool factors in the quote store. Usually AssetBacked bonds also require a RollConvention setting of   within the FlowConventions any given rates schedule (to ensure payment dates always happen on the same day  of the month) and US Agency MBSs with Pay Delay features also require their rates schedules to include an  ExDividendConfiguration to drive the lag between interest accrual and payment..</param>
         /// <param name="assetPoolIdentifier">Identifier used to retrieve pool factor information about this bond from the quote store. This is typically  the bond&#39;s ISIN, but can also be ClientInternal. Please ensure you align the MarketDataKeyRule with the  correct Quote (Quote.ClientInternal.* or Quote.Isin.*).</param>
         /// <param name="tradingConventions">tradingConventions.</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap, BondForward, PreferredShare, CapitalInterest, WholeLoanFacility. (required) (default to &quot;ComplexBond&quot;).</param>
-        public ComplexBond(Dictionary<string, string> identifiers = default(Dictionary<string, string>), string calculationType = default(string), List<Schedule> schedules = default(List<Schedule>), decimal? originalIssuePrice = default(decimal?), decimal? parPerUnit = default(decimal?), DateTimeOffset? issueDate = default(DateTimeOffset?), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), bool? assetBacked = default(bool?), string assetPoolIdentifier = default(string), TradingConventions tradingConventions = default(TradingConventions), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public ComplexBond(Dictionary<string, string> identifiers = default(Dictionary<string, string>), string calculationType = default(string), List<Schedule> schedules = default(List<Schedule>), decimal? originalIssuePrice = default(decimal?), decimal? parPerUnit = default(decimal?), DateTimeOffset? issueDate = default(DateTimeOffset?), LusidInstrument underlying = default(LusidInstrument), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), bool? assetBacked = default(bool?), string assetPoolIdentifier = default(string), TradingConventions tradingConventions = default(TradingConventions), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.Identifiers = identifiers;
             this.CalculationType = calculationType;
@@ -58,6 +59,7 @@ namespace Lusid.Sdk.Model
             this.OriginalIssuePrice = originalIssuePrice;
             this.ParPerUnit = parPerUnit;
             this.IssueDate = issueDate;
+            this.Underlying = underlying;
             this.RoundingConventions = roundingConventions;
             this.AssetBacked = assetBacked;
             this.AssetPoolIdentifier = assetPoolIdentifier;
@@ -108,6 +110,12 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? IssueDate { get; set; }
 
         /// <summary>
+        /// Gets or Sets Underlying
+        /// </summary>
+        [DataMember(Name = "underlying", EmitDefaultValue = false)]
+        public LusidInstrument Underlying { get; set; }
+
+        /// <summary>
         /// Rounding conventions for analytics, if any.
         /// </summary>
         /// <value>Rounding conventions for analytics, if any.</value>
@@ -155,6 +163,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  OriginalIssuePrice: ").Append(OriginalIssuePrice).Append("\n");
             sb.Append("  ParPerUnit: ").Append(ParPerUnit).Append("\n");
             sb.Append("  IssueDate: ").Append(IssueDate).Append("\n");
+            sb.Append("  Underlying: ").Append(Underlying).Append("\n");
             sb.Append("  RoundingConventions: ").Append(RoundingConventions).Append("\n");
             sb.Append("  AssetBacked: ").Append(AssetBacked).Append("\n");
             sb.Append("  AssetPoolIdentifier: ").Append(AssetPoolIdentifier).Append("\n");
@@ -228,6 +237,11 @@ namespace Lusid.Sdk.Model
                     this.IssueDate.Equals(input.IssueDate))
                 ) && base.Equals(input) && 
                 (
+                    this.Underlying == input.Underlying ||
+                    (this.Underlying != null &&
+                    this.Underlying.Equals(input.Underlying))
+                ) && base.Equals(input) && 
+                (
                     this.RoundingConventions == input.RoundingConventions ||
                     this.RoundingConventions != null &&
                     input.RoundingConventions != null &&
@@ -287,6 +301,10 @@ namespace Lusid.Sdk.Model
                 if (this.IssueDate != null)
                 {
                     hashCode = (hashCode * 59) + this.IssueDate.GetHashCode();
+                }
+                if (this.Underlying != null)
+                {
+                    hashCode = (hashCode * 59) + this.Underlying.GetHashCode();
                 }
                 if (this.RoundingConventions != null)
                 {

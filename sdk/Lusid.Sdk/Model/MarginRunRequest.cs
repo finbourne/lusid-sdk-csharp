@@ -36,11 +36,12 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MarginRunRequest" /> class.
         /// </summary>
-        /// <param name="effectiveAt">The business date, datetime or cut label to value the agreements at. (required).</param>
+        /// <param name="effectiveAt">The business date, datetime or cut label to value the agreements at. With an effectiveFrom, the last date of the span. (required).</param>
         /// <param name="asAt">The asAt datetime to read agreements, portfolios and market data at. Defaults to the current LUSID system datetime if not specified..</param>
         /// <param name="agreementFilter">An expression selecting the collateral agreements to run, in the same syntax as listing collateral agreements. Every agreement the caller may calculate margin for is run if not specified..</param>
-        /// <param name="scenario">scenario.</param>
-        public MarginRunRequest(DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string agreementFilter = default(string), ResourceId scenario = default(ResourceId))
+        /// <param name="scenarios">The stored scenarios to value the agreements under, each as a what-if beside the base market, which the run always values. A scenario&#39;s calls are served beside the base calls only when asked for, and cannot be accepted, disputed or matched to a counterparty demand. At most 20. Only the base market is valued if not specified..</param>
+        /// <param name="effectiveFrom">The first business date, datetime or cut label of a span ending at effectiveAt. Each weekday from it to effectiveAt is valued as a run of its own, all at the same asAt, and a date after the asAt is a projection valued on the market as at the asAt that cannot be accepted, disputed or matched to a counterparty demand. At most 130 weekdays. Only effectiveAt is valued if not specified..</param>
+        public MarginRunRequest(DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string agreementFilter = default(string), List<ResourceId> scenarios = default(List<ResourceId>), DateTimeOrCutLabel effectiveFrom = default(DateTimeOrCutLabel))
         {
             // to ensure "effectiveAt" is required (not null)
             if (effectiveAt == null)
@@ -50,13 +51,14 @@ namespace Lusid.Sdk.Model
             this.EffectiveAt = effectiveAt;
             this.AsAt = asAt;
             this.AgreementFilter = agreementFilter;
-            this.Scenario = scenario;
+            this.Scenarios = scenarios;
+            this.EffectiveFrom = effectiveFrom;
         }
 
         /// <summary>
-        /// The business date, datetime or cut label to value the agreements at.
+        /// The business date, datetime or cut label to value the agreements at. With an effectiveFrom, the last date of the span.
         /// </summary>
-        /// <value>The business date, datetime or cut label to value the agreements at.</value>
+        /// <value>The business date, datetime or cut label to value the agreements at. With an effectiveFrom, the last date of the span.</value>
         [DataMember(Name = "effectiveAt", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOrCutLabel EffectiveAt { get; set; }
 
@@ -75,10 +77,18 @@ namespace Lusid.Sdk.Model
         public string AgreementFilter { get; set; }
 
         /// <summary>
-        /// Gets or Sets Scenario
+        /// The stored scenarios to value the agreements under, each as a what-if beside the base market, which the run always values. A scenario&#39;s calls are served beside the base calls only when asked for, and cannot be accepted, disputed or matched to a counterparty demand. At most 20. Only the base market is valued if not specified.
         /// </summary>
-        [DataMember(Name = "scenario", EmitDefaultValue = false)]
-        public ResourceId Scenario { get; set; }
+        /// <value>The stored scenarios to value the agreements under, each as a what-if beside the base market, which the run always values. A scenario&#39;s calls are served beside the base calls only when asked for, and cannot be accepted, disputed or matched to a counterparty demand. At most 20. Only the base market is valued if not specified.</value>
+        [DataMember(Name = "scenarios", EmitDefaultValue = true)]
+        public List<ResourceId> Scenarios { get; set; }
+
+        /// <summary>
+        /// The first business date, datetime or cut label of a span ending at effectiveAt. Each weekday from it to effectiveAt is valued as a run of its own, all at the same asAt, and a date after the asAt is a projection valued on the market as at the asAt that cannot be accepted, disputed or matched to a counterparty demand. At most 130 weekdays. Only effectiveAt is valued if not specified.
+        /// </summary>
+        /// <value>The first business date, datetime or cut label of a span ending at effectiveAt. Each weekday from it to effectiveAt is valued as a run of its own, all at the same asAt, and a date after the asAt is a projection valued on the market as at the asAt that cannot be accepted, disputed or matched to a counterparty demand. At most 130 weekdays. Only effectiveAt is valued if not specified.</value>
+        [DataMember(Name = "effectiveFrom", EmitDefaultValue = true)]
+        public DateTimeOrCutLabel EffectiveFrom { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -91,7 +101,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("  AsAt: ").Append(AsAt).Append("\n");
             sb.Append("  AgreementFilter: ").Append(AgreementFilter).Append("\n");
-            sb.Append("  Scenario: ").Append(Scenario).Append("\n");
+            sb.Append("  Scenarios: ").Append(Scenarios).Append("\n");
+            sb.Append("  EffectiveFrom: ").Append(EffectiveFrom).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -143,9 +154,15 @@ namespace Lusid.Sdk.Model
                     this.AgreementFilter.Equals(input.AgreementFilter))
                 ) && 
                 (
-                    this.Scenario == input.Scenario ||
-                    (this.Scenario != null &&
-                    this.Scenario.Equals(input.Scenario))
+                    this.Scenarios == input.Scenarios ||
+                    this.Scenarios != null &&
+                    input.Scenarios != null &&
+                    this.Scenarios.SequenceEqual(input.Scenarios)
+                ) && 
+                (
+                    this.EffectiveFrom == input.EffectiveFrom ||
+                    (this.EffectiveFrom != null &&
+                    this.EffectiveFrom.Equals(input.EffectiveFrom))
                 );
         }
 
@@ -170,9 +187,13 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.AgreementFilter.GetHashCode();
                 }
-                if (this.Scenario != null)
+                if (this.Scenarios != null)
                 {
-                    hashCode = (hashCode * 59) + this.Scenario.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Scenarios.GetHashCode();
+                }
+                if (this.EffectiveFrom != null)
+                {
+                    hashCode = (hashCode * 59) + this.EffectiveFrom.GetHashCode();
                 }
                 return hashCode;
             }
@@ -221,6 +242,25 @@ namespace Lusid.Sdk.Model
             if (false == regexAgreementFilter.Match(this.AgreementFilter).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AgreementFilter, must match a pattern of " + regexAgreementFilter, new [] { "AgreementFilter" });
+            }
+
+            // EffectiveFrom (DateTimeOrCutLabel) maxLength
+            if (this.EffectiveFrom != null && this.EffectiveFrom.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EffectiveFrom, length must be less than 256.", new [] { "EffectiveFrom" });
+            }
+
+            // EffectiveFrom (DateTimeOrCutLabel) minLength
+            if (this.EffectiveFrom != null && this.EffectiveFrom.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EffectiveFrom, length must be greater than 0.", new [] { "EffectiveFrom" });
+            }
+
+            // EffectiveFrom (DateTimeOrCutLabel) pattern
+            Regex regexEffectiveFrom = new Regex(@"^[a-zA-Z0-9\-_\+:\.]+$", RegexOptions.CultureInvariant);
+            if (false == regexEffectiveFrom.Match(this.EffectiveFrom).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EffectiveFrom, must match a pattern of " + regexEffectiveFrom, new [] { "EffectiveFrom" });
             }
 
             yield break;
