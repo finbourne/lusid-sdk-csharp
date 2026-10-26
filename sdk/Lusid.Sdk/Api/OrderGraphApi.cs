@@ -45,10 +45,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
+        /// <param name="includeSwept">Include Swept Order Blocks. (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfOrderGraphBlock</returns>
-        PagedResourceListOfOrderGraphBlock ListOrderGraphBlocks(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        PagedResourceListOfOrderGraphBlock ListOrderGraphBlocks(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), bool? includeSwept = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
@@ -64,10 +65,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
+        /// <param name="includeSwept">Include Swept Order Blocks. (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfOrderGraphBlock</returns>
-        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock> ListOrderGraphBlocksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock> ListOrderGraphBlocksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), bool? includeSwept = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities.
         /// </summary>
@@ -163,11 +165,12 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
+        /// <param name="includeSwept">Include Swept Order Blocks. (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfOrderGraphBlock</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfOrderGraphBlock> ListOrderGraphBlocksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<PagedResourceListOfOrderGraphBlock> ListOrderGraphBlocksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), bool? includeSwept = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
@@ -183,11 +186,12 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
+        /// <param name="includeSwept">Include Swept Order Blocks. (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfOrderGraphBlock)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock>> ListOrderGraphBlocksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock>> ListOrderGraphBlocksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), bool? includeSwept = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities.
         /// </summary>
@@ -398,12 +402,13 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
+        /// <param name="includeSwept">Include Swept Order Blocks. (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfOrderGraphBlock</returns>
-        public PagedResourceListOfOrderGraphBlock ListOrderGraphBlocks(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public PagedResourceListOfOrderGraphBlock ListOrderGraphBlocks(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), bool? includeSwept = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock> localVarResponse = ListOrderGraphBlocksWithHttpInfo(asAt, paginationToken, sortBy, limit, filter, propertyKeys, useComplianceV2, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock> localVarResponse = ListOrderGraphBlocksWithHttpInfo(asAt, paginationToken, sortBy, limit, filter, propertyKeys, useComplianceV2, includeSwept, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -418,10 +423,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
+        /// <param name="includeSwept">Include Swept Order Blocks. (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfOrderGraphBlock</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock> ListOrderGraphBlocksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock> ListOrderGraphBlocksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), bool? includeSwept = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
@@ -491,6 +497,11 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "useComplianceV2", useComplianceV2));
+            }
+            if (includeSwept != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeSwept", includeSwept));
             }
 
             localVarRequestOptions.Operation = "OrderGraphApi.ListOrderGraphBlocks";
@@ -538,13 +549,14 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
+        /// <param name="includeSwept">Include Swept Order Blocks. (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfOrderGraphBlock</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfOrderGraphBlock> ListOrderGraphBlocksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<PagedResourceListOfOrderGraphBlock> ListOrderGraphBlocksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), bool? includeSwept = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock> localVarResponse = await ListOrderGraphBlocksWithHttpInfoAsync(asAt, paginationToken, sortBy, limit, filter, propertyKeys, useComplianceV2, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock> localVarResponse = await ListOrderGraphBlocksWithHttpInfoAsync(asAt, paginationToken, sortBy, limit, filter, propertyKeys, useComplianceV2, includeSwept, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -559,11 +571,12 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
+        /// <param name="includeSwept">Include Swept Order Blocks. (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfOrderGraphBlock)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock>> ListOrderGraphBlocksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock>> ListOrderGraphBlocksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), bool? includeSwept = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -627,6 +640,10 @@ namespace Lusid.Sdk.Api
             if (useComplianceV2 != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "useComplianceV2", useComplianceV2));
+            }
+            if (includeSwept != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeSwept", includeSwept));
             }
 
             localVarRequestOptions.Operation = "OrderGraphApi.ListOrderGraphBlocks";

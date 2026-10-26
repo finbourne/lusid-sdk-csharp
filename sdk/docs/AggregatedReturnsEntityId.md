@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.AggregatedReturnsEntityId
-Identifies an entity whose aggregated (time-weighted) returns are calculated: its scope, code and  type. Mirrors the valuation endpoint's entity identifier. Currently, supports only the  `Portfolio` entity type.
+Identifies an entity whose aggregated (time-weighted) returns are calculated: its scope, code and  type. Mirrors the valuation endpoint's entity identifier. Supports the `Portfolio` and  `PortfolioGroup` entity types.
 
 ## Properties
 
@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Scope** | **string** |  | 
 **Code** | **string** |  | 
-**EntityType** | **string** | Available values: Portfolio. | 
+**EntityType** | **string** | Available values: Portfolio, PortfolioGroup. | 
 
 ```csharp
 using Lusid.Sdk.Model;

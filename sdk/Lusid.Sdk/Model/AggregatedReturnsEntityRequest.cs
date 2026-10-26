@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The request body for the aggregated-returns endpoint: the entity to report returns for, the returns id  under which upserted returns are stored and the Returns entity that configures a calculation, the  effective window, the metrics to report and the period grid granularity. Supports a single  &#x60;Portfolio&#x60; entity, the period &#x60;Return&#x60; metric and a &#x60;Daily&#x60; grid.
+    /// The request body for the aggregated-returns endpoint: the entity to report returns for, the returns id  under which upserted returns are stored and the Returns entity that configures a calculation, the  effective window, the metrics to report and the period grid granularity. Supports a &#x60;Portfolio&#x60; or a  &#x60;PortfolioGroup&#x60; entity, the period &#x60;Return&#x60; metric and a &#x60;Daily&#x60; grid.
     /// </summary>
     [DataContract(Name = "AggregatedReturnsEntityRequest")]
     public partial class AggregatedReturnsEntityRequest : IEquatable<AggregatedReturnsEntityRequest>, IValidatableObject

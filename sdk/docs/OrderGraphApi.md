@@ -10,7 +10,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 <a id="listordergraphblocks"></a>
 # **ListOrderGraphBlocks**
-> PagedResourceListOfOrderGraphBlock ListOrderGraphBlocks (DateTimeOffset? asAt = null, string? paginationToken = null, List<string>? sortBy = null, int? limit = null, string? filter = null, List<string>? propertyKeys = null, bool? useComplianceV2 = null)
+> PagedResourceListOfOrderGraphBlock ListOrderGraphBlocks (DateTimeOffset? asAt = null, string? paginationToken = null, List<string>? sortBy = null, int? limit = null, string? filter = null, List<string>? propertyKeys = null, bool? useComplianceV2 = null, bool? includeSwept = null)
 
 ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
 
@@ -62,14 +62,15 @@ namespace Examples
             var filter = "\"\"";  // string? | See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional)  (default to "")
             var propertyKeys = new List<string>?(); // List<string>? | Must be block-level properties. See https://support.lusid.com/docs/properties (optional) 
             var useComplianceV2 = false;  // bool? | Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional)  (default to false)
+            var includeSwept = true;  // bool? | Include Swept Order Blocks. (default: true) (optional)  (default to true)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfOrderGraphBlock result = apiInstance.ListOrderGraphBlocks(asAt, paginationToken, sortBy, limit, filter, propertyKeys, useComplianceV2, opts: opts);
+                // PagedResourceListOfOrderGraphBlock result = apiInstance.ListOrderGraphBlocks(asAt, paginationToken, sortBy, limit, filter, propertyKeys, useComplianceV2, includeSwept, opts: opts);
 
                 // ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
-                PagedResourceListOfOrderGraphBlock result = apiInstance.ListOrderGraphBlocks(asAt, paginationToken, sortBy, limit, filter, propertyKeys, useComplianceV2);
+                PagedResourceListOfOrderGraphBlock result = apiInstance.ListOrderGraphBlocks(asAt, paginationToken, sortBy, limit, filter, propertyKeys, useComplianceV2, includeSwept);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -90,7 +91,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
-    ApiResponse<PagedResourceListOfOrderGraphBlock> response = apiInstance.ListOrderGraphBlocksWithHttpInfo(asAt, paginationToken, sortBy, limit, filter, propertyKeys, useComplianceV2);
+    ApiResponse<PagedResourceListOfOrderGraphBlock> response = apiInstance.ListOrderGraphBlocksWithHttpInfo(asAt, paginationToken, sortBy, limit, filter, propertyKeys, useComplianceV2, includeSwept);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -114,6 +115,7 @@ catch (ApiException e)
 | **filter** | **string?** | See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid | [optional] [default to &quot;&quot;] |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | Must be block-level properties. See https://support.lusid.com/docs/properties | [optional]  |
 | **useComplianceV2** | **bool?** | Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) | [optional] [default to false] |
+| **includeSwept** | **bool?** | Include Swept Order Blocks. (default: true) | [optional] [default to true] |
 
 ### Return type
 

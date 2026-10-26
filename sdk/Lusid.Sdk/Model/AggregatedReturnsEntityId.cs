@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Identifies an entity whose aggregated (time-weighted) returns are calculated: its scope, code and  type. Mirrors the valuation endpoint&#39;s entity identifier. Currently, supports only the  &#x60;Portfolio&#x60; entity type.
+    /// Identifies an entity whose aggregated (time-weighted) returns are calculated: its scope, code and  type. Mirrors the valuation endpoint&#39;s entity identifier. Supports the &#x60;Portfolio&#x60; and  &#x60;PortfolioGroup&#x60; entity types.
     /// </summary>
     [DataContract(Name = "AggregatedReturnsEntityId")]
     public partial class AggregatedReturnsEntityId : IEquatable<AggregatedReturnsEntityId>, IValidatableObject
@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="scope">scope (required).</param>
         /// <param name="code">code (required).</param>
-        /// <param name="entityType">Available values: Portfolio. (required).</param>
+        /// <param name="entityType">Available values: Portfolio, PortfolioGroup. (required).</param>
         public AggregatedReturnsEntityId(string scope = default(string), string code = default(string), string entityType = default(string))
         {
             // to ensure "scope" is required (not null)
@@ -74,9 +74,9 @@ namespace Lusid.Sdk.Model
         public string Code { get; set; }
 
         /// <summary>
-        /// Available values: Portfolio.
+        /// Available values: Portfolio, PortfolioGroup.
         /// </summary>
-        /// <value>Available values: Portfolio.</value>
+        /// <value>Available values: Portfolio, PortfolioGroup.</value>
         [DataMember(Name = "entityType", IsRequired = true, EmitDefaultValue = true)]
         public string EntityType { get; set; }
 
