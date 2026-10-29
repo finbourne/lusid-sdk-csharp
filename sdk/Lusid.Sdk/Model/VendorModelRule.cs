@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class VendorModelRule : IEquatable<VendorModelRule>, IValidatableObject
     {
         /// <summary>
-        /// Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc.
+        /// Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc, Client.
         /// </summary>
-        /// <value>Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc.</value>
+        /// <value>Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc, Client.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SupplierEnum
         {
@@ -75,14 +75,20 @@ namespace Lusid.Sdk.Model
             /// Enum LusidCalc for value: LusidCalc
             /// </summary>
             [EnumMember(Value = "LusidCalc")]
-            LusidCalc = 7
+            LusidCalc = 7,
+
+            /// <summary>
+            /// Enum Client for value: Client
+            /// </summary>
+            [EnumMember(Value = "Client")]
+            Client = 8
         }
 
 
         /// <summary>
-        /// Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc.
+        /// Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc, Client.
         /// </summary>
-        /// <value>Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc.</value>
+        /// <value>Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc, Client.</value>
         [DataMember(Name = "supplier", IsRequired = true, EmitDefaultValue = true)]
         public SupplierEnum Supplier { get; set; }
         /// <summary>
@@ -93,7 +99,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VendorModelRule" /> class.
         /// </summary>
-        /// <param name="supplier">Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc. (required).</param>
+        /// <param name="supplier">Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc, Client. (required).</param>
         /// <param name="modelName">The vendor library model name (required).</param>
         /// <param name="instrumentType">The vendor library instrument type (required).</param>
         /// <param name="parameters">THIS FIELD IS DEPRECATED - use ModelOptions  The set of opaque model parameters, provided as a Json object, that is a string object which will internally be converted to a dictionary of string to object.  Note that this is not intended as the final form of this object. It will be replaced with a more structured object as the set of parameters that are possible is  better understood..</param>

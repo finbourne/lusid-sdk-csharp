@@ -1,11 +1,12 @@
 # Lusid.Sdk.Model.RecResultRelationalDataItem
-A relational data point item within a rec result: one row of a relational dataset. The dataset and the unique  id of the data point identify the row. All rec types use this item shape.
+A relational data point item within a rec result: one row of a relational dataset. The dataset and the unique  id of the data point identify the row. All rec types use this item shape. Also holds the display name of the  dataset.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RelationalDatasetDefinitionId** | [**ResourceId**](ResourceId.md) |  | 
+**RelationalDatasetDefinitionDisplayName** | **string** | The display name of the relational dataset definition the item&#39;s row belongs to, as it stood at the asAt the run read its data. Null where the run did not read it. | [optional] 
 **RelationalDataPointUniqueId** | **string** | The unique id of the relational data point the run read, as minted by the relational dataset store. Opaque: compare it whole, do not parse it. | 
 **ItemType** | **string** | The polymorphic item-type discriminator: Holding, ValuedHolding, Transaction, SettlementActivity or RelationalDataPoint. Names the item rather than the rec type: Holding and CashHolding recs produce Holding items, a Valuation rec produces ValuedHolding items, both transaction rec types produce Transaction items, and a relational dataset side produces RelationalDataPoint items whatever the rec type. Available values: SettlementActivity, Holding, Transaction, ValuedHolding, RelationalDataPoint. | 
 **RuleAndAttributeValues** | **Dictionary&lt;string, string&gt;** | The core rule, aggregate rule and supplemental attribute values for the item, keyed by name. | [optional] 
@@ -16,6 +17,7 @@ using Lusid.Sdk.Model;
 using System;
 
 ResourceId relationalDatasetDefinitionId = new ResourceId();
+string relationalDatasetDefinitionDisplayName = "example relationalDatasetDefinitionDisplayName";
 string relationalDataPointUniqueId = "relationalDataPointUniqueId";
 string itemType = "itemType";
 Dictionary<string, string> ruleAndAttributeValues = new Dictionary<string, string>();
@@ -23,6 +25,7 @@ List<WritebackSuggestion> writebackSuggestions = new List<WritebackSuggestion>()
 
 RecResultRelationalDataItem recResultRelationalDataItemInstance = new RecResultRelationalDataItem(
     relationalDatasetDefinitionId: relationalDatasetDefinitionId,
+    relationalDatasetDefinitionDisplayName: relationalDatasetDefinitionDisplayName,
     relationalDataPointUniqueId: relationalDataPointUniqueId,
     itemType: itemType,
     ruleAndAttributeValues: ruleAndAttributeValues,

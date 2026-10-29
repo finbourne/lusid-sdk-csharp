@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="referenceSide">Reference side (source of truth). Available values: Left, Right. (required).</param>
         /// <param name="absoluteThreshold">Numeric tolerance absolute value (allowable diff compared to the reference side value)..</param>
-        /// <param name="relativeThreshold">Numeric tolerance value as a relative % of the reference value..</param>
+        /// <param name="relativeThreshold">Allowed difference as a fraction of the reference side value, e.g. 0.01 allows a 1% difference. The fraction is applied to the magnitude of the reference value, so a negative reference is tolerated in the same way as a positive one..</param>
         /// <param name="thresholdPriority">Whether to apply the GreaterOf or LesserOf the absoluteThreshold vs relativeThreshold. Required when both thresholds are provided; must be omitted when only one is. Available values: GreaterOf, LesserOf..</param>
         /// <param name="offset">How the threshold should be applied to the reference side value. Defaults to Either. Available values: Above, Below, Either..</param>
         /// <param name="toleranceType">Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. (required).</param>
@@ -84,9 +84,9 @@ namespace Lusid.Sdk.Model
         public decimal? AbsoluteThreshold { get; set; }
 
         /// <summary>
-        /// Numeric tolerance value as a relative % of the reference value.
+        /// Allowed difference as a fraction of the reference side value, e.g. 0.01 allows a 1% difference. The fraction is applied to the magnitude of the reference value, so a negative reference is tolerated in the same way as a positive one.
         /// </summary>
-        /// <value>Numeric tolerance value as a relative % of the reference value.</value>
+        /// <value>Allowed difference as a fraction of the reference side value, e.g. 0.01 allows a 1% difference. The fraction is applied to the magnitude of the reference value, so a negative reference is tolerated in the same way as a positive one.</value>
         [DataMember(Name = "relativeThreshold", EmitDefaultValue = true)]
         public decimal? RelativeThreshold { get; set; }
 

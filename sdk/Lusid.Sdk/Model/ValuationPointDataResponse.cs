@@ -49,7 +49,7 @@ namespace Lusid.Sdk.Model
         /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="isBackfilled">Set to True if the Valuation Point has backfilled bucket set results, False otherwise..</param>
         /// <param name="applyClearDown">Set to True if the Valuation Point applies a clear down, False otherwise. The Valuation Point shows its bucket values before the clear down, and the next Valuation Point opens from the balances after it..</param>
-        /// <param name="diagnostics">Findings made while striking the valuation point that did not stop it but should be looked at, such as a fund structure holder whose declared sharing percentage in a member has drifted from the share its contributions make of that member&#39;s capital. Absent when there are none..</param>
+        /// <param name="diagnostics">Findings made while striking the valuation point that did not stop it but should be looked at, such as a fund structure holder whose declared sharing percentage in a member has drifted from the share its contributions make of that member&#39;s capital, or fees that failed to strike. Absent when there are none..</param>
         /// <param name="bucketSetSeeds">The bucket set seeds set on the Valuation Point, when the request resolved to the Valuation Point itself. Null when it has none..</param>
         /// <param name="links">links.</param>
         public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), FundDetails fundDetails = default(FundDetails), FundValuationPointData fundValuationPointData = default(FundValuationPointData), List<ShareClassData> shareClassData = default(List<ShareClassData>), string valuationPointCode = default(string), string previousValuationPointCode = default(string), List<ApportionmentBreakdown> apportionmentResults = default(List<ApportionmentBreakdown>), List<BucketSetResult> bucketSetResults = default(List<BucketSetResult>), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isBackfilled = default(bool), bool applyClearDown = default(bool), List<ValuationPointDiagnostic> diagnostics = default(List<ValuationPointDiagnostic>), List<BucketSetSeed> bucketSetSeeds = default(List<BucketSetSeed>), List<Link> links = default(List<Link>))
@@ -186,9 +186,9 @@ namespace Lusid.Sdk.Model
         public bool ApplyClearDown { get; set; }
 
         /// <summary>
-        /// Findings made while striking the valuation point that did not stop it but should be looked at, such as a fund structure holder whose declared sharing percentage in a member has drifted from the share its contributions make of that member&#39;s capital. Absent when there are none.
+        /// Findings made while striking the valuation point that did not stop it but should be looked at, such as a fund structure holder whose declared sharing percentage in a member has drifted from the share its contributions make of that member&#39;s capital, or fees that failed to strike. Absent when there are none.
         /// </summary>
-        /// <value>Findings made while striking the valuation point that did not stop it but should be looked at, such as a fund structure holder whose declared sharing percentage in a member has drifted from the share its contributions make of that member&#39;s capital. Absent when there are none.</value>
+        /// <value>Findings made while striking the valuation point that did not stop it but should be looked at, such as a fund structure holder whose declared sharing percentage in a member has drifted from the share its contributions make of that member&#39;s capital, or fees that failed to strike. Absent when there are none.</value>
         [DataMember(Name = "diagnostics", EmitDefaultValue = true)]
         public List<ValuationPointDiagnostic> Diagnostics { get; set; }
 

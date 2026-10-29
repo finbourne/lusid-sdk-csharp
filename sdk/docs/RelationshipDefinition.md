@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **RelationshipDefinitionId** | [**ResourceId**](ResourceId.md) |  | 
-**SourceEntityType** | **string** | The entity type of the source entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity, NextBestAction. | 
-**TargetEntityType** | **string** | The entity type of the target entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity, NextBestAction. | 
+**SourceEntityType** | **string** | The entity type of the source entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity. | 
+**TargetEntityType** | **string** | The entity type of the target entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity. | 
 **DisplayName** | **string** | The display name of the relationship. | 
 **OutwardDescription** | **string** | The description to relate source entity object and target entity object | 
 **InwardDescription** | **string** | The description to relate target entity object and source entity object | 

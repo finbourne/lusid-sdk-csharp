@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A relational data point item within a rec result: one row of a relational dataset. The dataset and the unique  id of the data point identify the row. All rec types use this item shape.
+    /// A relational data point item within a rec result: one row of a relational dataset. The dataset and the unique  id of the data point identify the row. All rec types use this item shape. Also holds the display name of the  dataset.
     /// </summary>
     [DataContract(Name = "RecResultRelationalDataItem")]
     public partial class RecResultRelationalDataItem : IEquatable<RecResultRelationalDataItem>, IValidatableObject
@@ -37,10 +37,11 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="RecResultRelationalDataItem" /> class.
         /// </summary>
         /// <param name="relationalDatasetDefinitionId">relationalDatasetDefinitionId (required).</param>
+        /// <param name="relationalDatasetDefinitionDisplayName">The display name of the relational dataset definition the item&#39;s row belongs to, as it stood at the asAt the run read its data. Null where the run did not read it..</param>
         /// <param name="relationalDataPointUniqueId">The unique id of the relational data point the run read, as minted by the relational dataset store. Opaque: compare it whole, do not parse it. (required).</param>
         /// <param name="itemType">The polymorphic item-type discriminator: Holding, ValuedHolding, Transaction, SettlementActivity or RelationalDataPoint. Names the item rather than the rec type: Holding and CashHolding recs produce Holding items, a Valuation rec produces ValuedHolding items, both transaction rec types produce Transaction items, and a relational dataset side produces RelationalDataPoint items whatever the rec type. Available values: SettlementActivity, Holding, Transaction, ValuedHolding, RelationalDataPoint. (required).</param>
         /// <param name="ruleAndAttributeValues">The core rule, aggregate rule and supplemental attribute values for the item, keyed by name..</param>
-        public RecResultRelationalDataItem(ResourceId relationalDatasetDefinitionId = default(ResourceId), string relationalDataPointUniqueId = default(string), string itemType = default(string), Dictionary<string, string> ruleAndAttributeValues = default(Dictionary<string, string>))
+        public RecResultRelationalDataItem(ResourceId relationalDatasetDefinitionId = default(ResourceId), string relationalDatasetDefinitionDisplayName = default(string), string relationalDataPointUniqueId = default(string), string itemType = default(string), Dictionary<string, string> ruleAndAttributeValues = default(Dictionary<string, string>))
         {
             // to ensure "relationalDatasetDefinitionId" is required (not null)
             if (relationalDatasetDefinitionId == null)
@@ -60,6 +61,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("itemType is a required property for RecResultRelationalDataItem and cannot be null");
             }
             this.ItemType = itemType;
+            this.RelationalDatasetDefinitionDisplayName = relationalDatasetDefinitionDisplayName;
             this.RuleAndAttributeValues = ruleAndAttributeValues;
         }
 
@@ -68,6 +70,13 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "relationalDatasetDefinitionId", IsRequired = true, EmitDefaultValue = true)]
         public ResourceId RelationalDatasetDefinitionId { get; set; }
+
+        /// <summary>
+        /// The display name of the relational dataset definition the item&#39;s row belongs to, as it stood at the asAt the run read its data. Null where the run did not read it.
+        /// </summary>
+        /// <value>The display name of the relational dataset definition the item&#39;s row belongs to, as it stood at the asAt the run read its data. Null where the run did not read it.</value>
+        [DataMember(Name = "relationalDatasetDefinitionDisplayName", EmitDefaultValue = true)]
+        public string RelationalDatasetDefinitionDisplayName { get; set; }
 
         /// <summary>
         /// The unique id of the relational data point the run read, as minted by the relational dataset store. Opaque: compare it whole, do not parse it.
@@ -114,6 +123,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class RecResultRelationalDataItem {\n");
             sb.Append("  RelationalDatasetDefinitionId: ").Append(RelationalDatasetDefinitionId).Append("\n");
+            sb.Append("  RelationalDatasetDefinitionDisplayName: ").Append(RelationalDatasetDefinitionDisplayName).Append("\n");
             sb.Append("  RelationalDataPointUniqueId: ").Append(RelationalDataPointUniqueId).Append("\n");
             sb.Append("  ItemType: ").Append(ItemType).Append("\n");
             sb.Append("  RuleAndAttributeValues: ").Append(RuleAndAttributeValues).Append("\n");
@@ -159,6 +169,11 @@ namespace Lusid.Sdk.Model
                     this.RelationalDatasetDefinitionId.Equals(input.RelationalDatasetDefinitionId))
                 ) && 
                 (
+                    this.RelationalDatasetDefinitionDisplayName == input.RelationalDatasetDefinitionDisplayName ||
+                    (this.RelationalDatasetDefinitionDisplayName != null &&
+                    this.RelationalDatasetDefinitionDisplayName.Equals(input.RelationalDatasetDefinitionDisplayName))
+                ) && 
+                (
                     this.RelationalDataPointUniqueId == input.RelationalDataPointUniqueId ||
                     (this.RelationalDataPointUniqueId != null &&
                     this.RelationalDataPointUniqueId.Equals(input.RelationalDataPointUniqueId))
@@ -194,6 +209,10 @@ namespace Lusid.Sdk.Model
                 if (this.RelationalDatasetDefinitionId != null)
                 {
                     hashCode = (hashCode * 59) + this.RelationalDatasetDefinitionId.GetHashCode();
+                }
+                if (this.RelationalDatasetDefinitionDisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.RelationalDatasetDefinitionDisplayName.GetHashCode();
                 }
                 if (this.RelationalDataPointUniqueId != null)
                 {

@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InstanceId** | [**RecInstanceId**](RecInstanceId.md) |  | 
 **RecType** | **string** | The rec type whose results this item targets (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument. | 
-**RunNumber** | **int** | The run of the instance whose results this item targets. | 
 **RecResultId** | **string** | The rec result the comment operation targets. | 
 **CommentId** | **string** | The comment id. Null with text &#x3D; add; provided with text &#x3D; edit; provided with null text &#x3D; delete. | [optional] 
 **CommentText** | **string** | The comment body. See operation inference. | [optional] 
@@ -25,7 +24,6 @@ string commentText = "example commentText";
 BatchManageCommentRequest batchManageCommentRequestInstance = new BatchManageCommentRequest(
     instanceId: instanceId,
     recType: recType,
-    runNumber: runNumber,
     recResultId: recResultId,
     commentId: commentId,
     commentText: commentText);

@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="approvalCode">The approval slot being decided. Must match a required approval code. (required).</param>
         /// <param name="decision">The decision made. Available values: Approve, RequestRevisions. (required).</param>
         /// <param name="reason">Rationale for the decision..</param>
-        /// <param name="requestedResultRevisions">The results flagged for re-review. Only applicable when the decision is Request Revisions..</param>
+        /// <param name="requestedResultRevisions">The results flagged for re-review. Only applicable when the decision is Request Revisions. Each result must be Reviewed. A flagged result returns to Required and keeps its decision. The reviewer must affirm or change that decision before the review can be resubmitted. Clearing the decision does not count..</param>
         public RecResultSetApprovalDecisionRequest(string approvalCode = default(string), string decision = default(string), string reason = default(string), List<RecRequestedResultRevision> requestedResultRevisions = default(List<RecRequestedResultRevision>))
         {
             // to ensure "approvalCode" is required (not null)
@@ -80,9 +80,9 @@ namespace Lusid.Sdk.Model
         public string Reason { get; set; }
 
         /// <summary>
-        /// The results flagged for re-review. Only applicable when the decision is Request Revisions.
+        /// The results flagged for re-review. Only applicable when the decision is Request Revisions. Each result must be Reviewed. A flagged result returns to Required and keeps its decision. The reviewer must affirm or change that decision before the review can be resubmitted. Clearing the decision does not count.
         /// </summary>
-        /// <value>The results flagged for re-review. Only applicable when the decision is Request Revisions.</value>
+        /// <value>The results flagged for re-review. Only applicable when the decision is Request Revisions. Each result must be Reviewed. A flagged result returns to Required and keeps its decision. The reviewer must affirm or change that decision before the review can be resubmitted. Clearing the decision does not count.</value>
         [DataMember(Name = "requestedResultRevisions", EmitDefaultValue = true)]
         public List<RecRequestedResultRevision> RequestedResultRevisions { get; set; }
 

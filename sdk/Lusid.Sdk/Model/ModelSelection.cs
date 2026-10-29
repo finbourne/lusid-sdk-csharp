@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class ModelSelection : IEquatable<ModelSelection>, IValidatableObject
     {
         /// <summary>
-        /// Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc.
+        /// Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc, Client.
         /// </summary>
-        /// <value>Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc.</value>
+        /// <value>Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc, Client.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum LibraryEnum
         {
@@ -75,14 +75,20 @@ namespace Lusid.Sdk.Model
             /// Enum LusidCalc for value: LusidCalc
             /// </summary>
             [EnumMember(Value = "LusidCalc")]
-            LusidCalc = 7
+            LusidCalc = 7,
+
+            /// <summary>
+            /// Enum Client for value: Client
+            /// </summary>
+            [EnumMember(Value = "Client")]
+            Client = 8
         }
 
 
         /// <summary>
-        /// Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc.
+        /// Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc, Client.
         /// </summary>
-        /// <value>Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc.</value>
+        /// <value>Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc, Client.</value>
         [DataMember(Name = "library", IsRequired = true, EmitDefaultValue = true)]
         public LibraryEnum Library { get; set; }
         /// <summary>
@@ -270,7 +276,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelSelection" /> class.
         /// </summary>
-        /// <param name="library">Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc. (required).</param>
+        /// <param name="library">Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc, Client. (required).</param>
         /// <param name="model">Available values: SimpleStatic, Discounting, VendorDefault, BlackScholes, ConstantTimeValueOfMoney, Bachelier, ForwardWithPoints, ForwardWithPointsUndiscounted, ForwardSpecifiedRate, ForwardSpecifiedRateUndiscounted, IndexNav, IndexPrice, InlinedIndex, ForwardFromCurve, ForwardFromCurveUndiscounted, BlackScholesDigital, BjerksundStensland1993, BondLookupPricer, FlexibleLoanPricer, CdsLookupPricer, LoanFacilityPricer, OverrideOnlyPricer, FlexibleRepoSimplePricer, InflationForward, HullWhite1F, CapitalInterestPricer, DiscountedForward. (required).</param>
         public ModelSelection(LibraryEnum library = default(LibraryEnum), ModelEnum model = default(ModelEnum))
         {

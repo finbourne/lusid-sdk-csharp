@@ -36,9 +36,9 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ValuationPointDiagnostic" /> class.
         /// </summary>
-        /// <param name="type">What kind of finding this is. &#39;OwnershipDrift&#39;: a fund structure holder&#39;s declared sharing percentage in a held member differs from the share its contributions make of that member&#39;s capital by enough to misallocate more of the period&#39;s P&amp;L than the holder&#39;s drift materiality warning amount allows. (required).</param>
+        /// <param name="type">What kind of finding this is. &#39;OwnershipDrift&#39;: a fund structure holder&#39;s declared sharing percentage in a held member differs from the share its contributions make of that member&#39;s capital by enough to misallocate more of the period&#39;s P&amp;L than the holder&#39;s drift materiality warning amount allows. &#39;FeeStrikeFailed&#39;: the fees struck when the valuation point was last created or updated failed, so its lines carry no fee transactions and it cannot be accepted until they are struck again. (required).</param>
         /// <param name="message">What was found and what to do about it. (required).</param>
-        /// <param name="details">The values the finding was made on, by name. For &#39;OwnershipDrift&#39;: holder, member, declaredShare, actualShare, delta (actual less declared) and impact (the P&amp;L the drift would misallocate this period)..</param>
+        /// <param name="details">The values the finding was made on, by name. For &#39;OwnershipDrift&#39;: holder, member, declaredShare, actualShare, delta (actual less declared) and impact (the P&amp;L the drift would misallocate this period). For &#39;FeeStrikeFailed&#39;: failureType and failureMessage, the cause of the failed strike..</param>
         public ValuationPointDiagnostic(string type = default(string), string message = default(string), Dictionary<string, string> details = default(Dictionary<string, string>))
         {
             // to ensure "type" is required (not null)
@@ -57,9 +57,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// What kind of finding this is. &#39;OwnershipDrift&#39;: a fund structure holder&#39;s declared sharing percentage in a held member differs from the share its contributions make of that member&#39;s capital by enough to misallocate more of the period&#39;s P&amp;L than the holder&#39;s drift materiality warning amount allows.
+        /// What kind of finding this is. &#39;OwnershipDrift&#39;: a fund structure holder&#39;s declared sharing percentage in a held member differs from the share its contributions make of that member&#39;s capital by enough to misallocate more of the period&#39;s P&amp;L than the holder&#39;s drift materiality warning amount allows. &#39;FeeStrikeFailed&#39;: the fees struck when the valuation point was last created or updated failed, so its lines carry no fee transactions and it cannot be accepted until they are struck again.
         /// </summary>
-        /// <value>What kind of finding this is. &#39;OwnershipDrift&#39;: a fund structure holder&#39;s declared sharing percentage in a held member differs from the share its contributions make of that member&#39;s capital by enough to misallocate more of the period&#39;s P&amp;L than the holder&#39;s drift materiality warning amount allows.</value>
+        /// <value>What kind of finding this is. &#39;OwnershipDrift&#39;: a fund structure holder&#39;s declared sharing percentage in a held member differs from the share its contributions make of that member&#39;s capital by enough to misallocate more of the period&#39;s P&amp;L than the holder&#39;s drift materiality warning amount allows. &#39;FeeStrikeFailed&#39;: the fees struck when the valuation point was last created or updated failed, so its lines carry no fee transactions and it cannot be accepted until they are struck again.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 
@@ -71,9 +71,9 @@ namespace Lusid.Sdk.Model
         public string Message { get; set; }
 
         /// <summary>
-        /// The values the finding was made on, by name. For &#39;OwnershipDrift&#39;: holder, member, declaredShare, actualShare, delta (actual less declared) and impact (the P&amp;L the drift would misallocate this period).
+        /// The values the finding was made on, by name. For &#39;OwnershipDrift&#39;: holder, member, declaredShare, actualShare, delta (actual less declared) and impact (the P&amp;L the drift would misallocate this period). For &#39;FeeStrikeFailed&#39;: failureType and failureMessage, the cause of the failed strike.
         /// </summary>
-        /// <value>The values the finding was made on, by name. For &#39;OwnershipDrift&#39;: holder, member, declaredShare, actualShare, delta (actual less declared) and impact (the P&amp;L the drift would misallocate this period).</value>
+        /// <value>The values the finding was made on, by name. For &#39;OwnershipDrift&#39;: holder, member, declaredShare, actualShare, delta (actual less declared) and impact (the P&amp;L the drift would misallocate this period). For &#39;FeeStrikeFailed&#39;: failureType and failureMessage, the cause of the failed strike.</value>
         [DataMember(Name = "details", EmitDefaultValue = true)]
         public Dictionary<string, string> Details { get; set; }
 

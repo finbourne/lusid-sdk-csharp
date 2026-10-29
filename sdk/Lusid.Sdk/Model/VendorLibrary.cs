@@ -68,7 +68,13 @@ namespace Lusid.Sdk.Model
         /// Enum LusidCalc for value: LusidCalc
         /// </summary>
         [EnumMember(Value = "LusidCalc")]
-        LusidCalc = 7
+        LusidCalc = 7,
+
+        /// <summary>
+        /// Enum Client for value: Client
+        /// </summary>
+        [EnumMember(Value = "Client")]
+        Client = 8
     }
 
 }

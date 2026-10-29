@@ -31,25 +31,45 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AllocationServiceRunResponse" /> class.
         /// </summary>
-        /// <param name="values">values.</param>
-        /// <param name="failed">failed.</param>
-        public AllocationServiceRunResponse(List<ResourceId> values = default(List<ResourceId>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>))
+        /// <param name="values">The placements that were allocated successfully..</param>
+        /// <param name="failed">The placements that could not be allocated, keyed by placement, with the reason..</param>
+        /// <param name="allocations">Every allocation the run touched across the successful placements, each with its outcome..</param>
+        /// <param name="warnings">Warnings raised while allocating the successful placements..</param>
+        public AllocationServiceRunResponse(List<ResourceId> values = default(List<ResourceId>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), List<AllocationServiceRunAllocation> allocations = default(List<AllocationServiceRunAllocation>), List<AllocationServiceRunWarning> warnings = default(List<AllocationServiceRunWarning>))
         {
             this.Values = values;
             this.Failed = failed;
+            this.Allocations = allocations;
+            this.Warnings = warnings;
         }
 
         /// <summary>
-        /// Gets or Sets Values
+        /// The placements that were allocated successfully.
         /// </summary>
+        /// <value>The placements that were allocated successfully.</value>
         [DataMember(Name = "values", EmitDefaultValue = true)]
         public List<ResourceId> Values { get; set; }
 
         /// <summary>
-        /// Gets or Sets Failed
+        /// The placements that could not be allocated, keyed by placement, with the reason.
         /// </summary>
+        /// <value>The placements that could not be allocated, keyed by placement, with the reason.</value>
         [DataMember(Name = "failed", EmitDefaultValue = true)]
         public Dictionary<string, ErrorDetail> Failed { get; set; }
+
+        /// <summary>
+        /// Every allocation the run touched across the successful placements, each with its outcome.
+        /// </summary>
+        /// <value>Every allocation the run touched across the successful placements, each with its outcome.</value>
+        [DataMember(Name = "allocations", EmitDefaultValue = true)]
+        public List<AllocationServiceRunAllocation> Allocations { get; set; }
+
+        /// <summary>
+        /// Warnings raised while allocating the successful placements.
+        /// </summary>
+        /// <value>Warnings raised while allocating the successful placements.</value>
+        [DataMember(Name = "warnings", EmitDefaultValue = true)]
+        public List<AllocationServiceRunWarning> Warnings { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,6 +81,8 @@ namespace Lusid.Sdk.Model
             sb.Append("class AllocationServiceRunResponse {\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  Failed: ").Append(Failed).Append("\n");
+            sb.Append("  Allocations: ").Append(Allocations).Append("\n");
+            sb.Append("  Warnings: ").Append(Warnings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,6 +129,18 @@ namespace Lusid.Sdk.Model
                     this.Failed != null &&
                     input.Failed != null &&
                     this.Failed.SequenceEqual(input.Failed)
+                ) && 
+                (
+                    this.Allocations == input.Allocations ||
+                    this.Allocations != null &&
+                    input.Allocations != null &&
+                    this.Allocations.SequenceEqual(input.Allocations)
+                ) && 
+                (
+                    this.Warnings == input.Warnings ||
+                    this.Warnings != null &&
+                    input.Warnings != null &&
+                    this.Warnings.SequenceEqual(input.Warnings)
                 );
         }
 
@@ -126,6 +160,14 @@ namespace Lusid.Sdk.Model
                 if (this.Failed != null)
                 {
                     hashCode = (hashCode * 59) + this.Failed.GetHashCode();
+                }
+                if (this.Allocations != null)
+                {
+                    hashCode = (hashCode * 59) + this.Allocations.GetHashCode();
+                }
+                if (this.Warnings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
                 }
                 return hashCode;
             }

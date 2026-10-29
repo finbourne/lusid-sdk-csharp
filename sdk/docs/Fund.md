@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **ReportingPrices** | [**List&lt;ReportingPrice&gt;**](ReportingPrice.md) | Share class prices the Fund publishes at each valuation point under labels of its own, alongside the dealing price, for example a mid price for performance reporting. Optional. Each source other than Mid must be published by the valuation recipe of every active NAV type. Labels must be unique and cannot be dealingPrice, dealingBid or dealingOffer. Patch the list whole at /reportingPrices. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **WhtParameters** | [**WhtParameters**](WhtParameters.md) |  | [optional] 
+**ValuationTemplateId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -73,6 +74,8 @@ ModelVersion? varVersion = new ModelVersion();
 
 WhtParameters? whtParameters = new WhtParameters();
 
+ResourceId? valuationTemplateId = new ResourceId();
+
 List<Link> links = new List<Link>();
 
 Fund fundInstance = new Fund(
@@ -104,6 +107,7 @@ Fund fundInstance = new Fund(
     reportingPrices: reportingPrices,
     varVersion: varVersion,
     whtParameters: whtParameters,
+    valuationTemplateId: valuationTemplateId,
     links: links);
 ```
 

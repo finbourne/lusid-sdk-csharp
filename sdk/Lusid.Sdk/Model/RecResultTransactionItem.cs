@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A transaction item within a rec result.
+    /// A transaction item within a rec result. Names the portfolio and the transaction&#39;s resolved instrument alongside,  for display.
     /// </summary>
     [DataContract(Name = "RecResultTransactionItem")]
     public partial class RecResultTransactionItem : IEquatable<RecResultTransactionItem>, IValidatableObject
@@ -37,11 +37,15 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="RecResultTransactionItem" /> class.
         /// </summary>
         /// <param name="portfolioId">portfolioId (required).</param>
+        /// <param name="portfolioDisplayName">The display name of the item&#39;s portfolio, as it stood at the asAt the run read its data. Null where the run did not read it..</param>
         /// <param name="transactionId">The transaction identifier..</param>
+        /// <param name="transactionInstrumentScope">The scope of the transaction&#39;s resolved instrument. Null where the source does not state one..</param>
+        /// <param name="transactionLusidInstrumentId">The LUID of the transaction&#39;s resolved instrument. Null where the source does not state it..</param>
+        /// <param name="transactionInstrumentName">The name of the transaction&#39;s resolved instrument, as it stood at the asAt the run read its data. Null where the run did not resolve it..</param>
         /// <param name="holdingImpacts">The holdings, and where the source states them the tax lots, the item impacted. A distinct set ordered by holdingId then taxLotId; may be empty. An input transaction has not run the movements engine and impacts nothing yet. (required).</param>
         /// <param name="itemType">The polymorphic item-type discriminator: Holding, ValuedHolding, Transaction, SettlementActivity or RelationalDataPoint. Names the item rather than the rec type: Holding and CashHolding recs produce Holding items, a Valuation rec produces ValuedHolding items, both transaction rec types produce Transaction items, and a relational dataset side produces RelationalDataPoint items whatever the rec type. Available values: SettlementActivity, Holding, Transaction, ValuedHolding, RelationalDataPoint. (required).</param>
         /// <param name="ruleAndAttributeValues">The core rule, aggregate rule and supplemental attribute values for the item, keyed by name..</param>
-        public RecResultTransactionItem(ResourceId portfolioId = default(ResourceId), string transactionId = default(string), List<RecResultHoldingImpact> holdingImpacts = default(List<RecResultHoldingImpact>), string itemType = default(string), Dictionary<string, string> ruleAndAttributeValues = default(Dictionary<string, string>))
+        public RecResultTransactionItem(ResourceId portfolioId = default(ResourceId), string portfolioDisplayName = default(string), string transactionId = default(string), string transactionInstrumentScope = default(string), string transactionLusidInstrumentId = default(string), string transactionInstrumentName = default(string), List<RecResultHoldingImpact> holdingImpacts = default(List<RecResultHoldingImpact>), string itemType = default(string), Dictionary<string, string> ruleAndAttributeValues = default(Dictionary<string, string>))
         {
             // to ensure "portfolioId" is required (not null)
             if (portfolioId == null)
@@ -61,7 +65,11 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("itemType is a required property for RecResultTransactionItem and cannot be null");
             }
             this.ItemType = itemType;
+            this.PortfolioDisplayName = portfolioDisplayName;
             this.TransactionId = transactionId;
+            this.TransactionInstrumentScope = transactionInstrumentScope;
+            this.TransactionLusidInstrumentId = transactionLusidInstrumentId;
+            this.TransactionInstrumentName = transactionInstrumentName;
             this.RuleAndAttributeValues = ruleAndAttributeValues;
         }
 
@@ -72,11 +80,39 @@ namespace Lusid.Sdk.Model
         public ResourceId PortfolioId { get; set; }
 
         /// <summary>
+        /// The display name of the item&#39;s portfolio, as it stood at the asAt the run read its data. Null where the run did not read it.
+        /// </summary>
+        /// <value>The display name of the item&#39;s portfolio, as it stood at the asAt the run read its data. Null where the run did not read it.</value>
+        [DataMember(Name = "portfolioDisplayName", EmitDefaultValue = true)]
+        public string PortfolioDisplayName { get; set; }
+
+        /// <summary>
         /// The transaction identifier.
         /// </summary>
         /// <value>The transaction identifier.</value>
         [DataMember(Name = "transactionId", EmitDefaultValue = true)]
         public string TransactionId { get; set; }
+
+        /// <summary>
+        /// The scope of the transaction&#39;s resolved instrument. Null where the source does not state one.
+        /// </summary>
+        /// <value>The scope of the transaction&#39;s resolved instrument. Null where the source does not state one.</value>
+        [DataMember(Name = "transactionInstrumentScope", EmitDefaultValue = true)]
+        public string TransactionInstrumentScope { get; set; }
+
+        /// <summary>
+        /// The LUID of the transaction&#39;s resolved instrument. Null where the source does not state it.
+        /// </summary>
+        /// <value>The LUID of the transaction&#39;s resolved instrument. Null where the source does not state it.</value>
+        [DataMember(Name = "transactionLusidInstrumentId", EmitDefaultValue = true)]
+        public string TransactionLusidInstrumentId { get; set; }
+
+        /// <summary>
+        /// The name of the transaction&#39;s resolved instrument, as it stood at the asAt the run read its data. Null where the run did not resolve it.
+        /// </summary>
+        /// <value>The name of the transaction&#39;s resolved instrument, as it stood at the asAt the run read its data. Null where the run did not resolve it.</value>
+        [DataMember(Name = "transactionInstrumentName", EmitDefaultValue = true)]
+        public string TransactionInstrumentName { get; set; }
 
         /// <summary>
         /// The holdings, and where the source states them the tax lots, the item impacted. A distinct set ordered by holdingId then taxLotId; may be empty. An input transaction has not run the movements engine and impacts nothing yet.
@@ -123,7 +159,11 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class RecResultTransactionItem {\n");
             sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
+            sb.Append("  PortfolioDisplayName: ").Append(PortfolioDisplayName).Append("\n");
             sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
+            sb.Append("  TransactionInstrumentScope: ").Append(TransactionInstrumentScope).Append("\n");
+            sb.Append("  TransactionLusidInstrumentId: ").Append(TransactionLusidInstrumentId).Append("\n");
+            sb.Append("  TransactionInstrumentName: ").Append(TransactionInstrumentName).Append("\n");
             sb.Append("  HoldingImpacts: ").Append(HoldingImpacts).Append("\n");
             sb.Append("  ItemType: ").Append(ItemType).Append("\n");
             sb.Append("  RuleAndAttributeValues: ").Append(RuleAndAttributeValues).Append("\n");
@@ -169,9 +209,29 @@ namespace Lusid.Sdk.Model
                     this.PortfolioId.Equals(input.PortfolioId))
                 ) && 
                 (
+                    this.PortfolioDisplayName == input.PortfolioDisplayName ||
+                    (this.PortfolioDisplayName != null &&
+                    this.PortfolioDisplayName.Equals(input.PortfolioDisplayName))
+                ) && 
+                (
                     this.TransactionId == input.TransactionId ||
                     (this.TransactionId != null &&
                     this.TransactionId.Equals(input.TransactionId))
+                ) && 
+                (
+                    this.TransactionInstrumentScope == input.TransactionInstrumentScope ||
+                    (this.TransactionInstrumentScope != null &&
+                    this.TransactionInstrumentScope.Equals(input.TransactionInstrumentScope))
+                ) && 
+                (
+                    this.TransactionLusidInstrumentId == input.TransactionLusidInstrumentId ||
+                    (this.TransactionLusidInstrumentId != null &&
+                    this.TransactionLusidInstrumentId.Equals(input.TransactionLusidInstrumentId))
+                ) && 
+                (
+                    this.TransactionInstrumentName == input.TransactionInstrumentName ||
+                    (this.TransactionInstrumentName != null &&
+                    this.TransactionInstrumentName.Equals(input.TransactionInstrumentName))
                 ) && 
                 (
                     this.HoldingImpacts == input.HoldingImpacts ||
@@ -211,9 +271,25 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PortfolioId.GetHashCode();
                 }
+                if (this.PortfolioDisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.PortfolioDisplayName.GetHashCode();
+                }
                 if (this.TransactionId != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionId.GetHashCode();
+                }
+                if (this.TransactionInstrumentScope != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionInstrumentScope.GetHashCode();
+                }
+                if (this.TransactionLusidInstrumentId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionLusidInstrumentId.GetHashCode();
+                }
+                if (this.TransactionInstrumentName != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionInstrumentName.GetHashCode();
                 }
                 if (this.HoldingImpacts != null)
                 {

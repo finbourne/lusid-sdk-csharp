@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A holding-shaped item within a rec result: the holding a Holding or CashHolding rec reconciled  (itemType Holding), or the one a Valuation rec valued (itemType ValuedHolding).
+    /// A holding-shaped item within a rec result: the holding a Holding or CashHolding rec reconciled  (itemType Holding), or the one a Valuation rec valued (itemType ValuedHolding). Also holds the display names  of the portfolio and the holding&#39;s instrument.
     /// </summary>
     [DataContract(Name = "RecResultHoldingItem")]
     public partial class RecResultHoldingItem : IEquatable<RecResultHoldingItem>, IValidatableObject
@@ -37,11 +37,15 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="RecResultHoldingItem" /> class.
         /// </summary>
         /// <param name="portfolioId">portfolioId (required).</param>
+        /// <param name="portfolioDisplayName">The display name of the item&#39;s portfolio, as it stood at the asAt the run read its data. Null where the run did not read it..</param>
         /// <param name="holdingId">The holding identifier, at holding level: the same id whichever granularity the holding was read at, so that items of different rec types over one holding name it alike..</param>
         /// <param name="taxLotId">The tax lot the item is, where the source row was a single lot: a lot of a position read by tax lot, or a cash commitment. Null for an aggregated position and for a cash balance. Opaque: compare it whole, do not parse it..</param>
+        /// <param name="holdingInstrumentScope">The scope of the holding&#39;s instrument. Null where the source does not state one..</param>
+        /// <param name="holdingLusidInstrumentId">The LUID of the holding&#39;s instrument. Null where the source does not state it..</param>
+        /// <param name="holdingInstrumentName">The name of the holding&#39;s instrument, as it stood at the asAt the run read its data. Null where the run did not resolve it..</param>
         /// <param name="itemType">The polymorphic item-type discriminator: Holding, ValuedHolding, Transaction, SettlementActivity or RelationalDataPoint. Names the item rather than the rec type: Holding and CashHolding recs produce Holding items, a Valuation rec produces ValuedHolding items, both transaction rec types produce Transaction items, and a relational dataset side produces RelationalDataPoint items whatever the rec type. Available values: SettlementActivity, Holding, Transaction, ValuedHolding, RelationalDataPoint. (required).</param>
         /// <param name="ruleAndAttributeValues">The core rule, aggregate rule and supplemental attribute values for the item, keyed by name..</param>
-        public RecResultHoldingItem(ResourceId portfolioId = default(ResourceId), string holdingId = default(string), string taxLotId = default(string), string itemType = default(string), Dictionary<string, string> ruleAndAttributeValues = default(Dictionary<string, string>))
+        public RecResultHoldingItem(ResourceId portfolioId = default(ResourceId), string portfolioDisplayName = default(string), string holdingId = default(string), string taxLotId = default(string), string holdingInstrumentScope = default(string), string holdingLusidInstrumentId = default(string), string holdingInstrumentName = default(string), string itemType = default(string), Dictionary<string, string> ruleAndAttributeValues = default(Dictionary<string, string>))
         {
             // to ensure "portfolioId" is required (not null)
             if (portfolioId == null)
@@ -55,8 +59,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("itemType is a required property for RecResultHoldingItem and cannot be null");
             }
             this.ItemType = itemType;
+            this.PortfolioDisplayName = portfolioDisplayName;
             this.HoldingId = holdingId;
             this.TaxLotId = taxLotId;
+            this.HoldingInstrumentScope = holdingInstrumentScope;
+            this.HoldingLusidInstrumentId = holdingLusidInstrumentId;
+            this.HoldingInstrumentName = holdingInstrumentName;
             this.RuleAndAttributeValues = ruleAndAttributeValues;
         }
 
@@ -65,6 +73,13 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "portfolioId", IsRequired = true, EmitDefaultValue = true)]
         public ResourceId PortfolioId { get; set; }
+
+        /// <summary>
+        /// The display name of the item&#39;s portfolio, as it stood at the asAt the run read its data. Null where the run did not read it.
+        /// </summary>
+        /// <value>The display name of the item&#39;s portfolio, as it stood at the asAt the run read its data. Null where the run did not read it.</value>
+        [DataMember(Name = "portfolioDisplayName", EmitDefaultValue = true)]
+        public string PortfolioDisplayName { get; set; }
 
         /// <summary>
         /// The holding identifier, at holding level: the same id whichever granularity the holding was read at, so that items of different rec types over one holding name it alike.
@@ -79,6 +94,27 @@ namespace Lusid.Sdk.Model
         /// <value>The tax lot the item is, where the source row was a single lot: a lot of a position read by tax lot, or a cash commitment. Null for an aggregated position and for a cash balance. Opaque: compare it whole, do not parse it.</value>
         [DataMember(Name = "taxLotId", EmitDefaultValue = true)]
         public string TaxLotId { get; set; }
+
+        /// <summary>
+        /// The scope of the holding&#39;s instrument. Null where the source does not state one.
+        /// </summary>
+        /// <value>The scope of the holding&#39;s instrument. Null where the source does not state one.</value>
+        [DataMember(Name = "holdingInstrumentScope", EmitDefaultValue = true)]
+        public string HoldingInstrumentScope { get; set; }
+
+        /// <summary>
+        /// The LUID of the holding&#39;s instrument. Null where the source does not state it.
+        /// </summary>
+        /// <value>The LUID of the holding&#39;s instrument. Null where the source does not state it.</value>
+        [DataMember(Name = "holdingLusidInstrumentId", EmitDefaultValue = true)]
+        public string HoldingLusidInstrumentId { get; set; }
+
+        /// <summary>
+        /// The name of the holding&#39;s instrument, as it stood at the asAt the run read its data. Null where the run did not resolve it.
+        /// </summary>
+        /// <value>The name of the holding&#39;s instrument, as it stood at the asAt the run read its data. Null where the run did not resolve it.</value>
+        [DataMember(Name = "holdingInstrumentName", EmitDefaultValue = true)]
+        public string HoldingInstrumentName { get; set; }
 
         /// <summary>
         /// The polymorphic item-type discriminator: Holding, ValuedHolding, Transaction, SettlementActivity or RelationalDataPoint. Names the item rather than the rec type: Holding and CashHolding recs produce Holding items, a Valuation rec produces ValuedHolding items, both transaction rec types produce Transaction items, and a relational dataset side produces RelationalDataPoint items whatever the rec type. Available values: SettlementActivity, Holding, Transaction, ValuedHolding, RelationalDataPoint.
@@ -118,8 +154,12 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class RecResultHoldingItem {\n");
             sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
+            sb.Append("  PortfolioDisplayName: ").Append(PortfolioDisplayName).Append("\n");
             sb.Append("  HoldingId: ").Append(HoldingId).Append("\n");
             sb.Append("  TaxLotId: ").Append(TaxLotId).Append("\n");
+            sb.Append("  HoldingInstrumentScope: ").Append(HoldingInstrumentScope).Append("\n");
+            sb.Append("  HoldingLusidInstrumentId: ").Append(HoldingLusidInstrumentId).Append("\n");
+            sb.Append("  HoldingInstrumentName: ").Append(HoldingInstrumentName).Append("\n");
             sb.Append("  ItemType: ").Append(ItemType).Append("\n");
             sb.Append("  RuleAndAttributeValues: ").Append(RuleAndAttributeValues).Append("\n");
             sb.Append("  WritebackSuggestions: ").Append(WritebackSuggestions).Append("\n");
@@ -164,6 +204,11 @@ namespace Lusid.Sdk.Model
                     this.PortfolioId.Equals(input.PortfolioId))
                 ) && 
                 (
+                    this.PortfolioDisplayName == input.PortfolioDisplayName ||
+                    (this.PortfolioDisplayName != null &&
+                    this.PortfolioDisplayName.Equals(input.PortfolioDisplayName))
+                ) && 
+                (
                     this.HoldingId == input.HoldingId ||
                     (this.HoldingId != null &&
                     this.HoldingId.Equals(input.HoldingId))
@@ -172,6 +217,21 @@ namespace Lusid.Sdk.Model
                     this.TaxLotId == input.TaxLotId ||
                     (this.TaxLotId != null &&
                     this.TaxLotId.Equals(input.TaxLotId))
+                ) && 
+                (
+                    this.HoldingInstrumentScope == input.HoldingInstrumentScope ||
+                    (this.HoldingInstrumentScope != null &&
+                    this.HoldingInstrumentScope.Equals(input.HoldingInstrumentScope))
+                ) && 
+                (
+                    this.HoldingLusidInstrumentId == input.HoldingLusidInstrumentId ||
+                    (this.HoldingLusidInstrumentId != null &&
+                    this.HoldingLusidInstrumentId.Equals(input.HoldingLusidInstrumentId))
+                ) && 
+                (
+                    this.HoldingInstrumentName == input.HoldingInstrumentName ||
+                    (this.HoldingInstrumentName != null &&
+                    this.HoldingInstrumentName.Equals(input.HoldingInstrumentName))
                 ) && 
                 (
                     this.ItemType == input.ItemType ||
@@ -205,6 +265,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PortfolioId.GetHashCode();
                 }
+                if (this.PortfolioDisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.PortfolioDisplayName.GetHashCode();
+                }
                 if (this.HoldingId != null)
                 {
                     hashCode = (hashCode * 59) + this.HoldingId.GetHashCode();
@@ -212,6 +276,18 @@ namespace Lusid.Sdk.Model
                 if (this.TaxLotId != null)
                 {
                     hashCode = (hashCode * 59) + this.TaxLotId.GetHashCode();
+                }
+                if (this.HoldingInstrumentScope != null)
+                {
+                    hashCode = (hashCode * 59) + this.HoldingInstrumentScope.GetHashCode();
+                }
+                if (this.HoldingLusidInstrumentId != null)
+                {
+                    hashCode = (hashCode * 59) + this.HoldingLusidInstrumentId.GetHashCode();
+                }
+                if (this.HoldingInstrumentName != null)
+                {
+                    hashCode = (hashCode * 59) + this.HoldingInstrumentName.GetHashCode();
                 }
                 if (this.ItemType != null)
                 {

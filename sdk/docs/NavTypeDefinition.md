@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **PricingBasis** | **string** | The side of the quote this Nav Type values the fund on: Mid, Bid or Ask. Overrides the pricing basis of the valuation recipe&#39;s market options for this Nav Type only, so a bid NAV and an ask NAV can share one recipe. Omit it to value on the recipe&#39;s own pricing basis. Available values: Mid, Bid, Ask. | [optional] 
 **SwingPricing** | [**SwingPricingRule**](SwingPricingRule.md) |  | [optional] 
 **NotionalDealingCostTableId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**ValuationTemplateId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -54,6 +55,8 @@ SwingPricingRule? swingPricing = new SwingPricingRule();
 
 ResourceId? notionalDealingCostTableId = new ResourceId();
 
+ResourceId? valuationTemplateId = new ResourceId();
+
 
 NavTypeDefinition navTypeDefinitionInstance = new NavTypeDefinition(
     code: code,
@@ -76,7 +79,8 @@ NavTypeDefinition navTypeDefinitionInstance = new NavTypeDefinition(
     transactionExclusionFilter: transactionExclusionFilter,
     pricingBasis: pricingBasis,
     swingPricing: swingPricing,
-    notionalDealingCostTableId: notionalDealingCostTableId);
+    notionalDealingCostTableId: notionalDealingCostTableId,
+    valuationTemplateId: valuationTemplateId);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

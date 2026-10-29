@@ -765,7 +765,13 @@ namespace Lusid.Sdk.Model
         /// Enum DepositInterestCapitalisationEvent for value: DepositInterestCapitalisationEvent
         /// </summary>
         [EnumMember(Value = "DepositInterestCapitalisationEvent")]
-        DepositInterestCapitalisationEvent = 123
+        DepositInterestCapitalisationEvent = 123,
+
+        /// <summary>
+        /// Enum PartialRedemptionWithoutReductionOfNominalValueEvent for value: PartialRedemptionWithoutReductionOfNominalValueEvent
+        /// </summary>
+        [EnumMember(Value = "PartialRedemptionWithoutReductionOfNominalValueEvent")]
+        PartialRedemptionWithoutReductionOfNominalValueEvent = 124
     }
 
 }

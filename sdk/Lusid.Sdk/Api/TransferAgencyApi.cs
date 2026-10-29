@@ -57,6 +57,33 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of CalculateOrderDatesResponse</returns>
         Lusid.Sdk.Client.ApiResponse<CalculateOrderDatesResponse> CalculateOrderDatesWithHttpInfo(Dictionary<string, CalculateOrderDatesRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] CancelTransferAgencyTransactions: Cancel transfer agency transactions, un-pricing their orders
+        /// </summary>
+        /// <remarks>
+        /// Reverses the pricing of a transfer agency order, identified by the security transaction that pricing booked:  cancels that transaction in the investor&#39;s portfolio, amends the paired cash transaction back to its  pre-pricing amount, and moves the order from &#39;Priced&#39; back to &#39;New&#39;. Both changes are bitemporal, so the  priced state is still visible at an earlier as-at.  A transaction that was never booked, that names no order, that is the cash leg rather than the security leg,  or whose order is not in &#39;Priced&#39; fails on its own. A leg already cancelled outside this flow is left alone and  the order is still returned to &#39;New&#39;. A transaction named under two request keys fails the whole request.  The response contains both successfully un-priced orders and any failures, each in the form of a  dictionary keyed by the request&#39;s keys. For each failure, a reason is provided. It is important to  check the failed set for unsuccessful results.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The security transactions to cancel, keyed by a unique request identifier.</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>CancelTransferAgencyTransactionsResponse</returns>
+        CancelTransferAgencyTransactionsResponse CancelTransferAgencyTransactions(Dictionary<string, CancelTransferAgencyTransactionRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] CancelTransferAgencyTransactions: Cancel transfer agency transactions, un-pricing their orders
+        /// </summary>
+        /// <remarks>
+        /// Reverses the pricing of a transfer agency order, identified by the security transaction that pricing booked:  cancels that transaction in the investor&#39;s portfolio, amends the paired cash transaction back to its  pre-pricing amount, and moves the order from &#39;Priced&#39; back to &#39;New&#39;. Both changes are bitemporal, so the  priced state is still visible at an earlier as-at.  A transaction that was never booked, that names no order, that is the cash leg rather than the security leg,  or whose order is not in &#39;Priced&#39; fails on its own. A leg already cancelled outside this flow is left alone and  the order is still returned to &#39;New&#39;. A transaction named under two request keys fails the whole request.  The response contains both successfully un-priced orders and any failures, each in the form of a  dictionary keyed by the request&#39;s keys. For each failure, a reason is provided. It is important to  check the failed set for unsuccessful results.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The security transactions to cancel, keyed by a unique request identifier.</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of CancelTransferAgencyTransactionsResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<CancelTransferAgencyTransactionsResponse> CancelTransferAgencyTransactionsWithHttpInfo(Dictionary<string, CancelTransferAgencyTransactionRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] DeleteTransferAgencyOrders: Delete transfer agency orders
         /// </summary>
         /// <remarks>
@@ -194,6 +221,35 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CalculateOrderDatesResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CalculateOrderDatesResponse>> CalculateOrderDatesWithHttpInfoAsync(Dictionary<string, CalculateOrderDatesRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] CancelTransferAgencyTransactions: Cancel transfer agency transactions, un-pricing their orders
+        /// </summary>
+        /// <remarks>
+        /// Reverses the pricing of a transfer agency order, identified by the security transaction that pricing booked:  cancels that transaction in the investor&#39;s portfolio, amends the paired cash transaction back to its  pre-pricing amount, and moves the order from &#39;Priced&#39; back to &#39;New&#39;. Both changes are bitemporal, so the  priced state is still visible at an earlier as-at.  A transaction that was never booked, that names no order, that is the cash leg rather than the security leg,  or whose order is not in &#39;Priced&#39; fails on its own. A leg already cancelled outside this flow is left alone and  the order is still returned to &#39;New&#39;. A transaction named under two request keys fails the whole request.  The response contains both successfully un-priced orders and any failures, each in the form of a  dictionary keyed by the request&#39;s keys. For each failure, a reason is provided. It is important to  check the failed set for unsuccessful results.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The security transactions to cancel, keyed by a unique request identifier.</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of CancelTransferAgencyTransactionsResponse</returns>
+        System.Threading.Tasks.Task<CancelTransferAgencyTransactionsResponse> CancelTransferAgencyTransactionsAsync(Dictionary<string, CancelTransferAgencyTransactionRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] CancelTransferAgencyTransactions: Cancel transfer agency transactions, un-pricing their orders
+        /// </summary>
+        /// <remarks>
+        /// Reverses the pricing of a transfer agency order, identified by the security transaction that pricing booked:  cancels that transaction in the investor&#39;s portfolio, amends the paired cash transaction back to its  pre-pricing amount, and moves the order from &#39;Priced&#39; back to &#39;New&#39;. Both changes are bitemporal, so the  priced state is still visible at an earlier as-at.  A transaction that was never booked, that names no order, that is the cash leg rather than the security leg,  or whose order is not in &#39;Priced&#39; fails on its own. A leg already cancelled outside this flow is left alone and  the order is still returned to &#39;New&#39;. A transaction named under two request keys fails the whole request.  The response contains both successfully un-priced orders and any failures, each in the form of a  dictionary keyed by the request&#39;s keys. For each failure, a reason is provided. It is important to  check the failed set for unsuccessful results.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The security transactions to cancel, keyed by a unique request identifier.</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (CancelTransferAgencyTransactionsResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CancelTransferAgencyTransactionsResponse>> CancelTransferAgencyTransactionsWithHttpInfoAsync(Dictionary<string, CancelTransferAgencyTransactionRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteTransferAgencyOrders: Delete transfer agency orders
         /// </summary>
@@ -630,6 +686,231 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CalculateOrderDates", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] CancelTransferAgencyTransactions: Cancel transfer agency transactions, un-pricing their orders Reverses the pricing of a transfer agency order, identified by the security transaction that pricing booked:  cancels that transaction in the investor&#39;s portfolio, amends the paired cash transaction back to its  pre-pricing amount, and moves the order from &#39;Priced&#39; back to &#39;New&#39;. Both changes are bitemporal, so the  priced state is still visible at an earlier as-at.  A transaction that was never booked, that names no order, that is the cash leg rather than the security leg,  or whose order is not in &#39;Priced&#39; fails on its own. A leg already cancelled outside this flow is left alone and  the order is still returned to &#39;New&#39;. A transaction named under two request keys fails the whole request.  The response contains both successfully un-priced orders and any failures, each in the form of a  dictionary keyed by the request&#39;s keys. For each failure, a reason is provided. It is important to  check the failed set for unsuccessful results.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The security transactions to cancel, keyed by a unique request identifier.</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>CancelTransferAgencyTransactionsResponse</returns>
+        public CancelTransferAgencyTransactionsResponse CancelTransferAgencyTransactions(Dictionary<string, CancelTransferAgencyTransactionRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<CancelTransferAgencyTransactionsResponse> localVarResponse = CancelTransferAgencyTransactionsWithHttpInfo(requestBody, successMode, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] CancelTransferAgencyTransactions: Cancel transfer agency transactions, un-pricing their orders Reverses the pricing of a transfer agency order, identified by the security transaction that pricing booked:  cancels that transaction in the investor&#39;s portfolio, amends the paired cash transaction back to its  pre-pricing amount, and moves the order from &#39;Priced&#39; back to &#39;New&#39;. Both changes are bitemporal, so the  priced state is still visible at an earlier as-at.  A transaction that was never booked, that names no order, that is the cash leg rather than the security leg,  or whose order is not in &#39;Priced&#39; fails on its own. A leg already cancelled outside this flow is left alone and  the order is still returned to &#39;New&#39;. A transaction named under two request keys fails the whole request.  The response contains both successfully un-priced orders and any failures, each in the form of a  dictionary keyed by the request&#39;s keys. For each failure, a reason is provided. It is important to  check the failed set for unsuccessful results.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The security transactions to cancel, keyed by a unique request identifier.</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of CancelTransferAgencyTransactionsResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<CancelTransferAgencyTransactionsResponse> CancelTransferAgencyTransactionsWithHttpInfo(Dictionary<string, CancelTransferAgencyTransactionRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling TransferAgencyApi->CancelTransferAgencyTransactions");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (successMode != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
+            }
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "TransferAgencyApi.CancelTransferAgencyTransactions";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<CancelTransferAgencyTransactionsResponse>("/api/transferagency/transactions/cancel", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelTransferAgencyTransactions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] CancelTransferAgencyTransactions: Cancel transfer agency transactions, un-pricing their orders Reverses the pricing of a transfer agency order, identified by the security transaction that pricing booked:  cancels that transaction in the investor&#39;s portfolio, amends the paired cash transaction back to its  pre-pricing amount, and moves the order from &#39;Priced&#39; back to &#39;New&#39;. Both changes are bitemporal, so the  priced state is still visible at an earlier as-at.  A transaction that was never booked, that names no order, that is the cash leg rather than the security leg,  or whose order is not in &#39;Priced&#39; fails on its own. A leg already cancelled outside this flow is left alone and  the order is still returned to &#39;New&#39;. A transaction named under two request keys fails the whole request.  The response contains both successfully un-priced orders and any failures, each in the form of a  dictionary keyed by the request&#39;s keys. For each failure, a reason is provided. It is important to  check the failed set for unsuccessful results.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The security transactions to cancel, keyed by a unique request identifier.</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of CancelTransferAgencyTransactionsResponse</returns>
+        public async System.Threading.Tasks.Task<CancelTransferAgencyTransactionsResponse> CancelTransferAgencyTransactionsAsync(Dictionary<string, CancelTransferAgencyTransactionRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<CancelTransferAgencyTransactionsResponse> localVarResponse = await CancelTransferAgencyTransactionsWithHttpInfoAsync(requestBody, successMode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] CancelTransferAgencyTransactions: Cancel transfer agency transactions, un-pricing their orders Reverses the pricing of a transfer agency order, identified by the security transaction that pricing booked:  cancels that transaction in the investor&#39;s portfolio, amends the paired cash transaction back to its  pre-pricing amount, and moves the order from &#39;Priced&#39; back to &#39;New&#39;. Both changes are bitemporal, so the  priced state is still visible at an earlier as-at.  A transaction that was never booked, that names no order, that is the cash leg rather than the security leg,  or whose order is not in &#39;Priced&#39; fails on its own. A leg already cancelled outside this flow is left alone and  the order is still returned to &#39;New&#39;. A transaction named under two request keys fails the whole request.  The response contains both successfully un-priced orders and any failures, each in the form of a  dictionary keyed by the request&#39;s keys. For each failure, a reason is provided. It is important to  check the failed set for unsuccessful results.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The security transactions to cancel, keyed by a unique request identifier.</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (CancelTransferAgencyTransactionsResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CancelTransferAgencyTransactionsResponse>> CancelTransferAgencyTransactionsWithHttpInfoAsync(Dictionary<string, CancelTransferAgencyTransactionRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling TransferAgencyApi->CancelTransferAgencyTransactions");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (successMode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
+            }
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "TransferAgencyApi.CancelTransferAgencyTransactions";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<CancelTransferAgencyTransactionsResponse>("/api/transferagency/transactions/cancel", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelTransferAgencyTransactions", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A settlement-activity item within a rec result.
+    /// A settlement-activity item within a rec result. Names the portfolio, the activity&#39;s instrument and the settled  transaction&#39;s resolved instrument alongside, for display.
     /// </summary>
     [DataContract(Name = "RecResultSettlementActivityItem")]
     public partial class RecResultSettlementActivityItem : IEquatable<RecResultSettlementActivityItem>, IValidatableObject
@@ -37,13 +37,20 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="RecResultSettlementActivityItem" /> class.
         /// </summary>
         /// <param name="portfolioId">portfolioId (required).</param>
+        /// <param name="portfolioDisplayName">The display name of the item&#39;s portfolio, as it stood at the asAt the run read its data. Null where the run did not read it..</param>
         /// <param name="activityId">The settlement activity identifier..</param>
+        /// <param name="activityInstrumentScope">The scope of the settlement activity&#39;s instrument. Null where the source does not state one..</param>
+        /// <param name="activityLusidInstrumentId">The LUID of the settlement activity&#39;s instrument. Null where the source does not state it..</param>
+        /// <param name="activityInstrumentName">The name of the settlement activity&#39;s instrument, as it stood at the asAt the run read its data. Null where the run did not resolve it..</param>
         /// <param name="transactionId">The transaction identifier..</param>
+        /// <param name="transactionInstrumentScope">The scope of the transaction&#39;s resolved instrument. Null where the source does not state one..</param>
+        /// <param name="transactionLusidInstrumentId">The LUID of the transaction&#39;s resolved instrument. Null where the source does not state it..</param>
+        /// <param name="transactionInstrumentName">The name of the transaction&#39;s resolved instrument, as it stood at the asAt the run read its data. Null where the run did not resolve it..</param>
         /// <param name="settlementInstructionId">The settlement instruction identifier..</param>
         /// <param name="holdingImpacts">The holdings, and where the source states them the tax lots, the item impacted. A distinct set ordered by holdingId then taxLotId; may be empty. An input transaction has not run the movements engine and impacts nothing yet. (required).</param>
         /// <param name="itemType">The polymorphic item-type discriminator: Holding, ValuedHolding, Transaction, SettlementActivity or RelationalDataPoint. Names the item rather than the rec type: Holding and CashHolding recs produce Holding items, a Valuation rec produces ValuedHolding items, both transaction rec types produce Transaction items, and a relational dataset side produces RelationalDataPoint items whatever the rec type. Available values: SettlementActivity, Holding, Transaction, ValuedHolding, RelationalDataPoint. (required).</param>
         /// <param name="ruleAndAttributeValues">The core rule, aggregate rule and supplemental attribute values for the item, keyed by name..</param>
-        public RecResultSettlementActivityItem(ResourceId portfolioId = default(ResourceId), string activityId = default(string), string transactionId = default(string), string settlementInstructionId = default(string), List<RecResultHoldingImpact> holdingImpacts = default(List<RecResultHoldingImpact>), string itemType = default(string), Dictionary<string, string> ruleAndAttributeValues = default(Dictionary<string, string>))
+        public RecResultSettlementActivityItem(ResourceId portfolioId = default(ResourceId), string portfolioDisplayName = default(string), string activityId = default(string), string activityInstrumentScope = default(string), string activityLusidInstrumentId = default(string), string activityInstrumentName = default(string), string transactionId = default(string), string transactionInstrumentScope = default(string), string transactionLusidInstrumentId = default(string), string transactionInstrumentName = default(string), string settlementInstructionId = default(string), List<RecResultHoldingImpact> holdingImpacts = default(List<RecResultHoldingImpact>), string itemType = default(string), Dictionary<string, string> ruleAndAttributeValues = default(Dictionary<string, string>))
         {
             // to ensure "portfolioId" is required (not null)
             if (portfolioId == null)
@@ -63,8 +70,15 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("itemType is a required property for RecResultSettlementActivityItem and cannot be null");
             }
             this.ItemType = itemType;
+            this.PortfolioDisplayName = portfolioDisplayName;
             this.ActivityId = activityId;
+            this.ActivityInstrumentScope = activityInstrumentScope;
+            this.ActivityLusidInstrumentId = activityLusidInstrumentId;
+            this.ActivityInstrumentName = activityInstrumentName;
             this.TransactionId = transactionId;
+            this.TransactionInstrumentScope = transactionInstrumentScope;
+            this.TransactionLusidInstrumentId = transactionLusidInstrumentId;
+            this.TransactionInstrumentName = transactionInstrumentName;
             this.SettlementInstructionId = settlementInstructionId;
             this.RuleAndAttributeValues = ruleAndAttributeValues;
         }
@@ -76,6 +90,13 @@ namespace Lusid.Sdk.Model
         public ResourceId PortfolioId { get; set; }
 
         /// <summary>
+        /// The display name of the item&#39;s portfolio, as it stood at the asAt the run read its data. Null where the run did not read it.
+        /// </summary>
+        /// <value>The display name of the item&#39;s portfolio, as it stood at the asAt the run read its data. Null where the run did not read it.</value>
+        [DataMember(Name = "portfolioDisplayName", EmitDefaultValue = true)]
+        public string PortfolioDisplayName { get; set; }
+
+        /// <summary>
         /// The settlement activity identifier.
         /// </summary>
         /// <value>The settlement activity identifier.</value>
@@ -83,11 +104,53 @@ namespace Lusid.Sdk.Model
         public string ActivityId { get; set; }
 
         /// <summary>
+        /// The scope of the settlement activity&#39;s instrument. Null where the source does not state one.
+        /// </summary>
+        /// <value>The scope of the settlement activity&#39;s instrument. Null where the source does not state one.</value>
+        [DataMember(Name = "activityInstrumentScope", EmitDefaultValue = true)]
+        public string ActivityInstrumentScope { get; set; }
+
+        /// <summary>
+        /// The LUID of the settlement activity&#39;s instrument. Null where the source does not state it.
+        /// </summary>
+        /// <value>The LUID of the settlement activity&#39;s instrument. Null where the source does not state it.</value>
+        [DataMember(Name = "activityLusidInstrumentId", EmitDefaultValue = true)]
+        public string ActivityLusidInstrumentId { get; set; }
+
+        /// <summary>
+        /// The name of the settlement activity&#39;s instrument, as it stood at the asAt the run read its data. Null where the run did not resolve it.
+        /// </summary>
+        /// <value>The name of the settlement activity&#39;s instrument, as it stood at the asAt the run read its data. Null where the run did not resolve it.</value>
+        [DataMember(Name = "activityInstrumentName", EmitDefaultValue = true)]
+        public string ActivityInstrumentName { get; set; }
+
+        /// <summary>
         /// The transaction identifier.
         /// </summary>
         /// <value>The transaction identifier.</value>
         [DataMember(Name = "transactionId", EmitDefaultValue = true)]
         public string TransactionId { get; set; }
+
+        /// <summary>
+        /// The scope of the transaction&#39;s resolved instrument. Null where the source does not state one.
+        /// </summary>
+        /// <value>The scope of the transaction&#39;s resolved instrument. Null where the source does not state one.</value>
+        [DataMember(Name = "transactionInstrumentScope", EmitDefaultValue = true)]
+        public string TransactionInstrumentScope { get; set; }
+
+        /// <summary>
+        /// The LUID of the transaction&#39;s resolved instrument. Null where the source does not state it.
+        /// </summary>
+        /// <value>The LUID of the transaction&#39;s resolved instrument. Null where the source does not state it.</value>
+        [DataMember(Name = "transactionLusidInstrumentId", EmitDefaultValue = true)]
+        public string TransactionLusidInstrumentId { get; set; }
+
+        /// <summary>
+        /// The name of the transaction&#39;s resolved instrument, as it stood at the asAt the run read its data. Null where the run did not resolve it.
+        /// </summary>
+        /// <value>The name of the transaction&#39;s resolved instrument, as it stood at the asAt the run read its data. Null where the run did not resolve it.</value>
+        [DataMember(Name = "transactionInstrumentName", EmitDefaultValue = true)]
+        public string TransactionInstrumentName { get; set; }
 
         /// <summary>
         /// The settlement instruction identifier.
@@ -141,8 +204,15 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class RecResultSettlementActivityItem {\n");
             sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
+            sb.Append("  PortfolioDisplayName: ").Append(PortfolioDisplayName).Append("\n");
             sb.Append("  ActivityId: ").Append(ActivityId).Append("\n");
+            sb.Append("  ActivityInstrumentScope: ").Append(ActivityInstrumentScope).Append("\n");
+            sb.Append("  ActivityLusidInstrumentId: ").Append(ActivityLusidInstrumentId).Append("\n");
+            sb.Append("  ActivityInstrumentName: ").Append(ActivityInstrumentName).Append("\n");
             sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
+            sb.Append("  TransactionInstrumentScope: ").Append(TransactionInstrumentScope).Append("\n");
+            sb.Append("  TransactionLusidInstrumentId: ").Append(TransactionLusidInstrumentId).Append("\n");
+            sb.Append("  TransactionInstrumentName: ").Append(TransactionInstrumentName).Append("\n");
             sb.Append("  SettlementInstructionId: ").Append(SettlementInstructionId).Append("\n");
             sb.Append("  HoldingImpacts: ").Append(HoldingImpacts).Append("\n");
             sb.Append("  ItemType: ").Append(ItemType).Append("\n");
@@ -189,14 +259,49 @@ namespace Lusid.Sdk.Model
                     this.PortfolioId.Equals(input.PortfolioId))
                 ) && 
                 (
+                    this.PortfolioDisplayName == input.PortfolioDisplayName ||
+                    (this.PortfolioDisplayName != null &&
+                    this.PortfolioDisplayName.Equals(input.PortfolioDisplayName))
+                ) && 
+                (
                     this.ActivityId == input.ActivityId ||
                     (this.ActivityId != null &&
                     this.ActivityId.Equals(input.ActivityId))
                 ) && 
                 (
+                    this.ActivityInstrumentScope == input.ActivityInstrumentScope ||
+                    (this.ActivityInstrumentScope != null &&
+                    this.ActivityInstrumentScope.Equals(input.ActivityInstrumentScope))
+                ) && 
+                (
+                    this.ActivityLusidInstrumentId == input.ActivityLusidInstrumentId ||
+                    (this.ActivityLusidInstrumentId != null &&
+                    this.ActivityLusidInstrumentId.Equals(input.ActivityLusidInstrumentId))
+                ) && 
+                (
+                    this.ActivityInstrumentName == input.ActivityInstrumentName ||
+                    (this.ActivityInstrumentName != null &&
+                    this.ActivityInstrumentName.Equals(input.ActivityInstrumentName))
+                ) && 
+                (
                     this.TransactionId == input.TransactionId ||
                     (this.TransactionId != null &&
                     this.TransactionId.Equals(input.TransactionId))
+                ) && 
+                (
+                    this.TransactionInstrumentScope == input.TransactionInstrumentScope ||
+                    (this.TransactionInstrumentScope != null &&
+                    this.TransactionInstrumentScope.Equals(input.TransactionInstrumentScope))
+                ) && 
+                (
+                    this.TransactionLusidInstrumentId == input.TransactionLusidInstrumentId ||
+                    (this.TransactionLusidInstrumentId != null &&
+                    this.TransactionLusidInstrumentId.Equals(input.TransactionLusidInstrumentId))
+                ) && 
+                (
+                    this.TransactionInstrumentName == input.TransactionInstrumentName ||
+                    (this.TransactionInstrumentName != null &&
+                    this.TransactionInstrumentName.Equals(input.TransactionInstrumentName))
                 ) && 
                 (
                     this.SettlementInstructionId == input.SettlementInstructionId ||
@@ -241,13 +346,41 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PortfolioId.GetHashCode();
                 }
+                if (this.PortfolioDisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.PortfolioDisplayName.GetHashCode();
+                }
                 if (this.ActivityId != null)
                 {
                     hashCode = (hashCode * 59) + this.ActivityId.GetHashCode();
                 }
+                if (this.ActivityInstrumentScope != null)
+                {
+                    hashCode = (hashCode * 59) + this.ActivityInstrumentScope.GetHashCode();
+                }
+                if (this.ActivityLusidInstrumentId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ActivityLusidInstrumentId.GetHashCode();
+                }
+                if (this.ActivityInstrumentName != null)
+                {
+                    hashCode = (hashCode * 59) + this.ActivityInstrumentName.GetHashCode();
+                }
                 if (this.TransactionId != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionId.GetHashCode();
+                }
+                if (this.TransactionInstrumentScope != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionInstrumentScope.GetHashCode();
+                }
+                if (this.TransactionLusidInstrumentId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionLusidInstrumentId.GetHashCode();
+                }
+                if (this.TransactionInstrumentName != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionInstrumentName.GetHashCode();
                 }
                 if (this.SettlementInstructionId != null)
                 {

@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="WithholdingTaxValueSource" /> class.
         /// </summary>
         /// <param name="dimension">The name of the matching dimension this declaration populates, as it appears in the dataset field schema. A declaration naming a dimension neither dataset has is rejected. (required).</param>
-        /// <param name="source">Optional. The LUSID field the engine reads the dimension&#39;s value from, addressed in the same syntax used to filter results: a property key in the form Properties[{domain}/{scope}/{code}], such as Properties[Instrument/WithholdingTax/AssetClass] or Properties[Transaction/WithholdingTax/Custodian]; or the name of a field on the entity itself, such as Transaction.SettlementCurrency. Omit it to declare that the dimension is keyed on but not resolved, so only rows leaving that dimension blank match..</param>
+        /// <param name="source">Optional. The LUSID field the engine reads the dimension&#39;s value from, addressed in the same syntax used to filter results: a property key in the form Properties[{domain}/{scope}/{code}], such as Properties[Instrument/WithholdingTax/AssetClass] or Properties[Transaction/WithholdingTax/Custodian]; or the name of a field on the entity itself, such as Transaction.TotalConsideration.Currency. Omit it to declare that the dimension is keyed on but not resolved, so only rows leaving that dimension blank match..</param>
         public WithholdingTaxValueSource(string dimension = default(string), string source = default(string))
         {
             // to ensure "dimension" is required (not null)
@@ -57,9 +57,9 @@ namespace Lusid.Sdk.Model
         public string Dimension { get; set; }
 
         /// <summary>
-        /// Optional. The LUSID field the engine reads the dimension&#39;s value from, addressed in the same syntax used to filter results: a property key in the form Properties[{domain}/{scope}/{code}], such as Properties[Instrument/WithholdingTax/AssetClass] or Properties[Transaction/WithholdingTax/Custodian]; or the name of a field on the entity itself, such as Transaction.SettlementCurrency. Omit it to declare that the dimension is keyed on but not resolved, so only rows leaving that dimension blank match.
+        /// Optional. The LUSID field the engine reads the dimension&#39;s value from, addressed in the same syntax used to filter results: a property key in the form Properties[{domain}/{scope}/{code}], such as Properties[Instrument/WithholdingTax/AssetClass] or Properties[Transaction/WithholdingTax/Custodian]; or the name of a field on the entity itself, such as Transaction.TotalConsideration.Currency. Omit it to declare that the dimension is keyed on but not resolved, so only rows leaving that dimension blank match.
         /// </summary>
-        /// <value>Optional. The LUSID field the engine reads the dimension&#39;s value from, addressed in the same syntax used to filter results: a property key in the form Properties[{domain}/{scope}/{code}], such as Properties[Instrument/WithholdingTax/AssetClass] or Properties[Transaction/WithholdingTax/Custodian]; or the name of a field on the entity itself, such as Transaction.SettlementCurrency. Omit it to declare that the dimension is keyed on but not resolved, so only rows leaving that dimension blank match.</value>
+        /// <value>Optional. The LUSID field the engine reads the dimension&#39;s value from, addressed in the same syntax used to filter results: a property key in the form Properties[{domain}/{scope}/{code}], such as Properties[Instrument/WithholdingTax/AssetClass] or Properties[Transaction/WithholdingTax/Custodian]; or the name of a field on the entity itself, such as Transaction.TotalConsideration.Currency. Omit it to declare that the dimension is keyed on but not resolved, so only rows leaving that dimension blank match.</value>
         [DataMember(Name = "source", EmitDefaultValue = true)]
         public string Source { get; set; }
 

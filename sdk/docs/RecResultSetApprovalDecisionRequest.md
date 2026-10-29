@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **ApprovalCode** | **string** | The approval slot being decided. Must match a required approval code. | 
 **Decision** | **string** | The decision made. Available values: Approve, RequestRevisions. | 
 **Reason** | **string** | Rationale for the decision. | [optional] 
-**RequestedResultRevisions** | [**List&lt;RecRequestedResultRevision&gt;**](RecRequestedResultRevision.md) | The results flagged for re-review. Only applicable when the decision is Request Revisions. | [optional] 
+**RequestedResultRevisions** | [**List&lt;RecRequestedResultRevision&gt;**](RecRequestedResultRevision.md) | The results flagged for re-review. Only applicable when the decision is Request Revisions. Each result must be Reviewed. A flagged result returns to Required and keeps its decision. The reviewer must affirm or change that decision before the review can be resubmitted. Clearing the decision does not count. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

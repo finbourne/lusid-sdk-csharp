@@ -64,8 +64,9 @@ namespace Lusid.Sdk.Model
         /// <param name="reportingPrices">Share class prices the Fund publishes at each valuation point under labels of its own, alongside the dealing price, for example a mid price for performance reporting. Optional. Each source other than Mid must be published by the valuation recipe of every active NAV type. Labels must be unique and cannot be dealingPrice, dealingBid or dealingOffer. Patch the list whole at /reportingPrices..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="whtParameters">whtParameters.</param>
+        /// <param name="valuationTemplateId">valuationTemplateId.</param>
         /// <param name="links">links.</param>
-        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), string shortCode = default(string), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), string taxTransparency = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavType primaryNavType = default(NavType), List<NavType> additionalNavTypes = default(List<NavType>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), string instrumentScope = default(string), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<ShareClass> shareClasses = default(List<ShareClass>), FundInstrument fundInstrument = default(FundInstrument), PricingMethodology pricingMethodology = default(PricingMethodology), List<ReportingPrice> reportingPrices = default(List<ReportingPrice>), ModelVersion varVersion = default(ModelVersion), WhtParameters whtParameters = default(WhtParameters), List<Link> links = default(List<Link>))
+        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), string shortCode = default(string), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), string taxTransparency = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavType primaryNavType = default(NavType), List<NavType> additionalNavTypes = default(List<NavType>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), string instrumentScope = default(string), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<ShareClass> shareClasses = default(List<ShareClass>), FundInstrument fundInstrument = default(FundInstrument), PricingMethodology pricingMethodology = default(PricingMethodology), List<ReportingPrice> reportingPrices = default(List<ReportingPrice>), ModelVersion varVersion = default(ModelVersion), WhtParameters whtParameters = default(WhtParameters), ResourceId valuationTemplateId = default(ResourceId), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -105,6 +106,7 @@ namespace Lusid.Sdk.Model
             this.ReportingPrices = reportingPrices;
             this.VarVersion = varVersion;
             this.WhtParameters = whtParameters;
+            this.ValuationTemplateId = valuationTemplateId;
             this.Links = links;
         }
 
@@ -296,6 +298,12 @@ namespace Lusid.Sdk.Model
         public WhtParameters WhtParameters { get; set; }
 
         /// <summary>
+        /// Gets or Sets ValuationTemplateId
+        /// </summary>
+        [DataMember(Name = "valuationTemplateId", EmitDefaultValue = false)]
+        public ResourceId ValuationTemplateId { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -337,6 +345,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ReportingPrices: ").Append(ReportingPrices).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  WhtParameters: ").Append(WhtParameters).Append("\n");
+            sb.Append("  ValuationTemplateId: ").Append(ValuationTemplateId).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -520,6 +529,11 @@ namespace Lusid.Sdk.Model
                     this.WhtParameters.Equals(input.WhtParameters))
                 ) && 
                 (
+                    this.ValuationTemplateId == input.ValuationTemplateId ||
+                    (this.ValuationTemplateId != null &&
+                    this.ValuationTemplateId.Equals(input.ValuationTemplateId))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -644,6 +658,10 @@ namespace Lusid.Sdk.Model
                 if (this.WhtParameters != null)
                 {
                     hashCode = (hashCode * 59) + this.WhtParameters.GetHashCode();
+                }
+                if (this.ValuationTemplateId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValuationTemplateId.GetHashCode();
                 }
                 if (this.Links != null)
                 {

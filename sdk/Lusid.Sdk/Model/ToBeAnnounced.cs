@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ToBeAnnounced" /> class.
         /// </summary>
         /// <param name="startDate">The trade inception date of the TBA. (required).</param>
-        /// <param name="maturityDate">The contractual settlement date of the TBA (e.g. the agency&#39;s announced settlement date for the month). (required).</param>
+        /// <param name="maturityDate">The contractual settlement date of the TBA (e.g. the agency&#39;s announced settlement date for the month). This is a reference date only: LUSID keeps valuing a TBA that is still held after it, until the holder&#39;s own transactions close the position. (required).</param>
         /// <param name="domCcy">The domestic currency of the TBA. (required).</param>
         /// <param name="agency">The issuing agency of the underlying generic collateral, e.g. \&quot;FNMA\&quot;, \&quot;FHLMC\&quot;, \&quot;GNMA\&quot;.  Note this property does not impact valuation. From a LUSID analytics perspective, it is purely informational..</param>
         /// <param name="coupon">The stated coupon rate of the underlying generic collateral, e.g. 3.0, 4.5.  Note this property does not impact valuation - there are no coupon cash flows on the TBA itself.  From a LUSID analytics perspective, it is purely informational..</param>
@@ -72,9 +72,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset StartDate { get; set; }
 
         /// <summary>
-        /// The contractual settlement date of the TBA (e.g. the agency&#39;s announced settlement date for the month).
+        /// The contractual settlement date of the TBA (e.g. the agency&#39;s announced settlement date for the month). This is a reference date only: LUSID keeps valuing a TBA that is still held after it, until the holder&#39;s own transactions close the position.
         /// </summary>
-        /// <value>The contractual settlement date of the TBA (e.g. the agency&#39;s announced settlement date for the month).</value>
+        /// <value>The contractual settlement date of the TBA (e.g. the agency&#39;s announced settlement date for the month). This is a reference date only: LUSID keeps valuing a TBA that is still held after it, until the holder&#39;s own transactions close the position.</value>
         [DataMember(Name = "maturityDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset MaturityDate { get; set; }
 

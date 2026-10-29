@@ -38,8 +38,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="relationshipDefinitionId">relationshipDefinitionId (required).</param>
-        /// <param name="sourceEntityType">The entity type of the source entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity, NextBestAction. (required).</param>
-        /// <param name="targetEntityType">The entity type of the target entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity, NextBestAction. (required).</param>
+        /// <param name="sourceEntityType">The entity type of the source entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity. (required).</param>
+        /// <param name="targetEntityType">The entity type of the target entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity. (required).</param>
         /// <param name="displayName">The display name of the relationship. (required).</param>
         /// <param name="outwardDescription">The description to relate source entity object and target entity object (required).</param>
         /// <param name="inwardDescription">The description to relate target entity object and source entity object (required).</param>
@@ -113,16 +113,16 @@ namespace Lusid.Sdk.Model
         public ResourceId RelationshipDefinitionId { get; set; }
 
         /// <summary>
-        /// The entity type of the source entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity, NextBestAction.
+        /// The entity type of the source entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity.
         /// </summary>
-        /// <value>The entity type of the source entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity, NextBestAction.</value>
+        /// <value>The entity type of the source entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity.</value>
         [DataMember(Name = "sourceEntityType", IsRequired = true, EmitDefaultValue = true)]
         public string SourceEntityType { get; set; }
 
         /// <summary>
-        /// The entity type of the target entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity, NextBestAction.
+        /// The entity type of the target entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity.
         /// </summary>
-        /// <value>The entity type of the target entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity, NextBestAction.</value>
+        /// <value>The entity type of the target entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity.</value>
         [DataMember(Name = "targetEntityType", IsRequired = true, EmitDefaultValue = true)]
         public string TargetEntityType { get; set; }
 

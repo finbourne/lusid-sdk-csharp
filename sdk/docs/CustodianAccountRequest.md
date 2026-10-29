@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Scope** | **string** | The Scope assigned to the Custodian Account, where left blank the parent Portfolio Scope will be used | [optional] 
+**Scope** | **string** | The Scope assigned to the Custodian Account, where left blank the parent Portfolio Scope will be used. A new Custodian Account must be in the parent Portfolio Scope. An existing Custodian Account in a different scope can still be updated | [optional] 
 **Code** | **string** | Unique Code representing the Custodian Account | 
 **Status** | **string** | The Account status. Available values: Active, Inactive, Deleted. | [optional] 
 **AccountNumber** | **string** | The Custodian Account Number | 
