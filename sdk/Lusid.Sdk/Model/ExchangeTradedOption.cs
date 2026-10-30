@@ -41,11 +41,11 @@ namespace Lusid.Sdk.Model
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
         /// <param name="contractDetails">contractDetails (required).</param>
         /// <param name="contracts">The number of contracts held. (required).</param>
-        /// <param name="refSpotPrice">The reference spot price for the option at which the contract was entered into. (required).</param>
+        /// <param name="refSpotPrice">The reference price at which the contract was entered into. Optional.  If omitted, the option has no reference price of its own.  Under ConstantTimeValueOfMoney, a holding with a notional cost (for example from Transaction/default/NotionalAmount) is then valued like a future, against its notional cost plus the variation margin settled to date.  A holding without a notional cost is then valued at its full market price.  If 0, the reference is taken from the holding&#39;s cost.  Any other value is used as given.  Writes through Luminesce that do not supply RefSpotPrice store 0..</param>
         /// <param name="tradingConventions">tradingConventions.</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
-        /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap, BondForward, PreferredShare, CapitalInterest, WholeLoanFacility. (required) (default to &quot;ExchangeTradedOption&quot;).</param>
-        public ExchangeTradedOption(DateTimeOffset startDate = default(DateTimeOffset), ExchangeTradedOptionContractDetails contractDetails = default(ExchangeTradedOptionContractDetails), decimal contracts = default(decimal), decimal refSpotPrice = default(decimal), TradingConventions tradingConventions = default(TradingConventions), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap, BondForward, PreferredShare, CapitalInterest, WholeLoanFacility, StripBond. (required) (default to &quot;ExchangeTradedOption&quot;).</param>
+        public ExchangeTradedOption(DateTimeOffset startDate = default(DateTimeOffset), ExchangeTradedOptionContractDetails contractDetails = default(ExchangeTradedOptionContractDetails), decimal contracts = default(decimal), decimal? refSpotPrice = default(decimal?), TradingConventions tradingConventions = default(TradingConventions), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             // to ensure "contractDetails" is required (not null)
@@ -81,11 +81,11 @@ namespace Lusid.Sdk.Model
         public decimal Contracts { get; set; }
 
         /// <summary>
-        /// The reference spot price for the option at which the contract was entered into.
+        /// The reference price at which the contract was entered into. Optional.  If omitted, the option has no reference price of its own.  Under ConstantTimeValueOfMoney, a holding with a notional cost (for example from Transaction/default/NotionalAmount) is then valued like a future, against its notional cost plus the variation margin settled to date.  A holding without a notional cost is then valued at its full market price.  If 0, the reference is taken from the holding&#39;s cost.  Any other value is used as given.  Writes through Luminesce that do not supply RefSpotPrice store 0.
         /// </summary>
-        /// <value>The reference spot price for the option at which the contract was entered into.</value>
-        [DataMember(Name = "refSpotPrice", IsRequired = true, EmitDefaultValue = true)]
-        public decimal RefSpotPrice { get; set; }
+        /// <value>The reference price at which the contract was entered into. Optional.  If omitted, the option has no reference price of its own.  Under ConstantTimeValueOfMoney, a holding with a notional cost (for example from Transaction/default/NotionalAmount) is then valued like a future, against its notional cost plus the variation margin settled to date.  A holding without a notional cost is then valued at its full market price.  If 0, the reference is taken from the holding&#39;s cost.  Any other value is used as given.  Writes through Luminesce that do not supply RefSpotPrice store 0.</value>
+        [DataMember(Name = "refSpotPrice", EmitDefaultValue = true)]
+        public decimal? RefSpotPrice { get; set; }
 
         /// <summary>
         /// Gets or Sets TradingConventions
@@ -165,7 +165,8 @@ namespace Lusid.Sdk.Model
                 ) && base.Equals(input) && 
                 (
                     this.RefSpotPrice == input.RefSpotPrice ||
-                    this.RefSpotPrice.Equals(input.RefSpotPrice)
+                    (this.RefSpotPrice != null &&
+                    this.RefSpotPrice.Equals(input.RefSpotPrice))
                 ) && base.Equals(input) && 
                 (
                     this.TradingConventions == input.TradingConventions ||
@@ -197,7 +198,10 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.ContractDetails.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Contracts.GetHashCode();
-                hashCode = (hashCode * 59) + this.RefSpotPrice.GetHashCode();
+                if (this.RefSpotPrice != null)
+                {
+                    hashCode = (hashCode * 59) + this.RefSpotPrice.GetHashCode();
+                }
                 if (this.TradingConventions != null)
                 {
                     hashCode = (hashCode * 59) + this.TradingConventions.GetHashCode();

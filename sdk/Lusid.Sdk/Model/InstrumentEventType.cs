@@ -771,7 +771,13 @@ namespace Lusid.Sdk.Model
         /// Enum PartialRedemptionWithoutReductionOfNominalValueEvent for value: PartialRedemptionWithoutReductionOfNominalValueEvent
         /// </summary>
         [EnumMember(Value = "PartialRedemptionWithoutReductionOfNominalValueEvent")]
-        PartialRedemptionWithoutReductionOfNominalValueEvent = 124
+        PartialRedemptionWithoutReductionOfNominalValueEvent = 124,
+
+        /// <summary>
+        /// Enum StripBondCashflowEvent for value: StripBondCashflowEvent
+        /// </summary>
+        [EnumMember(Value = "StripBondCashflowEvent")]
+        StripBondCashflowEvent = 125
     }
 
 }

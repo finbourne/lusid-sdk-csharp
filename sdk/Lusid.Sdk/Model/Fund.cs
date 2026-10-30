@@ -62,11 +62,12 @@ namespace Lusid.Sdk.Model
         /// <param name="fundInstrument">fundInstrument.</param>
         /// <param name="pricingMethodology">pricingMethodology.</param>
         /// <param name="reportingPrices">Share class prices the Fund publishes at each valuation point under labels of its own, alongside the dealing price, for example a mid price for performance reporting. Optional. Each source other than Mid must be published by the valuation recipe of every active NAV type. Labels must be unique and cannot be dealingPrice, dealingBid or dealingOffer. Patch the list whole at /reportingPrices..</param>
+        /// <param name="dealingEstimates">dealingEstimates.</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="whtParameters">whtParameters.</param>
         /// <param name="valuationTemplateId">valuationTemplateId.</param>
         /// <param name="links">links.</param>
-        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), string shortCode = default(string), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), string taxTransparency = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavType primaryNavType = default(NavType), List<NavType> additionalNavTypes = default(List<NavType>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), string instrumentScope = default(string), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<ShareClass> shareClasses = default(List<ShareClass>), FundInstrument fundInstrument = default(FundInstrument), PricingMethodology pricingMethodology = default(PricingMethodology), List<ReportingPrice> reportingPrices = default(List<ReportingPrice>), ModelVersion varVersion = default(ModelVersion), WhtParameters whtParameters = default(WhtParameters), ResourceId valuationTemplateId = default(ResourceId), List<Link> links = default(List<Link>))
+        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), string shortCode = default(string), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), string taxTransparency = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavType primaryNavType = default(NavType), List<NavType> additionalNavTypes = default(List<NavType>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), string instrumentScope = default(string), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<ShareClass> shareClasses = default(List<ShareClass>), FundInstrument fundInstrument = default(FundInstrument), PricingMethodology pricingMethodology = default(PricingMethodology), List<ReportingPrice> reportingPrices = default(List<ReportingPrice>), DealingEstimates dealingEstimates = default(DealingEstimates), ModelVersion varVersion = default(ModelVersion), WhtParameters whtParameters = default(WhtParameters), ResourceId valuationTemplateId = default(ResourceId), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -104,6 +105,7 @@ namespace Lusid.Sdk.Model
             this.FundInstrument = fundInstrument;
             this.PricingMethodology = pricingMethodology;
             this.ReportingPrices = reportingPrices;
+            this.DealingEstimates = dealingEstimates;
             this.VarVersion = varVersion;
             this.WhtParameters = whtParameters;
             this.ValuationTemplateId = valuationTemplateId;
@@ -286,6 +288,12 @@ namespace Lusid.Sdk.Model
         public List<ReportingPrice> ReportingPrices { get; set; }
 
         /// <summary>
+        /// Gets or Sets DealingEstimates
+        /// </summary>
+        [DataMember(Name = "dealingEstimates", EmitDefaultValue = false)]
+        public DealingEstimates DealingEstimates { get; set; }
+
+        /// <summary>
         /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
@@ -343,6 +351,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  FundInstrument: ").Append(FundInstrument).Append("\n");
             sb.Append("  PricingMethodology: ").Append(PricingMethodology).Append("\n");
             sb.Append("  ReportingPrices: ").Append(ReportingPrices).Append("\n");
+            sb.Append("  DealingEstimates: ").Append(DealingEstimates).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  WhtParameters: ").Append(WhtParameters).Append("\n");
             sb.Append("  ValuationTemplateId: ").Append(ValuationTemplateId).Append("\n");
@@ -519,6 +528,11 @@ namespace Lusid.Sdk.Model
                     this.ReportingPrices.SequenceEqual(input.ReportingPrices)
                 ) && 
                 (
+                    this.DealingEstimates == input.DealingEstimates ||
+                    (this.DealingEstimates != null &&
+                    this.DealingEstimates.Equals(input.DealingEstimates))
+                ) && 
+                (
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
@@ -650,6 +664,10 @@ namespace Lusid.Sdk.Model
                 if (this.ReportingPrices != null)
                 {
                     hashCode = (hashCode * 59) + this.ReportingPrices.GetHashCode();
+                }
+                if (this.DealingEstimates != null)
+                {
+                    hashCode = (hashCode * 59) + this.DealingEstimates.GetHashCode();
                 }
                 if (this.VarVersion != null)
                 {

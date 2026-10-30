@@ -4,20 +4,20 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AddFundStructureMember**](FundStructuresApi.md#addfundstructuremember) | **POST** /api/fundstructures/{scope}/{code}/members | [EXPERIMENTAL] AddFundStructureMember: Add a member to a Fund Structure. |
+| [**AddFundStructureMember**](FundStructuresApi.md#addfundstructuremember) | **POST** /api/fundstructures/{scope}/{code}/members | [EARLY ACCESS] AddFundStructureMember: Add a member to a Fund Structure. |
 | [**CloseFundStructure**](FundStructuresApi.md#closefundstructure) | **POST** /api/fundstructures/{scope}/{code}/$close | [EARLY ACCESS] CloseFundStructure: [EXPERIMENTAL] CloseFundStructure: Finalise a valuation point across a Fund Structure. |
-| [**CreateFundStructure**](FundStructuresApi.md#createfundstructure) | **POST** /api/fundstructures/{scope} | [EXPERIMENTAL] CreateFundStructure: Create a Fund Structure. |
-| [**DeleteFundStructure**](FundStructuresApi.md#deletefundstructure) | **DELETE** /api/fundstructures/{scope}/{code} | [EXPERIMENTAL] DeleteFundStructure: Delete a Fund Structure. |
-| [**GetFundStructure**](FundStructuresApi.md#getfundstructure) | **GET** /api/fundstructures/{scope}/{code} | [EXPERIMENTAL] GetFundStructure: Get a Fund Structure. |
-| [**ListFundStructures**](FundStructuresApi.md#listfundstructures) | **GET** /api/fundstructures | [EXPERIMENTAL] ListFundStructures: List Fund Structures. |
-| [**RemoveFundStructureMember**](FundStructuresApi.md#removefundstructuremember) | **DELETE** /api/fundstructures/{scope}/{code}/members/{nodeCode} | [EXPERIMENTAL] RemoveFundStructureMember: Remove a member from a Fund Structure. |
-| [**UpsertFundStructure**](FundStructuresApi.md#upsertfundstructure) | **PUT** /api/fundstructures/{scope}/{code} | [EXPERIMENTAL] UpsertFundStructure: Upsert a Fund Structure. |
+| [**CreateFundStructure**](FundStructuresApi.md#createfundstructure) | **POST** /api/fundstructures/{scope} | [EARLY ACCESS] CreateFundStructure: Create a Fund Structure. |
+| [**DeleteFundStructure**](FundStructuresApi.md#deletefundstructure) | **DELETE** /api/fundstructures/{scope}/{code} | [EARLY ACCESS] DeleteFundStructure: Delete a Fund Structure. |
+| [**GetFundStructure**](FundStructuresApi.md#getfundstructure) | **GET** /api/fundstructures/{scope}/{code} | [EARLY ACCESS] GetFundStructure: Get a Fund Structure. |
+| [**ListFundStructures**](FundStructuresApi.md#listfundstructures) | **GET** /api/fundstructures | [EARLY ACCESS] ListFundStructures: List Fund Structures. |
+| [**RemoveFundStructureMember**](FundStructuresApi.md#removefundstructuremember) | **DELETE** /api/fundstructures/{scope}/{code}/members/{nodeCode} | [EARLY ACCESS] RemoveFundStructureMember: Remove a member from a Fund Structure. |
+| [**UpsertFundStructure**](FundStructuresApi.md#upsertfundstructure) | **PUT** /api/fundstructures/{scope}/{code} | [EARLY ACCESS] UpsertFundStructure: Upsert a Fund Structure. |
 
 <a id="addfundstructuremember"></a>
 # **AddFundStructureMember**
 > FundStructure AddFundStructureMember (string scope, string code, FundStructureMemberRequest fundStructureMemberRequest, DateTimeOrCutLabel? effectiveAt = null)
 
-[EXPERIMENTAL] AddFundStructureMember: Add a member to a Fund Structure.
+[EARLY ACCESS] AddFundStructureMember: Add a member to a Fund Structure.
 
 Add a node and the links that join it to existing members, from an effective datetime. The result is a new  bitemporal version of the structure. The change applies to the version in force at that datetime; if a  later version of the structure already exists the request is rejected, since the member would otherwise  drop out when that version begins. Upsert the full definition for each affected version in that case.
 
@@ -70,7 +70,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FundStructure result = apiInstance.AddFundStructureMember(scope, code, fundStructureMemberRequest, effectiveAt, opts: opts);
 
-                // [EXPERIMENTAL] AddFundStructureMember: Add a member to a Fund Structure.
+                // [EARLY ACCESS] AddFundStructureMember: Add a member to a Fund Structure.
                 FundStructure result = apiInstance.AddFundStructureMember(scope, code, fundStructureMemberRequest, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -91,7 +91,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] AddFundStructureMember: Add a member to a Fund Structure.
+    // [EARLY ACCESS] AddFundStructureMember: Add a member to a Fund Structure.
     ApiResponse<FundStructure> response = apiInstance.AddFundStructureMemberWithHttpInfo(scope, code, fundStructureMemberRequest, effectiveAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -257,7 +257,7 @@ catch (ApiException e)
 # **CreateFundStructure**
 > FundStructure CreateFundStructure (string scope, FundStructureRequest fundStructureRequest)
 
-[EXPERIMENTAL] CreateFundStructure: Create a Fund Structure.
+[EARLY ACCESS] CreateFundStructure: Create a Fund Structure.
 
 Create a new Fund Structure Model. The scope and code of the Fund Structure are provided in the request body.
 
@@ -308,7 +308,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FundStructure result = apiInstance.CreateFundStructure(scope, fundStructureRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreateFundStructure: Create a Fund Structure.
+                // [EARLY ACCESS] CreateFundStructure: Create a Fund Structure.
                 FundStructure result = apiInstance.CreateFundStructure(scope, fundStructureRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -329,7 +329,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateFundStructure: Create a Fund Structure.
+    // [EARLY ACCESS] CreateFundStructure: Create a Fund Structure.
     ApiResponse<FundStructure> response = apiInstance.CreateFundStructureWithHttpInfo(scope, fundStructureRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -373,7 +373,7 @@ catch (ApiException e)
 # **DeleteFundStructure**
 > DeletedEntityResponse DeleteFundStructure (string scope, string code, DateTimeOrCutLabel? effectiveAt = null)
 
-[EXPERIMENTAL] DeleteFundStructure: Delete a Fund Structure.
+[EARLY ACCESS] DeleteFundStructure: Delete a Fund Structure.
 
 Delete a Fund Structure from the given effective datetime. It remains retrievable at earlier effective datetimes.
 
@@ -425,7 +425,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteFundStructure(scope, code, effectiveAt, opts: opts);
 
-                // [EXPERIMENTAL] DeleteFundStructure: Delete a Fund Structure.
+                // [EARLY ACCESS] DeleteFundStructure: Delete a Fund Structure.
                 DeletedEntityResponse result = apiInstance.DeleteFundStructure(scope, code, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -446,7 +446,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteFundStructure: Delete a Fund Structure.
+    // [EARLY ACCESS] DeleteFundStructure: Delete a Fund Structure.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteFundStructureWithHttpInfo(scope, code, effectiveAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -491,7 +491,7 @@ catch (ApiException e)
 # **GetFundStructure**
 > FundStructure GetFundStructure (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] GetFundStructure: Get a Fund Structure.
+[EARLY ACCESS] GetFundStructure: Get a Fund Structure.
 
 Retrieve the definition of a particular Fund Structure at an effective and asAt datetime, including its nodes,  edges, allocation groups and the funds its nodes refer to.
 
@@ -545,7 +545,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FundStructure result = apiInstance.GetFundStructure(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] GetFundStructure: Get a Fund Structure.
+                // [EARLY ACCESS] GetFundStructure: Get a Fund Structure.
                 FundStructure result = apiInstance.GetFundStructure(scope, code, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -566,7 +566,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetFundStructure: Get a Fund Structure.
+    // [EARLY ACCESS] GetFundStructure: Get a Fund Structure.
     ApiResponse<FundStructure> response = apiInstance.GetFundStructureWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -613,7 +613,7 @@ catch (ApiException e)
 # **ListFundStructures**
 > PagedResourceListOfFundStructure ListFundStructures (DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] ListFundStructures: List Fund Structures.
+[EARLY ACCESS] ListFundStructures: List Fund Structures.
 
 List all the Fund Structures matching the given criteria.
 
@@ -669,7 +669,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfFundStructure result = apiInstance.ListFundStructures(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] ListFundStructures: List Fund Structures.
+                // [EARLY ACCESS] ListFundStructures: List Fund Structures.
                 PagedResourceListOfFundStructure result = apiInstance.ListFundStructures(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -690,7 +690,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListFundStructures: List Fund Structures.
+    // [EARLY ACCESS] ListFundStructures: List Fund Structures.
     ApiResponse<PagedResourceListOfFundStructure> response = apiInstance.ListFundStructuresWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -739,7 +739,7 @@ catch (ApiException e)
 # **RemoveFundStructureMember**
 > FundStructure RemoveFundStructureMember (string scope, string code, string nodeCode, DateTimeOrCutLabel? effectiveAt = null)
 
-[EXPERIMENTAL] RemoveFundStructureMember: Remove a member from a Fund Structure.
+[EARLY ACCESS] RemoveFundStructureMember: Remove a member from a Fund Structure.
 
 Remove a node and every link that touches it, from an effective datetime. The result is a new bitemporal  version of the structure. The change applies to the version in force at that datetime; if a later version  of the structure already exists the request is rejected, since the member would otherwise reappear when  that version begins. Upsert the full definition for each affected version in that case.
 
@@ -792,7 +792,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FundStructure result = apiInstance.RemoveFundStructureMember(scope, code, nodeCode, effectiveAt, opts: opts);
 
-                // [EXPERIMENTAL] RemoveFundStructureMember: Remove a member from a Fund Structure.
+                // [EARLY ACCESS] RemoveFundStructureMember: Remove a member from a Fund Structure.
                 FundStructure result = apiInstance.RemoveFundStructureMember(scope, code, nodeCode, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -813,7 +813,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] RemoveFundStructureMember: Remove a member from a Fund Structure.
+    // [EARLY ACCESS] RemoveFundStructureMember: Remove a member from a Fund Structure.
     ApiResponse<FundStructure> response = apiInstance.RemoveFundStructureMemberWithHttpInfo(scope, code, nodeCode, effectiveAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -859,7 +859,7 @@ catch (ApiException e)
 # **UpsertFundStructure**
 > FundStructure UpsertFundStructure (string scope, string code, FundStructureRequest fundStructureRequest)
 
-[EXPERIMENTAL] UpsertFundStructure: Upsert a Fund Structure.
+[EARLY ACCESS] UpsertFundStructure: Upsert a Fund Structure.
 
 Create or replace the full definition of a Fund Structure from an effective datetime. A change to the  definition becomes a new bitemporal version: the structure as it was declared at earlier effective datetimes,  and as of earlier asAt datetimes, remains retrievable.
 
@@ -911,7 +911,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FundStructure result = apiInstance.UpsertFundStructure(scope, code, fundStructureRequest, opts: opts);
 
-                // [EXPERIMENTAL] UpsertFundStructure: Upsert a Fund Structure.
+                // [EARLY ACCESS] UpsertFundStructure: Upsert a Fund Structure.
                 FundStructure result = apiInstance.UpsertFundStructure(scope, code, fundStructureRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -932,7 +932,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertFundStructure: Upsert a Fund Structure.
+    // [EARLY ACCESS] UpsertFundStructure: Upsert a Fund Structure.
     ApiResponse<FundStructure> response = apiInstance.UpsertFundStructureWithHttpInfo(scope, code, fundStructureRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] AddAllocationMapException: Add an exception to an Allocation Map.
+        /// [EARLY ACCESS] AddAllocationMapException: Add an exception to an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Add a per-investor exception (an exclusion or a fixed percentage) to the map&#39;s participants, from an  effective datetime. The result is a new bitemporal version of the map. An investor record may carry at most  one exception; to change it, remove the existing one first or upsert the whole map.
@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Api
         AllocationMap AddAllocationMapException(string scope, string code, AllocationMapException allocationMapException, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] AddAllocationMapException: Add an exception to an Allocation Map.
+        /// [EARLY ACCESS] AddAllocationMapException: Add an exception to an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Add a per-investor exception (an exclusion or a fixed percentage) to the map&#39;s participants, from an  effective datetime. The result is a new bitemporal version of the map. An investor record may carry at most  one exception; to change it, remove the existing one first or upsert the whole map.
@@ -63,7 +63,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of AllocationMap</returns>
         Lusid.Sdk.Client.ApiResponse<AllocationMap> AddAllocationMapExceptionWithHttpInfo(string scope, string code, AllocationMapException allocationMapException, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] CreateAllocationMap: Create an Allocation Map.
+        /// [EARLY ACCESS] CreateAllocationMap: Create an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Create a new Allocation Map. The scope is provided in the route and the code in the request body. The map  names the structure member it hangs off, who participates, and the basis used to share each kind of event.
@@ -77,7 +77,7 @@ namespace Lusid.Sdk.Api
         AllocationMap CreateAllocationMap(string scope, AllocationMapRequest allocationMapRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateAllocationMap: Create an Allocation Map.
+        /// [EARLY ACCESS] CreateAllocationMap: Create an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Create a new Allocation Map. The scope is provided in the route and the code in the request body. The map  names the structure member it hangs off, who participates, and the basis used to share each kind of event.
@@ -90,7 +90,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of AllocationMap</returns>
         Lusid.Sdk.Client.ApiResponse<AllocationMap> CreateAllocationMapWithHttpInfo(string scope, AllocationMapRequest allocationMapRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAllocationMap: Delete an Allocation Map.
+        /// [EARLY ACCESS] DeleteAllocationMap: Delete an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Delete an Allocation Map from an effective datetime. The Allocation Map is no longer readable from that  effective datetime onwards.
@@ -105,7 +105,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteAllocationMap(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAllocationMap: Delete an Allocation Map.
+        /// [EARLY ACCESS] DeleteAllocationMap: Delete an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Delete an Allocation Map from an effective datetime. The Allocation Map is no longer readable from that  effective datetime onwards.
@@ -119,7 +119,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteAllocationMapWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetAllocationMap: Get an Allocation Map.
+        /// [EARLY ACCESS] GetAllocationMap: Get an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a particular Allocation Map at an effective and asAt datetime, including its  participants, exceptions and the basis declared for each event type.
@@ -135,7 +135,7 @@ namespace Lusid.Sdk.Api
         AllocationMap GetAllocationMap(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAllocationMap: Get an Allocation Map.
+        /// [EARLY ACCESS] GetAllocationMap: Get an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a particular Allocation Map at an effective and asAt datetime, including its  participants, exceptions and the basis declared for each event type.
@@ -150,7 +150,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of AllocationMap</returns>
         Lusid.Sdk.Client.ApiResponse<AllocationMap> GetAllocationMapWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListAllocationMaps: List Allocation Maps.
+        /// [EARLY ACCESS] ListAllocationMaps: List Allocation Maps.
         /// </summary>
         /// <remarks>
         /// List all the Allocation Maps matching a particular criteria.
@@ -168,7 +168,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfAllocationMap ListAllocationMaps(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListAllocationMaps: List Allocation Maps.
+        /// [EARLY ACCESS] ListAllocationMaps: List Allocation Maps.
         /// </summary>
         /// <remarks>
         /// List all the Allocation Maps matching a particular criteria.
@@ -185,7 +185,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfAllocationMap</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAllocationMap> ListAllocationMapsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] RemoveAllocationMapException: Remove an exception from an Allocation Map.
+        /// [EARLY ACCESS] RemoveAllocationMapException: Remove an exception from an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Remove the exception held against an investor record, from an effective datetime. The result is a new  bitemporal version of the map in which that investor is treated like every other participant.
@@ -201,7 +201,7 @@ namespace Lusid.Sdk.Api
         AllocationMap RemoveAllocationMapException(string scope, string code, string investorRecordId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] RemoveAllocationMapException: Remove an exception from an Allocation Map.
+        /// [EARLY ACCESS] RemoveAllocationMapException: Remove an exception from an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Remove the exception held against an investor record, from an effective datetime. The result is a new  bitemporal version of the map in which that investor is treated like every other participant.
@@ -216,7 +216,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of AllocationMap</returns>
         Lusid.Sdk.Client.ApiResponse<AllocationMap> RemoveAllocationMapExceptionWithHttpInfo(string scope, string code, string investorRecordId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ResolveAllocationMap: Resolve an Allocation Map.
+        /// [EARLY ACCESS] ResolveAllocationMap: Resolve an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Dry-run the map against an event: share the supplied amount across the participants in force at the  effective datetime, applying fixed-percentage exceptions off the top and the declared basis to the remainder.  Nothing is booked. Basis values (for example committed capital per investor) are supplied in the request  until the investor register can provide them.
@@ -233,7 +233,7 @@ namespace Lusid.Sdk.Api
         AllocationMapResolution ResolveAllocationMap(string scope, string code, AllocationMapResolveRequest allocationMapResolveRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ResolveAllocationMap: Resolve an Allocation Map.
+        /// [EARLY ACCESS] ResolveAllocationMap: Resolve an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Dry-run the map against an event: share the supplied amount across the participants in force at the  effective datetime, applying fixed-percentage exceptions off the top and the declared basis to the remainder.  Nothing is booked. Basis values (for example committed capital per investor) are supplied in the request  until the investor register can provide them.
@@ -249,7 +249,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of AllocationMapResolution</returns>
         Lusid.Sdk.Client.ApiResponse<AllocationMapResolution> ResolveAllocationMapWithHttpInfo(string scope, string code, AllocationMapResolveRequest allocationMapResolveRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAllocationMap: Upsert an Allocation Map.
+        /// [EARLY ACCESS] UpsertAllocationMap: Upsert an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Update or insert an Allocation Map. If the Allocation Map does not exist it is created, otherwise it is  updated. The code in the request body must match the code in the route.
@@ -264,7 +264,7 @@ namespace Lusid.Sdk.Api
         AllocationMap UpsertAllocationMap(string scope, string code, AllocationMapRequest allocationMapRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAllocationMap: Upsert an Allocation Map.
+        /// [EARLY ACCESS] UpsertAllocationMap: Upsert an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Update or insert an Allocation Map. If the Allocation Map does not exist it is created, otherwise it is  updated. The code in the request body must match the code in the route.
@@ -287,7 +287,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] AddAllocationMapException: Add an exception to an Allocation Map.
+        /// [EARLY ACCESS] AddAllocationMapException: Add an exception to an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Add a per-investor exception (an exclusion or a fixed percentage) to the map&#39;s participants, from an  effective datetime. The result is a new bitemporal version of the map. An investor record may carry at most  one exception; to change it, remove the existing one first or upsert the whole map.
@@ -304,7 +304,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<AllocationMap> AddAllocationMapExceptionAsync(string scope, string code, AllocationMapException allocationMapException, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] AddAllocationMapException: Add an exception to an Allocation Map.
+        /// [EARLY ACCESS] AddAllocationMapException: Add an exception to an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Add a per-investor exception (an exclusion or a fixed percentage) to the map&#39;s participants, from an  effective datetime. The result is a new bitemporal version of the map. An investor record may carry at most  one exception; to change it, remove the existing one first or upsert the whole map.
@@ -320,7 +320,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (AllocationMap)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationMap>> AddAllocationMapExceptionWithHttpInfoAsync(string scope, string code, AllocationMapException allocationMapException, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] CreateAllocationMap: Create an Allocation Map.
+        /// [EARLY ACCESS] CreateAllocationMap: Create an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Create a new Allocation Map. The scope is provided in the route and the code in the request body. The map  names the structure member it hangs off, who participates, and the basis used to share each kind of event.
@@ -335,7 +335,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<AllocationMap> CreateAllocationMapAsync(string scope, AllocationMapRequest allocationMapRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateAllocationMap: Create an Allocation Map.
+        /// [EARLY ACCESS] CreateAllocationMap: Create an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Create a new Allocation Map. The scope is provided in the route and the code in the request body. The map  names the structure member it hangs off, who participates, and the basis used to share each kind of event.
@@ -349,7 +349,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (AllocationMap)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationMap>> CreateAllocationMapWithHttpInfoAsync(string scope, AllocationMapRequest allocationMapRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAllocationMap: Delete an Allocation Map.
+        /// [EARLY ACCESS] DeleteAllocationMap: Delete an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Delete an Allocation Map from an effective datetime. The Allocation Map is no longer readable from that  effective datetime onwards.
@@ -365,7 +365,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteAllocationMapAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAllocationMap: Delete an Allocation Map.
+        /// [EARLY ACCESS] DeleteAllocationMap: Delete an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Delete an Allocation Map from an effective datetime. The Allocation Map is no longer readable from that  effective datetime onwards.
@@ -380,7 +380,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteAllocationMapWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetAllocationMap: Get an Allocation Map.
+        /// [EARLY ACCESS] GetAllocationMap: Get an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a particular Allocation Map at an effective and asAt datetime, including its  participants, exceptions and the basis declared for each event type.
@@ -397,7 +397,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<AllocationMap> GetAllocationMapAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAllocationMap: Get an Allocation Map.
+        /// [EARLY ACCESS] GetAllocationMap: Get an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a particular Allocation Map at an effective and asAt datetime, including its  participants, exceptions and the basis declared for each event type.
@@ -413,7 +413,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (AllocationMap)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationMap>> GetAllocationMapWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListAllocationMaps: List Allocation Maps.
+        /// [EARLY ACCESS] ListAllocationMaps: List Allocation Maps.
         /// </summary>
         /// <remarks>
         /// List all the Allocation Maps matching a particular criteria.
@@ -432,7 +432,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfAllocationMap> ListAllocationMapsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListAllocationMaps: List Allocation Maps.
+        /// [EARLY ACCESS] ListAllocationMaps: List Allocation Maps.
         /// </summary>
         /// <remarks>
         /// List all the Allocation Maps matching a particular criteria.
@@ -450,7 +450,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfAllocationMap)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAllocationMap>> ListAllocationMapsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] RemoveAllocationMapException: Remove an exception from an Allocation Map.
+        /// [EARLY ACCESS] RemoveAllocationMapException: Remove an exception from an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Remove the exception held against an investor record, from an effective datetime. The result is a new  bitemporal version of the map in which that investor is treated like every other participant.
@@ -467,7 +467,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<AllocationMap> RemoveAllocationMapExceptionAsync(string scope, string code, string investorRecordId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] RemoveAllocationMapException: Remove an exception from an Allocation Map.
+        /// [EARLY ACCESS] RemoveAllocationMapException: Remove an exception from an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Remove the exception held against an investor record, from an effective datetime. The result is a new  bitemporal version of the map in which that investor is treated like every other participant.
@@ -483,7 +483,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (AllocationMap)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationMap>> RemoveAllocationMapExceptionWithHttpInfoAsync(string scope, string code, string investorRecordId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ResolveAllocationMap: Resolve an Allocation Map.
+        /// [EARLY ACCESS] ResolveAllocationMap: Resolve an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Dry-run the map against an event: share the supplied amount across the participants in force at the  effective datetime, applying fixed-percentage exceptions off the top and the declared basis to the remainder.  Nothing is booked. Basis values (for example committed capital per investor) are supplied in the request  until the investor register can provide them.
@@ -501,7 +501,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<AllocationMapResolution> ResolveAllocationMapAsync(string scope, string code, AllocationMapResolveRequest allocationMapResolveRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ResolveAllocationMap: Resolve an Allocation Map.
+        /// [EARLY ACCESS] ResolveAllocationMap: Resolve an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Dry-run the map against an event: share the supplied amount across the participants in force at the  effective datetime, applying fixed-percentage exceptions off the top and the declared basis to the remainder.  Nothing is booked. Basis values (for example committed capital per investor) are supplied in the request  until the investor register can provide them.
@@ -518,7 +518,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (AllocationMapResolution)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationMapResolution>> ResolveAllocationMapWithHttpInfoAsync(string scope, string code, AllocationMapResolveRequest allocationMapResolveRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAllocationMap: Upsert an Allocation Map.
+        /// [EARLY ACCESS] UpsertAllocationMap: Upsert an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Update or insert an Allocation Map. If the Allocation Map does not exist it is created, otherwise it is  updated. The code in the request body must match the code in the route.
@@ -534,7 +534,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<AllocationMap> UpsertAllocationMapAsync(string scope, string code, AllocationMapRequest allocationMapRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAllocationMap: Upsert an Allocation Map.
+        /// [EARLY ACCESS] UpsertAllocationMap: Upsert an Allocation Map.
         /// </summary>
         /// <remarks>
         /// Update or insert an Allocation Map. If the Allocation Map does not exist it is created, otherwise it is  updated. The code in the request body must match the code in the route.
@@ -672,7 +672,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddAllocationMapException: Add an exception to an Allocation Map. Add a per-investor exception (an exclusion or a fixed percentage) to the map&#39;s participants, from an  effective datetime. The result is a new bitemporal version of the map. An investor record may carry at most  one exception; to change it, remove the existing one first or upsert the whole map.
+        /// [EARLY ACCESS] AddAllocationMapException: Add an exception to an Allocation Map. Add a per-investor exception (an exclusion or a fixed percentage) to the map&#39;s participants, from an  effective datetime. The result is a new bitemporal version of the map. An investor record may carry at most  one exception; to change it, remove the existing one first or upsert the whole map.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -689,7 +689,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddAllocationMapException: Add an exception to an Allocation Map. Add a per-investor exception (an exclusion or a fixed percentage) to the map&#39;s participants, from an  effective datetime. The result is a new bitemporal version of the map. An investor record may carry at most  one exception; to change it, remove the existing one first or upsert the whole map.
+        /// [EARLY ACCESS] AddAllocationMapException: Add an exception to an Allocation Map. Add a per-investor exception (an exclusion or a fixed percentage) to the map&#39;s participants, from an  effective datetime. The result is a new bitemporal version of the map. An investor record may carry at most  one exception; to change it, remove the existing one first or upsert the whole map.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -801,7 +801,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddAllocationMapException: Add an exception to an Allocation Map. Add a per-investor exception (an exclusion or a fixed percentage) to the map&#39;s participants, from an  effective datetime. The result is a new bitemporal version of the map. An investor record may carry at most  one exception; to change it, remove the existing one first or upsert the whole map.
+        /// [EARLY ACCESS] AddAllocationMapException: Add an exception to an Allocation Map. Add a per-investor exception (an exclusion or a fixed percentage) to the map&#39;s participants, from an  effective datetime. The result is a new bitemporal version of the map. An investor record may carry at most  one exception; to change it, remove the existing one first or upsert the whole map.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -819,7 +819,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddAllocationMapException: Add an exception to an Allocation Map. Add a per-investor exception (an exclusion or a fixed percentage) to the map&#39;s participants, from an  effective datetime. The result is a new bitemporal version of the map. An investor record may carry at most  one exception; to change it, remove the existing one first or upsert the whole map.
+        /// [EARLY ACCESS] AddAllocationMapException: Add an exception to an Allocation Map. Add a per-investor exception (an exclusion or a fixed percentage) to the map&#39;s participants, from an  effective datetime. The result is a new bitemporal version of the map. An investor record may carry at most  one exception; to change it, remove the existing one first or upsert the whole map.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -933,7 +933,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateAllocationMap: Create an Allocation Map. Create a new Allocation Map. The scope is provided in the route and the code in the request body. The map  names the structure member it hangs off, who participates, and the basis used to share each kind of event.
+        /// [EARLY ACCESS] CreateAllocationMap: Create an Allocation Map. Create a new Allocation Map. The scope is provided in the route and the code in the request body. The map  names the structure member it hangs off, who participates, and the basis used to share each kind of event.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -948,7 +948,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateAllocationMap: Create an Allocation Map. Create a new Allocation Map. The scope is provided in the route and the code in the request body. The map  names the structure member it hangs off, who participates, and the basis used to share each kind of event.
+        /// [EARLY ACCESS] CreateAllocationMap: Create an Allocation Map. Create a new Allocation Map. The scope is provided in the route and the code in the request body. The map  names the structure member it hangs off, who participates, and the basis used to share each kind of event.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -1046,7 +1046,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateAllocationMap: Create an Allocation Map. Create a new Allocation Map. The scope is provided in the route and the code in the request body. The map  names the structure member it hangs off, who participates, and the basis used to share each kind of event.
+        /// [EARLY ACCESS] CreateAllocationMap: Create an Allocation Map. Create a new Allocation Map. The scope is provided in the route and the code in the request body. The map  names the structure member it hangs off, who participates, and the basis used to share each kind of event.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -1062,7 +1062,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateAllocationMap: Create an Allocation Map. Create a new Allocation Map. The scope is provided in the route and the code in the request body. The map  names the structure member it hangs off, who participates, and the basis used to share each kind of event.
+        /// [EARLY ACCESS] CreateAllocationMap: Create an Allocation Map. Create a new Allocation Map. The scope is provided in the route and the code in the request body. The map  names the structure member it hangs off, who participates, and the basis used to share each kind of event.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -1163,7 +1163,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAllocationMap: Delete an Allocation Map. Delete an Allocation Map from an effective datetime. The Allocation Map is no longer readable from that  effective datetime onwards.
+        /// [EARLY ACCESS] DeleteAllocationMap: Delete an Allocation Map. Delete an Allocation Map from an effective datetime. The Allocation Map is no longer readable from that  effective datetime onwards.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -1179,7 +1179,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAllocationMap: Delete an Allocation Map. Delete an Allocation Map from an effective datetime. The Allocation Map is no longer readable from that  effective datetime onwards.
+        /// [EARLY ACCESS] DeleteAllocationMap: Delete an Allocation Map. Delete an Allocation Map from an effective datetime. The Allocation Map is no longer readable from that  effective datetime onwards.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -1279,7 +1279,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAllocationMap: Delete an Allocation Map. Delete an Allocation Map from an effective datetime. The Allocation Map is no longer readable from that  effective datetime onwards.
+        /// [EARLY ACCESS] DeleteAllocationMap: Delete an Allocation Map. Delete an Allocation Map from an effective datetime. The Allocation Map is no longer readable from that  effective datetime onwards.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -1296,7 +1296,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAllocationMap: Delete an Allocation Map. Delete an Allocation Map from an effective datetime. The Allocation Map is no longer readable from that  effective datetime onwards.
+        /// [EARLY ACCESS] DeleteAllocationMap: Delete an Allocation Map. Delete an Allocation Map from an effective datetime. The Allocation Map is no longer readable from that  effective datetime onwards.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -1398,7 +1398,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAllocationMap: Get an Allocation Map. Retrieve the definition of a particular Allocation Map at an effective and asAt datetime, including its  participants, exceptions and the basis declared for each event type.
+        /// [EARLY ACCESS] GetAllocationMap: Get an Allocation Map. Retrieve the definition of a particular Allocation Map at an effective and asAt datetime, including its  participants, exceptions and the basis declared for each event type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -1415,7 +1415,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAllocationMap: Get an Allocation Map. Retrieve the definition of a particular Allocation Map at an effective and asAt datetime, including its  participants, exceptions and the basis declared for each event type.
+        /// [EARLY ACCESS] GetAllocationMap: Get an Allocation Map. Retrieve the definition of a particular Allocation Map at an effective and asAt datetime, including its  participants, exceptions and the basis declared for each event type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -1521,7 +1521,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAllocationMap: Get an Allocation Map. Retrieve the definition of a particular Allocation Map at an effective and asAt datetime, including its  participants, exceptions and the basis declared for each event type.
+        /// [EARLY ACCESS] GetAllocationMap: Get an Allocation Map. Retrieve the definition of a particular Allocation Map at an effective and asAt datetime, including its  participants, exceptions and the basis declared for each event type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -1539,7 +1539,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAllocationMap: Get an Allocation Map. Retrieve the definition of a particular Allocation Map at an effective and asAt datetime, including its  participants, exceptions and the basis declared for each event type.
+        /// [EARLY ACCESS] GetAllocationMap: Get an Allocation Map. Retrieve the definition of a particular Allocation Map at an effective and asAt datetime, including its  participants, exceptions and the basis declared for each event type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -1646,7 +1646,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListAllocationMaps: List Allocation Maps. List all the Allocation Maps matching a particular criteria.
+        /// [EARLY ACCESS] ListAllocationMaps: List Allocation Maps. List all the Allocation Maps matching a particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the Allocation Maps. Defaults to the current LUSID system datetime if not specified. (optional)</param>
@@ -1665,7 +1665,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListAllocationMaps: List Allocation Maps. List all the Allocation Maps matching a particular criteria.
+        /// [EARLY ACCESS] ListAllocationMaps: List Allocation Maps. List all the Allocation Maps matching a particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the Allocation Maps. Defaults to the current LUSID system datetime if not specified. (optional)</param>
@@ -1779,7 +1779,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListAllocationMaps: List Allocation Maps. List all the Allocation Maps matching a particular criteria.
+        /// [EARLY ACCESS] ListAllocationMaps: List Allocation Maps. List all the Allocation Maps matching a particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the Allocation Maps. Defaults to the current LUSID system datetime if not specified. (optional)</param>
@@ -1799,7 +1799,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListAllocationMaps: List Allocation Maps. List all the Allocation Maps matching a particular criteria.
+        /// [EARLY ACCESS] ListAllocationMaps: List Allocation Maps. List all the Allocation Maps matching a particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the Allocation Maps. Defaults to the current LUSID system datetime if not specified. (optional)</param>
@@ -1910,7 +1910,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RemoveAllocationMapException: Remove an exception from an Allocation Map. Remove the exception held against an investor record, from an effective datetime. The result is a new  bitemporal version of the map in which that investor is treated like every other participant.
+        /// [EARLY ACCESS] RemoveAllocationMapException: Remove an exception from an Allocation Map. Remove the exception held against an investor record, from an effective datetime. The result is a new  bitemporal version of the map in which that investor is treated like every other participant.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -1927,7 +1927,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RemoveAllocationMapException: Remove an exception from an Allocation Map. Remove the exception held against an investor record, from an effective datetime. The result is a new  bitemporal version of the map in which that investor is treated like every other participant.
+        /// [EARLY ACCESS] RemoveAllocationMapException: Remove an exception from an Allocation Map. Remove the exception held against an investor record, from an effective datetime. The result is a new  bitemporal version of the map in which that investor is treated like every other participant.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -2035,7 +2035,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RemoveAllocationMapException: Remove an exception from an Allocation Map. Remove the exception held against an investor record, from an effective datetime. The result is a new  bitemporal version of the map in which that investor is treated like every other participant.
+        /// [EARLY ACCESS] RemoveAllocationMapException: Remove an exception from an Allocation Map. Remove the exception held against an investor record, from an effective datetime. The result is a new  bitemporal version of the map in which that investor is treated like every other participant.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -2053,7 +2053,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RemoveAllocationMapException: Remove an exception from an Allocation Map. Remove the exception held against an investor record, from an effective datetime. The result is a new  bitemporal version of the map in which that investor is treated like every other participant.
+        /// [EARLY ACCESS] RemoveAllocationMapException: Remove an exception from an Allocation Map. Remove the exception held against an investor record, from an effective datetime. The result is a new  bitemporal version of the map in which that investor is treated like every other participant.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -2163,7 +2163,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ResolveAllocationMap: Resolve an Allocation Map. Dry-run the map against an event: share the supplied amount across the participants in force at the  effective datetime, applying fixed-percentage exceptions off the top and the declared basis to the remainder.  Nothing is booked. Basis values (for example committed capital per investor) are supplied in the request  until the investor register can provide them.
+        /// [EARLY ACCESS] ResolveAllocationMap: Resolve an Allocation Map. Dry-run the map against an event: share the supplied amount across the participants in force at the  effective datetime, applying fixed-percentage exceptions off the top and the declared basis to the remainder.  Nothing is booked. Basis values (for example committed capital per investor) are supplied in the request  until the investor register can provide them.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -2181,7 +2181,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ResolveAllocationMap: Resolve an Allocation Map. Dry-run the map against an event: share the supplied amount across the participants in force at the  effective datetime, applying fixed-percentage exceptions off the top and the declared basis to the remainder.  Nothing is booked. Basis values (for example committed capital per investor) are supplied in the request  until the investor register can provide them.
+        /// [EARLY ACCESS] ResolveAllocationMap: Resolve an Allocation Map. Dry-run the map against an event: share the supplied amount across the participants in force at the  effective datetime, applying fixed-percentage exceptions off the top and the declared basis to the remainder.  Nothing is booked. Basis values (for example committed capital per investor) are supplied in the request  until the investor register can provide them.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -2299,7 +2299,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ResolveAllocationMap: Resolve an Allocation Map. Dry-run the map against an event: share the supplied amount across the participants in force at the  effective datetime, applying fixed-percentage exceptions off the top and the declared basis to the remainder.  Nothing is booked. Basis values (for example committed capital per investor) are supplied in the request  until the investor register can provide them.
+        /// [EARLY ACCESS] ResolveAllocationMap: Resolve an Allocation Map. Dry-run the map against an event: share the supplied amount across the participants in force at the  effective datetime, applying fixed-percentage exceptions off the top and the declared basis to the remainder.  Nothing is booked. Basis values (for example committed capital per investor) are supplied in the request  until the investor register can provide them.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -2318,7 +2318,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ResolveAllocationMap: Resolve an Allocation Map. Dry-run the map against an event: share the supplied amount across the participants in force at the  effective datetime, applying fixed-percentage exceptions off the top and the declared basis to the remainder.  Nothing is booked. Basis values (for example committed capital per investor) are supplied in the request  until the investor register can provide them.
+        /// [EARLY ACCESS] ResolveAllocationMap: Resolve an Allocation Map. Dry-run the map against an event: share the supplied amount across the participants in force at the  effective datetime, applying fixed-percentage exceptions off the top and the declared basis to the remainder.  Nothing is booked. Basis values (for example committed capital per investor) are supplied in the request  until the investor register can provide them.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -2437,7 +2437,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAllocationMap: Upsert an Allocation Map. Update or insert an Allocation Map. If the Allocation Map does not exist it is created, otherwise it is  updated. The code in the request body must match the code in the route.
+        /// [EARLY ACCESS] UpsertAllocationMap: Upsert an Allocation Map. Update or insert an Allocation Map. If the Allocation Map does not exist it is created, otherwise it is  updated. The code in the request body must match the code in the route.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -2453,7 +2453,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAllocationMap: Upsert an Allocation Map. Update or insert an Allocation Map. If the Allocation Map does not exist it is created, otherwise it is  updated. The code in the request body must match the code in the route.
+        /// [EARLY ACCESS] UpsertAllocationMap: Upsert an Allocation Map. Update or insert an Allocation Map. If the Allocation Map does not exist it is created, otherwise it is  updated. The code in the request body must match the code in the route.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -2559,7 +2559,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAllocationMap: Upsert an Allocation Map. Update or insert an Allocation Map. If the Allocation Map does not exist it is created, otherwise it is  updated. The code in the request body must match the code in the route.
+        /// [EARLY ACCESS] UpsertAllocationMap: Upsert an Allocation Map. Update or insert an Allocation Map. If the Allocation Map does not exist it is created, otherwise it is  updated. The code in the request body must match the code in the route.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>
@@ -2576,7 +2576,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAllocationMap: Upsert an Allocation Map. Update or insert an Allocation Map. If the Allocation Map does not exist it is created, otherwise it is  updated. The code in the request body must match the code in the route.
+        /// [EARLY ACCESS] UpsertAllocationMap: Upsert an Allocation Map. Update or insert an Allocation Map. If the Allocation Map does not exist it is created, otherwise it is  updated. The code in the request body must match the code in the route.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Allocation Map.</param>

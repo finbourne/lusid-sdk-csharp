@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The transfer agency estimates a swing decision was made on: how many orders were dealt at the valuation point and what they summed.
+    /// The transfer agency estimates a swing decision was made on: the orders dealt at the valuation point, what they summed, and how many pending orders were left out.
     /// </summary>
     [DataContract(Name = "DealingFlowSummary")]
     public partial class DealingFlowSummary : IEquatable<DealingFlowSummary>, IValidatableObject
@@ -39,11 +39,13 @@ namespace Lusid.Sdk.Model
         /// <param name="count">How many orders were summed. (required).</param>
         /// <param name="grossInflow">The sum of the inflows, in the fund currency. Zero or more. (required).</param>
         /// <param name="grossOutflow">The sum of the outflows, in the fund currency, as a magnitude. Zero or more. (required).</param>
-        public DealingFlowSummary(int count = default(int), decimal grossInflow = default(decimal), decimal grossOutflow = default(decimal))
+        /// <param name="pendingNotCounted">How many pending orders at the valuation point were left out of the sums because the fund&#39;s dealing estimates do not count pending orders. Zero when the fund counts them. (required).</param>
+        public DealingFlowSummary(int count = default(int), decimal grossInflow = default(decimal), decimal grossOutflow = default(decimal), int pendingNotCounted = default(int))
         {
             this.Count = count;
             this.GrossInflow = grossInflow;
             this.GrossOutflow = grossOutflow;
+            this.PendingNotCounted = pendingNotCounted;
         }
 
         /// <summary>
@@ -68,6 +70,13 @@ namespace Lusid.Sdk.Model
         public decimal GrossOutflow { get; set; }
 
         /// <summary>
+        /// How many pending orders at the valuation point were left out of the sums because the fund&#39;s dealing estimates do not count pending orders. Zero when the fund counts them.
+        /// </summary>
+        /// <value>How many pending orders at the valuation point were left out of the sums because the fund&#39;s dealing estimates do not count pending orders. Zero when the fund counts them.</value>
+        [DataMember(Name = "pendingNotCounted", IsRequired = true, EmitDefaultValue = true)]
+        public int PendingNotCounted { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -78,6 +87,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Count: ").Append(Count).Append("\n");
             sb.Append("  GrossInflow: ").Append(GrossInflow).Append("\n");
             sb.Append("  GrossOutflow: ").Append(GrossOutflow).Append("\n");
+            sb.Append("  PendingNotCounted: ").Append(PendingNotCounted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -124,6 +134,10 @@ namespace Lusid.Sdk.Model
                 (
                     this.GrossOutflow == input.GrossOutflow ||
                     this.GrossOutflow.Equals(input.GrossOutflow)
+                ) && 
+                (
+                    this.PendingNotCounted == input.PendingNotCounted ||
+                    this.PendingNotCounted.Equals(input.PendingNotCounted)
                 );
         }
 
@@ -139,6 +153,7 @@ namespace Lusid.Sdk.Model
                 hashCode = (hashCode * 59) + this.Count.GetHashCode();
                 hashCode = (hashCode * 59) + this.GrossInflow.GetHashCode();
                 hashCode = (hashCode * 59) + this.GrossOutflow.GetHashCode();
+                hashCode = (hashCode * 59) + this.PendingNotCounted.GetHashCode();
                 return hashCode;
             }
         }

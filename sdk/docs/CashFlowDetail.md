@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **ReportCurrencyAmount** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **TradeToReportCurrencyRate** | **decimal?** | The FX rate used to convert the cashflow amount from its own payment currency (see Amount) into the request&#39;s report currency. For the default FxSpot rate type it is resolved at the cashflow&#39;s transaction (trade) date, not its payment date; for FxForward it is the forward rate for the payment date (see QueryBucketCashFlowDrillDownRequest.FxRateType and FxRateTypeApplied). Only present when ReportCurrency was supplied on the request; not present when it was omitted, or when the rate could not be resolved (see Error). | [optional] 
 **FxRateTypeApplied** | **string** | Which rate type produced TradeToReportCurrencyRate: FxSpot or FxForward. Under the ForwardThenSpot request option this shows whether a cashflow received the forward rate or fell back to spot. Only present when the cashflow was converted into the ReportCurrency. | [optional] 
+**SubHoldingKeys** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The sub-holding keys of the holding that produced the cashflow, keyed by property key. Each cashflow carries the keys of its own portfolio&#39;s holding, so when drilling into a portfolio group whose portfolios share the same sub-holding keys, those keys are reported on every cashflow. Empty when the portfolio defines no sub-holding keys. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -46,6 +47,7 @@ string error = "example error";
 CurrencyAndAmount? reportCurrencyAmount = new CurrencyAndAmount();
 
 string fxRateTypeApplied = "example fxRateTypeApplied";
+Dictionary<string, PerpetualProperty> subHoldingKeys = new Dictionary<string, PerpetualProperty>();
 List<Link> links = new List<Link>();
 
 CashFlowDetail cashFlowDetailInstance = new CashFlowDetail(
@@ -66,6 +68,7 @@ CashFlowDetail cashFlowDetailInstance = new CashFlowDetail(
     reportCurrencyAmount: reportCurrencyAmount,
     tradeToReportCurrencyRate: tradeToReportCurrencyRate,
     fxRateTypeApplied: fxRateTypeApplied,
+    subHoldingKeys: subHoldingKeys,
     links: links);
 ```
 

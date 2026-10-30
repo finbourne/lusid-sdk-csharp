@@ -152,7 +152,13 @@ namespace Lusid.Sdk.Model
         /// Enum PrincipalDistributed for value: PrincipalDistributed
         /// </summary>
         [EnumMember(Value = "PrincipalDistributed")]
-        PrincipalDistributed = 21
+        PrincipalDistributed = 21,
+
+        /// <summary>
+        /// Enum EffectiveYield for value: EffectiveYield
+        /// </summary>
+        [EnumMember(Value = "EffectiveYield")]
+        EffectiveYield = 22
     }
 
 }

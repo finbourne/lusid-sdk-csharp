@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **InflowTrigger** | [**SwingTriggerEvaluation**](SwingTriggerEvaluation.md) |  | [optional] 
 **OutflowTrigger** | [**SwingTriggerEvaluation**](SwingTriggerEvaluation.md) |  | [optional] 
 **DealingFlows** | [**DealingFlowSummary**](DealingFlowSummary.md) |  | [optional] 
+**EstimateValuation** | [**EstimateValuation**](EstimateValuation.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -30,6 +31,8 @@ SwingTriggerEvaluation? outflowTrigger = new SwingTriggerEvaluation();
 
 DealingFlowSummary? dealingFlows = new DealingFlowSummary();
 
+EstimateValuation? estimateValuation = new EstimateValuation();
+
 
 PricingMethodologyAudit pricingMethodologyAuditInstance = new PricingMethodologyAudit(
     netCashflow: netCashflow,
@@ -39,7 +42,8 @@ PricingMethodologyAudit pricingMethodologyAuditInstance = new PricingMethodology
     override: override,
     inflowTrigger: inflowTrigger,
     outflowTrigger: outflowTrigger,
-    dealingFlows: dealingFlows);
+    dealingFlows: dealingFlows,
+    estimateValuation: estimateValuation);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

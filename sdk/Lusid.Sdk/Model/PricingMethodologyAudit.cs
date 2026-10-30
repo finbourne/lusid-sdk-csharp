@@ -44,7 +44,8 @@ namespace Lusid.Sdk.Model
         /// <param name="inflowTrigger">inflowTrigger.</param>
         /// <param name="outflowTrigger">outflowTrigger.</param>
         /// <param name="dealingFlows">dealingFlows.</param>
-        public PricingMethodologyAudit(decimal netCashflow = default(decimal), decimal? netCashflowPctOfNav = default(decimal?), SwingSpreadApplied spreadsApplied = default(SwingSpreadApplied), PricingMethodologyEngineProposal engineProposal = default(PricingMethodologyEngineProposal), PricingMethodologyOverride varOverride = default(PricingMethodologyOverride), SwingTriggerEvaluation inflowTrigger = default(SwingTriggerEvaluation), SwingTriggerEvaluation outflowTrigger = default(SwingTriggerEvaluation), DealingFlowSummary dealingFlows = default(DealingFlowSummary))
+        /// <param name="estimateValuation">estimateValuation.</param>
+        public PricingMethodologyAudit(decimal netCashflow = default(decimal), decimal? netCashflowPctOfNav = default(decimal?), SwingSpreadApplied spreadsApplied = default(SwingSpreadApplied), PricingMethodologyEngineProposal engineProposal = default(PricingMethodologyEngineProposal), PricingMethodologyOverride varOverride = default(PricingMethodologyOverride), SwingTriggerEvaluation inflowTrigger = default(SwingTriggerEvaluation), SwingTriggerEvaluation outflowTrigger = default(SwingTriggerEvaluation), DealingFlowSummary dealingFlows = default(DealingFlowSummary), EstimateValuation estimateValuation = default(EstimateValuation))
         {
             this.NetCashflow = netCashflow;
             // to ensure "engineProposal" is required (not null)
@@ -59,6 +60,7 @@ namespace Lusid.Sdk.Model
             this.InflowTrigger = inflowTrigger;
             this.OutflowTrigger = outflowTrigger;
             this.DealingFlows = dealingFlows;
+            this.EstimateValuation = estimateValuation;
         }
 
         /// <summary>
@@ -112,6 +114,12 @@ namespace Lusid.Sdk.Model
         public DealingFlowSummary DealingFlows { get; set; }
 
         /// <summary>
+        /// Gets or Sets EstimateValuation
+        /// </summary>
+        [DataMember(Name = "estimateValuation", EmitDefaultValue = false)]
+        public EstimateValuation EstimateValuation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -127,6 +135,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InflowTrigger: ").Append(InflowTrigger).Append("\n");
             sb.Append("  OutflowTrigger: ").Append(OutflowTrigger).Append("\n");
             sb.Append("  DealingFlows: ").Append(DealingFlows).Append("\n");
+            sb.Append("  EstimateValuation: ").Append(EstimateValuation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -200,6 +209,11 @@ namespace Lusid.Sdk.Model
                     this.DealingFlows == input.DealingFlows ||
                     (this.DealingFlows != null &&
                     this.DealingFlows.Equals(input.DealingFlows))
+                ) && 
+                (
+                    this.EstimateValuation == input.EstimateValuation ||
+                    (this.EstimateValuation != null &&
+                    this.EstimateValuation.Equals(input.EstimateValuation))
                 );
         }
 
@@ -240,6 +254,10 @@ namespace Lusid.Sdk.Model
                 if (this.DealingFlows != null)
                 {
                     hashCode = (hashCode * 59) + this.DealingFlows.GetHashCode();
+                }
+                if (this.EstimateValuation != null)
+                {
+                    hashCode = (hashCode * 59) + this.EstimateValuation.GetHashCode();
                 }
                 return hashCode;
             }

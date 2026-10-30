@@ -356,7 +356,13 @@ namespace Lusid.Sdk.Model
         /// Enum WholeLoanFacility for value: WholeLoanFacility
         /// </summary>
         [EnumMember(Value = "WholeLoanFacility")]
-        WholeLoanFacility = 55
+        WholeLoanFacility = 55,
+
+        /// <summary>
+        /// Enum StripBond for value: StripBond
+        /// </summary>
+        [EnumMember(Value = "StripBond")]
+        StripBond = 56
     }
 
 }

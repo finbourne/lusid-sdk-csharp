@@ -104,7 +104,13 @@ namespace Lusid.Sdk.Model
         /// Enum SimpleModelOptions for value: SimpleModelOptions
         /// </summary>
         [EnumMember(Value = "SimpleModelOptions")]
-        SimpleModelOptions = 13
+        SimpleModelOptions = 13,
+
+        /// <summary>
+        /// Enum StripBondModelOptions for value: StripBondModelOptions
+        /// </summary>
+        [EnumMember(Value = "StripBondModelOptions")]
+        StripBondModelOptions = 14
     }
 
 }

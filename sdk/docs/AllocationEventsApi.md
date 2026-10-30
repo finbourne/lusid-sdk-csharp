@@ -4,27 +4,27 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**BookAllocationEvent**](AllocationEventsApi.md#bookallocationevent) | **POST** /api/allocationevents/{scope}/{code}/book | [EXPERIMENTAL] BookAllocationEvent: Book an Allocation Event. |
-| [**CreateAllocationEvent**](AllocationEventsApi.md#createallocationevent) | **POST** /api/allocationevents/{scope} | [EXPERIMENTAL] CreateAllocationEvent: Create an Allocation Event. |
-| [**DeleteAllocationEvent**](AllocationEventsApi.md#deleteallocationevent) | **DELETE** /api/allocationevents/{scope}/{code} | [EXPERIMENTAL] DeleteAllocationEvent: Delete an Allocation Event. |
-| [**GetAllocationEvent**](AllocationEventsApi.md#getallocationevent) | **GET** /api/allocationevents/{scope}/{code} | [EXPERIMENTAL] GetAllocationEvent: Get an Allocation Event. |
+| [**BookAllocationEvent**](AllocationEventsApi.md#bookallocationevent) | **POST** /api/allocationevents/{scope}/{code}/book | [EARLY ACCESS] BookAllocationEvent: Book an Allocation Event. |
+| [**CreateAllocationEvent**](AllocationEventsApi.md#createallocationevent) | **POST** /api/allocationevents/{scope} | [EARLY ACCESS] CreateAllocationEvent: Create an Allocation Event. |
+| [**DeleteAllocationEvent**](AllocationEventsApi.md#deleteallocationevent) | **DELETE** /api/allocationevents/{scope}/{code} | [EARLY ACCESS] DeleteAllocationEvent: Delete an Allocation Event. |
+| [**GetAllocationEvent**](AllocationEventsApi.md#getallocationevent) | **GET** /api/allocationevents/{scope}/{code} | [EARLY ACCESS] GetAllocationEvent: Get an Allocation Event. |
 | [**GetAllocationEventNotices**](AllocationEventsApi.md#getallocationeventnotices) | **GET** /api/allocationevents/{scope}/{code}/notices | [EARLY ACCESS] GetAllocationEventNotices: [EARLY ACCESS] GetAllocationEventNotices: Get the notices an allocation event issues to its partners. |
-| [**GetAllocationEventReceivables**](AllocationEventsApi.md#getallocationeventreceivables) | **GET** /api/allocationevents/{scope}/{code}/receivables | [EXPERIMENTAL] GetAllocationEventReceivables: Get the receivables of an Allocation Event. |
-| [**ListAllocationEvents**](AllocationEventsApi.md#listallocationevents) | **GET** /api/allocationevents | [EXPERIMENTAL] ListAllocationEvents: List Allocation Events. |
+| [**GetAllocationEventReceivables**](AllocationEventsApi.md#getallocationeventreceivables) | **GET** /api/allocationevents/{scope}/{code}/receivables | [EARLY ACCESS] GetAllocationEventReceivables: Get the receivables of an Allocation Event. |
+| [**ListAllocationEvents**](AllocationEventsApi.md#listallocationevents) | **GET** /api/allocationevents | [EARLY ACCESS] ListAllocationEvents: List Allocation Events. |
 | [**ListAllocationPaymentHolds**](AllocationEventsApi.md#listallocationpaymentholds) | **GET** /api/allocationevents/{scope}/{code}/allocations/{investorRecordId}/holds | [EARLY ACCESS] ListAllocationPaymentHolds: [EARLY ACCESS] ListAllocationPaymentHolds: List the holds placed on a partner&#39;s payment. |
-| [**PlanAllocationEventBooking**](AllocationEventsApi.md#planallocationeventbooking) | **POST** /api/allocationevents/{scope}/{code}/plan | [EXPERIMENTAL] PlanAllocationEventBooking: Plan the booking of an Allocation Event. |
+| [**PlanAllocationEventBooking**](AllocationEventsApi.md#planallocationeventbooking) | **POST** /api/allocationevents/{scope}/{code}/plan | [EARLY ACCESS] PlanAllocationEventBooking: Plan the booking of an Allocation Event. |
 | [**PutAllocationPaymentHold**](AllocationEventsApi.md#putallocationpaymenthold) | **PUT** /api/allocationevents/{scope}/{code}/allocations/{investorRecordId}/hold | [EARLY ACCESS] PutAllocationPaymentHold: [EARLY ACCESS] PutAllocationPaymentHold: Place, move or release a hold on a partner&#39;s payment. |
-| [**ReallocateAllocationEvent**](AllocationEventsApi.md#reallocateallocationevent) | **POST** /api/allocationevents/{scope}/{code}/reallocate | [EXPERIMENTAL] ReallocateAllocationEvent: Reallocate an Allocation Event. |
-| [**ReceiveAllocationEvent**](AllocationEventsApi.md#receiveallocationevent) | **POST** /api/allocationevents/{scope}/{code}/receipts | [EXPERIMENTAL] ReceiveAllocationEvent: Record a receipt against an Allocation Event. |
-| [**ReverseAllocationEvent**](AllocationEventsApi.md#reverseallocationevent) | **POST** /api/allocationevents/{scope}/{code}/reverse | [EXPERIMENTAL] ReverseAllocationEvent: Reverse an Allocation Event. |
-| [**UnbookAllocationEvent**](AllocationEventsApi.md#unbookallocationevent) | **POST** /api/allocationevents/{scope}/{code}/unbook | [EXPERIMENTAL] UnbookAllocationEvent: Unbook an Allocation Event. |
-| [**UpsertAllocationEvent**](AllocationEventsApi.md#upsertallocationevent) | **PUT** /api/allocationevents/{scope}/{code} | [EXPERIMENTAL] UpsertAllocationEvent: Upsert an Allocation Event. |
+| [**ReallocateAllocationEvent**](AllocationEventsApi.md#reallocateallocationevent) | **POST** /api/allocationevents/{scope}/{code}/reallocate | [EARLY ACCESS] ReallocateAllocationEvent: Reallocate an Allocation Event. |
+| [**ReceiveAllocationEvent**](AllocationEventsApi.md#receiveallocationevent) | **POST** /api/allocationevents/{scope}/{code}/receipts | [EARLY ACCESS] ReceiveAllocationEvent: Record a receipt against an Allocation Event. |
+| [**ReverseAllocationEvent**](AllocationEventsApi.md#reverseallocationevent) | **POST** /api/allocationevents/{scope}/{code}/reverse | [EARLY ACCESS] ReverseAllocationEvent: Reverse an Allocation Event. |
+| [**UnbookAllocationEvent**](AllocationEventsApi.md#unbookallocationevent) | **POST** /api/allocationevents/{scope}/{code}/unbook | [EARLY ACCESS] UnbookAllocationEvent: Unbook an Allocation Event. |
+| [**UpsertAllocationEvent**](AllocationEventsApi.md#upsertallocationevent) | **PUT** /api/allocationevents/{scope}/{code} | [EARLY ACCESS] UpsertAllocationEvent: Upsert an Allocation Event. |
 
 <a id="bookallocationevent"></a>
 # **BookAllocationEvent**
 > AllocationEvent BookAllocationEvent (string scope, string code, AllocationEventBookRequest allocationEventBookRequest, DateTimeOrCutLabel? effectiveAt = null)
 
-[EXPERIMENTAL] BookAllocationEvent: Book an Allocation Event.
+[EARLY ACCESS] BookAllocationEvent: Book an Allocation Event.
 
 Freeze a computed Allocation Event under a booking reference, from an effective datetime. Once booked the  event can no longer be replaced or reallocated. Booking again under the same reference returns the event  unchanged; booking under a different reference is refused.
 
@@ -77,7 +77,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AllocationEvent result = apiInstance.BookAllocationEvent(scope, code, allocationEventBookRequest, effectiveAt, opts: opts);
 
-                // [EXPERIMENTAL] BookAllocationEvent: Book an Allocation Event.
+                // [EARLY ACCESS] BookAllocationEvent: Book an Allocation Event.
                 AllocationEvent result = apiInstance.BookAllocationEvent(scope, code, allocationEventBookRequest, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -98,7 +98,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] BookAllocationEvent: Book an Allocation Event.
+    // [EARLY ACCESS] BookAllocationEvent: Book an Allocation Event.
     ApiResponse<AllocationEvent> response = apiInstance.BookAllocationEventWithHttpInfo(scope, code, allocationEventBookRequest, effectiveAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -144,7 +144,7 @@ catch (ApiException e)
 # **CreateAllocationEvent**
 > AllocationEvent CreateAllocationEvent (string scope, AllocationEventRequest allocationEventRequest)
 
-[EXPERIMENTAL] CreateAllocationEvent: Create an Allocation Event.
+[EARLY ACCESS] CreateAllocationEvent: Create an Allocation Event.
 
 Raise a new Allocation Event. The scope is provided in the route and the code in the request body. The event  names the Allocation Map it is shared by, the kind of event, the amount and the date. Its per-investor shares  are computed on creation from the map as it stood on the event date, so the response comes back Computed.
 
@@ -195,7 +195,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AllocationEvent result = apiInstance.CreateAllocationEvent(scope, allocationEventRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreateAllocationEvent: Create an Allocation Event.
+                // [EARLY ACCESS] CreateAllocationEvent: Create an Allocation Event.
                 AllocationEvent result = apiInstance.CreateAllocationEvent(scope, allocationEventRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -216,7 +216,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateAllocationEvent: Create an Allocation Event.
+    // [EARLY ACCESS] CreateAllocationEvent: Create an Allocation Event.
     ApiResponse<AllocationEvent> response = apiInstance.CreateAllocationEventWithHttpInfo(scope, allocationEventRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -260,7 +260,7 @@ catch (ApiException e)
 # **DeleteAllocationEvent**
 > DeletedEntityResponse DeleteAllocationEvent (string scope, string code, DateTimeOrCutLabel? effectiveAt = null)
 
-[EXPERIMENTAL] DeleteAllocationEvent: Delete an Allocation Event.
+[EARLY ACCESS] DeleteAllocationEvent: Delete an Allocation Event.
 
 Delete an Allocation Event. Given an effective datetime, the Allocation Event is deleted from that datetime  and remains retrievable at earlier effective datetimes. Given none, an Allocation Event that was created  without an effective datetime is removed from the beginning of time, so that its code can be reused;  this includes an event first created without an effective datetime and later upserted with dated versions,  whose dated versions are removed with it. Otherwise it is deleted from the current LUSID system datetime.  Only an Allocation Event that has not been booked can be deleted.
 
@@ -312,7 +312,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteAllocationEvent(scope, code, effectiveAt, opts: opts);
 
-                // [EXPERIMENTAL] DeleteAllocationEvent: Delete an Allocation Event.
+                // [EARLY ACCESS] DeleteAllocationEvent: Delete an Allocation Event.
                 DeletedEntityResponse result = apiInstance.DeleteAllocationEvent(scope, code, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -333,7 +333,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteAllocationEvent: Delete an Allocation Event.
+    // [EARLY ACCESS] DeleteAllocationEvent: Delete an Allocation Event.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteAllocationEventWithHttpInfo(scope, code, effectiveAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -378,7 +378,7 @@ catch (ApiException e)
 # **GetAllocationEvent**
 > AllocationEvent GetAllocationEvent (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetAllocationEvent: Get an Allocation Event.
+[EARLY ACCESS] GetAllocationEvent: Get an Allocation Event.
 
 Retrieve a particular Allocation Event at an effective and asAt datetime, including its computed  per-investor shares and, once booked, its booking reference.
 
@@ -431,7 +431,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AllocationEvent result = apiInstance.GetAllocationEvent(scope, code, effectiveAt, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetAllocationEvent: Get an Allocation Event.
+                // [EARLY ACCESS] GetAllocationEvent: Get an Allocation Event.
                 AllocationEvent result = apiInstance.GetAllocationEvent(scope, code, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -452,7 +452,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetAllocationEvent: Get an Allocation Event.
+    // [EARLY ACCESS] GetAllocationEvent: Get an Allocation Event.
     ApiResponse<AllocationEvent> response = apiInstance.GetAllocationEventWithHttpInfo(scope, code, effectiveAt, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -620,7 +620,7 @@ catch (ApiException e)
 # **GetAllocationEventReceivables**
 > AllocationReceivablesAgeing GetAllocationEventReceivables (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetAllocationEventReceivables: Get the receivables of an Allocation Event.
+[EARLY ACCESS] GetAllocationEventReceivables: Get the receivables of an Allocation Event.
 
 What each investor still owes on a booked capital call as of the effective datetime, with how many days past  due it is and the ageing bucket that puts it in.
 
@@ -673,7 +673,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AllocationReceivablesAgeing result = apiInstance.GetAllocationEventReceivables(scope, code, effectiveAt, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetAllocationEventReceivables: Get the receivables of an Allocation Event.
+                // [EARLY ACCESS] GetAllocationEventReceivables: Get the receivables of an Allocation Event.
                 AllocationReceivablesAgeing result = apiInstance.GetAllocationEventReceivables(scope, code, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -694,7 +694,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetAllocationEventReceivables: Get the receivables of an Allocation Event.
+    // [EARLY ACCESS] GetAllocationEventReceivables: Get the receivables of an Allocation Event.
     ApiResponse<AllocationReceivablesAgeing> response = apiInstance.GetAllocationEventReceivablesWithHttpInfo(scope, code, effectiveAt, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -740,7 +740,7 @@ catch (ApiException e)
 # **ListAllocationEvents**
 > PagedResourceListOfAllocationEvent ListAllocationEvents (DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null)
 
-[EXPERIMENTAL] ListAllocationEvents: List Allocation Events.
+[EARLY ACCESS] ListAllocationEvents: List Allocation Events.
 
 List all the Allocation Events matching a particular criteria.
 
@@ -795,7 +795,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfAllocationEvent result = apiInstance.ListAllocationEvents(effectiveAt, asAt, page, limit, filter, sortBy, opts: opts);
 
-                // [EXPERIMENTAL] ListAllocationEvents: List Allocation Events.
+                // [EARLY ACCESS] ListAllocationEvents: List Allocation Events.
                 PagedResourceListOfAllocationEvent result = apiInstance.ListAllocationEvents(effectiveAt, asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -816,7 +816,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListAllocationEvents: List Allocation Events.
+    // [EARLY ACCESS] ListAllocationEvents: List Allocation Events.
     ApiResponse<PagedResourceListOfAllocationEvent> response = apiInstance.ListAllocationEventsWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -982,7 +982,7 @@ catch (ApiException e)
 # **PlanAllocationEventBooking**
 > AllocationPostingPlan PlanAllocationEventBooking (string scope, string code, AllocationEventBookRequest allocationEventBookRequest, DateTimeOrCutLabel? effectiveAt = null)
 
-[EXPERIMENTAL] PlanAllocationEventBooking: Plan the booking of an Allocation Event.
+[EARLY ACCESS] PlanAllocationEventBooking: Plan the booking of an Allocation Event.
 
 Show everything booking a computed Allocation Event under a booking reference would write, validated as the  booking itself would be, without writing any of it: the investors' lines, the roll-ups above them through the  fund structure and the fund-side transactions. A booking that would be refused fails here with every problem  listed; warnings the map's policy lets through come back on the plan.
 
@@ -1035,7 +1035,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AllocationPostingPlan result = apiInstance.PlanAllocationEventBooking(scope, code, allocationEventBookRequest, effectiveAt, opts: opts);
 
-                // [EXPERIMENTAL] PlanAllocationEventBooking: Plan the booking of an Allocation Event.
+                // [EARLY ACCESS] PlanAllocationEventBooking: Plan the booking of an Allocation Event.
                 AllocationPostingPlan result = apiInstance.PlanAllocationEventBooking(scope, code, allocationEventBookRequest, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1056,7 +1056,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PlanAllocationEventBooking: Plan the booking of an Allocation Event.
+    // [EARLY ACCESS] PlanAllocationEventBooking: Plan the booking of an Allocation Event.
     ApiResponse<AllocationPostingPlan> response = apiInstance.PlanAllocationEventBookingWithHttpInfo(scope, code, allocationEventBookRequest, effectiveAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1222,7 +1222,7 @@ catch (ApiException e)
 # **ReallocateAllocationEvent**
 > AllocationEvent ReallocateAllocationEvent (string scope, string code, AllocationEventReallocateRequest allocationEventReallocateRequest, DateTimeOrCutLabel? effectiveAt = null)
 
-[EXPERIMENTAL] ReallocateAllocationEvent: Reallocate an Allocation Event.
+[EARLY ACCESS] ReallocateAllocationEvent: Reallocate an Allocation Event.
 
 Recompute the per-investor shares of an unbooked Allocation Event against its map, from an effective  datetime, recording the reason. Any basis values supplied replace those used before. A booked Allocation  Event cannot be reallocated.
 
@@ -1275,7 +1275,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AllocationEvent result = apiInstance.ReallocateAllocationEvent(scope, code, allocationEventReallocateRequest, effectiveAt, opts: opts);
 
-                // [EXPERIMENTAL] ReallocateAllocationEvent: Reallocate an Allocation Event.
+                // [EARLY ACCESS] ReallocateAllocationEvent: Reallocate an Allocation Event.
                 AllocationEvent result = apiInstance.ReallocateAllocationEvent(scope, code, allocationEventReallocateRequest, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1296,7 +1296,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ReallocateAllocationEvent: Reallocate an Allocation Event.
+    // [EARLY ACCESS] ReallocateAllocationEvent: Reallocate an Allocation Event.
     ApiResponse<AllocationEvent> response = apiInstance.ReallocateAllocationEventWithHttpInfo(scope, code, allocationEventReallocateRequest, effectiveAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1342,7 +1342,7 @@ catch (ApiException e)
 # **ReceiveAllocationEvent**
 > AllocationEvent ReceiveAllocationEvent (string scope, string code, AllocationEventReceiptRequest allocationEventReceiptRequest, DateTimeOrCutLabel? effectiveAt = null)
 
-[EXPERIMENTAL] ReceiveAllocationEvent: Record a receipt against an Allocation Event.
+[EARLY ACCESS] ReceiveAllocationEvent: Record a receipt against an Allocation Event.
 
 Record cash received from an investor against a booked capital call. The receipt is applied to what the  investor owes on the call; anything over is recorded as a refund payable, so the outstanding amount never  goes negative. A bank charge is borne by the partner or the fund as the map's policy says, and a receipt in  another currency is converted at the rate given.
 
@@ -1395,7 +1395,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AllocationEvent result = apiInstance.ReceiveAllocationEvent(scope, code, allocationEventReceiptRequest, effectiveAt, opts: opts);
 
-                // [EXPERIMENTAL] ReceiveAllocationEvent: Record a receipt against an Allocation Event.
+                // [EARLY ACCESS] ReceiveAllocationEvent: Record a receipt against an Allocation Event.
                 AllocationEvent result = apiInstance.ReceiveAllocationEvent(scope, code, allocationEventReceiptRequest, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1416,7 +1416,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ReceiveAllocationEvent: Record a receipt against an Allocation Event.
+    // [EARLY ACCESS] ReceiveAllocationEvent: Record a receipt against an Allocation Event.
     ApiResponse<AllocationEvent> response = apiInstance.ReceiveAllocationEventWithHttpInfo(scope, code, allocationEventReceiptRequest, effectiveAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1462,7 +1462,7 @@ catch (ApiException e)
 # **ReverseAllocationEvent**
 > AllocationEvent ReverseAllocationEvent (string scope, string code, AllocationEventReverseRequest allocationEventReverseRequest, DateTimeOrCutLabel? effectiveAt = null)
 
-[EXPERIMENTAL] ReverseAllocationEvent: Reverse an Allocation Event.
+[EARLY ACCESS] ReverseAllocationEvent: Reverse an Allocation Event.
 
 Reverse a booked Allocation Event: every posting the booking wrote is mirrored under the reversal reference and  the event is left Reversed. A reversal falling in a closed period posts in the current period unless it is  marked backdated. A reversal cannot itself be reversed; raise a new event naming the reversed one in its  replaces field to put corrected shares in the books.
 
@@ -1515,7 +1515,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AllocationEvent result = apiInstance.ReverseAllocationEvent(scope, code, allocationEventReverseRequest, effectiveAt, opts: opts);
 
-                // [EXPERIMENTAL] ReverseAllocationEvent: Reverse an Allocation Event.
+                // [EARLY ACCESS] ReverseAllocationEvent: Reverse an Allocation Event.
                 AllocationEvent result = apiInstance.ReverseAllocationEvent(scope, code, allocationEventReverseRequest, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1536,7 +1536,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ReverseAllocationEvent: Reverse an Allocation Event.
+    // [EARLY ACCESS] ReverseAllocationEvent: Reverse an Allocation Event.
     ApiResponse<AllocationEvent> response = apiInstance.ReverseAllocationEventWithHttpInfo(scope, code, allocationEventReverseRequest, effectiveAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1582,7 +1582,7 @@ catch (ApiException e)
 # **UnbookAllocationEvent**
 > AllocationEvent UnbookAllocationEvent (string scope, string code, AllocationEventUnbookRequest allocationEventUnbookRequest, DateTimeOrCutLabel? effectiveAt = null)
 
-[EXPERIMENTAL] UnbookAllocationEvent: Unbook an Allocation Event.
+[EARLY ACCESS] UnbookAllocationEvent: Unbook an Allocation Event.
 
 Take an Allocation Event whose booking stopped half way back to Computed, cancelling every posting the  booking wrote, and record why. Only an event in the Booking status can be unbooked: one that is Booked is  reversed instead.
 
@@ -1635,7 +1635,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AllocationEvent result = apiInstance.UnbookAllocationEvent(scope, code, allocationEventUnbookRequest, effectiveAt, opts: opts);
 
-                // [EXPERIMENTAL] UnbookAllocationEvent: Unbook an Allocation Event.
+                // [EARLY ACCESS] UnbookAllocationEvent: Unbook an Allocation Event.
                 AllocationEvent result = apiInstance.UnbookAllocationEvent(scope, code, allocationEventUnbookRequest, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1656,7 +1656,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UnbookAllocationEvent: Unbook an Allocation Event.
+    // [EARLY ACCESS] UnbookAllocationEvent: Unbook an Allocation Event.
     ApiResponse<AllocationEvent> response = apiInstance.UnbookAllocationEventWithHttpInfo(scope, code, allocationEventUnbookRequest, effectiveAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1702,7 +1702,7 @@ catch (ApiException e)
 # **UpsertAllocationEvent**
 > AllocationEvent UpsertAllocationEvent (string scope, string code, AllocationEventRequest allocationEventRequest)
 
-[EXPERIMENTAL] UpsertAllocationEvent: Upsert an Allocation Event.
+[EARLY ACCESS] UpsertAllocationEvent: Upsert an Allocation Event.
 
 Update or insert an Allocation Event. If the Allocation Event does not exist it is created, otherwise it is  replaced and its shares recomputed. The code in the request body must match the code in the route. A booked  Allocation Event is frozen and cannot be replaced.
 
@@ -1754,7 +1754,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AllocationEvent result = apiInstance.UpsertAllocationEvent(scope, code, allocationEventRequest, opts: opts);
 
-                // [EXPERIMENTAL] UpsertAllocationEvent: Upsert an Allocation Event.
+                // [EARLY ACCESS] UpsertAllocationEvent: Upsert an Allocation Event.
                 AllocationEvent result = apiInstance.UpsertAllocationEvent(scope, code, allocationEventRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1775,7 +1775,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertAllocationEvent: Upsert an Allocation Event.
+    // [EARLY ACCESS] UpsertAllocationEvent: Upsert an Allocation Event.
     ApiResponse<AllocationEvent> response = apiInstance.UpsertAllocationEventWithHttpInfo(scope, code, allocationEventRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

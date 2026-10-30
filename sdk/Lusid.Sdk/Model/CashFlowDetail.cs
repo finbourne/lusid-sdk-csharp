@@ -53,8 +53,9 @@ namespace Lusid.Sdk.Model
         /// <param name="reportCurrencyAmount">reportCurrencyAmount.</param>
         /// <param name="tradeToReportCurrencyRate">The FX rate used to convert the cashflow amount from its own payment currency (see Amount) into the request&#39;s report currency. For the default FxSpot rate type it is resolved at the cashflow&#39;s transaction (trade) date, not its payment date; for FxForward it is the forward rate for the payment date (see QueryBucketCashFlowDrillDownRequest.FxRateType and FxRateTypeApplied). Only present when ReportCurrency was supplied on the request; not present when it was omitted, or when the rate could not be resolved (see Error)..</param>
         /// <param name="fxRateTypeApplied">Which rate type produced TradeToReportCurrencyRate: FxSpot or FxForward. Under the ForwardThenSpot request option this shows whether a cashflow received the forward rate or fell back to spot. Only present when the cashflow was converted into the ReportCurrency..</param>
+        /// <param name="subHoldingKeys">The sub-holding keys of the holding that produced the cashflow, keyed by property key. Each cashflow carries the keys of its own portfolio&#39;s holding, so when drilling into a portfolio group whose portfolios share the same sub-holding keys, those keys are reported on every cashflow. Empty when the portfolio defines no sub-holding keys..</param>
         /// <param name="links">links.</param>
-        public CashFlowDetail(DateTimeOffset paymentDate = default(DateTimeOffset), CurrencyAndAmount amount = default(CurrencyAndAmount), string sourceType = default(string), string instrumentId = default(string), string instrumentDisplayName = default(string), string transactionId = default(string), ResourceId portfolioId = default(ResourceId), string flowType = default(string), string movementName = default(string), CurrencyAndAmount grossAmount = default(CurrencyAndAmount), decimal? haircutFraction = default(decimal?), CurrencyAndAmount netAmount = default(CurrencyAndAmount), string haircutRuleApplied = default(string), string error = default(string), CurrencyAndAmount reportCurrencyAmount = default(CurrencyAndAmount), decimal? tradeToReportCurrencyRate = default(decimal?), string fxRateTypeApplied = default(string), List<Link> links = default(List<Link>))
+        public CashFlowDetail(DateTimeOffset paymentDate = default(DateTimeOffset), CurrencyAndAmount amount = default(CurrencyAndAmount), string sourceType = default(string), string instrumentId = default(string), string instrumentDisplayName = default(string), string transactionId = default(string), ResourceId portfolioId = default(ResourceId), string flowType = default(string), string movementName = default(string), CurrencyAndAmount grossAmount = default(CurrencyAndAmount), decimal? haircutFraction = default(decimal?), CurrencyAndAmount netAmount = default(CurrencyAndAmount), string haircutRuleApplied = default(string), string error = default(string), CurrencyAndAmount reportCurrencyAmount = default(CurrencyAndAmount), decimal? tradeToReportCurrencyRate = default(decimal?), string fxRateTypeApplied = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), List<Link> links = default(List<Link>))
         {
             this.PaymentDate = paymentDate;
             // to ensure "sourceType" is required (not null)
@@ -88,6 +89,7 @@ namespace Lusid.Sdk.Model
             this.ReportCurrencyAmount = reportCurrencyAmount;
             this.TradeToReportCurrencyRate = tradeToReportCurrencyRate;
             this.FxRateTypeApplied = fxRateTypeApplied;
+            this.SubHoldingKeys = subHoldingKeys;
             this.Links = links;
         }
 
@@ -206,6 +208,13 @@ namespace Lusid.Sdk.Model
         public string FxRateTypeApplied { get; set; }
 
         /// <summary>
+        /// The sub-holding keys of the holding that produced the cashflow, keyed by property key. Each cashflow carries the keys of its own portfolio&#39;s holding, so when drilling into a portfolio group whose portfolios share the same sub-holding keys, those keys are reported on every cashflow. Empty when the portfolio defines no sub-holding keys.
+        /// </summary>
+        /// <value>The sub-holding keys of the holding that produced the cashflow, keyed by property key. Each cashflow carries the keys of its own portfolio&#39;s holding, so when drilling into a portfolio group whose portfolios share the same sub-holding keys, those keys are reported on every cashflow. Empty when the portfolio defines no sub-holding keys.</value>
+        [DataMember(Name = "subHoldingKeys", EmitDefaultValue = true)]
+        public Dictionary<string, PerpetualProperty> SubHoldingKeys { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -236,6 +245,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ReportCurrencyAmount: ").Append(ReportCurrencyAmount).Append("\n");
             sb.Append("  TradeToReportCurrencyRate: ").Append(TradeToReportCurrencyRate).Append("\n");
             sb.Append("  FxRateTypeApplied: ").Append(FxRateTypeApplied).Append("\n");
+            sb.Append("  SubHoldingKeys: ").Append(SubHoldingKeys).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -358,6 +368,12 @@ namespace Lusid.Sdk.Model
                     this.FxRateTypeApplied.Equals(input.FxRateTypeApplied))
                 ) && 
                 (
+                    this.SubHoldingKeys == input.SubHoldingKeys ||
+                    this.SubHoldingKeys != null &&
+                    input.SubHoldingKeys != null &&
+                    this.SubHoldingKeys.SequenceEqual(input.SubHoldingKeys)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -441,6 +457,10 @@ namespace Lusid.Sdk.Model
                 if (this.FxRateTypeApplied != null)
                 {
                     hashCode = (hashCode * 59) + this.FxRateTypeApplied.GetHashCode();
+                }
+                if (this.SubHoldingKeys != null)
+                {
+                    hashCode = (hashCode * 59) + this.SubHoldingKeys.GetHashCode();
                 }
                 if (this.Links != null)
                 {

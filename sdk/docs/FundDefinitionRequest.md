@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **ShareClasses** | [**List&lt;ShareClassDefinition&gt;**](ShareClassDefinition.md) | An optional list of Share Class definitions for the Fund. | [optional] 
 **PricingMethodology** | [**PricingMethodology**](PricingMethodology.md) |  | [optional] 
 **ReportingPrices** | [**List&lt;ReportingPrice&gt;**](ReportingPrice.md) | Share class prices the Fund publishes at each valuation point under labels of its own, alongside the dealing price, for example a mid price for performance reporting. Optional. Each source other than Mid must be published by the valuation recipe of every active NAV type. Labels must be unique and cannot be dealingPrice, dealingBid or dealingOffer. Patch the list whole at /reportingPrices. | [optional] 
+**DealingEstimates** | [**DealingEstimates**](DealingEstimates.md) |  | [optional] 
 **WhtParameters** | [**WhtParameters**](WhtParameters.md) |  | [optional] 
 **ValuationTemplateId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
@@ -55,6 +56,8 @@ List<ShareClassDefinition> shareClasses = new List<ShareClassDefinition>();
 PricingMethodology? pricingMethodology = new PricingMethodology();
 
 List<ReportingPrice> reportingPrices = new List<ReportingPrice>();
+DealingEstimates? dealingEstimates = new DealingEstimates();
+
 WhtParameters? whtParameters = new WhtParameters();
 
 ResourceId? valuationTemplateId = new ResourceId();
@@ -83,6 +86,7 @@ FundDefinitionRequest fundDefinitionRequestInstance = new FundDefinitionRequest(
     shareClasses: shareClasses,
     pricingMethodology: pricingMethodology,
     reportingPrices: reportingPrices,
+    dealingEstimates: dealingEstimates,
     whtParameters: whtParameters,
     valuationTemplateId: valuationTemplateId);
 ```
