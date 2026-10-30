@@ -42,7 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="recType">The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument. (required).</param>
         /// <param name="externalRecTypeName">The client&#39;s name for an External rec type, as stamped from the matching ruleset&#39;s externalRecType when the run executed. Null for native rec types. Filterable..</param>
         /// <param name="instanceId">instanceId (required).</param>
+        /// <param name="asAtInstantiated">The asAt datetime at which the instance was first created. (required).</param>
         /// <param name="recDefinitionId">recDefinitionId (required).</param>
+        /// <param name="recDefinitionDisplayName">The display name of the rec definition the rec was instantiated for, as it stood as-at instantiation. Not re-synchronised if the definition is later renamed. (required).</param>
         /// <param name="runNumber">The run number within the instance. Increments with each re-run. (required).</param>
         /// <param name="runAsAt">The asAt datetime at which the run happened. (required).</param>
         /// <param name="datesReconciled">datesReconciled (required).</param>
@@ -63,7 +65,7 @@ namespace Lusid.Sdk.Model
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public RecResult(string id = default(string), int resultNumber = default(int), int firstRunSeen = default(int), string recType = default(string), string externalRecTypeName = default(string), RecInstanceId instanceId = default(RecInstanceId), ResourceId recDefinitionId = default(ResourceId), int runNumber = default(int), DateTimeOffset runAsAt = default(DateTimeOffset), RecDatesReconciled datesReconciled = default(RecDatesReconciled), string resultType = default(string), string resultCardinality = default(string), string resultLifeCycle = default(string), RecResultException exception = default(RecResultException), RecResultReview review = default(RecResultReview), List<CoreRuleValues> coreRules = default(List<CoreRuleValues>), List<AggregateRuleValues> aggregateRules = default(List<AggregateRuleValues>), List<SupplementalAttributeValues> supplementalAttributes = default(List<SupplementalAttributeValues>), RecResultItemDetails items = default(RecResultItemDetails), List<RecLinkedResult> linkedResults = default(List<RecLinkedResult>), List<RecUserComment> comments = default(List<RecUserComment>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string assignedUser = default(string), string assignedRole = default(string), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public RecResult(string id = default(string), int resultNumber = default(int), int firstRunSeen = default(int), string recType = default(string), string externalRecTypeName = default(string), RecInstanceId instanceId = default(RecInstanceId), DateTimeOffset asAtInstantiated = default(DateTimeOffset), ResourceId recDefinitionId = default(ResourceId), string recDefinitionDisplayName = default(string), int runNumber = default(int), DateTimeOffset runAsAt = default(DateTimeOffset), RecDatesReconciled datesReconciled = default(RecDatesReconciled), string resultType = default(string), string resultCardinality = default(string), string resultLifeCycle = default(string), RecResultException exception = default(RecResultException), RecResultReview review = default(RecResultReview), List<CoreRuleValues> coreRules = default(List<CoreRuleValues>), List<AggregateRuleValues> aggregateRules = default(List<AggregateRuleValues>), List<SupplementalAttributeValues> supplementalAttributes = default(List<SupplementalAttributeValues>), RecResultItemDetails items = default(RecResultItemDetails), List<RecLinkedResult> linkedResults = default(List<RecLinkedResult>), List<RecUserComment> comments = default(List<RecUserComment>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string assignedUser = default(string), string assignedRole = default(string), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -85,12 +87,19 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("instanceId is a required property for RecResult and cannot be null");
             }
             this.InstanceId = instanceId;
+            this.AsAtInstantiated = asAtInstantiated;
             // to ensure "recDefinitionId" is required (not null)
             if (recDefinitionId == null)
             {
                 throw new ArgumentNullException("recDefinitionId is a required property for RecResult and cannot be null");
             }
             this.RecDefinitionId = recDefinitionId;
+            // to ensure "recDefinitionDisplayName" is required (not null)
+            if (recDefinitionDisplayName == null)
+            {
+                throw new ArgumentNullException("recDefinitionDisplayName is a required property for RecResult and cannot be null");
+            }
+            this.RecDefinitionDisplayName = recDefinitionDisplayName;
             this.RunNumber = runNumber;
             this.RunAsAt = runAsAt;
             // to ensure "datesReconciled" is required (not null)
@@ -211,10 +220,24 @@ namespace Lusid.Sdk.Model
         public RecInstanceId InstanceId { get; set; }
 
         /// <summary>
+        /// The asAt datetime at which the instance was first created.
+        /// </summary>
+        /// <value>The asAt datetime at which the instance was first created.</value>
+        [DataMember(Name = "asAtInstantiated", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset AsAtInstantiated { get; set; }
+
+        /// <summary>
         /// Gets or Sets RecDefinitionId
         /// </summary>
         [DataMember(Name = "recDefinitionId", IsRequired = true, EmitDefaultValue = true)]
         public ResourceId RecDefinitionId { get; set; }
+
+        /// <summary>
+        /// The display name of the rec definition the rec was instantiated for, as it stood as-at instantiation. Not re-synchronised if the definition is later renamed.
+        /// </summary>
+        /// <value>The display name of the rec definition the rec was instantiated for, as it stood as-at instantiation. Not re-synchronised if the definition is later renamed.</value>
+        [DataMember(Name = "recDefinitionDisplayName", IsRequired = true, EmitDefaultValue = true)]
+        public string RecDefinitionDisplayName { get; set; }
 
         /// <summary>
         /// The run number within the instance. Increments with each re-run.
@@ -364,7 +387,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  RecType: ").Append(RecType).Append("\n");
             sb.Append("  ExternalRecTypeName: ").Append(ExternalRecTypeName).Append("\n");
             sb.Append("  InstanceId: ").Append(InstanceId).Append("\n");
+            sb.Append("  AsAtInstantiated: ").Append(AsAtInstantiated).Append("\n");
             sb.Append("  RecDefinitionId: ").Append(RecDefinitionId).Append("\n");
+            sb.Append("  RecDefinitionDisplayName: ").Append(RecDefinitionDisplayName).Append("\n");
             sb.Append("  RunNumber: ").Append(RunNumber).Append("\n");
             sb.Append("  RunAsAt: ").Append(RunAsAt).Append("\n");
             sb.Append("  DatesReconciled: ").Append(DatesReconciled).Append("\n");
@@ -449,9 +474,19 @@ namespace Lusid.Sdk.Model
                     this.InstanceId.Equals(input.InstanceId))
                 ) && 
                 (
+                    this.AsAtInstantiated == input.AsAtInstantiated ||
+                    (this.AsAtInstantiated != null &&
+                    this.AsAtInstantiated.Equals(input.AsAtInstantiated))
+                ) && 
+                (
                     this.RecDefinitionId == input.RecDefinitionId ||
                     (this.RecDefinitionId != null &&
                     this.RecDefinitionId.Equals(input.RecDefinitionId))
+                ) && 
+                (
+                    this.RecDefinitionDisplayName == input.RecDefinitionDisplayName ||
+                    (this.RecDefinitionDisplayName != null &&
+                    this.RecDefinitionDisplayName.Equals(input.RecDefinitionDisplayName))
                 ) && 
                 (
                     this.RunNumber == input.RunNumber ||
@@ -588,9 +623,17 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.InstanceId.GetHashCode();
                 }
+                if (this.AsAtInstantiated != null)
+                {
+                    hashCode = (hashCode * 59) + this.AsAtInstantiated.GetHashCode();
+                }
                 if (this.RecDefinitionId != null)
                 {
                     hashCode = (hashCode * 59) + this.RecDefinitionId.GetHashCode();
+                }
+                if (this.RecDefinitionDisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.RecDefinitionDisplayName.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.RunNumber.GetHashCode();
                 if (this.RunAsAt != null)
@@ -690,6 +733,12 @@ namespace Lusid.Sdk.Model
             if (this.RecType != null && this.RecType.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RecType, length must be greater than 1.", new [] { "RecType" });
+            }
+
+            // RecDefinitionDisplayName (string) minLength
+            if (this.RecDefinitionDisplayName != null && this.RecDefinitionDisplayName.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RecDefinitionDisplayName, length must be greater than 1.", new [] { "RecDefinitionDisplayName" });
             }
 
             // ResultType (string) minLength

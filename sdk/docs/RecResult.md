@@ -11,7 +11,9 @@ Name | Type | Description | Notes
 **RecType** | **string** | The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument. | 
 **ExternalRecTypeName** | **string** | The client&#39;s name for an External rec type, as stamped from the matching ruleset&#39;s externalRecType when the run executed. Null for native rec types. Filterable. | [optional] 
 **InstanceId** | [**RecInstanceId**](RecInstanceId.md) |  | 
+**AsAtInstantiated** | **DateTimeOffset** | The asAt datetime at which the instance was first created. | 
 **RecDefinitionId** | [**ResourceId**](ResourceId.md) |  | 
+**RecDefinitionDisplayName** | **string** | The display name of the rec definition the rec was instantiated for, as it stood as-at instantiation. Not re-synchronised if the definition is later renamed. | 
 **RunNumber** | **int** | The run number within the instance. Increments with each re-run. | 
 **RunAsAt** | **DateTimeOffset** | The asAt datetime at which the run happened. | 
 **DatesReconciled** | [**RecDatesReconciled**](RecDatesReconciled.md) |  | 
@@ -42,6 +44,7 @@ string recType = "recType";
 string externalRecTypeName = "example externalRecTypeName";
 RecInstanceId instanceId = new RecInstanceId();
 ResourceId recDefinitionId = new ResourceId();
+string recDefinitionDisplayName = "recDefinitionDisplayName";
 RecDatesReconciled datesReconciled = new RecDatesReconciled();
 string resultType = "resultType";
 string resultCardinality = "resultCardinality";
@@ -70,7 +73,9 @@ RecResult recResultInstance = new RecResult(
     recType: recType,
     externalRecTypeName: externalRecTypeName,
     instanceId: instanceId,
+    asAtInstantiated: asAtInstantiated,
     recDefinitionId: recDefinitionId,
+    recDefinitionDisplayName: recDefinitionDisplayName,
     runNumber: runNumber,
     runAsAt: runAsAt,
     datesReconciled: datesReconciled,
