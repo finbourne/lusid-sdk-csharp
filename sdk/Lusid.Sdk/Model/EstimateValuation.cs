@@ -36,11 +36,11 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EstimateValuation" /> class.
         /// </summary>
-        /// <param name="decisionPrice">The unit price the swing decision was taken on. &#39;EstimatePrice&#39; is the price struck at this valuation point; &#39;LastOfficialPrice&#39; is the unit price the previous valuation point published. &#39;EstimatePrice&#39; when the fund asked for the last official price but has none yet, as on its first valuation point. (required).</param>
+        /// <param name="decisionPrice">The unit price the swing decision was taken on. &#39;EstimatePrice&#39; is the price struck at this valuation point; &#39;LastOfficialPrice&#39; is the unit price the previous valuation point published or, for a share class that has not published one yet, the launch price the class was set up with. (required).</param>
         /// <param name="atEstimatePrice">atEstimatePrice (required).</param>
         /// <param name="atLastOfficialPrice">atLastOfficialPrice.</param>
         /// <param name="difference">difference.</param>
-        /// <param name="unitBasedShare">The fraction of the decision&#39;s net cashflow that came from unit-denominated orders, from 0 to 1. Zero when the net cashflow is zero. (required).</param>
+        /// <param name="unitBasedShare">DEPRECATED: always 0 and no longer computed. Kept on the response for one release so clients on a public SDK that requires the field can still read it; it will be removed once an SDK without it has shipped. (required).</param>
         public EstimateValuation(string decisionPrice = default(string), DealingFlowValuation atEstimatePrice = default(DealingFlowValuation), DealingFlowValuation atLastOfficialPrice = default(DealingFlowValuation), EstimateValuationDifference difference = default(EstimateValuationDifference), decimal unitBasedShare = default(decimal))
         {
             // to ensure "decisionPrice" is required (not null)
@@ -61,9 +61,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The unit price the swing decision was taken on. &#39;EstimatePrice&#39; is the price struck at this valuation point; &#39;LastOfficialPrice&#39; is the unit price the previous valuation point published. &#39;EstimatePrice&#39; when the fund asked for the last official price but has none yet, as on its first valuation point.
+        /// The unit price the swing decision was taken on. &#39;EstimatePrice&#39; is the price struck at this valuation point; &#39;LastOfficialPrice&#39; is the unit price the previous valuation point published or, for a share class that has not published one yet, the launch price the class was set up with.
         /// </summary>
-        /// <value>The unit price the swing decision was taken on. &#39;EstimatePrice&#39; is the price struck at this valuation point; &#39;LastOfficialPrice&#39; is the unit price the previous valuation point published. &#39;EstimatePrice&#39; when the fund asked for the last official price but has none yet, as on its first valuation point.</value>
+        /// <value>The unit price the swing decision was taken on. &#39;EstimatePrice&#39; is the price struck at this valuation point; &#39;LastOfficialPrice&#39; is the unit price the previous valuation point published or, for a share class that has not published one yet, the launch price the class was set up with.</value>
         [DataMember(Name = "decisionPrice", IsRequired = true, EmitDefaultValue = true)]
         public string DecisionPrice { get; set; }
 
@@ -86,9 +86,9 @@ namespace Lusid.Sdk.Model
         public EstimateValuationDifference Difference { get; set; }
 
         /// <summary>
-        /// The fraction of the decision&#39;s net cashflow that came from unit-denominated orders, from 0 to 1. Zero when the net cashflow is zero.
+        /// DEPRECATED: always 0 and no longer computed. Kept on the response for one release so clients on a public SDK that requires the field can still read it; it will be removed once an SDK without it has shipped.
         /// </summary>
-        /// <value>The fraction of the decision&#39;s net cashflow that came from unit-denominated orders, from 0 to 1. Zero when the net cashflow is zero.</value>
+        /// <value>DEPRECATED: always 0 and no longer computed. Kept on the response for one release so clients on a public SDK that requires the field can still read it; it will be removed once an SDK without it has shipped.</value>
         [DataMember(Name = "unitBasedShare", IsRequired = true, EmitDefaultValue = true)]
         public decimal UnitBasedShare { get; set; }
 

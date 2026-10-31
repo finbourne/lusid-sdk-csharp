@@ -45,7 +45,8 @@ namespace Lusid.Sdk.Model
         /// <param name="outflowTrigger">outflowTrigger.</param>
         /// <param name="dealingFlows">dealingFlows.</param>
         /// <param name="estimateValuation">estimateValuation.</param>
-        public PricingMethodologyAudit(decimal netCashflow = default(decimal), decimal? netCashflowPctOfNav = default(decimal?), SwingSpreadApplied spreadsApplied = default(SwingSpreadApplied), PricingMethodologyEngineProposal engineProposal = default(PricingMethodologyEngineProposal), PricingMethodologyOverride varOverride = default(PricingMethodologyOverride), SwingTriggerEvaluation inflowTrigger = default(SwingTriggerEvaluation), SwingTriggerEvaluation outflowTrigger = default(SwingTriggerEvaluation), DealingFlowSummary dealingFlows = default(DealingFlowSummary), EstimateValuation estimateValuation = default(EstimateValuation))
+        /// <param name="approvalStatus">Where a manually approved swing decision stands. Pending until a manager approves or overrides the engine&#39;s proposal, or when the proposal has changed since the decision was taken; Approved when the decision equals the proposal; Overridden when it differs. Absent when the swing policy approves automatically..</param>
+        public PricingMethodologyAudit(decimal netCashflow = default(decimal), decimal? netCashflowPctOfNav = default(decimal?), SwingSpreadApplied spreadsApplied = default(SwingSpreadApplied), PricingMethodologyEngineProposal engineProposal = default(PricingMethodologyEngineProposal), PricingMethodologyOverride varOverride = default(PricingMethodologyOverride), SwingTriggerEvaluation inflowTrigger = default(SwingTriggerEvaluation), SwingTriggerEvaluation outflowTrigger = default(SwingTriggerEvaluation), DealingFlowSummary dealingFlows = default(DealingFlowSummary), EstimateValuation estimateValuation = default(EstimateValuation), string approvalStatus = default(string))
         {
             this.NetCashflow = netCashflow;
             // to ensure "engineProposal" is required (not null)
@@ -61,6 +62,7 @@ namespace Lusid.Sdk.Model
             this.OutflowTrigger = outflowTrigger;
             this.DealingFlows = dealingFlows;
             this.EstimateValuation = estimateValuation;
+            this.ApprovalStatus = approvalStatus;
         }
 
         /// <summary>
@@ -120,6 +122,13 @@ namespace Lusid.Sdk.Model
         public EstimateValuation EstimateValuation { get; set; }
 
         /// <summary>
+        /// Where a manually approved swing decision stands. Pending until a manager approves or overrides the engine&#39;s proposal, or when the proposal has changed since the decision was taken; Approved when the decision equals the proposal; Overridden when it differs. Absent when the swing policy approves automatically.
+        /// </summary>
+        /// <value>Where a manually approved swing decision stands. Pending until a manager approves or overrides the engine&#39;s proposal, or when the proposal has changed since the decision was taken; Approved when the decision equals the proposal; Overridden when it differs. Absent when the swing policy approves automatically.</value>
+        [DataMember(Name = "approvalStatus", EmitDefaultValue = true)]
+        public string ApprovalStatus { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -136,6 +145,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  OutflowTrigger: ").Append(OutflowTrigger).Append("\n");
             sb.Append("  DealingFlows: ").Append(DealingFlows).Append("\n");
             sb.Append("  EstimateValuation: ").Append(EstimateValuation).Append("\n");
+            sb.Append("  ApprovalStatus: ").Append(ApprovalStatus).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -214,6 +224,11 @@ namespace Lusid.Sdk.Model
                     this.EstimateValuation == input.EstimateValuation ||
                     (this.EstimateValuation != null &&
                     this.EstimateValuation.Equals(input.EstimateValuation))
+                ) && 
+                (
+                    this.ApprovalStatus == input.ApprovalStatus ||
+                    (this.ApprovalStatus != null &&
+                    this.ApprovalStatus.Equals(input.ApprovalStatus))
                 );
         }
 
@@ -258,6 +273,10 @@ namespace Lusid.Sdk.Model
                 if (this.EstimateValuation != null)
                 {
                     hashCode = (hashCode * 59) + this.EstimateValuation.GetHashCode();
+                }
+                if (this.ApprovalStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.ApprovalStatus.GetHashCode();
                 }
                 return hashCode;
             }

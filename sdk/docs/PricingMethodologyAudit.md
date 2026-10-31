@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **OutflowTrigger** | [**SwingTriggerEvaluation**](SwingTriggerEvaluation.md) |  | [optional] 
 **DealingFlows** | [**DealingFlowSummary**](DealingFlowSummary.md) |  | [optional] 
 **EstimateValuation** | [**EstimateValuation**](EstimateValuation.md) |  | [optional] 
+**ApprovalStatus** | **string** | Where a manually approved swing decision stands. Pending until a manager approves or overrides the engine&#39;s proposal, or when the proposal has changed since the decision was taken; Approved when the decision equals the proposal; Overridden when it differs. Absent when the swing policy approves automatically. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -33,6 +34,7 @@ DealingFlowSummary? dealingFlows = new DealingFlowSummary();
 
 EstimateValuation? estimateValuation = new EstimateValuation();
 
+string approvalStatus = "example approvalStatus";
 
 PricingMethodologyAudit pricingMethodologyAuditInstance = new PricingMethodologyAudit(
     netCashflow: netCashflow,
@@ -43,7 +45,8 @@ PricingMethodologyAudit pricingMethodologyAuditInstance = new PricingMethodology
     inflowTrigger: inflowTrigger,
     outflowTrigger: outflowTrigger,
     dealingFlows: dealingFlows,
-    estimateValuation: estimateValuation);
+    estimateValuation: estimateValuation,
+    approvalStatus: approvalStatus);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

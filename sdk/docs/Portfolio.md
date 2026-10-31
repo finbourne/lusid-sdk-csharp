@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **TaxLotSelectionCostBasis** | **string** | The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Supply Default to explicitly reset it; a reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost. | [optional] 
 **FractionalUnitsTrueUpConfiguration** | [**FractionalUnitsTrueUpConfiguration**](FractionalUnitsTrueUpConfiguration.md) |  | [optional] 
 **HoldingsFungibility** | **string** | Whether the portfolio&#39;s holdings are fungible across the currencies of a currency group. This can be: Default or Enabled. Defaults to Default if not specified, which currently means holdings fungibility is not applied. Supply Default to explicitly reset it; a reset or never-configured flag reads back as absent. Available values: Default, Enabled. | [optional] 
+**ChargeableGainsRegime** | **string** | The chargeable gains regime the portfolio is elected into. This can be: Default or UkChargeableGains. Defaults to Default if not specified, which means no chargeable gains pooling is applied. Under UkChargeableGains, in-scope holdings (equities, preferred shares, fund share classes and simple instruments) are depleted under the UK chargeable gains rules regardless of the accounting method on the portfolio, transaction or custodian account; other holdings use the portfolio&#39;s accounting method. Supply Default to explicitly reset it; a reset or never-configured regime reads back as absent. Available values: Default, UkChargeableGains. | [optional] 
 **WhtParameters** | [**WhtParameters**](WhtParameters.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
@@ -71,6 +72,7 @@ string taxLotSelectionCostBasis = "example taxLotSelectionCostBasis";
 FractionalUnitsTrueUpConfiguration? fractionalUnitsTrueUpConfiguration = new FractionalUnitsTrueUpConfiguration();
 
 string holdingsFungibility = "example holdingsFungibility";
+string chargeableGainsRegime = "example chargeableGainsRegime";
 WhtParameters? whtParameters = new WhtParameters();
 
 List<Link> links = new List<Link>();
@@ -103,6 +105,7 @@ Portfolio portfolioInstance = new Portfolio(
     taxLotSelectionCostBasis: taxLotSelectionCostBasis,
     fractionalUnitsTrueUpConfiguration: fractionalUnitsTrueUpConfiguration,
     holdingsFungibility: holdingsFungibility,
+    chargeableGainsRegime: chargeableGainsRegime,
     whtParameters: whtParameters,
     links: links);
 ```

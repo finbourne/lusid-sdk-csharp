@@ -777,7 +777,13 @@ namespace Lusid.Sdk.Model
         /// Enum StripBondCashflowEvent for value: StripBondCashflowEvent
         /// </summary>
         [EnumMember(Value = "StripBondCashflowEvent")]
-        StripBondCashflowEvent = 125
+        StripBondCashflowEvent = 125,
+
+        /// <summary>
+        /// Enum CapitalisationEvent for value: CapitalisationEvent
+        /// </summary>
+        [EnumMember(Value = "CapitalisationEvent")]
+        CapitalisationEvent = 126
     }
 
 }

@@ -47,7 +47,8 @@ namespace Lusid.Sdk.Model
         /// <param name="variationMarginPortfolioCcy">The variation margin in portfolio currency of the tax-lot&#39;s opening transaction..</param>
         /// <param name="amortisedCost">The amortised cost of the tax-lot in the settlement currency, for example a supplied amortised cost at migration. If supplied, this value seeds the tax-lot&#39;s amortised cost at the adjustment date and amortisation continues forward from it; if not supplied, the amortised cost defaults to the cost of the tax-lot..</param>
         /// <param name="currentFace">The current face of the tax-lot, i.e. its outstanding notional after any reduction by the instrument&#39;s pool factor. If supplied, this value seeds the tax-lot&#39;s current face, so that later paydowns on an asset-backed instrument reduce the cost against it; if not supplied, a tax-lot that already has a current face keeps its pool factor as its units change..</param>
-        public TargetTaxLotRequest(decimal units = default(decimal), CurrencyAndAmount cost = default(CurrencyAndAmount), decimal? portfolioCost = default(decimal?), decimal? price = default(decimal?), DateTimeOffset? purchaseDate = default(DateTimeOffset?), DateTimeOffset? settlementDate = default(DateTimeOffset?), decimal? notionalCost = default(decimal?), decimal? variationMargin = default(decimal?), decimal? variationMarginPortfolioCcy = default(decimal?), decimal? amortisedCost = default(decimal?), decimal? currentFace = default(decimal?))
+        /// <param name="chargeableGainsTakeOn">chargeableGainsTakeOn.</param>
+        public TargetTaxLotRequest(decimal units = default(decimal), CurrencyAndAmount cost = default(CurrencyAndAmount), decimal? portfolioCost = default(decimal?), decimal? price = default(decimal?), DateTimeOffset? purchaseDate = default(DateTimeOffset?), DateTimeOffset? settlementDate = default(DateTimeOffset?), decimal? notionalCost = default(decimal?), decimal? variationMargin = default(decimal?), decimal? variationMarginPortfolioCcy = default(decimal?), decimal? amortisedCost = default(decimal?), decimal? currentFace = default(decimal?), ChargeableGainsTakeOn chargeableGainsTakeOn = default(ChargeableGainsTakeOn))
         {
             this.Units = units;
             this.Cost = cost;
@@ -60,6 +61,7 @@ namespace Lusid.Sdk.Model
             this.VariationMarginPortfolioCcy = variationMarginPortfolioCcy;
             this.AmortisedCost = amortisedCost;
             this.CurrentFace = currentFace;
+            this.ChargeableGainsTakeOn = chargeableGainsTakeOn;
         }
 
         /// <summary>
@@ -139,6 +141,12 @@ namespace Lusid.Sdk.Model
         public decimal? CurrentFace { get; set; }
 
         /// <summary>
+        /// Gets or Sets ChargeableGainsTakeOn
+        /// </summary>
+        [DataMember(Name = "chargeableGainsTakeOn", EmitDefaultValue = false)]
+        public ChargeableGainsTakeOn ChargeableGainsTakeOn { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -157,6 +165,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  VariationMarginPortfolioCcy: ").Append(VariationMarginPortfolioCcy).Append("\n");
             sb.Append("  AmortisedCost: ").Append(AmortisedCost).Append("\n");
             sb.Append("  CurrentFace: ").Append(CurrentFace).Append("\n");
+            sb.Append("  ChargeableGainsTakeOn: ").Append(ChargeableGainsTakeOn).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -245,6 +254,11 @@ namespace Lusid.Sdk.Model
                     this.CurrentFace == input.CurrentFace ||
                     (this.CurrentFace != null &&
                     this.CurrentFace.Equals(input.CurrentFace))
+                ) && 
+                (
+                    this.ChargeableGainsTakeOn == input.ChargeableGainsTakeOn ||
+                    (this.ChargeableGainsTakeOn != null &&
+                    this.ChargeableGainsTakeOn.Equals(input.ChargeableGainsTakeOn))
                 );
         }
 
@@ -297,6 +311,10 @@ namespace Lusid.Sdk.Model
                 if (this.CurrentFace != null)
                 {
                     hashCode = (hashCode * 59) + this.CurrentFace.GetHashCode();
+                }
+                if (this.ChargeableGainsTakeOn != null)
+                {
+                    hashCode = (hashCode * 59) + this.ChargeableGainsTakeOn.GetHashCode();
                 }
                 return hashCode;
             }

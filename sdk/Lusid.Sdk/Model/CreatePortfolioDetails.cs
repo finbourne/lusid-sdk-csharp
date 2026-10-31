@@ -35,13 +35,15 @@ namespace Lusid.Sdk.Model
         /// <param name="taxLotSelectionCostBasis">The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. A reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost..</param>
         /// <param name="fractionalUnitsTrueUpConfiguration">fractionalUnitsTrueUpConfiguration.</param>
         /// <param name="holdingsFungibility">Whether the portfolio&#39;s holdings are fungible across the currencies of a currency group. This can be: Default or Enabled. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. A reset or never-configured flag reads back as absent. Available values: Default, Enabled..</param>
+        /// <param name="chargeableGainsRegime">The chargeable gains regime the portfolio is elected into. This can be: Default or UkChargeableGains. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. A reset or never-configured regime reads back as absent. Available values: Default, UkChargeableGains..</param>
         /// <param name="whtParameters">whtParameters.</param>
-        public CreatePortfolioDetails(ResourceId corporateActionSourceId = default(ResourceId), string taxLotSelectionCostBasis = default(string), FractionalUnitsTrueUpConfiguration fractionalUnitsTrueUpConfiguration = default(FractionalUnitsTrueUpConfiguration), string holdingsFungibility = default(string), WhtParameters whtParameters = default(WhtParameters))
+        public CreatePortfolioDetails(ResourceId corporateActionSourceId = default(ResourceId), string taxLotSelectionCostBasis = default(string), FractionalUnitsTrueUpConfiguration fractionalUnitsTrueUpConfiguration = default(FractionalUnitsTrueUpConfiguration), string holdingsFungibility = default(string), string chargeableGainsRegime = default(string), WhtParameters whtParameters = default(WhtParameters))
         {
             this.CorporateActionSourceId = corporateActionSourceId;
             this.TaxLotSelectionCostBasis = taxLotSelectionCostBasis;
             this.FractionalUnitsTrueUpConfiguration = fractionalUnitsTrueUpConfiguration;
             this.HoldingsFungibility = holdingsFungibility;
+            this.ChargeableGainsRegime = chargeableGainsRegime;
             this.WhtParameters = whtParameters;
         }
 
@@ -72,6 +74,13 @@ namespace Lusid.Sdk.Model
         public string HoldingsFungibility { get; set; }
 
         /// <summary>
+        /// The chargeable gains regime the portfolio is elected into. This can be: Default or UkChargeableGains. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. A reset or never-configured regime reads back as absent. Available values: Default, UkChargeableGains.
+        /// </summary>
+        /// <value>The chargeable gains regime the portfolio is elected into. This can be: Default or UkChargeableGains. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. A reset or never-configured regime reads back as absent. Available values: Default, UkChargeableGains.</value>
+        [DataMember(Name = "chargeableGainsRegime", EmitDefaultValue = true)]
+        public string ChargeableGainsRegime { get; set; }
+
+        /// <summary>
         /// Gets or Sets WhtParameters
         /// </summary>
         [DataMember(Name = "whtParameters", EmitDefaultValue = false)]
@@ -89,6 +98,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  TaxLotSelectionCostBasis: ").Append(TaxLotSelectionCostBasis).Append("\n");
             sb.Append("  FractionalUnitsTrueUpConfiguration: ").Append(FractionalUnitsTrueUpConfiguration).Append("\n");
             sb.Append("  HoldingsFungibility: ").Append(HoldingsFungibility).Append("\n");
+            sb.Append("  ChargeableGainsRegime: ").Append(ChargeableGainsRegime).Append("\n");
             sb.Append("  WhtParameters: ").Append(WhtParameters).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -146,6 +156,11 @@ namespace Lusid.Sdk.Model
                     this.HoldingsFungibility.Equals(input.HoldingsFungibility))
                 ) && 
                 (
+                    this.ChargeableGainsRegime == input.ChargeableGainsRegime ||
+                    (this.ChargeableGainsRegime != null &&
+                    this.ChargeableGainsRegime.Equals(input.ChargeableGainsRegime))
+                ) && 
+                (
                     this.WhtParameters == input.WhtParameters ||
                     (this.WhtParameters != null &&
                     this.WhtParameters.Equals(input.WhtParameters))
@@ -176,6 +191,10 @@ namespace Lusid.Sdk.Model
                 if (this.HoldingsFungibility != null)
                 {
                     hashCode = (hashCode * 59) + this.HoldingsFungibility.GetHashCode();
+                }
+                if (this.ChargeableGainsRegime != null)
+                {
+                    hashCode = (hashCode * 59) + this.ChargeableGainsRegime.GetHashCode();
                 }
                 if (this.WhtParameters != null)
                 {
