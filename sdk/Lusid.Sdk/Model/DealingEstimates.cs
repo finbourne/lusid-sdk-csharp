@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DealingEstimates" /> class.
         /// </summary>
-        /// <param name="sources">Where the Fund&#39;s dealing estimates are read from: LusidTA, orders held in LUSID Transfer Agency, or External, orders dealt outside LUSID and reported to it. At least one, each at most once. Available values: LusidTA, External. (required).</param>
+        /// <param name="sources">Where the Fund&#39;s dealing estimates are read from: LusidTA, orders held in LUSID Transfer Agency, or External, orders dealt outside LUSID and reported to it. At least one, each at most once. Naming both sums the two books with no de-duplication between them; each source&#39;s completeness is tracked on its own. Available values: LusidTA, External. (required).</param>
         /// <param name="requireComplete">Reserved; not yet enforced. Whether every source must have reported before the valuation point can be struck. Defaults to true..</param>
         /// <param name="countPending">Whether pending orders count towards the estimated flow alongside confirmed ones. Defaults to false..</param>
         /// <param name="unitValuation">The price estimated flows are turned into units at: EstimatePrice, the estimate struck at this valuation point, or LastOfficialPrice, the last official dealing price the Fund published. Available values: EstimatePrice, LastOfficialPrice. (required).</param>
@@ -59,9 +59,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Where the Fund&#39;s dealing estimates are read from: LusidTA, orders held in LUSID Transfer Agency, or External, orders dealt outside LUSID and reported to it. At least one, each at most once. Available values: LusidTA, External.
+        /// Where the Fund&#39;s dealing estimates are read from: LusidTA, orders held in LUSID Transfer Agency, or External, orders dealt outside LUSID and reported to it. At least one, each at most once. Naming both sums the two books with no de-duplication between them; each source&#39;s completeness is tracked on its own. Available values: LusidTA, External.
         /// </summary>
-        /// <value>Where the Fund&#39;s dealing estimates are read from: LusidTA, orders held in LUSID Transfer Agency, or External, orders dealt outside LUSID and reported to it. At least one, each at most once. Available values: LusidTA, External.</value>
+        /// <value>Where the Fund&#39;s dealing estimates are read from: LusidTA, orders held in LUSID Transfer Agency, or External, orders dealt outside LUSID and reported to it. At least one, each at most once. Naming both sums the two books with no de-duplication between them; each source&#39;s completeness is tracked on its own. Available values: LusidTA, External.</value>
         [DataMember(Name = "sources", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Sources { get; set; }
 
