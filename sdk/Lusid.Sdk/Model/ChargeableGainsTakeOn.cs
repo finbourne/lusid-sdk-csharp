@@ -42,7 +42,8 @@ namespace Lusid.Sdk.Model
         /// <param name="originalCost">originalCost.</param>
         /// <param name="marketValue1982">marketValue1982.</param>
         /// <param name="rebasingElection">rebasingElection.</param>
-        public ChargeableGainsTakeOn(string role = default(string), decimal? indexation = default(decimal?), DateTimeOffset? indexedTo = default(DateTimeOffset?), decimal? originalCost = default(decimal?), decimal? marketValue1982 = default(decimal?), bool? rebasingElection = default(bool?))
+        /// <param name="additions">additions.</param>
+        public ChargeableGainsTakeOn(string role = default(string), decimal? indexation = default(decimal?), DateTimeOffset? indexedTo = default(DateTimeOffset?), decimal? originalCost = default(decimal?), decimal? marketValue1982 = default(decimal?), bool? rebasingElection = default(bool?), List<ChargeableGainsTakeOnAddition> additions = default(List<ChargeableGainsTakeOnAddition>))
         {
             // to ensure "role" is required (not null)
             if (role == null)
@@ -55,6 +56,7 @@ namespace Lusid.Sdk.Model
             this.OriginalCost = originalCost;
             this.MarketValue1982 = marketValue1982;
             this.RebasingElection = rebasingElection;
+            this.Additions = additions;
         }
 
         /// <summary>
@@ -95,6 +97,12 @@ namespace Lusid.Sdk.Model
         public bool? RebasingElection { get; set; }
 
         /// <summary>
+        /// Gets or Sets Additions
+        /// </summary>
+        [DataMember(Name = "additions", EmitDefaultValue = true)]
+        public List<ChargeableGainsTakeOnAddition> Additions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -108,6 +116,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  OriginalCost: ").Append(OriginalCost).Append("\n");
             sb.Append("  MarketValue1982: ").Append(MarketValue1982).Append("\n");
             sb.Append("  RebasingElection: ").Append(RebasingElection).Append("\n");
+            sb.Append("  Additions: ").Append(Additions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -172,6 +181,12 @@ namespace Lusid.Sdk.Model
                     this.RebasingElection == input.RebasingElection ||
                     (this.RebasingElection != null &&
                     this.RebasingElection.Equals(input.RebasingElection))
+                ) && 
+                (
+                    this.Additions == input.Additions ||
+                    this.Additions != null &&
+                    input.Additions != null &&
+                    this.Additions.SequenceEqual(input.Additions)
                 );
         }
 
@@ -207,6 +222,10 @@ namespace Lusid.Sdk.Model
                 if (this.RebasingElection != null)
                 {
                     hashCode = (hashCode * 59) + this.RebasingElection.GetHashCode();
+                }
+                if (this.Additions != null)
+                {
+                    hashCode = (hashCode * 59) + this.Additions.GetHashCode();
                 }
                 return hashCode;
             }
