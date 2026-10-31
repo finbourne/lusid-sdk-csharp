@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **DealingFlows** | [**DealingFlowSummary**](DealingFlowSummary.md) |  | [optional] 
 **EstimateValuation** | [**EstimateValuation**](EstimateValuation.md) |  | [optional] 
 **ApprovalStatus** | **string** | Where a manually approved swing decision stands. Pending until a manager approves or overrides the engine&#39;s proposal, or when the proposal has changed since the decision was taken; Approved when the decision equals the proposal; Overridden when it differs. Absent when the swing policy approves automatically. | [optional] 
+**DealingLinesNotValued** | [**List&lt;DealingLineNotValued&gt;**](DealingLineNotValued.md) | The dealing lines read for the swing decision that could not be valued into the share class currency: an amount in a currency that is neither the fund&#39;s nor any share class&#39;s, or a weight-only line. While any are present and no pricingMethodologyOverride has been submitted, no swing decision is taken, the dealing price is absent and the valuation point cannot be finalised; under an override the override&#39;s price stands and the lines remain listed here. Absent when every line was valued or the methodology does not swing. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -35,6 +36,7 @@ DealingFlowSummary? dealingFlows = new DealingFlowSummary();
 EstimateValuation? estimateValuation = new EstimateValuation();
 
 string approvalStatus = "example approvalStatus";
+List<DealingLineNotValued> dealingLinesNotValued = new List<DealingLineNotValued>();
 
 PricingMethodologyAudit pricingMethodologyAuditInstance = new PricingMethodologyAudit(
     netCashflow: netCashflow,
@@ -46,7 +48,8 @@ PricingMethodologyAudit pricingMethodologyAuditInstance = new PricingMethodology
     outflowTrigger: outflowTrigger,
     dealingFlows: dealingFlows,
     estimateValuation: estimateValuation,
-    approvalStatus: approvalStatus);
+    approvalStatus: approvalStatus,
+    dealingLinesNotValued: dealingLinesNotValued);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

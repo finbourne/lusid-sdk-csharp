@@ -2224,7 +2224,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point.
         /// </summary>
         /// <remarks>
-        /// Updates an existing Valuation Point.
+        /// Updates an existing Valuation Point. Supplying a pricingMethodologyOverride approves or overrides the swing  decision the Valuation Point deals at, which additionally requires the ApprovePricingMethodology action on the Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -2240,7 +2240,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point.
         /// </summary>
         /// <remarks>
-        /// Updates an existing Valuation Point.
+        /// Updates an existing Valuation Point. Supplying a pricingMethodologyOverride approves or overrides the swing  decision the Valuation Point deals at, which additionally requires the ApprovePricingMethodology action on the Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4736,7 +4736,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point.
         /// </summary>
         /// <remarks>
-        /// Updates an existing Valuation Point.
+        /// Updates an existing Valuation Point. Supplying a pricingMethodologyOverride approves or overrides the swing  decision the Valuation Point deals at, which additionally requires the ApprovePricingMethodology action on the Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4753,7 +4753,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point.
         /// </summary>
         /// <remarks>
-        /// Updates an existing Valuation Point.
+        /// Updates an existing Valuation Point. Supplying a pricingMethodologyOverride approves or overrides the swing  decision the Valuation Point deals at, which additionally requires the ApprovePricingMethodology action on the Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -22737,7 +22737,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point. Updates an existing Valuation Point.
+        /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point. Updates an existing Valuation Point. Supplying a pricingMethodologyOverride approves or overrides the swing  decision the Valuation Point deals at, which additionally requires the ApprovePricingMethodology action on the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -22754,7 +22754,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point. Updates an existing Valuation Point.
+        /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point. Updates an existing Valuation Point. Supplying a pricingMethodologyOverride approves or overrides the swing  decision the Valuation Point deals at, which additionally requires the ApprovePricingMethodology action on the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -22866,7 +22866,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point. Updates an existing Valuation Point.
+        /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point. Updates an existing Valuation Point. Supplying a pricingMethodologyOverride approves or overrides the swing  decision the Valuation Point deals at, which additionally requires the ApprovePricingMethodology action on the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -22884,7 +22884,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point. Updates an existing Valuation Point.
+        /// [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point. Updates an existing Valuation Point. Supplying a pricingMethodologyOverride approves or overrides the swing  decision the Valuation Point deals at, which additionally requires the ApprovePricingMethodology action on the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>

@@ -877,6 +877,7 @@ Class | Method | HTTP request | Description
 *TransferAgencyApi* | [**CancelTransferAgencyTransactions**](docs/TransferAgencyApi.md#canceltransferagencytransactions) | **POST** /api/transferagency/transactions/cancel | [EXPERIMENTAL] CancelTransferAgencyTransactions: Cancel transfer agency transactions, un-pricing their orders
 *TransferAgencyApi* | [**DeleteTransferAgencyOrders**](docs/TransferAgencyApi.md#deletetransferagencyorders) | **POST** /api/transferagency/orders/$delete | [EXPERIMENTAL] DeleteTransferAgencyOrders: Delete transfer agency orders
 *TransferAgencyApi* | [**EstimateTransferAgencyOrders**](docs/TransferAgencyApi.md#estimatetransferagencyorders) | **POST** /api/transferagency/orders/$estimate | [EXPERIMENTAL] EstimateTransferAgencyOrders: Estimate the values of transfer agency orders
+*TransferAgencyApi* | [**UpsertExternalTransferAgencyOrders**](docs/TransferAgencyApi.md#upsertexternaltransferagencyorders) | **POST** /api/transferagency/orders/$external | [EARLY ACCESS] UpsertExternalTransferAgencyOrders: Load transfer agency orders sent by an external transfer agent
 *TransferAgencyApi* | [**UpsertTransferAgencyOrders**](docs/TransferAgencyApi.md#upserttransferagencyorders) | **POST** /api/transferagency/orders | [EXPERIMENTAL] UpsertTransferAgencyOrders: Upsert transfer agency orders
 *TransferAgencyApi* | [**UpsertTransferAgencyTransactionsFromOrders**](docs/TransferAgencyApi.md#upserttransferagencytransactionsfromorders) | **POST** /api/transferagency/transactions/$fromOrders | [EXPERIMENTAL] UpsertTransferAgencyTransactionsFromOrders: Upsert transfer agency transactions from transfer agency orders
 *TransfersApi* | [**CreateTransfer**](docs/TransfersApi.md#createtransfer) | **POST** /api/transfers | [EXPERIMENTAL] CreateTransfer: Create a transfer.
@@ -1426,6 +1427,7 @@ Class | Method | HTTP request | Description
  - [DealingEstimates](docs/DealingEstimates.md)
  - [DealingFlowSummary](docs/DealingFlowSummary.md)
  - [DealingFlowValuation](docs/DealingFlowValuation.md)
+ - [DealingLineNotValued](docs/DealingLineNotValued.md)
  - [DecimalComplianceParameter](docs/DecimalComplianceParameter.md)
  - [DecimalList](docs/DecimalList.md)
  - [DecimalListComplianceParameter](docs/DecimalListComplianceParameter.md)
@@ -1528,6 +1530,9 @@ Class | Method | HTTP request | Description
  - [ExternalFeeComponentFilter](docs/ExternalFeeComponentFilter.md)
  - [ExternalRecDefinitionDetails](docs/ExternalRecDefinitionDetails.md)
  - [ExternalRecType](docs/ExternalRecType.md)
+ - [ExternalTransferAgencyOrderAmount](docs/ExternalTransferAgencyOrderAmount.md)
+ - [ExternalTransferAgencyOrderLine](docs/ExternalTransferAgencyOrderLine.md)
+ - [ExternalTransferAgencyOrderSource](docs/ExternalTransferAgencyOrderSource.md)
  - [Facility](docs/Facility.md)
  - [FacilityCommitmentFeeEvent](docs/FacilityCommitmentFeeEvent.md)
  - [FacilityDrawEvent](docs/FacilityDrawEvent.md)
@@ -2803,6 +2808,9 @@ Class | Method | HTTP request | Description
  - [UpsertDialectRequest](docs/UpsertDialectRequest.md)
  - [UpsertEligibleCollateralScheduleRequest](docs/UpsertEligibleCollateralScheduleRequest.md)
  - [UpsertEntityResolverRequest](docs/UpsertEntityResolverRequest.md)
+ - [UpsertExternalTransferAgencyOrderResult](docs/UpsertExternalTransferAgencyOrderResult.md)
+ - [UpsertExternalTransferAgencyOrdersRequest](docs/UpsertExternalTransferAgencyOrdersRequest.md)
+ - [UpsertExternalTransferAgencyOrdersResponse](docs/UpsertExternalTransferAgencyOrdersResponse.md)
  - [UpsertFlowConventionsRequest](docs/UpsertFlowConventionsRequest.md)
  - [UpsertFundBookmarkRequest](docs/UpsertFundBookmarkRequest.md)
  - [UpsertIndexConventionRequest](docs/UpsertIndexConventionRequest.md)
