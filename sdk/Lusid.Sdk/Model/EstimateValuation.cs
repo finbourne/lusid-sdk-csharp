@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="atEstimatePrice">atEstimatePrice (required).</param>
         /// <param name="atLastOfficialPrice">atLastOfficialPrice.</param>
         /// <param name="difference">difference.</param>
-        /// <param name="unitBasedShare">DEPRECATED: always 0 and no longer computed. Kept on the response for one release so clients on a public SDK that requires the field can still read it; it will be removed once an SDK without it has shipped. (required).</param>
+        /// <param name="unitBasedShare">DEPRECATED: always 0 and no longer computed. Kept on the response for one release so clients on a public SDK that requires the field can still read it; it will be removed once an SDK without it has shipped..</param>
         public EstimateValuation(string decisionPrice = default(string), DealingFlowValuation atEstimatePrice = default(DealingFlowValuation), DealingFlowValuation atLastOfficialPrice = default(DealingFlowValuation), EstimateValuationDifference difference = default(EstimateValuationDifference), decimal unitBasedShare = default(decimal))
         {
             // to ensure "decisionPrice" is required (not null)
@@ -55,9 +55,9 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("atEstimatePrice is a required property for EstimateValuation and cannot be null");
             }
             this.AtEstimatePrice = atEstimatePrice;
-            this.UnitBasedShare = unitBasedShare;
             this.AtLastOfficialPrice = atLastOfficialPrice;
             this.Difference = difference;
+            this.UnitBasedShare = unitBasedShare;
         }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace Lusid.Sdk.Model
         /// DEPRECATED: always 0 and no longer computed. Kept on the response for one release so clients on a public SDK that requires the field can still read it; it will be removed once an SDK without it has shipped.
         /// </summary>
         /// <value>DEPRECATED: always 0 and no longer computed. Kept on the response for one release so clients on a public SDK that requires the field can still read it; it will be removed once an SDK without it has shipped.</value>
-        [DataMember(Name = "unitBasedShare", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "unitBasedShare", EmitDefaultValue = true)]
         public decimal UnitBasedShare { get; set; }
 
         /// <summary>

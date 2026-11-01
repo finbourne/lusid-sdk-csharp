@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **AtEstimatePrice** | [**DealingFlowValuation**](DealingFlowValuation.md) |  | 
 **AtLastOfficialPrice** | [**DealingFlowValuation**](DealingFlowValuation.md) |  | [optional] 
 **Difference** | [**EstimateValuationDifference**](EstimateValuationDifference.md) |  | [optional] 
-**UnitBasedShare** | **decimal** | DEPRECATED: always 0 and no longer computed. Kept on the response for one release so clients on a public SDK that requires the field can still read it; it will be removed once an SDK without it has shipped. | 
+**UnitBasedShare** | **decimal** | DEPRECATED: always 0 and no longer computed. Kept on the response for one release so clients on a public SDK that requires the field can still read it; it will be removed once an SDK without it has shipped. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -20,8 +20,7 @@ DealingFlowValuation atEstimatePrice = new DealingFlowValuation();
 DealingFlowValuation? atLastOfficialPrice = new DealingFlowValuation();
 
 EstimateValuationDifference? difference = new EstimateValuationDifference();
-decimal unitBasedShare = "unitBasedShare";
-
+decimal? unitBasedShare = "example unitBasedShare";
 
 EstimateValuation estimateValuationInstance = new EstimateValuation(
     decisionPrice: decisionPrice,

@@ -1425,6 +1425,7 @@ Class | Method | HTTP request | Description
  - [DateTimeListComplianceParameter](docs/DateTimeListComplianceParameter.md)
  - [DayMonth](docs/DayMonth.md)
  - [DayOfWeek](docs/DayOfWeek.md)
+ - [DealingBookCompleteness](docs/DealingBookCompleteness.md)
  - [DealingEstimates](docs/DealingEstimates.md)
  - [DealingFlowSummary](docs/DealingFlowSummary.md)
  - [DealingFlowValuation](docs/DealingFlowValuation.md)

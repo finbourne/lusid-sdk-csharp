@@ -47,7 +47,8 @@ namespace Lusid.Sdk.Model
         /// <param name="estimateValuation">estimateValuation.</param>
         /// <param name="approvalStatus">Where a manually approved swing decision stands. Pending until a manager approves or overrides the engine&#39;s proposal, or when the proposal has changed since the decision was taken; Approved when the decision equals the proposal; Overridden when it differs. Absent when the swing policy approves automatically..</param>
         /// <param name="dealingLinesNotValued">The dealing lines read for the swing decision that could not be valued into the share class currency: an amount in a currency that is neither the fund&#39;s nor any share class&#39;s, or a weight-only line. While any are present and no pricingMethodologyOverride has been submitted, no swing decision is taken, the dealing price is absent and the valuation point cannot be finalised; under an override the override&#39;s price stands and the lines remain listed here. Absent when every line was valued or the methodology does not swing..</param>
-        public PricingMethodologyAudit(decimal netCashflow = default(decimal), decimal? netCashflowPctOfNav = default(decimal?), SwingSpreadApplied spreadsApplied = default(SwingSpreadApplied), PricingMethodologyEngineProposal engineProposal = default(PricingMethodologyEngineProposal), PricingMethodologyOverride varOverride = default(PricingMethodologyOverride), SwingTriggerEvaluation inflowTrigger = default(SwingTriggerEvaluation), SwingTriggerEvaluation outflowTrigger = default(SwingTriggerEvaluation), DealingFlowSummary dealingFlows = default(DealingFlowSummary), EstimateValuation estimateValuation = default(EstimateValuation), string approvalStatus = default(string), List<DealingLineNotValued> dealingLinesNotValued = default(List<DealingLineNotValued>))
+        /// <param name="completeness">completeness.</param>
+        public PricingMethodologyAudit(decimal netCashflow = default(decimal), decimal? netCashflowPctOfNav = default(decimal?), SwingSpreadApplied spreadsApplied = default(SwingSpreadApplied), PricingMethodologyEngineProposal engineProposal = default(PricingMethodologyEngineProposal), PricingMethodologyOverride varOverride = default(PricingMethodologyOverride), SwingTriggerEvaluation inflowTrigger = default(SwingTriggerEvaluation), SwingTriggerEvaluation outflowTrigger = default(SwingTriggerEvaluation), DealingFlowSummary dealingFlows = default(DealingFlowSummary), EstimateValuation estimateValuation = default(EstimateValuation), string approvalStatus = default(string), List<DealingLineNotValued> dealingLinesNotValued = default(List<DealingLineNotValued>), DealingBookCompleteness completeness = default(DealingBookCompleteness))
         {
             this.NetCashflow = netCashflow;
             // to ensure "engineProposal" is required (not null)
@@ -65,6 +66,7 @@ namespace Lusid.Sdk.Model
             this.EstimateValuation = estimateValuation;
             this.ApprovalStatus = approvalStatus;
             this.DealingLinesNotValued = dealingLinesNotValued;
+            this.Completeness = completeness;
         }
 
         /// <summary>
@@ -138,6 +140,12 @@ namespace Lusid.Sdk.Model
         public List<DealingLineNotValued> DealingLinesNotValued { get; set; }
 
         /// <summary>
+        /// Gets or Sets Completeness
+        /// </summary>
+        [DataMember(Name = "completeness", EmitDefaultValue = false)]
+        public DealingBookCompleteness Completeness { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -156,6 +164,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EstimateValuation: ").Append(EstimateValuation).Append("\n");
             sb.Append("  ApprovalStatus: ").Append(ApprovalStatus).Append("\n");
             sb.Append("  DealingLinesNotValued: ").Append(DealingLinesNotValued).Append("\n");
+            sb.Append("  Completeness: ").Append(Completeness).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -245,6 +254,11 @@ namespace Lusid.Sdk.Model
                     this.DealingLinesNotValued != null &&
                     input.DealingLinesNotValued != null &&
                     this.DealingLinesNotValued.SequenceEqual(input.DealingLinesNotValued)
+                ) && 
+                (
+                    this.Completeness == input.Completeness ||
+                    (this.Completeness != null &&
+                    this.Completeness.Equals(input.Completeness))
                 );
         }
 
@@ -297,6 +311,10 @@ namespace Lusid.Sdk.Model
                 if (this.DealingLinesNotValued != null)
                 {
                     hashCode = (hashCode * 59) + this.DealingLinesNotValued.GetHashCode();
+                }
+                if (this.Completeness != null)
+                {
+                    hashCode = (hashCode * 59) + this.Completeness.GetHashCode();
                 }
                 return hashCode;
             }
