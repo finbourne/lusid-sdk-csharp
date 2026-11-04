@@ -21,6 +21,8 @@ Name | Type | Description | Notes
 **InitialMarginItem** | **string** | The initial-margin item the line falls under, when the holding matched one. Filterable. | [optional] 
 **InitialMargin** | **decimal?** | The holding&#39;s share of its netting set&#39;s initial margin, before the threshold, when it contributes to it. | [optional] 
 **Scenario** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**LineKey** | **string** | A key that identifies the line within its run, with which its explanation is asked for. A line valued under a scenario has a different key from the same holding in the base market. Null for a line stored before lines carried a key. | [optional] 
+**ExplainAvailable** | **bool** | Whether the working behind the line&#39;s figures was stored, so that the line can be explained. One flag covers every figure of the line. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -40,6 +42,8 @@ Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string
 string initialMarginItem = "example initialMarginItem";
 ResourceId? scenario = new ResourceId();
 
+string lineKey = "example lineKey";
+bool explainAvailable = //"True";
 
 MarginLine marginLineInstance = new MarginLine(
     runId: runId,
@@ -57,7 +61,9 @@ MarginLine marginLineInstance = new MarginLine(
     collateralValue: collateralValue,
     initialMarginItem: initialMarginItem,
     initialMargin: initialMargin,
-    scenario: scenario);
+    scenario: scenario,
+    lineKey: lineKey,
+    explainAvailable: explainAvailable);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

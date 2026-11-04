@@ -25,25 +25,25 @@ namespace Lusid.Sdk.Model
     /// <summary>
     /// The system that sent an external order set, and its own reference for the batch.
     /// </summary>
-    [DataContract(Name = "ExternalTransferAgencyOrderSource")]
-    public partial class ExternalTransferAgencyOrderSource : IEquatable<ExternalTransferAgencyOrderSource>, IValidatableObject
+    [DataContract(Name = "ExternalDealingEstimateSource")]
+    public partial class ExternalDealingEstimateSource : IEquatable<ExternalDealingEstimateSource>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExternalTransferAgencyOrderSource" /> class.
+        /// Initializes a new instance of the <see cref="ExternalDealingEstimateSource" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ExternalTransferAgencyOrderSource() { }
+        protected ExternalDealingEstimateSource() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExternalTransferAgencyOrderSource" /> class.
+        /// Initializes a new instance of the <see cref="ExternalDealingEstimateSource" /> class.
         /// </summary>
         /// <param name="varSystem">varSystem (required).</param>
         /// <param name="reference">reference.</param>
-        public ExternalTransferAgencyOrderSource(string varSystem = default(string), string reference = default(string))
+        public ExternalDealingEstimateSource(string varSystem = default(string), string reference = default(string))
         {
             // to ensure "varSystem" is required (not null)
             if (varSystem == null)
             {
-                throw new ArgumentNullException("varSystem is a required property for ExternalTransferAgencyOrderSource and cannot be null");
+                throw new ArgumentNullException("varSystem is a required property for ExternalDealingEstimateSource and cannot be null");
             }
             this.System = varSystem;
             this.Reference = reference;
@@ -68,7 +68,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ExternalTransferAgencyOrderSource {\n");
+            sb.Append("class ExternalDealingEstimateSource {\n");
             sb.Append("  System: ").Append(System).Append("\n");
             sb.Append("  Reference: ").Append(Reference).Append("\n");
             sb.Append("}\n");
@@ -91,15 +91,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ExternalTransferAgencyOrderSource);
+            return this.Equals(input as ExternalDealingEstimateSource);
         }
 
         /// <summary>
-        /// Returns true if ExternalTransferAgencyOrderSource instances are equal
+        /// Returns true if ExternalDealingEstimateSource instances are equal
         /// </summary>
-        /// <param name="input">Instance of ExternalTransferAgencyOrderSource to be compared</param>
+        /// <param name="input">Instance of ExternalDealingEstimateSource to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ExternalTransferAgencyOrderSource input)
+        public bool Equals(ExternalDealingEstimateSource input)
         {
             if (input == null)
             {

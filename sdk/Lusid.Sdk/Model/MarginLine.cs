@@ -52,7 +52,9 @@ namespace Lusid.Sdk.Model
         /// <param name="initialMarginItem">The initial-margin item the line falls under, when the holding matched one. Filterable..</param>
         /// <param name="initialMargin">The holding&#39;s share of its netting set&#39;s initial margin, before the threshold, when it contributes to it..</param>
         /// <param name="scenario">scenario.</param>
-        public MarginLine(string runId = default(string), ResourceId agreementId = default(ResourceId), string item = default(string), ResourceId portfolioId = default(ResourceId), string holdingId = default(string), string custodianAccountScope = default(string), string custodianAccountCode = default(string), string custodianAccountName = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal units = default(decimal), decimal? pv = default(decimal?), decimal? variationMargin = default(decimal?), decimal? collateralValue = default(decimal?), string initialMarginItem = default(string), decimal? initialMargin = default(decimal?), ResourceId scenario = default(ResourceId))
+        /// <param name="lineKey">A key that identifies the line within its run, with which its explanation is asked for. A line valued under a scenario has a different key from the same holding in the base market. Null for a line stored before lines carried a key..</param>
+        /// <param name="explainAvailable">Whether the working behind the line&#39;s figures was stored, so that the line can be explained. One flag covers every figure of the line..</param>
+        public MarginLine(string runId = default(string), ResourceId agreementId = default(ResourceId), string item = default(string), ResourceId portfolioId = default(ResourceId), string holdingId = default(string), string custodianAccountScope = default(string), string custodianAccountCode = default(string), string custodianAccountName = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal units = default(decimal), decimal? pv = default(decimal?), decimal? variationMargin = default(decimal?), decimal? collateralValue = default(decimal?), string initialMarginItem = default(string), decimal? initialMargin = default(decimal?), ResourceId scenario = default(ResourceId), string lineKey = default(string), bool explainAvailable = default(bool))
         {
             // to ensure "runId" is required (not null)
             if (runId == null)
@@ -90,6 +92,8 @@ namespace Lusid.Sdk.Model
             this.InitialMarginItem = initialMarginItem;
             this.InitialMargin = initialMargin;
             this.Scenario = scenario;
+            this.LineKey = lineKey;
+            this.ExplainAvailable = explainAvailable;
         }
 
         /// <summary>
@@ -202,6 +206,20 @@ namespace Lusid.Sdk.Model
         public ResourceId Scenario { get; set; }
 
         /// <summary>
+        /// A key that identifies the line within its run, with which its explanation is asked for. A line valued under a scenario has a different key from the same holding in the base market. Null for a line stored before lines carried a key.
+        /// </summary>
+        /// <value>A key that identifies the line within its run, with which its explanation is asked for. A line valued under a scenario has a different key from the same holding in the base market. Null for a line stored before lines carried a key.</value>
+        [DataMember(Name = "lineKey", EmitDefaultValue = true)]
+        public string LineKey { get; set; }
+
+        /// <summary>
+        /// Whether the working behind the line&#39;s figures was stored, so that the line can be explained. One flag covers every figure of the line.
+        /// </summary>
+        /// <value>Whether the working behind the line&#39;s figures was stored, so that the line can be explained. One flag covers every figure of the line.</value>
+        [DataMember(Name = "explainAvailable", EmitDefaultValue = true)]
+        public bool ExplainAvailable { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -225,6 +243,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  InitialMarginItem: ").Append(InitialMarginItem).Append("\n");
             sb.Append("  InitialMargin: ").Append(InitialMargin).Append("\n");
             sb.Append("  Scenario: ").Append(Scenario).Append("\n");
+            sb.Append("  LineKey: ").Append(LineKey).Append("\n");
+            sb.Append("  ExplainAvailable: ").Append(ExplainAvailable).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -339,6 +359,15 @@ namespace Lusid.Sdk.Model
                     this.Scenario == input.Scenario ||
                     (this.Scenario != null &&
                     this.Scenario.Equals(input.Scenario))
+                ) && 
+                (
+                    this.LineKey == input.LineKey ||
+                    (this.LineKey != null &&
+                    this.LineKey.Equals(input.LineKey))
+                ) && 
+                (
+                    this.ExplainAvailable == input.ExplainAvailable ||
+                    this.ExplainAvailable.Equals(input.ExplainAvailable)
                 );
         }
 
@@ -412,6 +441,11 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Scenario.GetHashCode();
                 }
+                if (this.LineKey != null)
+                {
+                    hashCode = (hashCode * 59) + this.LineKey.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ExplainAvailable.GetHashCode();
                 return hashCode;
             }
         }
@@ -535,6 +569,25 @@ namespace Lusid.Sdk.Model
             if (false == regexInitialMarginItem.Match(this.InitialMarginItem).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InitialMarginItem, must match a pattern of " + regexInitialMarginItem, new [] { "InitialMarginItem" });
+            }
+
+            // LineKey (string) maxLength
+            if (this.LineKey != null && this.LineKey.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LineKey, length must be less than 64.", new [] { "LineKey" });
+            }
+
+            // LineKey (string) minLength
+            if (this.LineKey != null && this.LineKey.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LineKey, length must be greater than 1.", new [] { "LineKey" });
+            }
+
+            // LineKey (string) pattern
+            Regex regexLineKey = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexLineKey.Match(this.LineKey).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LineKey, must match a pattern of " + regexLineKey, new [] { "LineKey" });
             }
 
             yield break;

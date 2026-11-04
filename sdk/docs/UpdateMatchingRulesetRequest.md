@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DisplayName** | **string** | The name of the matching ruleset. | 
-**RecType** | **string** | The type of reconciliation to perform. External reconciles non-native data on both sides, described by the datasetSchemas and the externalRecType. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument. | 
+**RecType** | **string** | The type of reconciliation to perform. External reconciles non-native data on both sides, described by the datasetSchemas and the externalRecType. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument, LegalEntity. | 
 **ExternalRecType** | [**ExternalRecType**](ExternalRecType.md) |  | [optional] 
 **DatasetSchemas** | [**RecDatasetSchemas**](RecDatasetSchemas.md) |  | [optional] 
 **Filters** | [**GroupReconciliationFilters**](GroupReconciliationFilters.md) |  | [optional] 

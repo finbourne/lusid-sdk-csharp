@@ -8,6 +8,8 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**BatchAcceptMarginCalls**](CollateralApi.md#batchacceptmargincalls) | **POST** /api/collateral/margincalls/$batchAccept | [EXPERIMENTAL] BatchAcceptMarginCalls: Accept several margin calls. |
 | [**DisputeMarginCall**](CollateralApi.md#disputemargincall) | **POST** /api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/$dispute | [EXPERIMENTAL] DisputeMarginCall: Dispute a margin call. |
 | [**GetMarginCall**](CollateralApi.md#getmargincall) | **GET** /api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction} | [EXPERIMENTAL] GetMarginCall: Get a margin call. |
+| [**GetMarginCallExplanation**](CollateralApi.md#getmargincallexplanation) | **GET** /api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/$explain | [EXPERIMENTAL] GetMarginCallExplanation: Explain a margin call. |
+| [**GetMarginLineExplanation**](CollateralApi.md#getmarginlineexplanation) | **GET** /api/collateral/runs/{runId}/lines/{lineKey}/$explain | [EXPERIMENTAL] GetMarginLineExplanation: Explain a margin line. |
 | [**GetMarginRun**](CollateralApi.md#getmarginrun) | **GET** /api/collateral/runs/{runId} | [EXPERIMENTAL] GetMarginRun: Get a margin run. |
 | [**ListMarginCallLines**](CollateralApi.md#listmargincalllines) | **GET** /api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/lines | [EXPERIMENTAL] ListMarginCallLines: List the margin lines of a call. |
 | [**ListMarginCalls**](CollateralApi.md#listmargincalls) | **GET** /api/collateral/margincalls | [EXPERIMENTAL] ListMarginCalls: List margin calls. |
@@ -502,6 +504,248 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The requested margin call. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getmargincallexplanation"></a>
+# **GetMarginCallExplanation**
+> MarginExplanation GetMarginCallExplanation (string runId, string agreementScope, string agreementCode, string item, string marginType, string direction)
+
+[EXPERIMENTAL] GetMarginCallExplanation: Explain a margin call.
+
+Show how the required amount of one initial-margin call of a run was arrived at, as a tree of components. Only an  initial-margin call whose run stored its working can be explained, as the call's ExplainAvailable says. The working  of portfolios the caller may not read is replaced by a single redacted component that keeps its parent adding up.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CollateralApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CollateralApi>();
+            var runId = "runId_example";  // string | The identifier of the margin run.
+            var agreementScope = "agreementScope_example";  // string | The scope of the call's collateral agreement.
+            var agreementCode = "agreementCode_example";  // string | The code of the call's collateral agreement.
+            var item = "item_example";  // string | The margin item of the call.
+            var marginType = "marginType_example";  // string | The margin type of the call. Only InitialMargin calls can be explained.
+            var direction = "direction_example";  // string | Who posts under the call. One of WePost, TheyPost or None.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // MarginExplanation result = apiInstance.GetMarginCallExplanation(runId, agreementScope, agreementCode, item, marginType, direction, opts: opts);
+
+                // [EXPERIMENTAL] GetMarginCallExplanation: Explain a margin call.
+                MarginExplanation result = apiInstance.GetMarginCallExplanation(runId, agreementScope, agreementCode, item, marginType, direction);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling CollateralApi.GetMarginCallExplanation: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetMarginCallExplanationWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetMarginCallExplanation: Explain a margin call.
+    ApiResponse<MarginExplanation> response = apiInstance.GetMarginCallExplanationWithHttpInfo(runId, agreementScope, agreementCode, item, marginType, direction);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling CollateralApi.GetMarginCallExplanationWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **runId** | **string** | The identifier of the margin run. |  |
+| **agreementScope** | **string** | The scope of the call&#39;s collateral agreement. |  |
+| **agreementCode** | **string** | The code of the call&#39;s collateral agreement. |  |
+| **item** | **string** | The margin item of the call. |  |
+| **marginType** | **string** | The margin type of the call. Only InitialMargin calls can be explained. |  |
+| **direction** | **string** | Who posts under the call. One of WePost, TheyPost or None. |  |
+
+### Return type
+
+[**MarginExplanation**](MarginExplanation.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | How the call&#39;s required amount was arrived at. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getmarginlineexplanation"></a>
+# **GetMarginLineExplanation**
+> MarginExplanation GetMarginLineExplanation (string runId, string lineKey, string? figure = null)
+
+[EXPERIMENTAL] GetMarginLineExplanation: Explain a margin line.
+
+Show how the figures of one margin line of a run were arrived at, as a tree of components for each figure. The run  must have stored its working, as its lines' ExplainAvailable says. The working of portfolios the caller may not  read is replaced by a single redacted component that keeps its parent adding up. A line the caller may not read is  reported as not found.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CollateralApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CollateralApi>();
+            var runId = "runId_example";  // string | The identifier of the margin run.
+            var lineKey = "lineKey_example";  // string | The key of the margin line, as listed in the line's LineKey.
+            var figure = "figure_example";  // string? | The figure of the line to explain: VariationMargin or InitialMargin. Explains every figure of the line that the run explained if not specified. Available values: VariationMargin, InitialMargin. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // MarginExplanation result = apiInstance.GetMarginLineExplanation(runId, lineKey, figure, opts: opts);
+
+                // [EXPERIMENTAL] GetMarginLineExplanation: Explain a margin line.
+                MarginExplanation result = apiInstance.GetMarginLineExplanation(runId, lineKey, figure);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling CollateralApi.GetMarginLineExplanation: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetMarginLineExplanationWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetMarginLineExplanation: Explain a margin line.
+    ApiResponse<MarginExplanation> response = apiInstance.GetMarginLineExplanationWithHttpInfo(runId, lineKey, figure);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling CollateralApi.GetMarginLineExplanationWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **runId** | **string** | The identifier of the margin run. |  |
+| **lineKey** | **string** | The key of the margin line, as listed in the line&#39;s LineKey. |  |
+| **figure** | **string?** | The figure of the line to explain: VariationMargin or InitialMargin. Explains every figure of the line that the run explained if not specified. Available values: VariationMargin, InitialMargin. | [optional]  |
+
+### Return type
+
+[**MarginExplanation**](MarginExplanation.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | How the line&#39;s figures were arrived at. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

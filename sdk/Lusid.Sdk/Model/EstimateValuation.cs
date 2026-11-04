@@ -40,8 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="atEstimatePrice">atEstimatePrice (required).</param>
         /// <param name="atLastOfficialPrice">atLastOfficialPrice.</param>
         /// <param name="difference">difference.</param>
-        /// <param name="unitBasedShare">DEPRECATED: always 0 and no longer computed. Kept on the response for one release so clients on a public SDK that requires the field can still read it; it will be removed once an SDK without it has shipped..</param>
-        public EstimateValuation(string decisionPrice = default(string), DealingFlowValuation atEstimatePrice = default(DealingFlowValuation), DealingFlowValuation atLastOfficialPrice = default(DealingFlowValuation), EstimateValuationDifference difference = default(EstimateValuationDifference), decimal unitBasedShare = default(decimal))
+        public EstimateValuation(string decisionPrice = default(string), DealingFlowValuation atEstimatePrice = default(DealingFlowValuation), DealingFlowValuation atLastOfficialPrice = default(DealingFlowValuation), EstimateValuationDifference difference = default(EstimateValuationDifference))
         {
             // to ensure "decisionPrice" is required (not null)
             if (decisionPrice == null)
@@ -57,7 +56,6 @@ namespace Lusid.Sdk.Model
             this.AtEstimatePrice = atEstimatePrice;
             this.AtLastOfficialPrice = atLastOfficialPrice;
             this.Difference = difference;
-            this.UnitBasedShare = unitBasedShare;
         }
 
         /// <summary>
@@ -86,13 +84,6 @@ namespace Lusid.Sdk.Model
         public EstimateValuationDifference Difference { get; set; }
 
         /// <summary>
-        /// DEPRECATED: always 0 and no longer computed. Kept on the response for one release so clients on a public SDK that requires the field can still read it; it will be removed once an SDK without it has shipped.
-        /// </summary>
-        /// <value>DEPRECATED: always 0 and no longer computed. Kept on the response for one release so clients on a public SDK that requires the field can still read it; it will be removed once an SDK without it has shipped.</value>
-        [DataMember(Name = "unitBasedShare", EmitDefaultValue = true)]
-        public decimal UnitBasedShare { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -104,7 +95,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  AtEstimatePrice: ").Append(AtEstimatePrice).Append("\n");
             sb.Append("  AtLastOfficialPrice: ").Append(AtLastOfficialPrice).Append("\n");
             sb.Append("  Difference: ").Append(Difference).Append("\n");
-            sb.Append("  UnitBasedShare: ").Append(UnitBasedShare).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -159,10 +149,6 @@ namespace Lusid.Sdk.Model
                     this.Difference == input.Difference ||
                     (this.Difference != null &&
                     this.Difference.Equals(input.Difference))
-                ) && 
-                (
-                    this.UnitBasedShare == input.UnitBasedShare ||
-                    this.UnitBasedShare.Equals(input.UnitBasedShare)
                 );
         }
 
@@ -191,7 +177,6 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Difference.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.UnitBasedShare.GetHashCode();
                 return hashCode;
             }
         }

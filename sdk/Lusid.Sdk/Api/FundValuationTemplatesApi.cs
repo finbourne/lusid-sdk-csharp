@@ -91,7 +91,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListValuationAddressKeyTemplates: List Valuation Templates.
         /// </summary>
         /// <remarks>
-        /// List the stored Valuation Templates matching the given criteria. To find the domain default, filter on  \&quot;isDefault eq true\&quot;. The system default is not stored, so it is not listed. If no stored template is the  default, the system default applies. Get it with scope \&quot;default\&quot; and code \&quot;DefaultTemplate\&quot;.
+        /// List the Valuation Templates matching the given criteria. The list includes the system default, with scope  \&quot;default\&quot; and code \&quot;DefaultTemplate\&quot;. If no stored template is the default, the system default applies.  To find the domain default, filter on \&quot;isDefault eq true\&quot;.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Valuation Templates. Defaults to returning the latest version of each template if not specified. (optional)</param>
@@ -108,7 +108,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListValuationAddressKeyTemplates: List Valuation Templates.
         /// </summary>
         /// <remarks>
-        /// List the stored Valuation Templates matching the given criteria. To find the domain default, filter on  \&quot;isDefault eq true\&quot;. The system default is not stored, so it is not listed. If no stored template is the  default, the system default applies. Get it with scope \&quot;default\&quot; and code \&quot;DefaultTemplate\&quot;.
+        /// List the Valuation Templates matching the given criteria. The list includes the system default, with scope  \&quot;default\&quot; and code \&quot;DefaultTemplate\&quot;. If no stored template is the default, the system default applies.  To find the domain default, filter on \&quot;isDefault eq true\&quot;.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Valuation Templates. Defaults to returning the latest version of each template if not specified. (optional)</param>
@@ -222,7 +222,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListValuationAddressKeyTemplates: List Valuation Templates.
         /// </summary>
         /// <remarks>
-        /// List the stored Valuation Templates matching the given criteria. To find the domain default, filter on  \&quot;isDefault eq true\&quot;. The system default is not stored, so it is not listed. If no stored template is the  default, the system default applies. Get it with scope \&quot;default\&quot; and code \&quot;DefaultTemplate\&quot;.
+        /// List the Valuation Templates matching the given criteria. The list includes the system default, with scope  \&quot;default\&quot; and code \&quot;DefaultTemplate\&quot;. If no stored template is the default, the system default applies.  To find the domain default, filter on \&quot;isDefault eq true\&quot;.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Valuation Templates. Defaults to returning the latest version of each template if not specified. (optional)</param>
@@ -240,7 +240,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListValuationAddressKeyTemplates: List Valuation Templates.
         /// </summary>
         /// <remarks>
-        /// List the stored Valuation Templates matching the given criteria. To find the domain default, filter on  \&quot;isDefault eq true\&quot;. The system default is not stored, so it is not listed. If no stored template is the  default, the system default applies. Get it with scope \&quot;default\&quot; and code \&quot;DefaultTemplate\&quot;.
+        /// List the Valuation Templates matching the given criteria. The list includes the system default, with scope  \&quot;default\&quot; and code \&quot;DefaultTemplate\&quot;. If no stored template is the default, the system default applies.  To find the domain default, filter on \&quot;isDefault eq true\&quot;.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Valuation Templates. Defaults to returning the latest version of each template if not specified. (optional)</param>
@@ -865,7 +865,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationAddressKeyTemplates: List Valuation Templates. List the stored Valuation Templates matching the given criteria. To find the domain default, filter on  \&quot;isDefault eq true\&quot;. The system default is not stored, so it is not listed. If no stored template is the  default, the system default applies. Get it with scope \&quot;default\&quot; and code \&quot;DefaultTemplate\&quot;.
+        /// [EXPERIMENTAL] ListValuationAddressKeyTemplates: List Valuation Templates. List the Valuation Templates matching the given criteria. The list includes the system default, with scope  \&quot;default\&quot; and code \&quot;DefaultTemplate\&quot;. If no stored template is the default, the system default applies.  To find the domain default, filter on \&quot;isDefault eq true\&quot;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Valuation Templates. Defaults to returning the latest version of each template if not specified. (optional)</param>
@@ -883,7 +883,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationAddressKeyTemplates: List Valuation Templates. List the stored Valuation Templates matching the given criteria. To find the domain default, filter on  \&quot;isDefault eq true\&quot;. The system default is not stored, so it is not listed. If no stored template is the  default, the system default applies. Get it with scope \&quot;default\&quot; and code \&quot;DefaultTemplate\&quot;.
+        /// [EXPERIMENTAL] ListValuationAddressKeyTemplates: List Valuation Templates. List the Valuation Templates matching the given criteria. The list includes the system default, with scope  \&quot;default\&quot; and code \&quot;DefaultTemplate\&quot;. If no stored template is the default, the system default applies.  To find the domain default, filter on \&quot;isDefault eq true\&quot;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Valuation Templates. Defaults to returning the latest version of each template if not specified. (optional)</param>
@@ -991,7 +991,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationAddressKeyTemplates: List Valuation Templates. List the stored Valuation Templates matching the given criteria. To find the domain default, filter on  \&quot;isDefault eq true\&quot;. The system default is not stored, so it is not listed. If no stored template is the  default, the system default applies. Get it with scope \&quot;default\&quot; and code \&quot;DefaultTemplate\&quot;.
+        /// [EXPERIMENTAL] ListValuationAddressKeyTemplates: List Valuation Templates. List the Valuation Templates matching the given criteria. The list includes the system default, with scope  \&quot;default\&quot; and code \&quot;DefaultTemplate\&quot;. If no stored template is the default, the system default applies.  To find the domain default, filter on \&quot;isDefault eq true\&quot;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Valuation Templates. Defaults to returning the latest version of each template if not specified. (optional)</param>
@@ -1010,7 +1010,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationAddressKeyTemplates: List Valuation Templates. List the stored Valuation Templates matching the given criteria. To find the domain default, filter on  \&quot;isDefault eq true\&quot;. The system default is not stored, so it is not listed. If no stored template is the  default, the system default applies. Get it with scope \&quot;default\&quot; and code \&quot;DefaultTemplate\&quot;.
+        /// [EXPERIMENTAL] ListValuationAddressKeyTemplates: List Valuation Templates. List the Valuation Templates matching the given criteria. The list includes the system default, with scope  \&quot;default\&quot; and code \&quot;DefaultTemplate\&quot;. If no stored template is the default, the system default applies.  To find the domain default, filter on \&quot;isDefault eq true\&quot;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Valuation Templates. Defaults to returning the latest version of each template if not specified. (optional)</param>

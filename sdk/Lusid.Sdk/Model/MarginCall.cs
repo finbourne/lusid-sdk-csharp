@@ -67,7 +67,8 @@ namespace Lusid.Sdk.Model
         /// <param name="carriedFrom">carriedFrom.</param>
         /// <param name="carriedDisputedAmount">The amount left in dispute on the carried call. Informational; not added to this call..</param>
         /// <param name="scenario">scenario.</param>
-        public MarginCall(string href = default(string), string id = default(string), string runId = default(string), ResourceId agreementId = default(ResourceId), CounterpartyIdentifier counterparty = default(CounterpartyIdentifier), string item = default(string), string marginType = default(string), string method = default(string), string settlement = default(string), string direction = default(string), string currency = default(string), decimal required = default(decimal), decimal held = default(decimal), decimal call = default(decimal), decimal? matchTolerance = default(decimal?), decimal? counterpartyDemand = default(decimal?), decimal? difference = default(decimal?), string matchStatus = default(string), DateTimeOffset? demandReceivedAt = default(DateTimeOffset?), string statementReference = default(string), string demandNote = default(string), decimal? agreedAmount = default(decimal?), decimal? disputedAmount = default(decimal?), string disputeReason = default(string), string disputeOwner = default(string), string state = default(string), DateTimeOffset? deadline = default(DateTimeOffset?), MarginCallReference supersedes = default(MarginCallReference), MarginCallReference carriedFrom = default(MarginCallReference), decimal? carriedDisputedAmount = default(decimal?), ResourceId scenario = default(ResourceId))
+        /// <param name="explainAvailable">Whether the working behind the call&#39;s required amount was stored, so that the call can be explained. Only an initial-margin call can be explained, and only when the run stored its working..</param>
+        public MarginCall(string href = default(string), string id = default(string), string runId = default(string), ResourceId agreementId = default(ResourceId), CounterpartyIdentifier counterparty = default(CounterpartyIdentifier), string item = default(string), string marginType = default(string), string method = default(string), string settlement = default(string), string direction = default(string), string currency = default(string), decimal required = default(decimal), decimal held = default(decimal), decimal call = default(decimal), decimal? matchTolerance = default(decimal?), decimal? counterpartyDemand = default(decimal?), decimal? difference = default(decimal?), string matchStatus = default(string), DateTimeOffset? demandReceivedAt = default(DateTimeOffset?), string statementReference = default(string), string demandNote = default(string), decimal? agreedAmount = default(decimal?), decimal? disputedAmount = default(decimal?), string disputeReason = default(string), string disputeOwner = default(string), string state = default(string), DateTimeOffset? deadline = default(DateTimeOffset?), MarginCallReference supersedes = default(MarginCallReference), MarginCallReference carriedFrom = default(MarginCallReference), decimal? carriedDisputedAmount = default(decimal?), ResourceId scenario = default(ResourceId), bool explainAvailable = default(bool))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -145,6 +146,7 @@ namespace Lusid.Sdk.Model
             this.CarriedFrom = carriedFrom;
             this.CarriedDisputedAmount = carriedDisputedAmount;
             this.Scenario = scenario;
+            this.ExplainAvailable = explainAvailable;
         }
 
         /// <summary>
@@ -360,6 +362,13 @@ namespace Lusid.Sdk.Model
         public ResourceId Scenario { get; set; }
 
         /// <summary>
+        /// Whether the working behind the call&#39;s required amount was stored, so that the call can be explained. Only an initial-margin call can be explained, and only when the run stored its working.
+        /// </summary>
+        /// <value>Whether the working behind the call&#39;s required amount was stored, so that the call can be explained. Only an initial-margin call can be explained, and only when the run stored its working.</value>
+        [DataMember(Name = "explainAvailable", EmitDefaultValue = true)]
+        public bool ExplainAvailable { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -398,6 +407,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CarriedFrom: ").Append(CarriedFrom).Append("\n");
             sb.Append("  CarriedDisputedAmount: ").Append(CarriedDisputedAmount).Append("\n");
             sb.Append("  Scenario: ").Append(Scenario).Append("\n");
+            sb.Append("  ExplainAvailable: ").Append(ExplainAvailable).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -584,6 +594,10 @@ namespace Lusid.Sdk.Model
                     this.Scenario == input.Scenario ||
                     (this.Scenario != null &&
                     this.Scenario.Equals(input.Scenario))
+                ) && 
+                (
+                    this.ExplainAvailable == input.ExplainAvailable ||
+                    this.ExplainAvailable.Equals(input.ExplainAvailable)
                 );
         }
 
@@ -711,6 +725,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Scenario.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.ExplainAvailable.GetHashCode();
                 return hashCode;
             }
         }

@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentIdentifierOut">The LUSID instrument id of the instrument moving out. A position in this instrument must exist in the outgoing portfolio on the outgoing trade date. (required).</param>
         /// <param name="instrumentIdentifierIn">The LUSID instrument id of the instrument moving in. Equal to InstrumentIdentifierOut for a transfer between portfolios. (required).</param>
         /// <param name="pricingMethod">How the legs are priced. &#39;AtCost&#39; uses the cost per unit of the outgoing holding; &#39;AtPrice&#39; uses the supplied TransactionPriceOut, which is then required. Available values: AtCost, AtPrice. (required).</param>
-        /// <param name="taxLotStructure">What happens to the tax lots of the outgoing position. Only &#39;Consolidate&#39; is currently supported; &#39;Preserve&#39; is rejected. Defaults to &#39;Consolidate&#39;. Available values: Consolidate, Preserve..</param>
+        /// <param name="taxLotStructure">What happens to the tax lots of the outgoing position. Defaults to &#39;Consolidate&#39;. &#39;Preserve&#39; carries each outgoing lot onto the incoming position; it is not supported when the incoming portfolio uses the AverageCost or Default accounting method, or across share classes in different currencies. Available values: Consolidate, Preserve..</param>
         /// <param name="unitsOut">The number of units to move out. Must be greater than zero. (required).</param>
         /// <param name="unitsIn">The number of units to move in. Must be greater than zero. (required).</param>
         /// <param name="amountOut">The total consideration of the outgoing leg. Recorded, not applied..</param>
@@ -54,7 +54,7 @@ namespace Lusid.Sdk.Model
         /// <param name="exchangeRateOut">The FX rate to apply to the outgoing leg..</param>
         /// <param name="exchangeRateIn">The FX rate to apply to the incoming leg..</param>
         /// <param name="transactionPriceOut">The unit price of the outgoing leg. Required when PricingMethod is &#39;AtPrice&#39;, and ignored when it is &#39;AtCost&#39;..</param>
-        /// <param name="transactionPriceIn">The unit price of the incoming leg. Ignored for a transfer, which carries the outgoing price across; defaults to the outgoing price for a switch..</param>
+        /// <param name="transactionPriceIn">The unit price of the incoming leg. Not accepted for a transfer of one instrument between portfolios, which carries the outgoing price across. For a switch, required when PricingMethod is &#39;AtPrice&#39; and defaults to the outgoing price otherwise..</param>
         /// <param name="counterpartyIdOut">The counterparty identifier of the outgoing leg..</param>
         /// <param name="counterpartyIdIn">The counterparty identifier of the incoming leg. Defaults to CounterpartyIdOut..</param>
         /// <param name="custodianAccountIdOut">custodianAccountIdOut.</param>
@@ -175,9 +175,9 @@ namespace Lusid.Sdk.Model
         public string PricingMethod { get; set; }
 
         /// <summary>
-        /// What happens to the tax lots of the outgoing position. Only &#39;Consolidate&#39; is currently supported; &#39;Preserve&#39; is rejected. Defaults to &#39;Consolidate&#39;. Available values: Consolidate, Preserve.
+        /// What happens to the tax lots of the outgoing position. Defaults to &#39;Consolidate&#39;. &#39;Preserve&#39; carries each outgoing lot onto the incoming position; it is not supported when the incoming portfolio uses the AverageCost or Default accounting method, or across share classes in different currencies. Available values: Consolidate, Preserve.
         /// </summary>
-        /// <value>What happens to the tax lots of the outgoing position. Only &#39;Consolidate&#39; is currently supported; &#39;Preserve&#39; is rejected. Defaults to &#39;Consolidate&#39;. Available values: Consolidate, Preserve.</value>
+        /// <value>What happens to the tax lots of the outgoing position. Defaults to &#39;Consolidate&#39;. &#39;Preserve&#39; carries each outgoing lot onto the incoming position; it is not supported when the incoming portfolio uses the AverageCost or Default accounting method, or across share classes in different currencies. Available values: Consolidate, Preserve.</value>
         [DataMember(Name = "taxLotStructure", EmitDefaultValue = true)]
         public string TaxLotStructure { get; set; }
 
@@ -259,9 +259,9 @@ namespace Lusid.Sdk.Model
         public decimal? TransactionPriceOut { get; set; }
 
         /// <summary>
-        /// The unit price of the incoming leg. Ignored for a transfer, which carries the outgoing price across; defaults to the outgoing price for a switch.
+        /// The unit price of the incoming leg. Not accepted for a transfer of one instrument between portfolios, which carries the outgoing price across. For a switch, required when PricingMethod is &#39;AtPrice&#39; and defaults to the outgoing price otherwise.
         /// </summary>
-        /// <value>The unit price of the incoming leg. Ignored for a transfer, which carries the outgoing price across; defaults to the outgoing price for a switch.</value>
+        /// <value>The unit price of the incoming leg. Not accepted for a transfer of one instrument between portfolios, which carries the outgoing price across. For a switch, required when PricingMethod is &#39;AtPrice&#39; and defaults to the outgoing price otherwise.</value>
         [DataMember(Name = "transactionPriceIn", EmitDefaultValue = true)]
         public decimal? TransactionPriceIn { get; set; }
 

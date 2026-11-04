@@ -41,7 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="agreementFilter">An expression selecting the collateral agreements to run, in the same syntax as listing collateral agreements. Every agreement the caller may calculate margin for is run if not specified..</param>
         /// <param name="scenarios">The stored scenarios to value the agreements under, each as a what-if beside the base market, which the run always values. A scenario&#39;s calls are served beside the base calls only when asked for, and cannot be accepted, disputed or matched to a counterparty demand. At most 20. Only the base market is valued if not specified..</param>
         /// <param name="effectiveFrom">The first business date, datetime or cut label of a span ending at effectiveAt. Each weekday from it to effectiveAt is valued as a run of its own, all at the same asAt, and a date after the asAt is a projection valued on the market as at the asAt that cannot be accepted, disputed or matched to a counterparty demand. At most 130 weekdays. Only effectiveAt is valued if not specified..</param>
-        public MarginRunRequest(DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string agreementFilter = default(string), List<ResourceId> scenarios = default(List<ResourceId>), DateTimeOrCutLabel effectiveFrom = default(DateTimeOrCutLabel))
+        /// <param name="captureDiagnostics">Whether to store the working behind the run&#39;s figures so that it can be explained. Specified, it is honoured. Not specified, the working is stored only for a run of a single date with no scenarios, since storing it costs time and space that a span or what-if run is not expected to repay..</param>
+        public MarginRunRequest(DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string agreementFilter = default(string), List<ResourceId> scenarios = default(List<ResourceId>), DateTimeOrCutLabel effectiveFrom = default(DateTimeOrCutLabel), bool? captureDiagnostics = default(bool?))
         {
             // to ensure "effectiveAt" is required (not null)
             if (effectiveAt == null)
@@ -53,6 +54,7 @@ namespace Lusid.Sdk.Model
             this.AgreementFilter = agreementFilter;
             this.Scenarios = scenarios;
             this.EffectiveFrom = effectiveFrom;
+            this.CaptureDiagnostics = captureDiagnostics;
         }
 
         /// <summary>
@@ -91,6 +93,13 @@ namespace Lusid.Sdk.Model
         public DateTimeOrCutLabel EffectiveFrom { get; set; }
 
         /// <summary>
+        /// Whether to store the working behind the run&#39;s figures so that it can be explained. Specified, it is honoured. Not specified, the working is stored only for a run of a single date with no scenarios, since storing it costs time and space that a span or what-if run is not expected to repay.
+        /// </summary>
+        /// <value>Whether to store the working behind the run&#39;s figures so that it can be explained. Specified, it is honoured. Not specified, the working is stored only for a run of a single date with no scenarios, since storing it costs time and space that a span or what-if run is not expected to repay.</value>
+        [DataMember(Name = "captureDiagnostics", EmitDefaultValue = true)]
+        public bool? CaptureDiagnostics { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -103,6 +112,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AgreementFilter: ").Append(AgreementFilter).Append("\n");
             sb.Append("  Scenarios: ").Append(Scenarios).Append("\n");
             sb.Append("  EffectiveFrom: ").Append(EffectiveFrom).Append("\n");
+            sb.Append("  CaptureDiagnostics: ").Append(CaptureDiagnostics).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -163,6 +173,11 @@ namespace Lusid.Sdk.Model
                     this.EffectiveFrom == input.EffectiveFrom ||
                     (this.EffectiveFrom != null &&
                     this.EffectiveFrom.Equals(input.EffectiveFrom))
+                ) && 
+                (
+                    this.CaptureDiagnostics == input.CaptureDiagnostics ||
+                    (this.CaptureDiagnostics != null &&
+                    this.CaptureDiagnostics.Equals(input.CaptureDiagnostics))
                 );
         }
 
@@ -194,6 +209,10 @@ namespace Lusid.Sdk.Model
                 if (this.EffectiveFrom != null)
                 {
                     hashCode = (hashCode * 59) + this.EffectiveFrom.GetHashCode();
+                }
+                if (this.CaptureDiagnostics != null)
+                {
+                    hashCode = (hashCode * 59) + this.CaptureDiagnostics.GetHashCode();
                 }
                 return hashCode;
             }

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **InstrumentIdentifierOut** | **string** | The LUSID instrument id of the instrument moving out. A position in this instrument must exist in the outgoing portfolio on the outgoing trade date. | 
 **InstrumentIdentifierIn** | **string** | The LUSID instrument id of the instrument moving in. Equal to InstrumentIdentifierOut for a transfer between portfolios. | 
 **PricingMethod** | **string** | How the legs are priced. &#39;AtCost&#39; uses the cost per unit of the outgoing holding; &#39;AtPrice&#39; uses the supplied TransactionPriceOut, which is then required. Available values: AtCost, AtPrice. | 
-**TaxLotStructure** | **string** | What happens to the tax lots of the outgoing position. Only &#39;Consolidate&#39; is currently supported; &#39;Preserve&#39; is rejected. Defaults to &#39;Consolidate&#39;. Available values: Consolidate, Preserve. | [optional] 
+**TaxLotStructure** | **string** | What happens to the tax lots of the outgoing position. Defaults to &#39;Consolidate&#39;. &#39;Preserve&#39; carries each outgoing lot onto the incoming position; it is not supported when the incoming portfolio uses the AverageCost or Default accounting method, or across share classes in different currencies. Available values: Consolidate, Preserve. | [optional] 
 **UnitsOut** | **decimal** | The number of units to move out. Must be greater than zero. | 
 **UnitsIn** | **decimal** | The number of units to move in. Must be greater than zero. | 
 **AmountOut** | **decimal?** | The total consideration of the outgoing leg. Recorded, not applied. | [optional] 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **ExchangeRateOut** | **decimal?** | The FX rate to apply to the outgoing leg. | [optional] 
 **ExchangeRateIn** | **decimal?** | The FX rate to apply to the incoming leg. | [optional] 
 **TransactionPriceOut** | **decimal?** | The unit price of the outgoing leg. Required when PricingMethod is &#39;AtPrice&#39;, and ignored when it is &#39;AtCost&#39;. | [optional] 
-**TransactionPriceIn** | **decimal?** | The unit price of the incoming leg. Ignored for a transfer, which carries the outgoing price across; defaults to the outgoing price for a switch. | [optional] 
+**TransactionPriceIn** | **decimal?** | The unit price of the incoming leg. Not accepted for a transfer of one instrument between portfolios, which carries the outgoing price across. For a switch, required when PricingMethod is &#39;AtPrice&#39; and defaults to the outgoing price otherwise. | [optional] 
 **CounterpartyIdOut** | **string** | The counterparty identifier of the outgoing leg. | [optional] 
 **CounterpartyIdIn** | **string** | The counterparty identifier of the incoming leg. Defaults to CounterpartyIdOut. | [optional] 
 **CustodianAccountIdOut** | [**ResourceId**](ResourceId.md) |  | [optional] 

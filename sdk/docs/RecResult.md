@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Id** | **string** | The id of the result within its instance: its rec type, result type and result number, e.g. &#39;Holding-break-3&#39;. Unique within the instance, and kept across its runs for as long as the result keeps its result type. | 
 **ResultNumber** | **int** | The result&#39;s number within its result type. Kept across runs while the result keeps its type; never reused once assigned. | 
 **FirstRunSeen** | **int** | The run in which the result was first assigned its id. | 
-**RecType** | **string** | The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument. | 
+**RecType** | **string** | The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument, LegalEntity. | 
 **ExternalRecTypeName** | **string** | The client&#39;s name for an External rec type, as stamped from the matching ruleset&#39;s externalRecType when the run executed. Null for native rec types. Filterable. | [optional] 
 **InstanceId** | [**RecInstanceId**](RecInstanceId.md) |  | 
 **AsAtInstantiated** | **DateTimeOffset** | The asAt datetime at which the instance was first created. | 

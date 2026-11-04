@@ -783,7 +783,13 @@ namespace Lusid.Sdk.Model
         /// Enum CapitalisationEvent for value: CapitalisationEvent
         /// </summary>
         [EnumMember(Value = "CapitalisationEvent")]
-        CapitalisationEvent = 126
+        CapitalisationEvent = 126,
+
+        /// <summary>
+        /// Enum SharesPremiumDividendEvent for value: SharesPremiumDividendEvent
+        /// </summary>
+        [EnumMember(Value = "SharesPremiumDividendEvent")]
+        SharesPremiumDividendEvent = 127
     }
 
 }

@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="orders">An order which belongs to a block. Fields common to both entities (such as instrument) should be derived from the block. (required).</param>
         /// <param name="blockProperties">Client-defined properties associated with this block..</param>
         /// <param name="instrumentIdentifiers">The instrument ordered. (required).</param>
-        /// <param name="side">The client&#39;s representation of the block&#39;s side (buy, sell, short, etc). BlockedOrders in the request which do not specify a side will have their side populated with this value..</param>
+        /// <param name="side">The client&#39;s representation of the block&#39;s side (buy, sell, short, etc). Optional: the stored side is derived from the block&#39;s orders, netted by direction, and a supplied value is replaced by the derived one. BlockedOrders in the request which do not specify a side will have their side populated with this value..</param>
         /// <param name="type">The block order&#39;s type (examples: Limit, Market, ...).</param>
         /// <param name="timeInForce">The block orders&#39; time in force (examples: Day, GoodTilCancel, ...).</param>
         /// <param name="date">The date on which the block was made.</param>
@@ -103,9 +103,9 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
-        /// The client&#39;s representation of the block&#39;s side (buy, sell, short, etc). BlockedOrders in the request which do not specify a side will have their side populated with this value.
+        /// The client&#39;s representation of the block&#39;s side (buy, sell, short, etc). Optional: the stored side is derived from the block&#39;s orders, netted by direction, and a supplied value is replaced by the derived one. BlockedOrders in the request which do not specify a side will have their side populated with this value.
         /// </summary>
-        /// <value>The client&#39;s representation of the block&#39;s side (buy, sell, short, etc). BlockedOrders in the request which do not specify a side will have their side populated with this value.</value>
+        /// <value>The client&#39;s representation of the block&#39;s side (buy, sell, short, etc). Optional: the stored side is derived from the block&#39;s orders, netted by direction, and a supplied value is replaced by the derived one. BlockedOrders in the request which do not specify a side will have their side populated with this value.</value>
         [DataMember(Name = "side", EmitDefaultValue = true)]
         public string Side { get; set; }
 

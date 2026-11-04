@@ -1,4 +1,4 @@
-# Lusid.Sdk.Model.ExternalTransferAgencyOrderAmount
+# Lusid.Sdk.Model.ExternalDealingEstimateAmount
 A cash amount in a stated currency.
 
 ## Properties
@@ -15,7 +15,7 @@ decimal value = "value";
 
 string currency = "currency";
 
-ExternalTransferAgencyOrderAmount externalTransferAgencyOrderAmountInstance = new ExternalTransferAgencyOrderAmount(
+ExternalDealingEstimateAmount externalDealingEstimateAmountInstance = new ExternalDealingEstimateAmount(
     value: value,
     currency: currency);
 ```

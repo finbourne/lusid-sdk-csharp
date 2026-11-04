@@ -23,18 +23,18 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// UpsertExternalTransferAgencyOrdersResponse
+    /// UpsertExternalDealingEstimatesResponse
     /// </summary>
-    [DataContract(Name = "UpsertExternalTransferAgencyOrdersResponse")]
-    public partial class UpsertExternalTransferAgencyOrdersResponse : IEquatable<UpsertExternalTransferAgencyOrdersResponse>, IValidatableObject
+    [DataContract(Name = "UpsertExternalDealingEstimatesResponse")]
+    public partial class UpsertExternalDealingEstimatesResponse : IEquatable<UpsertExternalDealingEstimatesResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpsertExternalTransferAgencyOrdersResponse" /> class.
+        /// Initializes a new instance of the <see cref="UpsertExternalDealingEstimatesResponse" /> class.
         /// </summary>
         /// <param name="successes">A dictionary of successfully loaded sets, keyed by the request key..</param>
         /// <param name="failed">A dictionary of sets that could not be loaded, keyed by the request key, containing error details..</param>
         /// <param name="links">links.</param>
-        public UpsertExternalTransferAgencyOrdersResponse(Dictionary<string, UpsertExternalTransferAgencyOrderResult> successes = default(Dictionary<string, UpsertExternalTransferAgencyOrderResult>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), List<Link> links = default(List<Link>))
+        public UpsertExternalDealingEstimatesResponse(Dictionary<string, UpsertExternalDealingEstimateResult> successes = default(Dictionary<string, UpsertExternalDealingEstimateResult>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), List<Link> links = default(List<Link>))
         {
             this.Successes = successes;
             this.Failed = failed;
@@ -46,7 +46,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>A dictionary of successfully loaded sets, keyed by the request key.</value>
         [DataMember(Name = "successes", EmitDefaultValue = true)]
-        public Dictionary<string, UpsertExternalTransferAgencyOrderResult> Successes { get; set; }
+        public Dictionary<string, UpsertExternalDealingEstimateResult> Successes { get; set; }
 
         /// <summary>
         /// A dictionary of sets that could not be loaded, keyed by the request key, containing error details.
@@ -68,7 +68,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class UpsertExternalTransferAgencyOrdersResponse {\n");
+            sb.Append("class UpsertExternalDealingEstimatesResponse {\n");
             sb.Append("  Successes: ").Append(Successes).Append("\n");
             sb.Append("  Failed: ").Append(Failed).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -92,15 +92,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpsertExternalTransferAgencyOrdersResponse);
+            return this.Equals(input as UpsertExternalDealingEstimatesResponse);
         }
 
         /// <summary>
-        /// Returns true if UpsertExternalTransferAgencyOrdersResponse instances are equal
+        /// Returns true if UpsertExternalDealingEstimatesResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpsertExternalTransferAgencyOrdersResponse to be compared</param>
+        /// <param name="input">Instance of UpsertExternalDealingEstimatesResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpsertExternalTransferAgencyOrdersResponse input)
+        public bool Equals(UpsertExternalDealingEstimatesResponse input)
         {
             if (input == null)
             {

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **OverrideApplicationStatus** | **string** | Whether all, some, or none of this record&#39;s override and suppression entries are currently applied. Available values: Full, Partial, Orphaned. | [optional] 
 **CancelActive** | **bool?** | True when an active event-level Cancel instruction also exists for this instrument event, taking precedence over the entries in this record. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**Adjustments** | [**Dictionary&lt;string, AdjustmentEntryResponse&gt;**](AdjustmentEntryResponse.md) | The adjustments in this record, keyed by the virtual transaction id they were stored against. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -28,6 +29,7 @@ string overrideApplicationStatus = "example overrideApplicationStatus";
 bool? cancelActive = //"True";
 ModelVersion? varVersion = new ModelVersion();
 
+Dictionary<string, AdjustmentEntryResponse> adjustments = new Dictionary<string, AdjustmentEntryResponse>();
 
 VirtualTransactionOverrideRecord virtualTransactionOverrideRecordInstance = new VirtualTransactionOverrideRecord(
     instrumentEventId: instrumentEventId,
@@ -37,7 +39,8 @@ VirtualTransactionOverrideRecord virtualTransactionOverrideRecordInstance = new 
     overrideMatchStatus: overrideMatchStatus,
     overrideApplicationStatus: overrideApplicationStatus,
     cancelActive: cancelActive,
-    varVersion: varVersion);
+    varVersion: varVersion,
+    adjustments: adjustments);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

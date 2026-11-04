@@ -25,16 +25,16 @@ namespace Lusid.Sdk.Model
     /// <summary>
     /// One order within an external order set: a share class, a direction and either a number of units or an amount.
     /// </summary>
-    [DataContract(Name = "ExternalTransferAgencyOrderLine")]
-    public partial class ExternalTransferAgencyOrderLine : IEquatable<ExternalTransferAgencyOrderLine>, IValidatableObject
+    [DataContract(Name = "ExternalDealingEstimateLine")]
+    public partial class ExternalDealingEstimateLine : IEquatable<ExternalDealingEstimateLine>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExternalTransferAgencyOrderLine" /> class.
+        /// Initializes a new instance of the <see cref="ExternalDealingEstimateLine" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ExternalTransferAgencyOrderLine() { }
+        protected ExternalDealingEstimateLine() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExternalTransferAgencyOrderLine" /> class.
+        /// Initializes a new instance of the <see cref="ExternalDealingEstimateLine" /> class.
         /// </summary>
         /// <param name="instrumentIdentifierType">instrumentIdentifierType (required).</param>
         /// <param name="instrumentIdentifier">instrumentIdentifier (required).</param>
@@ -42,24 +42,24 @@ namespace Lusid.Sdk.Model
         /// <param name="tradeType">Available values: Subscription, Redemption, SwitchOut, SwitchIn, TransferOut, TransferIn. (required).</param>
         /// <param name="units">units.</param>
         /// <param name="amount">amount.</param>
-        public ExternalTransferAgencyOrderLine(string instrumentIdentifierType = default(string), string instrumentIdentifier = default(string), string instrumentScope = default(string), string tradeType = default(string), decimal? units = default(decimal?), ExternalTransferAgencyOrderAmount amount = default(ExternalTransferAgencyOrderAmount))
+        public ExternalDealingEstimateLine(string instrumentIdentifierType = default(string), string instrumentIdentifier = default(string), string instrumentScope = default(string), string tradeType = default(string), decimal? units = default(decimal?), ExternalDealingEstimateAmount amount = default(ExternalDealingEstimateAmount))
         {
             // to ensure "instrumentIdentifierType" is required (not null)
             if (instrumentIdentifierType == null)
             {
-                throw new ArgumentNullException("instrumentIdentifierType is a required property for ExternalTransferAgencyOrderLine and cannot be null");
+                throw new ArgumentNullException("instrumentIdentifierType is a required property for ExternalDealingEstimateLine and cannot be null");
             }
             this.InstrumentIdentifierType = instrumentIdentifierType;
             // to ensure "instrumentIdentifier" is required (not null)
             if (instrumentIdentifier == null)
             {
-                throw new ArgumentNullException("instrumentIdentifier is a required property for ExternalTransferAgencyOrderLine and cannot be null");
+                throw new ArgumentNullException("instrumentIdentifier is a required property for ExternalDealingEstimateLine and cannot be null");
             }
             this.InstrumentIdentifier = instrumentIdentifier;
             // to ensure "tradeType" is required (not null)
             if (tradeType == null)
             {
-                throw new ArgumentNullException("tradeType is a required property for ExternalTransferAgencyOrderLine and cannot be null");
+                throw new ArgumentNullException("tradeType is a required property for ExternalDealingEstimateLine and cannot be null");
             }
             this.TradeType = tradeType;
             this.InstrumentScope = instrumentScope;
@@ -102,7 +102,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Amount
         /// </summary>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
-        public ExternalTransferAgencyOrderAmount Amount { get; set; }
+        public ExternalDealingEstimateAmount Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -111,7 +111,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ExternalTransferAgencyOrderLine {\n");
+            sb.Append("class ExternalDealingEstimateLine {\n");
             sb.Append("  InstrumentIdentifierType: ").Append(InstrumentIdentifierType).Append("\n");
             sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
             sb.Append("  InstrumentScope: ").Append(InstrumentScope).Append("\n");
@@ -138,15 +138,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ExternalTransferAgencyOrderLine);
+            return this.Equals(input as ExternalDealingEstimateLine);
         }
 
         /// <summary>
-        /// Returns true if ExternalTransferAgencyOrderLine instances are equal
+        /// Returns true if ExternalDealingEstimateLine instances are equal
         /// </summary>
-        /// <param name="input">Instance of ExternalTransferAgencyOrderLine to be compared</param>
+        /// <param name="input">Instance of ExternalDealingEstimateLine to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ExternalTransferAgencyOrderLine input)
+        public bool Equals(ExternalDealingEstimateLine input)
         {
             if (input == null)
             {

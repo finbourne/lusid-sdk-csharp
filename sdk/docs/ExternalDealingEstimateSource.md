@@ -1,4 +1,4 @@
-# Lusid.Sdk.Model.ExternalTransferAgencyOrderSource
+# Lusid.Sdk.Model.ExternalDealingEstimateSource
 The system that sent an external order set, and its own reference for the batch.
 
 ## Properties
@@ -15,7 +15,7 @@ using System;
 string system = "system";
 string reference = "example reference";
 
-ExternalTransferAgencyOrderSource externalTransferAgencyOrderSourceInstance = new ExternalTransferAgencyOrderSource(
+ExternalDealingEstimateSource externalDealingEstimateSourceInstance = new ExternalDealingEstimateSource(
     system: system,
     reference: reference);
 ```

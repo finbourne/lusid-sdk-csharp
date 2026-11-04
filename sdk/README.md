@@ -149,6 +149,8 @@ Class | Method | HTTP request | Description
 *CollateralApi* | [**BatchAcceptMarginCalls**](docs/CollateralApi.md#batchacceptmargincalls) | **POST** /api/collateral/margincalls/$batchAccept | [EXPERIMENTAL] BatchAcceptMarginCalls: Accept several margin calls.
 *CollateralApi* | [**DisputeMarginCall**](docs/CollateralApi.md#disputemargincall) | **POST** /api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/$dispute | [EXPERIMENTAL] DisputeMarginCall: Dispute a margin call.
 *CollateralApi* | [**GetMarginCall**](docs/CollateralApi.md#getmargincall) | **GET** /api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction} | [EXPERIMENTAL] GetMarginCall: Get a margin call.
+*CollateralApi* | [**GetMarginCallExplanation**](docs/CollateralApi.md#getmargincallexplanation) | **GET** /api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/$explain | [EXPERIMENTAL] GetMarginCallExplanation: Explain a margin call.
+*CollateralApi* | [**GetMarginLineExplanation**](docs/CollateralApi.md#getmarginlineexplanation) | **GET** /api/collateral/runs/{runId}/lines/{lineKey}/$explain | [EXPERIMENTAL] GetMarginLineExplanation: Explain a margin line.
 *CollateralApi* | [**GetMarginRun**](docs/CollateralApi.md#getmarginrun) | **GET** /api/collateral/runs/{runId} | [EXPERIMENTAL] GetMarginRun: Get a margin run.
 *CollateralApi* | [**ListMarginCallLines**](docs/CollateralApi.md#listmargincalllines) | **GET** /api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/lines | [EXPERIMENTAL] ListMarginCallLines: List the margin lines of a call.
 *CollateralApi* | [**ListMarginCalls**](docs/CollateralApi.md#listmargincalls) | **GET** /api/collateral/margincalls | [EXPERIMENTAL] ListMarginCalls: List margin calls.
@@ -393,6 +395,7 @@ Class | Method | HTTP request | Description
 *FundsApi* | [**UpdateValuationPoint**](docs/FundsApi.md#updatevaluationpoint) | **PUT** /api/funds/{scope}/{code}/valuationpoints | [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point.
 *FundsApi* | [**UpsertBookmark**](docs/FundsApi.md#upsertbookmark) | **POST** /api/funds/{scope}/{code}/bookmarks | [EARLY ACCESS] UpsertBookmark: Upsert a bookmark.
 *FundsApi* | [**UpsertDiaryEntryTypeValuationPoint**](docs/FundsApi.md#upsertdiaryentrytypevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints | [EARLY ACCESS] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
+*FundsApi* | [**UpsertExternalDealingEstimates**](docs/FundsApi.md#upsertexternaldealingestimates) | **POST** /api/funds/{scope}/{code}/dealingestimates/$external | [EARLY ACCESS] UpsertExternalDealingEstimates: Load dealing estimates sent by an external transfer agent
 *FundsApi* | [**UpsertFeeProperties**](docs/FundsApi.md#upsertfeeproperties) | **POST** /api/funds/{scope}/{code}/fees/{feeCode}/properties/$upsert | [EARLY ACCESS] UpsertFeeProperties: Upsert Fee properties.
 *FundsApi* | [**UpsertFundProperties**](docs/FundsApi.md#upsertfundproperties) | **POST** /api/funds/{scope}/{code}/properties/$upsert | [EARLY ACCESS] UpsertFundProperties: Upsert Fund properties.
 *FundsApi* | [**UpsertNavActivityAdjustments**](docs/FundsApi.md#upsertnavactivityadjustments) | **POST** /api/funds/{scope}/{code}/navAdjustment | [EARLY ACCESS] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
@@ -508,6 +511,7 @@ Class | Method | HTTP request | Description
 *OrderManagementApi* | [**GetOrderHistory**](docs/OrderManagementApi.md#getorderhistory) | **GET** /api/ordermanagement/order/{scope}/{code}/$history | GetOrderHistory: Get the history of an order and related entity changes
 *OrderManagementApi* | [**MoveOrders**](docs/OrderManagementApi.md#moveorders) | **POST** /api/ordermanagement/moveorders | [EARLY ACCESS] MoveOrders: Move orders to new or existing block
 *OrderManagementApi* | [**PlaceBlocks**](docs/OrderManagementApi.md#placeblocks) | **POST** /api/ordermanagement/placeblocks | [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
+*OrderManagementApi* | [**PreviewBlocks**](docs/OrderManagementApi.md#previewblocks) | **POST** /api/ordermanagement/$previewblocks | PreviewBlocks: Preview the blocks a set of orders would form
 *OrderManagementApi* | [**RunAllocationService**](docs/OrderManagementApi.md#runallocationservice) | **POST** /api/ordermanagement/allocate | RunAllocationService: Runs the Allocation Service
 *OrderManagementApi* | [**RunAllocationServiceWithWeights**](docs/OrderManagementApi.md#runallocationservicewithweights) | **POST** /api/ordermanagement/allocate/weighted | [EXPERIMENTAL] RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
 *OrderManagementApi* | [**SweepBlocks**](docs/OrderManagementApi.md#sweepblocks) | **POST** /api/ordermanagement/SweepBlocks | [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful.
@@ -877,11 +881,11 @@ Class | Method | HTTP request | Description
 *TransferAgencyApi* | [**CancelTransferAgencyTransactions**](docs/TransferAgencyApi.md#canceltransferagencytransactions) | **POST** /api/transferagency/transactions/cancel | [EXPERIMENTAL] CancelTransferAgencyTransactions: Cancel transfer agency transactions, un-pricing their orders
 *TransferAgencyApi* | [**DeleteTransferAgencyOrders**](docs/TransferAgencyApi.md#deletetransferagencyorders) | **POST** /api/transferagency/orders/$delete | [EXPERIMENTAL] DeleteTransferAgencyOrders: Delete transfer agency orders
 *TransferAgencyApi* | [**EstimateTransferAgencyOrders**](docs/TransferAgencyApi.md#estimatetransferagencyorders) | **POST** /api/transferagency/orders/$estimate | [EXPERIMENTAL] EstimateTransferAgencyOrders: Estimate the values of transfer agency orders
-*TransferAgencyApi* | [**UpsertExternalTransferAgencyOrders**](docs/TransferAgencyApi.md#upsertexternaltransferagencyorders) | **POST** /api/transferagency/orders/$external | [EARLY ACCESS] UpsertExternalTransferAgencyOrders: Load transfer agency orders sent by an external transfer agent
 *TransferAgencyApi* | [**UpsertTransferAgencyOrders**](docs/TransferAgencyApi.md#upserttransferagencyorders) | **POST** /api/transferagency/orders | [EXPERIMENTAL] UpsertTransferAgencyOrders: Upsert transfer agency orders
 *TransferAgencyApi* | [**UpsertTransferAgencyTransactionsFromOrders**](docs/TransferAgencyApi.md#upserttransferagencytransactionsfromorders) | **POST** /api/transferagency/transactions/$fromOrders | [EXPERIMENTAL] UpsertTransferAgencyTransactionsFromOrders: Upsert transfer agency transactions from transfer agency orders
 *TransfersApi* | [**CreateTransfer**](docs/TransfersApi.md#createtransfer) | **POST** /api/transfers | [EXPERIMENTAL] CreateTransfer: Create a transfer.
 *TransfersApi* | [**DeleteTransfer**](docs/TransfersApi.md#deletetransfer) | **DELETE** /api/transfers/{scope}/{code} | [EXPERIMENTAL] DeleteTransfer: Delete a transfer.
+*TransfersApi* | [**EditTransfer**](docs/TransfersApi.md#edittransfer) | **POST** /api/transfers/$edit | [EXPERIMENTAL] EditTransfer: Edit a transfer.
 *TransfersApi* | [**GetTransfer**](docs/TransfersApi.md#gettransfer) | **POST** /api/transfers/$get | [EXPERIMENTAL] GetTransfer: Get a transfer
 *TransfersApi* | [**ListTransfers**](docs/TransfersApi.md#listtransfers) | **GET** /api/transfers | [EXPERIMENTAL] ListTransfers: List transfers
 *TranslationApi* | [**TranslateInstrumentDefinitions**](docs/TranslationApi.md#translateinstrumentdefinitions) | **POST** /api/translation/instrumentdefinitions | [EXPERIMENTAL] TranslateInstrumentDefinitions: Translate instruments
@@ -957,6 +961,9 @@ Class | Method | HTTP request | Description
  - [AdjustHolding](docs/AdjustHolding.md)
  - [AdjustHoldingForDateRequest](docs/AdjustHoldingForDateRequest.md)
  - [AdjustHoldingRequest](docs/AdjustHoldingRequest.md)
+ - [AdjustmentDefinitionRequest](docs/AdjustmentDefinitionRequest.md)
+ - [AdjustmentDefinitionResponse](docs/AdjustmentDefinitionResponse.md)
+ - [AdjustmentEntryResponse](docs/AdjustmentEntryResponse.md)
  - [AggregateMatchingRule](docs/AggregateMatchingRule.md)
  - [AggregateNumericTolerance](docs/AggregateNumericTolerance.md)
  - [AggregateRuleValues](docs/AggregateRuleValues.md)
@@ -1486,6 +1493,8 @@ Class | Method | HTTP request | Description
  - [EconomicDependencyWithComplexMarketData](docs/EconomicDependencyWithComplexMarketData.md)
  - [EconomicDependencyWithQuote](docs/EconomicDependencyWithQuote.md)
  - [Economics](docs/Economics.md)
+ - [EditTransferRequest](docs/EditTransferRequest.md)
+ - [EditTransferResponse](docs/EditTransferResponse.md)
  - [EffectiveRange](docs/EffectiveRange.md)
  - [ElectionSpecification](docs/ElectionSpecification.md)
  - [EligibilityCalculation](docs/EligibilityCalculation.md)
@@ -1529,12 +1538,12 @@ Class | Method | HTTP request | Description
  - [ExoticInstrument](docs/ExoticInstrument.md)
  - [ExpandedGroup](docs/ExpandedGroup.md)
  - [ExpiryEvent](docs/ExpiryEvent.md)
+ - [ExternalDealingEstimateAmount](docs/ExternalDealingEstimateAmount.md)
+ - [ExternalDealingEstimateLine](docs/ExternalDealingEstimateLine.md)
+ - [ExternalDealingEstimateSource](docs/ExternalDealingEstimateSource.md)
  - [ExternalFeeComponentFilter](docs/ExternalFeeComponentFilter.md)
  - [ExternalRecDefinitionDetails](docs/ExternalRecDefinitionDetails.md)
  - [ExternalRecType](docs/ExternalRecType.md)
- - [ExternalTransferAgencyOrderAmount](docs/ExternalTransferAgencyOrderAmount.md)
- - [ExternalTransferAgencyOrderLine](docs/ExternalTransferAgencyOrderLine.md)
- - [ExternalTransferAgencyOrderSource](docs/ExternalTransferAgencyOrderSource.md)
  - [Facility](docs/Facility.md)
  - [FacilityCommitmentFeeEvent](docs/FacilityCommitmentFeeEvent.md)
  - [FacilityDrawEvent](docs/FacilityDrawEvent.md)
@@ -1857,6 +1866,8 @@ Class | Method | HTTP request | Description
  - [MarginCall](docs/MarginCall.md)
  - [MarginCallKey](docs/MarginCallKey.md)
  - [MarginCallReference](docs/MarginCallReference.md)
+ - [MarginExplanation](docs/MarginExplanation.md)
+ - [MarginExplanationComponent](docs/MarginExplanationComponent.md)
  - [MarginItem](docs/MarginItem.md)
  - [MarginLine](docs/MarginLine.md)
  - [MarginRounding](docs/MarginRounding.md)
@@ -2199,6 +2210,7 @@ Class | Method | HTTP request | Description
  - [PreferredShareAllOfIdentifiers](docs/PreferredShareAllOfIdentifiers.md)
  - [Premium](docs/Premium.md)
  - [PresentationConfiguration](docs/PresentationConfiguration.md)
+ - [PreviewBlocksRequest](docs/PreviewBlocksRequest.md)
  - [PreviousFundCalendarEntry](docs/PreviousFundCalendarEntry.md)
  - [PreviousFundValuationPointData](docs/PreviousFundValuationPointData.md)
  - [PreviousNAV](docs/PreviousNAV.md)
@@ -2242,6 +2254,7 @@ Class | Method | HTTP request | Description
  - [PropertyValue](docs/PropertyValue.md)
  - [PropertyValueEquals](docs/PropertyValueEquals.md)
  - [PropertyValueIn](docs/PropertyValueIn.md)
+ - [ProposedBlockAndOrders](docs/ProposedBlockAndOrders.md)
  - [ProtectionPayoutCashFlowEvent](docs/ProtectionPayoutCashFlowEvent.md)
  - [PutRedemptionEvent](docs/PutRedemptionEvent.md)
  - [QualifierDefinition](docs/QualifierDefinition.md)
@@ -2461,6 +2474,7 @@ Class | Method | HTTP request | Description
  - [ResourceListOfPropertyDefinition](docs/ResourceListOfPropertyDefinition.md)
  - [ResourceListOfPropertyInterval](docs/ResourceListOfPropertyInterval.md)
  - [ResourceListOfPropertyIntervalTimeSeries](docs/ResourceListOfPropertyIntervalTimeSeries.md)
+ - [ResourceListOfProposedBlockAndOrders](docs/ResourceListOfProposedBlockAndOrders.md)
  - [ResourceListOfQueryableKey](docs/ResourceListOfQueryableKey.md)
  - [ResourceListOfQuote](docs/ResourceListOfQuote.md)
  - [ResourceListOfQuoteAccessMetadataRule](docs/ResourceListOfQuoteAccessMetadataRule.md)
@@ -2505,6 +2519,7 @@ Class | Method | HTTP request | Description
  - [ReturnZeroPvOptions](docs/ReturnZeroPvOptions.md)
  - [ReturnsEntity](docs/ReturnsEntity.md)
  - [ReturnsMetric](docs/ReturnsMetric.md)
+ - [RevaluationProblem](docs/RevaluationProblem.md)
  - [ReverseStockSplitEvent](docs/ReverseStockSplitEvent.md)
  - [ReverseStressRequest](docs/ReverseStressRequest.md)
  - [ReverseStressResponse](docs/ReverseStressResponse.md)
@@ -2582,6 +2597,7 @@ Class | Method | HTTP request | Description
  - [ShareClassDefinition](docs/ShareClassDefinition.md)
  - [ShareClassDetails](docs/ShareClassDetails.md)
  - [ShareClassPnlBreakdown](docs/ShareClassPnlBreakdown.md)
+ - [SharesPremiumDividendEvent](docs/SharesPremiumDividendEvent.md)
  - [ShiftValueCondition](docs/ShiftValueCondition.md)
  - [SideConfigurationData](docs/SideConfigurationData.md)
  - [SideConfigurationDataRequest](docs/SideConfigurationDataRequest.md)
@@ -2754,6 +2770,8 @@ Class | Method | HTTP request | Description
  - [UnknownProceedsElection](docs/UnknownProceedsElection.md)
  - [UnmatchedHoldingMethod](docs/UnmatchedHoldingMethod.md)
  - [UnsettledTransaction](docs/UnsettledTransaction.md)
+ - [UnsettledTransactionCounterLegRevaluation](docs/UnsettledTransactionCounterLegRevaluation.md)
+ - [UnsettledTransactionRevaluation](docs/UnsettledTransactionRevaluation.md)
  - [UpdateAmortisationRuleSetDetailsRequest](docs/UpdateAmortisationRuleSetDetailsRequest.md)
  - [UpdateCalendarRequest](docs/UpdateCalendarRequest.md)
  - [UpdateCheckDefinitionRequest](docs/UpdateCheckDefinitionRequest.md)
@@ -2810,9 +2828,9 @@ Class | Method | HTTP request | Description
  - [UpsertDialectRequest](docs/UpsertDialectRequest.md)
  - [UpsertEligibleCollateralScheduleRequest](docs/UpsertEligibleCollateralScheduleRequest.md)
  - [UpsertEntityResolverRequest](docs/UpsertEntityResolverRequest.md)
- - [UpsertExternalTransferAgencyOrderResult](docs/UpsertExternalTransferAgencyOrderResult.md)
- - [UpsertExternalTransferAgencyOrdersRequest](docs/UpsertExternalTransferAgencyOrdersRequest.md)
- - [UpsertExternalTransferAgencyOrdersResponse](docs/UpsertExternalTransferAgencyOrdersResponse.md)
+ - [UpsertExternalDealingEstimateResult](docs/UpsertExternalDealingEstimateResult.md)
+ - [UpsertExternalDealingEstimatesRequest](docs/UpsertExternalDealingEstimatesRequest.md)
+ - [UpsertExternalDealingEstimatesResponse](docs/UpsertExternalDealingEstimatesResponse.md)
  - [UpsertFlowConventionsRequest](docs/UpsertFlowConventionsRequest.md)
  - [UpsertFundBookmarkRequest](docs/UpsertFundBookmarkRequest.md)
  - [UpsertIndexConventionRequest](docs/UpsertIndexConventionRequest.md)

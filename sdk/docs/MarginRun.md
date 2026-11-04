@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **Issues** | [**List&lt;MarginRunIssue&gt;**](MarginRunIssue.md) | Agreements the run could not value or roll up into a call, or the caller may not calculate margin for, with the reason. | 
 **Shards** | [**List&lt;MarginRunShard&gt;**](MarginRunShard.md) | The valuation shards the run is planned as, with their progress. | 
 **Scenarios** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The stored scenarios the run values the agreements under, each beside the base market the run always values. Empty if only the base market was valued. | 
+**CaptureDiagnostics** | **bool?** | Whether the run stored the working behind its figures, so that they can be explained. Null for a run made before runs could store it, which did not. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -31,6 +32,7 @@ List<ResourceId> agreements = new List<ResourceId>();
 List<MarginRunIssue> issues = new List<MarginRunIssue>();
 List<MarginRunShard> shards = new List<MarginRunShard>();
 List<ResourceId> scenarios = new List<ResourceId>();
+bool? captureDiagnostics = //"True";
 
 MarginRun marginRunInstance = new MarginRun(
     href: href,
@@ -46,7 +48,8 @@ MarginRun marginRunInstance = new MarginRun(
     failedShards: failedShards,
     issues: issues,
     shards: shards,
-    scenarios: scenarios);
+    scenarios: scenarios,
+    captureDiagnostics: captureDiagnostics);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

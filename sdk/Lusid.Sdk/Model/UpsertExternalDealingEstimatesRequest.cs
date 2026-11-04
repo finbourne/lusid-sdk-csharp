@@ -23,55 +23,42 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// One dealing point&#39;s orders for one fund, as a third-party transfer agent sends them.
+    /// One dealing point&#39;s dealing estimates for the fund named in the route, as a third-party transfer agent sends them.
     /// </summary>
-    [DataContract(Name = "UpsertExternalTransferAgencyOrdersRequest")]
-    public partial class UpsertExternalTransferAgencyOrdersRequest : IEquatable<UpsertExternalTransferAgencyOrdersRequest>, IValidatableObject
+    [DataContract(Name = "UpsertExternalDealingEstimatesRequest")]
+    public partial class UpsertExternalDealingEstimatesRequest : IEquatable<UpsertExternalDealingEstimatesRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpsertExternalTransferAgencyOrdersRequest" /> class.
+        /// Initializes a new instance of the <see cref="UpsertExternalDealingEstimatesRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UpsertExternalTransferAgencyOrdersRequest() { }
+        protected UpsertExternalDealingEstimatesRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpsertExternalTransferAgencyOrdersRequest" /> class.
+        /// Initializes a new instance of the <see cref="UpsertExternalDealingEstimatesRequest" /> class.
         /// </summary>
-        /// <param name="fundId">fundId (required).</param>
         /// <param name="dealingPoint">dealingPoint (required).</param>
         /// <param name="source">source (required).</param>
         /// <param name="complete">complete.</param>
         /// <param name="sentAt">sentAt.</param>
         /// <param name="lines">lines (required).</param>
-        public UpsertExternalTransferAgencyOrdersRequest(ResourceId fundId = default(ResourceId), DateTimeOffset dealingPoint = default(DateTimeOffset), ExternalTransferAgencyOrderSource source = default(ExternalTransferAgencyOrderSource), bool complete = default(bool), DateTimeOffset? sentAt = default(DateTimeOffset?), Dictionary<string, ExternalTransferAgencyOrderLine> lines = default(Dictionary<string, ExternalTransferAgencyOrderLine>))
+        public UpsertExternalDealingEstimatesRequest(DateTimeOffset dealingPoint = default(DateTimeOffset), ExternalDealingEstimateSource source = default(ExternalDealingEstimateSource), bool complete = default(bool), DateTimeOffset? sentAt = default(DateTimeOffset?), Dictionary<string, ExternalDealingEstimateLine> lines = default(Dictionary<string, ExternalDealingEstimateLine>))
         {
-            // to ensure "fundId" is required (not null)
-            if (fundId == null)
-            {
-                throw new ArgumentNullException("fundId is a required property for UpsertExternalTransferAgencyOrdersRequest and cannot be null");
-            }
-            this.FundId = fundId;
             this.DealingPoint = dealingPoint;
             // to ensure "source" is required (not null)
             if (source == null)
             {
-                throw new ArgumentNullException("source is a required property for UpsertExternalTransferAgencyOrdersRequest and cannot be null");
+                throw new ArgumentNullException("source is a required property for UpsertExternalDealingEstimatesRequest and cannot be null");
             }
             this.Source = source;
             // to ensure "lines" is required (not null)
             if (lines == null)
             {
-                throw new ArgumentNullException("lines is a required property for UpsertExternalTransferAgencyOrdersRequest and cannot be null");
+                throw new ArgumentNullException("lines is a required property for UpsertExternalDealingEstimatesRequest and cannot be null");
             }
             this.Lines = lines;
             this.Complete = complete;
             this.SentAt = sentAt;
         }
-
-        /// <summary>
-        /// Gets or Sets FundId
-        /// </summary>
-        [DataMember(Name = "fundId", IsRequired = true, EmitDefaultValue = true)]
-        public ResourceId FundId { get; set; }
 
         /// <summary>
         /// Gets or Sets DealingPoint
@@ -83,7 +70,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Source
         /// </summary>
         [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = true)]
-        public ExternalTransferAgencyOrderSource Source { get; set; }
+        public ExternalDealingEstimateSource Source { get; set; }
 
         /// <summary>
         /// Gets or Sets Complete
@@ -101,7 +88,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Lines
         /// </summary>
         [DataMember(Name = "lines", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, ExternalTransferAgencyOrderLine> Lines { get; set; }
+        public Dictionary<string, ExternalDealingEstimateLine> Lines { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,8 +97,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class UpsertExternalTransferAgencyOrdersRequest {\n");
-            sb.Append("  FundId: ").Append(FundId).Append("\n");
+            sb.Append("class UpsertExternalDealingEstimatesRequest {\n");
             sb.Append("  DealingPoint: ").Append(DealingPoint).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  Complete: ").Append(Complete).Append("\n");
@@ -137,26 +123,21 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpsertExternalTransferAgencyOrdersRequest);
+            return this.Equals(input as UpsertExternalDealingEstimatesRequest);
         }
 
         /// <summary>
-        /// Returns true if UpsertExternalTransferAgencyOrdersRequest instances are equal
+        /// Returns true if UpsertExternalDealingEstimatesRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpsertExternalTransferAgencyOrdersRequest to be compared</param>
+        /// <param name="input">Instance of UpsertExternalDealingEstimatesRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpsertExternalTransferAgencyOrdersRequest input)
+        public bool Equals(UpsertExternalDealingEstimatesRequest input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
-                (
-                    this.FundId == input.FundId ||
-                    (this.FundId != null &&
-                    this.FundId.Equals(input.FundId))
-                ) && 
                 (
                     this.DealingPoint == input.DealingPoint ||
                     (this.DealingPoint != null &&
@@ -193,10 +174,6 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FundId != null)
-                {
-                    hashCode = (hashCode * 59) + this.FundId.GetHashCode();
-                }
                 if (this.DealingPoint != null)
                 {
                     hashCode = (hashCode * 59) + this.DealingPoint.GetHashCode();

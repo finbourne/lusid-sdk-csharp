@@ -25,26 +25,26 @@ namespace Lusid.Sdk.Model
     /// <summary>
     /// A cash amount in a stated currency.
     /// </summary>
-    [DataContract(Name = "ExternalTransferAgencyOrderAmount")]
-    public partial class ExternalTransferAgencyOrderAmount : IEquatable<ExternalTransferAgencyOrderAmount>, IValidatableObject
+    [DataContract(Name = "ExternalDealingEstimateAmount")]
+    public partial class ExternalDealingEstimateAmount : IEquatable<ExternalDealingEstimateAmount>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExternalTransferAgencyOrderAmount" /> class.
+        /// Initializes a new instance of the <see cref="ExternalDealingEstimateAmount" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ExternalTransferAgencyOrderAmount() { }
+        protected ExternalDealingEstimateAmount() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExternalTransferAgencyOrderAmount" /> class.
+        /// Initializes a new instance of the <see cref="ExternalDealingEstimateAmount" /> class.
         /// </summary>
         /// <param name="value">value (required).</param>
         /// <param name="currency">currency (required).</param>
-        public ExternalTransferAgencyOrderAmount(decimal value = default(decimal), string currency = default(string))
+        public ExternalDealingEstimateAmount(decimal value = default(decimal), string currency = default(string))
         {
             this.Value = value;
             // to ensure "currency" is required (not null)
             if (currency == null)
             {
-                throw new ArgumentNullException("currency is a required property for ExternalTransferAgencyOrderAmount and cannot be null");
+                throw new ArgumentNullException("currency is a required property for ExternalDealingEstimateAmount and cannot be null");
             }
             this.Currency = currency;
         }
@@ -68,7 +68,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ExternalTransferAgencyOrderAmount {\n");
+            sb.Append("class ExternalDealingEstimateAmount {\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("}\n");
@@ -91,15 +91,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ExternalTransferAgencyOrderAmount);
+            return this.Equals(input as ExternalDealingEstimateAmount);
         }
 
         /// <summary>
-        /// Returns true if ExternalTransferAgencyOrderAmount instances are equal
+        /// Returns true if ExternalDealingEstimateAmount instances are equal
         /// </summary>
-        /// <param name="input">Instance of ExternalTransferAgencyOrderAmount to be compared</param>
+        /// <param name="input">Instance of ExternalDealingEstimateAmount to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ExternalTransferAgencyOrderAmount input)
+        public bool Equals(ExternalDealingEstimateAmount input)
         {
             if (input == null)
             {

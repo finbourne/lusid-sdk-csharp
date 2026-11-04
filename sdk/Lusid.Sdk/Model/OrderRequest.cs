@@ -473,10 +473,52 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Side (string) maxLength
+            if (this.Side != null && this.Side.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Side, length must be less than 64.", new [] { "Side" });
+            }
+
             // Side (string) minLength
             if (this.Side != null && this.Side.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Side, length must be greater than 1.", new [] { "Side" });
+            }
+
+            // State (string) maxLength
+            if (this.State != null && this.State.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for State, length must be less than 256.", new [] { "State" });
+            }
+
+            // State (string) minLength
+            if (this.State != null && this.State.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for State, length must be greater than 1.", new [] { "State" });
+            }
+
+            // Type (string) maxLength
+            if (this.Type != null && this.Type.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be less than 256.", new [] { "Type" });
+            }
+
+            // Type (string) minLength
+            if (this.Type != null && this.Type.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
+            }
+
+            // TimeInForce (string) maxLength
+            if (this.TimeInForce != null && this.TimeInForce.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimeInForce, length must be less than 256.", new [] { "TimeInForce" });
+            }
+
+            // TimeInForce (string) minLength
+            if (this.TimeInForce != null && this.TimeInForce.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimeInForce, length must be greater than 1.", new [] { "TimeInForce" });
             }
 
             yield break;

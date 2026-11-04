@@ -166,6 +166,70 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of MarginCall</returns>
         Lusid.Sdk.Client.ApiResponse<MarginCall> GetMarginCallWithHttpInfo(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] GetMarginCallExplanation: Explain a margin call.
+        /// </summary>
+        /// <remarks>
+        /// Show how the required amount of one initial-margin call of a run was arrived at, as a tree of components. Only an  initial-margin call whose run stored its working can be explained, as the call&#39;s ExplainAvailable says. The working  of portfolios the caller may not read is replaced by a single redacted component that keeps its parent adding up.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. Only InitialMargin calls can be explained.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>MarginExplanation</returns>
+        MarginExplanation GetMarginCallExplanation(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginCallExplanation: Explain a margin call.
+        /// </summary>
+        /// <remarks>
+        /// Show how the required amount of one initial-margin call of a run was arrived at, as a tree of components. Only an  initial-margin call whose run stored its working can be explained, as the call&#39;s ExplainAvailable says. The working  of portfolios the caller may not read is replaced by a single redacted component that keeps its parent adding up.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. Only InitialMargin calls can be explained.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of MarginExplanation</returns>
+        Lusid.Sdk.Client.ApiResponse<MarginExplanation> GetMarginCallExplanationWithHttpInfo(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginLineExplanation: Explain a margin line.
+        /// </summary>
+        /// <remarks>
+        /// Show how the figures of one margin line of a run were arrived at, as a tree of components for each figure. The run  must have stored its working, as its lines&#39; ExplainAvailable says. The working of portfolios the caller may not  read is replaced by a single redacted component that keeps its parent adding up. A line the caller may not read is  reported as not found.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="lineKey">The key of the margin line, as listed in the line&#39;s LineKey.</param>
+        /// <param name="figure">The figure of the line to explain: VariationMargin or InitialMargin. Explains every figure of the line that the run explained if not specified. Available values: VariationMargin, InitialMargin. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>MarginExplanation</returns>
+        MarginExplanation GetMarginLineExplanation(string runId, string lineKey, string? figure = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginLineExplanation: Explain a margin line.
+        /// </summary>
+        /// <remarks>
+        /// Show how the figures of one margin line of a run were arrived at, as a tree of components for each figure. The run  must have stored its working, as its lines&#39; ExplainAvailable says. The working of portfolios the caller may not  read is replaced by a single redacted component that keeps its parent adding up. A line the caller may not read is  reported as not found.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="lineKey">The key of the margin line, as listed in the line&#39;s LineKey.</param>
+        /// <param name="figure">The figure of the line to explain: VariationMargin or InitialMargin. Explains every figure of the line that the run explained if not specified. Available values: VariationMargin, InitialMargin. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of MarginExplanation</returns>
+        Lusid.Sdk.Client.ApiResponse<MarginExplanation> GetMarginLineExplanationWithHttpInfo(string runId, string lineKey, string? figure = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] GetMarginRun: Get a margin run.
         /// </summary>
         /// <remarks>
@@ -568,6 +632,74 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (MarginCall)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<MarginCall>> GetMarginCallWithHttpInfoAsync(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginCallExplanation: Explain a margin call.
+        /// </summary>
+        /// <remarks>
+        /// Show how the required amount of one initial-margin call of a run was arrived at, as a tree of components. Only an  initial-margin call whose run stored its working can be explained, as the call&#39;s ExplainAvailable says. The working  of portfolios the caller may not read is replaced by a single redacted component that keeps its parent adding up.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. Only InitialMargin calls can be explained.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of MarginExplanation</returns>
+        System.Threading.Tasks.Task<MarginExplanation> GetMarginCallExplanationAsync(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginCallExplanation: Explain a margin call.
+        /// </summary>
+        /// <remarks>
+        /// Show how the required amount of one initial-margin call of a run was arrived at, as a tree of components. Only an  initial-margin call whose run stored its working can be explained, as the call&#39;s ExplainAvailable says. The working  of portfolios the caller may not read is replaced by a single redacted component that keeps its parent adding up.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. Only InitialMargin calls can be explained.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (MarginExplanation)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<MarginExplanation>> GetMarginCallExplanationWithHttpInfoAsync(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginLineExplanation: Explain a margin line.
+        /// </summary>
+        /// <remarks>
+        /// Show how the figures of one margin line of a run were arrived at, as a tree of components for each figure. The run  must have stored its working, as its lines&#39; ExplainAvailable says. The working of portfolios the caller may not  read is replaced by a single redacted component that keeps its parent adding up. A line the caller may not read is  reported as not found.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="lineKey">The key of the margin line, as listed in the line&#39;s LineKey.</param>
+        /// <param name="figure">The figure of the line to explain: VariationMargin or InitialMargin. Explains every figure of the line that the run explained if not specified. Available values: VariationMargin, InitialMargin. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of MarginExplanation</returns>
+        System.Threading.Tasks.Task<MarginExplanation> GetMarginLineExplanationAsync(string runId, string lineKey, string? figure = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginLineExplanation: Explain a margin line.
+        /// </summary>
+        /// <remarks>
+        /// Show how the figures of one margin line of a run were arrived at, as a tree of components for each figure. The run  must have stored its working, as its lines&#39; ExplainAvailable says. The working of portfolios the caller may not  read is replaced by a single redacted component that keeps its parent adding up. A line the caller may not read is  reported as not found.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="lineKey">The key of the margin line, as listed in the line&#39;s LineKey.</param>
+        /// <param name="figure">The figure of the line to explain: VariationMargin or InitialMargin. Explains every figure of the line that the run explained if not specified. Available values: VariationMargin, InitialMargin. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (MarginExplanation)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<MarginExplanation>> GetMarginLineExplanationWithHttpInfoAsync(string runId, string lineKey, string? figure = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetMarginRun: Get a margin run.
         /// </summary>
@@ -2084,6 +2216,535 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMarginCall", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginCallExplanation: Explain a margin call. Show how the required amount of one initial-margin call of a run was arrived at, as a tree of components. Only an  initial-margin call whose run stored its working can be explained, as the call&#39;s ExplainAvailable says. The working  of portfolios the caller may not read is replaced by a single redacted component that keeps its parent adding up.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. Only InitialMargin calls can be explained.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>MarginExplanation</returns>
+        public MarginExplanation GetMarginCallExplanation(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<MarginExplanation> localVarResponse = GetMarginCallExplanationWithHttpInfo(runId, agreementScope, agreementCode, item, marginType, direction, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginCallExplanation: Explain a margin call. Show how the required amount of one initial-margin call of a run was arrived at, as a tree of components. Only an  initial-margin call whose run stored its working can be explained, as the call&#39;s ExplainAvailable says. The working  of portfolios the caller may not read is replaced by a single redacted component that keeps its parent adding up.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. Only InitialMargin calls can be explained.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of MarginExplanation</returns>
+        public Lusid.Sdk.Client.ApiResponse<MarginExplanation> GetMarginCallExplanationWithHttpInfo(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling CollateralApi->GetMarginCallExplanation");
+            }
+
+            // verify the required parameter 'agreementScope' is set
+            if (agreementScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'agreementScope' when calling CollateralApi->GetMarginCallExplanation");
+            }
+
+            // verify the required parameter 'agreementCode' is set
+            if (agreementCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'agreementCode' when calling CollateralApi->GetMarginCallExplanation");
+            }
+
+            // verify the required parameter 'item' is set
+            if (item == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'item' when calling CollateralApi->GetMarginCallExplanation");
+            }
+
+            // verify the required parameter 'marginType' is set
+            if (marginType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'marginType' when calling CollateralApi->GetMarginCallExplanation");
+            }
+
+            // verify the required parameter 'direction' is set
+            if (direction == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'direction' when calling CollateralApi->GetMarginCallExplanation");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("runId", Lusid.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("agreementScope", Lusid.Sdk.Client.ClientUtils.ParameterToString(agreementScope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("agreementCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(agreementCode)); // path parameter
+            localVarRequestOptions.PathParameters.Add("item", Lusid.Sdk.Client.ClientUtils.ParameterToString(item)); // path parameter
+            localVarRequestOptions.PathParameters.Add("marginType", Lusid.Sdk.Client.ClientUtils.ParameterToString(marginType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("direction", Lusid.Sdk.Client.ClientUtils.ParameterToString(direction)); // path parameter
+
+            localVarRequestOptions.Operation = "CollateralApi.GetMarginCallExplanation";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<MarginExplanation>("/api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/$explain", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarginCallExplanation", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginCallExplanation: Explain a margin call. Show how the required amount of one initial-margin call of a run was arrived at, as a tree of components. Only an  initial-margin call whose run stored its working can be explained, as the call&#39;s ExplainAvailable says. The working  of portfolios the caller may not read is replaced by a single redacted component that keeps its parent adding up.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. Only InitialMargin calls can be explained.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of MarginExplanation</returns>
+        public async System.Threading.Tasks.Task<MarginExplanation> GetMarginCallExplanationAsync(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<MarginExplanation> localVarResponse = await GetMarginCallExplanationWithHttpInfoAsync(runId, agreementScope, agreementCode, item, marginType, direction, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginCallExplanation: Explain a margin call. Show how the required amount of one initial-margin call of a run was arrived at, as a tree of components. Only an  initial-margin call whose run stored its working can be explained, as the call&#39;s ExplainAvailable says. The working  of portfolios the caller may not read is replaced by a single redacted component that keeps its parent adding up.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. Only InitialMargin calls can be explained.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (MarginExplanation)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<MarginExplanation>> GetMarginCallExplanationWithHttpInfoAsync(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling CollateralApi->GetMarginCallExplanation");
+            }
+
+            // verify the required parameter 'agreementScope' is set
+            if (agreementScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'agreementScope' when calling CollateralApi->GetMarginCallExplanation");
+            }
+
+            // verify the required parameter 'agreementCode' is set
+            if (agreementCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'agreementCode' when calling CollateralApi->GetMarginCallExplanation");
+            }
+
+            // verify the required parameter 'item' is set
+            if (item == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'item' when calling CollateralApi->GetMarginCallExplanation");
+            }
+
+            // verify the required parameter 'marginType' is set
+            if (marginType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'marginType' when calling CollateralApi->GetMarginCallExplanation");
+            }
+
+            // verify the required parameter 'direction' is set
+            if (direction == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'direction' when calling CollateralApi->GetMarginCallExplanation");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("runId", Lusid.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("agreementScope", Lusid.Sdk.Client.ClientUtils.ParameterToString(agreementScope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("agreementCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(agreementCode)); // path parameter
+            localVarRequestOptions.PathParameters.Add("item", Lusid.Sdk.Client.ClientUtils.ParameterToString(item)); // path parameter
+            localVarRequestOptions.PathParameters.Add("marginType", Lusid.Sdk.Client.ClientUtils.ParameterToString(marginType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("direction", Lusid.Sdk.Client.ClientUtils.ParameterToString(direction)); // path parameter
+
+            localVarRequestOptions.Operation = "CollateralApi.GetMarginCallExplanation";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<MarginExplanation>("/api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/$explain", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarginCallExplanation", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginLineExplanation: Explain a margin line. Show how the figures of one margin line of a run were arrived at, as a tree of components for each figure. The run  must have stored its working, as its lines&#39; ExplainAvailable says. The working of portfolios the caller may not  read is replaced by a single redacted component that keeps its parent adding up. A line the caller may not read is  reported as not found.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="lineKey">The key of the margin line, as listed in the line&#39;s LineKey.</param>
+        /// <param name="figure">The figure of the line to explain: VariationMargin or InitialMargin. Explains every figure of the line that the run explained if not specified. Available values: VariationMargin, InitialMargin. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>MarginExplanation</returns>
+        public MarginExplanation GetMarginLineExplanation(string runId, string lineKey, string? figure = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<MarginExplanation> localVarResponse = GetMarginLineExplanationWithHttpInfo(runId, lineKey, figure, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginLineExplanation: Explain a margin line. Show how the figures of one margin line of a run were arrived at, as a tree of components for each figure. The run  must have stored its working, as its lines&#39; ExplainAvailable says. The working of portfolios the caller may not  read is replaced by a single redacted component that keeps its parent adding up. A line the caller may not read is  reported as not found.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="lineKey">The key of the margin line, as listed in the line&#39;s LineKey.</param>
+        /// <param name="figure">The figure of the line to explain: VariationMargin or InitialMargin. Explains every figure of the line that the run explained if not specified. Available values: VariationMargin, InitialMargin. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of MarginExplanation</returns>
+        public Lusid.Sdk.Client.ApiResponse<MarginExplanation> GetMarginLineExplanationWithHttpInfo(string runId, string lineKey, string? figure = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling CollateralApi->GetMarginLineExplanation");
+            }
+
+            // verify the required parameter 'lineKey' is set
+            if (lineKey == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'lineKey' when calling CollateralApi->GetMarginLineExplanation");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("runId", Lusid.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("lineKey", Lusid.Sdk.Client.ClientUtils.ParameterToString(lineKey)); // path parameter
+            if (figure != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "figure", figure));
+            }
+
+            localVarRequestOptions.Operation = "CollateralApi.GetMarginLineExplanation";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<MarginExplanation>("/api/collateral/runs/{runId}/lines/{lineKey}/$explain", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarginLineExplanation", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginLineExplanation: Explain a margin line. Show how the figures of one margin line of a run were arrived at, as a tree of components for each figure. The run  must have stored its working, as its lines&#39; ExplainAvailable says. The working of portfolios the caller may not  read is replaced by a single redacted component that keeps its parent adding up. A line the caller may not read is  reported as not found.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="lineKey">The key of the margin line, as listed in the line&#39;s LineKey.</param>
+        /// <param name="figure">The figure of the line to explain: VariationMargin or InitialMargin. Explains every figure of the line that the run explained if not specified. Available values: VariationMargin, InitialMargin. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of MarginExplanation</returns>
+        public async System.Threading.Tasks.Task<MarginExplanation> GetMarginLineExplanationAsync(string runId, string lineKey, string? figure = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<MarginExplanation> localVarResponse = await GetMarginLineExplanationWithHttpInfoAsync(runId, lineKey, figure, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginLineExplanation: Explain a margin line. Show how the figures of one margin line of a run were arrived at, as a tree of components for each figure. The run  must have stored its working, as its lines&#39; ExplainAvailable says. The working of portfolios the caller may not  read is replaced by a single redacted component that keeps its parent adding up. A line the caller may not read is  reported as not found.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="lineKey">The key of the margin line, as listed in the line&#39;s LineKey.</param>
+        /// <param name="figure">The figure of the line to explain: VariationMargin or InitialMargin. Explains every figure of the line that the run explained if not specified. Available values: VariationMargin, InitialMargin. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (MarginExplanation)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<MarginExplanation>> GetMarginLineExplanationWithHttpInfoAsync(string runId, string lineKey, string? figure = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling CollateralApi->GetMarginLineExplanation");
+            }
+
+            // verify the required parameter 'lineKey' is set
+            if (lineKey == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'lineKey' when calling CollateralApi->GetMarginLineExplanation");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("runId", Lusid.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("lineKey", Lusid.Sdk.Client.ClientUtils.ParameterToString(lineKey)); // path parameter
+            if (figure != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "figure", figure));
+            }
+
+            localVarRequestOptions.Operation = "CollateralApi.GetMarginLineExplanation";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<MarginExplanation>("/api/collateral/runs/{runId}/lines/{lineKey}/$explain", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarginLineExplanation", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

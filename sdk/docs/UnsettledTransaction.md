@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **StockIsOverdue** | **bool** | Whether the stock component is overdue for settlement. | [optional] 
 **DeferredCashSettlementStatus** | **string** | The settlement status of the deferred cash component. | [optional] 
 **DeferredCashIsOverdue** | **bool** | Whether the deferred cash component is overdue for settlement. | [optional] 
+**Revaluation** | [**UnsettledTransactionRevaluation**](UnsettledTransactionRevaluation.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -32,6 +33,8 @@ string stockSettlementStatus = "example stockSettlementStatus";
 bool stockIsOverdue = //"True";
 string deferredCashSettlementStatus = "example deferredCashSettlementStatus";
 bool deferredCashIsOverdue = //"True";
+UnsettledTransactionRevaluation? revaluation = new UnsettledTransactionRevaluation();
+
 
 UnsettledTransaction unsettledTransactionInstance = new UnsettledTransaction(
     transaction: transaction,
@@ -43,7 +46,8 @@ UnsettledTransaction unsettledTransactionInstance = new UnsettledTransaction(
     stockSettlementStatus: stockSettlementStatus,
     stockIsOverdue: stockIsOverdue,
     deferredCashSettlementStatus: deferredCashSettlementStatus,
-    deferredCashIsOverdue: deferredCashIsOverdue);
+    deferredCashIsOverdue: deferredCashIsOverdue,
+    revaluation: revaluation);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

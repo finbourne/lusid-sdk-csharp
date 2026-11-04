@@ -1,10 +1,10 @@
-# Lusid.Sdk.Model.UpsertExternalTransferAgencyOrdersResponse
+# Lusid.Sdk.Model.UpsertExternalDealingEstimatesResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Successes** | [**Dictionary&lt;string, UpsertExternalTransferAgencyOrderResult&gt;**](UpsertExternalTransferAgencyOrderResult.md) | A dictionary of successfully loaded sets, keyed by the request key. | [optional] 
+**Successes** | [**Dictionary&lt;string, UpsertExternalDealingEstimateResult&gt;**](UpsertExternalDealingEstimateResult.md) | A dictionary of successfully loaded sets, keyed by the request key. | [optional] 
 **Failed** | [**Dictionary&lt;string, ErrorDetail&gt;**](ErrorDetail.md) | A dictionary of sets that could not be loaded, keyed by the request key, containing error details. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
@@ -12,11 +12,11 @@ Name | Type | Description | Notes
 using Lusid.Sdk.Model;
 using System;
 
-Dictionary<string, UpsertExternalTransferAgencyOrderResult> successes = new Dictionary<string, UpsertExternalTransferAgencyOrderResult>();
+Dictionary<string, UpsertExternalDealingEstimateResult> successes = new Dictionary<string, UpsertExternalDealingEstimateResult>();
 Dictionary<string, ErrorDetail> failed = new Dictionary<string, ErrorDetail>();
 List<Link> links = new List<Link>();
 
-UpsertExternalTransferAgencyOrdersResponse upsertExternalTransferAgencyOrdersResponseInstance = new UpsertExternalTransferAgencyOrdersResponse(
+UpsertExternalDealingEstimatesResponse upsertExternalDealingEstimatesResponseInstance = new UpsertExternalDealingEstimatesResponse(
     successes: successes,
     failed: failed,
     links: links);

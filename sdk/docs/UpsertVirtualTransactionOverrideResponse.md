@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Overrides** | **Dictionary&lt;string, List&lt;StoredOverrideDefinition&gt;&gt;** | The replacement transactions persisted for the instrument event, keyed by the virtual transaction id being overridden. | [optional] 
 **Suppressions** | **List&lt;string&gt;** | The virtual transaction ids suppressed for the instrument event. | [optional] 
 **CancelActive** | **bool?** | True when an active event-level Cancel instruction also exists for this instrument event, taking precedence over the entries in this record. | [optional] 
+**Adjustments** | [**Dictionary&lt;string, AdjustmentDefinitionResponse&gt;**](AdjustmentDefinitionResponse.md) | The adjustments stored for the instrument event, keyed by virtual transaction id. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -25,6 +26,7 @@ string instrumentEventId = "instrumentEventId";
 Dictionary<string, List<StoredOverrideDefinition>> overrides = new Dictionary<string, List<StoredOverrideDefinition>>();
 List<string> suppressions = new List<string>();
 bool? cancelActive = //"True";
+Dictionary<string, AdjustmentDefinitionResponse> adjustments = new Dictionary<string, AdjustmentDefinitionResponse>();
 List<Link> links = new List<Link>();
 
 UpsertVirtualTransactionOverrideResponse upsertVirtualTransactionOverrideResponseInstance = new UpsertVirtualTransactionOverrideResponse(
@@ -35,6 +37,7 @@ UpsertVirtualTransactionOverrideResponse upsertVirtualTransactionOverrideRespons
     overrides: overrides,
     suppressions: suppressions,
     cancelActive: cancelActive,
+    adjustments: adjustments,
     links: links);
 ```
 

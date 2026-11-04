@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **CarriedFrom** | [**MarginCallReference**](MarginCallReference.md) |  | [optional] 
 **CarriedDisputedAmount** | **decimal?** | The amount left in dispute on the carried call. Informational; not added to this call. | [optional] 
 **Scenario** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**ExplainAvailable** | **bool** | Whether the working behind the call&#39;s required amount was stored, so that the call can be explained. Only an initial-margin call can be explained, and only when the run stored its working. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -68,6 +69,7 @@ MarginCallReference? carriedFrom = new MarginCallReference();
 
 ResourceId? scenario = new ResourceId();
 
+bool explainAvailable = //"True";
 
 MarginCall marginCallInstance = new MarginCall(
     href: href,
@@ -100,7 +102,8 @@ MarginCall marginCallInstance = new MarginCall(
     supersedes: supersedes,
     carriedFrom: carriedFrom,
     carriedDisputedAmount: carriedDisputedAmount,
-    scenario: scenario);
+    scenario: scenario,
+    explainAvailable: explainAvailable);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

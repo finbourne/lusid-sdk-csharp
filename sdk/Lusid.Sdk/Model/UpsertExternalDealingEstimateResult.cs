@@ -23,26 +23,26 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// UpsertExternalTransferAgencyOrderResult
+    /// UpsertExternalDealingEstimateResult
     /// </summary>
-    [DataContract(Name = "UpsertExternalTransferAgencyOrderResult")]
-    public partial class UpsertExternalTransferAgencyOrderResult : IEquatable<UpsertExternalTransferAgencyOrderResult>, IValidatableObject
+    [DataContract(Name = "UpsertExternalDealingEstimateResult")]
+    public partial class UpsertExternalDealingEstimateResult : IEquatable<UpsertExternalDealingEstimateResult>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpsertExternalTransferAgencyOrderResult" /> class.
+        /// Initializes a new instance of the <see cref="UpsertExternalDealingEstimateResult" /> class.
         /// </summary>
         /// <param name="fundId">fundId.</param>
         /// <param name="dealingPoint">dealingPoint.</param>
         /// <param name="late">late.</param>
-        /// <param name="upsertedOrders">upsertedOrders.</param>
-        /// <param name="deletedOrders">deletedOrders.</param>
-        public UpsertExternalTransferAgencyOrderResult(ResourceId fundId = default(ResourceId), DateTimeOffset dealingPoint = default(DateTimeOffset), bool late = default(bool), List<ResourceId> upsertedOrders = default(List<ResourceId>), List<ResourceId> deletedOrders = default(List<ResourceId>))
+        /// <param name="upsertedEstimates">upsertedEstimates.</param>
+        /// <param name="deletedEstimates">deletedEstimates.</param>
+        public UpsertExternalDealingEstimateResult(ResourceId fundId = default(ResourceId), DateTimeOffset dealingPoint = default(DateTimeOffset), bool late = default(bool), List<ResourceId> upsertedEstimates = default(List<ResourceId>), List<ResourceId> deletedEstimates = default(List<ResourceId>))
         {
             this.FundId = fundId;
             this.DealingPoint = dealingPoint;
             this.Late = late;
-            this.UpsertedOrders = upsertedOrders;
-            this.DeletedOrders = deletedOrders;
+            this.UpsertedEstimates = upsertedEstimates;
+            this.DeletedEstimates = deletedEstimates;
         }
 
         /// <summary>
@@ -64,16 +64,16 @@ namespace Lusid.Sdk.Model
         public bool Late { get; set; }
 
         /// <summary>
-        /// Gets or Sets UpsertedOrders
+        /// Gets or Sets UpsertedEstimates
         /// </summary>
-        [DataMember(Name = "upsertedOrders", EmitDefaultValue = true)]
-        public List<ResourceId> UpsertedOrders { get; set; }
+        [DataMember(Name = "upsertedEstimates", EmitDefaultValue = true)]
+        public List<ResourceId> UpsertedEstimates { get; set; }
 
         /// <summary>
-        /// Gets or Sets DeletedOrders
+        /// Gets or Sets DeletedEstimates
         /// </summary>
-        [DataMember(Name = "deletedOrders", EmitDefaultValue = true)]
-        public List<ResourceId> DeletedOrders { get; set; }
+        [DataMember(Name = "deletedEstimates", EmitDefaultValue = true)]
+        public List<ResourceId> DeletedEstimates { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -82,12 +82,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class UpsertExternalTransferAgencyOrderResult {\n");
+            sb.Append("class UpsertExternalDealingEstimateResult {\n");
             sb.Append("  FundId: ").Append(FundId).Append("\n");
             sb.Append("  DealingPoint: ").Append(DealingPoint).Append("\n");
             sb.Append("  Late: ").Append(Late).Append("\n");
-            sb.Append("  UpsertedOrders: ").Append(UpsertedOrders).Append("\n");
-            sb.Append("  DeletedOrders: ").Append(DeletedOrders).Append("\n");
+            sb.Append("  UpsertedEstimates: ").Append(UpsertedEstimates).Append("\n");
+            sb.Append("  DeletedEstimates: ").Append(DeletedEstimates).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,15 +108,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpsertExternalTransferAgencyOrderResult);
+            return this.Equals(input as UpsertExternalDealingEstimateResult);
         }
 
         /// <summary>
-        /// Returns true if UpsertExternalTransferAgencyOrderResult instances are equal
+        /// Returns true if UpsertExternalDealingEstimateResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpsertExternalTransferAgencyOrderResult to be compared</param>
+        /// <param name="input">Instance of UpsertExternalDealingEstimateResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpsertExternalTransferAgencyOrderResult input)
+        public bool Equals(UpsertExternalDealingEstimateResult input)
         {
             if (input == null)
             {
@@ -138,16 +138,16 @@ namespace Lusid.Sdk.Model
                     this.Late.Equals(input.Late)
                 ) && 
                 (
-                    this.UpsertedOrders == input.UpsertedOrders ||
-                    this.UpsertedOrders != null &&
-                    input.UpsertedOrders != null &&
-                    this.UpsertedOrders.SequenceEqual(input.UpsertedOrders)
+                    this.UpsertedEstimates == input.UpsertedEstimates ||
+                    this.UpsertedEstimates != null &&
+                    input.UpsertedEstimates != null &&
+                    this.UpsertedEstimates.SequenceEqual(input.UpsertedEstimates)
                 ) && 
                 (
-                    this.DeletedOrders == input.DeletedOrders ||
-                    this.DeletedOrders != null &&
-                    input.DeletedOrders != null &&
-                    this.DeletedOrders.SequenceEqual(input.DeletedOrders)
+                    this.DeletedEstimates == input.DeletedEstimates ||
+                    this.DeletedEstimates != null &&
+                    input.DeletedEstimates != null &&
+                    this.DeletedEstimates.SequenceEqual(input.DeletedEstimates)
                 );
         }
 
@@ -169,13 +169,13 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.DealingPoint.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Late.GetHashCode();
-                if (this.UpsertedOrders != null)
+                if (this.UpsertedEstimates != null)
                 {
-                    hashCode = (hashCode * 59) + this.UpsertedOrders.GetHashCode();
+                    hashCode = (hashCode * 59) + this.UpsertedEstimates.GetHashCode();
                 }
-                if (this.DeletedOrders != null)
+                if (this.DeletedEstimates != null)
                 {
-                    hashCode = (hashCode * 59) + this.DeletedOrders.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DeletedEstimates.GetHashCode();
                 }
                 return hashCode;
             }

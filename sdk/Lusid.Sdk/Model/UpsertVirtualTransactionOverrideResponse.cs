@@ -43,8 +43,9 @@ namespace Lusid.Sdk.Model
         /// <param name="overrides">The replacement transactions persisted for the instrument event, keyed by the virtual transaction id being overridden..</param>
         /// <param name="suppressions">The virtual transaction ids suppressed for the instrument event..</param>
         /// <param name="cancelActive">True when an active event-level Cancel instruction also exists for this instrument event, taking precedence over the entries in this record..</param>
+        /// <param name="adjustments">The adjustments stored for the instrument event, keyed by virtual transaction id..</param>
         /// <param name="links">links.</param>
-        public UpsertVirtualTransactionOverrideResponse(ModelVersion varVersion = default(ModelVersion), string href = default(string), Dictionary<string, List<ResponseMetaData>> metadata = default(Dictionary<string, List<ResponseMetaData>>), string instrumentEventId = default(string), Dictionary<string, List<StoredOverrideDefinition>> overrides = default(Dictionary<string, List<StoredOverrideDefinition>>), List<string> suppressions = default(List<string>), bool? cancelActive = default(bool?), List<Link> links = default(List<Link>))
+        public UpsertVirtualTransactionOverrideResponse(ModelVersion varVersion = default(ModelVersion), string href = default(string), Dictionary<string, List<ResponseMetaData>> metadata = default(Dictionary<string, List<ResponseMetaData>>), string instrumentEventId = default(string), Dictionary<string, List<StoredOverrideDefinition>> overrides = default(Dictionary<string, List<StoredOverrideDefinition>>), List<string> suppressions = default(List<string>), bool? cancelActive = default(bool?), Dictionary<string, AdjustmentDefinitionResponse> adjustments = default(Dictionary<string, AdjustmentDefinitionResponse>), List<Link> links = default(List<Link>))
         {
             // to ensure "varVersion" is required (not null)
             if (varVersion == null)
@@ -63,6 +64,7 @@ namespace Lusid.Sdk.Model
             this.Overrides = overrides;
             this.Suppressions = suppressions;
             this.CancelActive = cancelActive;
+            this.Adjustments = adjustments;
             this.Links = links;
         }
 
@@ -115,6 +117,13 @@ namespace Lusid.Sdk.Model
         public bool? CancelActive { get; set; }
 
         /// <summary>
+        /// The adjustments stored for the instrument event, keyed by virtual transaction id.
+        /// </summary>
+        /// <value>The adjustments stored for the instrument event, keyed by virtual transaction id.</value>
+        [DataMember(Name = "adjustments", EmitDefaultValue = true)]
+        public Dictionary<string, AdjustmentDefinitionResponse> Adjustments { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -135,6 +144,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Overrides: ").Append(Overrides).Append("\n");
             sb.Append("  Suppressions: ").Append(Suppressions).Append("\n");
             sb.Append("  CancelActive: ").Append(CancelActive).Append("\n");
+            sb.Append("  Adjustments: ").Append(Adjustments).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -210,6 +220,12 @@ namespace Lusid.Sdk.Model
                     this.CancelActive.Equals(input.CancelActive))
                 ) && 
                 (
+                    this.Adjustments == input.Adjustments ||
+                    this.Adjustments != null &&
+                    input.Adjustments != null &&
+                    this.Adjustments.SequenceEqual(input.Adjustments)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -253,6 +269,10 @@ namespace Lusid.Sdk.Model
                 if (this.CancelActive != null)
                 {
                     hashCode = (hashCode * 59) + this.CancelActive.GetHashCode();
+                }
+                if (this.Adjustments != null)
+                {
+                    hashCode = (hashCode * 59) + this.Adjustments.GetHashCode();
                 }
                 if (this.Links != null)
                 {
