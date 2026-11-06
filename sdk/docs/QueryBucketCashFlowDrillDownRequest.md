@@ -17,7 +17,11 @@ Name | Type | Description | Notes
 **ExcludeUnsettledTrades** | **bool** | If set to true, unsettled trades are excluded from the result set. Set this to match the value used on the bucketed cash flow query being drilled into, so the individual cash flows reconcile with the bucket. Note that the drill-down returns the complete resolved stream including transaction-sourced cashflows; if the bucketed query used the (default) InstrumentCashFlow representation, also exclude rows with a sourceType of &#39;Transaction&#39; when reconciling. | [optional] 
 **HaircutRules** | [**List&lt;CashFlowHaircutRule&gt;**](CashFlowHaircutRule.md) | Optional ordered haircut rules applied to cashflow inflows; the first matching rule wins and a rule with no criteria acts as a catch-all. When supplied, each returned cashflow carries its gross amount, haircut fraction, net amount and the rule that was applied; with no rules those fields are omitted and the results are unchanged. | [optional] 
 **CashType** | **string** | Which date basis buckets cash flows: TradeDate uses each cash flow&#39;s transaction date, SettleDate (default) uses its payment date. The response&#39;s CashFlowDetail.PaymentDate reflects whichever basis was used. Available values: TradeDate, SettleDate. | [optional] 
-**FxRateType** | **string** | Which FX rate converts each cashflow into the ReportCurrency. FxSpot (default) uses the spot rate. FxForward uses the forward rate for the cashflow&#39;s payment date, read from the FX forward curve the recipe resolves for the currency pair as at the valuation (EffectiveAt) date; a cashflow with no such forward rate reports an Error and has no converted amount. ForwardThenSpot uses the forward rate where the recipe resolves one and the spot rate where it does not. FxForward and ForwardThenSpot require a ReportCurrency. A cashflow paid after the last point of the recipe&#39;s forward curve takes the last point&#39;s forward rate when the curve&#39;s back extrapolation is Flat (the default), and reports an Error when it is None. Where ForwardThenSpot falls back, the spot rate is the one FxSpot uses: read on the cashflow&#39;s own transaction date, not the valuation date. The response&#39;s CashFlowDetail.FxRateTypeApplied says which rate each cashflow received. Available values: FxSpot, FxForward, ForwardThenSpot. | [optional] 
+**FxRateType** | **string** | Which FX rate converts each cashflow into the ReportCurrency. FxSpot (default) uses the spot rate as at the valuation (EffectiveAt) date for every cashflow, as QueryBucketedCashFlows converts them. FxSpotAtCashFlowDate uses the spot rate as at the cashflow&#39;s own date, or as at the valuation date for a cashflow dated after it. FxForward uses the forward rate for the cashflow&#39;s payment date, read from the FX forward curve the recipe resolves for the currency pair as at the valuation (EffectiveAt) date; a cashflow with no such forward rate reports an Error and has no converted amount. ForwardThenSpot uses the forward rate where the recipe resolves one and the spot rate where it does not. All but FxSpot require a ReportCurrency. A cashflow paid after the last point of the recipe&#39;s forward curve takes the last point&#39;s forward rate when the curve&#39;s back extrapolation is Flat (the default), and reports an Error when it is None. Where ForwardThenSpot falls back, the spot rate is the one FxSpot uses: as at the valuation date. The balances in the report currency are those QueryBucketedCashFlows returns for FxSpot. With any other rate type they are a running balance of the cashflows at the rates above, with a starting balance at the spot as at the window start for FxSpotAtCashFlowDate and as at the valuation date for FxForward and ForwardThenSpot; it chains across buckets, and is not QueryBucketedCashFlows&#39; figure. The response&#39;s CashFlowDetail.FxRateTypeApplied says which rate each cashflow received. Available values: FxSpot, FxForward, ForwardThenSpot, FxSpotAtCashFlowDate. | [optional] 
+**WindowStart** | **DateTimeOffset?** | Where the ladder opens: the window start of the bucketed request being drilled into, on or before BucketStart. The opening balance of the bucket is the ladder&#39;s balance at BucketStart. Without it the cash flows are returned as before and the balances are left out. | [optional] 
+**StartingBalance** | **string** | The balance the ladder opens with: &#39;Zero&#39; (default) or &#39;PortfolioCashBalance&#39;. &#39;PortfolioCashBalance&#39; is not supported with a CashType of &#39;TradeDate&#39;. Available values: PortfolioCashBalance, Zero. | [optional] 
+**BucketingSchedule** | [**BucketingSchedule**](BucketingSchedule.md) |  | [optional] 
+**RoundingMethod** | **string** | With a BucketingSchedule, how a cash flow is allocated to a period. Only RoundUp, the default, is supported; RoundDown is refused. Which period a cash flow on a boundary falls in is decided by StartInclusive and EndInclusive. Available values: RoundUp, RoundDown. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -32,6 +36,10 @@ bool excludeUnsettledTrades = //"True";
 List<CashFlowHaircutRule> haircutRules = new List<CashFlowHaircutRule>();
 string cashType = "example cashType";
 string fxRateType = "example fxRateType";
+string startingBalance = "example startingBalance";
+BucketingSchedule? bucketingSchedule = new BucketingSchedule();
+
+string roundingMethod = "example roundingMethod";
 
 QueryBucketCashFlowDrillDownRequest queryBucketCashFlowDrillDownRequestInstance = new QueryBucketCashFlowDrillDownRequest(
     asAt: asAt,
@@ -46,7 +54,11 @@ QueryBucketCashFlowDrillDownRequest queryBucketCashFlowDrillDownRequestInstance 
     excludeUnsettledTrades: excludeUnsettledTrades,
     haircutRules: haircutRules,
     cashType: cashType,
-    fxRateType: fxRateType);
+    fxRateType: fxRateType,
+    windowStart: windowStart,
+    startingBalance: startingBalance,
+    bucketingSchedule: bucketingSchedule,
+    roundingMethod: roundingMethod);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

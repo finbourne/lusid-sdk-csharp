@@ -53,8 +53,8 @@ namespace Lusid.Sdk.Model
         /// <param name="primaryNavType">primaryNavType (required).</param>
         /// <param name="additionalNavTypes">The definitions for any additional NAVs on the Fund..</param>
         /// <param name="properties">A set of properties for the Fund..</param>
-        /// <param name="createInstrument">Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false..</param>
-        /// <param name="instrumentScope">The scope in which the instruments are created when CreateInstrument is true. Defaults to the default instrument scope. Legacy share class instruments are resolved in ShareClassInstrumentScopes instead..</param>
+        /// <param name="createInstrument">Whether to master an instrument upon fund creation. For unitised funds (Classes, Series, or Partners), an instrument is mastered per share class. For non-unitised funds, a single instrument is mastered for the fund itself, with a ClientInternal identifier of {FundScope}:{Code}. Defaults to false..</param>
+        /// <param name="instrumentScope">The scope in which instruments are mastered when CreateInstrument is true. For non-unitised funds the fund scope also forms part of the fund instrument&#39;s ClientInternal identifier: {FundScope}:{Code}. Defaults to the default instrument scope. Legacy share class instruments are resolved via ShareClassInstrumentScopes instead..</param>
         /// <param name="shareClasses">An optional list of Share Class definitions for the Fund..</param>
         /// <param name="pricingMethodology">pricingMethodology.</param>
         /// <param name="reportingPrices">Share class prices the Fund publishes at each valuation point under labels of its own, alongside the dealing price, for example a mid price for performance reporting. Optional. Each source other than Mid must be published by the valuation recipe of every active NAV type. Labels must be unique and cannot be dealingPrice, dealingBid or dealingOffer. Patch the list whole at /reportingPrices..</param>
@@ -238,16 +238,16 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
-        /// Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false.
+        /// Whether to master an instrument upon fund creation. For unitised funds (Classes, Series, or Partners), an instrument is mastered per share class. For non-unitised funds, a single instrument is mastered for the fund itself, with a ClientInternal identifier of {FundScope}:{Code}. Defaults to false.
         /// </summary>
-        /// <value>Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false.</value>
+        /// <value>Whether to master an instrument upon fund creation. For unitised funds (Classes, Series, or Partners), an instrument is mastered per share class. For non-unitised funds, a single instrument is mastered for the fund itself, with a ClientInternal identifier of {FundScope}:{Code}. Defaults to false.</value>
         [DataMember(Name = "createInstrument", EmitDefaultValue = true)]
         public bool CreateInstrument { get; set; }
 
         /// <summary>
-        /// The scope in which the instruments are created when CreateInstrument is true. Defaults to the default instrument scope. Legacy share class instruments are resolved in ShareClassInstrumentScopes instead.
+        /// The scope in which instruments are mastered when CreateInstrument is true. For non-unitised funds the fund scope also forms part of the fund instrument&#39;s ClientInternal identifier: {FundScope}:{Code}. Defaults to the default instrument scope. Legacy share class instruments are resolved via ShareClassInstrumentScopes instead.
         /// </summary>
-        /// <value>The scope in which the instruments are created when CreateInstrument is true. Defaults to the default instrument scope. Legacy share class instruments are resolved in ShareClassInstrumentScopes instead.</value>
+        /// <value>The scope in which instruments are mastered when CreateInstrument is true. For non-unitised funds the fund scope also forms part of the fund instrument&#39;s ClientInternal identifier: {FundScope}:{Code}. Defaults to the default instrument scope. Legacy share class instruments are resolved via ShareClassInstrumentScopes instead.</value>
         [DataMember(Name = "instrumentScope", EmitDefaultValue = true)]
         public string InstrumentScope { get; set; }
 

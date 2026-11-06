@@ -53,7 +53,7 @@ namespace Lusid.Sdk.Model
         /// <param name="distributionPaymentType">The tax treatment applied to distributions. Available values: Invalid, Gross, Net..</param>
         /// <param name="hedging">Indicates whether the ShareClass applies currency hedging. Available values: Invalid, None, ApplyHedging..</param>
         /// <param name="whtParameters">whtParameters.</param>
-        public ShareClassDefinition(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string name = default(string), string description = default(string), string shareClassShortCode = default(string), decimal? launchPrice = default(decimal?), DateTimeOffset? launchDate = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string investorType = default(string), string distributionType = default(string), string domCcy = default(string), TradingConventions tradingConventions = default(TradingConventions), List<SimpleRoundingConvention> roundingConventionsPrice = default(List<SimpleRoundingConvention>), List<SimpleRoundingConvention> roundingConventionsUnits = default(List<SimpleRoundingConvention>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), string distributionPaymentType = default(string), string hedging = default(string), WhtParameters whtParameters = default(WhtParameters))
+        public ShareClassDefinition(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string name = default(string), string description = default(string), string shareClassShortCode = default(string), decimal? launchPrice = default(decimal?), DateTimeOffset? launchDate = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string investorType = default(string), string distributionType = default(string), string domCcy = default(string), TradingConventions tradingConventions = default(TradingConventions), List<ShareClassRoundingConvention> roundingConventionsPrice = default(List<ShareClassRoundingConvention>), List<SimpleRoundingConvention> roundingConventionsUnits = default(List<SimpleRoundingConvention>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), string distributionPaymentType = default(string), string hedging = default(string), WhtParameters whtParameters = default(WhtParameters))
         {
             // to ensure "instrumentIdentifiers" is required (not null)
             if (instrumentIdentifiers == null)
@@ -180,7 +180,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>Rounding conventions used for the ShareClass quotes.</value>
         [DataMember(Name = "roundingConventionsPrice", EmitDefaultValue = true)]
-        public List<SimpleRoundingConvention> RoundingConventionsPrice { get; set; }
+        public List<ShareClassRoundingConvention> RoundingConventionsPrice { get; set; }
 
         /// <summary>
         /// Rounding conventions used for the ShareClass units.

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **DistributionType** | **string** | The type of distribution the ShareClass will calculate. Available values: Income, Accumulation. | [optional] 
 **DomCcy** | **string** | The domestic currency of the ShareClass instrument. | 
 **TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
-**RoundingConventionsPrice** | [**List&lt;SimpleRoundingConvention&gt;**](SimpleRoundingConvention.md) | Rounding conventions used for the ShareClass quotes. | [optional] 
+**RoundingConventionsPrice** | [**List&lt;ShareClassRoundingConvention&gt;**](ShareClassRoundingConvention.md) | Rounding conventions used for the ShareClass quotes. | [optional] 
 **RoundingConventionsUnits** | [**List&lt;SimpleRoundingConvention&gt;**](SimpleRoundingConvention.md) | Rounding conventions used for the ShareClass units. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 **DistributionPaymentType** | **string** | The tax treatment applied to distributions. Available values: Invalid, Gross, Net. | [optional] 
@@ -36,7 +36,7 @@ string distributionType = "example distributionType";
 string domCcy = "domCcy";
 TradingConventions? tradingConventions = new TradingConventions();
 
-List<SimpleRoundingConvention> roundingConventionsPrice = new List<SimpleRoundingConvention>();
+List<ShareClassRoundingConvention> roundingConventionsPrice = new List<ShareClassRoundingConvention>();
 List<SimpleRoundingConvention> roundingConventionsUnits = new List<SimpleRoundingConvention>();
 TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
 

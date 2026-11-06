@@ -60,7 +60,9 @@ namespace Lusid.Sdk.Model
         /// <param name="allowFallbackOnModelDecline">When true, a model that refuses an instrument outright - because the instrument is outside  what that model can represent, not because data was missing - hands the instrument to the  next model this recipe&#39;s rules offer for it, and to the default model for its type after  those. The row is then priced by the first model that accepts it, and carries a diagnostic  naming the model that stood down, its objection, and the model that served it. The caller  must be entitled to the model that serves the row; where none of the alternatives is both  licensed and willing, the row keeps the original refusal.  When false (default), a refusal ends the row however many other models the recipe offers.  A failure that is not a refusal - a missing curve, an unresolved fixing, a malformed model  option - always ends the row, whatever this is set to, because another model&#39;s number would  hide the gap rather than close it..</param>
         /// <param name="namedPrices">Names a valuation request can use to ask for a pricing side and a notional dealing cost  treatment in one column, as Valuation/PV(NamedPrice&#x3D;name) (and likewise PvInReportCcy and  PvInPortfolioCcy). For example a fund might define \&quot;creation\&quot; as the offer side plus the  buy-side dealing cost, \&quot;cancellation\&quot; as the bid side less the sell-side cost, and  \&quot;perfRef\&quot; as the plain mid. Each name must start with a letter, contain only letters and  digits, and be unique within the recipe ignoring case; a request must spell the name exactly as  defined. Absent or empty defines no names..</param>
         /// <param name="suppressAutomaticLoanPrincipalRepayment">If true, FlexibleLoans held as contracts on a LoanFacility do not automatically generate a  LoanPrincipalRepaymentEvent at the end of their schedule. Users must then book rollovers or explicit  LoanPrincipalRepaymentEvents themselves, otherwise the contract stays open and may fail to value once matured.  Stand-alone and WholeLoanFacility FlexibleLoans, interest repayments and upserted repayment events are unaffected. Only takes  effect on the recipe used to generate instrument events. Defaults to false..</param>
-        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), string riskEngine = default(string), string findOrCalculate = default(string), bool produceSeparateResultForLinearOtcLegs = default(bool), bool fxForwardContractsAsUnitsInBothLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool fixedIncomeValuationsUsingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool), bool useInstrumentScaleFactorAsDefault = default(bool), bool scaleInstrumentAccruedOverrideByContractSize = default(bool), RiskBumpOptions riskBumpOptions = default(RiskBumpOptions), Dictionary<string, string> fundingCurveByCurrency = default(Dictionary<string, string>), bool defaultPoolFactorsToUnity = default(bool), bool findOrCalculateWriteThrough = default(bool), InflationConvexityOptions inflationConvexity = default(InflationConvexityOptions), bool allowFallbackOnModelDecline = default(bool), List<NamedPrice> namedPrices = default(List<NamedPrice>), bool suppressAutomaticLoanPrincipalRepayment = default(bool))
+        /// <param name="useLoanFacilityRolloverTemplate">If true, a LoanFacilityContractRolloverEvent is booked by its own transaction template, which moves the funded  balance between the contracts it names and, when the rollover is with interest, pays the accrued interest of the  contracts rolled out of. If false, the rollover is expanded into DrawdownEvents and LoanInterestRepaymentEvents  that book through the drawdown and interest repayment templates, as before. Only takes effect on the recipe used  to generate instrument events. Defaults to false..</param>
+        /// <param name="maturedInstrumentValuation">How a position in an instrument that has matured is valued. One of \&quot;Fail\&quot; (default: the request fails  with a maturity error, as it always has), \&quot;ZeroPv\&quot; (the position is valued at zero with the maturity  error attached as a diagnostic) or \&quot;ValueAsHeld\&quot; (a Bond, ComplexBond or InflationLinked position  that is still held is valued at its recorded quantity times the supplied price, with zero accrued  interest, at and after maturity, under SimpleStatic, BondLookupPricer or OverrideOnlyPricer; a missing  price fails as it would before maturity, and other instrument types and models behave as under  \&quot;ZeroPv\&quot;). Supersedes returnZeroPv.instrumentMatured: when this is  absent, that flag set to true behaves as \&quot;ZeroPv\&quot; and false as \&quot;Fail\&quot;. Available values: Fail, ZeroPv, ValueAsHeld..</param>
+        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), string riskEngine = default(string), string findOrCalculate = default(string), bool produceSeparateResultForLinearOtcLegs = default(bool), bool fxForwardContractsAsUnitsInBothLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool fixedIncomeValuationsUsingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool), bool useInstrumentScaleFactorAsDefault = default(bool), bool scaleInstrumentAccruedOverrideByContractSize = default(bool), RiskBumpOptions riskBumpOptions = default(RiskBumpOptions), Dictionary<string, string> fundingCurveByCurrency = default(Dictionary<string, string>), bool defaultPoolFactorsToUnity = default(bool), bool findOrCalculateWriteThrough = default(bool), InflationConvexityOptions inflationConvexity = default(InflationConvexityOptions), bool allowFallbackOnModelDecline = default(bool), List<NamedPrice> namedPrices = default(List<NamedPrice>), bool suppressAutomaticLoanPrincipalRepayment = default(bool), bool useLoanFacilityRolloverTemplate = default(bool), string maturedInstrumentValuation = default(string))
         {
             this.ModelSelection = modelSelection;
             this.UseInstrumentTypeToDeterminePricer = useInstrumentTypeToDeterminePricer;
@@ -91,6 +93,8 @@ namespace Lusid.Sdk.Model
             this.AllowFallbackOnModelDecline = allowFallbackOnModelDecline;
             this.NamedPrices = namedPrices;
             this.SuppressAutomaticLoanPrincipalRepayment = suppressAutomaticLoanPrincipalRepayment;
+            this.UseLoanFacilityRolloverTemplate = useLoanFacilityRolloverTemplate;
+            this.MaturedInstrumentValuation = maturedInstrumentValuation;
         }
 
         /// <summary>
@@ -292,6 +296,20 @@ namespace Lusid.Sdk.Model
         public bool SuppressAutomaticLoanPrincipalRepayment { get; set; }
 
         /// <summary>
+        /// If true, a LoanFacilityContractRolloverEvent is booked by its own transaction template, which moves the funded  balance between the contracts it names and, when the rollover is with interest, pays the accrued interest of the  contracts rolled out of. If false, the rollover is expanded into DrawdownEvents and LoanInterestRepaymentEvents  that book through the drawdown and interest repayment templates, as before. Only takes effect on the recipe used  to generate instrument events. Defaults to false.
+        /// </summary>
+        /// <value>If true, a LoanFacilityContractRolloverEvent is booked by its own transaction template, which moves the funded  balance between the contracts it names and, when the rollover is with interest, pays the accrued interest of the  contracts rolled out of. If false, the rollover is expanded into DrawdownEvents and LoanInterestRepaymentEvents  that book through the drawdown and interest repayment templates, as before. Only takes effect on the recipe used  to generate instrument events. Defaults to false.</value>
+        [DataMember(Name = "useLoanFacilityRolloverTemplate", EmitDefaultValue = true)]
+        public bool UseLoanFacilityRolloverTemplate { get; set; }
+
+        /// <summary>
+        /// How a position in an instrument that has matured is valued. One of \&quot;Fail\&quot; (default: the request fails  with a maturity error, as it always has), \&quot;ZeroPv\&quot; (the position is valued at zero with the maturity  error attached as a diagnostic) or \&quot;ValueAsHeld\&quot; (a Bond, ComplexBond or InflationLinked position  that is still held is valued at its recorded quantity times the supplied price, with zero accrued  interest, at and after maturity, under SimpleStatic, BondLookupPricer or OverrideOnlyPricer; a missing  price fails as it would before maturity, and other instrument types and models behave as under  \&quot;ZeroPv\&quot;). Supersedes returnZeroPv.instrumentMatured: when this is  absent, that flag set to true behaves as \&quot;ZeroPv\&quot; and false as \&quot;Fail\&quot;. Available values: Fail, ZeroPv, ValueAsHeld.
+        /// </summary>
+        /// <value>How a position in an instrument that has matured is valued. One of \&quot;Fail\&quot; (default: the request fails  with a maturity error, as it always has), \&quot;ZeroPv\&quot; (the position is valued at zero with the maturity  error attached as a diagnostic) or \&quot;ValueAsHeld\&quot; (a Bond, ComplexBond or InflationLinked position  that is still held is valued at its recorded quantity times the supplied price, with zero accrued  interest, at and after maturity, under SimpleStatic, BondLookupPricer or OverrideOnlyPricer; a missing  price fails as it would before maturity, and other instrument types and models behave as under  \&quot;ZeroPv\&quot;). Supersedes returnZeroPv.instrumentMatured: when this is  absent, that flag set to true behaves as \&quot;ZeroPv\&quot; and false as \&quot;Fail\&quot;. Available values: Fail, ZeroPv, ValueAsHeld.</value>
+        [DataMember(Name = "maturedInstrumentValuation", EmitDefaultValue = true)]
+        public string MaturedInstrumentValuation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -328,6 +346,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  AllowFallbackOnModelDecline: ").Append(AllowFallbackOnModelDecline).Append("\n");
             sb.Append("  NamedPrices: ").Append(NamedPrices).Append("\n");
             sb.Append("  SuppressAutomaticLoanPrincipalRepayment: ").Append(SuppressAutomaticLoanPrincipalRepayment).Append("\n");
+            sb.Append("  UseLoanFacilityRolloverTemplate: ").Append(UseLoanFacilityRolloverTemplate).Append("\n");
+            sb.Append("  MaturedInstrumentValuation: ").Append(MaturedInstrumentValuation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -489,6 +509,15 @@ namespace Lusid.Sdk.Model
                 (
                     this.SuppressAutomaticLoanPrincipalRepayment == input.SuppressAutomaticLoanPrincipalRepayment ||
                     this.SuppressAutomaticLoanPrincipalRepayment.Equals(input.SuppressAutomaticLoanPrincipalRepayment)
+                ) && 
+                (
+                    this.UseLoanFacilityRolloverTemplate == input.UseLoanFacilityRolloverTemplate ||
+                    this.UseLoanFacilityRolloverTemplate.Equals(input.UseLoanFacilityRolloverTemplate)
+                ) && 
+                (
+                    this.MaturedInstrumentValuation == input.MaturedInstrumentValuation ||
+                    (this.MaturedInstrumentValuation != null &&
+                    this.MaturedInstrumentValuation.Equals(input.MaturedInstrumentValuation))
                 );
         }
 
@@ -557,6 +586,11 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.NamedPrices.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.SuppressAutomaticLoanPrincipalRepayment.GetHashCode();
+                hashCode = (hashCode * 59) + this.UseLoanFacilityRolloverTemplate.GetHashCode();
+                if (this.MaturedInstrumentValuation != null)
+                {
+                    hashCode = (hashCode * 59) + this.MaturedInstrumentValuation.GetHashCode();
+                }
                 return hashCode;
             }
         }

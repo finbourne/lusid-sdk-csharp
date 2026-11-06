@@ -58,7 +58,8 @@ namespace Lusid.Sdk.Model
         /// <param name="swingPricing">swingPricing.</param>
         /// <param name="notionalDealingCostTableId">notionalDealingCostTableId.</param>
         /// <param name="valuationTemplateId">valuationTemplateId.</param>
-        public NavTypeDefinition(string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), NavSettlementConfiguration settlementConfiguration = default(NavSettlementConfiguration), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), ResourceId amortisationRuleSetId = default(ResourceId), string leaderNavTypeCode = default(string), string transactionTemplateScope = default(string), string transactionExclusionFilter = default(string), string pricingBasis = default(string), SwingPricingRule swingPricing = default(SwingPricingRule), ResourceId notionalDealingCostTableId = default(ResourceId), ResourceId valuationTemplateId = default(ResourceId))
+        /// <param name="chargeableGainsRegime">The chargeable gains regime the Nav Type&#39;s derived portfolio is elected into. This can be: Default or UkChargeableGains. Omit it, or supply Default, to leave the derived portfolio inheriting its parent portfolio&#39;s regime. Under UkChargeableGains, in-scope holdings in the derived portfolio are depleted under the UK chargeable gains rules regardless of the Nav Type&#39;s accounting method; it requires the Fund&#39;s base currency to be GBP. Available values: Default, UkChargeableGains..</param>
+        public NavTypeDefinition(string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), NavSettlementConfiguration settlementConfiguration = default(NavSettlementConfiguration), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), ResourceId amortisationRuleSetId = default(ResourceId), string leaderNavTypeCode = default(string), string transactionTemplateScope = default(string), string transactionExclusionFilter = default(string), string pricingBasis = default(string), SwingPricingRule swingPricing = default(SwingPricingRule), ResourceId notionalDealingCostTableId = default(ResourceId), ResourceId valuationTemplateId = default(ResourceId), string chargeableGainsRegime = default(string))
         {
             // to ensure "chartOfAccountsId" is required (not null)
             if (chartOfAccountsId == null)
@@ -127,6 +128,7 @@ namespace Lusid.Sdk.Model
             this.SwingPricing = swingPricing;
             this.NotionalDealingCostTableId = notionalDealingCostTableId;
             this.ValuationTemplateId = valuationTemplateId;
+            this.ChargeableGainsRegime = chargeableGainsRegime;
         }
 
         /// <summary>
@@ -276,6 +278,13 @@ namespace Lusid.Sdk.Model
         public ResourceId ValuationTemplateId { get; set; }
 
         /// <summary>
+        /// The chargeable gains regime the Nav Type&#39;s derived portfolio is elected into. This can be: Default or UkChargeableGains. Omit it, or supply Default, to leave the derived portfolio inheriting its parent portfolio&#39;s regime. Under UkChargeableGains, in-scope holdings in the derived portfolio are depleted under the UK chargeable gains rules regardless of the Nav Type&#39;s accounting method; it requires the Fund&#39;s base currency to be GBP. Available values: Default, UkChargeableGains.
+        /// </summary>
+        /// <value>The chargeable gains regime the Nav Type&#39;s derived portfolio is elected into. This can be: Default or UkChargeableGains. Omit it, or supply Default, to leave the derived portfolio inheriting its parent portfolio&#39;s regime. Under UkChargeableGains, in-scope holdings in the derived portfolio are depleted under the UK chargeable gains rules regardless of the Nav Type&#39;s accounting method; it requires the Fund&#39;s base currency to be GBP. Available values: Default, UkChargeableGains.</value>
+        [DataMember(Name = "chargeableGainsRegime", EmitDefaultValue = true)]
+        public string ChargeableGainsRegime { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -305,6 +314,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  SwingPricing: ").Append(SwingPricing).Append("\n");
             sb.Append("  NotionalDealingCostTableId: ").Append(NotionalDealingCostTableId).Append("\n");
             sb.Append("  ValuationTemplateId: ").Append(ValuationTemplateId).Append("\n");
+            sb.Append("  ChargeableGainsRegime: ").Append(ChargeableGainsRegime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -452,6 +462,11 @@ namespace Lusid.Sdk.Model
                     this.ValuationTemplateId == input.ValuationTemplateId ||
                     (this.ValuationTemplateId != null &&
                     this.ValuationTemplateId.Equals(input.ValuationTemplateId))
+                ) && 
+                (
+                    this.ChargeableGainsRegime == input.ChargeableGainsRegime ||
+                    (this.ChargeableGainsRegime != null &&
+                    this.ChargeableGainsRegime.Equals(input.ChargeableGainsRegime))
                 );
         }
 
@@ -551,6 +566,10 @@ namespace Lusid.Sdk.Model
                 if (this.ValuationTemplateId != null)
                 {
                     hashCode = (hashCode * 59) + this.ValuationTemplateId.GetHashCode();
+                }
+                if (this.ChargeableGainsRegime != null)
+                {
+                    hashCode = (hashCode * 59) + this.ChargeableGainsRegime.GetHashCode();
                 }
                 return hashCode;
             }

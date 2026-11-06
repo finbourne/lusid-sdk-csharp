@@ -54,7 +54,14 @@ namespace Lusid.Sdk.Model
         /// <param name="scenario">scenario.</param>
         /// <param name="lineKey">A key that identifies the line within its run, with which its explanation is asked for. A line valued under a scenario has a different key from the same holding in the base market. Null for a line stored before lines carried a key..</param>
         /// <param name="explainAvailable">Whether the working behind the line&#39;s figures was stored, so that the line can be explained. One flag covers every figure of the line..</param>
-        public MarginLine(string runId = default(string), ResourceId agreementId = default(ResourceId), string item = default(string), ResourceId portfolioId = default(ResourceId), string holdingId = default(string), string custodianAccountScope = default(string), string custodianAccountCode = default(string), string custodianAccountName = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal units = default(decimal), decimal? pv = default(decimal?), decimal? variationMargin = default(decimal?), decimal? collateralValue = default(decimal?), string initialMarginItem = default(string), decimal? initialMargin = default(decimal?), ResourceId scenario = default(ResourceId), string lineKey = default(string), bool explainAvailable = default(bool))
+        /// <param name="instrumentType">LUSID&#39;s type for the instrument held, when the run read it..</param>
+        /// <param name="assetClass">The instrument&#39;s asset class, when the run read it..</param>
+        /// <param name="currency">The currency the holding is denominated in, when the run read it..</param>
+        /// <param name="maturityDate">The instrument&#39;s maturity, when it has one..</param>
+        /// <param name="notional">The holding&#39;s notional in its own currency, when the instrument has one..</param>
+        /// <param name="grossInitialMargin">The regulatory-grid charge on the holding before its netting set&#39;s net-to-gross scaling. Null under other methods..</param>
+        /// <param name="movableTo">The initial-margin netting sets of other agreements in the run the holding could be re-booked into, as scope/code/item. Recorded for base-case trading lines under an initial-margin item; empty otherwise. (required).</param>
+        public MarginLine(string runId = default(string), ResourceId agreementId = default(ResourceId), string item = default(string), ResourceId portfolioId = default(ResourceId), string holdingId = default(string), string custodianAccountScope = default(string), string custodianAccountCode = default(string), string custodianAccountName = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal units = default(decimal), decimal? pv = default(decimal?), decimal? variationMargin = default(decimal?), decimal? collateralValue = default(decimal?), string initialMarginItem = default(string), decimal? initialMargin = default(decimal?), ResourceId scenario = default(ResourceId), string lineKey = default(string), bool explainAvailable = default(bool), string instrumentType = default(string), string assetClass = default(string), string currency = default(string), DateTimeOffset? maturityDate = default(DateTimeOffset?), decimal? notional = default(decimal?), decimal? grossInitialMargin = default(decimal?), List<string> movableTo = default(List<string>))
         {
             // to ensure "runId" is required (not null)
             if (runId == null)
@@ -81,6 +88,12 @@ namespace Lusid.Sdk.Model
             }
             this.InstrumentIdentifiers = instrumentIdentifiers;
             this.Units = units;
+            // to ensure "movableTo" is required (not null)
+            if (movableTo == null)
+            {
+                throw new ArgumentNullException("movableTo is a required property for MarginLine and cannot be null");
+            }
+            this.MovableTo = movableTo;
             this.PortfolioId = portfolioId;
             this.HoldingId = holdingId;
             this.CustodianAccountScope = custodianAccountScope;
@@ -94,6 +107,12 @@ namespace Lusid.Sdk.Model
             this.Scenario = scenario;
             this.LineKey = lineKey;
             this.ExplainAvailable = explainAvailable;
+            this.InstrumentType = instrumentType;
+            this.AssetClass = assetClass;
+            this.Currency = currency;
+            this.MaturityDate = maturityDate;
+            this.Notional = notional;
+            this.GrossInitialMargin = grossInitialMargin;
         }
 
         /// <summary>
@@ -220,6 +239,55 @@ namespace Lusid.Sdk.Model
         public bool ExplainAvailable { get; set; }
 
         /// <summary>
+        /// LUSID&#39;s type for the instrument held, when the run read it.
+        /// </summary>
+        /// <value>LUSID&#39;s type for the instrument held, when the run read it.</value>
+        [DataMember(Name = "instrumentType", EmitDefaultValue = true)]
+        public string InstrumentType { get; set; }
+
+        /// <summary>
+        /// The instrument&#39;s asset class, when the run read it.
+        /// </summary>
+        /// <value>The instrument&#39;s asset class, when the run read it.</value>
+        [DataMember(Name = "assetClass", EmitDefaultValue = true)]
+        public string AssetClass { get; set; }
+
+        /// <summary>
+        /// The currency the holding is denominated in, when the run read it.
+        /// </summary>
+        /// <value>The currency the holding is denominated in, when the run read it.</value>
+        [DataMember(Name = "currency", EmitDefaultValue = true)]
+        public string Currency { get; set; }
+
+        /// <summary>
+        /// The instrument&#39;s maturity, when it has one.
+        /// </summary>
+        /// <value>The instrument&#39;s maturity, when it has one.</value>
+        [DataMember(Name = "maturityDate", EmitDefaultValue = true)]
+        public DateTimeOffset? MaturityDate { get; set; }
+
+        /// <summary>
+        /// The holding&#39;s notional in its own currency, when the instrument has one.
+        /// </summary>
+        /// <value>The holding&#39;s notional in its own currency, when the instrument has one.</value>
+        [DataMember(Name = "notional", EmitDefaultValue = true)]
+        public decimal? Notional { get; set; }
+
+        /// <summary>
+        /// The regulatory-grid charge on the holding before its netting set&#39;s net-to-gross scaling. Null under other methods.
+        /// </summary>
+        /// <value>The regulatory-grid charge on the holding before its netting set&#39;s net-to-gross scaling. Null under other methods.</value>
+        [DataMember(Name = "grossInitialMargin", EmitDefaultValue = true)]
+        public decimal? GrossInitialMargin { get; set; }
+
+        /// <summary>
+        /// The initial-margin netting sets of other agreements in the run the holding could be re-booked into, as scope/code/item. Recorded for base-case trading lines under an initial-margin item; empty otherwise.
+        /// </summary>
+        /// <value>The initial-margin netting sets of other agreements in the run the holding could be re-booked into, as scope/code/item. Recorded for base-case trading lines under an initial-margin item; empty otherwise.</value>
+        [DataMember(Name = "movableTo", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> MovableTo { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -245,6 +313,13 @@ namespace Lusid.Sdk.Model
             sb.Append("  Scenario: ").Append(Scenario).Append("\n");
             sb.Append("  LineKey: ").Append(LineKey).Append("\n");
             sb.Append("  ExplainAvailable: ").Append(ExplainAvailable).Append("\n");
+            sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
+            sb.Append("  AssetClass: ").Append(AssetClass).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
+            sb.Append("  Notional: ").Append(Notional).Append("\n");
+            sb.Append("  GrossInitialMargin: ").Append(GrossInitialMargin).Append("\n");
+            sb.Append("  MovableTo: ").Append(MovableTo).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -368,6 +443,42 @@ namespace Lusid.Sdk.Model
                 (
                     this.ExplainAvailable == input.ExplainAvailable ||
                     this.ExplainAvailable.Equals(input.ExplainAvailable)
+                ) && 
+                (
+                    this.InstrumentType == input.InstrumentType ||
+                    (this.InstrumentType != null &&
+                    this.InstrumentType.Equals(input.InstrumentType))
+                ) && 
+                (
+                    this.AssetClass == input.AssetClass ||
+                    (this.AssetClass != null &&
+                    this.AssetClass.Equals(input.AssetClass))
+                ) && 
+                (
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.MaturityDate == input.MaturityDate ||
+                    (this.MaturityDate != null &&
+                    this.MaturityDate.Equals(input.MaturityDate))
+                ) && 
+                (
+                    this.Notional == input.Notional ||
+                    (this.Notional != null &&
+                    this.Notional.Equals(input.Notional))
+                ) && 
+                (
+                    this.GrossInitialMargin == input.GrossInitialMargin ||
+                    (this.GrossInitialMargin != null &&
+                    this.GrossInitialMargin.Equals(input.GrossInitialMargin))
+                ) && 
+                (
+                    this.MovableTo == input.MovableTo ||
+                    this.MovableTo != null &&
+                    input.MovableTo != null &&
+                    this.MovableTo.SequenceEqual(input.MovableTo)
                 );
         }
 
@@ -446,6 +557,34 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.LineKey.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ExplainAvailable.GetHashCode();
+                if (this.InstrumentType != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
+                }
+                if (this.AssetClass != null)
+                {
+                    hashCode = (hashCode * 59) + this.AssetClass.GetHashCode();
+                }
+                if (this.Currency != null)
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
+                if (this.MaturityDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.MaturityDate.GetHashCode();
+                }
+                if (this.Notional != null)
+                {
+                    hashCode = (hashCode * 59) + this.Notional.GetHashCode();
+                }
+                if (this.GrossInitialMargin != null)
+                {
+                    hashCode = (hashCode * 59) + this.GrossInitialMargin.GetHashCode();
+                }
+                if (this.MovableTo != null)
+                {
+                    hashCode = (hashCode * 59) + this.MovableTo.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -588,6 +727,63 @@ namespace Lusid.Sdk.Model
             if (false == regexLineKey.Match(this.LineKey).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LineKey, must match a pattern of " + regexLineKey, new [] { "LineKey" });
+            }
+
+            // InstrumentType (string) maxLength
+            if (this.InstrumentType != null && this.InstrumentType.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstrumentType, length must be less than 64.", new [] { "InstrumentType" });
+            }
+
+            // InstrumentType (string) minLength
+            if (this.InstrumentType != null && this.InstrumentType.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstrumentType, length must be greater than 1.", new [] { "InstrumentType" });
+            }
+
+            // InstrumentType (string) pattern
+            Regex regexInstrumentType = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexInstrumentType.Match(this.InstrumentType).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstrumentType, must match a pattern of " + regexInstrumentType, new [] { "InstrumentType" });
+            }
+
+            // AssetClass (string) maxLength
+            if (this.AssetClass != null && this.AssetClass.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetClass, length must be less than 64.", new [] { "AssetClass" });
+            }
+
+            // AssetClass (string) minLength
+            if (this.AssetClass != null && this.AssetClass.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetClass, length must be greater than 1.", new [] { "AssetClass" });
+            }
+
+            // AssetClass (string) pattern
+            Regex regexAssetClass = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexAssetClass.Match(this.AssetClass).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetClass, must match a pattern of " + regexAssetClass, new [] { "AssetClass" });
+            }
+
+            // Currency (string) maxLength
+            if (this.Currency != null && this.Currency.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than 64.", new [] { "Currency" });
+            }
+
+            // Currency (string) minLength
+            if (this.Currency != null && this.Currency.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 1.", new [] { "Currency" });
+            }
+
+            // Currency (string) pattern
+            Regex regexCurrency = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexCurrency.Match(this.Currency).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, must match a pattern of " + regexCurrency, new [] { "Currency" });
             }
 
             yield break;

@@ -59,14 +59,17 @@ namespace Lusid.Sdk.Model
         /// <param name="counterpartyIdIn">The counterparty identifier of the incoming leg. Defaults to CounterpartyIdOut..</param>
         /// <param name="custodianAccountIdOut">custodianAccountIdOut.</param>
         /// <param name="custodianAccountIdIn">custodianAccountIdIn.</param>
-        /// <param name="source">The transaction source the generated legs are booked against. (required).</param>
+        /// <param name="sourceOut">The transaction source the outgoing leg is booked against, and the incoming leg too when SourceIn is not supplied. Defaults to &#39;default&#39;..</param>
         /// <param name="accountingMethod">An accounting method to record against the transfer. Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency..</param>
         /// <param name="propertiesOut">Transaction Properties to set on the outgoing transaction leg, and on the incoming transaction leg when PropertiesIn is absent. Supplying an empty collection for PropertiesIn leaves the incoming leg with no properties..</param>
         /// <param name="propertiesIn">Transaction Properties to set on the incoming transaction leg, replacing rather than adding to PropertiesOut..</param>
         /// <param name="properties">Properties to set on the transfer itself, in the Transfer domain. These are separate from PropertiesOut and PropertiesIn, which are Transaction domain and land on the legs..</param>
         /// <param name="transactionToPortfolioRateOut">The rate from the outgoing leg&#39;s trade currency to the outgoing portfolio&#39;s base currency, applied whenever supplied..</param>
         /// <param name="transactionToPortfolioRateIn">The rate from the incoming leg&#39;s trade currency to the incoming portfolio&#39;s base currency. Required when the two portfolios have different base currencies, and applied whenever supplied..</param>
-        public CreateTransferRequest(ResourceId transferId = default(ResourceId), ResourceId portfolioIdOut = default(ResourceId), ResourceId portfolioIdIn = default(ResourceId), string instrumentIdentifierOut = default(string), string instrumentIdentifierIn = default(string), string pricingMethod = default(string), string taxLotStructure = default(string), decimal unitsOut = default(decimal), decimal unitsIn = default(decimal), decimal? amountOut = default(decimal?), decimal? weightOut = default(decimal?), DateTimeOffset tradeDateOut = default(DateTimeOffset), DateTimeOffset tradeDateIn = default(DateTimeOffset), DateTimeOffset settlementDateOut = default(DateTimeOffset), DateTimeOffset? settlementDateIn = default(DateTimeOffset?), decimal? exchangeRateOut = default(decimal?), decimal? exchangeRateIn = default(decimal?), decimal? transactionPriceOut = default(decimal?), decimal? transactionPriceIn = default(decimal?), string counterpartyIdOut = default(string), string counterpartyIdIn = default(string), ResourceId custodianAccountIdOut = default(ResourceId), ResourceId custodianAccountIdIn = default(ResourceId), string source = default(string), string accountingMethod = default(string), Dictionary<string, PerpetualProperty> propertiesOut = default(Dictionary<string, PerpetualProperty>), Dictionary<string, PerpetualProperty> propertiesIn = default(Dictionary<string, PerpetualProperty>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), decimal? transactionToPortfolioRateOut = default(decimal?), decimal? transactionToPortfolioRateIn = default(decimal?))
+        /// <param name="sourceIn">The transaction source the incoming leg is booked against. Defaults to SourceOut..</param>
+        /// <param name="transactionTypeOut">The transaction type to book the outgoing leg as. Supply it together with TransactionTypeIn, or supply neither. If not supplied, it will be derived from the transfer type. It must be a different type from TransactionTypeIn, must be configured under SourceOut in the transaction type scope of PortfolioIdOut, and must reduce a position..</param>
+        /// <param name="transactionTypeIn">The transaction type to book the incoming leg as. Supply it together with TransactionTypeOut, or supply neither. If not supplied, it will be derived from the transfer type. It must be configured under SourceIn in the transaction type scope of PortfolioIdIn, and must increase a position..</param>
+        public CreateTransferRequest(ResourceId transferId = default(ResourceId), ResourceId portfolioIdOut = default(ResourceId), ResourceId portfolioIdIn = default(ResourceId), string instrumentIdentifierOut = default(string), string instrumentIdentifierIn = default(string), string pricingMethod = default(string), string taxLotStructure = default(string), decimal unitsOut = default(decimal), decimal unitsIn = default(decimal), decimal? amountOut = default(decimal?), decimal? weightOut = default(decimal?), DateTimeOffset tradeDateOut = default(DateTimeOffset), DateTimeOffset tradeDateIn = default(DateTimeOffset), DateTimeOffset settlementDateOut = default(DateTimeOffset), DateTimeOffset? settlementDateIn = default(DateTimeOffset?), decimal? exchangeRateOut = default(decimal?), decimal? exchangeRateIn = default(decimal?), decimal? transactionPriceOut = default(decimal?), decimal? transactionPriceIn = default(decimal?), string counterpartyIdOut = default(string), string counterpartyIdIn = default(string), ResourceId custodianAccountIdOut = default(ResourceId), ResourceId custodianAccountIdIn = default(ResourceId), string sourceOut = default(string), string accountingMethod = default(string), Dictionary<string, PerpetualProperty> propertiesOut = default(Dictionary<string, PerpetualProperty>), Dictionary<string, PerpetualProperty> propertiesIn = default(Dictionary<string, PerpetualProperty>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), decimal? transactionToPortfolioRateOut = default(decimal?), decimal? transactionToPortfolioRateIn = default(decimal?), string sourceIn = default(string), string transactionTypeOut = default(string), string transactionTypeIn = default(string))
         {
             // to ensure "transferId" is required (not null)
             if (transferId == null)
@@ -109,12 +112,6 @@ namespace Lusid.Sdk.Model
             this.TradeDateOut = tradeDateOut;
             this.TradeDateIn = tradeDateIn;
             this.SettlementDateOut = settlementDateOut;
-            // to ensure "source" is required (not null)
-            if (source == null)
-            {
-                throw new ArgumentNullException("source is a required property for CreateTransferRequest and cannot be null");
-            }
-            this.Source = source;
             this.TaxLotStructure = taxLotStructure;
             this.AmountOut = amountOut;
             this.WeightOut = weightOut;
@@ -127,12 +124,16 @@ namespace Lusid.Sdk.Model
             this.CounterpartyIdIn = counterpartyIdIn;
             this.CustodianAccountIdOut = custodianAccountIdOut;
             this.CustodianAccountIdIn = custodianAccountIdIn;
+            this.SourceOut = sourceOut;
             this.AccountingMethod = accountingMethod;
             this.PropertiesOut = propertiesOut;
             this.PropertiesIn = propertiesIn;
             this.Properties = properties;
             this.TransactionToPortfolioRateOut = transactionToPortfolioRateOut;
             this.TransactionToPortfolioRateIn = transactionToPortfolioRateIn;
+            this.SourceIn = sourceIn;
+            this.TransactionTypeOut = transactionTypeOut;
+            this.TransactionTypeIn = transactionTypeIn;
         }
 
         /// <summary>
@@ -292,11 +293,11 @@ namespace Lusid.Sdk.Model
         public ResourceId CustodianAccountIdIn { get; set; }
 
         /// <summary>
-        /// The transaction source the generated legs are booked against.
+        /// The transaction source the outgoing leg is booked against, and the incoming leg too when SourceIn is not supplied. Defaults to &#39;default&#39;.
         /// </summary>
-        /// <value>The transaction source the generated legs are booked against.</value>
-        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = true)]
-        public string Source { get; set; }
+        /// <value>The transaction source the outgoing leg is booked against, and the incoming leg too when SourceIn is not supplied. Defaults to &#39;default&#39;.</value>
+        [DataMember(Name = "sourceOut", EmitDefaultValue = true)]
+        public string SourceOut { get; set; }
 
         /// <summary>
         /// An accounting method to record against the transfer. Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency.
@@ -341,6 +342,27 @@ namespace Lusid.Sdk.Model
         public decimal? TransactionToPortfolioRateIn { get; set; }
 
         /// <summary>
+        /// The transaction source the incoming leg is booked against. Defaults to SourceOut.
+        /// </summary>
+        /// <value>The transaction source the incoming leg is booked against. Defaults to SourceOut.</value>
+        [DataMember(Name = "sourceIn", EmitDefaultValue = true)]
+        public string SourceIn { get; set; }
+
+        /// <summary>
+        /// The transaction type to book the outgoing leg as. Supply it together with TransactionTypeIn, or supply neither. If not supplied, it will be derived from the transfer type. It must be a different type from TransactionTypeIn, must be configured under SourceOut in the transaction type scope of PortfolioIdOut, and must reduce a position.
+        /// </summary>
+        /// <value>The transaction type to book the outgoing leg as. Supply it together with TransactionTypeIn, or supply neither. If not supplied, it will be derived from the transfer type. It must be a different type from TransactionTypeIn, must be configured under SourceOut in the transaction type scope of PortfolioIdOut, and must reduce a position.</value>
+        [DataMember(Name = "transactionTypeOut", EmitDefaultValue = true)]
+        public string TransactionTypeOut { get; set; }
+
+        /// <summary>
+        /// The transaction type to book the incoming leg as. Supply it together with TransactionTypeOut, or supply neither. If not supplied, it will be derived from the transfer type. It must be configured under SourceIn in the transaction type scope of PortfolioIdIn, and must increase a position.
+        /// </summary>
+        /// <value>The transaction type to book the incoming leg as. Supply it together with TransactionTypeOut, or supply neither. If not supplied, it will be derived from the transfer type. It must be configured under SourceIn in the transaction type scope of PortfolioIdIn, and must increase a position.</value>
+        [DataMember(Name = "transactionTypeIn", EmitDefaultValue = true)]
+        public string TransactionTypeIn { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -371,13 +393,16 @@ namespace Lusid.Sdk.Model
             sb.Append("  CounterpartyIdIn: ").Append(CounterpartyIdIn).Append("\n");
             sb.Append("  CustodianAccountIdOut: ").Append(CustodianAccountIdOut).Append("\n");
             sb.Append("  CustodianAccountIdIn: ").Append(CustodianAccountIdIn).Append("\n");
-            sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("  SourceOut: ").Append(SourceOut).Append("\n");
             sb.Append("  AccountingMethod: ").Append(AccountingMethod).Append("\n");
             sb.Append("  PropertiesOut: ").Append(PropertiesOut).Append("\n");
             sb.Append("  PropertiesIn: ").Append(PropertiesIn).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  TransactionToPortfolioRateOut: ").Append(TransactionToPortfolioRateOut).Append("\n");
             sb.Append("  TransactionToPortfolioRateIn: ").Append(TransactionToPortfolioRateIn).Append("\n");
+            sb.Append("  SourceIn: ").Append(SourceIn).Append("\n");
+            sb.Append("  TransactionTypeOut: ").Append(TransactionTypeOut).Append("\n");
+            sb.Append("  TransactionTypeIn: ").Append(TransactionTypeIn).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -527,9 +552,9 @@ namespace Lusid.Sdk.Model
                     this.CustodianAccountIdIn.Equals(input.CustodianAccountIdIn))
                 ) && 
                 (
-                    this.Source == input.Source ||
-                    (this.Source != null &&
-                    this.Source.Equals(input.Source))
+                    this.SourceOut == input.SourceOut ||
+                    (this.SourceOut != null &&
+                    this.SourceOut.Equals(input.SourceOut))
                 ) && 
                 (
                     this.AccountingMethod == input.AccountingMethod ||
@@ -563,6 +588,21 @@ namespace Lusid.Sdk.Model
                     this.TransactionToPortfolioRateIn == input.TransactionToPortfolioRateIn ||
                     (this.TransactionToPortfolioRateIn != null &&
                     this.TransactionToPortfolioRateIn.Equals(input.TransactionToPortfolioRateIn))
+                ) && 
+                (
+                    this.SourceIn == input.SourceIn ||
+                    (this.SourceIn != null &&
+                    this.SourceIn.Equals(input.SourceIn))
+                ) && 
+                (
+                    this.TransactionTypeOut == input.TransactionTypeOut ||
+                    (this.TransactionTypeOut != null &&
+                    this.TransactionTypeOut.Equals(input.TransactionTypeOut))
+                ) && 
+                (
+                    this.TransactionTypeIn == input.TransactionTypeIn ||
+                    (this.TransactionTypeIn != null &&
+                    this.TransactionTypeIn.Equals(input.TransactionTypeIn))
                 );
         }
 
@@ -661,9 +701,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.CustodianAccountIdIn.GetHashCode();
                 }
-                if (this.Source != null)
+                if (this.SourceOut != null)
                 {
-                    hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                    hashCode = (hashCode * 59) + this.SourceOut.GetHashCode();
                 }
                 if (this.AccountingMethod != null)
                 {
@@ -688,6 +728,18 @@ namespace Lusid.Sdk.Model
                 if (this.TransactionToPortfolioRateIn != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionToPortfolioRateIn.GetHashCode();
+                }
+                if (this.SourceIn != null)
+                {
+                    hashCode = (hashCode * 59) + this.SourceIn.GetHashCode();
+                }
+                if (this.TransactionTypeOut != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionTypeOut.GetHashCode();
+                }
+                if (this.TransactionTypeIn != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionTypeIn.GetHashCode();
                 }
                 return hashCode;
             }
@@ -754,16 +806,52 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CounterpartyIdIn, length must be greater than 1.", new [] { "CounterpartyIdIn" });
             }
 
-            // Source (string) maxLength
-            if (this.Source != null && this.Source.Length > 64)
+            // SourceOut (string) maxLength
+            if (this.SourceOut != null && this.SourceOut.Length > 64)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Source, length must be less than 64.", new [] { "Source" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceOut, length must be less than 64.", new [] { "SourceOut" });
             }
 
-            // Source (string) minLength
-            if (this.Source != null && this.Source.Length < 1)
+            // SourceOut (string) minLength
+            if (this.SourceOut != null && this.SourceOut.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Source, length must be greater than 1.", new [] { "Source" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceOut, length must be greater than 1.", new [] { "SourceOut" });
+            }
+
+            // SourceIn (string) maxLength
+            if (this.SourceIn != null && this.SourceIn.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceIn, length must be less than 64.", new [] { "SourceIn" });
+            }
+
+            // SourceIn (string) minLength
+            if (this.SourceIn != null && this.SourceIn.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceIn, length must be greater than 1.", new [] { "SourceIn" });
+            }
+
+            // TransactionTypeOut (string) maxLength
+            if (this.TransactionTypeOut != null && this.TransactionTypeOut.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionTypeOut, length must be less than 64.", new [] { "TransactionTypeOut" });
+            }
+
+            // TransactionTypeOut (string) minLength
+            if (this.TransactionTypeOut != null && this.TransactionTypeOut.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionTypeOut, length must be greater than 1.", new [] { "TransactionTypeOut" });
+            }
+
+            // TransactionTypeIn (string) maxLength
+            if (this.TransactionTypeIn != null && this.TransactionTypeIn.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionTypeIn, length must be less than 64.", new [] { "TransactionTypeIn" });
+            }
+
+            // TransactionTypeIn (string) minLength
+            if (this.TransactionTypeIn != null && this.TransactionTypeIn.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionTypeIn, length must be greater than 1.", new [] { "TransactionTypeIn" });
             }
 
             yield break;

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Custodian** | [**LegalEntity**](LegalEntity.md) |  | 
 **AccountType** | **string** | The type of the Custodian Account. This is a free-text field that accepts any value. Optional, with no default. | [optional] 
 **TaxLotSelectionCostBasis** | **string** | The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for disposals from this account. This can be: Cost or AmortisedCost. If not specified or reset with Default, resolution falls through to the transaction type and then the portfolio&#39;s default. Available values: Default, Cost, AmortisedCost. | [optional] 
+**InactiveFrom** | **DateTimeOffset?** | The date from which the account is inactive. Transactions with a trade date before this date still resolve to the account; those on or after it leave the account unresolved. Absent when the account is active. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -40,7 +41,8 @@ CustodianAccount custodianAccountInstance = new CustodianAccount(
     properties: properties,
     custodian: custodian,
     accountType: accountType,
-    taxLotSelectionCostBasis: taxLotSelectionCostBasis);
+    taxLotSelectionCostBasis: taxLotSelectionCostBasis,
+    inactiveFrom: inactiveFrom);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

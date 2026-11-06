@@ -366,6 +366,37 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfMarginLine</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfMarginLine> ListMarginLinesWithHttpInfo(string runId, string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? scenarios = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] ListMarginRunRecommendations: List a margin run&#39;s netting recommendations.
+        /// </summary>
+        /// <remarks>
+        /// List the trades a run&#39;s optimisation pass found would attract less initial margin in another netting set of the  run, with both sets&#39; initial margin before and after the move. Empty until the run&#39;s optimisation pass has  completed. Restricted to recommendations whose source and target agreements the caller may read.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="page">The pagination token to use to continue listing recommendations; this value is returned from the previous call. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PagedResourceListOfNettingRecommendation</returns>
+        PagedResourceListOfNettingRecommendation ListMarginRunRecommendations(string runId, string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListMarginRunRecommendations: List a margin run&#39;s netting recommendations.
+        /// </summary>
+        /// <remarks>
+        /// List the trades a run&#39;s optimisation pass found would attract less initial margin in another netting set of the  run, with both sets&#39; initial margin before and after the move. Empty until the run&#39;s optimisation pass has  completed. Restricted to recommendations whose source and target agreements the caller may read.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="page">The pagination token to use to continue listing recommendations; this value is returned from the previous call. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PagedResourceListOfNettingRecommendation</returns>
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfNettingRecommendation> ListMarginRunRecommendationsWithHttpInfo(string runId, string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] ListMarginRuns: List margin runs.
         /// </summary>
         /// <remarks>
@@ -394,6 +425,37 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfMarginRun</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfMarginRun> ListMarginRunsWithHttpInfo(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] ListNettingRecommendations: List the current netting recommendations.
+        /// </summary>
+        /// <remarks>
+        /// List the netting recommendations in force for a business date: those of the latest run for the date whose  optimisation pass completed, with an agreement that run could not value served from the most recent run that  did. Restricted to recommendations whose source and target agreements the caller may read.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="effectiveAt">The business date, datetime or cut label to list the current recommendations for. Defaults to today if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing recommendations; this value is returned from the previous call. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PagedResourceListOfNettingRecommendation</returns>
+        PagedResourceListOfNettingRecommendation ListNettingRecommendations(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListNettingRecommendations: List the current netting recommendations.
+        /// </summary>
+        /// <remarks>
+        /// List the netting recommendations in force for a business date: those of the latest run for the date whose  optimisation pass completed, with an agreement that run could not value served from the most recent run that  did. Restricted to recommendations whose source and target agreements the caller may read.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="effectiveAt">The business date, datetime or cut label to list the current recommendations for. Defaults to today if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing recommendations; this value is returned from the previous call. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PagedResourceListOfNettingRecommendation</returns>
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfNettingRecommendation> ListNettingRecommendationsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] RecordCounterpartyDemand: Record the counterparty&#39;s demand against a margin call.
         /// </summary>
@@ -845,6 +907,39 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfMarginLine)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfMarginLine>> ListMarginLinesWithHttpInfoAsync(string runId, string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? scenarios = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] ListMarginRunRecommendations: List a margin run&#39;s netting recommendations.
+        /// </summary>
+        /// <remarks>
+        /// List the trades a run&#39;s optimisation pass found would attract less initial margin in another netting set of the  run, with both sets&#39; initial margin before and after the move. Empty until the run&#39;s optimisation pass has  completed. Restricted to recommendations whose source and target agreements the caller may read.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="page">The pagination token to use to continue listing recommendations; this value is returned from the previous call. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PagedResourceListOfNettingRecommendation</returns>
+        System.Threading.Tasks.Task<PagedResourceListOfNettingRecommendation> ListMarginRunRecommendationsAsync(string runId, string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListMarginRunRecommendations: List a margin run&#39;s netting recommendations.
+        /// </summary>
+        /// <remarks>
+        /// List the trades a run&#39;s optimisation pass found would attract less initial margin in another netting set of the  run, with both sets&#39; initial margin before and after the move. Empty until the run&#39;s optimisation pass has  completed. Restricted to recommendations whose source and target agreements the caller may read.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="page">The pagination token to use to continue listing recommendations; this value is returned from the previous call. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfNettingRecommendation)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfNettingRecommendation>> ListMarginRunRecommendationsWithHttpInfoAsync(string runId, string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] ListMarginRuns: List margin runs.
         /// </summary>
         /// <remarks>
@@ -875,6 +970,39 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfMarginRun)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfMarginRun>> ListMarginRunsWithHttpInfoAsync(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] ListNettingRecommendations: List the current netting recommendations.
+        /// </summary>
+        /// <remarks>
+        /// List the netting recommendations in force for a business date: those of the latest run for the date whose  optimisation pass completed, with an agreement that run could not value served from the most recent run that  did. Restricted to recommendations whose source and target agreements the caller may read.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="effectiveAt">The business date, datetime or cut label to list the current recommendations for. Defaults to today if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing recommendations; this value is returned from the previous call. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PagedResourceListOfNettingRecommendation</returns>
+        System.Threading.Tasks.Task<PagedResourceListOfNettingRecommendation> ListNettingRecommendationsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListNettingRecommendations: List the current netting recommendations.
+        /// </summary>
+        /// <remarks>
+        /// List the netting recommendations in force for a business date: those of the latest run for the date whose  optimisation pass completed, with an agreement that run could not value served from the most recent run that  did. Restricted to recommendations whose source and target agreements the caller may read.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="effectiveAt">The business date, datetime or cut label to list the current recommendations for. Defaults to today if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing recommendations; this value is returned from the previous call. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfNettingRecommendation)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfNettingRecommendation>> ListNettingRecommendationsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] RecordCounterpartyDemand: Record the counterparty&#39;s demand against a margin call.
         /// </summary>
@@ -3825,6 +3953,249 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
+        /// [EXPERIMENTAL] ListMarginRunRecommendations: List a margin run&#39;s netting recommendations. List the trades a run&#39;s optimisation pass found would attract less initial margin in another netting set of the  run, with both sets&#39; initial margin before and after the move. Empty until the run&#39;s optimisation pass has  completed. Restricted to recommendations whose source and target agreements the caller may read.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="page">The pagination token to use to continue listing recommendations; this value is returned from the previous call. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PagedResourceListOfNettingRecommendation</returns>
+        public PagedResourceListOfNettingRecommendation ListMarginRunRecommendations(string runId, string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfNettingRecommendation> localVarResponse = ListMarginRunRecommendationsWithHttpInfo(runId, page, limit, filter, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListMarginRunRecommendations: List a margin run&#39;s netting recommendations. List the trades a run&#39;s optimisation pass found would attract less initial margin in another netting set of the  run, with both sets&#39; initial margin before and after the move. Empty until the run&#39;s optimisation pass has  completed. Restricted to recommendations whose source and target agreements the caller may read.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="page">The pagination token to use to continue listing recommendations; this value is returned from the previous call. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PagedResourceListOfNettingRecommendation</returns>
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfNettingRecommendation> ListMarginRunRecommendationsWithHttpInfo(string runId, string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling CollateralApi->ListMarginRunRecommendations");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("runId", Lusid.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            if (page != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+
+            localVarRequestOptions.Operation = "CollateralApi.ListMarginRunRecommendations";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<PagedResourceListOfNettingRecommendation>("/api/collateral/runs/{runId}/recommendations", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListMarginRunRecommendations", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListMarginRunRecommendations: List a margin run&#39;s netting recommendations. List the trades a run&#39;s optimisation pass found would attract less initial margin in another netting set of the  run, with both sets&#39; initial margin before and after the move. Empty until the run&#39;s optimisation pass has  completed. Restricted to recommendations whose source and target agreements the caller may read.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="page">The pagination token to use to continue listing recommendations; this value is returned from the previous call. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PagedResourceListOfNettingRecommendation</returns>
+        public async System.Threading.Tasks.Task<PagedResourceListOfNettingRecommendation> ListMarginRunRecommendationsAsync(string runId, string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfNettingRecommendation> localVarResponse = await ListMarginRunRecommendationsWithHttpInfoAsync(runId, page, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListMarginRunRecommendations: List a margin run&#39;s netting recommendations. List the trades a run&#39;s optimisation pass found would attract less initial margin in another netting set of the  run, with both sets&#39; initial margin before and after the move. Empty until the run&#39;s optimisation pass has  completed. Restricted to recommendations whose source and target agreements the caller may read.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="page">The pagination token to use to continue listing recommendations; this value is returned from the previous call. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfNettingRecommendation)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfNettingRecommendation>> ListMarginRunRecommendationsWithHttpInfoAsync(string runId, string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling CollateralApi->ListMarginRunRecommendations");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("runId", Lusid.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+
+            localVarRequestOptions.Operation = "CollateralApi.ListMarginRunRecommendations";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfNettingRecommendation>("/api/collateral/runs/{runId}/recommendations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListMarginRunRecommendations", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// [EXPERIMENTAL] ListMarginRuns: List margin runs. List the margin runs on record, most recent first.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4040,6 +4411,244 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListMarginRuns", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListNettingRecommendations: List the current netting recommendations. List the netting recommendations in force for a business date: those of the latest run for the date whose  optimisation pass completed, with an agreement that run could not value served from the most recent run that  did. Restricted to recommendations whose source and target agreements the caller may read.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="effectiveAt">The business date, datetime or cut label to list the current recommendations for. Defaults to today if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing recommendations; this value is returned from the previous call. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PagedResourceListOfNettingRecommendation</returns>
+        public PagedResourceListOfNettingRecommendation ListNettingRecommendations(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfNettingRecommendation> localVarResponse = ListNettingRecommendationsWithHttpInfo(effectiveAt, page, limit, filter, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListNettingRecommendations: List the current netting recommendations. List the netting recommendations in force for a business date: those of the latest run for the date whose  optimisation pass completed, with an agreement that run could not value served from the most recent run that  did. Restricted to recommendations whose source and target agreements the caller may read.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="effectiveAt">The business date, datetime or cut label to list the current recommendations for. Defaults to today if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing recommendations; this value is returned from the previous call. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PagedResourceListOfNettingRecommendation</returns>
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfNettingRecommendation> ListNettingRecommendationsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (effectiveAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (page != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+
+            localVarRequestOptions.Operation = "CollateralApi.ListNettingRecommendations";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<PagedResourceListOfNettingRecommendation>("/api/collateral/recommendations", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListNettingRecommendations", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListNettingRecommendations: List the current netting recommendations. List the netting recommendations in force for a business date: those of the latest run for the date whose  optimisation pass completed, with an agreement that run could not value served from the most recent run that  did. Restricted to recommendations whose source and target agreements the caller may read.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="effectiveAt">The business date, datetime or cut label to list the current recommendations for. Defaults to today if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing recommendations; this value is returned from the previous call. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PagedResourceListOfNettingRecommendation</returns>
+        public async System.Threading.Tasks.Task<PagedResourceListOfNettingRecommendation> ListNettingRecommendationsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfNettingRecommendation> localVarResponse = await ListNettingRecommendationsWithHttpInfoAsync(effectiveAt, page, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListNettingRecommendations: List the current netting recommendations. List the netting recommendations in force for a business date: those of the latest run for the date whose  optimisation pass completed, with an agreement that run could not value served from the most recent run that  did. Restricted to recommendations whose source and target agreements the caller may read.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="effectiveAt">The business date, datetime or cut label to list the current recommendations for. Defaults to today if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing recommendations; this value is returned from the previous call. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfNettingRecommendation)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfNettingRecommendation>> ListNettingRecommendationsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+
+            localVarRequestOptions.Operation = "CollateralApi.ListNettingRecommendations";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfNettingRecommendation>("/api/collateral/recommendations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListNettingRecommendations", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

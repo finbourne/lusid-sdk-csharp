@@ -95,27 +95,29 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] EditTransfer: Edit a transfer.
         /// </summary>
         /// <remarks>
-        /// Replace an existing transfer with the request, which carries the same fields as a create request and is  validated in the same way. Both transaction legs are rebooked under their existing ids and the Transfer  entity is updated, as a single atomic operation: if any part of the request is rejected, nothing is  changed. A value not supplied is cleared, and the outgoing position is checked with the transfer&#39;s own  outgoing leg counted back in.                A transfer is identified by its scope, its code and both of its portfolios, none of which can be changed.  Where no transfer has that scope and code between those portfolios, the request is reported as not found.
+        /// Replace an existing transfer with the request, which carries the same fields as a create request and is  validated in the same way. Both transaction legs are rebooked under their existing ids and the Transfer  entity is updated, as a single atomic operation: if any part of the request is rejected, nothing is  changed. A field not supplied is cleared, and the outgoing position is checked with the transfer&#39;s own  outgoing leg counted back in.                Properties are treated separately from fields: by default, a property not supplied is kept on the  transfer or leg that holds it, and only the properties supplied are updated. Set preserveProperties to  false to replace the whole property set of the transfer and both legs with the ones supplied.                A transfer is identified by its scope, its code and both of its portfolios, none of which can be changed.  Where no transfer has that scope and code between those portfolios, the request is reported as not found.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="editTransferRequest">The transfer as it should now stand.</param>
+        /// <param name="preserveProperties">If set to false, the entire property set of the transfer and both legs               will be overwritten by the provided properties. If not specified or set to true, only the properties               provided will be updated. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>EditTransferResponse</returns>
-        EditTransferResponse EditTransfer(EditTransferRequest editTransferRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        EditTransferResponse EditTransfer(EditTransferRequest editTransferRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] EditTransfer: Edit a transfer.
         /// </summary>
         /// <remarks>
-        /// Replace an existing transfer with the request, which carries the same fields as a create request and is  validated in the same way. Both transaction legs are rebooked under their existing ids and the Transfer  entity is updated, as a single atomic operation: if any part of the request is rejected, nothing is  changed. A value not supplied is cleared, and the outgoing position is checked with the transfer&#39;s own  outgoing leg counted back in.                A transfer is identified by its scope, its code and both of its portfolios, none of which can be changed.  Where no transfer has that scope and code between those portfolios, the request is reported as not found.
+        /// Replace an existing transfer with the request, which carries the same fields as a create request and is  validated in the same way. Both transaction legs are rebooked under their existing ids and the Transfer  entity is updated, as a single atomic operation: if any part of the request is rejected, nothing is  changed. A field not supplied is cleared, and the outgoing position is checked with the transfer&#39;s own  outgoing leg counted back in.                Properties are treated separately from fields: by default, a property not supplied is kept on the  transfer or leg that holds it, and only the properties supplied are updated. Set preserveProperties to  false to replace the whole property set of the transfer and both legs with the ones supplied.                A transfer is identified by its scope, its code and both of its portfolios, none of which can be changed.  Where no transfer has that scope and code between those portfolios, the request is reported as not found.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="editTransferRequest">The transfer as it should now stand.</param>
+        /// <param name="preserveProperties">If set to false, the entire property set of the transfer and both legs               will be overwritten by the provided properties. If not specified or set to true, only the properties               provided will be updated. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of EditTransferResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<EditTransferResponse> EditTransferWithHttpInfo(EditTransferRequest editTransferRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<EditTransferResponse> EditTransferWithHttpInfo(EditTransferRequest editTransferRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTransfer: Get a transfer
         /// </summary>
@@ -255,29 +257,31 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] EditTransfer: Edit a transfer.
         /// </summary>
         /// <remarks>
-        /// Replace an existing transfer with the request, which carries the same fields as a create request and is  validated in the same way. Both transaction legs are rebooked under their existing ids and the Transfer  entity is updated, as a single atomic operation: if any part of the request is rejected, nothing is  changed. A value not supplied is cleared, and the outgoing position is checked with the transfer&#39;s own  outgoing leg counted back in.                A transfer is identified by its scope, its code and both of its portfolios, none of which can be changed.  Where no transfer has that scope and code between those portfolios, the request is reported as not found.
+        /// Replace an existing transfer with the request, which carries the same fields as a create request and is  validated in the same way. Both transaction legs are rebooked under their existing ids and the Transfer  entity is updated, as a single atomic operation: if any part of the request is rejected, nothing is  changed. A field not supplied is cleared, and the outgoing position is checked with the transfer&#39;s own  outgoing leg counted back in.                Properties are treated separately from fields: by default, a property not supplied is kept on the  transfer or leg that holds it, and only the properties supplied are updated. Set preserveProperties to  false to replace the whole property set of the transfer and both legs with the ones supplied.                A transfer is identified by its scope, its code and both of its portfolios, none of which can be changed.  Where no transfer has that scope and code between those portfolios, the request is reported as not found.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="editTransferRequest">The transfer as it should now stand.</param>
+        /// <param name="preserveProperties">If set to false, the entire property set of the transfer and both legs               will be overwritten by the provided properties. If not specified or set to true, only the properties               provided will be updated. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of EditTransferResponse</returns>
-        System.Threading.Tasks.Task<EditTransferResponse> EditTransferAsync(EditTransferRequest editTransferRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<EditTransferResponse> EditTransferAsync(EditTransferRequest editTransferRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] EditTransfer: Edit a transfer.
         /// </summary>
         /// <remarks>
-        /// Replace an existing transfer with the request, which carries the same fields as a create request and is  validated in the same way. Both transaction legs are rebooked under their existing ids and the Transfer  entity is updated, as a single atomic operation: if any part of the request is rejected, nothing is  changed. A value not supplied is cleared, and the outgoing position is checked with the transfer&#39;s own  outgoing leg counted back in.                A transfer is identified by its scope, its code and both of its portfolios, none of which can be changed.  Where no transfer has that scope and code between those portfolios, the request is reported as not found.
+        /// Replace an existing transfer with the request, which carries the same fields as a create request and is  validated in the same way. Both transaction legs are rebooked under their existing ids and the Transfer  entity is updated, as a single atomic operation: if any part of the request is rejected, nothing is  changed. A field not supplied is cleared, and the outgoing position is checked with the transfer&#39;s own  outgoing leg counted back in.                Properties are treated separately from fields: by default, a property not supplied is kept on the  transfer or leg that holds it, and only the properties supplied are updated. Set preserveProperties to  false to replace the whole property set of the transfer and both legs with the ones supplied.                A transfer is identified by its scope, its code and both of its portfolios, none of which can be changed.  Where no transfer has that scope and code between those portfolios, the request is reported as not found.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="editTransferRequest">The transfer as it should now stand.</param>
+        /// <param name="preserveProperties">If set to false, the entire property set of the transfer and both legs               will be overwritten by the provided properties. If not specified or set to true, only the properties               provided will be updated. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (EditTransferResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<EditTransferResponse>> EditTransferWithHttpInfoAsync(EditTransferRequest editTransferRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<EditTransferResponse>> EditTransferWithHttpInfoAsync(EditTransferRequest editTransferRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTransfer: Get a transfer
         /// </summary>
@@ -974,28 +978,30 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] EditTransfer: Edit a transfer. Replace an existing transfer with the request, which carries the same fields as a create request and is  validated in the same way. Both transaction legs are rebooked under their existing ids and the Transfer  entity is updated, as a single atomic operation: if any part of the request is rejected, nothing is  changed. A value not supplied is cleared, and the outgoing position is checked with the transfer&#39;s own  outgoing leg counted back in.                A transfer is identified by its scope, its code and both of its portfolios, none of which can be changed.  Where no transfer has that scope and code between those portfolios, the request is reported as not found.
+        /// [EXPERIMENTAL] EditTransfer: Edit a transfer. Replace an existing transfer with the request, which carries the same fields as a create request and is  validated in the same way. Both transaction legs are rebooked under their existing ids and the Transfer  entity is updated, as a single atomic operation: if any part of the request is rejected, nothing is  changed. A field not supplied is cleared, and the outgoing position is checked with the transfer&#39;s own  outgoing leg counted back in.                Properties are treated separately from fields: by default, a property not supplied is kept on the  transfer or leg that holds it, and only the properties supplied are updated. Set preserveProperties to  false to replace the whole property set of the transfer and both legs with the ones supplied.                A transfer is identified by its scope, its code and both of its portfolios, none of which can be changed.  Where no transfer has that scope and code between those portfolios, the request is reported as not found.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="editTransferRequest">The transfer as it should now stand.</param>
+        /// <param name="preserveProperties">If set to false, the entire property set of the transfer and both legs               will be overwritten by the provided properties. If not specified or set to true, only the properties               provided will be updated. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>EditTransferResponse</returns>
-        public EditTransferResponse EditTransfer(EditTransferRequest editTransferRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public EditTransferResponse EditTransfer(EditTransferRequest editTransferRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<EditTransferResponse> localVarResponse = EditTransferWithHttpInfo(editTransferRequest, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<EditTransferResponse> localVarResponse = EditTransferWithHttpInfo(editTransferRequest, preserveProperties, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] EditTransfer: Edit a transfer. Replace an existing transfer with the request, which carries the same fields as a create request and is  validated in the same way. Both transaction legs are rebooked under their existing ids and the Transfer  entity is updated, as a single atomic operation: if any part of the request is rejected, nothing is  changed. A value not supplied is cleared, and the outgoing position is checked with the transfer&#39;s own  outgoing leg counted back in.                A transfer is identified by its scope, its code and both of its portfolios, none of which can be changed.  Where no transfer has that scope and code between those portfolios, the request is reported as not found.
+        /// [EXPERIMENTAL] EditTransfer: Edit a transfer. Replace an existing transfer with the request, which carries the same fields as a create request and is  validated in the same way. Both transaction legs are rebooked under their existing ids and the Transfer  entity is updated, as a single atomic operation: if any part of the request is rejected, nothing is  changed. A field not supplied is cleared, and the outgoing position is checked with the transfer&#39;s own  outgoing leg counted back in.                Properties are treated separately from fields: by default, a property not supplied is kept on the  transfer or leg that holds it, and only the properties supplied are updated. Set preserveProperties to  false to replace the whole property set of the transfer and both legs with the ones supplied.                A transfer is identified by its scope, its code and both of its portfolios, none of which can be changed.  Where no transfer has that scope and code between those portfolios, the request is reported as not found.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="editTransferRequest">The transfer as it should now stand.</param>
+        /// <param name="preserveProperties">If set to false, the entire property set of the transfer and both legs               will be overwritten by the provided properties. If not specified or set to true, only the properties               provided will be updated. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of EditTransferResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<EditTransferResponse> EditTransferWithHttpInfo(EditTransferRequest editTransferRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<EditTransferResponse> EditTransferWithHttpInfo(EditTransferRequest editTransferRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'editTransferRequest' is set
             if (editTransferRequest == null)
@@ -1041,6 +1047,11 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (preserveProperties != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "preserveProperties", preserveProperties));
+            }
             localVarRequestOptions.Data = editTransferRequest;
 
             localVarRequestOptions.Operation = "TransfersApi.EditTransfer";
@@ -1078,30 +1089,32 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] EditTransfer: Edit a transfer. Replace an existing transfer with the request, which carries the same fields as a create request and is  validated in the same way. Both transaction legs are rebooked under their existing ids and the Transfer  entity is updated, as a single atomic operation: if any part of the request is rejected, nothing is  changed. A value not supplied is cleared, and the outgoing position is checked with the transfer&#39;s own  outgoing leg counted back in.                A transfer is identified by its scope, its code and both of its portfolios, none of which can be changed.  Where no transfer has that scope and code between those portfolios, the request is reported as not found.
+        /// [EXPERIMENTAL] EditTransfer: Edit a transfer. Replace an existing transfer with the request, which carries the same fields as a create request and is  validated in the same way. Both transaction legs are rebooked under their existing ids and the Transfer  entity is updated, as a single atomic operation: if any part of the request is rejected, nothing is  changed. A field not supplied is cleared, and the outgoing position is checked with the transfer&#39;s own  outgoing leg counted back in.                Properties are treated separately from fields: by default, a property not supplied is kept on the  transfer or leg that holds it, and only the properties supplied are updated. Set preserveProperties to  false to replace the whole property set of the transfer and both legs with the ones supplied.                A transfer is identified by its scope, its code and both of its portfolios, none of which can be changed.  Where no transfer has that scope and code between those portfolios, the request is reported as not found.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="editTransferRequest">The transfer as it should now stand.</param>
+        /// <param name="preserveProperties">If set to false, the entire property set of the transfer and both legs               will be overwritten by the provided properties. If not specified or set to true, only the properties               provided will be updated. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of EditTransferResponse</returns>
-        public async System.Threading.Tasks.Task<EditTransferResponse> EditTransferAsync(EditTransferRequest editTransferRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<EditTransferResponse> EditTransferAsync(EditTransferRequest editTransferRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<EditTransferResponse> localVarResponse = await EditTransferWithHttpInfoAsync(editTransferRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<EditTransferResponse> localVarResponse = await EditTransferWithHttpInfoAsync(editTransferRequest, preserveProperties, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] EditTransfer: Edit a transfer. Replace an existing transfer with the request, which carries the same fields as a create request and is  validated in the same way. Both transaction legs are rebooked under their existing ids and the Transfer  entity is updated, as a single atomic operation: if any part of the request is rejected, nothing is  changed. A value not supplied is cleared, and the outgoing position is checked with the transfer&#39;s own  outgoing leg counted back in.                A transfer is identified by its scope, its code and both of its portfolios, none of which can be changed.  Where no transfer has that scope and code between those portfolios, the request is reported as not found.
+        /// [EXPERIMENTAL] EditTransfer: Edit a transfer. Replace an existing transfer with the request, which carries the same fields as a create request and is  validated in the same way. Both transaction legs are rebooked under their existing ids and the Transfer  entity is updated, as a single atomic operation: if any part of the request is rejected, nothing is  changed. A field not supplied is cleared, and the outgoing position is checked with the transfer&#39;s own  outgoing leg counted back in.                Properties are treated separately from fields: by default, a property not supplied is kept on the  transfer or leg that holds it, and only the properties supplied are updated. Set preserveProperties to  false to replace the whole property set of the transfer and both legs with the ones supplied.                A transfer is identified by its scope, its code and both of its portfolios, none of which can be changed.  Where no transfer has that scope and code between those portfolios, the request is reported as not found.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="editTransferRequest">The transfer as it should now stand.</param>
+        /// <param name="preserveProperties">If set to false, the entire property set of the transfer and both legs               will be overwritten by the provided properties. If not specified or set to true, only the properties               provided will be updated. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (EditTransferResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<EditTransferResponse>> EditTransferWithHttpInfoAsync(EditTransferRequest editTransferRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<EditTransferResponse>> EditTransferWithHttpInfoAsync(EditTransferRequest editTransferRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'editTransferRequest' is set
             if (editTransferRequest == null)
@@ -1148,6 +1161,10 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (preserveProperties != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "preserveProperties", preserveProperties));
+            }
             localVarRequestOptions.Data = editTransferRequest;
 
             localVarRequestOptions.Operation = "TransfersApi.EditTransfer";

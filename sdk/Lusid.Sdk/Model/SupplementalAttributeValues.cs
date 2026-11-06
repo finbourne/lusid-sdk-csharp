@@ -37,8 +37,8 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="SupplementalAttributeValues" /> class.
         /// </summary>
         /// <param name="attributeName">The name of the supplemental attribute. (required).</param>
-        /// <param name="leftValue">The left-side value..</param>
-        /// <param name="rightValue">The right-side value..</param>
+        /// <param name="leftValue">The left-side value: the value the left items agree on, or \&quot;[multiple values]\&quot; where they do not. Null where the left side has no items..</param>
+        /// <param name="rightValue">The right-side value: the value the right items agree on, or \&quot;[multiple values]\&quot; where they do not. Null where the right side has no items..</param>
         public SupplementalAttributeValues(string attributeName = default(string), string leftValue = default(string), string rightValue = default(string))
         {
             // to ensure "attributeName" is required (not null)
@@ -59,16 +59,16 @@ namespace Lusid.Sdk.Model
         public string AttributeName { get; set; }
 
         /// <summary>
-        /// The left-side value.
+        /// The left-side value: the value the left items agree on, or \&quot;[multiple values]\&quot; where they do not. Null where the left side has no items.
         /// </summary>
-        /// <value>The left-side value.</value>
+        /// <value>The left-side value: the value the left items agree on, or \&quot;[multiple values]\&quot; where they do not. Null where the left side has no items.</value>
         [DataMember(Name = "leftValue", EmitDefaultValue = true)]
         public string LeftValue { get; set; }
 
         /// <summary>
-        /// The right-side value.
+        /// The right-side value: the value the right items agree on, or \&quot;[multiple values]\&quot; where they do not. Null where the right side has no items.
         /// </summary>
-        /// <value>The right-side value.</value>
+        /// <value>The right-side value: the value the right items agree on, or \&quot;[multiple values]\&quot; where they do not. Null where the right side has no items.</value>
         [DataMember(Name = "rightValue", EmitDefaultValue = true)]
         public string RightValue { get; set; }
 

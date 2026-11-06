@@ -133,7 +133,7 @@ catch (ApiException e)
 
 <a id="querybucketcashflowdrilldown"></a>
 # **QueryBucketCashFlowDrillDown**
-> ResourceListOfCashFlowDetail QueryBucketCashFlowDrillDown (QueryBucketCashFlowDrillDownRequest? queryBucketCashFlowDrillDownRequest = null)
+> BucketCashFlowDrillDownResponse QueryBucketCashFlowDrillDown (QueryBucketCashFlowDrillDownRequest? queryBucketCashFlowDrillDownRequest = null)
 
 QueryBucketCashFlowDrillDown: Returns the individual cashflows that make up a single cashflow bucket, with their source lineage.
 
@@ -183,10 +183,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfCashFlowDetail result = apiInstance.QueryBucketCashFlowDrillDown(queryBucketCashFlowDrillDownRequest, opts: opts);
+                // BucketCashFlowDrillDownResponse result = apiInstance.QueryBucketCashFlowDrillDown(queryBucketCashFlowDrillDownRequest, opts: opts);
 
                 // QueryBucketCashFlowDrillDown: Returns the individual cashflows that make up a single cashflow bucket, with their source lineage.
-                ResourceListOfCashFlowDetail result = apiInstance.QueryBucketCashFlowDrillDown(queryBucketCashFlowDrillDownRequest);
+                BucketCashFlowDrillDownResponse result = apiInstance.QueryBucketCashFlowDrillDown(queryBucketCashFlowDrillDownRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -207,7 +207,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // QueryBucketCashFlowDrillDown: Returns the individual cashflows that make up a single cashflow bucket, with their source lineage.
-    ApiResponse<ResourceListOfCashFlowDetail> response = apiInstance.QueryBucketCashFlowDrillDownWithHttpInfo(queryBucketCashFlowDrillDownRequest);
+    ApiResponse<BucketCashFlowDrillDownResponse> response = apiInstance.QueryBucketCashFlowDrillDownWithHttpInfo(queryBucketCashFlowDrillDownRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -228,7 +228,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**ResourceListOfCashFlowDetail**](ResourceListOfCashFlowDetail.md)
+[**BucketCashFlowDrillDownResponse**](BucketCashFlowDrillDownResponse.md)
 
 ### HTTP request headers
 
@@ -239,7 +239,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The individual cashflows inside the requested bucket. |  -  |
+| **200** | The individual cashflows inside the requested bucket, with the bucket&#39;s balances. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

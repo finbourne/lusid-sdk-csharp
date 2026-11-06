@@ -72,8 +72,8 @@ namespace Lusid.Sdk.Api
         /// <param name="queryBucketCashFlowDrillDownRequest">The Query Information. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ResourceListOfCashFlowDetail</returns>
-        ResourceListOfCashFlowDetail QueryBucketCashFlowDrillDown(QueryBucketCashFlowDrillDownRequest? queryBucketCashFlowDrillDownRequest = default(QueryBucketCashFlowDrillDownRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>BucketCashFlowDrillDownResponse</returns>
+        BucketCashFlowDrillDownResponse QueryBucketCashFlowDrillDown(QueryBucketCashFlowDrillDownRequest? queryBucketCashFlowDrillDownRequest = default(QueryBucketCashFlowDrillDownRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// QueryBucketCashFlowDrillDown: Returns the individual cashflows that make up a single cashflow bucket, with their source lineage.
@@ -85,8 +85,8 @@ namespace Lusid.Sdk.Api
         /// <param name="queryBucketCashFlowDrillDownRequest">The Query Information. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of ResourceListOfCashFlowDetail</returns>
-        Lusid.Sdk.Client.ApiResponse<ResourceListOfCashFlowDetail> QueryBucketCashFlowDrillDownWithHttpInfo(QueryBucketCashFlowDrillDownRequest? queryBucketCashFlowDrillDownRequest = default(QueryBucketCashFlowDrillDownRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of BucketCashFlowDrillDownResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<BucketCashFlowDrillDownResponse> QueryBucketCashFlowDrillDownWithHttpInfo(QueryBucketCashFlowDrillDownRequest? queryBucketCashFlowDrillDownRequest = default(QueryBucketCashFlowDrillDownRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
@@ -252,8 +252,8 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ResourceListOfCashFlowDetail</returns>
-        System.Threading.Tasks.Task<ResourceListOfCashFlowDetail> QueryBucketCashFlowDrillDownAsync(QueryBucketCashFlowDrillDownRequest? queryBucketCashFlowDrillDownRequest = default(QueryBucketCashFlowDrillDownRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of BucketCashFlowDrillDownResponse</returns>
+        System.Threading.Tasks.Task<BucketCashFlowDrillDownResponse> QueryBucketCashFlowDrillDownAsync(QueryBucketCashFlowDrillDownRequest? queryBucketCashFlowDrillDownRequest = default(QueryBucketCashFlowDrillDownRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// QueryBucketCashFlowDrillDown: Returns the individual cashflows that make up a single cashflow bucket, with their source lineage.
@@ -266,8 +266,8 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (ResourceListOfCashFlowDetail)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfCashFlowDetail>> QueryBucketCashFlowDrillDownWithHttpInfoAsync(QueryBucketCashFlowDrillDownRequest? queryBucketCashFlowDrillDownRequest = default(QueryBucketCashFlowDrillDownRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (BucketCashFlowDrillDownResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BucketCashFlowDrillDownResponse>> QueryBucketCashFlowDrillDownWithHttpInfoAsync(QueryBucketCashFlowDrillDownRequest? queryBucketCashFlowDrillDownRequest = default(QueryBucketCashFlowDrillDownRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
@@ -757,10 +757,10 @@ namespace Lusid.Sdk.Api
         /// <param name="queryBucketCashFlowDrillDownRequest">The Query Information. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ResourceListOfCashFlowDetail</returns>
-        public ResourceListOfCashFlowDetail QueryBucketCashFlowDrillDown(QueryBucketCashFlowDrillDownRequest? queryBucketCashFlowDrillDownRequest = default(QueryBucketCashFlowDrillDownRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>BucketCashFlowDrillDownResponse</returns>
+        public BucketCashFlowDrillDownResponse QueryBucketCashFlowDrillDown(QueryBucketCashFlowDrillDownRequest? queryBucketCashFlowDrillDownRequest = default(QueryBucketCashFlowDrillDownRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfCashFlowDetail> localVarResponse = QueryBucketCashFlowDrillDownWithHttpInfo(queryBucketCashFlowDrillDownRequest, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<BucketCashFlowDrillDownResponse> localVarResponse = QueryBucketCashFlowDrillDownWithHttpInfo(queryBucketCashFlowDrillDownRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -771,8 +771,8 @@ namespace Lusid.Sdk.Api
         /// <param name="queryBucketCashFlowDrillDownRequest">The Query Information. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of ResourceListOfCashFlowDetail</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfCashFlowDetail> QueryBucketCashFlowDrillDownWithHttpInfo(QueryBucketCashFlowDrillDownRequest? queryBucketCashFlowDrillDownRequest = default(QueryBucketCashFlowDrillDownRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of BucketCashFlowDrillDownResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<BucketCashFlowDrillDownResponse> QueryBucketCashFlowDrillDownWithHttpInfo(QueryBucketCashFlowDrillDownRequest? queryBucketCashFlowDrillDownRequest = default(QueryBucketCashFlowDrillDownRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
@@ -835,7 +835,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<ResourceListOfCashFlowDetail>("/api/instrumentevents/$queryBucketCashFlowDrillDown", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<BucketCashFlowDrillDownResponse>("/api/instrumentevents/$queryBucketCashFlowDrillDown", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("QueryBucketCashFlowDrillDown", localVarResponse);
@@ -856,10 +856,10 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ResourceListOfCashFlowDetail</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfCashFlowDetail> QueryBucketCashFlowDrillDownAsync(QueryBucketCashFlowDrillDownRequest? queryBucketCashFlowDrillDownRequest = default(QueryBucketCashFlowDrillDownRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of BucketCashFlowDrillDownResponse</returns>
+        public async System.Threading.Tasks.Task<BucketCashFlowDrillDownResponse> QueryBucketCashFlowDrillDownAsync(QueryBucketCashFlowDrillDownRequest? queryBucketCashFlowDrillDownRequest = default(QueryBucketCashFlowDrillDownRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfCashFlowDetail> localVarResponse = await QueryBucketCashFlowDrillDownWithHttpInfoAsync(queryBucketCashFlowDrillDownRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<BucketCashFlowDrillDownResponse> localVarResponse = await QueryBucketCashFlowDrillDownWithHttpInfoAsync(queryBucketCashFlowDrillDownRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -871,8 +871,8 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (ResourceListOfCashFlowDetail)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfCashFlowDetail>> QueryBucketCashFlowDrillDownWithHttpInfoAsync(QueryBucketCashFlowDrillDownRequest? queryBucketCashFlowDrillDownRequest = default(QueryBucketCashFlowDrillDownRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (BucketCashFlowDrillDownResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BucketCashFlowDrillDownResponse>> QueryBucketCashFlowDrillDownWithHttpInfoAsync(QueryBucketCashFlowDrillDownRequest? queryBucketCashFlowDrillDownRequest = default(QueryBucketCashFlowDrillDownRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -936,7 +936,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<ResourceListOfCashFlowDetail>("/api/instrumentevents/$queryBucketCashFlowDrillDown", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<BucketCashFlowDrillDownResponse>("/api/instrumentevents/$queryBucketCashFlowDrillDown", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

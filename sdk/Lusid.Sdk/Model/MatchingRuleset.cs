@@ -47,7 +47,7 @@ namespace Lusid.Sdk.Model
         /// <param name="coreTolerances">Tolerance configurations applied to core rule matching, in the specified order..</param>
         /// <param name="aggregateTolerances">Tolerance configurations applied to aggregate rule matching..</param>
         /// <param name="allowPartialMatching">Whether to permit partial matches when applying rules. Optional, defaults to true if a value is not provided..</param>
-        /// <param name="supplementalAttributes">Supplemental attributes that decorate reconciliation results with additional values without participating in the reconciliation itself..</param>
+        /// <param name="supplementalAttributes">Supplemental attributes that decorate reconciliation results with additional values without participating in the reconciliation itself. Each attribute&#39;s formulas are compiled and evaluated as a rule&#39;s are, so both must return the same value type..</param>
         /// <param name="writebackConfigurations">The writeback suggestions generated against this ruleset&#39;s results. Suggestions are made at item level on target-side items only, and are suggestions only: a user is expected to review them before acting. Optional, and may be empty..</param>
         /// <param name="populateResultProperties">The RecResult properties to populate on this ruleset&#39;s results, each from a formula over the result. Optional, and may be empty; at most 20..</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
@@ -178,9 +178,9 @@ namespace Lusid.Sdk.Model
         public bool AllowPartialMatching { get; set; }
 
         /// <summary>
-        /// Supplemental attributes that decorate reconciliation results with additional values without participating in the reconciliation itself.
+        /// Supplemental attributes that decorate reconciliation results with additional values without participating in the reconciliation itself. Each attribute&#39;s formulas are compiled and evaluated as a rule&#39;s are, so both must return the same value type.
         /// </summary>
-        /// <value>Supplemental attributes that decorate reconciliation results with additional values without participating in the reconciliation itself.</value>
+        /// <value>Supplemental attributes that decorate reconciliation results with additional values without participating in the reconciliation itself. Each attribute&#39;s formulas are compiled and evaluated as a rule&#39;s are, so both must return the same value type.</value>
         [DataMember(Name = "supplementalAttributes", EmitDefaultValue = true)]
         public List<SupplementalAttribute> SupplementalAttributes { get; set; }
 

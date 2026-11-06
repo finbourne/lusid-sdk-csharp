@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="eventType">The kind of allocation event to resolve: CapitalCall, Distribution, FeeExpense or ValuationMove. The map must define a basis for it. Available values: CapitalCall, Distribution, FeeExpense, ValuationMove, Commitment, Equalisation, RecallExpiry, Transfer, Default, DealFunding. (required).</param>
         /// <param name="amount">The amount of the event to share between the participants, in the event currency. (required).</param>
         /// <param name="currency">The currency of the amount. (required).</param>
-        /// <param name="basisValues">For a ValueWeighted or PropertyWeighted basis, the basis value of each participating investor record, supplied by the caller until investor records are read from LUSID. Under the AllCommittedToMembers rule these also name the committed investor records. Not needed for a FixedPercentage basis..</param>
+        /// <param name="basisValues">The basis value of each participating investor record. Optional for a register-backed basis such as Committed or PaidIn, where the members&#39; registers are read when none are supplied. Required for a ValueWeighted or PropertyWeighted basis. Under the AllCommittedToMembers rule the supplied values replace the register value of the investor records they name; every other open line still takes part. Not needed for a FixedPercentage basis..</param>
         public AllocationMapResolveRequest(string eventType = default(string), decimal amount = default(decimal), string currency = default(string), List<AllocationMapBasisValue> basisValues = default(List<AllocationMapBasisValue>))
         {
             // to ensure "eventType" is required (not null)
@@ -80,9 +80,9 @@ namespace Lusid.Sdk.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// For a ValueWeighted or PropertyWeighted basis, the basis value of each participating investor record, supplied by the caller until investor records are read from LUSID. Under the AllCommittedToMembers rule these also name the committed investor records. Not needed for a FixedPercentage basis.
+        /// The basis value of each participating investor record. Optional for a register-backed basis such as Committed or PaidIn, where the members&#39; registers are read when none are supplied. Required for a ValueWeighted or PropertyWeighted basis. Under the AllCommittedToMembers rule the supplied values replace the register value of the investor records they name; every other open line still takes part. Not needed for a FixedPercentage basis.
         /// </summary>
-        /// <value>For a ValueWeighted or PropertyWeighted basis, the basis value of each participating investor record, supplied by the caller until investor records are read from LUSID. Under the AllCommittedToMembers rule these also name the committed investor records. Not needed for a FixedPercentage basis.</value>
+        /// <value>The basis value of each participating investor record. Optional for a register-backed basis such as Committed or PaidIn, where the members&#39; registers are read when none are supplied. Required for a ValueWeighted or PropertyWeighted basis. Under the AllCommittedToMembers rule the supplied values replace the register value of the investor records they name; every other open line still takes part. Not needed for a FixedPercentage basis.</value>
         [DataMember(Name = "basisValues", EmitDefaultValue = true)]
         public List<AllocationMapBasisValue> BasisValues { get; set; }
 

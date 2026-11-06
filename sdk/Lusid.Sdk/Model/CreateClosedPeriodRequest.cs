@@ -39,11 +39,11 @@ namespace Lusid.Sdk.Model
         /// <param name="closedPeriodId">The unique Id of the Closed Period. The ClosedPeriodId, together with the Timeline Scope and Code, uniquely identifies a Closed Period (required).</param>
         /// <param name="effectiveEnd">The effective end of the Closed Period.</param>
         /// <param name="properties">The Closed Periods properties. These will be from the &#39;ClosedPeriod&#39; domain..</param>
-        /// <param name="asAtClosed">The asAt closed datetime for the Closed Period.</param>
+        /// <param name="asAtClosed">The asAt closed datetime for the Closed Period. It must not exceed the latest asAt in LUSID. If not specified, the latest asAt in LUSID will be used..</param>
         /// <param name="displayName">The name of the Closed Period..</param>
         /// <param name="description">A description for the Closed Period..</param>
-        /// <param name="holdingsAsAtClosedOverride">The optional AsAtClosed Override to use for building holdings in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used..</param>
-        /// <param name="valuationAsAtClosedOverride">The optional AsAtClosed Override to use for performing valuations in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used..</param>
+        /// <param name="holdingsAsAtClosedOverride">The optional AsAtClosed Override to use for building holdings in the Closed Period. If not specified, the AsAtClosed on the Closed Period will be used. It must not exceed the latest asAt in LUSID..</param>
+        /// <param name="valuationAsAtClosedOverride">The optional AsAtClosed Override to use for performing valuations in the Closed Period. If not specified, the AsAtClosed on the Closed Period will be used. It must not exceed the latest asAt in LUSID..</param>
         public CreateClosedPeriodRequest(string closedPeriodId = default(string), DateTimeOffset effectiveEnd = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), DateTimeOffset? asAtClosed = default(DateTimeOffset?), string displayName = default(string), string description = default(string), DateTimeOffset? holdingsAsAtClosedOverride = default(DateTimeOffset?), DateTimeOffset? valuationAsAtClosedOverride = default(DateTimeOffset?))
         {
             // to ensure "closedPeriodId" is required (not null)
@@ -83,9 +83,9 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
-        /// The asAt closed datetime for the Closed Period
+        /// The asAt closed datetime for the Closed Period. It must not exceed the latest asAt in LUSID. If not specified, the latest asAt in LUSID will be used.
         /// </summary>
-        /// <value>The asAt closed datetime for the Closed Period</value>
+        /// <value>The asAt closed datetime for the Closed Period. It must not exceed the latest asAt in LUSID. If not specified, the latest asAt in LUSID will be used.</value>
         [DataMember(Name = "asAtClosed", EmitDefaultValue = true)]
         public DateTimeOffset? AsAtClosed { get; set; }
 
@@ -104,16 +104,16 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The optional AsAtClosed Override to use for building holdings in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used.
+        /// The optional AsAtClosed Override to use for building holdings in the Closed Period. If not specified, the AsAtClosed on the Closed Period will be used. It must not exceed the latest asAt in LUSID.
         /// </summary>
-        /// <value>The optional AsAtClosed Override to use for building holdings in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used.</value>
+        /// <value>The optional AsAtClosed Override to use for building holdings in the Closed Period. If not specified, the AsAtClosed on the Closed Period will be used. It must not exceed the latest asAt in LUSID.</value>
         [DataMember(Name = "holdingsAsAtClosedOverride", EmitDefaultValue = true)]
         public DateTimeOffset? HoldingsAsAtClosedOverride { get; set; }
 
         /// <summary>
-        /// The optional AsAtClosed Override to use for performing valuations in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used.
+        /// The optional AsAtClosed Override to use for performing valuations in the Closed Period. If not specified, the AsAtClosed on the Closed Period will be used. It must not exceed the latest asAt in LUSID.
         /// </summary>
-        /// <value>The optional AsAtClosed Override to use for performing valuations in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used.</value>
+        /// <value>The optional AsAtClosed Override to use for performing valuations in the Closed Period. If not specified, the AsAtClosed on the Closed Period will be used. It must not exceed the latest asAt in LUSID.</value>
         [DataMember(Name = "valuationAsAtClosedOverride", EmitDefaultValue = true)]
         public DateTimeOffset? ValuationAsAtClosedOverride { get; set; }
 

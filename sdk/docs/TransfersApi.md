@@ -251,11 +251,11 @@ catch (ApiException e)
 
 <a id="edittransfer"></a>
 # **EditTransfer**
-> EditTransferResponse EditTransfer (EditTransferRequest editTransferRequest)
+> EditTransferResponse EditTransfer (EditTransferRequest editTransferRequest, bool? preserveProperties = null)
 
 [EXPERIMENTAL] EditTransfer: Edit a transfer.
 
-Replace an existing transfer with the request, which carries the same fields as a create request and is  validated in the same way. Both transaction legs are rebooked under their existing ids and the Transfer  entity is updated, as a single atomic operation: if any part of the request is rejected, nothing is  changed. A value not supplied is cleared, and the outgoing position is checked with the transfer's own  outgoing leg counted back in.                A transfer is identified by its scope, its code and both of its portfolios, none of which can be changed.  Where no transfer has that scope and code between those portfolios, the request is reported as not found.
+Replace an existing transfer with the request, which carries the same fields as a create request and is  validated in the same way. Both transaction legs are rebooked under their existing ids and the Transfer  entity is updated, as a single atomic operation: if any part of the request is rejected, nothing is  changed. A field not supplied is cleared, and the outgoing position is checked with the transfer's own  outgoing leg counted back in.                Properties are treated separately from fields: by default, a property not supplied is kept on the  transfer or leg that holds it, and only the properties supplied are updated. Set preserveProperties to  false to replace the whole property set of the transfer and both legs with the ones supplied.                A transfer is identified by its scope, its code and both of its portfolios, none of which can be changed.  Where no transfer has that scope and code between those portfolios, the request is reported as not found.
 
 ### Example
 ```csharp
@@ -297,14 +297,15 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransfersApi>();
             var editTransferRequest = new EditTransferRequest(); // EditTransferRequest | The transfer as it should now stand.
+            var preserveProperties = true;  // bool? | If set to false, the entire property set of the transfer and both legs               will be overwritten by the provided properties. If not specified or set to true, only the properties               provided will be updated. (optional)  (default to true)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // EditTransferResponse result = apiInstance.EditTransfer(editTransferRequest, opts: opts);
+                // EditTransferResponse result = apiInstance.EditTransfer(editTransferRequest, preserveProperties, opts: opts);
 
                 // [EXPERIMENTAL] EditTransfer: Edit a transfer.
-                EditTransferResponse result = apiInstance.EditTransfer(editTransferRequest);
+                EditTransferResponse result = apiInstance.EditTransfer(editTransferRequest, preserveProperties);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -325,7 +326,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] EditTransfer: Edit a transfer.
-    ApiResponse<EditTransferResponse> response = apiInstance.EditTransferWithHttpInfo(editTransferRequest);
+    ApiResponse<EditTransferResponse> response = apiInstance.EditTransferWithHttpInfo(editTransferRequest, preserveProperties);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -343,6 +344,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **editTransferRequest** | [**EditTransferRequest**](EditTransferRequest.md) | The transfer as it should now stand. |  |
+| **preserveProperties** | **bool?** | If set to false, the entire property set of the transfer and both legs               will be overwritten by the provided properties. If not specified or set to true, only the properties               provided will be updated. | [optional] [default to true] |
 
 ### Return type
 

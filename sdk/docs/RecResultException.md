@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Status** | **string** | Whether the exception is Open or Closed. Available values: Open, Closed. | 
 **ClosureType** | **string** | How the exception was closed. Non-null only when status is Closed. Available values: Cleared, Accepted, ForceMatched. | [optional] 
 **AsAtClosed** | **DateTimeOffset?** | The asAt of the transaction that closed the exception. Non-null only when status is Closed. | [optional] 
-**AsAtClosureInvalidated** | **DateTimeOffset?** | First-failure bookmark: the asAt at which a judgement closure&#39;s validity condition first failed against the latest run&#39;s data. | [optional] 
+**AsAtClosureInvalidated** | **DateTimeOffset?** | First-failure bookmark: the asAt at which a judgement closure&#39;s validity condition first failed against the latest run&#39;s data. The closure stays until a reviewer clears the decision, which dissolves the group. The run sets the review status to Required. You cannot affirm the decision while the condition fails. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

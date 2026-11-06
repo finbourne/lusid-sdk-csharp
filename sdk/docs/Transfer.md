@@ -9,6 +9,10 @@ Name | Type | Description | Notes
 **TransferType** | **string** | The derived type of the transfer: &#39;Transfer&#39; when the position moves between portfolios, &#39;Switch&#39; when one instrument is exchanged for another within a portfolio, and &#39;Twitch&#39; when the position moves between portfolios and changes instrument at the same time. | [optional] 
 **PortfolioIdOut** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **PortfolioIdIn** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**PricingMethod** | **string** | How the legs were priced: &#39;AtCost&#39; or &#39;AtPrice&#39;. | [optional] 
+**TaxLotStructure** | **string** | What happened to the tax lots of the outgoing position: &#39;Consolidate&#39; or &#39;Preserve&#39;. | [optional] 
+**WeightOut** | **decimal?** | The weighting factor recorded against the outgoing leg. | [optional] 
+**AccountingMethod** | **string** | The accounting method recorded against the transfer. | [optional] 
 **TransactionOut** | [**Transaction**](Transaction.md) |  | [optional] 
 **TransactionIn** | [**Transaction**](Transaction.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The properties of the transfer, for the requested PropertyKeys. | [optional] 
@@ -27,6 +31,9 @@ ResourceId? portfolioIdOut = new ResourceId();
 
 ResourceId? portfolioIdIn = new ResourceId();
 
+string pricingMethod = "example pricingMethod";
+string taxLotStructure = "example taxLotStructure";
+string accountingMethod = "example accountingMethod";
 Transaction? transactionOut = new Transaction();
 
 Transaction? transactionIn = new Transaction();
@@ -42,6 +49,10 @@ Transfer transferInstance = new Transfer(
     transferType: transferType,
     portfolioIdOut: portfolioIdOut,
     portfolioIdIn: portfolioIdIn,
+    pricingMethod: pricingMethod,
+    taxLotStructure: taxLotStructure,
+    weightOut: weightOut,
+    accountingMethod: accountingMethod,
     transactionOut: transactionOut,
     transactionIn: transactionIn,
     properties: properties,

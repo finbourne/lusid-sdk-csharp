@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **Rounding** | [**MarginRounding**](MarginRounding.md) |  | [optional] 
 **SettlementLag** | [**MarginSettlementLag**](MarginSettlementLag.md) |  | [optional] 
 **MatchTolerance** | **decimal?** | The tolerance within which our margin figure and the counterparty&#39;s are considered to match. Optional. | [optional] 
+**Funding** | [**CollateralFundingTerms**](CollateralFundingTerms.md) |  | [optional] 
+**Optimisation** | [**CollateralOptimisationTerms**](CollateralOptimisationTerms.md) |  | [optional] 
 **VariationMargin** | [**List&lt;MarginItem&gt;**](MarginItem.md) | The variation margin arrangements under the agreement. | [optional] 
 **InitialMargin** | [**List&lt;MarginItem&gt;**](MarginItem.md) | The initial margin arrangements under the agreement. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
@@ -39,6 +41,10 @@ MarginRounding? rounding = new MarginRounding();
 
 MarginSettlementLag? settlementLag = new MarginSettlementLag();
 
+CollateralFundingTerms? funding = new CollateralFundingTerms();
+
+CollateralOptimisationTerms? optimisation = new CollateralOptimisationTerms();
+
 List<MarginItem> variationMargin = new List<MarginItem>();
 List<MarginItem> initialMargin = new List<MarginItem>();
 ModelVersion? varVersion = new ModelVersion();
@@ -58,6 +64,8 @@ CollateralAgreement collateralAgreementInstance = new CollateralAgreement(
     rounding: rounding,
     settlementLag: settlementLag,
     matchTolerance: matchTolerance,
+    funding: funding,
+    optimisation: optimisation,
     variationMargin: variationMargin,
     initialMargin: initialMargin,
     varVersion: varVersion,

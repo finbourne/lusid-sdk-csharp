@@ -14,7 +14,9 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**ListMarginCallLines**](CollateralApi.md#listmargincalllines) | **GET** /api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/lines | [EXPERIMENTAL] ListMarginCallLines: List the margin lines of a call. |
 | [**ListMarginCalls**](CollateralApi.md#listmargincalls) | **GET** /api/collateral/margincalls | [EXPERIMENTAL] ListMarginCalls: List margin calls. |
 | [**ListMarginLines**](CollateralApi.md#listmarginlines) | **GET** /api/collateral/runs/{runId}/lines | [EXPERIMENTAL] ListMarginLines: List the margin lines of a run. |
+| [**ListMarginRunRecommendations**](CollateralApi.md#listmarginrunrecommendations) | **GET** /api/collateral/runs/{runId}/recommendations | [EXPERIMENTAL] ListMarginRunRecommendations: List a margin run&#39;s netting recommendations. |
 | [**ListMarginRuns**](CollateralApi.md#listmarginruns) | **GET** /api/collateral/runs | [EXPERIMENTAL] ListMarginRuns: List margin runs. |
+| [**ListNettingRecommendations**](CollateralApi.md#listnettingrecommendations) | **GET** /api/collateral/recommendations | [EXPERIMENTAL] ListNettingRecommendations: List the current netting recommendations. |
 | [**RecordCounterpartyDemand**](CollateralApi.md#recordcounterpartydemand) | **POST** /api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/$recordCounterpartyDemand | [EXPERIMENTAL] RecordCounterpartyDemand: Record the counterparty&#39;s demand against a margin call. |
 | [**RetryMarginRun**](CollateralApi.md#retrymarginrun) | **POST** /api/collateral/runs/{runId}/$retry | [EXPERIMENTAL] RetryMarginRun: Retry a margin run. |
 | [**RunMarginCalculation**](CollateralApi.md#runmargincalculation) | **POST** /api/collateral/$run | [EXPERIMENTAL] RunMarginCalculation: Run the margin calculation. |
@@ -1243,6 +1245,126 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
+<a id="listmarginrunrecommendations"></a>
+# **ListMarginRunRecommendations**
+> PagedResourceListOfNettingRecommendation ListMarginRunRecommendations (string runId, string? page = null, int? limit = null, string? filter = null)
+
+[EXPERIMENTAL] ListMarginRunRecommendations: List a margin run's netting recommendations.
+
+List the trades a run's optimisation pass found would attract less initial margin in another netting set of the  run, with both sets' initial margin before and after the move. Empty until the run's optimisation pass has  completed. Restricted to recommendations whose source and target agreements the caller may read.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CollateralApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CollateralApi>();
+            var runId = "runId_example";  // string | The identifier of the margin run.
+            var page = "page_example";  // string? | The pagination token to use to continue listing recommendations; this value is returned from the previous call. (optional) 
+            var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfNettingRecommendation result = apiInstance.ListMarginRunRecommendations(runId, page, limit, filter, opts: opts);
+
+                // [EXPERIMENTAL] ListMarginRunRecommendations: List a margin run's netting recommendations.
+                PagedResourceListOfNettingRecommendation result = apiInstance.ListMarginRunRecommendations(runId, page, limit, filter);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling CollateralApi.ListMarginRunRecommendations: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListMarginRunRecommendationsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ListMarginRunRecommendations: List a margin run's netting recommendations.
+    ApiResponse<PagedResourceListOfNettingRecommendation> response = apiInstance.ListMarginRunRecommendationsWithHttpInfo(runId, page, limit, filter);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling CollateralApi.ListMarginRunRecommendationsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **runId** | **string** | The identifier of the margin run. |  |
+| **page** | **string?** | The pagination token to use to continue listing recommendations; this value is returned from the previous call. | [optional]  |
+| **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. | [optional]  |
+
+### Return type
+
+[**PagedResourceListOfNettingRecommendation**](PagedResourceListOfNettingRecommendation.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The requested recommendations. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
 <a id="listmarginruns"></a>
 # **ListMarginRuns**
 > PagedResourceListOfMarginRun ListMarginRuns (string? page = null, int? limit = null, string? filter = null)
@@ -1356,6 +1478,126 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The requested margin runs. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="listnettingrecommendations"></a>
+# **ListNettingRecommendations**
+> PagedResourceListOfNettingRecommendation ListNettingRecommendations (DateTimeOrCutLabel? effectiveAt = null, string? page = null, int? limit = null, string? filter = null)
+
+[EXPERIMENTAL] ListNettingRecommendations: List the current netting recommendations.
+
+List the netting recommendations in force for a business date: those of the latest run for the date whose  optimisation pass completed, with an agreement that run could not value served from the most recent run that  did. Restricted to recommendations whose source and target agreements the caller may read.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CollateralApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CollateralApi>();
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The business date, datetime or cut label to list the current recommendations for. Defaults to today if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing recommendations; this value is returned from the previous call. (optional) 
+            var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfNettingRecommendation result = apiInstance.ListNettingRecommendations(effectiveAt, page, limit, filter, opts: opts);
+
+                // [EXPERIMENTAL] ListNettingRecommendations: List the current netting recommendations.
+                PagedResourceListOfNettingRecommendation result = apiInstance.ListNettingRecommendations(effectiveAt, page, limit, filter);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling CollateralApi.ListNettingRecommendations: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListNettingRecommendationsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ListNettingRecommendations: List the current netting recommendations.
+    ApiResponse<PagedResourceListOfNettingRecommendation> response = apiInstance.ListNettingRecommendationsWithHttpInfo(effectiveAt, page, limit, filter);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling CollateralApi.ListNettingRecommendationsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **effectiveAt** | **DateTimeOrCutLabel?** | The business date, datetime or cut label to list the current recommendations for. Defaults to today if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing recommendations; this value is returned from the previous call. | [optional]  |
+| **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the results. The filterable fields are RunId, SourceAgreementId.Scope, SourceAgreementId.Code, SourceItem, TargetAgreementId.Scope, TargetAgreementId.Code, TargetItem, Transfer, InstrumentType, Currency, MaturityBucket, SavingPerDay, OneOffCost, PaybackDays and InitialMarginChange. For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. | [optional]  |
+
+### Return type
+
+[**PagedResourceListOfNettingRecommendation**](PagedResourceListOfNettingRecommendation.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The requested recommendations. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

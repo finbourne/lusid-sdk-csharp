@@ -43,6 +43,18 @@ namespace Lusid.Sdk.Model
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RecActivityWindow" /> class
+        /// with the <see cref="FixedPeriodLookbackActivityWindow" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of FixedPeriodLookbackActivityWindow.</param>
+        public RecActivityWindow(FixedPeriodLookbackActivityWindow actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
 
         private Object _actualInstance;
 
@@ -61,9 +73,13 @@ namespace Lusid.Sdk.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(FixedPeriodLookbackActivityWindow) || value is FixedPeriodLookbackActivityWindow)
+                {
+                    this._actualInstance = value;
+                }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: ContiguousActivityWindow");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: ContiguousActivityWindow, FixedPeriodLookbackActivityWindow");
                 }
             }
         }
@@ -76,6 +92,16 @@ namespace Lusid.Sdk.Model
         public ContiguousActivityWindow GetContiguousActivityWindow()
         {
             return (ContiguousActivityWindow)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `FixedPeriodLookbackActivityWindow`. If the actual instance is not `FixedPeriodLookbackActivityWindow`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of FixedPeriodLookbackActivityWindow</returns>
+        public FixedPeriodLookbackActivityWindow GetFixedPeriodLookbackActivityWindow()
+        {
+            return (FixedPeriodLookbackActivityWindow)this.ActualInstance;
         }
 
         /// <summary>
@@ -123,11 +149,17 @@ namespace Lusid.Sdk.Model
                     case "Contiguous":
                         newRecActivityWindow = new RecActivityWindow(JsonConvert.DeserializeObject<ContiguousActivityWindow>(jsonString, RecActivityWindow.AdditionalPropertiesSerializerSettings));
                         return newRecActivityWindow;
+                    case "FixedPeriodLookback":
+                        newRecActivityWindow = new RecActivityWindow(JsonConvert.DeserializeObject<FixedPeriodLookbackActivityWindow>(jsonString, RecActivityWindow.AdditionalPropertiesSerializerSettings));
+                        return newRecActivityWindow;
                     case "ContiguousActivityWindow":
                         newRecActivityWindow = new RecActivityWindow(JsonConvert.DeserializeObject<ContiguousActivityWindow>(jsonString, RecActivityWindow.AdditionalPropertiesSerializerSettings));
                         return newRecActivityWindow;
+                    case "FixedPeriodLookbackActivityWindow":
+                        newRecActivityWindow = new RecActivityWindow(JsonConvert.DeserializeObject<FixedPeriodLookbackActivityWindow>(jsonString, RecActivityWindow.AdditionalPropertiesSerializerSettings));
+                        return newRecActivityWindow;
                     default:
-                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for RecActivityWindow. Possible values: Contiguous ContiguousActivityWindow", discriminatorValue));
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for RecActivityWindow. Possible values: Contiguous FixedPeriodLookback ContiguousActivityWindow FixedPeriodLookbackActivityWindow", discriminatorValue));
                         break;
                 }
             }
@@ -157,6 +189,26 @@ namespace Lusid.Sdk.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ContiguousActivityWindow: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(FixedPeriodLookbackActivityWindow).GetProperty("AdditionalProperties") == null)
+                {
+                    newRecActivityWindow = new RecActivityWindow(JsonConvert.DeserializeObject<FixedPeriodLookbackActivityWindow>(jsonString, RecActivityWindow.SerializerSettings));
+                }
+                else
+                {
+                    newRecActivityWindow = new RecActivityWindow(JsonConvert.DeserializeObject<FixedPeriodLookbackActivityWindow>(jsonString, RecActivityWindow.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("FixedPeriodLookbackActivityWindow");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into FixedPeriodLookbackActivityWindow: {1}", jsonString, exception.ToString()));
             }
 
             if (match == 0)

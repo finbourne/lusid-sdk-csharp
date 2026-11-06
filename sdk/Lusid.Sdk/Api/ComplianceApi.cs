@@ -86,6 +86,33 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteComplianceRuleWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] DeleteComplianceRuleV3: [EXPERIMENTAL] Delete a V3 compliance rule.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to delete a V3 compliance rule.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        DeletedEntityResponse DeleteComplianceRuleV3(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteComplianceRuleV3: [EXPERIMENTAL] Delete a V3 compliance rule.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to delete a V3 compliance rule.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteComplianceRuleV3WithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate
         /// </summary>
         /// <remarks>
@@ -112,6 +139,35 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteComplianceTemplateWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] DescribeComplianceRuleV3: [EXPERIMENTAL] Describe a V3 compliance rule in plain English.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to retrieve a plain-English description of a V3 compliance rule. The description  generator is delivered separately, so the description lines are currently empty.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="asAt">Optional. The asAt datetime at which to retrieve the rule. Default: latest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ComplianceRuleV3DescribeResponse</returns>
+        ComplianceRuleV3DescribeResponse DescribeComplianceRuleV3(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DescribeComplianceRuleV3: [EXPERIMENTAL] Describe a V3 compliance rule in plain English.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to retrieve a plain-English description of a V3 compliance rule. The description  generator is delivered separately, so the description lines are currently empty.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="asAt">Optional. The asAt datetime at which to retrieve the rule. Default: latest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ComplianceRuleV3DescribeResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3DescribeResponse> DescribeComplianceRuleV3WithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetComplianceRule: Get compliance rule.
         /// </summary>
@@ -205,6 +261,35 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceRuleResultV2</returns>
         Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2> GetComplianceRuleResultWithHttpInfo(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] GetComplianceRuleV3: [EXPERIMENTAL] Get a V3 compliance rule.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to retrieve a single V3 compliance rule.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="asAt">Optional. The asAt datetime at which to retrieve the rule. Default: latest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ComplianceRuleV3Response</returns>
+        ComplianceRuleV3Response GetComplianceRuleV3(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetComplianceRuleV3: [EXPERIMENTAL] Get a V3 compliance rule.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to retrieve a single V3 compliance rule.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="asAt">Optional. The asAt datetime at which to retrieve the rule. Default: latest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ComplianceRuleV3Response</returns>
+        Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3Response> GetComplianceRuleV3WithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetComplianceTemplate: Get the requested compliance template.
         /// </summary>
@@ -321,6 +406,39 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfComplianceRuleResponse</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRuleResponse> ListComplianceRulesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] ListComplianceRulesV3: [EXPERIMENTAL] List V3 compliance rules.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to retrieve the V3 compliance rules in the client&#39;s scopes.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="asAt">Optional. The asAt datetime at which to list rules. Default: latest. (optional)</param>
+        /// <param name="page">Optional. The pagination token from a previous call. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Not yet supported on this experimental endpoint; supplying a filter returns a 400. (optional)</param>
+        /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PagedResourceListOfComplianceRuleV3Response</returns>
+        PagedResourceListOfComplianceRuleV3Response ListComplianceRulesV3(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListComplianceRulesV3: [EXPERIMENTAL] List V3 compliance rules.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to retrieve the V3 compliance rules in the client&#39;s scopes.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="asAt">Optional. The asAt datetime at which to list rules. Default: latest. (optional)</param>
+        /// <param name="page">Optional. The pagination token from a previous call. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Not yet supported on this experimental endpoint; supplying a filter returns a 400. (optional)</param>
+        /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PagedResourceListOfComplianceRuleV3Response</returns>
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRuleV3Response> ListComplianceRulesV3WithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListComplianceRuns: List historical compliance run identifiers.
         /// </summary>
@@ -485,6 +603,31 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ComplianceRunInfoV2</returns>
         Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2> RunCompliancePreviewWithHttpInfo(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to run one or more V3 compliance rules against a portfolio group, valuing holdings  with the supplied recipe, and return each rule&#39;s result.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runComplianceV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ComplianceRunV3Response</returns>
+        ComplianceRunV3Response RunComplianceV3(RunComplianceV3Request? runComplianceV3Request = default(RunComplianceV3Request?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to run one or more V3 compliance rules against a portfolio group, valuing holdings  with the supplied recipe, and return each rule&#39;s result.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runComplianceV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ComplianceRunV3Response</returns>
+        Lusid.Sdk.Client.ApiResponse<ComplianceRunV3Response> RunComplianceV3WithHttpInfo(RunComplianceV3Request? runComplianceV3Request = default(RunComplianceV3Request?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate
         /// </summary>
         /// <remarks>
@@ -539,6 +682,31 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ComplianceRuleResponse</returns>
         Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse> UpsertComplianceRuleWithHttpInfo(UpsertComplianceRuleRequest? upsertComplianceRuleRequest = default(UpsertComplianceRuleRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] UpsertComplianceRuleV3: [EXPERIMENTAL] Upsert a V3 compliance rule.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to create or update a single V3 compliance rule. The rule&#39;s own record fully  describes what it checks.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="upsertComplianceRuleV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ComplianceRuleV3Response</returns>
+        ComplianceRuleV3Response UpsertComplianceRuleV3(UpsertComplianceRuleV3Request? upsertComplianceRuleV3Request = default(UpsertComplianceRuleV3Request?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertComplianceRuleV3: [EXPERIMENTAL] Upsert a V3 compliance rule.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to create or update a single V3 compliance rule. The rule&#39;s own record fully  describes what it checks.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="upsertComplianceRuleV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ComplianceRuleV3Response</returns>
+        Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3Response> UpsertComplianceRuleV3WithHttpInfo(UpsertComplianceRuleV3Request? upsertComplianceRuleV3Request = default(UpsertComplianceRuleV3Request?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] UpsertComplianceRunSummary: Upsert a compliance run summary.
         /// </summary>
         /// <remarks>
@@ -563,6 +731,31 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertComplianceRunSummaryResult</returns>
         Lusid.Sdk.Client.ApiResponse<UpsertComplianceRunSummaryResult> UpsertComplianceRunSummaryWithHttpInfo(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] ValidateComplianceRuleV3: [EXPERIMENTAL] Validate a V3 compliance rule definition.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to validate a V3 compliance rule definition against the vocabulary and its  referenced reference lists without persisting it. A validation failure returns a 400.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="upsertComplianceRuleV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ComplianceRuleV3Response</returns>
+        ComplianceRuleV3Response ValidateComplianceRuleV3(UpsertComplianceRuleV3Request? upsertComplianceRuleV3Request = default(UpsertComplianceRuleV3Request?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ValidateComplianceRuleV3: [EXPERIMENTAL] Validate a V3 compliance rule definition.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to validate a V3 compliance rule definition against the vocabulary and its  referenced reference lists without persisting it. A validation failure returns a 400.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="upsertComplianceRuleV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ComplianceRuleV3Response</returns>
+        Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3Response> ValidateComplianceRuleV3WithHttpInfo(UpsertComplianceRuleV3Request? upsertComplianceRuleV3Request = default(UpsertComplianceRuleV3Request?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -631,6 +824,35 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteComplianceRuleWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] DeleteComplianceRuleV3: [EXPERIMENTAL] Delete a V3 compliance rule.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to delete a V3 compliance rule.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteComplianceRuleV3Async(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteComplianceRuleV3: [EXPERIMENTAL] Delete a V3 compliance rule.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to delete a V3 compliance rule.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteComplianceRuleV3WithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate
         /// </summary>
         /// <remarks>
@@ -659,6 +881,37 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteComplianceTemplateWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] DescribeComplianceRuleV3: [EXPERIMENTAL] Describe a V3 compliance rule in plain English.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to retrieve a plain-English description of a V3 compliance rule. The description  generator is delivered separately, so the description lines are currently empty.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="asAt">Optional. The asAt datetime at which to retrieve the rule. Default: latest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ComplianceRuleV3DescribeResponse</returns>
+        System.Threading.Tasks.Task<ComplianceRuleV3DescribeResponse> DescribeComplianceRuleV3Async(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DescribeComplianceRuleV3: [EXPERIMENTAL] Describe a V3 compliance rule in plain English.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to retrieve a plain-English description of a V3 compliance rule. The description  generator is delivered separately, so the description lines are currently empty.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="asAt">Optional. The asAt datetime at which to retrieve the rule. Default: latest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRuleV3DescribeResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3DescribeResponse>> DescribeComplianceRuleV3WithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetComplianceRule: Get compliance rule.
         /// </summary>
@@ -758,6 +1011,37 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ComplianceRuleResultV2)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2>> GetComplianceRuleResultWithHttpInfoAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] GetComplianceRuleV3: [EXPERIMENTAL] Get a V3 compliance rule.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to retrieve a single V3 compliance rule.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="asAt">Optional. The asAt datetime at which to retrieve the rule. Default: latest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ComplianceRuleV3Response</returns>
+        System.Threading.Tasks.Task<ComplianceRuleV3Response> GetComplianceRuleV3Async(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetComplianceRuleV3: [EXPERIMENTAL] Get a V3 compliance rule.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to retrieve a single V3 compliance rule.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="asAt">Optional. The asAt datetime at which to retrieve the rule. Default: latest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRuleV3Response)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3Response>> GetComplianceRuleV3WithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetComplianceTemplate: Get the requested compliance template.
         /// </summary>
@@ -882,6 +1166,41 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfComplianceRuleResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRuleResponse>> ListComplianceRulesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] ListComplianceRulesV3: [EXPERIMENTAL] List V3 compliance rules.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to retrieve the V3 compliance rules in the client&#39;s scopes.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="asAt">Optional. The asAt datetime at which to list rules. Default: latest. (optional)</param>
+        /// <param name="page">Optional. The pagination token from a previous call. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Not yet supported on this experimental endpoint; supplying a filter returns a 400. (optional)</param>
+        /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PagedResourceListOfComplianceRuleV3Response</returns>
+        System.Threading.Tasks.Task<PagedResourceListOfComplianceRuleV3Response> ListComplianceRulesV3Async(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListComplianceRulesV3: [EXPERIMENTAL] List V3 compliance rules.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to retrieve the V3 compliance rules in the client&#39;s scopes.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="asAt">Optional. The asAt datetime at which to list rules. Default: latest. (optional)</param>
+        /// <param name="page">Optional. The pagination token from a previous call. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Not yet supported on this experimental endpoint; supplying a filter returns a 400. (optional)</param>
+        /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfComplianceRuleV3Response)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRuleV3Response>> ListComplianceRulesV3WithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListComplianceRuns: List historical compliance run identifiers.
         /// </summary>
@@ -1056,6 +1375,33 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ComplianceRunInfoV2)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2>> RunCompliancePreviewWithHttpInfoAsync(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to run one or more V3 compliance rules against a portfolio group, valuing holdings  with the supplied recipe, and return each rule&#39;s result.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runComplianceV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ComplianceRunV3Response</returns>
+        System.Threading.Tasks.Task<ComplianceRunV3Response> RunComplianceV3Async(RunComplianceV3Request? runComplianceV3Request = default(RunComplianceV3Request?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to run one or more V3 compliance rules against a portfolio group, valuing holdings  with the supplied recipe, and return each rule&#39;s result.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runComplianceV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRunV3Response)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRunV3Response>> RunComplianceV3WithHttpInfoAsync(RunComplianceV3Request? runComplianceV3Request = default(RunComplianceV3Request?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate
         /// </summary>
         /// <remarks>
@@ -1114,6 +1460,33 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ComplianceRuleResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse>> UpsertComplianceRuleWithHttpInfoAsync(UpsertComplianceRuleRequest? upsertComplianceRuleRequest = default(UpsertComplianceRuleRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] UpsertComplianceRuleV3: [EXPERIMENTAL] Upsert a V3 compliance rule.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to create or update a single V3 compliance rule. The rule&#39;s own record fully  describes what it checks.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="upsertComplianceRuleV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ComplianceRuleV3Response</returns>
+        System.Threading.Tasks.Task<ComplianceRuleV3Response> UpsertComplianceRuleV3Async(UpsertComplianceRuleV3Request? upsertComplianceRuleV3Request = default(UpsertComplianceRuleV3Request?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertComplianceRuleV3: [EXPERIMENTAL] Upsert a V3 compliance rule.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to create or update a single V3 compliance rule. The rule&#39;s own record fully  describes what it checks.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="upsertComplianceRuleV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRuleV3Response)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3Response>> UpsertComplianceRuleV3WithHttpInfoAsync(UpsertComplianceRuleV3Request? upsertComplianceRuleV3Request = default(UpsertComplianceRuleV3Request?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] UpsertComplianceRunSummary: Upsert a compliance run summary.
         /// </summary>
         /// <remarks>
@@ -1140,6 +1513,33 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertComplianceRunSummaryResult)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertComplianceRunSummaryResult>> UpsertComplianceRunSummaryWithHttpInfoAsync(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] ValidateComplianceRuleV3: [EXPERIMENTAL] Validate a V3 compliance rule definition.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to validate a V3 compliance rule definition against the vocabulary and its  referenced reference lists without persisting it. A validation failure returns a 400.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="upsertComplianceRuleV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ComplianceRuleV3Response</returns>
+        System.Threading.Tasks.Task<ComplianceRuleV3Response> ValidateComplianceRuleV3Async(UpsertComplianceRuleV3Request? upsertComplianceRuleV3Request = default(UpsertComplianceRuleV3Request?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ValidateComplianceRuleV3: [EXPERIMENTAL] Validate a V3 compliance rule definition.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to validate a V3 compliance rule definition against the vocabulary and its  referenced reference lists without persisting it. A validation failure returns a 400.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="upsertComplianceRuleV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRuleV3Response)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3Response>> ValidateComplianceRuleV3WithHttpInfoAsync(UpsertComplianceRuleV3Request? upsertComplianceRuleV3Request = default(UpsertComplianceRuleV3Request?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -1716,6 +2116,228 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
+        /// [EXPERIMENTAL] DeleteComplianceRuleV3: [EXPERIMENTAL] Delete a V3 compliance rule. Use this endpoint to delete a V3 compliance rule.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        public DeletedEntityResponse DeleteComplianceRuleV3(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteComplianceRuleV3WithHttpInfo(scope, code, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteComplianceRuleV3: [EXPERIMENTAL] Delete a V3 compliance rule. Use this endpoint to delete a V3 compliance rule.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteComplianceRuleV3WithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ComplianceApi->DeleteComplianceRuleV3");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ComplianceApi->DeleteComplianceRuleV3");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+
+            localVarRequestOptions.Operation = "ComplianceApi.DeleteComplianceRuleV3";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/compliance/v3/rules/{scope}/{code}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteComplianceRuleV3", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteComplianceRuleV3: [EXPERIMENTAL] Delete a V3 compliance rule. Use this endpoint to delete a V3 compliance rule.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteComplianceRuleV3Async(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteComplianceRuleV3WithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteComplianceRuleV3: [EXPERIMENTAL] Delete a V3 compliance rule. Use this endpoint to delete a V3 compliance rule.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteComplianceRuleV3WithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ComplianceApi->DeleteComplianceRuleV3");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ComplianceApi->DeleteComplianceRuleV3");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+
+            localVarRequestOptions.Operation = "ComplianceApi.DeleteComplianceRuleV3";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/compliance/v3/rules/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteComplianceRuleV3", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate Delete the compliance rule template uniquely defined by the scope and code.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1928,6 +2550,241 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteComplianceTemplate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DescribeComplianceRuleV3: [EXPERIMENTAL] Describe a V3 compliance rule in plain English. Use this endpoint to retrieve a plain-English description of a V3 compliance rule. The description  generator is delivered separately, so the description lines are currently empty.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="asAt">Optional. The asAt datetime at which to retrieve the rule. Default: latest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ComplianceRuleV3DescribeResponse</returns>
+        public ComplianceRuleV3DescribeResponse DescribeComplianceRuleV3(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3DescribeResponse> localVarResponse = DescribeComplianceRuleV3WithHttpInfo(scope, code, asAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DescribeComplianceRuleV3: [EXPERIMENTAL] Describe a V3 compliance rule in plain English. Use this endpoint to retrieve a plain-English description of a V3 compliance rule. The description  generator is delivered separately, so the description lines are currently empty.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="asAt">Optional. The asAt datetime at which to retrieve the rule. Default: latest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ComplianceRuleV3DescribeResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3DescribeResponse> DescribeComplianceRuleV3WithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ComplianceApi->DescribeComplianceRuleV3");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ComplianceApi->DescribeComplianceRuleV3");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "ComplianceApi.DescribeComplianceRuleV3";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ComplianceRuleV3DescribeResponse>("/api/compliance/v3/rules/{scope}/{code}/$describe", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DescribeComplianceRuleV3", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DescribeComplianceRuleV3: [EXPERIMENTAL] Describe a V3 compliance rule in plain English. Use this endpoint to retrieve a plain-English description of a V3 compliance rule. The description  generator is delivered separately, so the description lines are currently empty.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="asAt">Optional. The asAt datetime at which to retrieve the rule. Default: latest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ComplianceRuleV3DescribeResponse</returns>
+        public async System.Threading.Tasks.Task<ComplianceRuleV3DescribeResponse> DescribeComplianceRuleV3Async(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3DescribeResponse> localVarResponse = await DescribeComplianceRuleV3WithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DescribeComplianceRuleV3: [EXPERIMENTAL] Describe a V3 compliance rule in plain English. Use this endpoint to retrieve a plain-English description of a V3 compliance rule. The description  generator is delivered separately, so the description lines are currently empty.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="asAt">Optional. The asAt datetime at which to retrieve the rule. Default: latest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRuleV3DescribeResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3DescribeResponse>> DescribeComplianceRuleV3WithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ComplianceApi->DescribeComplianceRuleV3");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ComplianceApi->DescribeComplianceRuleV3");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "ComplianceApi.DescribeComplianceRuleV3";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ComplianceRuleV3DescribeResponse>("/api/compliance/v3/rules/{scope}/{code}/$describe", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DescribeComplianceRuleV3", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2692,6 +3549,241 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetComplianceRuleResult", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetComplianceRuleV3: [EXPERIMENTAL] Get a V3 compliance rule. Use this endpoint to retrieve a single V3 compliance rule.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="asAt">Optional. The asAt datetime at which to retrieve the rule. Default: latest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ComplianceRuleV3Response</returns>
+        public ComplianceRuleV3Response GetComplianceRuleV3(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3Response> localVarResponse = GetComplianceRuleV3WithHttpInfo(scope, code, asAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetComplianceRuleV3: [EXPERIMENTAL] Get a V3 compliance rule. Use this endpoint to retrieve a single V3 compliance rule.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="asAt">Optional. The asAt datetime at which to retrieve the rule. Default: latest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ComplianceRuleV3Response</returns>
+        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3Response> GetComplianceRuleV3WithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ComplianceApi->GetComplianceRuleV3");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ComplianceApi->GetComplianceRuleV3");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "ComplianceApi.GetComplianceRuleV3";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ComplianceRuleV3Response>("/api/compliance/v3/rules/{scope}/{code}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetComplianceRuleV3", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetComplianceRuleV3: [EXPERIMENTAL] Get a V3 compliance rule. Use this endpoint to retrieve a single V3 compliance rule.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="asAt">Optional. The asAt datetime at which to retrieve the rule. Default: latest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ComplianceRuleV3Response</returns>
+        public async System.Threading.Tasks.Task<ComplianceRuleV3Response> GetComplianceRuleV3Async(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3Response> localVarResponse = await GetComplianceRuleV3WithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetComplianceRuleV3: [EXPERIMENTAL] Get a V3 compliance rule. Use this endpoint to retrieve a single V3 compliance rule.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The compliance rule&#39;s scope.</param>
+        /// <param name="code">The compliance rule&#39;s code.</param>
+        /// <param name="asAt">Optional. The asAt datetime at which to retrieve the rule. Default: latest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRuleV3Response)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3Response>> GetComplianceRuleV3WithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ComplianceApi->GetComplianceRuleV3");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ComplianceApi->GetComplianceRuleV3");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "ComplianceApi.GetComplianceRuleV3";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ComplianceRuleV3Response>("/api/compliance/v3/rules/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetComplianceRuleV3", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -3613,6 +4705,257 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListComplianceRules", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListComplianceRulesV3: [EXPERIMENTAL] List V3 compliance rules. Use this endpoint to retrieve the V3 compliance rules in the client&#39;s scopes.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="asAt">Optional. The asAt datetime at which to list rules. Default: latest. (optional)</param>
+        /// <param name="page">Optional. The pagination token from a previous call. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Not yet supported on this experimental endpoint; supplying a filter returns a 400. (optional)</param>
+        /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PagedResourceListOfComplianceRuleV3Response</returns>
+        public PagedResourceListOfComplianceRuleV3Response ListComplianceRulesV3(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRuleV3Response> localVarResponse = ListComplianceRulesV3WithHttpInfo(asAt, page, limit, filter, sortBy, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListComplianceRulesV3: [EXPERIMENTAL] List V3 compliance rules. Use this endpoint to retrieve the V3 compliance rules in the client&#39;s scopes.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="asAt">Optional. The asAt datetime at which to list rules. Default: latest. (optional)</param>
+        /// <param name="page">Optional. The pagination token from a previous call. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Not yet supported on this experimental endpoint; supplying a filter returns a 400. (optional)</param>
+        /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PagedResourceListOfComplianceRuleV3Response</returns>
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRuleV3Response> ListComplianceRulesV3WithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (page != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (sortBy != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
+            }
+
+            localVarRequestOptions.Operation = "ComplianceApi.ListComplianceRulesV3";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<PagedResourceListOfComplianceRuleV3Response>("/api/compliance/v3/rules", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListComplianceRulesV3", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListComplianceRulesV3: [EXPERIMENTAL] List V3 compliance rules. Use this endpoint to retrieve the V3 compliance rules in the client&#39;s scopes.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="asAt">Optional. The asAt datetime at which to list rules. Default: latest. (optional)</param>
+        /// <param name="page">Optional. The pagination token from a previous call. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Not yet supported on this experimental endpoint; supplying a filter returns a 400. (optional)</param>
+        /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PagedResourceListOfComplianceRuleV3Response</returns>
+        public async System.Threading.Tasks.Task<PagedResourceListOfComplianceRuleV3Response> ListComplianceRulesV3Async(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRuleV3Response> localVarResponse = await ListComplianceRulesV3WithHttpInfoAsync(asAt, page, limit, filter, sortBy, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListComplianceRulesV3: [EXPERIMENTAL] List V3 compliance rules. Use this endpoint to retrieve the V3 compliance rules in the client&#39;s scopes.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="asAt">Optional. The asAt datetime at which to list rules. Default: latest. (optional)</param>
+        /// <param name="page">Optional. The pagination token from a previous call. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Not yet supported on this experimental endpoint; supplying a filter returns a 400. (optional)</param>
+        /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfComplianceRuleV3Response)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRuleV3Response>> ListComplianceRulesV3WithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
+            }
+
+            localVarRequestOptions.Operation = "ComplianceApi.ListComplianceRulesV3";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfComplianceRuleV3Response>("/api/compliance/v3/rules", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListComplianceRulesV3", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -4899,6 +6242,206 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
+        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group. Use this endpoint to run one or more V3 compliance rules against a portfolio group, valuing holdings  with the supplied recipe, and return each rule&#39;s result.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runComplianceV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ComplianceRunV3Response</returns>
+        public ComplianceRunV3Response RunComplianceV3(RunComplianceV3Request? runComplianceV3Request = default(RunComplianceV3Request?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRunV3Response> localVarResponse = RunComplianceV3WithHttpInfo(runComplianceV3Request, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group. Use this endpoint to run one or more V3 compliance rules against a portfolio group, valuing holdings  with the supplied recipe, and return each rule&#39;s result.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runComplianceV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ComplianceRunV3Response</returns>
+        public Lusid.Sdk.Client.ApiResponse<ComplianceRunV3Response> RunComplianceV3WithHttpInfo(RunComplianceV3Request? runComplianceV3Request = default(RunComplianceV3Request?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = runComplianceV3Request;
+
+            localVarRequestOptions.Operation = "ComplianceApi.RunComplianceV3";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ComplianceRunV3Response>("/api/compliance/v3/runs", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RunComplianceV3", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group. Use this endpoint to run one or more V3 compliance rules against a portfolio group, valuing holdings  with the supplied recipe, and return each rule&#39;s result.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runComplianceV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ComplianceRunV3Response</returns>
+        public async System.Threading.Tasks.Task<ComplianceRunV3Response> RunComplianceV3Async(RunComplianceV3Request? runComplianceV3Request = default(RunComplianceV3Request?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRunV3Response> localVarResponse = await RunComplianceV3WithHttpInfoAsync(runComplianceV3Request, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group. Use this endpoint to run one or more V3 compliance rules against a portfolio group, valuing holdings  with the supplied recipe, and return each rule&#39;s result.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runComplianceV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRunV3Response)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRunV3Response>> RunComplianceV3WithHttpInfoAsync(RunComplianceV3Request? runComplianceV3Request = default(RunComplianceV3Request?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = runComplianceV3Request;
+
+            localVarRequestOptions.Operation = "ComplianceApi.RunComplianceV3";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ComplianceRunV3Response>("/api/compliance/v3/runs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RunComplianceV3", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate Use this endpoint to update a specified compliance template.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5347,6 +6890,206 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
+        /// [EXPERIMENTAL] UpsertComplianceRuleV3: [EXPERIMENTAL] Upsert a V3 compliance rule. Use this endpoint to create or update a single V3 compliance rule. The rule&#39;s own record fully  describes what it checks.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="upsertComplianceRuleV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ComplianceRuleV3Response</returns>
+        public ComplianceRuleV3Response UpsertComplianceRuleV3(UpsertComplianceRuleV3Request? upsertComplianceRuleV3Request = default(UpsertComplianceRuleV3Request?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3Response> localVarResponse = UpsertComplianceRuleV3WithHttpInfo(upsertComplianceRuleV3Request, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertComplianceRuleV3: [EXPERIMENTAL] Upsert a V3 compliance rule. Use this endpoint to create or update a single V3 compliance rule. The rule&#39;s own record fully  describes what it checks.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="upsertComplianceRuleV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ComplianceRuleV3Response</returns>
+        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3Response> UpsertComplianceRuleV3WithHttpInfo(UpsertComplianceRuleV3Request? upsertComplianceRuleV3Request = default(UpsertComplianceRuleV3Request?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = upsertComplianceRuleV3Request;
+
+            localVarRequestOptions.Operation = "ComplianceApi.UpsertComplianceRuleV3";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ComplianceRuleV3Response>("/api/compliance/v3/rules", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertComplianceRuleV3", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertComplianceRuleV3: [EXPERIMENTAL] Upsert a V3 compliance rule. Use this endpoint to create or update a single V3 compliance rule. The rule&#39;s own record fully  describes what it checks.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="upsertComplianceRuleV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ComplianceRuleV3Response</returns>
+        public async System.Threading.Tasks.Task<ComplianceRuleV3Response> UpsertComplianceRuleV3Async(UpsertComplianceRuleV3Request? upsertComplianceRuleV3Request = default(UpsertComplianceRuleV3Request?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3Response> localVarResponse = await UpsertComplianceRuleV3WithHttpInfoAsync(upsertComplianceRuleV3Request, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertComplianceRuleV3: [EXPERIMENTAL] Upsert a V3 compliance rule. Use this endpoint to create or update a single V3 compliance rule. The rule&#39;s own record fully  describes what it checks.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="upsertComplianceRuleV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRuleV3Response)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3Response>> UpsertComplianceRuleV3WithHttpInfoAsync(UpsertComplianceRuleV3Request? upsertComplianceRuleV3Request = default(UpsertComplianceRuleV3Request?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = upsertComplianceRuleV3Request;
+
+            localVarRequestOptions.Operation = "ComplianceApi.UpsertComplianceRuleV3";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ComplianceRuleV3Response>("/api/compliance/v3/rules", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertComplianceRuleV3", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// [EARLY ACCESS] UpsertComplianceRunSummary: Upsert a compliance run summary. Use this endpoint to upsert a compliance run result summary.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5537,6 +7280,206 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpsertComplianceRunSummary", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ValidateComplianceRuleV3: [EXPERIMENTAL] Validate a V3 compliance rule definition. Use this endpoint to validate a V3 compliance rule definition against the vocabulary and its  referenced reference lists without persisting it. A validation failure returns a 400.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="upsertComplianceRuleV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ComplianceRuleV3Response</returns>
+        public ComplianceRuleV3Response ValidateComplianceRuleV3(UpsertComplianceRuleV3Request? upsertComplianceRuleV3Request = default(UpsertComplianceRuleV3Request?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3Response> localVarResponse = ValidateComplianceRuleV3WithHttpInfo(upsertComplianceRuleV3Request, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ValidateComplianceRuleV3: [EXPERIMENTAL] Validate a V3 compliance rule definition. Use this endpoint to validate a V3 compliance rule definition against the vocabulary and its  referenced reference lists without persisting it. A validation failure returns a 400.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="upsertComplianceRuleV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ComplianceRuleV3Response</returns>
+        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3Response> ValidateComplianceRuleV3WithHttpInfo(UpsertComplianceRuleV3Request? upsertComplianceRuleV3Request = default(UpsertComplianceRuleV3Request?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = upsertComplianceRuleV3Request;
+
+            localVarRequestOptions.Operation = "ComplianceApi.ValidateComplianceRuleV3";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ComplianceRuleV3Response>("/api/compliance/v3/rules/$validate", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ValidateComplianceRuleV3", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ValidateComplianceRuleV3: [EXPERIMENTAL] Validate a V3 compliance rule definition. Use this endpoint to validate a V3 compliance rule definition against the vocabulary and its  referenced reference lists without persisting it. A validation failure returns a 400.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="upsertComplianceRuleV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ComplianceRuleV3Response</returns>
+        public async System.Threading.Tasks.Task<ComplianceRuleV3Response> ValidateComplianceRuleV3Async(UpsertComplianceRuleV3Request? upsertComplianceRuleV3Request = default(UpsertComplianceRuleV3Request?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3Response> localVarResponse = await ValidateComplianceRuleV3WithHttpInfoAsync(upsertComplianceRuleV3Request, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ValidateComplianceRuleV3: [EXPERIMENTAL] Validate a V3 compliance rule definition. Use this endpoint to validate a V3 compliance rule definition against the vocabulary and its  referenced reference lists without persisting it. A validation failure returns a 400.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="upsertComplianceRuleV3Request"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRuleV3Response)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleV3Response>> ValidateComplianceRuleV3WithHttpInfoAsync(UpsertComplianceRuleV3Request? upsertComplianceRuleV3Request = default(UpsertComplianceRuleV3Request?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = upsertComplianceRuleV3Request;
+
+            localVarRequestOptions.Operation = "ComplianceApi.ValidateComplianceRuleV3";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ComplianceRuleV3Response>("/api/compliance/v3/rules/$validate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ValidateComplianceRuleV3", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

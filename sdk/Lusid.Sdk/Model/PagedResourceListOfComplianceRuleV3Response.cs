@@ -23,55 +23,37 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ResourceListOfCashFlowDetail
+    /// PagedResourceListOfComplianceRuleV3Response
     /// </summary>
-    [DataContract(Name = "ResourceListOfCashFlowDetail")]
-    public partial class ResourceListOfCashFlowDetail : IEquatable<ResourceListOfCashFlowDetail>, IValidatableObject
+    [DataContract(Name = "PagedResourceListOfComplianceRuleV3Response")]
+    public partial class PagedResourceListOfComplianceRuleV3Response : IEquatable<PagedResourceListOfComplianceRuleV3Response>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfCashFlowDetail" /> class.
+        /// Initializes a new instance of the <see cref="PagedResourceListOfComplianceRuleV3Response" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ResourceListOfCashFlowDetail() { }
+        protected PagedResourceListOfComplianceRuleV3Response() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfCashFlowDetail" /> class.
+        /// Initializes a new instance of the <see cref="PagedResourceListOfComplianceRuleV3Response" /> class.
         /// </summary>
+        /// <param name="nextPage">nextPage.</param>
+        /// <param name="previousPage">previousPage.</param>
         /// <param name="values">values (required).</param>
         /// <param name="href">href.</param>
         /// <param name="links">links.</param>
-        /// <param name="nextPage">nextPage.</param>
-        /// <param name="previousPage">previousPage.</param>
-        public ResourceListOfCashFlowDetail(List<CashFlowDetail> values = default(List<CashFlowDetail>), string href = default(string), List<Link> links = default(List<Link>), string nextPage = default(string), string previousPage = default(string))
+        public PagedResourceListOfComplianceRuleV3Response(string nextPage = default(string), string previousPage = default(string), List<ComplianceRuleV3Response> values = default(List<ComplianceRuleV3Response>), string href = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "values" is required (not null)
             if (values == null)
             {
-                throw new ArgumentNullException("values is a required property for ResourceListOfCashFlowDetail and cannot be null");
+                throw new ArgumentNullException("values is a required property for PagedResourceListOfComplianceRuleV3Response and cannot be null");
             }
             this.Values = values;
-            this.Href = href;
-            this.Links = links;
             this.NextPage = nextPage;
             this.PreviousPage = previousPage;
+            this.Href = href;
+            this.Links = links;
         }
-
-        /// <summary>
-        /// Gets or Sets Values
-        /// </summary>
-        [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = true)]
-        public List<CashFlowDetail> Values { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Href
-        /// </summary>
-        [DataMember(Name = "href", EmitDefaultValue = true)]
-        public string Href { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Links
-        /// </summary>
-        [DataMember(Name = "links", EmitDefaultValue = true)]
-        public List<Link> Links { get; set; }
 
         /// <summary>
         /// Gets or Sets NextPage
@@ -86,18 +68,36 @@ namespace Lusid.Sdk.Model
         public string PreviousPage { get; set; }
 
         /// <summary>
+        /// Gets or Sets Values
+        /// </summary>
+        [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = true)]
+        public List<ComplianceRuleV3Response> Values { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Href
+        /// </summary>
+        [DataMember(Name = "href", EmitDefaultValue = true)]
+        public string Href { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name = "links", EmitDefaultValue = true)]
+        public List<Link> Links { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ResourceListOfCashFlowDetail {\n");
+            sb.Append("class PagedResourceListOfComplianceRuleV3Response {\n");
+            sb.Append("  NextPage: ").Append(NextPage).Append("\n");
+            sb.Append("  PreviousPage: ").Append(PreviousPage).Append("\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  NextPage: ").Append(NextPage).Append("\n");
-            sb.Append("  PreviousPage: ").Append(PreviousPage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,21 +118,31 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ResourceListOfCashFlowDetail);
+            return this.Equals(input as PagedResourceListOfComplianceRuleV3Response);
         }
 
         /// <summary>
-        /// Returns true if ResourceListOfCashFlowDetail instances are equal
+        /// Returns true if PagedResourceListOfComplianceRuleV3Response instances are equal
         /// </summary>
-        /// <param name="input">Instance of ResourceListOfCashFlowDetail to be compared</param>
+        /// <param name="input">Instance of PagedResourceListOfComplianceRuleV3Response to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ResourceListOfCashFlowDetail input)
+        public bool Equals(PagedResourceListOfComplianceRuleV3Response input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
+                (
+                    this.NextPage == input.NextPage ||
+                    (this.NextPage != null &&
+                    this.NextPage.Equals(input.NextPage))
+                ) && 
+                (
+                    this.PreviousPage == input.PreviousPage ||
+                    (this.PreviousPage != null &&
+                    this.PreviousPage.Equals(input.PreviousPage))
+                ) && 
                 (
                     this.Values == input.Values ||
                     this.Values != null &&
@@ -149,16 +159,6 @@ namespace Lusid.Sdk.Model
                     this.Links != null &&
                     input.Links != null &&
                     this.Links.SequenceEqual(input.Links)
-                ) && 
-                (
-                    this.NextPage == input.NextPage ||
-                    (this.NextPage != null &&
-                    this.NextPage.Equals(input.NextPage))
-                ) && 
-                (
-                    this.PreviousPage == input.PreviousPage ||
-                    (this.PreviousPage != null &&
-                    this.PreviousPage.Equals(input.PreviousPage))
                 );
         }
 
@@ -171,6 +171,14 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.NextPage != null)
+                {
+                    hashCode = (hashCode * 59) + this.NextPage.GetHashCode();
+                }
+                if (this.PreviousPage != null)
+                {
+                    hashCode = (hashCode * 59) + this.PreviousPage.GetHashCode();
+                }
                 if (this.Values != null)
                 {
                     hashCode = (hashCode * 59) + this.Values.GetHashCode();
@@ -182,14 +190,6 @@ namespace Lusid.Sdk.Model
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();
-                }
-                if (this.NextPage != null)
-                {
-                    hashCode = (hashCode * 59) + this.NextPage.GetHashCode();
-                }
-                if (this.PreviousPage != null)
-                {
-                    hashCode = (hashCode * 59) + this.PreviousPage.GetHashCode();
                 }
                 return hashCode;
             }

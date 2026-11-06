@@ -31,16 +31,16 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReturnZeroPvOptions" /> class.
         /// </summary>
-        /// <param name="instrumentMatured">Indicates whether attempting to value an instrument after its maturity date should produce a failure (false)  or a zero PV (true)..</param>
+        /// <param name="instrumentMatured">Deprecated: use pricing.options.maturedInstrumentValuation, where true corresponds to  \&quot;ZeroPv\&quot; and false to \&quot;Fail\&quot;. Indicates whether attempting to value an instrument after  its maturity date should produce a failure (false) or a zero PV (true).  Ignored when maturedInstrumentValuation is set..</param>
         public ReturnZeroPvOptions(bool instrumentMatured = default(bool))
         {
             this.InstrumentMatured = instrumentMatured;
         }
 
         /// <summary>
-        /// Indicates whether attempting to value an instrument after its maturity date should produce a failure (false)  or a zero PV (true).
+        /// Deprecated: use pricing.options.maturedInstrumentValuation, where true corresponds to  \&quot;ZeroPv\&quot; and false to \&quot;Fail\&quot;. Indicates whether attempting to value an instrument after  its maturity date should produce a failure (false) or a zero PV (true).  Ignored when maturedInstrumentValuation is set.
         /// </summary>
-        /// <value>Indicates whether attempting to value an instrument after its maturity date should produce a failure (false)  or a zero PV (true).</value>
+        /// <value>Deprecated: use pricing.options.maturedInstrumentValuation, where true corresponds to  \&quot;ZeroPv\&quot; and false to \&quot;Fail\&quot;. Indicates whether attempting to value an instrument after  its maturity date should produce a failure (false) or a zero PV (true).  Ignored when maturedInstrumentValuation is set.</value>
         [DataMember(Name = "instrumentMatured", EmitDefaultValue = true)]
         public bool InstrumentMatured { get; set; }
 

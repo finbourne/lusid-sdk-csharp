@@ -51,7 +51,8 @@ namespace Lusid.Sdk.Model
         /// <param name="shards">The valuation shards the run is planned as, with their progress. (required).</param>
         /// <param name="scenarios">The stored scenarios the run values the agreements under, each beside the base market the run always values. Empty if only the base market was valued. (required).</param>
         /// <param name="captureDiagnostics">Whether the run stored the working behind its figures, so that they can be explained. Null for a run made before runs could store it, which did not..</param>
-        public MarginRun(string href = default(string), string id = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), string status = default(string), List<ResourceId> agreements = default(List<ResourceId>), int callCount = default(int), int lineCount = default(int), int shardCount = default(int), int completedShards = default(int), int failedShards = default(int), List<MarginRunIssue> issues = default(List<MarginRunIssue>), List<MarginRunShard> shards = default(List<MarginRunShard>), List<ResourceId> scenarios = default(List<ResourceId>), bool? captureDiagnostics = default(bool?))
+        /// <param name="optimisation">optimisation.</param>
+        public MarginRun(string href = default(string), string id = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), string status = default(string), List<ResourceId> agreements = default(List<ResourceId>), int callCount = default(int), int lineCount = default(int), int shardCount = default(int), int completedShards = default(int), int failedShards = default(int), List<MarginRunIssue> issues = default(List<MarginRunIssue>), List<MarginRunShard> shards = default(List<MarginRunShard>), List<ResourceId> scenarios = default(List<ResourceId>), bool? captureDiagnostics = default(bool?), MarginRunOptimisation optimisation = default(MarginRunOptimisation))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -98,6 +99,7 @@ namespace Lusid.Sdk.Model
             this.Scenarios = scenarios;
             this.Href = href;
             this.CaptureDiagnostics = captureDiagnostics;
+            this.Optimisation = optimisation;
         }
 
         /// <summary>
@@ -206,6 +208,12 @@ namespace Lusid.Sdk.Model
         public bool? CaptureDiagnostics { get; set; }
 
         /// <summary>
+        /// Gets or Sets Optimisation
+        /// </summary>
+        [DataMember(Name = "optimisation", EmitDefaultValue = false)]
+        public MarginRunOptimisation Optimisation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -228,6 +236,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Shards: ").Append(Shards).Append("\n");
             sb.Append("  Scenarios: ").Append(Scenarios).Append("\n");
             sb.Append("  CaptureDiagnostics: ").Append(CaptureDiagnostics).Append("\n");
+            sb.Append("  Optimisation: ").Append(Optimisation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -336,6 +345,11 @@ namespace Lusid.Sdk.Model
                     this.CaptureDiagnostics == input.CaptureDiagnostics ||
                     (this.CaptureDiagnostics != null &&
                     this.CaptureDiagnostics.Equals(input.CaptureDiagnostics))
+                ) && 
+                (
+                    this.Optimisation == input.Optimisation ||
+                    (this.Optimisation != null &&
+                    this.Optimisation.Equals(input.Optimisation))
                 );
         }
 
@@ -392,6 +406,10 @@ namespace Lusid.Sdk.Model
                 if (this.CaptureDiagnostics != null)
                 {
                     hashCode = (hashCode * 59) + this.CaptureDiagnostics.GetHashCode();
+                }
+                if (this.Optimisation != null)
+                {
+                    hashCode = (hashCode * 59) + this.Optimisation.GetHashCode();
                 }
                 return hashCode;
             }

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Schedules** | [**List&lt;Schedule&gt;**](Schedule.md) | Repayment schedules for the loan. | 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 **TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
+**OriginalIssuePrice** | **decimal?** | The price the loan was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -36,7 +37,8 @@ FlexibleLoan flexibleLoanInstance = new FlexibleLoan(
     parentFacilityDetails: parentFacilityDetails,
     schedules: schedules,
     timeZoneConventions: timeZoneConventions,
-    tradingConventions: tradingConventions);
+    tradingConventions: tradingConventions,
+    originalIssuePrice: originalIssuePrice);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

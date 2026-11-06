@@ -59,6 +59,35 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of AmortisationRuleSet</returns>
         Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> CreateAmortisationRuleSetWithHttpInfo(string scope, CreateAmortisationRuleSetRequest createAmortisationRuleSetRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// DeleteAmortisationRulesInterval: Delete a rules interval of an amortisation rule set.
+        /// </summary>
+        /// <remarks>
+        /// Deletes the rules interval that starts at the given from date. The interval before it, if any, then applies  until the next interval starts. If there is no interval before it, the rule set has no rules until the next  interval starts.                The from date must be the start of an interval. A date inside an interval does not identify one.                The interval remains viewable at previous as at times.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The rule set scope.</param>
+        /// <param name="code">The rule set code.</param>
+        /// <param name="fromDate">The from date of the interval to delete, as a date, datetime or cut label.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        DeletedEntityResponse DeleteAmortisationRulesInterval(string scope, string code, DateTimeOrCutLabel fromDate, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// DeleteAmortisationRulesInterval: Delete a rules interval of an amortisation rule set.
+        /// </summary>
+        /// <remarks>
+        /// Deletes the rules interval that starts at the given from date. The interval before it, if any, then applies  until the next interval starts. If there is no interval before it, the rule set has no rules until the next  interval starts.                The from date must be the start of an interval. A date inside an interval does not identify one.                The interval remains viewable at previous as at times.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The rule set scope.</param>
+        /// <param name="code">The rule set code.</param>
+        /// <param name="fromDate">The from date of the interval to delete, as a date, datetime or cut label.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteAmortisationRulesIntervalWithHttpInfo(string scope, string code, DateTimeOrCutLabel fromDate, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
         /// </summary>
         /// <remarks>
@@ -280,6 +309,37 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AmortisationRuleSet)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet>> CreateAmortisationRuleSetWithHttpInfoAsync(string scope, CreateAmortisationRuleSetRequest createAmortisationRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// DeleteAmortisationRulesInterval: Delete a rules interval of an amortisation rule set.
+        /// </summary>
+        /// <remarks>
+        /// Deletes the rules interval that starts at the given from date. The interval before it, if any, then applies  until the next interval starts. If there is no interval before it, the rule set has no rules until the next  interval starts.                The from date must be the start of an interval. A date inside an interval does not identify one.                The interval remains viewable at previous as at times.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The rule set scope.</param>
+        /// <param name="code">The rule set code.</param>
+        /// <param name="fromDate">The from date of the interval to delete, as a date, datetime or cut label.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteAmortisationRulesIntervalAsync(string scope, string code, DateTimeOrCutLabel fromDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// DeleteAmortisationRulesInterval: Delete a rules interval of an amortisation rule set.
+        /// </summary>
+        /// <remarks>
+        /// Deletes the rules interval that starts at the given from date. The interval before it, if any, then applies  until the next interval starts. If there is no interval before it, the rule set has no rules until the next  interval starts.                The from date must be the start of an interval. A date inside an interval does not identify one.                The interval remains viewable at previous as at times.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The rule set scope.</param>
+        /// <param name="code">The rule set code.</param>
+        /// <param name="fromDate">The from date of the interval to delete, as a date, datetime or cut label.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteAmortisationRulesIntervalWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel fromDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
         /// </summary>
@@ -820,6 +880,246 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateAmortisationRuleSet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// DeleteAmortisationRulesInterval: Delete a rules interval of an amortisation rule set. Deletes the rules interval that starts at the given from date. The interval before it, if any, then applies  until the next interval starts. If there is no interval before it, the rule set has no rules until the next  interval starts.                The from date must be the start of an interval. A date inside an interval does not identify one.                The interval remains viewable at previous as at times.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The rule set scope.</param>
+        /// <param name="code">The rule set code.</param>
+        /// <param name="fromDate">The from date of the interval to delete, as a date, datetime or cut label.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        public DeletedEntityResponse DeleteAmortisationRulesInterval(string scope, string code, DateTimeOrCutLabel fromDate, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteAmortisationRulesIntervalWithHttpInfo(scope, code, fromDate, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// DeleteAmortisationRulesInterval: Delete a rules interval of an amortisation rule set. Deletes the rules interval that starts at the given from date. The interval before it, if any, then applies  until the next interval starts. If there is no interval before it, the rule set has no rules until the next  interval starts.                The from date must be the start of an interval. A date inside an interval does not identify one.                The interval remains viewable at previous as at times.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The rule set scope.</param>
+        /// <param name="code">The rule set code.</param>
+        /// <param name="fromDate">The from date of the interval to delete, as a date, datetime or cut label.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteAmortisationRulesIntervalWithHttpInfo(string scope, string code, DateTimeOrCutLabel fromDate, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AmortisationRuleSetsApi->DeleteAmortisationRulesInterval");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AmortisationRuleSetsApi->DeleteAmortisationRulesInterval");
+            }
+
+            // verify the required parameter 'fromDate' is set
+            if (fromDate == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'fromDate' when calling AmortisationRuleSetsApi->DeleteAmortisationRulesInterval");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "fromDate", fromDate));
+
+            localVarRequestOptions.Operation = "AmortisationRuleSetsApi.DeleteAmortisationRulesInterval";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/amortisation/rulesets/{scope}/{code}/rulesIntervals", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteAmortisationRulesInterval", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// DeleteAmortisationRulesInterval: Delete a rules interval of an amortisation rule set. Deletes the rules interval that starts at the given from date. The interval before it, if any, then applies  until the next interval starts. If there is no interval before it, the rule set has no rules until the next  interval starts.                The from date must be the start of an interval. A date inside an interval does not identify one.                The interval remains viewable at previous as at times.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The rule set scope.</param>
+        /// <param name="code">The rule set code.</param>
+        /// <param name="fromDate">The from date of the interval to delete, as a date, datetime or cut label.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteAmortisationRulesIntervalAsync(string scope, string code, DateTimeOrCutLabel fromDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteAmortisationRulesIntervalWithHttpInfoAsync(scope, code, fromDate, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// DeleteAmortisationRulesInterval: Delete a rules interval of an amortisation rule set. Deletes the rules interval that starts at the given from date. The interval before it, if any, then applies  until the next interval starts. If there is no interval before it, the rule set has no rules until the next  interval starts.                The from date must be the start of an interval. A date inside an interval does not identify one.                The interval remains viewable at previous as at times.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The rule set scope.</param>
+        /// <param name="code">The rule set code.</param>
+        /// <param name="fromDate">The from date of the interval to delete, as a date, datetime or cut label.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteAmortisationRulesIntervalWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel fromDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AmortisationRuleSetsApi->DeleteAmortisationRulesInterval");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AmortisationRuleSetsApi->DeleteAmortisationRulesInterval");
+            }
+
+            // verify the required parameter 'fromDate' is set
+            if (fromDate == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'fromDate' when calling AmortisationRuleSetsApi->DeleteAmortisationRulesInterval");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "fromDate", fromDate));
+
+            localVarRequestOptions.Operation = "AmortisationRuleSetsApi.DeleteAmortisationRulesInterval";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/amortisation/rulesets/{scope}/{code}/rulesIntervals", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteAmortisationRulesInterval", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

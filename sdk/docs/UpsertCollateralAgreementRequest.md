@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **Rounding** | [**MarginRounding**](MarginRounding.md) |  | 
 **SettlementLag** | [**MarginSettlementLag**](MarginSettlementLag.md) |  | 
 **MatchTolerance** | **decimal?** | The tolerance within which our margin figure and the counterparty&#39;s are considered to match. Optional. | [optional] 
+**Funding** | [**CollateralFundingTerms**](CollateralFundingTerms.md) |  | [optional] 
+**Optimisation** | [**CollateralOptimisationTerms**](CollateralOptimisationTerms.md) |  | [optional] 
 **VariationMargin** | [**List&lt;MarginItem&gt;**](MarginItem.md) | The variation margin arrangements under the agreement. | [optional] 
 **InitialMargin** | [**List&lt;MarginItem&gt;**](MarginItem.md) | The initial margin arrangements under the agreement. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties to decorate onto the Collateral Agreement. Filterable. | [optional] 
@@ -30,6 +32,10 @@ DateTimeOrCutLabel cutLabel = "cutLabel";
 ResourceId recipeId = new ResourceId();
 MarginRounding rounding = new MarginRounding();
 MarginSettlementLag settlementLag = new MarginSettlementLag();
+CollateralFundingTerms? funding = new CollateralFundingTerms();
+
+CollateralOptimisationTerms? optimisation = new CollateralOptimisationTerms();
+
 List<MarginItem> variationMargin = new List<MarginItem>();
 List<MarginItem> initialMargin = new List<MarginItem>();
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
@@ -44,6 +50,8 @@ UpsertCollateralAgreementRequest upsertCollateralAgreementRequestInstance = new 
     rounding: rounding,
     settlementLag: settlementLag,
     matchTolerance: matchTolerance,
+    funding: funding,
+    optimisation: optimisation,
     variationMargin: variationMargin,
     initialMargin: initialMargin,
     properties: properties,

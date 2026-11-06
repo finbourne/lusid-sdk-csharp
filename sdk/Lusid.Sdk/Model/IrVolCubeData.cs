@@ -42,9 +42,10 @@ namespace Lusid.Sdk.Model
         /// <param name="instruments">Retrieve the set of instruments that define the cube. (required).</param>
         /// <param name="quotes">Access the set of quotes that define the cube. (required).</param>
         /// <param name="lineage">Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;..</param>
+        /// <param name="marketDataOptions">marketDataOptions.</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="marketDataType">Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData. (required) (default to &quot;IrVolCubeData&quot;).</param>
-        public IrVolCubeData(DateTimeOffset baseDate = default(DateTimeOffset), List<LusidInstrument> instruments = default(List<LusidInstrument>), List<MarketQuote> quotes = default(List<MarketQuote>), string lineage = default(string), ModelVersion varVersion = default(ModelVersion), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
+        public IrVolCubeData(DateTimeOffset baseDate = default(DateTimeOffset), List<LusidInstrument> instruments = default(List<LusidInstrument>), List<MarketQuote> quotes = default(List<MarketQuote>), string lineage = default(string), MarketDataOptions marketDataOptions = default(MarketDataOptions), ModelVersion varVersion = default(ModelVersion), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
         {
             this.BaseDate = baseDate;
             // to ensure "instruments" is required (not null)
@@ -60,6 +61,7 @@ namespace Lusid.Sdk.Model
             }
             this.Quotes = quotes;
             this.Lineage = lineage;
+            this.MarketDataOptions = marketDataOptions;
             this.VarVersion = varVersion;
         }
 
@@ -92,6 +94,12 @@ namespace Lusid.Sdk.Model
         public string Lineage { get; set; }
 
         /// <summary>
+        /// Gets or Sets MarketDataOptions
+        /// </summary>
+        [DataMember(Name = "marketDataOptions", EmitDefaultValue = false)]
+        public MarketDataOptions MarketDataOptions { get; set; }
+
+        /// <summary>
         /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
@@ -110,6 +118,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Instruments: ").Append(Instruments).Append("\n");
             sb.Append("  Quotes: ").Append(Quotes).Append("\n");
             sb.Append("  Lineage: ").Append(Lineage).Append("\n");
+            sb.Append("  MarketDataOptions: ").Append(MarketDataOptions).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -169,6 +178,11 @@ namespace Lusid.Sdk.Model
                     this.Lineage.Equals(input.Lineage))
                 ) && base.Equals(input) && 
                 (
+                    this.MarketDataOptions == input.MarketDataOptions ||
+                    (this.MarketDataOptions != null &&
+                    this.MarketDataOptions.Equals(input.MarketDataOptions))
+                ) && base.Equals(input) && 
+                (
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
@@ -199,6 +213,10 @@ namespace Lusid.Sdk.Model
                 if (this.Lineage != null)
                 {
                     hashCode = (hashCode * 59) + this.Lineage.GetHashCode();
+                }
+                if (this.MarketDataOptions != null)
+                {
+                    hashCode = (hashCode * 59) + this.MarketDataOptions.GetHashCode();
                 }
                 if (this.VarVersion != null)
                 {

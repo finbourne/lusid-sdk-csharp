@@ -68,7 +68,7 @@ namespace Lusid.Sdk.Model
         /// <param name="filter">filter (required).</param>
         /// <param name="navTypeCodesHint">navTypeCodesHint.</param>
         /// <param name="navTypeSelection">Available values: First, All..</param>
-        /// <param name="referenceListType">The reference list values. Available values: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList, FilteredFundIdList. (required) (default to &quot;FilteredFundIdList&quot;).</param>
+        /// <param name="referenceListType">The reference list values. Available values: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList, FilteredFundIdList, FilteredPortfolioIdList. (required) (default to &quot;FilteredFundIdList&quot;).</param>
         public FilteredFundIdList(string filter = default(string), List<string> navTypeCodesHint = default(List<string>), NavTypeSelectionEnum ?navTypeSelection = default(NavTypeSelectionEnum?), ReferenceListTypeEnum referenceListType = default(ReferenceListTypeEnum)) : base(referenceListType)
         {
             // to ensure "filter" is required (not null)

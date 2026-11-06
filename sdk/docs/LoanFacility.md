@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **LoanType** | **string** | LoanType for this facility. The facility can either be a revolving or a  term loan. Available values: Revolver, TermLoan. | 
 **Schedules** | [**List&lt;Schedule&gt;**](Schedule.md) | Repayment schedules for the loan. | 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
+**OriginalIssuePrice** | **decimal?** | The price the loan facility was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -32,7 +33,8 @@ LoanFacility loanFacilityInstance = new LoanFacility(
     initialCommitment: initialCommitment,
     loanType: loanType,
     schedules: schedules,
-    timeZoneConventions: timeZoneConventions);
+    timeZoneConventions: timeZoneConventions,
+    originalIssuePrice: originalIssuePrice);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

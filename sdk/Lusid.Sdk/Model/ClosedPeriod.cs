@@ -40,8 +40,8 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">The Closed Periods properties. These will be from the &#39;ClosedPeriod&#39; domain..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="postCloseActivities">All the post close activities for the closed period..</param>
-        /// <param name="holdingsAsAtClosedOverride">The optional AsAtClosed Override to use for building holdings in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used..</param>
-        /// <param name="valuationAsAtClosedOverride">The optional AsAtClosed Override to use for performing valuations in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used..</param>
+        /// <param name="holdingsAsAtClosedOverride">The optional AsAtClosed Override to use for building holdings in the Closed Period. If not specified, the AsAtClosed on the Closed Period will be used..</param>
+        /// <param name="valuationAsAtClosedOverride">The optional AsAtClosed Override to use for performing valuations in the Closed Period. If not specified, the AsAtClosed on the Closed Period will be used..</param>
         /// <param name="branchStatus">The branch status of the closed period, e.g. Confirmed/Unconfirmed..</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
         /// <param name="links">links.</param>
@@ -126,16 +126,16 @@ namespace Lusid.Sdk.Model
         public List<PostCloseActivity> PostCloseActivities { get; set; }
 
         /// <summary>
-        /// The optional AsAtClosed Override to use for building holdings in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used.
+        /// The optional AsAtClosed Override to use for building holdings in the Closed Period. If not specified, the AsAtClosed on the Closed Period will be used.
         /// </summary>
-        /// <value>The optional AsAtClosed Override to use for building holdings in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used.</value>
+        /// <value>The optional AsAtClosed Override to use for building holdings in the Closed Period. If not specified, the AsAtClosed on the Closed Period will be used.</value>
         [DataMember(Name = "holdingsAsAtClosedOverride", EmitDefaultValue = true)]
         public DateTimeOffset? HoldingsAsAtClosedOverride { get; set; }
 
         /// <summary>
-        /// The optional AsAtClosed Override to use for performing valuations in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used.
+        /// The optional AsAtClosed Override to use for performing valuations in the Closed Period. If not specified, the AsAtClosed on the Closed Period will be used.
         /// </summary>
-        /// <value>The optional AsAtClosed Override to use for performing valuations in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used.</value>
+        /// <value>The optional AsAtClosed Override to use for performing valuations in the Closed Period. If not specified, the AsAtClosed on the Closed Period will be used.</value>
         [DataMember(Name = "valuationAsAtClosedOverride", EmitDefaultValue = true)]
         public DateTimeOffset? ValuationAsAtClosedOverride { get; set; }
 

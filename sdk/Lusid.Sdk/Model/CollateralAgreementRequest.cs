@@ -46,11 +46,13 @@ namespace Lusid.Sdk.Model
         /// <param name="rounding">rounding (required).</param>
         /// <param name="settlementLag">settlementLag (required).</param>
         /// <param name="matchTolerance">The tolerance within which our margin figure and the counterparty&#39;s are considered to match. Optional..</param>
+        /// <param name="funding">funding.</param>
+        /// <param name="optimisation">optimisation.</param>
         /// <param name="variationMargin">The variation margin arrangements under the agreement..</param>
         /// <param name="initialMargin">The initial margin arrangements under the agreement..</param>
         /// <param name="properties">A set of properties to decorate onto the Collateral Agreement. Filterable..</param>
         /// <param name="effectiveAt">The effective datetime from which the Collateral Agreement applies. Defaults to the beginning of time if not specified, so that the agreement is visible at every effective datetime..</param>
-        public CollateralAgreementRequest(string code = default(string), CounterpartyIdentifier counterpartyId = default(CounterpartyIdentifier), string applicabilityFilter = default(string), string baseCurrency = default(string), DateTimeOrCutLabel cutLabel = default(DateTimeOrCutLabel), ResourceId recipeId = default(ResourceId), decimal? minimumTransferAmount = default(decimal?), MarginRounding rounding = default(MarginRounding), MarginSettlementLag settlementLag = default(MarginSettlementLag), decimal? matchTolerance = default(decimal?), List<MarginItem> variationMargin = default(List<MarginItem>), List<MarginItem> initialMargin = default(List<MarginItem>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), DateTimeOffset? effectiveAt = default(DateTimeOffset?))
+        public CollateralAgreementRequest(string code = default(string), CounterpartyIdentifier counterpartyId = default(CounterpartyIdentifier), string applicabilityFilter = default(string), string baseCurrency = default(string), DateTimeOrCutLabel cutLabel = default(DateTimeOrCutLabel), ResourceId recipeId = default(ResourceId), decimal? minimumTransferAmount = default(decimal?), MarginRounding rounding = default(MarginRounding), MarginSettlementLag settlementLag = default(MarginSettlementLag), decimal? matchTolerance = default(decimal?), CollateralFundingTerms funding = default(CollateralFundingTerms), CollateralOptimisationTerms optimisation = default(CollateralOptimisationTerms), List<MarginItem> variationMargin = default(List<MarginItem>), List<MarginItem> initialMargin = default(List<MarginItem>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), DateTimeOffset? effectiveAt = default(DateTimeOffset?))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -102,6 +104,8 @@ namespace Lusid.Sdk.Model
             this.SettlementLag = settlementLag;
             this.MinimumTransferAmount = minimumTransferAmount;
             this.MatchTolerance = matchTolerance;
+            this.Funding = funding;
+            this.Optimisation = optimisation;
             this.VariationMargin = variationMargin;
             this.InitialMargin = initialMargin;
             this.Properties = properties;
@@ -175,6 +179,18 @@ namespace Lusid.Sdk.Model
         public decimal? MatchTolerance { get; set; }
 
         /// <summary>
+        /// Gets or Sets Funding
+        /// </summary>
+        [DataMember(Name = "funding", EmitDefaultValue = false)]
+        public CollateralFundingTerms Funding { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Optimisation
+        /// </summary>
+        [DataMember(Name = "optimisation", EmitDefaultValue = false)]
+        public CollateralOptimisationTerms Optimisation { get; set; }
+
+        /// <summary>
         /// The variation margin arrangements under the agreement.
         /// </summary>
         /// <value>The variation margin arrangements under the agreement.</value>
@@ -220,6 +236,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  Rounding: ").Append(Rounding).Append("\n");
             sb.Append("  SettlementLag: ").Append(SettlementLag).Append("\n");
             sb.Append("  MatchTolerance: ").Append(MatchTolerance).Append("\n");
+            sb.Append("  Funding: ").Append(Funding).Append("\n");
+            sb.Append("  Optimisation: ").Append(Optimisation).Append("\n");
             sb.Append("  VariationMargin: ").Append(VariationMargin).Append("\n");
             sb.Append("  InitialMargin: ").Append(InitialMargin).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
@@ -310,6 +328,16 @@ namespace Lusid.Sdk.Model
                     this.MatchTolerance.Equals(input.MatchTolerance))
                 ) && 
                 (
+                    this.Funding == input.Funding ||
+                    (this.Funding != null &&
+                    this.Funding.Equals(input.Funding))
+                ) && 
+                (
+                    this.Optimisation == input.Optimisation ||
+                    (this.Optimisation != null &&
+                    this.Optimisation.Equals(input.Optimisation))
+                ) && 
+                (
                     this.VariationMargin == input.VariationMargin ||
                     this.VariationMargin != null &&
                     input.VariationMargin != null &&
@@ -382,6 +410,14 @@ namespace Lusid.Sdk.Model
                 if (this.MatchTolerance != null)
                 {
                     hashCode = (hashCode * 59) + this.MatchTolerance.GetHashCode();
+                }
+                if (this.Funding != null)
+                {
+                    hashCode = (hashCode * 59) + this.Funding.GetHashCode();
+                }
+                if (this.Optimisation != null)
+                {
+                    hashCode = (hashCode * 59) + this.Optimisation.GetHashCode();
                 }
                 if (this.VariationMargin != null)
                 {

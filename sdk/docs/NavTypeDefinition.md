@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **SwingPricing** | [**SwingPricingRule**](SwingPricingRule.md) |  | [optional] 
 **NotionalDealingCostTableId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **ValuationTemplateId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**ChargeableGainsRegime** | **string** | The chargeable gains regime the Nav Type&#39;s derived portfolio is elected into. This can be: Default or UkChargeableGains. Omit it, or supply Default, to leave the derived portfolio inheriting its parent portfolio&#39;s regime. Under UkChargeableGains, in-scope holdings in the derived portfolio are depleted under the UK chargeable gains rules regardless of the Nav Type&#39;s accounting method; it requires the Fund&#39;s base currency to be GBP. Available values: Default, UkChargeableGains. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -57,6 +58,7 @@ ResourceId? notionalDealingCostTableId = new ResourceId();
 
 ResourceId? valuationTemplateId = new ResourceId();
 
+string chargeableGainsRegime = "example chargeableGainsRegime";
 
 NavTypeDefinition navTypeDefinitionInstance = new NavTypeDefinition(
     code: code,
@@ -80,7 +82,8 @@ NavTypeDefinition navTypeDefinitionInstance = new NavTypeDefinition(
     pricingBasis: pricingBasis,
     swingPricing: swingPricing,
     notionalDealingCostTableId: notionalDealingCostTableId,
-    valuationTemplateId: valuationTemplateId);
+    valuationTemplateId: valuationTemplateId,
+    chargeableGainsRegime: chargeableGainsRegime);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

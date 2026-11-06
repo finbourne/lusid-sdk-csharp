@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ContiguousActivityWindow" /> class.
         /// </summary>
         /// <param name="initialActivitySinceEffectiveAt">initialActivitySinceEffectiveAt (required).</param>
-        /// <param name="windowType">Polymorphic discriminator. Supported types: Contiguous. Contiguous requires effectiveAtProgression Series. Available values: Contiguous, FixedLookback, Explicit, ClosedPeriod, ContiguousAsAt. (required).</param>
+        /// <param name="windowType">Polymorphic discriminator. Supported types: Contiguous, FixedPeriodLookback. Contiguous requires effectiveAtProgression Series; FixedPeriodLookback is accepted under any progression. Available values: Contiguous, FixedPeriodLookback, Explicit, ClosedPeriod, ContiguousAsAt. (required).</param>
         public ContiguousActivityWindow(RecActivitySinceEffectiveAt initialActivitySinceEffectiveAt = default(RecActivitySinceEffectiveAt), string windowType = default(string))
         {
             // to ensure "initialActivitySinceEffectiveAt" is required (not null)
@@ -61,9 +61,9 @@ namespace Lusid.Sdk.Model
         public RecActivitySinceEffectiveAt InitialActivitySinceEffectiveAt { get; set; }
 
         /// <summary>
-        /// Polymorphic discriminator. Supported types: Contiguous. Contiguous requires effectiveAtProgression Series. Available values: Contiguous, FixedLookback, Explicit, ClosedPeriod, ContiguousAsAt.
+        /// Polymorphic discriminator. Supported types: Contiguous, FixedPeriodLookback. Contiguous requires effectiveAtProgression Series; FixedPeriodLookback is accepted under any progression. Available values: Contiguous, FixedPeriodLookback, Explicit, ClosedPeriod, ContiguousAsAt.
         /// </summary>
-        /// <value>Polymorphic discriminator. Supported types: Contiguous. Contiguous requires effectiveAtProgression Series. Available values: Contiguous, FixedLookback, Explicit, ClosedPeriod, ContiguousAsAt.</value>
+        /// <value>Polymorphic discriminator. Supported types: Contiguous, FixedPeriodLookback. Contiguous requires effectiveAtProgression Series; FixedPeriodLookback is accepted under any progression. Available values: Contiguous, FixedPeriodLookback, Explicit, ClosedPeriod, ContiguousAsAt.</value>
         [DataMember(Name = "windowType", IsRequired = true, EmitDefaultValue = true)]
         public string WindowType { get; set; }
 

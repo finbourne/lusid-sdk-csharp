@@ -28,13 +28,16 @@ Name | Type | Description | Notes
 **CounterpartyIdIn** | **string** | The counterparty identifier of the incoming leg. Defaults to CounterpartyIdOut. | [optional] 
 **CustodianAccountIdOut** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **CustodianAccountIdIn** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**Source** | **string** | The transaction source the generated legs are booked against. | 
+**SourceOut** | **string** | The transaction source the outgoing leg is booked against, and the incoming leg too when SourceIn is not supplied. Defaults to &#39;default&#39;. | [optional] 
 **AccountingMethod** | **string** | An accounting method to record against the transfer. Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency. | [optional] 
 **PropertiesOut** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Transaction Properties to set on the outgoing transaction leg, and on the incoming transaction leg when PropertiesIn is absent. Supplying an empty collection for PropertiesIn leaves the incoming leg with no properties. | [optional] 
 **PropertiesIn** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Transaction Properties to set on the incoming transaction leg, replacing rather than adding to PropertiesOut. | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Properties to set on the transfer itself, in the Transfer domain. These are separate from PropertiesOut and PropertiesIn, which are Transaction domain and land on the legs. | [optional] 
 **TransactionToPortfolioRateOut** | **decimal?** | The rate from the outgoing leg&#39;s trade currency to the outgoing portfolio&#39;s base currency, applied whenever supplied. | [optional] 
 **TransactionToPortfolioRateIn** | **decimal?** | The rate from the incoming leg&#39;s trade currency to the incoming portfolio&#39;s base currency. Required when the two portfolios have different base currencies, and applied whenever supplied. | [optional] 
+**SourceIn** | **string** | The transaction source the incoming leg is booked against. Defaults to SourceOut. | [optional] 
+**TransactionTypeOut** | **string** | The transaction type to book the outgoing leg as. Supply it together with TransactionTypeIn, or supply neither. If not supplied, it will be derived from the transfer type. It must be a different type from TransactionTypeIn, must be configured under SourceOut in the transaction type scope of PortfolioIdOut, and must reduce a position. | [optional] 
+**TransactionTypeIn** | **string** | The transaction type to book the incoming leg as. Supply it together with TransactionTypeOut, or supply neither. If not supplied, it will be derived from the transfer type. It must be configured under SourceIn in the transaction type scope of PortfolioIdIn, and must increase a position. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -55,11 +58,14 @@ ResourceId? custodianAccountIdOut = new ResourceId();
 
 ResourceId? custodianAccountIdIn = new ResourceId();
 
-string source = "source";
+string sourceOut = "example sourceOut";
 string accountingMethod = "example accountingMethod";
 Dictionary<string, PerpetualProperty> propertiesOut = new Dictionary<string, PerpetualProperty>();
 Dictionary<string, PerpetualProperty> propertiesIn = new Dictionary<string, PerpetualProperty>();
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+string sourceIn = "example sourceIn";
+string transactionTypeOut = "example transactionTypeOut";
+string transactionTypeIn = "example transactionTypeIn";
 
 CreateTransferRequest createTransferRequestInstance = new CreateTransferRequest(
     transferId: transferId,
@@ -85,13 +91,16 @@ CreateTransferRequest createTransferRequestInstance = new CreateTransferRequest(
     counterpartyIdIn: counterpartyIdIn,
     custodianAccountIdOut: custodianAccountIdOut,
     custodianAccountIdIn: custodianAccountIdIn,
-    source: source,
+    sourceOut: sourceOut,
     accountingMethod: accountingMethod,
     propertiesOut: propertiesOut,
     propertiesIn: propertiesIn,
     properties: properties,
     transactionToPortfolioRateOut: transactionToPortfolioRateOut,
-    transactionToPortfolioRateIn: transactionToPortfolioRateIn);
+    transactionToPortfolioRateIn: transactionToPortfolioRateIn,
+    sourceIn: sourceIn,
+    transactionTypeOut: transactionTypeOut,
+    transactionTypeIn: transactionTypeIn);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

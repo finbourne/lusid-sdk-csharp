@@ -45,8 +45,9 @@ namespace Lusid.Sdk.Model
         /// <param name="loanType">LoanType for this facility. The facility can either be a revolving or a  term loan. Available values: Revolver, TermLoan. (required).</param>
         /// <param name="schedules">Repayment schedules for the loan. (required).</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
+        /// <param name="originalIssuePrice">The price the loan facility was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%..</param>
         /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap, BondForward, PreferredShare, CapitalInterest, WholeLoanFacility, StripBond. (required) (default to &quot;LoanFacility&quot;).</param>
-        public LoanFacility(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), decimal initialCommitment = default(decimal), string loanType = default(string), List<Schedule> schedules = default(List<Schedule>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public LoanFacility(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), decimal initialCommitment = default(decimal), string loanType = default(string), List<Schedule> schedules = default(List<Schedule>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), decimal? originalIssuePrice = default(decimal?), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -70,6 +71,7 @@ namespace Lusid.Sdk.Model
             }
             this.Schedules = schedules;
             this.TimeZoneConventions = timeZoneConventions;
+            this.OriginalIssuePrice = originalIssuePrice;
         }
 
         /// <summary>
@@ -121,6 +123,13 @@ namespace Lusid.Sdk.Model
         public TimeZoneConventions TimeZoneConventions { get; set; }
 
         /// <summary>
+        /// The price the loan facility was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%.
+        /// </summary>
+        /// <value>The price the loan facility was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%.</value>
+        [DataMember(Name = "originalIssuePrice", EmitDefaultValue = true)]
+        public decimal? OriginalIssuePrice { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -136,6 +145,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  LoanType: ").Append(LoanType).Append("\n");
             sb.Append("  Schedules: ").Append(Schedules).Append("\n");
             sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
+            sb.Append("  OriginalIssuePrice: ").Append(OriginalIssuePrice).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -205,6 +215,11 @@ namespace Lusid.Sdk.Model
                     this.TimeZoneConventions == input.TimeZoneConventions ||
                     (this.TimeZoneConventions != null &&
                     this.TimeZoneConventions.Equals(input.TimeZoneConventions))
+                ) && base.Equals(input) && 
+                (
+                    this.OriginalIssuePrice == input.OriginalIssuePrice ||
+                    (this.OriginalIssuePrice != null &&
+                    this.OriginalIssuePrice.Equals(input.OriginalIssuePrice))
                 );
         }
 
@@ -241,6 +256,10 @@ namespace Lusid.Sdk.Model
                 if (this.TimeZoneConventions != null)
                 {
                     hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
+                }
+                if (this.OriginalIssuePrice != null)
+                {
+                    hashCode = (hashCode * 59) + this.OriginalIssuePrice.GetHashCode();
                 }
                 return hashCode;
             }

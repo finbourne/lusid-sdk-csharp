@@ -5,7 +5,7 @@ The per-result review axis: the workflow state and the recorded review decision.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **string** | The review workflow state: NotRequired, Required or Reviewed. Available values: NotRequired, Required, Reviewed. | 
+**Status** | **string** | The review workflow state: NotRequired, Required or Reviewed. The review configuration sets it. A run sets it to Required when a Force Match no longer holds. Available values: NotRequired, Required, Reviewed. | 
 **Decision** | **string** | The recorded review decision. Null until a decision is made. Available values: Acknowledge, FixAtSource, FixAsGroup, Accept, ForceMatch, Tolerate. | [optional] 
 **DecisionGroup** | [**RecResultDecisionGroup**](RecResultDecisionGroup.md) |  | [optional] 
 

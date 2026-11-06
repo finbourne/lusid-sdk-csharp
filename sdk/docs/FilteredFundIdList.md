@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ReferenceListType** | **string** | The reference list values. Available values: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList, FilteredFundIdList. | 
+**ReferenceListType** | **string** | The reference list values. Available values: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList, FilteredFundIdList, FilteredPortfolioIdList. | 
 **Filter** | **string** |  | 
 **Values** | [**List&lt;ResourceId&gt;**](ResourceId.md) |  | [optional] [readonly] 
 **NavTypeCodesHint** | **List&lt;string&gt;** |  | [optional] 

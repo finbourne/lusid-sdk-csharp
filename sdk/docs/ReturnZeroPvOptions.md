@@ -5,7 +5,7 @@ Options to indicate which errors to ignore when performing valuation.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InstrumentMatured** | **bool** | Indicates whether attempting to value an instrument after its maturity date should produce a failure (false)  or a zero PV (true). | [optional] 
+**InstrumentMatured** | **bool** | Deprecated: use pricing.options.maturedInstrumentValuation, where true corresponds to  \&quot;ZeroPv\&quot; and false to \&quot;Fail\&quot;. Indicates whether attempting to value an instrument after  its maturity date should produce a failure (false) or a zero PV (true).  Ignored when maturedInstrumentValuation is set. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

@@ -23,6 +23,13 @@ Name | Type | Description | Notes
 **Scenario** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **LineKey** | **string** | A key that identifies the line within its run, with which its explanation is asked for. A line valued under a scenario has a different key from the same holding in the base market. Null for a line stored before lines carried a key. | [optional] 
 **ExplainAvailable** | **bool** | Whether the working behind the line&#39;s figures was stored, so that the line can be explained. One flag covers every figure of the line. | [optional] 
+**InstrumentType** | **string** | LUSID&#39;s type for the instrument held, when the run read it. | [optional] 
+**AssetClass** | **string** | The instrument&#39;s asset class, when the run read it. | [optional] 
+**Currency** | **string** | The currency the holding is denominated in, when the run read it. | [optional] 
+**MaturityDate** | **DateTimeOffset?** | The instrument&#39;s maturity, when it has one. | [optional] 
+**Notional** | **decimal?** | The holding&#39;s notional in its own currency, when the instrument has one. | [optional] 
+**GrossInitialMargin** | **decimal?** | The regulatory-grid charge on the holding before its netting set&#39;s net-to-gross scaling. Null under other methods. | [optional] 
+**MovableTo** | **List&lt;string&gt;** | The initial-margin netting sets of other agreements in the run the holding could be re-booked into, as scope/code/item. Recorded for base-case trading lines under an initial-margin item; empty otherwise. | 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -44,6 +51,10 @@ ResourceId? scenario = new ResourceId();
 
 string lineKey = "example lineKey";
 bool explainAvailable = //"True";
+string instrumentType = "example instrumentType";
+string assetClass = "example assetClass";
+string currency = "example currency";
+List<string> movableTo = new List<string>();
 
 MarginLine marginLineInstance = new MarginLine(
     runId: runId,
@@ -63,7 +74,14 @@ MarginLine marginLineInstance = new MarginLine(
     initialMargin: initialMargin,
     scenario: scenario,
     lineKey: lineKey,
-    explainAvailable: explainAvailable);
+    explainAvailable: explainAvailable,
+    instrumentType: instrumentType,
+    assetClass: assetClass,
+    currency: currency,
+    maturityDate: maturityDate,
+    notional: notional,
+    grossInitialMargin: grossInitialMargin,
+    movableTo: movableTo);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

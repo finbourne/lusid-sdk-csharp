@@ -7,11 +7,11 @@ Name | Type | Description | Notes
 **ClosedPeriodId** | **string** | The unique Id of the Closed Period. The ClosedPeriodId, together with the Timeline Scope and Code, uniquely identifies a Closed Period | 
 **EffectiveEnd** | **DateTimeOffset** | The effective end of the Closed Period | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The Closed Periods properties. These will be from the &#39;ClosedPeriod&#39; domain. | [optional] 
-**AsAtClosed** | **DateTimeOffset?** | The asAt closed datetime for the Closed Period | [optional] 
+**AsAtClosed** | **DateTimeOffset?** | The asAt closed datetime for the Closed Period. It must not exceed the latest asAt in LUSID. If not specified, the latest asAt in LUSID will be used. | [optional] 
 **DisplayName** | **string** | The name of the Closed Period. | [optional] 
 **Description** | **string** | A description for the Closed Period. | [optional] 
-**HoldingsAsAtClosedOverride** | **DateTimeOffset?** | The optional AsAtClosed Override to use for building holdings in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used. | [optional] 
-**ValuationAsAtClosedOverride** | **DateTimeOffset?** | The optional AsAtClosed Override to use for performing valuations in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used. | [optional] 
+**HoldingsAsAtClosedOverride** | **DateTimeOffset?** | The optional AsAtClosed Override to use for building holdings in the Closed Period. If not specified, the AsAtClosed on the Closed Period will be used. It must not exceed the latest asAt in LUSID. | [optional] 
+**ValuationAsAtClosedOverride** | **DateTimeOffset?** | The optional AsAtClosed Override to use for performing valuations in the Closed Period. If not specified, the AsAtClosed on the Closed Period will be used. It must not exceed the latest asAt in LUSID. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

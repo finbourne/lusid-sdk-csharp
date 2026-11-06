@@ -34,6 +34,8 @@ Name | Type | Description | Notes
 **AllowFallbackOnModelDecline** | **bool** | When true, a model that refuses an instrument outright - because the instrument is outside  what that model can represent, not because data was missing - hands the instrument to the  next model this recipe&#39;s rules offer for it, and to the default model for its type after  those. The row is then priced by the first model that accepts it, and carries a diagnostic  naming the model that stood down, its objection, and the model that served it. The caller  must be entitled to the model that serves the row; where none of the alternatives is both  licensed and willing, the row keeps the original refusal.  When false (default), a refusal ends the row however many other models the recipe offers.  A failure that is not a refusal - a missing curve, an unresolved fixing, a malformed model  option - always ends the row, whatever this is set to, because another model&#39;s number would  hide the gap rather than close it. | [optional] 
 **NamedPrices** | [**List&lt;NamedPrice&gt;**](NamedPrice.md) | Names a valuation request can use to ask for a pricing side and a notional dealing cost  treatment in one column, as Valuation/PV(NamedPrice&#x3D;name) (and likewise PvInReportCcy and  PvInPortfolioCcy). For example a fund might define \&quot;creation\&quot; as the offer side plus the  buy-side dealing cost, \&quot;cancellation\&quot; as the bid side less the sell-side cost, and  \&quot;perfRef\&quot; as the plain mid. Each name must start with a letter, contain only letters and  digits, and be unique within the recipe ignoring case; a request must spell the name exactly as  defined. Absent or empty defines no names. | [optional] 
 **SuppressAutomaticLoanPrincipalRepayment** | **bool** | If true, FlexibleLoans held as contracts on a LoanFacility do not automatically generate a  LoanPrincipalRepaymentEvent at the end of their schedule. Users must then book rollovers or explicit  LoanPrincipalRepaymentEvents themselves, otherwise the contract stays open and may fail to value once matured.  Stand-alone and WholeLoanFacility FlexibleLoans, interest repayments and upserted repayment events are unaffected. Only takes  effect on the recipe used to generate instrument events. Defaults to false. | [optional] 
+**UseLoanFacilityRolloverTemplate** | **bool** | If true, a LoanFacilityContractRolloverEvent is booked by its own transaction template, which moves the funded  balance between the contracts it names and, when the rollover is with interest, pays the accrued interest of the  contracts rolled out of. If false, the rollover is expanded into DrawdownEvents and LoanInterestRepaymentEvents  that book through the drawdown and interest repayment templates, as before. Only takes effect on the recipe used  to generate instrument events. Defaults to false. | [optional] 
+**MaturedInstrumentValuation** | **string** | How a position in an instrument that has matured is valued. One of \&quot;Fail\&quot; (default: the request fails  with a maturity error, as it always has), \&quot;ZeroPv\&quot; (the position is valued at zero with the maturity  error attached as a diagnostic) or \&quot;ValueAsHeld\&quot; (a Bond, ComplexBond or InflationLinked position  that is still held is valued at its recorded quantity times the supplied price, with zero accrued  interest, at and after maturity, under SimpleStatic, BondLookupPricer or OverrideOnlyPricer; a missing  price fails as it would before maturity, and other instrument types and models behave as under  \&quot;ZeroPv\&quot;). Supersedes returnZeroPv.instrumentMatured: when this is  absent, that flag set to true behaves as \&quot;ZeroPv\&quot; and false as \&quot;Fail\&quot;. Available values: Fail, ZeroPv, ValueAsHeld. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -72,6 +74,8 @@ InflationConvexityOptions? inflationConvexity = new InflationConvexityOptions();
 bool allowFallbackOnModelDecline = //"True";
 List<NamedPrice> namedPrices = new List<NamedPrice>();
 bool suppressAutomaticLoanPrincipalRepayment = //"True";
+bool useLoanFacilityRolloverTemplate = //"True";
+string maturedInstrumentValuation = "example maturedInstrumentValuation";
 
 PricingOptions pricingOptionsInstance = new PricingOptions(
     modelSelection: modelSelection,
@@ -102,7 +106,9 @@ PricingOptions pricingOptionsInstance = new PricingOptions(
     inflationConvexity: inflationConvexity,
     allowFallbackOnModelDecline: allowFallbackOnModelDecline,
     namedPrices: namedPrices,
-    suppressAutomaticLoanPrincipalRepayment: suppressAutomaticLoanPrincipalRepayment);
+    suppressAutomaticLoanPrincipalRepayment: suppressAutomaticLoanPrincipalRepayment,
+    useLoanFacilityRolloverTemplate: useLoanFacilityRolloverTemplate,
+    maturedInstrumentValuation: maturedInstrumentValuation);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

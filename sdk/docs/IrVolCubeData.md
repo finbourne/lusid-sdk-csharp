@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Instruments** | [**List&lt;LusidInstrument&gt;**](LusidInstrument.md) | Retrieve the set of instruments that define the cube. | 
 **Quotes** | [**List&lt;MarketQuote&gt;**](MarketQuote.md) | Access the set of quotes that define the cube. | 
 **Lineage** | **string** | Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;. | [optional] 
+**MarketDataOptions** | [**MarketDataOptions**](MarketDataOptions.md) |  | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 
 ```csharp
@@ -19,6 +20,8 @@ using System;
 List<LusidInstrument> instruments = new List<LusidInstrument>();
 List<MarketQuote> quotes = new List<MarketQuote>();
 string lineage = "example lineage";
+MarketDataOptions? marketDataOptions = new MarketDataOptions();
+
 ModelVersion? varVersion = new ModelVersion();
 
 
@@ -27,6 +30,7 @@ IrVolCubeData irVolCubeDataInstance = new IrVolCubeData(
     instruments: instruments,
     quotes: quotes,
     lineage: lineage,
+    marketDataOptions: marketDataOptions,
     varVersion: varVersion);
 ```
 

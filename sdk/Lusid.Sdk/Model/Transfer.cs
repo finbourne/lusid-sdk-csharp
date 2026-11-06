@@ -35,18 +35,26 @@ namespace Lusid.Sdk.Model
         /// <param name="transferType">The derived type of the transfer: &#39;Transfer&#39; when the position moves between portfolios, &#39;Switch&#39; when one instrument is exchanged for another within a portfolio, and &#39;Twitch&#39; when the position moves between portfolios and changes instrument at the same time..</param>
         /// <param name="portfolioIdOut">portfolioIdOut.</param>
         /// <param name="portfolioIdIn">portfolioIdIn.</param>
+        /// <param name="pricingMethod">How the legs were priced: &#39;AtCost&#39; or &#39;AtPrice&#39;..</param>
+        /// <param name="taxLotStructure">What happened to the tax lots of the outgoing position: &#39;Consolidate&#39; or &#39;Preserve&#39;..</param>
+        /// <param name="weightOut">The weighting factor recorded against the outgoing leg..</param>
+        /// <param name="accountingMethod">The accounting method recorded against the transfer..</param>
         /// <param name="transactionOut">transactionOut.</param>
         /// <param name="transactionIn">transactionIn.</param>
         /// <param name="properties">The properties of the transfer, for the requested PropertyKeys..</param>
         /// <param name="href">The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public Transfer(ResourceId transferId = default(ResourceId), string transferType = default(string), ResourceId portfolioIdOut = default(ResourceId), ResourceId portfolioIdIn = default(ResourceId), Transaction transactionOut = default(Transaction), Transaction transactionIn = default(Transaction), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public Transfer(ResourceId transferId = default(ResourceId), string transferType = default(string), ResourceId portfolioIdOut = default(ResourceId), ResourceId portfolioIdIn = default(ResourceId), string pricingMethod = default(string), string taxLotStructure = default(string), decimal? weightOut = default(decimal?), string accountingMethod = default(string), Transaction transactionOut = default(Transaction), Transaction transactionIn = default(Transaction), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             this.TransferId = transferId;
             this.TransferType = transferType;
             this.PortfolioIdOut = portfolioIdOut;
             this.PortfolioIdIn = portfolioIdIn;
+            this.PricingMethod = pricingMethod;
+            this.TaxLotStructure = taxLotStructure;
+            this.WeightOut = weightOut;
+            this.AccountingMethod = accountingMethod;
             this.TransactionOut = transactionOut;
             this.TransactionIn = transactionIn;
             this.Properties = properties;
@@ -79,6 +87,34 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "portfolioIdIn", EmitDefaultValue = false)]
         public ResourceId PortfolioIdIn { get; set; }
+
+        /// <summary>
+        /// How the legs were priced: &#39;AtCost&#39; or &#39;AtPrice&#39;.
+        /// </summary>
+        /// <value>How the legs were priced: &#39;AtCost&#39; or &#39;AtPrice&#39;.</value>
+        [DataMember(Name = "pricingMethod", EmitDefaultValue = true)]
+        public string PricingMethod { get; set; }
+
+        /// <summary>
+        /// What happened to the tax lots of the outgoing position: &#39;Consolidate&#39; or &#39;Preserve&#39;.
+        /// </summary>
+        /// <value>What happened to the tax lots of the outgoing position: &#39;Consolidate&#39; or &#39;Preserve&#39;.</value>
+        [DataMember(Name = "taxLotStructure", EmitDefaultValue = true)]
+        public string TaxLotStructure { get; set; }
+
+        /// <summary>
+        /// The weighting factor recorded against the outgoing leg.
+        /// </summary>
+        /// <value>The weighting factor recorded against the outgoing leg.</value>
+        [DataMember(Name = "weightOut", EmitDefaultValue = true)]
+        public decimal? WeightOut { get; set; }
+
+        /// <summary>
+        /// The accounting method recorded against the transfer.
+        /// </summary>
+        /// <value>The accounting method recorded against the transfer.</value>
+        [DataMember(Name = "accountingMethod", EmitDefaultValue = true)]
+        public string AccountingMethod { get; set; }
 
         /// <summary>
         /// Gets or Sets TransactionOut
@@ -130,6 +166,10 @@ namespace Lusid.Sdk.Model
             sb.Append("  TransferType: ").Append(TransferType).Append("\n");
             sb.Append("  PortfolioIdOut: ").Append(PortfolioIdOut).Append("\n");
             sb.Append("  PortfolioIdIn: ").Append(PortfolioIdIn).Append("\n");
+            sb.Append("  PricingMethod: ").Append(PricingMethod).Append("\n");
+            sb.Append("  TaxLotStructure: ").Append(TaxLotStructure).Append("\n");
+            sb.Append("  WeightOut: ").Append(WeightOut).Append("\n");
+            sb.Append("  AccountingMethod: ").Append(AccountingMethod).Append("\n");
             sb.Append("  TransactionOut: ").Append(TransactionOut).Append("\n");
             sb.Append("  TransactionIn: ").Append(TransactionIn).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
@@ -192,6 +232,26 @@ namespace Lusid.Sdk.Model
                     this.PortfolioIdIn.Equals(input.PortfolioIdIn))
                 ) && 
                 (
+                    this.PricingMethod == input.PricingMethod ||
+                    (this.PricingMethod != null &&
+                    this.PricingMethod.Equals(input.PricingMethod))
+                ) && 
+                (
+                    this.TaxLotStructure == input.TaxLotStructure ||
+                    (this.TaxLotStructure != null &&
+                    this.TaxLotStructure.Equals(input.TaxLotStructure))
+                ) && 
+                (
+                    this.WeightOut == input.WeightOut ||
+                    (this.WeightOut != null &&
+                    this.WeightOut.Equals(input.WeightOut))
+                ) && 
+                (
+                    this.AccountingMethod == input.AccountingMethod ||
+                    (this.AccountingMethod != null &&
+                    this.AccountingMethod.Equals(input.AccountingMethod))
+                ) && 
+                (
                     this.TransactionOut == input.TransactionOut ||
                     (this.TransactionOut != null &&
                     this.TransactionOut.Equals(input.TransactionOut))
@@ -249,6 +309,22 @@ namespace Lusid.Sdk.Model
                 if (this.PortfolioIdIn != null)
                 {
                     hashCode = (hashCode * 59) + this.PortfolioIdIn.GetHashCode();
+                }
+                if (this.PricingMethod != null)
+                {
+                    hashCode = (hashCode * 59) + this.PricingMethod.GetHashCode();
+                }
+                if (this.TaxLotStructure != null)
+                {
+                    hashCode = (hashCode * 59) + this.TaxLotStructure.GetHashCode();
+                }
+                if (this.WeightOut != null)
+                {
+                    hashCode = (hashCode * 59) + this.WeightOut.GetHashCode();
+                }
+                if (this.AccountingMethod != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccountingMethod.GetHashCode();
                 }
                 if (this.TransactionOut != null)
                 {

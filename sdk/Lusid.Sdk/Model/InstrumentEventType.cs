@@ -789,7 +789,13 @@ namespace Lusid.Sdk.Model
         /// Enum SharesPremiumDividendEvent for value: SharesPremiumDividendEvent
         /// </summary>
         [EnumMember(Value = "SharesPremiumDividendEvent")]
-        SharesPremiumDividendEvent = 127
+        SharesPremiumDividendEvent = 127,
+
+        /// <summary>
+        /// Enum CashDistributionFromNonEligibleSecuritiesSalesEvent for value: CashDistributionFromNonEligibleSecuritiesSalesEvent
+        /// </summary>
+        [EnumMember(Value = "CashDistributionFromNonEligibleSecuritiesSalesEvent")]
+        CashDistributionFromNonEligibleSecuritiesSalesEvent = 128
     }
 
 }

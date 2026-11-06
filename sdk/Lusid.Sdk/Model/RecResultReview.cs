@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RecResultReview" /> class.
         /// </summary>
-        /// <param name="status">The review workflow state: NotRequired, Required or Reviewed. Available values: NotRequired, Required, Reviewed. (required).</param>
+        /// <param name="status">The review workflow state: NotRequired, Required or Reviewed. The review configuration sets it. A run sets it to Required when a Force Match no longer holds. Available values: NotRequired, Required, Reviewed. (required).</param>
         /// <param name="decision">The recorded review decision. Null until a decision is made. Available values: Acknowledge, FixAtSource, FixAsGroup, Accept, ForceMatch, Tolerate..</param>
         /// <param name="decisionGroup">decisionGroup.</param>
         public RecResultReview(string status = default(string), string decision = default(string), RecResultDecisionGroup decisionGroup = default(RecResultDecisionGroup))
@@ -52,9 +52,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The review workflow state: NotRequired, Required or Reviewed. Available values: NotRequired, Required, Reviewed.
+        /// The review workflow state: NotRequired, Required or Reviewed. The review configuration sets it. A run sets it to Required when a Force Match no longer holds. Available values: NotRequired, Required, Reviewed.
         /// </summary>
-        /// <value>The review workflow state: NotRequired, Required or Reviewed. Available values: NotRequired, Required, Reviewed.</value>
+        /// <value>The review workflow state: NotRequired, Required or Reviewed. The review configuration sets it. A run sets it to Required when a Force Match no longer holds. Available values: NotRequired, Required, Reviewed.</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 
