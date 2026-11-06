@@ -62,7 +62,8 @@ namespace Lusid.Sdk.Model
         /// <param name="suppressAutomaticLoanPrincipalRepayment">If true, FlexibleLoans held as contracts on a LoanFacility do not automatically generate a  LoanPrincipalRepaymentEvent at the end of their schedule. Users must then book rollovers or explicit  LoanPrincipalRepaymentEvents themselves, otherwise the contract stays open and may fail to value once matured.  Stand-alone and WholeLoanFacility FlexibleLoans, interest repayments and upserted repayment events are unaffected. Only takes  effect on the recipe used to generate instrument events. Defaults to false..</param>
         /// <param name="useLoanFacilityRolloverTemplate">If true, a LoanFacilityContractRolloverEvent is booked by its own transaction template, which moves the funded  balance between the contracts it names and, when the rollover is with interest, pays the accrued interest of the  contracts rolled out of. If false, the rollover is expanded into DrawdownEvents and LoanInterestRepaymentEvents  that book through the drawdown and interest repayment templates, as before. Only takes effect on the recipe used  to generate instrument events. Defaults to false..</param>
         /// <param name="maturedInstrumentValuation">How a position in an instrument that has matured is valued. One of \&quot;Fail\&quot; (default: the request fails  with a maturity error, as it always has), \&quot;ZeroPv\&quot; (the position is valued at zero with the maturity  error attached as a diagnostic) or \&quot;ValueAsHeld\&quot; (a Bond, ComplexBond or InflationLinked position  that is still held is valued at its recorded quantity times the supplied price, with zero accrued  interest, at and after maturity, under SimpleStatic, BondLookupPricer or OverrideOnlyPricer; a missing  price fails as it would before maturity, and other instrument types and models behave as under  \&quot;ZeroPv\&quot;). Supersedes returnZeroPv.instrumentMatured: when this is  absent, that flag set to true behaves as \&quot;ZeroPv\&quot; and false as \&quot;Fail\&quot;. Available values: Fail, ZeroPv, ValueAsHeld..</param>
-        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), string riskEngine = default(string), string findOrCalculate = default(string), bool produceSeparateResultForLinearOtcLegs = default(bool), bool fxForwardContractsAsUnitsInBothLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool fixedIncomeValuationsUsingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool), bool useInstrumentScaleFactorAsDefault = default(bool), bool scaleInstrumentAccruedOverrideByContractSize = default(bool), RiskBumpOptions riskBumpOptions = default(RiskBumpOptions), Dictionary<string, string> fundingCurveByCurrency = default(Dictionary<string, string>), bool defaultPoolFactorsToUnity = default(bool), bool findOrCalculateWriteThrough = default(bool), InflationConvexityOptions inflationConvexity = default(InflationConvexityOptions), bool allowFallbackOnModelDecline = default(bool), List<NamedPrice> namedPrices = default(List<NamedPrice>), bool suppressAutomaticLoanPrincipalRepayment = default(bool), bool useLoanFacilityRolloverTemplate = default(bool), string maturedInstrumentValuation = default(string))
+        /// <param name="inflationLinkedBondIndexationEvents">Generate a daily InflationIndexationEvent for each inflation-linked bond on every day its index ratio changes.  The event books a memo transaction whose units carry the day&#39;s indexed-face change (the principal uplift) and  whose total consideration is zero; its movement is record-only, so nothing moves. Defaults to false.  The memo uses the InflationIndexation transaction type, which ships only in LUSID&#39;s default transaction type  source: a customised default source must add it, with its record-only movement, or every holding gets a  \&quot;not configured\&quot; transaction diagnostic for each day..</param>
+        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), string riskEngine = default(string), string findOrCalculate = default(string), bool produceSeparateResultForLinearOtcLegs = default(bool), bool fxForwardContractsAsUnitsInBothLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool fixedIncomeValuationsUsingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool), bool useInstrumentScaleFactorAsDefault = default(bool), bool scaleInstrumentAccruedOverrideByContractSize = default(bool), RiskBumpOptions riskBumpOptions = default(RiskBumpOptions), Dictionary<string, string> fundingCurveByCurrency = default(Dictionary<string, string>), bool defaultPoolFactorsToUnity = default(bool), bool findOrCalculateWriteThrough = default(bool), InflationConvexityOptions inflationConvexity = default(InflationConvexityOptions), bool allowFallbackOnModelDecline = default(bool), List<NamedPrice> namedPrices = default(List<NamedPrice>), bool suppressAutomaticLoanPrincipalRepayment = default(bool), bool useLoanFacilityRolloverTemplate = default(bool), string maturedInstrumentValuation = default(string), bool inflationLinkedBondIndexationEvents = default(bool))
         {
             this.ModelSelection = modelSelection;
             this.UseInstrumentTypeToDeterminePricer = useInstrumentTypeToDeterminePricer;
@@ -95,6 +96,7 @@ namespace Lusid.Sdk.Model
             this.SuppressAutomaticLoanPrincipalRepayment = suppressAutomaticLoanPrincipalRepayment;
             this.UseLoanFacilityRolloverTemplate = useLoanFacilityRolloverTemplate;
             this.MaturedInstrumentValuation = maturedInstrumentValuation;
+            this.InflationLinkedBondIndexationEvents = inflationLinkedBondIndexationEvents;
         }
 
         /// <summary>
@@ -310,6 +312,13 @@ namespace Lusid.Sdk.Model
         public string MaturedInstrumentValuation { get; set; }
 
         /// <summary>
+        /// Generate a daily InflationIndexationEvent for each inflation-linked bond on every day its index ratio changes.  The event books a memo transaction whose units carry the day&#39;s indexed-face change (the principal uplift) and  whose total consideration is zero; its movement is record-only, so nothing moves. Defaults to false.  The memo uses the InflationIndexation transaction type, which ships only in LUSID&#39;s default transaction type  source: a customised default source must add it, with its record-only movement, or every holding gets a  \&quot;not configured\&quot; transaction diagnostic for each day.
+        /// </summary>
+        /// <value>Generate a daily InflationIndexationEvent for each inflation-linked bond on every day its index ratio changes.  The event books a memo transaction whose units carry the day&#39;s indexed-face change (the principal uplift) and  whose total consideration is zero; its movement is record-only, so nothing moves. Defaults to false.  The memo uses the InflationIndexation transaction type, which ships only in LUSID&#39;s default transaction type  source: a customised default source must add it, with its record-only movement, or every holding gets a  \&quot;not configured\&quot; transaction diagnostic for each day.</value>
+        [DataMember(Name = "inflationLinkedBondIndexationEvents", EmitDefaultValue = true)]
+        public bool InflationLinkedBondIndexationEvents { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -348,6 +357,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  SuppressAutomaticLoanPrincipalRepayment: ").Append(SuppressAutomaticLoanPrincipalRepayment).Append("\n");
             sb.Append("  UseLoanFacilityRolloverTemplate: ").Append(UseLoanFacilityRolloverTemplate).Append("\n");
             sb.Append("  MaturedInstrumentValuation: ").Append(MaturedInstrumentValuation).Append("\n");
+            sb.Append("  InflationLinkedBondIndexationEvents: ").Append(InflationLinkedBondIndexationEvents).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -518,6 +528,10 @@ namespace Lusid.Sdk.Model
                     this.MaturedInstrumentValuation == input.MaturedInstrumentValuation ||
                     (this.MaturedInstrumentValuation != null &&
                     this.MaturedInstrumentValuation.Equals(input.MaturedInstrumentValuation))
+                ) && 
+                (
+                    this.InflationLinkedBondIndexationEvents == input.InflationLinkedBondIndexationEvents ||
+                    this.InflationLinkedBondIndexationEvents.Equals(input.InflationLinkedBondIndexationEvents)
                 );
         }
 
@@ -591,6 +605,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.MaturedInstrumentValuation.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.InflationLinkedBondIndexationEvents.GetHashCode();
                 return hashCode;
             }
         }

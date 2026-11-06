@@ -795,7 +795,13 @@ namespace Lusid.Sdk.Model
         /// Enum CashDistributionFromNonEligibleSecuritiesSalesEvent for value: CashDistributionFromNonEligibleSecuritiesSalesEvent
         /// </summary>
         [EnumMember(Value = "CashDistributionFromNonEligibleSecuritiesSalesEvent")]
-        CashDistributionFromNonEligibleSecuritiesSalesEvent = 128
+        CashDistributionFromNonEligibleSecuritiesSalesEvent = 128,
+
+        /// <summary>
+        /// Enum InflationIndexationEvent for value: InflationIndexationEvent
+        /// </summary>
+        [EnumMember(Value = "InflationIndexationEvent")]
+        InflationIndexationEvent = 129
     }
 
 }

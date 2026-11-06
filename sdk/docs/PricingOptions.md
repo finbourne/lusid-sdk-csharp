@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **SuppressAutomaticLoanPrincipalRepayment** | **bool** | If true, FlexibleLoans held as contracts on a LoanFacility do not automatically generate a  LoanPrincipalRepaymentEvent at the end of their schedule. Users must then book rollovers or explicit  LoanPrincipalRepaymentEvents themselves, otherwise the contract stays open and may fail to value once matured.  Stand-alone and WholeLoanFacility FlexibleLoans, interest repayments and upserted repayment events are unaffected. Only takes  effect on the recipe used to generate instrument events. Defaults to false. | [optional] 
 **UseLoanFacilityRolloverTemplate** | **bool** | If true, a LoanFacilityContractRolloverEvent is booked by its own transaction template, which moves the funded  balance between the contracts it names and, when the rollover is with interest, pays the accrued interest of the  contracts rolled out of. If false, the rollover is expanded into DrawdownEvents and LoanInterestRepaymentEvents  that book through the drawdown and interest repayment templates, as before. Only takes effect on the recipe used  to generate instrument events. Defaults to false. | [optional] 
 **MaturedInstrumentValuation** | **string** | How a position in an instrument that has matured is valued. One of \&quot;Fail\&quot; (default: the request fails  with a maturity error, as it always has), \&quot;ZeroPv\&quot; (the position is valued at zero with the maturity  error attached as a diagnostic) or \&quot;ValueAsHeld\&quot; (a Bond, ComplexBond or InflationLinked position  that is still held is valued at its recorded quantity times the supplied price, with zero accrued  interest, at and after maturity, under SimpleStatic, BondLookupPricer or OverrideOnlyPricer; a missing  price fails as it would before maturity, and other instrument types and models behave as under  \&quot;ZeroPv\&quot;). Supersedes returnZeroPv.instrumentMatured: when this is  absent, that flag set to true behaves as \&quot;ZeroPv\&quot; and false as \&quot;Fail\&quot;. Available values: Fail, ZeroPv, ValueAsHeld. | [optional] 
+**InflationLinkedBondIndexationEvents** | **bool** | Generate a daily InflationIndexationEvent for each inflation-linked bond on every day its index ratio changes.  The event books a memo transaction whose units carry the day&#39;s indexed-face change (the principal uplift) and  whose total consideration is zero; its movement is record-only, so nothing moves. Defaults to false.  The memo uses the InflationIndexation transaction type, which ships only in LUSID&#39;s default transaction type  source: a customised default source must add it, with its record-only movement, or every holding gets a  \&quot;not configured\&quot; transaction diagnostic for each day. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -76,6 +77,7 @@ List<NamedPrice> namedPrices = new List<NamedPrice>();
 bool suppressAutomaticLoanPrincipalRepayment = //"True";
 bool useLoanFacilityRolloverTemplate = //"True";
 string maturedInstrumentValuation = "example maturedInstrumentValuation";
+bool inflationLinkedBondIndexationEvents = //"True";
 
 PricingOptions pricingOptionsInstance = new PricingOptions(
     modelSelection: modelSelection,
@@ -108,7 +110,8 @@ PricingOptions pricingOptionsInstance = new PricingOptions(
     namedPrices: namedPrices,
     suppressAutomaticLoanPrincipalRepayment: suppressAutomaticLoanPrincipalRepayment,
     useLoanFacilityRolloverTemplate: useLoanFacilityRolloverTemplate,
-    maturedInstrumentValuation: maturedInstrumentValuation);
+    maturedInstrumentValuation: maturedInstrumentValuation,
+    inflationLinkedBondIndexationEvents: inflationLinkedBondIndexationEvents);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
