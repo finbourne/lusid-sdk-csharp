@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// One investor&#39;s position on a booked capital call.
+    /// One investor&#39;s position on a booked capital call, on one register.
     /// </summary>
     [DataContract(Name = "AllocationReceivable")]
     public partial class AllocationReceivable : IEquatable<AllocationReceivable>, IValidatableObject
@@ -37,7 +37,9 @@ namespace Lusid.Sdk.Model
         /// <param name="outstanding">What is still owed. Never negative: an overpayment becomes a refund payable instead..</param>
         /// <param name="daysPastDue">How many days past the due date the outstanding amount is, or zero when not yet due or nothing is owed..</param>
         /// <param name="bucket">The ageing bucket: Current, 1-30, 31-60, 61-90 or 90+..</param>
-        public AllocationReceivable(string investorRecordId = default(string), decimal called = default(decimal), decimal received = default(decimal), decimal outstanding = default(decimal), int daysPastDue = default(int), string bucket = default(string))
+        /// <param name="portfolio">portfolio.</param>
+        /// <param name="side">Whether the record owes on its own line (LP) or as a feeder&#39;s roll-up on the master (ROLLUP)..</param>
+        public AllocationReceivable(string investorRecordId = default(string), decimal called = default(decimal), decimal received = default(decimal), decimal outstanding = default(decimal), int daysPastDue = default(int), string bucket = default(string), ResourceId portfolio = default(ResourceId), string side = default(string))
         {
             this.InvestorRecordId = investorRecordId;
             this.Called = called;
@@ -45,6 +47,8 @@ namespace Lusid.Sdk.Model
             this.Outstanding = outstanding;
             this.DaysPastDue = daysPastDue;
             this.Bucket = bucket;
+            this.Portfolio = portfolio;
+            this.Side = side;
         }
 
         /// <summary>
@@ -90,6 +94,19 @@ namespace Lusid.Sdk.Model
         public string Bucket { get; set; }
 
         /// <summary>
+        /// Gets or Sets Portfolio
+        /// </summary>
+        [DataMember(Name = "portfolio", EmitDefaultValue = false)]
+        public ResourceId Portfolio { get; set; }
+
+        /// <summary>
+        /// Whether the record owes on its own line (LP) or as a feeder&#39;s roll-up on the master (ROLLUP).
+        /// </summary>
+        /// <value>Whether the record owes on its own line (LP) or as a feeder&#39;s roll-up on the master (ROLLUP).</value>
+        [DataMember(Name = "side", EmitDefaultValue = true)]
+        public string Side { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -103,6 +120,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  Outstanding: ").Append(Outstanding).Append("\n");
             sb.Append("  DaysPastDue: ").Append(DaysPastDue).Append("\n");
             sb.Append("  Bucket: ").Append(Bucket).Append("\n");
+            sb.Append("  Portfolio: ").Append(Portfolio).Append("\n");
+            sb.Append("  Side: ").Append(Side).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -163,6 +182,16 @@ namespace Lusid.Sdk.Model
                     this.Bucket == input.Bucket ||
                     (this.Bucket != null &&
                     this.Bucket.Equals(input.Bucket))
+                ) && 
+                (
+                    this.Portfolio == input.Portfolio ||
+                    (this.Portfolio != null &&
+                    this.Portfolio.Equals(input.Portfolio))
+                ) && 
+                (
+                    this.Side == input.Side ||
+                    (this.Side != null &&
+                    this.Side.Equals(input.Side))
                 );
         }
 
@@ -186,6 +215,14 @@ namespace Lusid.Sdk.Model
                 if (this.Bucket != null)
                 {
                     hashCode = (hashCode * 59) + this.Bucket.GetHashCode();
+                }
+                if (this.Portfolio != null)
+                {
+                    hashCode = (hashCode * 59) + this.Portfolio.GetHashCode();
+                }
+                if (this.Side != null)
+                {
+                    hashCode = (hashCode * 59) + this.Side.GetHashCode();
                 }
                 return hashCode;
             }
