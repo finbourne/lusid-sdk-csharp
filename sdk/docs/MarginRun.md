@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **Scenarios** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The stored scenarios the run values the agreements under, each beside the base market the run always values. Empty if only the base market was valued. | 
 **CaptureDiagnostics** | **bool?** | Whether the run stored the working behind its figures, so that they can be explained. Null for a run made before runs could store it, which did not. | [optional] 
 **Optimisation** | [**MarginRunOptimisation**](MarginRunOptimisation.md) |  | [optional] 
+**Allocation** | [**MarginRunAllocation**](MarginRunAllocation.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -35,6 +36,8 @@ List<MarginRunShard> shards = new List<MarginRunShard>();
 List<ResourceId> scenarios = new List<ResourceId>();
 bool? captureDiagnostics = //"True";
 MarginRunOptimisation? optimisation = new MarginRunOptimisation();
+
+MarginRunAllocation? allocation = new MarginRunAllocation();
 
 
 MarginRun marginRunInstance = new MarginRun(
@@ -53,7 +56,8 @@ MarginRun marginRunInstance = new MarginRun(
     shards: shards,
     scenarios: scenarios,
     captureDiagnostics: captureDiagnostics,
-    optimisation: optimisation);
+    optimisation: optimisation,
+    allocation: allocation);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

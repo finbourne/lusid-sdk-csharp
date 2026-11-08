@@ -8,6 +8,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**BatchAcceptMarginCalls**](CollateralApi.md#batchacceptmargincalls) | **POST** /api/collateral/margincalls/$batchAccept | [EXPERIMENTAL] BatchAcceptMarginCalls: Accept several margin calls. |
 | [**DisputeMarginCall**](CollateralApi.md#disputemargincall) | **POST** /api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/$dispute | [EXPERIMENTAL] DisputeMarginCall: Dispute a margin call. |
 | [**GetMarginCall**](CollateralApi.md#getmargincall) | **GET** /api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction} | [EXPERIMENTAL] GetMarginCall: Get a margin call. |
+| [**GetMarginCallAllocation**](CollateralApi.md#getmargincallallocation) | **GET** /api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/$allocation | [EXPERIMENTAL] GetMarginCallAllocation: [EXPERIMENTAL] GetMarginCallAllocation: Get the collateral proposed for a margin call. |
 | [**GetMarginCallExplanation**](CollateralApi.md#getmargincallexplanation) | **GET** /api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/$explain | [EXPERIMENTAL] GetMarginCallExplanation: Explain a margin call. |
 | [**GetMarginLineExplanation**](CollateralApi.md#getmarginlineexplanation) | **GET** /api/collateral/runs/{runId}/lines/{lineKey}/$explain | [EXPERIMENTAL] GetMarginLineExplanation: Explain a margin line. |
 | [**GetMarginRun**](CollateralApi.md#getmarginrun) | **GET** /api/collateral/runs/{runId} | [EXPERIMENTAL] GetMarginRun: Get a margin run. |
@@ -17,6 +18,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**ListMarginRunRecommendations**](CollateralApi.md#listmarginrunrecommendations) | **GET** /api/collateral/runs/{runId}/recommendations | [EXPERIMENTAL] ListMarginRunRecommendations: List a margin run&#39;s netting recommendations. |
 | [**ListMarginRuns**](CollateralApi.md#listmarginruns) | **GET** /api/collateral/runs | [EXPERIMENTAL] ListMarginRuns: List margin runs. |
 | [**ListNettingRecommendations**](CollateralApi.md#listnettingrecommendations) | **GET** /api/collateral/recommendations | [EXPERIMENTAL] ListNettingRecommendations: List the current netting recommendations. |
+| [**RankMarginCall**](CollateralApi.md#rankmargincall) | **POST** /api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/$rank | [EXPERIMENTAL] RankMarginCall: [EXPERIMENTAL] RankMarginCall: Rank the collateral for a margin call again, with the caller&#39;s choices. |
 | [**RecordCounterpartyDemand**](CollateralApi.md#recordcounterpartydemand) | **POST** /api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/$recordCounterpartyDemand | [EXPERIMENTAL] RecordCounterpartyDemand: Record the counterparty&#39;s demand against a margin call. |
 | [**RetryMarginRun**](CollateralApi.md#retrymarginrun) | **POST** /api/collateral/runs/{runId}/$retry | [EXPERIMENTAL] RetryMarginRun: Retry a margin run. |
 | [**RunMarginCalculation**](CollateralApi.md#runmargincalculation) | **POST** /api/collateral/$run | [EXPERIMENTAL] RunMarginCalculation: Run the margin calculation. |
@@ -506,6 +508,130 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The requested margin call. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getmargincallallocation"></a>
+# **GetMarginCallAllocation**
+> CollateralAllocation GetMarginCallAllocation (string runId, string agreementScope, string agreementCode, string item, string marginType, string direction)
+
+[EXPERIMENTAL] GetMarginCallAllocation: [EXPERIMENTAL] GetMarginCallAllocation: Get the collateral proposed for a margin call.
+
+Retrieve the assets the run's allocation pass proposes to deliver for the call, or to take back for a return, with  every holding it considered and either its rank or the constraint that excluded it. Each line carries what a  transaction moving it needs: the instrument, the portfolio and custodian account, the units, the price and the  consideration. Not found until the run's allocation pass has completed, or when the call moves no collateral of ours.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CollateralApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CollateralApi>();
+            var runId = "runId_example";  // string | The identifier of the margin run.
+            var agreementScope = "agreementScope_example";  // string | The scope of the call's collateral agreement.
+            var agreementCode = "agreementCode_example";  // string | The code of the call's collateral agreement.
+            var item = "item_example";  // string | The margin item of the call.
+            var marginType = "marginType_example";  // string | The margin type of the call. One of VariationMargin or InitialMargin.
+            var direction = "direction_example";  // string | Who posts under the call. One of WePost, TheyPost or None.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // CollateralAllocation result = apiInstance.GetMarginCallAllocation(runId, agreementScope, agreementCode, item, marginType, direction, opts: opts);
+
+                // [EXPERIMENTAL] GetMarginCallAllocation: [EXPERIMENTAL] GetMarginCallAllocation: Get the collateral proposed for a margin call.
+                CollateralAllocation result = apiInstance.GetMarginCallAllocation(runId, agreementScope, agreementCode, item, marginType, direction);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling CollateralApi.GetMarginCallAllocation: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetMarginCallAllocationWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetMarginCallAllocation: [EXPERIMENTAL] GetMarginCallAllocation: Get the collateral proposed for a margin call.
+    ApiResponse<CollateralAllocation> response = apiInstance.GetMarginCallAllocationWithHttpInfo(runId, agreementScope, agreementCode, item, marginType, direction);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling CollateralApi.GetMarginCallAllocationWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **runId** | **string** | The identifier of the margin run. |  |
+| **agreementScope** | **string** | The scope of the call&#39;s collateral agreement. |  |
+| **agreementCode** | **string** | The code of the call&#39;s collateral agreement. |  |
+| **item** | **string** | The margin item of the call. |  |
+| **marginType** | **string** | The margin type of the call. One of VariationMargin or InitialMargin. |  |
+| **direction** | **string** | Who posts under the call. One of WePost, TheyPost or None. |  |
+
+### Return type
+
+[**CollateralAllocation**](CollateralAllocation.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The collateral proposed for the margin call. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -1598,6 +1724,132 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The requested recommendations. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="rankmargincall"></a>
+# **RankMarginCall**
+> CollateralAllocation RankMarginCall (string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, RankMarginCallRequest? rankMarginCallRequest = null)
+
+[EXPERIMENTAL] RankMarginCall: [EXPERIMENTAL] RankMarginCall: Rank the collateral for a margin call again, with the caller's choices.
+
+Value the call's agreement as of now for the run's business date and rank its free, eligible holdings for the  call again, keeping the assets and units the caller chose. Each choice is validated against the agreement's  constraints and kept with its reason when it fails one; the rest of the call is filled from the ranking, cheapest  first, unless fillRemainder is false. Nothing is stored: the result is what to book, for the caller to decide on.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CollateralApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CollateralApi>();
+            var runId = "runId_example";  // string | The identifier of the margin run.
+            var agreementScope = "agreementScope_example";  // string | The scope of the call's collateral agreement.
+            var agreementCode = "agreementCode_example";  // string | The code of the call's collateral agreement.
+            var item = "item_example";  // string | The margin item of the call.
+            var marginType = "marginType_example";  // string | The margin type of the call. One of VariationMargin or InitialMargin.
+            var direction = "direction_example";  // string | Who posts under the call. One of WePost, TheyPost or None.
+            var rankMarginCallRequest = new RankMarginCallRequest?(); // RankMarginCallRequest? | The assets the caller chose, and whether to fill the rest. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // CollateralAllocation result = apiInstance.RankMarginCall(runId, agreementScope, agreementCode, item, marginType, direction, rankMarginCallRequest, opts: opts);
+
+                // [EXPERIMENTAL] RankMarginCall: [EXPERIMENTAL] RankMarginCall: Rank the collateral for a margin call again, with the caller's choices.
+                CollateralAllocation result = apiInstance.RankMarginCall(runId, agreementScope, agreementCode, item, marginType, direction, rankMarginCallRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling CollateralApi.RankMarginCall: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the RankMarginCallWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] RankMarginCall: [EXPERIMENTAL] RankMarginCall: Rank the collateral for a margin call again, with the caller's choices.
+    ApiResponse<CollateralAllocation> response = apiInstance.RankMarginCallWithHttpInfo(runId, agreementScope, agreementCode, item, marginType, direction, rankMarginCallRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling CollateralApi.RankMarginCallWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **runId** | **string** | The identifier of the margin run. |  |
+| **agreementScope** | **string** | The scope of the call&#39;s collateral agreement. |  |
+| **agreementCode** | **string** | The code of the call&#39;s collateral agreement. |  |
+| **item** | **string** | The margin item of the call. |  |
+| **marginType** | **string** | The margin type of the call. One of VariationMargin or InitialMargin. |  |
+| **direction** | **string** | Who posts under the call. One of WePost, TheyPost or None. |  |
+| **rankMarginCallRequest** | [**RankMarginCallRequest?**](RankMarginCallRequest?.md) | The assets the caller chose, and whether to fill the rest. | [optional]  |
+
+### Return type
+
+[**CollateralAllocation**](CollateralAllocation.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The collateral ranked for the margin call. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

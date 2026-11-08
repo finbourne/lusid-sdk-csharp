@@ -166,6 +166,41 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of MarginCall</returns>
         Lusid.Sdk.Client.ApiResponse<MarginCall> GetMarginCallWithHttpInfo(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] GetMarginCallAllocation: [EXPERIMENTAL] GetMarginCallAllocation: Get the collateral proposed for a margin call.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the assets the run&#39;s allocation pass proposes to deliver for the call, or to take back for a return, with  every holding it considered and either its rank or the constraint that excluded it. Each line carries what a  transaction moving it needs: the instrument, the portfolio and custodian account, the units, the price and the  consideration. Not found until the run&#39;s allocation pass has completed, or when the call moves no collateral of ours.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. One of VariationMargin or InitialMargin.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>CollateralAllocation</returns>
+        CollateralAllocation GetMarginCallAllocation(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginCallAllocation: [EXPERIMENTAL] GetMarginCallAllocation: Get the collateral proposed for a margin call.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the assets the run&#39;s allocation pass proposes to deliver for the call, or to take back for a return, with  every holding it considered and either its rank or the constraint that excluded it. Each line carries what a  transaction moving it needs: the instrument, the portfolio and custodian account, the units, the price and the  consideration. Not found until the run&#39;s allocation pass has completed, or when the call moves no collateral of ours.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. One of VariationMargin or InitialMargin.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of CollateralAllocation</returns>
+        Lusid.Sdk.Client.ApiResponse<CollateralAllocation> GetMarginCallAllocationWithHttpInfo(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] GetMarginCallExplanation: Explain a margin call.
         /// </summary>
         /// <remarks>
@@ -457,6 +492,43 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfNettingRecommendation</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfNettingRecommendation> ListNettingRecommendationsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] RankMarginCall: [EXPERIMENTAL] RankMarginCall: Rank the collateral for a margin call again, with the caller&#39;s choices.
+        /// </summary>
+        /// <remarks>
+        /// Value the call&#39;s agreement as of now for the run&#39;s business date and rank its free, eligible holdings for the  call again, keeping the assets and units the caller chose. Each choice is validated against the agreement&#39;s  constraints and kept with its reason when it fails one; the rest of the call is filled from the ranking, cheapest  first, unless fillRemainder is false. Nothing is stored: the result is what to book, for the caller to decide on.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. One of VariationMargin or InitialMargin.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="rankMarginCallRequest">The assets the caller chose, and whether to fill the rest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>CollateralAllocation</returns>
+        CollateralAllocation RankMarginCall(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, RankMarginCallRequest? rankMarginCallRequest = default(RankMarginCallRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] RankMarginCall: [EXPERIMENTAL] RankMarginCall: Rank the collateral for a margin call again, with the caller&#39;s choices.
+        /// </summary>
+        /// <remarks>
+        /// Value the call&#39;s agreement as of now for the run&#39;s business date and rank its free, eligible holdings for the  call again, keeping the assets and units the caller chose. Each choice is validated against the agreement&#39;s  constraints and kept with its reason when it fails one; the rest of the call is filled from the ranking, cheapest  first, unless fillRemainder is false. Nothing is stored: the result is what to book, for the caller to decide on.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. One of VariationMargin or InitialMargin.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="rankMarginCallRequest">The assets the caller chose, and whether to fill the rest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of CollateralAllocation</returns>
+        Lusid.Sdk.Client.ApiResponse<CollateralAllocation> RankMarginCallWithHttpInfo(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, RankMarginCallRequest? rankMarginCallRequest = default(RankMarginCallRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] RecordCounterpartyDemand: Record the counterparty&#39;s demand against a margin call.
         /// </summary>
         /// <remarks>
@@ -694,6 +766,43 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (MarginCall)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<MarginCall>> GetMarginCallWithHttpInfoAsync(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginCallAllocation: [EXPERIMENTAL] GetMarginCallAllocation: Get the collateral proposed for a margin call.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the assets the run&#39;s allocation pass proposes to deliver for the call, or to take back for a return, with  every holding it considered and either its rank or the constraint that excluded it. Each line carries what a  transaction moving it needs: the instrument, the portfolio and custodian account, the units, the price and the  consideration. Not found until the run&#39;s allocation pass has completed, or when the call moves no collateral of ours.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. One of VariationMargin or InitialMargin.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of CollateralAllocation</returns>
+        System.Threading.Tasks.Task<CollateralAllocation> GetMarginCallAllocationAsync(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginCallAllocation: [EXPERIMENTAL] GetMarginCallAllocation: Get the collateral proposed for a margin call.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the assets the run&#39;s allocation pass proposes to deliver for the call, or to take back for a return, with  every holding it considered and either its rank or the constraint that excluded it. Each line carries what a  transaction moving it needs: the instrument, the portfolio and custodian account, the units, the price and the  consideration. Not found until the run&#39;s allocation pass has completed, or when the call moves no collateral of ours.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. One of VariationMargin or InitialMargin.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (CollateralAllocation)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CollateralAllocation>> GetMarginCallAllocationWithHttpInfoAsync(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetMarginCallExplanation: Explain a margin call.
         /// </summary>
@@ -1003,6 +1112,45 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfNettingRecommendation)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfNettingRecommendation>> ListNettingRecommendationsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] RankMarginCall: [EXPERIMENTAL] RankMarginCall: Rank the collateral for a margin call again, with the caller&#39;s choices.
+        /// </summary>
+        /// <remarks>
+        /// Value the call&#39;s agreement as of now for the run&#39;s business date and rank its free, eligible holdings for the  call again, keeping the assets and units the caller chose. Each choice is validated against the agreement&#39;s  constraints and kept with its reason when it fails one; the rest of the call is filled from the ranking, cheapest  first, unless fillRemainder is false. Nothing is stored: the result is what to book, for the caller to decide on.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. One of VariationMargin or InitialMargin.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="rankMarginCallRequest">The assets the caller chose, and whether to fill the rest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of CollateralAllocation</returns>
+        System.Threading.Tasks.Task<CollateralAllocation> RankMarginCallAsync(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, RankMarginCallRequest? rankMarginCallRequest = default(RankMarginCallRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] RankMarginCall: [EXPERIMENTAL] RankMarginCall: Rank the collateral for a margin call again, with the caller&#39;s choices.
+        /// </summary>
+        /// <remarks>
+        /// Value the call&#39;s agreement as of now for the run&#39;s business date and rank its free, eligible holdings for the  call again, keeping the assets and units the caller chose. Each choice is validated against the agreement&#39;s  constraints and kept with its reason when it fails one; the rest of the call is filled from the ranking, cheapest  first, unless fillRemainder is false. Nothing is stored: the result is what to book, for the caller to decide on.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. One of VariationMargin or InitialMargin.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="rankMarginCallRequest">The assets the caller chose, and whether to fill the rest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (CollateralAllocation)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CollateralAllocation>> RankMarginCallWithHttpInfoAsync(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, RankMarginCallRequest? rankMarginCallRequest = default(RankMarginCallRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] RecordCounterpartyDemand: Record the counterparty&#39;s demand against a margin call.
         /// </summary>
@@ -2344,6 +2492,300 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMarginCall", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginCallAllocation: [EXPERIMENTAL] GetMarginCallAllocation: Get the collateral proposed for a margin call. Retrieve the assets the run&#39;s allocation pass proposes to deliver for the call, or to take back for a return, with  every holding it considered and either its rank or the constraint that excluded it. Each line carries what a  transaction moving it needs: the instrument, the portfolio and custodian account, the units, the price and the  consideration. Not found until the run&#39;s allocation pass has completed, or when the call moves no collateral of ours.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. One of VariationMargin or InitialMargin.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>CollateralAllocation</returns>
+        public CollateralAllocation GetMarginCallAllocation(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<CollateralAllocation> localVarResponse = GetMarginCallAllocationWithHttpInfo(runId, agreementScope, agreementCode, item, marginType, direction, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginCallAllocation: [EXPERIMENTAL] GetMarginCallAllocation: Get the collateral proposed for a margin call. Retrieve the assets the run&#39;s allocation pass proposes to deliver for the call, or to take back for a return, with  every holding it considered and either its rank or the constraint that excluded it. Each line carries what a  transaction moving it needs: the instrument, the portfolio and custodian account, the units, the price and the  consideration. Not found until the run&#39;s allocation pass has completed, or when the call moves no collateral of ours.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. One of VariationMargin or InitialMargin.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of CollateralAllocation</returns>
+        public Lusid.Sdk.Client.ApiResponse<CollateralAllocation> GetMarginCallAllocationWithHttpInfo(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling CollateralApi->GetMarginCallAllocation");
+            }
+
+            // verify the required parameter 'agreementScope' is set
+            if (agreementScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'agreementScope' when calling CollateralApi->GetMarginCallAllocation");
+            }
+
+            // verify the required parameter 'agreementCode' is set
+            if (agreementCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'agreementCode' when calling CollateralApi->GetMarginCallAllocation");
+            }
+
+            // verify the required parameter 'item' is set
+            if (item == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'item' when calling CollateralApi->GetMarginCallAllocation");
+            }
+
+            // verify the required parameter 'marginType' is set
+            if (marginType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'marginType' when calling CollateralApi->GetMarginCallAllocation");
+            }
+
+            // verify the required parameter 'direction' is set
+            if (direction == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'direction' when calling CollateralApi->GetMarginCallAllocation");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("runId", Lusid.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("agreementScope", Lusid.Sdk.Client.ClientUtils.ParameterToString(agreementScope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("agreementCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(agreementCode)); // path parameter
+            localVarRequestOptions.PathParameters.Add("item", Lusid.Sdk.Client.ClientUtils.ParameterToString(item)); // path parameter
+            localVarRequestOptions.PathParameters.Add("marginType", Lusid.Sdk.Client.ClientUtils.ParameterToString(marginType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("direction", Lusid.Sdk.Client.ClientUtils.ParameterToString(direction)); // path parameter
+
+            localVarRequestOptions.Operation = "CollateralApi.GetMarginCallAllocation";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<CollateralAllocation>("/api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/$allocation", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarginCallAllocation", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginCallAllocation: [EXPERIMENTAL] GetMarginCallAllocation: Get the collateral proposed for a margin call. Retrieve the assets the run&#39;s allocation pass proposes to deliver for the call, or to take back for a return, with  every holding it considered and either its rank or the constraint that excluded it. Each line carries what a  transaction moving it needs: the instrument, the portfolio and custodian account, the units, the price and the  consideration. Not found until the run&#39;s allocation pass has completed, or when the call moves no collateral of ours.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. One of VariationMargin or InitialMargin.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of CollateralAllocation</returns>
+        public async System.Threading.Tasks.Task<CollateralAllocation> GetMarginCallAllocationAsync(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<CollateralAllocation> localVarResponse = await GetMarginCallAllocationWithHttpInfoAsync(runId, agreementScope, agreementCode, item, marginType, direction, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetMarginCallAllocation: [EXPERIMENTAL] GetMarginCallAllocation: Get the collateral proposed for a margin call. Retrieve the assets the run&#39;s allocation pass proposes to deliver for the call, or to take back for a return, with  every holding it considered and either its rank or the constraint that excluded it. Each line carries what a  transaction moving it needs: the instrument, the portfolio and custodian account, the units, the price and the  consideration. Not found until the run&#39;s allocation pass has completed, or when the call moves no collateral of ours.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. One of VariationMargin or InitialMargin.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (CollateralAllocation)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CollateralAllocation>> GetMarginCallAllocationWithHttpInfoAsync(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling CollateralApi->GetMarginCallAllocation");
+            }
+
+            // verify the required parameter 'agreementScope' is set
+            if (agreementScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'agreementScope' when calling CollateralApi->GetMarginCallAllocation");
+            }
+
+            // verify the required parameter 'agreementCode' is set
+            if (agreementCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'agreementCode' when calling CollateralApi->GetMarginCallAllocation");
+            }
+
+            // verify the required parameter 'item' is set
+            if (item == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'item' when calling CollateralApi->GetMarginCallAllocation");
+            }
+
+            // verify the required parameter 'marginType' is set
+            if (marginType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'marginType' when calling CollateralApi->GetMarginCallAllocation");
+            }
+
+            // verify the required parameter 'direction' is set
+            if (direction == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'direction' when calling CollateralApi->GetMarginCallAllocation");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("runId", Lusid.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("agreementScope", Lusid.Sdk.Client.ClientUtils.ParameterToString(agreementScope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("agreementCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(agreementCode)); // path parameter
+            localVarRequestOptions.PathParameters.Add("item", Lusid.Sdk.Client.ClientUtils.ParameterToString(item)); // path parameter
+            localVarRequestOptions.PathParameters.Add("marginType", Lusid.Sdk.Client.ClientUtils.ParameterToString(marginType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("direction", Lusid.Sdk.Client.ClientUtils.ParameterToString(direction)); // path parameter
+
+            localVarRequestOptions.Operation = "CollateralApi.GetMarginCallAllocation";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<CollateralAllocation>("/api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/$allocation", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarginCallAllocation", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -4649,6 +5091,314 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListNettingRecommendations", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] RankMarginCall: [EXPERIMENTAL] RankMarginCall: Rank the collateral for a margin call again, with the caller&#39;s choices. Value the call&#39;s agreement as of now for the run&#39;s business date and rank its free, eligible holdings for the  call again, keeping the assets and units the caller chose. Each choice is validated against the agreement&#39;s  constraints and kept with its reason when it fails one; the rest of the call is filled from the ranking, cheapest  first, unless fillRemainder is false. Nothing is stored: the result is what to book, for the caller to decide on.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. One of VariationMargin or InitialMargin.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="rankMarginCallRequest">The assets the caller chose, and whether to fill the rest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>CollateralAllocation</returns>
+        public CollateralAllocation RankMarginCall(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, RankMarginCallRequest? rankMarginCallRequest = default(RankMarginCallRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<CollateralAllocation> localVarResponse = RankMarginCallWithHttpInfo(runId, agreementScope, agreementCode, item, marginType, direction, rankMarginCallRequest, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] RankMarginCall: [EXPERIMENTAL] RankMarginCall: Rank the collateral for a margin call again, with the caller&#39;s choices. Value the call&#39;s agreement as of now for the run&#39;s business date and rank its free, eligible holdings for the  call again, keeping the assets and units the caller chose. Each choice is validated against the agreement&#39;s  constraints and kept with its reason when it fails one; the rest of the call is filled from the ranking, cheapest  first, unless fillRemainder is false. Nothing is stored: the result is what to book, for the caller to decide on.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. One of VariationMargin or InitialMargin.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="rankMarginCallRequest">The assets the caller chose, and whether to fill the rest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of CollateralAllocation</returns>
+        public Lusid.Sdk.Client.ApiResponse<CollateralAllocation> RankMarginCallWithHttpInfo(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, RankMarginCallRequest? rankMarginCallRequest = default(RankMarginCallRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling CollateralApi->RankMarginCall");
+            }
+
+            // verify the required parameter 'agreementScope' is set
+            if (agreementScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'agreementScope' when calling CollateralApi->RankMarginCall");
+            }
+
+            // verify the required parameter 'agreementCode' is set
+            if (agreementCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'agreementCode' when calling CollateralApi->RankMarginCall");
+            }
+
+            // verify the required parameter 'item' is set
+            if (item == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'item' when calling CollateralApi->RankMarginCall");
+            }
+
+            // verify the required parameter 'marginType' is set
+            if (marginType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'marginType' when calling CollateralApi->RankMarginCall");
+            }
+
+            // verify the required parameter 'direction' is set
+            if (direction == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'direction' when calling CollateralApi->RankMarginCall");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("runId", Lusid.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("agreementScope", Lusid.Sdk.Client.ClientUtils.ParameterToString(agreementScope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("agreementCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(agreementCode)); // path parameter
+            localVarRequestOptions.PathParameters.Add("item", Lusid.Sdk.Client.ClientUtils.ParameterToString(item)); // path parameter
+            localVarRequestOptions.PathParameters.Add("marginType", Lusid.Sdk.Client.ClientUtils.ParameterToString(marginType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("direction", Lusid.Sdk.Client.ClientUtils.ParameterToString(direction)); // path parameter
+            localVarRequestOptions.Data = rankMarginCallRequest;
+
+            localVarRequestOptions.Operation = "CollateralApi.RankMarginCall";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<CollateralAllocation>("/api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/$rank", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RankMarginCall", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] RankMarginCall: [EXPERIMENTAL] RankMarginCall: Rank the collateral for a margin call again, with the caller&#39;s choices. Value the call&#39;s agreement as of now for the run&#39;s business date and rank its free, eligible holdings for the  call again, keeping the assets and units the caller chose. Each choice is validated against the agreement&#39;s  constraints and kept with its reason when it fails one; the rest of the call is filled from the ranking, cheapest  first, unless fillRemainder is false. Nothing is stored: the result is what to book, for the caller to decide on.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. One of VariationMargin or InitialMargin.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="rankMarginCallRequest">The assets the caller chose, and whether to fill the rest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of CollateralAllocation</returns>
+        public async System.Threading.Tasks.Task<CollateralAllocation> RankMarginCallAsync(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, RankMarginCallRequest? rankMarginCallRequest = default(RankMarginCallRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<CollateralAllocation> localVarResponse = await RankMarginCallWithHttpInfoAsync(runId, agreementScope, agreementCode, item, marginType, direction, rankMarginCallRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] RankMarginCall: [EXPERIMENTAL] RankMarginCall: Rank the collateral for a margin call again, with the caller&#39;s choices. Value the call&#39;s agreement as of now for the run&#39;s business date and rank its free, eligible holdings for the  call again, keeping the assets and units the caller chose. Each choice is validated against the agreement&#39;s  constraints and kept with its reason when it fails one; the rest of the call is filled from the ranking, cheapest  first, unless fillRemainder is false. Nothing is stored: the result is what to book, for the caller to decide on.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runId">The identifier of the margin run.</param>
+        /// <param name="agreementScope">The scope of the call&#39;s collateral agreement.</param>
+        /// <param name="agreementCode">The code of the call&#39;s collateral agreement.</param>
+        /// <param name="item">The margin item of the call.</param>
+        /// <param name="marginType">The margin type of the call. One of VariationMargin or InitialMargin.</param>
+        /// <param name="direction">Who posts under the call. One of WePost, TheyPost or None.</param>
+        /// <param name="rankMarginCallRequest">The assets the caller chose, and whether to fill the rest. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (CollateralAllocation)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CollateralAllocation>> RankMarginCallWithHttpInfoAsync(string runId, string agreementScope, string agreementCode, string item, string marginType, string direction, RankMarginCallRequest? rankMarginCallRequest = default(RankMarginCallRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling CollateralApi->RankMarginCall");
+            }
+
+            // verify the required parameter 'agreementScope' is set
+            if (agreementScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'agreementScope' when calling CollateralApi->RankMarginCall");
+            }
+
+            // verify the required parameter 'agreementCode' is set
+            if (agreementCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'agreementCode' when calling CollateralApi->RankMarginCall");
+            }
+
+            // verify the required parameter 'item' is set
+            if (item == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'item' when calling CollateralApi->RankMarginCall");
+            }
+
+            // verify the required parameter 'marginType' is set
+            if (marginType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'marginType' when calling CollateralApi->RankMarginCall");
+            }
+
+            // verify the required parameter 'direction' is set
+            if (direction == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'direction' when calling CollateralApi->RankMarginCall");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("runId", Lusid.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("agreementScope", Lusid.Sdk.Client.ClientUtils.ParameterToString(agreementScope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("agreementCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(agreementCode)); // path parameter
+            localVarRequestOptions.PathParameters.Add("item", Lusid.Sdk.Client.ClientUtils.ParameterToString(item)); // path parameter
+            localVarRequestOptions.PathParameters.Add("marginType", Lusid.Sdk.Client.ClientUtils.ParameterToString(marginType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("direction", Lusid.Sdk.Client.ClientUtils.ParameterToString(direction)); // path parameter
+            localVarRequestOptions.Data = rankMarginCallRequest;
+
+            localVarRequestOptions.Operation = "CollateralApi.RankMarginCall";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<CollateralAllocation>("/api/collateral/margincalls/{runId}/{agreementScope}/{agreementCode}/{item}/{marginType}/{direction}/$rank", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RankMarginCall", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

@@ -21,6 +21,8 @@ Name | Type | Description | Notes
 **InitialMargin** | [**List&lt;MarginItem&gt;**](MarginItem.md) | The initial margin arrangements under the agreement. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties to decorate onto the Collateral Agreement. Filterable. | [optional] 
 **EffectiveAt** | **DateTimeOffset?** | The effective datetime from which the Collateral Agreement applies. Defaults to the beginning of time if not specified, so that the agreement is visible at every effective datetime. | [optional] 
+**NotificationCutLabel** | **string** | The cut label giving the time of day by which collateral we deliver under a margin call must settle. Each run resolves it on the business date and records it as the call&#39;s deadline; the allocation excludes assets that cannot settle by it. Optional. | [optional] 
+**ReturnNotificationCutLabel** | **string** | The cut label giving the time of day by which collateral the counterparty delivers, or returns to us, must settle. Recorded as the deadline of the calls they post under. Optional. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -41,6 +43,8 @@ CollateralOptimisationTerms? optimisation = new CollateralOptimisationTerms();
 List<MarginItem> variationMargin = new List<MarginItem>();
 List<MarginItem> initialMargin = new List<MarginItem>();
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
+string notificationCutLabel = "example notificationCutLabel";
+string returnNotificationCutLabel = "example returnNotificationCutLabel";
 
 CollateralAgreementRequest collateralAgreementRequestInstance = new CollateralAgreementRequest(
     code: code,
@@ -58,7 +62,9 @@ CollateralAgreementRequest collateralAgreementRequestInstance = new CollateralAg
     variationMargin: variationMargin,
     initialMargin: initialMargin,
     properties: properties,
-    effectiveAt: effectiveAt);
+    effectiveAt: effectiveAt,
+    notificationCutLabel: notificationCutLabel,
+    returnNotificationCutLabel: returnNotificationCutLabel);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

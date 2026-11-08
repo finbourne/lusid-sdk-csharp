@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **InitialMargin** | [**List&lt;MarginItem&gt;**](MarginItem.md) | The initial margin arrangements under the agreement. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties to decorate onto the Collateral Agreement. Filterable. | [optional] 
+**NotificationCutLabel** | **string** | The cut label giving the time of day by which collateral we deliver under a margin call must settle. Each run resolves it on the business date and records it as the call&#39;s deadline; the allocation excludes assets that cannot settle by it. Optional. | [optional] 
+**ReturnNotificationCutLabel** | **string** | The cut label giving the time of day by which collateral the counterparty delivers, or returns to us, must settle. Recorded as the deadline of the calls they post under. Optional. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -50,6 +52,8 @@ List<MarginItem> initialMargin = new List<MarginItem>();
 ModelVersion? varVersion = new ModelVersion();
 
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
+string notificationCutLabel = "example notificationCutLabel";
+string returnNotificationCutLabel = "example returnNotificationCutLabel";
 List<Link> links = new List<Link>();
 
 CollateralAgreement collateralAgreementInstance = new CollateralAgreement(
@@ -70,6 +74,8 @@ CollateralAgreement collateralAgreementInstance = new CollateralAgreement(
     initialMargin: initialMargin,
     varVersion: varVersion,
     properties: properties,
+    notificationCutLabel: notificationCutLabel,
+    returnNotificationCutLabel: returnNotificationCutLabel,
     links: links);
 ```
 

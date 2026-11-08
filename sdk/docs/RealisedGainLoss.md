@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **TradeDateToSettlementDateRealisedCurrency** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **TransactionType** | **string** | The transaction type resolved for the allocation slice that realised this record, which can differ from the output transaction&#39;s type when a slice resolves against the opposite side of the book (for example a Buy whose slice covers a short). | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The sub-holding key properties of the holding this record was realised against, identifying the allocation slice it belongs to. | [optional] 
+**ChargeableGains** | [**RealisedGainLossChargeableGains**](RealisedGainLossChargeableGains.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -44,6 +45,8 @@ CurrencyAndAmount? tradeDateToSettlementDateRealisedCurrency = new CurrencyAndAm
 
 string transactionType = "example transactionType";
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+RealisedGainLossChargeableGains? chargeableGains = new RealisedGainLossChargeableGains();
+
 
 RealisedGainLoss realisedGainLossInstance = new RealisedGainLoss(
     instrumentScope: instrumentScope,
@@ -62,7 +65,8 @@ RealisedGainLoss realisedGainLossInstance = new RealisedGainLoss(
     realisedAmortisation: realisedAmortisation,
     tradeDateToSettlementDateRealisedCurrency: tradeDateToSettlementDateRealisedCurrency,
     transactionType: transactionType,
-    properties: properties);
+    properties: properties,
+    chargeableGains: chargeableGains);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

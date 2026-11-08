@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// What margin posted under the agreement costs us: the annual rate it is funded at and the basis it accrues on.
+    /// What margin posted under the agreement costs us: the annual rate it is funded at, the basis it accrues on and the  lending fee assumed forgone on a security with no fee quote of its own when collateral is ranked.
     /// </summary>
     [DataContract(Name = "CollateralFundingTerms")]
     public partial class CollateralFundingTerms : IEquatable<CollateralFundingTerms>, IValidatableObject
@@ -38,10 +38,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="rate">The annual rate posted margin is funded at, as a fraction, for example 0.053 for 5.3%. Between -1 and 1. (required).</param>
         /// <param name="dayCountBasis">The number of days in the year the funding rate accrues over. Either 360 or 365. (required).</param>
-        public CollateralFundingTerms(decimal rate = default(decimal), int dayCountBasis = default(int))
+        /// <param name="defaultLendingFee">The annual lending fee, as a fraction, assumed forgone on a security with no fee quote of its own when collateral is ranked. Between 0 and 1. A security with no fee at all cannot be ranked. Optional..</param>
+        public CollateralFundingTerms(decimal rate = default(decimal), int dayCountBasis = default(int), decimal? defaultLendingFee = default(decimal?))
         {
             this.Rate = rate;
             this.DayCountBasis = dayCountBasis;
+            this.DefaultLendingFee = defaultLendingFee;
         }
 
         /// <summary>
@@ -59,6 +61,13 @@ namespace Lusid.Sdk.Model
         public int DayCountBasis { get; set; }
 
         /// <summary>
+        /// The annual lending fee, as a fraction, assumed forgone on a security with no fee quote of its own when collateral is ranked. Between 0 and 1. A security with no fee at all cannot be ranked. Optional.
+        /// </summary>
+        /// <value>The annual lending fee, as a fraction, assumed forgone on a security with no fee quote of its own when collateral is ranked. Between 0 and 1. A security with no fee at all cannot be ranked. Optional.</value>
+        [DataMember(Name = "defaultLendingFee", EmitDefaultValue = true)]
+        public decimal? DefaultLendingFee { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -68,6 +77,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class CollateralFundingTerms {\n");
             sb.Append("  Rate: ").Append(Rate).Append("\n");
             sb.Append("  DayCountBasis: ").Append(DayCountBasis).Append("\n");
+            sb.Append("  DefaultLendingFee: ").Append(DefaultLendingFee).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +120,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.DayCountBasis == input.DayCountBasis ||
                     this.DayCountBasis.Equals(input.DayCountBasis)
+                ) && 
+                (
+                    this.DefaultLendingFee == input.DefaultLendingFee ||
+                    (this.DefaultLendingFee != null &&
+                    this.DefaultLendingFee.Equals(input.DefaultLendingFee))
                 );
         }
 
@@ -124,6 +139,10 @@ namespace Lusid.Sdk.Model
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Rate.GetHashCode();
                 hashCode = (hashCode * 59) + this.DayCountBasis.GetHashCode();
+                if (this.DefaultLendingFee != null)
+                {
+                    hashCode = (hashCode * 59) + this.DefaultLendingFee.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -157,6 +176,18 @@ namespace Lusid.Sdk.Model
             if (this.DayCountBasis < (int)360)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DayCountBasis, must be a value greater than or equal to 360.", new [] { "DayCountBasis" });
+            }
+
+            // DefaultLendingFee (decimal?) maximum
+            if (this.DefaultLendingFee > (decimal?)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DefaultLendingFee, must be a value less than or equal to 1.", new [] { "DefaultLendingFee" });
+            }
+
+            // DefaultLendingFee (decimal?) minimum
+            if (this.DefaultLendingFee < (decimal?)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DefaultLendingFee, must be a value greater than or equal to 0.", new [] { "DefaultLendingFee" });
             }
 
             yield break;

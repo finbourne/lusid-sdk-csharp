@@ -53,8 +53,10 @@ namespace Lusid.Sdk.Model
         /// <param name="initialMargin">The initial margin arrangements under the agreement..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="properties">A set of properties to decorate onto the Collateral Agreement. Filterable..</param>
+        /// <param name="notificationCutLabel">The cut label giving the time of day by which collateral we deliver under a margin call must settle. Each run resolves it on the business date and records it as the call&#39;s deadline; the allocation excludes assets that cannot settle by it. Optional..</param>
+        /// <param name="returnNotificationCutLabel">The cut label giving the time of day by which collateral the counterparty delivers, or returns to us, must settle. Recorded as the deadline of the calls they post under. Optional..</param>
         /// <param name="links">links.</param>
-        public CollateralAgreement(string href = default(string), ResourceId id = default(ResourceId), CounterpartyIdentifier counterpartyId = default(CounterpartyIdentifier), string applicabilityFilter = default(string), string baseCurrency = default(string), DateTimeOrCutLabel cutLabel = default(DateTimeOrCutLabel), ResourceId recipeId = default(ResourceId), decimal? minimumTransferAmount = default(decimal?), MarginRounding rounding = default(MarginRounding), MarginSettlementLag settlementLag = default(MarginSettlementLag), decimal? matchTolerance = default(decimal?), CollateralFundingTerms funding = default(CollateralFundingTerms), CollateralOptimisationTerms optimisation = default(CollateralOptimisationTerms), List<MarginItem> variationMargin = default(List<MarginItem>), List<MarginItem> initialMargin = default(List<MarginItem>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Link> links = default(List<Link>))
+        public CollateralAgreement(string href = default(string), ResourceId id = default(ResourceId), CounterpartyIdentifier counterpartyId = default(CounterpartyIdentifier), string applicabilityFilter = default(string), string baseCurrency = default(string), DateTimeOrCutLabel cutLabel = default(DateTimeOrCutLabel), ResourceId recipeId = default(ResourceId), decimal? minimumTransferAmount = default(decimal?), MarginRounding rounding = default(MarginRounding), MarginSettlementLag settlementLag = default(MarginSettlementLag), decimal? matchTolerance = default(decimal?), CollateralFundingTerms funding = default(CollateralFundingTerms), CollateralOptimisationTerms optimisation = default(CollateralOptimisationTerms), List<MarginItem> variationMargin = default(List<MarginItem>), List<MarginItem> initialMargin = default(List<MarginItem>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string notificationCutLabel = default(string), string returnNotificationCutLabel = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -78,6 +80,8 @@ namespace Lusid.Sdk.Model
             this.InitialMargin = initialMargin;
             this.VarVersion = varVersion;
             this.Properties = properties;
+            this.NotificationCutLabel = notificationCutLabel;
+            this.ReturnNotificationCutLabel = returnNotificationCutLabel;
             this.Links = links;
         }
 
@@ -193,6 +197,20 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
+        /// The cut label giving the time of day by which collateral we deliver under a margin call must settle. Each run resolves it on the business date and records it as the call&#39;s deadline; the allocation excludes assets that cannot settle by it. Optional.
+        /// </summary>
+        /// <value>The cut label giving the time of day by which collateral we deliver under a margin call must settle. Each run resolves it on the business date and records it as the call&#39;s deadline; the allocation excludes assets that cannot settle by it. Optional.</value>
+        [DataMember(Name = "notificationCutLabel", EmitDefaultValue = true)]
+        public string NotificationCutLabel { get; set; }
+
+        /// <summary>
+        /// The cut label giving the time of day by which collateral the counterparty delivers, or returns to us, must settle. Recorded as the deadline of the calls they post under. Optional.
+        /// </summary>
+        /// <value>The cut label giving the time of day by which collateral the counterparty delivers, or returns to us, must settle. Recorded as the deadline of the calls they post under. Optional.</value>
+        [DataMember(Name = "returnNotificationCutLabel", EmitDefaultValue = true)]
+        public string ReturnNotificationCutLabel { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -223,6 +241,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  InitialMargin: ").Append(InitialMargin).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  NotificationCutLabel: ").Append(NotificationCutLabel).Append("\n");
+            sb.Append("  ReturnNotificationCutLabel: ").Append(ReturnNotificationCutLabel).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -348,6 +368,16 @@ namespace Lusid.Sdk.Model
                     this.Properties.SequenceEqual(input.Properties)
                 ) && 
                 (
+                    this.NotificationCutLabel == input.NotificationCutLabel ||
+                    (this.NotificationCutLabel != null &&
+                    this.NotificationCutLabel.Equals(input.NotificationCutLabel))
+                ) && 
+                (
+                    this.ReturnNotificationCutLabel == input.ReturnNotificationCutLabel ||
+                    (this.ReturnNotificationCutLabel != null &&
+                    this.ReturnNotificationCutLabel.Equals(input.ReturnNotificationCutLabel))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -432,6 +462,14 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
+                if (this.NotificationCutLabel != null)
+                {
+                    hashCode = (hashCode * 59) + this.NotificationCutLabel.GetHashCode();
+                }
+                if (this.ReturnNotificationCutLabel != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReturnNotificationCutLabel.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();
@@ -502,6 +540,44 @@ namespace Lusid.Sdk.Model
             if (false == regexCutLabel.Match(this.CutLabel).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CutLabel, must match a pattern of " + regexCutLabel, new [] { "CutLabel" });
+            }
+
+            // NotificationCutLabel (string) maxLength
+            if (this.NotificationCutLabel != null && this.NotificationCutLabel.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotificationCutLabel, length must be less than 256.", new [] { "NotificationCutLabel" });
+            }
+
+            // NotificationCutLabel (string) minLength
+            if (this.NotificationCutLabel != null && this.NotificationCutLabel.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotificationCutLabel, length must be greater than 0.", new [] { "NotificationCutLabel" });
+            }
+
+            // NotificationCutLabel (string) pattern
+            Regex regexNotificationCutLabel = new Regex(@"^[a-zA-Z0-9\-_\+:\.]+$", RegexOptions.CultureInvariant);
+            if (false == regexNotificationCutLabel.Match(this.NotificationCutLabel).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotificationCutLabel, must match a pattern of " + regexNotificationCutLabel, new [] { "NotificationCutLabel" });
+            }
+
+            // ReturnNotificationCutLabel (string) maxLength
+            if (this.ReturnNotificationCutLabel != null && this.ReturnNotificationCutLabel.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReturnNotificationCutLabel, length must be less than 256.", new [] { "ReturnNotificationCutLabel" });
+            }
+
+            // ReturnNotificationCutLabel (string) minLength
+            if (this.ReturnNotificationCutLabel != null && this.ReturnNotificationCutLabel.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReturnNotificationCutLabel, length must be greater than 0.", new [] { "ReturnNotificationCutLabel" });
+            }
+
+            // ReturnNotificationCutLabel (string) pattern
+            Regex regexReturnNotificationCutLabel = new Regex(@"^[a-zA-Z0-9\-_\+:\.]+$", RegexOptions.CultureInvariant);
+            if (false == regexReturnNotificationCutLabel.Match(this.ReturnNotificationCutLabel).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReturnNotificationCutLabel, must match a pattern of " + regexReturnNotificationCutLabel, new [] { "ReturnNotificationCutLabel" });
             }
 
             yield break;

@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="BucketSetShareClassDetails" /> class.
         /// </summary>
         /// <param name="lusidInstrumentId">LUSID&#39;s internal unique instrument identifier for the share class&#39; instrument. Absent where the instrument has not been resolved..</param>
-        /// <param name="instrumentScope">The scope in which the share class instrument lies. Absent where the instrument has not been resolved..</param>
+        /// <param name="instrumentScope">The scope in which the share class instrument lies, or the fund&#39;s instrument scope where the instrument has not been resolved..</param>
         /// <param name="shortCode">The unique code within the fund for the share class. (required).</param>
         /// <param name="domCurrency">The domestic currency declared for the share class..</param>
         /// <param name="instrumentActive">Whether the share class&#39; instrument is active. (required).</param>
@@ -63,9 +63,9 @@ namespace Lusid.Sdk.Model
         public string LusidInstrumentId { get; set; }
 
         /// <summary>
-        /// The scope in which the share class instrument lies. Absent where the instrument has not been resolved.
+        /// The scope in which the share class instrument lies, or the fund&#39;s instrument scope where the instrument has not been resolved.
         /// </summary>
-        /// <value>The scope in which the share class instrument lies. Absent where the instrument has not been resolved.</value>
+        /// <value>The scope in which the share class instrument lies, or the fund&#39;s instrument scope where the instrument has not been resolved.</value>
         [DataMember(Name = "instrumentScope", EmitDefaultValue = true)]
         public string InstrumentScope { get; set; }
 

@@ -51,7 +51,8 @@ namespace Lusid.Sdk.Model
         /// <param name="tradeDateToSettlementDateRealisedCurrency">tradeDateToSettlementDateRealisedCurrency.</param>
         /// <param name="transactionType">The transaction type resolved for the allocation slice that realised this record, which can differ from the output transaction&#39;s type when a slice resolves against the opposite side of the book (for example a Buy whose slice covers a short)..</param>
         /// <param name="properties">The sub-holding key properties of the holding this record was realised against, identifying the allocation slice it belongs to..</param>
-        public RealisedGainLoss(string instrumentScope = default(string), string instrumentUid = default(string), decimal units = default(decimal), decimal? purchasePrice = default(decimal?), CurrencyAndAmount costTradeCcy = default(CurrencyAndAmount), CurrencyAndAmount costPortfolioCcy = default(CurrencyAndAmount), CurrencyAndAmount realisedTradeCcy = default(CurrencyAndAmount), CurrencyAndAmount realisedTotal = default(CurrencyAndAmount), CurrencyAndAmount realisedMarket = default(CurrencyAndAmount), CurrencyAndAmount realisedCurrency = default(CurrencyAndAmount), string taxLotId = default(string), CurrencyAndAmount realisedAmortisation = default(CurrencyAndAmount), CurrencyAndAmount tradeDateToSettlementDateRealisedCurrency = default(CurrencyAndAmount), string transactionType = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
+        /// <param name="chargeableGains">chargeableGains.</param>
+        public RealisedGainLoss(string instrumentScope = default(string), string instrumentUid = default(string), decimal units = default(decimal), decimal? purchasePrice = default(decimal?), CurrencyAndAmount costTradeCcy = default(CurrencyAndAmount), CurrencyAndAmount costPortfolioCcy = default(CurrencyAndAmount), CurrencyAndAmount realisedTradeCcy = default(CurrencyAndAmount), CurrencyAndAmount realisedTotal = default(CurrencyAndAmount), CurrencyAndAmount realisedMarket = default(CurrencyAndAmount), CurrencyAndAmount realisedCurrency = default(CurrencyAndAmount), string taxLotId = default(string), CurrencyAndAmount realisedAmortisation = default(CurrencyAndAmount), CurrencyAndAmount tradeDateToSettlementDateRealisedCurrency = default(CurrencyAndAmount), string transactionType = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), RealisedGainLossChargeableGains chargeableGains = default(RealisedGainLossChargeableGains))
         {
             // to ensure "instrumentUid" is required (not null)
             if (instrumentUid == null)
@@ -93,6 +94,7 @@ namespace Lusid.Sdk.Model
             this.TradeDateToSettlementDateRealisedCurrency = tradeDateToSettlementDateRealisedCurrency;
             this.TransactionType = transactionType;
             this.Properties = properties;
+            this.ChargeableGains = chargeableGains;
         }
 
         /// <summary>
@@ -223,6 +225,12 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, PerpetualProperty> Properties { get; set; }
 
         /// <summary>
+        /// Gets or Sets ChargeableGains
+        /// </summary>
+        [DataMember(Name = "chargeableGains", EmitDefaultValue = false)]
+        public RealisedGainLossChargeableGains ChargeableGains { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -247,6 +255,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  TradeDateToSettlementDateRealisedCurrency: ").Append(TradeDateToSettlementDateRealisedCurrency).Append("\n");
             sb.Append("  TransactionType: ").Append(TransactionType).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  ChargeableGains: ").Append(ChargeableGains).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -366,6 +375,11 @@ namespace Lusid.Sdk.Model
                     this.Properties != null &&
                     input.Properties != null &&
                     this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
+                    this.ChargeableGains == input.ChargeableGains ||
+                    (this.ChargeableGains != null &&
+                    this.ChargeableGains.Equals(input.ChargeableGains))
                 );
         }
 
@@ -442,6 +456,10 @@ namespace Lusid.Sdk.Model
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                }
+                if (this.ChargeableGains != null)
+                {
+                    hashCode = (hashCode * 59) + this.ChargeableGains.GetHashCode();
                 }
                 return hashCode;
             }

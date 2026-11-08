@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **CarriedDisputedAmount** | **decimal?** | The amount left in dispute on the carried call. Informational; not added to this call. | [optional] 
 **Scenario** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **ExplainAvailable** | **bool** | Whether the working behind the call&#39;s required amount was stored, so that the call can be explained. Only an initial-margin call can be explained, and only when the run stored its working. | [optional] 
+**ProposedAllocation** | [**List&lt;CollateralAllocationLine&gt;**](CollateralAllocationLine.md) | The assets the allocation pass proposes to deliver for the call, or to take back for a return, cheapest first. Null until the run&#39;s allocation pass has completed, or when the call moves no collateral of ours. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -70,6 +71,7 @@ MarginCallReference? carriedFrom = new MarginCallReference();
 ResourceId? scenario = new ResourceId();
 
 bool explainAvailable = //"True";
+List<CollateralAllocationLine> proposedAllocation = new List<CollateralAllocationLine>();
 
 MarginCall marginCallInstance = new MarginCall(
     href: href,
@@ -103,7 +105,8 @@ MarginCall marginCallInstance = new MarginCall(
     carriedFrom: carriedFrom,
     carriedDisputedAmount: carriedDisputedAmount,
     scenario: scenario,
-    explainAvailable: explainAvailable);
+    explainAvailable: explainAvailable,
+    proposedAllocation: proposedAllocation);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

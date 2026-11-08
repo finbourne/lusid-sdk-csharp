@@ -31,8 +31,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ShareClassDetails" /> class.
         /// </summary>
-        /// <param name="lusidInstrumentId">LUSID&#39;s internal unique instrument identifier, resolved from the share class&#39; instrument identifiers.</param>
-        /// <param name="instrumentScope">The scope in which the share class instrument lies..</param>
+        /// <param name="lusidInstrumentId">LUSID&#39;s internal unique instrument identifier, resolved from the share class&#39; instrument identifiers. Absent where no instrument was resolved for the share class: a fund defined with inline share classes resolves none, whether or not it created their instruments..</param>
+        /// <param name="instrumentScope">The scope in which the share class instrument lies, or the fund&#39;s instrument scope where no instrument was resolved for the share class..</param>
         /// <param name="shortCode">The unique code within the fund for the share class instrument..</param>
         /// <param name="domCurrency">The domestic currency of the share class instrument.</param>
         /// <param name="instrumentActive">If the instrument of the share class is active..</param>
@@ -46,16 +46,16 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// LUSID&#39;s internal unique instrument identifier, resolved from the share class&#39; instrument identifiers
+        /// LUSID&#39;s internal unique instrument identifier, resolved from the share class&#39; instrument identifiers. Absent where no instrument was resolved for the share class: a fund defined with inline share classes resolves none, whether or not it created their instruments.
         /// </summary>
-        /// <value>LUSID&#39;s internal unique instrument identifier, resolved from the share class&#39; instrument identifiers</value>
+        /// <value>LUSID&#39;s internal unique instrument identifier, resolved from the share class&#39; instrument identifiers. Absent where no instrument was resolved for the share class: a fund defined with inline share classes resolves none, whether or not it created their instruments.</value>
         [DataMember(Name = "lusidInstrumentId", EmitDefaultValue = true)]
         public string LusidInstrumentId { get; set; }
 
         /// <summary>
-        /// The scope in which the share class instrument lies.
+        /// The scope in which the share class instrument lies, or the fund&#39;s instrument scope where no instrument was resolved for the share class.
         /// </summary>
-        /// <value>The scope in which the share class instrument lies.</value>
+        /// <value>The scope in which the share class instrument lies, or the fund&#39;s instrument scope where no instrument was resolved for the share class.</value>
         [DataMember(Name = "instrumentScope", EmitDefaultValue = true)]
         public string InstrumentScope { get; set; }
 

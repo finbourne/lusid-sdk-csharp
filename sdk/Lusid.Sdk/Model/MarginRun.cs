@@ -52,7 +52,8 @@ namespace Lusid.Sdk.Model
         /// <param name="scenarios">The stored scenarios the run values the agreements under, each beside the base market the run always values. Empty if only the base market was valued. (required).</param>
         /// <param name="captureDiagnostics">Whether the run stored the working behind its figures, so that they can be explained. Null for a run made before runs could store it, which did not..</param>
         /// <param name="optimisation">optimisation.</param>
-        public MarginRun(string href = default(string), string id = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), string status = default(string), List<ResourceId> agreements = default(List<ResourceId>), int callCount = default(int), int lineCount = default(int), int shardCount = default(int), int completedShards = default(int), int failedShards = default(int), List<MarginRunIssue> issues = default(List<MarginRunIssue>), List<MarginRunShard> shards = default(List<MarginRunShard>), List<ResourceId> scenarios = default(List<ResourceId>), bool? captureDiagnostics = default(bool?), MarginRunOptimisation optimisation = default(MarginRunOptimisation))
+        /// <param name="allocation">allocation.</param>
+        public MarginRun(string href = default(string), string id = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), string status = default(string), List<ResourceId> agreements = default(List<ResourceId>), int callCount = default(int), int lineCount = default(int), int shardCount = default(int), int completedShards = default(int), int failedShards = default(int), List<MarginRunIssue> issues = default(List<MarginRunIssue>), List<MarginRunShard> shards = default(List<MarginRunShard>), List<ResourceId> scenarios = default(List<ResourceId>), bool? captureDiagnostics = default(bool?), MarginRunOptimisation optimisation = default(MarginRunOptimisation), MarginRunAllocation allocation = default(MarginRunAllocation))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -100,6 +101,7 @@ namespace Lusid.Sdk.Model
             this.Href = href;
             this.CaptureDiagnostics = captureDiagnostics;
             this.Optimisation = optimisation;
+            this.Allocation = allocation;
         }
 
         /// <summary>
@@ -214,6 +216,12 @@ namespace Lusid.Sdk.Model
         public MarginRunOptimisation Optimisation { get; set; }
 
         /// <summary>
+        /// Gets or Sets Allocation
+        /// </summary>
+        [DataMember(Name = "allocation", EmitDefaultValue = false)]
+        public MarginRunAllocation Allocation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -237,6 +245,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Scenarios: ").Append(Scenarios).Append("\n");
             sb.Append("  CaptureDiagnostics: ").Append(CaptureDiagnostics).Append("\n");
             sb.Append("  Optimisation: ").Append(Optimisation).Append("\n");
+            sb.Append("  Allocation: ").Append(Allocation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -350,6 +359,11 @@ namespace Lusid.Sdk.Model
                     this.Optimisation == input.Optimisation ||
                     (this.Optimisation != null &&
                     this.Optimisation.Equals(input.Optimisation))
+                ) && 
+                (
+                    this.Allocation == input.Allocation ||
+                    (this.Allocation != null &&
+                    this.Allocation.Equals(input.Allocation))
                 );
         }
 
@@ -410,6 +424,10 @@ namespace Lusid.Sdk.Model
                 if (this.Optimisation != null)
                 {
                     hashCode = (hashCode * 59) + this.Optimisation.GetHashCode();
+                }
+                if (this.Allocation != null)
+                {
+                    hashCode = (hashCode * 59) + this.Allocation.GetHashCode();
                 }
                 return hashCode;
             }
