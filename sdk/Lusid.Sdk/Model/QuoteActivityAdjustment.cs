@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="effectiveAt">The EffectiveAt time of the entity event that need to be added to the closed period. (required).</param>
         /// <param name="entityUniqueId">The EntityUniqueId from the entity which needs to be added as a post close activity. (required).</param>
         /// <param name="instrumentId">The InstrumentId from the quote which needs to be added as a post close activity. (required).</param>
-        /// <param name="navActivityAdjustmentType">The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment, ComplexMarketDataActivityAdjustment. (required) (default to &quot;QuoteActivityAdjustment&quot;).</param>
+        /// <param name="navActivityAdjustmentType">The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment, ComplexMarketDataActivityAdjustment, InstrumentEventActivityAdjustment. (required) (default to &quot;QuoteActivityAdjustment&quot;).</param>
         public QuoteActivityAdjustment(string navActivityAdjustmentSource = default(string), DateTimeOffset asAt = default(DateTimeOffset), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string entityUniqueId = default(string), string instrumentId = default(string), NavActivityAdjustmentTypeEnum navActivityAdjustmentType = default(NavActivityAdjustmentTypeEnum)) : base(navActivityAdjustmentType)
         {
             // to ensure "navActivityAdjustmentSource" is required (not null)

@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="asAt">The asAt time for which the adjustment is being applied. (required).</param>
         /// <param name="effectiveAt">The EffectiveAt time of the entity event that need to be added to the closed period. (required).</param>
         /// <param name="entityUniqueId">The EntityUniqueId from the entity which needs to be added as a post close activity. (required).</param>
-        /// <param name="navActivityAdjustmentType">The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity. (required) (default to &quot;ComplexMarketDataActivity&quot;).</param>
+        /// <param name="navActivityAdjustmentType">The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity, InstrumentEventActivity. (required) (default to &quot;ComplexMarketDataActivity&quot;).</param>
         public ComplexMarketDataActivity(DateTimeOffset asAt = default(DateTimeOffset), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string entityUniqueId = default(string), NavActivityAdjustmentTypeEnum navActivityAdjustmentType = default(NavActivityAdjustmentTypeEnum)) : base(navActivityAdjustmentType)
         {
             this.AsAt = asAt;

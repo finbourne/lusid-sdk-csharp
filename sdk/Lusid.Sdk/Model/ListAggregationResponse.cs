@@ -40,8 +40,9 @@ namespace Lusid.Sdk.Model
         /// <param name="aggregationFailures">aggregationFailures.</param>
         /// <param name="recipeId">recipeId.</param>
         /// <param name="scenarioDiagnostics">scenarioDiagnostics.</param>
+        /// <param name="recipeProvenance">recipeProvenance.</param>
         /// <param name="links">links.</param>
-        public ListAggregationResponse(DateTimeOffset aggregationEffectiveAt = default(DateTimeOffset), DateTimeOffset aggregationAsAt = default(DateTimeOffset), string href = default(string), List<Dictionary<string, Object>> data = default(List<Dictionary<string, Object>>), string aggregationCurrency = default(string), ResultDataSchema dataSchema = default(ResultDataSchema), List<AggregationMeasureFailureDetail> aggregationFailures = default(List<AggregationMeasureFailureDetail>), ResourceId recipeId = default(ResourceId), ScenarioDiagnostics scenarioDiagnostics = default(ScenarioDiagnostics), List<Link> links = default(List<Link>))
+        public ListAggregationResponse(DateTimeOffset aggregationEffectiveAt = default(DateTimeOffset), DateTimeOffset aggregationAsAt = default(DateTimeOffset), string href = default(string), List<Dictionary<string, Object>> data = default(List<Dictionary<string, Object>>), string aggregationCurrency = default(string), ResultDataSchema dataSchema = default(ResultDataSchema), List<AggregationMeasureFailureDetail> aggregationFailures = default(List<AggregationMeasureFailureDetail>), ResourceId recipeId = default(ResourceId), ScenarioDiagnostics scenarioDiagnostics = default(ScenarioDiagnostics), RecipeProvenance recipeProvenance = default(RecipeProvenance), List<Link> links = default(List<Link>))
         {
             this.AggregationEffectiveAt = aggregationEffectiveAt;
             this.AggregationAsAt = aggregationAsAt;
@@ -52,6 +53,7 @@ namespace Lusid.Sdk.Model
             this.AggregationFailures = aggregationFailures;
             this.RecipeId = recipeId;
             this.ScenarioDiagnostics = scenarioDiagnostics;
+            this.RecipeProvenance = recipeProvenance;
             this.Links = links;
         }
 
@@ -110,6 +112,12 @@ namespace Lusid.Sdk.Model
         public ScenarioDiagnostics ScenarioDiagnostics { get; set; }
 
         /// <summary>
+        /// Gets or Sets RecipeProvenance
+        /// </summary>
+        [DataMember(Name = "recipeProvenance", EmitDefaultValue = false)]
+        public RecipeProvenance RecipeProvenance { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -132,6 +140,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AggregationFailures: ").Append(AggregationFailures).Append("\n");
             sb.Append("  RecipeId: ").Append(RecipeId).Append("\n");
             sb.Append("  ScenarioDiagnostics: ").Append(ScenarioDiagnostics).Append("\n");
+            sb.Append("  RecipeProvenance: ").Append(RecipeProvenance).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -216,6 +225,11 @@ namespace Lusid.Sdk.Model
                     this.ScenarioDiagnostics.Equals(input.ScenarioDiagnostics))
                 ) && 
                 (
+                    this.RecipeProvenance == input.RecipeProvenance ||
+                    (this.RecipeProvenance != null &&
+                    this.RecipeProvenance.Equals(input.RecipeProvenance))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -267,6 +281,10 @@ namespace Lusid.Sdk.Model
                 if (this.ScenarioDiagnostics != null)
                 {
                     hashCode = (hashCode * 59) + this.ScenarioDiagnostics.GetHashCode();
+                }
+                if (this.RecipeProvenance != null)
+                {
+                    hashCode = (hashCode * 59) + this.RecipeProvenance.GetHashCode();
                 }
                 if (this.Links != null)
                 {

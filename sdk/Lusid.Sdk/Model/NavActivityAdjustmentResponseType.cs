@@ -57,7 +57,13 @@ namespace Lusid.Sdk.Model
         /// Enum ComplexMarketDataActivityAdjustment for value: ComplexMarketDataActivityAdjustment
         /// </summary>
         [EnumMember(Value = "ComplexMarketDataActivityAdjustment")]
-        ComplexMarketDataActivityAdjustment = 5
+        ComplexMarketDataActivityAdjustment = 5,
+
+        /// <summary>
+        /// Enum InstrumentEventActivityAdjustment for value: InstrumentEventActivityAdjustment
+        /// </summary>
+        [EnumMember(Value = "InstrumentEventActivityAdjustment")]
+        InstrumentEventActivityAdjustment = 6
     }
 
 }
