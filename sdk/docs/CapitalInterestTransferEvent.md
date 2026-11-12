@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **PaidInCapitalPortfolioCcyAmount** | **decimal?** | The paid-in capital the destination line takes over, already in the portfolio&#39;s base currency: the source line&#39;s PaidInCapitalPortfolioCcy balance share, accumulated at historical rates, not a spot conversion of PaidInCapitalAmount. Used on the &#39;In&#39; side only; must not be negative. An In side that omits it books zero for PaidInCapitalPortfolioCcy while the Out side gives up its share, and the transaction type configuration must include the PaidInCapitalPortfolioCcy movement for the twin to move. | [optional] 
 **ReturnedCapitalPortfolioCcyAmount** | **decimal?** | The returned capital the destination line takes over, already in the portfolio&#39;s base currency at the source line&#39;s historical rates. Used on the &#39;In&#39; side only; must not be negative. An In side that omits it books zero for ReturnedCapitalPortfolioCcy while the Out side gives up its share, and the transaction type configuration must include the ReturnedCapitalPortfolioCcy movement for the twin to move. | [optional] 
 **ExcessCapitalReturnedPortfolioCcyAmount** | **decimal?** | The cumulative excess capital returned that the destination line takes over, already in the portfolio&#39;s base currency at the source line&#39;s historical rates. Used on the &#39;In&#39; side only; must not be negative. An In side that omits it books zero for ExcessCapitalReturnedPortfolioCcy while the Out side gives up its share, and the transaction type configuration must include the ExcessCapitalReturnedPortfolioCcy movement for the twin to move. | [optional] 
+**RecalledCapitalAmount** | **decimal?** | The cumulative recalled capital that the destination line takes over, in the commitment currency. Used on the &#39;In&#39; side only; must not be negative. An In side that omits it books zero for RecalledCapital while the Out side gives up its share, and the transaction type configuration must include the RecalledCapital movement for the balance to move. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -74,7 +75,8 @@ CapitalInterestTransferEvent capitalInterestTransferEventInstance = new CapitalI
     excessCapitalReturnedAmount: excessCapitalReturnedAmount,
     paidInCapitalPortfolioCcyAmount: paidInCapitalPortfolioCcyAmount,
     returnedCapitalPortfolioCcyAmount: returnedCapitalPortfolioCcyAmount,
-    excessCapitalReturnedPortfolioCcyAmount: excessCapitalReturnedPortfolioCcyAmount);
+    excessCapitalReturnedPortfolioCcyAmount: excessCapitalReturnedPortfolioCcyAmount,
+    recalledCapitalAmount: recalledCapitalAmount);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

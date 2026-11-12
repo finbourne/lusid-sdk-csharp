@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **Difference** | **decimal** | Closing unfunded less the register&#39;s unfunded at the closing datetime. Zero when the statement ties. | 
 **Ties** | **bool** | Whether the closing unfunded equals the register&#39;s unfunded at the closing datetime. | 
 **Lines** | [**List&lt;FundPartnerUnfundedReconciliationLine&gt;**](FundPartnerUnfundedReconciliationLine.md) | Every booked allocation to the partner over the period, in event date order, with the ILPA transaction type each is reported under and its effect on unfunded. | 
+**Warnings** | [**List&lt;FundPartnerUnfundedReconciliationWarning&gt;**](FundPartnerUnfundedReconciliationWarning.md) | Soft warnings about how the statement was built. Empty when the period and the register agree without caveats. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -40,6 +41,7 @@ decimal difference = "difference";
 
 bool ties = //"True";
 List<FundPartnerUnfundedReconciliationLine> lines = new List<FundPartnerUnfundedReconciliationLine>();
+List<FundPartnerUnfundedReconciliationWarning> warnings = new List<FundPartnerUnfundedReconciliationWarning>();
 
 FundPartnerUnfundedReconciliation fundPartnerUnfundedReconciliationInstance = new FundPartnerUnfundedReconciliation(
     investorRecordId: investorRecordId,
@@ -57,7 +59,8 @@ FundPartnerUnfundedReconciliation fundPartnerUnfundedReconciliationInstance = ne
     registerUnfunded: registerUnfunded,
     difference: difference,
     ties: ties,
-    lines: lines);
+    lines: lines,
+    warnings: warnings);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -31,7 +31,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BucketCashFlowBucket" /> class.
         /// </summary>
-        /// <param name="bucketId">Identifies the bucket: the bucket&#39;s start (as yyyy-MM-dd), the payment currency, each sub-holding key&#39;s address and value, and the portfolio&#39;s scope and code, separated by &#39;|&#39;..</param>
+        /// <param name="bucketId">Identifies the bucket: a 32 character lowercase hexadecimal hash of its period (start and end), payment currency, portfolio and sub-holding keys. It is stable, the same bucket has the same id in every response, and it is opaque: compare it, do not take it apart..</param>
         /// <param name="bucketStart">The start of the period the bucket covers..</param>
         /// <param name="bucketEnd">The end of the period the bucket covers..</param>
         /// <param name="portfolioId">portfolioId.</param>
@@ -58,9 +58,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Identifies the bucket: the bucket&#39;s start (as yyyy-MM-dd), the payment currency, each sub-holding key&#39;s address and value, and the portfolio&#39;s scope and code, separated by &#39;|&#39;.
+        /// Identifies the bucket: a 32 character lowercase hexadecimal hash of its period (start and end), payment currency, portfolio and sub-holding keys. It is stable, the same bucket has the same id in every response, and it is opaque: compare it, do not take it apart.
         /// </summary>
-        /// <value>Identifies the bucket: the bucket&#39;s start (as yyyy-MM-dd), the payment currency, each sub-holding key&#39;s address and value, and the portfolio&#39;s scope and code, separated by &#39;|&#39;.</value>
+        /// <value>Identifies the bucket: a 32 character lowercase hexadecimal hash of its period (start and end), payment currency, portfolio and sub-holding keys. It is stable, the same bucket has the same id in every response, and it is opaque: compare it, do not take it apart.</value>
         [DataMember(Name = "bucketId", EmitDefaultValue = true)]
         public string BucketId { get; set; }
 

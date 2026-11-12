@@ -63,8 +63,9 @@ namespace Lusid.Sdk.Model
         /// <param name="paidInCapitalPortfolioCcyAmount">The paid-in capital the destination line takes over, already in the portfolio&#39;s base currency: the source line&#39;s PaidInCapitalPortfolioCcy balance share, accumulated at historical rates, not a spot conversion of PaidInCapitalAmount. Used on the &#39;In&#39; side only; must not be negative. An In side that omits it books zero for PaidInCapitalPortfolioCcy while the Out side gives up its share, and the transaction type configuration must include the PaidInCapitalPortfolioCcy movement for the twin to move..</param>
         /// <param name="returnedCapitalPortfolioCcyAmount">The returned capital the destination line takes over, already in the portfolio&#39;s base currency at the source line&#39;s historical rates. Used on the &#39;In&#39; side only; must not be negative. An In side that omits it books zero for ReturnedCapitalPortfolioCcy while the Out side gives up its share, and the transaction type configuration must include the ReturnedCapitalPortfolioCcy movement for the twin to move..</param>
         /// <param name="excessCapitalReturnedPortfolioCcyAmount">The cumulative excess capital returned that the destination line takes over, already in the portfolio&#39;s base currency at the source line&#39;s historical rates. Used on the &#39;In&#39; side only; must not be negative. An In side that omits it books zero for ExcessCapitalReturnedPortfolioCcy while the Out side gives up its share, and the transaction type configuration must include the ExcessCapitalReturnedPortfolioCcy movement for the twin to move..</param>
+        /// <param name="recalledCapitalAmount">The cumulative recalled capital that the destination line takes over, in the commitment currency. Used on the &#39;In&#39; side only; must not be negative. An In side that omits it books zero for RecalledCapital while the Out side gives up its share, and the transaction type configuration must include the RecalledCapital movement for the balance to move..</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent, TotalReturnSwapCashFlowEvent, GlobalLoanFacilityReinitialisationEvent, InvestorLoanFacilityReinitialisationEvent, CapitalCallReceiptEvent, RecallableCapitalExpiryEvent, CapitalInterestTransferEvent, FacilityDrawEvent, FacilityRepaymentEvent, FacilityInterestEvent, FacilityCommitmentFeeEvent, InstalmentCallEvent, DepositInterestCapitalisationEvent, PartialRedemptionWithoutReductionOfNominalValueEvent, StripBondCashflowEvent, CapitalisationEvent, SharesPremiumDividendEvent, CashDistributionFromNonEligibleSecuritiesSalesEvent, InflationIndexationEvent. (required) (default to &quot;CapitalInterestTransferEvent&quot;).</param>
-        public CapitalInterestTransferEvent(DateTimeOffset date = default(DateTimeOffset), string direction = default(string), decimal fraction = default(decimal), string fromLineId = default(string), string toLineId = default(string), string mode = default(string), string toPortfolioId = default(string), decimal? considerationAmount = default(decimal?), string considerationCurrency = default(string), bool? considerationRecordOnly = default(bool?), string reason = default(string), string scope = default(string), string dealId = default(string), bool? taxTreatmentAcknowledged = default(bool?), decimal? committedCapitalAmount = default(decimal?), decimal? calledCommitmentAmount = default(decimal?), decimal? paidInCapitalAmount = default(decimal?), decimal? returnedCapitalAmount = default(decimal?), decimal? recallableCapitalAmount = default(decimal?), decimal? nonRecallableCapitalAmount = default(decimal?), decimal? fundedCapitalAmount = default(decimal?), decimal? excessCapitalReturnedAmount = default(decimal?), decimal? paidInCapitalPortfolioCcyAmount = default(decimal?), decimal? returnedCapitalPortfolioCcyAmount = default(decimal?), decimal? excessCapitalReturnedPortfolioCcyAmount = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public CapitalInterestTransferEvent(DateTimeOffset date = default(DateTimeOffset), string direction = default(string), decimal fraction = default(decimal), string fromLineId = default(string), string toLineId = default(string), string mode = default(string), string toPortfolioId = default(string), decimal? considerationAmount = default(decimal?), string considerationCurrency = default(string), bool? considerationRecordOnly = default(bool?), string reason = default(string), string scope = default(string), string dealId = default(string), bool? taxTreatmentAcknowledged = default(bool?), decimal? committedCapitalAmount = default(decimal?), decimal? calledCommitmentAmount = default(decimal?), decimal? paidInCapitalAmount = default(decimal?), decimal? returnedCapitalAmount = default(decimal?), decimal? recallableCapitalAmount = default(decimal?), decimal? nonRecallableCapitalAmount = default(decimal?), decimal? fundedCapitalAmount = default(decimal?), decimal? excessCapitalReturnedAmount = default(decimal?), decimal? paidInCapitalPortfolioCcyAmount = default(decimal?), decimal? returnedCapitalPortfolioCcyAmount = default(decimal?), decimal? excessCapitalReturnedPortfolioCcyAmount = default(decimal?), decimal? recalledCapitalAmount = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "direction" is required (not null)
             if (direction == null)
@@ -106,6 +107,7 @@ namespace Lusid.Sdk.Model
             this.PaidInCapitalPortfolioCcyAmount = paidInCapitalPortfolioCcyAmount;
             this.ReturnedCapitalPortfolioCcyAmount = returnedCapitalPortfolioCcyAmount;
             this.ExcessCapitalReturnedPortfolioCcyAmount = excessCapitalReturnedPortfolioCcyAmount;
+            this.RecalledCapitalAmount = recalledCapitalAmount;
         }
 
         /// <summary>
@@ -284,6 +286,13 @@ namespace Lusid.Sdk.Model
         public decimal? ExcessCapitalReturnedPortfolioCcyAmount { get; set; }
 
         /// <summary>
+        /// The cumulative recalled capital that the destination line takes over, in the commitment currency. Used on the &#39;In&#39; side only; must not be negative. An In side that omits it books zero for RecalledCapital while the Out side gives up its share, and the transaction type configuration must include the RecalledCapital movement for the balance to move.
+        /// </summary>
+        /// <value>The cumulative recalled capital that the destination line takes over, in the commitment currency. Used on the &#39;In&#39; side only; must not be negative. An In side that omits it books zero for RecalledCapital while the Out side gives up its share, and the transaction type configuration must include the RecalledCapital movement for the balance to move.</value>
+        [DataMember(Name = "recalledCapitalAmount", EmitDefaultValue = true)]
+        public decimal? RecalledCapitalAmount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -317,6 +326,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PaidInCapitalPortfolioCcyAmount: ").Append(PaidInCapitalPortfolioCcyAmount).Append("\n");
             sb.Append("  ReturnedCapitalPortfolioCcyAmount: ").Append(ReturnedCapitalPortfolioCcyAmount).Append("\n");
             sb.Append("  ExcessCapitalReturnedPortfolioCcyAmount: ").Append(ExcessCapitalReturnedPortfolioCcyAmount).Append("\n");
+            sb.Append("  RecalledCapitalAmount: ").Append(RecalledCapitalAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -475,6 +485,11 @@ namespace Lusid.Sdk.Model
                     this.ExcessCapitalReturnedPortfolioCcyAmount == input.ExcessCapitalReturnedPortfolioCcyAmount ||
                     (this.ExcessCapitalReturnedPortfolioCcyAmount != null &&
                     this.ExcessCapitalReturnedPortfolioCcyAmount.Equals(input.ExcessCapitalReturnedPortfolioCcyAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.RecalledCapitalAmount == input.RecalledCapitalAmount ||
+                    (this.RecalledCapitalAmount != null &&
+                    this.RecalledCapitalAmount.Equals(input.RecalledCapitalAmount))
                 );
         }
 
@@ -583,6 +598,10 @@ namespace Lusid.Sdk.Model
                 if (this.ExcessCapitalReturnedPortfolioCcyAmount != null)
                 {
                     hashCode = (hashCode * 59) + this.ExcessCapitalReturnedPortfolioCcyAmount.GetHashCode();
+                }
+                if (this.RecalledCapitalAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.RecalledCapitalAmount.GetHashCode();
                 }
                 return hashCode;
             }

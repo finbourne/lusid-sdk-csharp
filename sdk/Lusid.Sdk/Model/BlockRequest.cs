@@ -48,8 +48,8 @@ namespace Lusid.Sdk.Model
         /// <param name="createdDate">The date on which the block was made (required).</param>
         /// <param name="limitPrice">limitPrice.</param>
         /// <param name="stopPrice">stopPrice.</param>
-        /// <param name="isSwept">Swept blocks are considered no longer of active interest, and no longer take part in various order management processes.</param>
-        public BlockRequest(ResourceId id = default(ResourceId), List<ResourceId> orderIds = default(List<ResourceId>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount), string side = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset createdDate = default(DateTimeOffset), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), bool isSwept = default(bool))
+        /// <param name="isSwept">Swept blocks are considered no longer of active interest, and no longer take part in various order management processes. If not supplied, an existing block keeps its current value and a new block is not swept..</param>
+        public BlockRequest(ResourceId id = default(ResourceId), List<ResourceId> orderIds = default(List<ResourceId>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount), string side = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset createdDate = default(DateTimeOffset), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), bool? isSwept = default(bool?))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -162,11 +162,11 @@ namespace Lusid.Sdk.Model
         public CurrencyAndAmount StopPrice { get; set; }
 
         /// <summary>
-        /// Swept blocks are considered no longer of active interest, and no longer take part in various order management processes
+        /// Swept blocks are considered no longer of active interest, and no longer take part in various order management processes. If not supplied, an existing block keeps its current value and a new block is not swept.
         /// </summary>
-        /// <value>Swept blocks are considered no longer of active interest, and no longer take part in various order management processes</value>
+        /// <value>Swept blocks are considered no longer of active interest, and no longer take part in various order management processes. If not supplied, an existing block keeps its current value and a new block is not swept.</value>
         [DataMember(Name = "isSwept", EmitDefaultValue = true)]
-        public bool IsSwept { get; set; }
+        public bool? IsSwept { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -289,7 +289,8 @@ namespace Lusid.Sdk.Model
                 ) && 
                 (
                     this.IsSwept == input.IsSwept ||
-                    this.IsSwept.Equals(input.IsSwept)
+                    (this.IsSwept != null &&
+                    this.IsSwept.Equals(input.IsSwept))
                 );
         }
 
@@ -350,7 +351,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.StopPrice.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.IsSwept.GetHashCode();
+                if (this.IsSwept != null)
+                {
+                    hashCode = (hashCode * 59) + this.IsSwept.GetHashCode();
+                }
                 return hashCode;
             }
         }

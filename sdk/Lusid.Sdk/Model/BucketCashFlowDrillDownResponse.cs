@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The cash flows inside one bucket, with the bucket&#39;s balances as the ladder of QueryBucketedCashFlows has them.
+    /// The cash flows of a range of effective dates, split into periods by a BucketingSchedule: for each period, member portfolio,  payment currency and sub-holding key combination, its opening balance, the cash flows that make up its activity, and its  closing balance. Each balance and each cash flow appears once, in its bucket.
     /// </summary>
     [DataContract(Name = "BucketCashFlowDrillDownResponse")]
     public partial class BucketCashFlowDrillDownResponse : IEquatable<BucketCashFlowDrillDownResponse>, IValidatableObject
@@ -36,139 +36,66 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BucketCashFlowDrillDownResponse" /> class.
         /// </summary>
-        /// <param name="values">values (required).</param>
-        /// <param name="href">href.</param>
-        /// <param name="reportCurrency">The report currency the converted fields are in; absent when none was requested..</param>
-        /// <param name="balances">The bucket&#39;s opening balance, activity and closing balance per payment currency, in the payment currency, in the report  currency when one was requested, and net of haircut when haircut rules were supplied. Absent when no WindowStart was supplied, and when a BucketingSchedule was  supplied: the Buckets and CurrencySubtotals carry the balances then..</param>
-        /// <param name="nextPage">The next page of results: never present, as the cash flows of a bucket are not paged; kept so this response is a superset of the list it replaces..</param>
-        /// <param name="previousPage">The previous page of results: never present; see NextPage..</param>
-        /// <param name="issues">Why balances, or report currency figures, are absent when they were asked for; absent when there is nothing to report..</param>
-        /// <param name="windowStart">The window start the buckets&#39; balances run from. Present with BucketingSchedule..</param>
-        /// <param name="effectiveAt">The valuation date the cash flows were evaluated at. Present with BucketingSchedule..</param>
-        /// <param name="startInclusive">Whether a cash flow paid exactly on a bucket&#39;s start is in it. Present with BucketingSchedule..</param>
-        /// <param name="endInclusive">Whether a cash flow paid exactly on a bucket&#39;s end is in it. Present with BucketingSchedule..</param>
-        /// <param name="buckets">One bucket per period of the schedule, per member portfolio, payment currency and sub-holding key combination, each with its  opening balance, closing balance and activity. Present only when a BucketingSchedule was supplied..</param>
-        /// <param name="currencySubtotals">The buckets summed across portfolios and sub-holding keys, one per period and payment currency. Present only with Buckets..</param>
-        /// <param name="subtotal">subtotal.</param>
+        /// <param name="reportCurrency">The report currency the cash flows&#39; converted fields are in; absent when none was requested..</param>
+        /// <param name="windowStart">The window start the buckets&#39; balances run from: where the first bucket&#39;s opening balance is taken. (required).</param>
+        /// <param name="buckets">One bucket per period of the schedule, per member portfolio, payment currency and sub-holding key combination, each with its  opening balance, activity and closing balance. (required).</param>
+        /// <param name="currencySubtotals">The buckets summed across portfolios and sub-holding keys, one per period and payment currency. (required).</param>
+        /// <param name="issues">What the balances do not cover, for example that they are in the payment currency only and gross of haircut; absent when there is nothing to report..</param>
         /// <param name="links">links.</param>
-        public BucketCashFlowDrillDownResponse(List<CashFlowDetail> values = default(List<CashFlowDetail>), string href = default(string), string reportCurrency = default(string), List<BucketCashFlowBalance> balances = default(List<BucketCashFlowBalance>), string nextPage = default(string), string previousPage = default(string), List<string> issues = default(List<string>), DateTimeOffset? windowStart = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), bool? startInclusive = default(bool?), bool? endInclusive = default(bool?), List<BucketCashFlowBucket> buckets = default(List<BucketCashFlowBucket>), List<BucketCurrencySubtotal> currencySubtotals = default(List<BucketCurrencySubtotal>), BucketCashFlowSubtotal subtotal = default(BucketCashFlowSubtotal), List<Link> links = default(List<Link>))
+        public BucketCashFlowDrillDownResponse(string reportCurrency = default(string), DateTimeOffset windowStart = default(DateTimeOffset), List<BucketCashFlowBucket> buckets = default(List<BucketCashFlowBucket>), List<BucketCurrencySubtotal> currencySubtotals = default(List<BucketCurrencySubtotal>), List<string> issues = default(List<string>), List<Link> links = default(List<Link>))
         {
-            // to ensure "values" is required (not null)
-            if (values == null)
-            {
-                throw new ArgumentNullException("values is a required property for BucketCashFlowDrillDownResponse and cannot be null");
-            }
-            this.Values = values;
-            this.Href = href;
-            this.ReportCurrency = reportCurrency;
-            this.Balances = balances;
-            this.NextPage = nextPage;
-            this.PreviousPage = previousPage;
-            this.Issues = issues;
             this.WindowStart = windowStart;
-            this.EffectiveAt = effectiveAt;
-            this.StartInclusive = startInclusive;
-            this.EndInclusive = endInclusive;
+            // to ensure "buckets" is required (not null)
+            if (buckets == null)
+            {
+                throw new ArgumentNullException("buckets is a required property for BucketCashFlowDrillDownResponse and cannot be null");
+            }
             this.Buckets = buckets;
+            // to ensure "currencySubtotals" is required (not null)
+            if (currencySubtotals == null)
+            {
+                throw new ArgumentNullException("currencySubtotals is a required property for BucketCashFlowDrillDownResponse and cannot be null");
+            }
             this.CurrencySubtotals = currencySubtotals;
-            this.Subtotal = subtotal;
+            this.ReportCurrency = reportCurrency;
+            this.Issues = issues;
             this.Links = links;
         }
 
         /// <summary>
-        /// Gets or Sets Values
+        /// The report currency the cash flows&#39; converted fields are in; absent when none was requested.
         /// </summary>
-        [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = true)]
-        public List<CashFlowDetail> Values { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Href
-        /// </summary>
-        [DataMember(Name = "href", EmitDefaultValue = true)]
-        public string Href { get; set; }
-
-        /// <summary>
-        /// The report currency the converted fields are in; absent when none was requested.
-        /// </summary>
-        /// <value>The report currency the converted fields are in; absent when none was requested.</value>
+        /// <value>The report currency the cash flows&#39; converted fields are in; absent when none was requested.</value>
         [DataMember(Name = "reportCurrency", EmitDefaultValue = true)]
         public string ReportCurrency { get; set; }
 
         /// <summary>
-        /// The bucket&#39;s opening balance, activity and closing balance per payment currency, in the payment currency, in the report  currency when one was requested, and net of haircut when haircut rules were supplied. Absent when no WindowStart was supplied, and when a BucketingSchedule was  supplied: the Buckets and CurrencySubtotals carry the balances then.
+        /// The window start the buckets&#39; balances run from: where the first bucket&#39;s opening balance is taken.
         /// </summary>
-        /// <value>The bucket&#39;s opening balance, activity and closing balance per payment currency, in the payment currency, in the report  currency when one was requested, and net of haircut when haircut rules were supplied. Absent when no WindowStart was supplied, and when a BucketingSchedule was  supplied: the Buckets and CurrencySubtotals carry the balances then.</value>
-        [DataMember(Name = "balances", EmitDefaultValue = true)]
-        public List<BucketCashFlowBalance> Balances { get; set; }
+        /// <value>The window start the buckets&#39; balances run from: where the first bucket&#39;s opening balance is taken.</value>
+        [DataMember(Name = "windowStart", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset WindowStart { get; set; }
 
         /// <summary>
-        /// The next page of results: never present, as the cash flows of a bucket are not paged; kept so this response is a superset of the list it replaces.
+        /// One bucket per period of the schedule, per member portfolio, payment currency and sub-holding key combination, each with its  opening balance, activity and closing balance.
         /// </summary>
-        /// <value>The next page of results: never present, as the cash flows of a bucket are not paged; kept so this response is a superset of the list it replaces.</value>
-        [DataMember(Name = "nextPage", EmitDefaultValue = true)]
-        public string NextPage { get; set; }
-
-        /// <summary>
-        /// The previous page of results: never present; see NextPage.
-        /// </summary>
-        /// <value>The previous page of results: never present; see NextPage.</value>
-        [DataMember(Name = "previousPage", EmitDefaultValue = true)]
-        public string PreviousPage { get; set; }
-
-        /// <summary>
-        /// Why balances, or report currency figures, are absent when they were asked for; absent when there is nothing to report.
-        /// </summary>
-        /// <value>Why balances, or report currency figures, are absent when they were asked for; absent when there is nothing to report.</value>
-        [DataMember(Name = "issues", EmitDefaultValue = true)]
-        public List<string> Issues { get; set; }
-
-        /// <summary>
-        /// The window start the buckets&#39; balances run from. Present with BucketingSchedule.
-        /// </summary>
-        /// <value>The window start the buckets&#39; balances run from. Present with BucketingSchedule.</value>
-        [DataMember(Name = "windowStart", EmitDefaultValue = true)]
-        public DateTimeOffset? WindowStart { get; set; }
-
-        /// <summary>
-        /// The valuation date the cash flows were evaluated at. Present with BucketingSchedule.
-        /// </summary>
-        /// <value>The valuation date the cash flows were evaluated at. Present with BucketingSchedule.</value>
-        [DataMember(Name = "effectiveAt", EmitDefaultValue = true)]
-        public DateTimeOffset? EffectiveAt { get; set; }
-
-        /// <summary>
-        /// Whether a cash flow paid exactly on a bucket&#39;s start is in it. Present with BucketingSchedule.
-        /// </summary>
-        /// <value>Whether a cash flow paid exactly on a bucket&#39;s start is in it. Present with BucketingSchedule.</value>
-        [DataMember(Name = "startInclusive", EmitDefaultValue = true)]
-        public bool? StartInclusive { get; set; }
-
-        /// <summary>
-        /// Whether a cash flow paid exactly on a bucket&#39;s end is in it. Present with BucketingSchedule.
-        /// </summary>
-        /// <value>Whether a cash flow paid exactly on a bucket&#39;s end is in it. Present with BucketingSchedule.</value>
-        [DataMember(Name = "endInclusive", EmitDefaultValue = true)]
-        public bool? EndInclusive { get; set; }
-
-        /// <summary>
-        /// One bucket per period of the schedule, per member portfolio, payment currency and sub-holding key combination, each with its  opening balance, closing balance and activity. Present only when a BucketingSchedule was supplied.
-        /// </summary>
-        /// <value>One bucket per period of the schedule, per member portfolio, payment currency and sub-holding key combination, each with its  opening balance, closing balance and activity. Present only when a BucketingSchedule was supplied.</value>
-        [DataMember(Name = "buckets", EmitDefaultValue = true)]
+        /// <value>One bucket per period of the schedule, per member portfolio, payment currency and sub-holding key combination, each with its  opening balance, activity and closing balance.</value>
+        [DataMember(Name = "buckets", IsRequired = true, EmitDefaultValue = true)]
         public List<BucketCashFlowBucket> Buckets { get; set; }
 
         /// <summary>
-        /// The buckets summed across portfolios and sub-holding keys, one per period and payment currency. Present only with Buckets.
+        /// The buckets summed across portfolios and sub-holding keys, one per period and payment currency.
         /// </summary>
-        /// <value>The buckets summed across portfolios and sub-holding keys, one per period and payment currency. Present only with Buckets.</value>
-        [DataMember(Name = "currencySubtotals", EmitDefaultValue = true)]
+        /// <value>The buckets summed across portfolios and sub-holding keys, one per period and payment currency.</value>
+        [DataMember(Name = "currencySubtotals", IsRequired = true, EmitDefaultValue = true)]
         public List<BucketCurrencySubtotal> CurrencySubtotals { get; set; }
 
         /// <summary>
-        /// Gets or Sets Subtotal
+        /// What the balances do not cover, for example that they are in the payment currency only and gross of haircut; absent when there is nothing to report.
         /// </summary>
-        [DataMember(Name = "subtotal", EmitDefaultValue = false)]
-        public BucketCashFlowSubtotal Subtotal { get; set; }
+        /// <value>What the balances do not cover, for example that they are in the payment currency only and gross of haircut; absent when there is nothing to report.</value>
+        [DataMember(Name = "issues", EmitDefaultValue = true)]
+        public List<string> Issues { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -184,20 +111,11 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class BucketCashFlowDrillDownResponse {\n");
-            sb.Append("  Values: ").Append(Values).Append("\n");
-            sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  ReportCurrency: ").Append(ReportCurrency).Append("\n");
-            sb.Append("  Balances: ").Append(Balances).Append("\n");
-            sb.Append("  NextPage: ").Append(NextPage).Append("\n");
-            sb.Append("  PreviousPage: ").Append(PreviousPage).Append("\n");
-            sb.Append("  Issues: ").Append(Issues).Append("\n");
             sb.Append("  WindowStart: ").Append(WindowStart).Append("\n");
-            sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
-            sb.Append("  StartInclusive: ").Append(StartInclusive).Append("\n");
-            sb.Append("  EndInclusive: ").Append(EndInclusive).Append("\n");
             sb.Append("  Buckets: ").Append(Buckets).Append("\n");
             sb.Append("  CurrencySubtotals: ").Append(CurrencySubtotals).Append("\n");
-            sb.Append("  Subtotal: ").Append(Subtotal).Append("\n");
+            sb.Append("  Issues: ").Append(Issues).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -235,62 +153,14 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Values == input.Values ||
-                    this.Values != null &&
-                    input.Values != null &&
-                    this.Values.SequenceEqual(input.Values)
-                ) && 
-                (
-                    this.Href == input.Href ||
-                    (this.Href != null &&
-                    this.Href.Equals(input.Href))
-                ) && 
-                (
                     this.ReportCurrency == input.ReportCurrency ||
                     (this.ReportCurrency != null &&
                     this.ReportCurrency.Equals(input.ReportCurrency))
                 ) && 
                 (
-                    this.Balances == input.Balances ||
-                    this.Balances != null &&
-                    input.Balances != null &&
-                    this.Balances.SequenceEqual(input.Balances)
-                ) && 
-                (
-                    this.NextPage == input.NextPage ||
-                    (this.NextPage != null &&
-                    this.NextPage.Equals(input.NextPage))
-                ) && 
-                (
-                    this.PreviousPage == input.PreviousPage ||
-                    (this.PreviousPage != null &&
-                    this.PreviousPage.Equals(input.PreviousPage))
-                ) && 
-                (
-                    this.Issues == input.Issues ||
-                    this.Issues != null &&
-                    input.Issues != null &&
-                    this.Issues.SequenceEqual(input.Issues)
-                ) && 
-                (
                     this.WindowStart == input.WindowStart ||
                     (this.WindowStart != null &&
                     this.WindowStart.Equals(input.WindowStart))
-                ) && 
-                (
-                    this.EffectiveAt == input.EffectiveAt ||
-                    (this.EffectiveAt != null &&
-                    this.EffectiveAt.Equals(input.EffectiveAt))
-                ) && 
-                (
-                    this.StartInclusive == input.StartInclusive ||
-                    (this.StartInclusive != null &&
-                    this.StartInclusive.Equals(input.StartInclusive))
-                ) && 
-                (
-                    this.EndInclusive == input.EndInclusive ||
-                    (this.EndInclusive != null &&
-                    this.EndInclusive.Equals(input.EndInclusive))
                 ) && 
                 (
                     this.Buckets == input.Buckets ||
@@ -305,9 +175,10 @@ namespace Lusid.Sdk.Model
                     this.CurrencySubtotals.SequenceEqual(input.CurrencySubtotals)
                 ) && 
                 (
-                    this.Subtotal == input.Subtotal ||
-                    (this.Subtotal != null &&
-                    this.Subtotal.Equals(input.Subtotal))
+                    this.Issues == input.Issues ||
+                    this.Issues != null &&
+                    input.Issues != null &&
+                    this.Issues.SequenceEqual(input.Issues)
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -326,49 +197,13 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Values != null)
-                {
-                    hashCode = (hashCode * 59) + this.Values.GetHashCode();
-                }
-                if (this.Href != null)
-                {
-                    hashCode = (hashCode * 59) + this.Href.GetHashCode();
-                }
                 if (this.ReportCurrency != null)
                 {
                     hashCode = (hashCode * 59) + this.ReportCurrency.GetHashCode();
                 }
-                if (this.Balances != null)
-                {
-                    hashCode = (hashCode * 59) + this.Balances.GetHashCode();
-                }
-                if (this.NextPage != null)
-                {
-                    hashCode = (hashCode * 59) + this.NextPage.GetHashCode();
-                }
-                if (this.PreviousPage != null)
-                {
-                    hashCode = (hashCode * 59) + this.PreviousPage.GetHashCode();
-                }
-                if (this.Issues != null)
-                {
-                    hashCode = (hashCode * 59) + this.Issues.GetHashCode();
-                }
                 if (this.WindowStart != null)
                 {
                     hashCode = (hashCode * 59) + this.WindowStart.GetHashCode();
-                }
-                if (this.EffectiveAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.EffectiveAt.GetHashCode();
-                }
-                if (this.StartInclusive != null)
-                {
-                    hashCode = (hashCode * 59) + this.StartInclusive.GetHashCode();
-                }
-                if (this.EndInclusive != null)
-                {
-                    hashCode = (hashCode * 59) + this.EndInclusive.GetHashCode();
                 }
                 if (this.Buckets != null)
                 {
@@ -378,9 +213,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.CurrencySubtotals.GetHashCode();
                 }
-                if (this.Subtotal != null)
+                if (this.Issues != null)
                 {
-                    hashCode = (hashCode * 59) + this.Subtotal.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Issues.GetHashCode();
                 }
                 if (this.Links != null)
                 {

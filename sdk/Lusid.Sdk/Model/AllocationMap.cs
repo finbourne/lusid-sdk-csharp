@@ -46,9 +46,10 @@ namespace Lusid.Sdk.Model
         /// <param name="basisByEventType">The basis on which each kind of allocation event is shared between the participants. At most one entry per event type and component; an entry without a component is the default for the event type. (required).</param>
         /// <param name="roundingPartnerLine">The investor record that takes every minor unit left over when the shares of an event are rounded. Absent means the leftover is spread one minor unit at a time over the largest remainders..</param>
         /// <param name="ilpaTransactionTypes">The ILPA transaction types the map reports particular kinds of allocation event under, where they differ from the default for the event type and component. At most one entry per event type and component; an entry without a component is the default for the event type. Every value must be one the system IlpaTransactionType data type lists..</param>
+        /// <param name="excuseCapMultiple">How far above its pro-rata share of a call a line may be taken when other participants are excused, as a multiple of that share: the LPA&#39;s over-call cap. At least 1. Absent means the platform default of 1.25..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public AllocationMap(string href = default(string), ResourceId id = default(ResourceId), string name = default(string), string description = default(string), ResourceId structureMemberId = default(ResourceId), ResourceId inheritsFrom = default(ResourceId), AllocationMapParticipants participants = default(AllocationMapParticipants), List<AllocationMapEventBasis> basisByEventType = default(List<AllocationMapEventBasis>), string roundingPartnerLine = default(string), List<AllocationMapIlpaTransactionType> ilpaTransactionTypes = default(List<AllocationMapIlpaTransactionType>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public AllocationMap(string href = default(string), ResourceId id = default(ResourceId), string name = default(string), string description = default(string), ResourceId structureMemberId = default(ResourceId), ResourceId inheritsFrom = default(ResourceId), AllocationMapParticipants participants = default(AllocationMapParticipants), List<AllocationMapEventBasis> basisByEventType = default(List<AllocationMapEventBasis>), string roundingPartnerLine = default(string), List<AllocationMapIlpaTransactionType> ilpaTransactionTypes = default(List<AllocationMapIlpaTransactionType>), decimal? excuseCapMultiple = default(decimal?), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -85,6 +86,7 @@ namespace Lusid.Sdk.Model
             this.InheritsFrom = inheritsFrom;
             this.RoundingPartnerLine = roundingPartnerLine;
             this.IlpaTransactionTypes = ilpaTransactionTypes;
+            this.ExcuseCapMultiple = excuseCapMultiple;
             this.VarVersion = varVersion;
             this.Links = links;
         }
@@ -156,6 +158,13 @@ namespace Lusid.Sdk.Model
         public List<AllocationMapIlpaTransactionType> IlpaTransactionTypes { get; set; }
 
         /// <summary>
+        /// How far above its pro-rata share of a call a line may be taken when other participants are excused, as a multiple of that share: the LPA&#39;s over-call cap. At least 1. Absent means the platform default of 1.25.
+        /// </summary>
+        /// <value>How far above its pro-rata share of a call a line may be taken when other participants are excused, as a multiple of that share: the LPA&#39;s over-call cap. At least 1. Absent means the platform default of 1.25.</value>
+        [DataMember(Name = "excuseCapMultiple", EmitDefaultValue = true)]
+        public decimal? ExcuseCapMultiple { get; set; }
+
+        /// <summary>
         /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
@@ -185,6 +194,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  BasisByEventType: ").Append(BasisByEventType).Append("\n");
             sb.Append("  RoundingPartnerLine: ").Append(RoundingPartnerLine).Append("\n");
             sb.Append("  IlpaTransactionTypes: ").Append(IlpaTransactionTypes).Append("\n");
+            sb.Append("  ExcuseCapMultiple: ").Append(ExcuseCapMultiple).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -275,6 +285,11 @@ namespace Lusid.Sdk.Model
                     this.IlpaTransactionTypes.SequenceEqual(input.IlpaTransactionTypes)
                 ) && 
                 (
+                    this.ExcuseCapMultiple == input.ExcuseCapMultiple ||
+                    (this.ExcuseCapMultiple != null &&
+                    this.ExcuseCapMultiple.Equals(input.ExcuseCapMultiple))
+                ) && 
+                (
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
@@ -335,6 +350,10 @@ namespace Lusid.Sdk.Model
                 if (this.IlpaTransactionTypes != null)
                 {
                     hashCode = (hashCode * 59) + this.IlpaTransactionTypes.GetHashCode();
+                }
+                if (this.ExcuseCapMultiple != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExcuseCapMultiple.GetHashCode();
                 }
                 if (this.VarVersion != null)
                 {

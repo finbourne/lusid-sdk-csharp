@@ -41,7 +41,9 @@ namespace Lusid.Sdk.Model
         /// <param name="originMemberShortCode">The member of the structure the component originates from, for a basis measured per deal such as PaidInForDeal. Absent means the map&#39;s own member..</param>
         /// <param name="waterfallTier">For a distribution component, the tier of the waterfall it was paid under: ReturnOfContributions, PreferredReturn, CatchUp, CarriedInterest or Residual..</param>
         /// <param name="taxCharacter">For a distribution component, the tax character of the amount: ROC, Gain, Income or Deemed..</param>
-        public AllocationEventComponent(string component = default(string), decimal amount = default(decimal), string originMemberShortCode = default(string), string waterfallTier = default(string), string taxCharacter = default(string))
+        /// <param name="recallableAmount">For the ROC component of a Distribution only, how much of the component the fund may call back, between zero and the component amount. Shared pro rata to each investor&#39;s ROC share. Absent means the allocation map&#39;s recall window decides..</param>
+        /// <param name="recallableUntil">For the ROC component of a Distribution only, the last date the recallable amount may be called back. Must not be before the event date and requires a non-zero recallable amount..</param>
+        public AllocationEventComponent(string component = default(string), decimal amount = default(decimal), string originMemberShortCode = default(string), string waterfallTier = default(string), string taxCharacter = default(string), decimal? recallableAmount = default(decimal?), DateTimeOffset? recallableUntil = default(DateTimeOffset?))
         {
             // to ensure "component" is required (not null)
             if (component == null)
@@ -53,6 +55,8 @@ namespace Lusid.Sdk.Model
             this.OriginMemberShortCode = originMemberShortCode;
             this.WaterfallTier = waterfallTier;
             this.TaxCharacter = taxCharacter;
+            this.RecallableAmount = recallableAmount;
+            this.RecallableUntil = recallableUntil;
         }
 
         /// <summary>
@@ -91,6 +95,20 @@ namespace Lusid.Sdk.Model
         public string TaxCharacter { get; set; }
 
         /// <summary>
+        /// For the ROC component of a Distribution only, how much of the component the fund may call back, between zero and the component amount. Shared pro rata to each investor&#39;s ROC share. Absent means the allocation map&#39;s recall window decides.
+        /// </summary>
+        /// <value>For the ROC component of a Distribution only, how much of the component the fund may call back, between zero and the component amount. Shared pro rata to each investor&#39;s ROC share. Absent means the allocation map&#39;s recall window decides.</value>
+        [DataMember(Name = "recallableAmount", EmitDefaultValue = true)]
+        public decimal? RecallableAmount { get; set; }
+
+        /// <summary>
+        /// For the ROC component of a Distribution only, the last date the recallable amount may be called back. Must not be before the event date and requires a non-zero recallable amount.
+        /// </summary>
+        /// <value>For the ROC component of a Distribution only, the last date the recallable amount may be called back. Must not be before the event date and requires a non-zero recallable amount.</value>
+        [DataMember(Name = "recallableUntil", EmitDefaultValue = true)]
+        public DateTimeOffset? RecallableUntil { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -103,6 +121,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  OriginMemberShortCode: ").Append(OriginMemberShortCode).Append("\n");
             sb.Append("  WaterfallTier: ").Append(WaterfallTier).Append("\n");
             sb.Append("  TaxCharacter: ").Append(TaxCharacter).Append("\n");
+            sb.Append("  RecallableAmount: ").Append(RecallableAmount).Append("\n");
+            sb.Append("  RecallableUntil: ").Append(RecallableUntil).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -161,6 +181,16 @@ namespace Lusid.Sdk.Model
                     this.TaxCharacter == input.TaxCharacter ||
                     (this.TaxCharacter != null &&
                     this.TaxCharacter.Equals(input.TaxCharacter))
+                ) && 
+                (
+                    this.RecallableAmount == input.RecallableAmount ||
+                    (this.RecallableAmount != null &&
+                    this.RecallableAmount.Equals(input.RecallableAmount))
+                ) && 
+                (
+                    this.RecallableUntil == input.RecallableUntil ||
+                    (this.RecallableUntil != null &&
+                    this.RecallableUntil.Equals(input.RecallableUntil))
                 );
         }
 
@@ -189,6 +219,14 @@ namespace Lusid.Sdk.Model
                 if (this.TaxCharacter != null)
                 {
                     hashCode = (hashCode * 59) + this.TaxCharacter.GetHashCode();
+                }
+                if (this.RecallableAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.RecallableAmount.GetHashCode();
+                }
+                if (this.RecallableUntil != null)
+                {
+                    hashCode = (hashCode * 59) + this.RecallableUntil.GetHashCode();
                 }
                 return hashCode;
             }

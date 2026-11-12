@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// An amount in the payment currency and, when a report currency was requested, in the report currency.
+    /// An amount in the payment currency.
     /// </summary>
     [DataContract(Name = "BucketAmounts")]
     public partial class BucketAmounts : IEquatable<BucketAmounts>, IValidatableObject
@@ -32,12 +32,10 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="BucketAmounts" /> class.
         /// </summary>
         /// <param name="local">The amount in the payment currency..</param>
-        /// <param name="reportCurrency">The amount in the report currency. Absent when no report currency was requested..</param>
         /// <param name="links">links.</param>
-        public BucketAmounts(decimal local = default(decimal), decimal? reportCurrency = default(decimal?), List<Link> links = default(List<Link>))
+        public BucketAmounts(decimal local = default(decimal), List<Link> links = default(List<Link>))
         {
             this.Local = local;
-            this.ReportCurrency = reportCurrency;
             this.Links = links;
         }
 
@@ -47,13 +45,6 @@ namespace Lusid.Sdk.Model
         /// <value>The amount in the payment currency.</value>
         [DataMember(Name = "local", EmitDefaultValue = true)]
         public decimal Local { get; set; }
-
-        /// <summary>
-        /// The amount in the report currency. Absent when no report currency was requested.
-        /// </summary>
-        /// <value>The amount in the report currency. Absent when no report currency was requested.</value>
-        [DataMember(Name = "reportCurrency", EmitDefaultValue = true)]
-        public decimal? ReportCurrency { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -70,7 +61,6 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class BucketAmounts {\n");
             sb.Append("  Local: ").Append(Local).Append("\n");
-            sb.Append("  ReportCurrency: ").Append(ReportCurrency).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -112,11 +102,6 @@ namespace Lusid.Sdk.Model
                     this.Local.Equals(input.Local)
                 ) && 
                 (
-                    this.ReportCurrency == input.ReportCurrency ||
-                    (this.ReportCurrency != null &&
-                    this.ReportCurrency.Equals(input.ReportCurrency))
-                ) && 
-                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -134,10 +119,6 @@ namespace Lusid.Sdk.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Local.GetHashCode();
-                if (this.ReportCurrency != null)
-                {
-                    hashCode = (hashCode * 59) + this.ReportCurrency.GetHashCode();
-                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

@@ -44,8 +44,8 @@ namespace Lusid.Sdk.Model
         /// <param name="shareClassData">The data for all share classes in fund. Share classes are identified by their short codes. (required).</param>
         /// <param name="valuationPointCode">The code of the valuation point..</param>
         /// <param name="previousValuationPointCode">The code of the previous valuation point..</param>
-        /// <param name="apportionmentResults">The apportionment results for the valuation point: one fund-level entry plus one entry per allocation group..</param>
-        /// <param name="bucketSetResults">The bucket set results for the valuation point: for each bucket set, the per-node (fund and share class) buckets and NAV..</param>
+        /// <param name="apportionmentResults">The apportionment results for the valuation point: one fund-level entry plus one entry per allocation group. Empty for a non-unitised fund, which has nothing to apportion..</param>
+        /// <param name="bucketSetResults">The bucket set results for the valuation point: for each bucket set, the per-node (fund and share class) buckets and NAV. A non-unitised fund has a fund node only..</param>
         /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="isBackfilled">Set to True if the Valuation Point has backfilled bucket set results, False otherwise..</param>
         /// <param name="applyClearDown">Set to True if the Valuation Point applies a clear down, False otherwise. The Valuation Point shows its bucket values before the clear down, and the next Valuation Point opens from the balances after it..</param>
@@ -152,16 +152,16 @@ namespace Lusid.Sdk.Model
         public string PreviousValuationPointCode { get; set; }
 
         /// <summary>
-        /// The apportionment results for the valuation point: one fund-level entry plus one entry per allocation group.
+        /// The apportionment results for the valuation point: one fund-level entry plus one entry per allocation group. Empty for a non-unitised fund, which has nothing to apportion.
         /// </summary>
-        /// <value>The apportionment results for the valuation point: one fund-level entry plus one entry per allocation group.</value>
+        /// <value>The apportionment results for the valuation point: one fund-level entry plus one entry per allocation group. Empty for a non-unitised fund, which has nothing to apportion.</value>
         [DataMember(Name = "apportionmentResults", EmitDefaultValue = true)]
         public List<ApportionmentBreakdown> ApportionmentResults { get; set; }
 
         /// <summary>
-        /// The bucket set results for the valuation point: for each bucket set, the per-node (fund and share class) buckets and NAV.
+        /// The bucket set results for the valuation point: for each bucket set, the per-node (fund and share class) buckets and NAV. A non-unitised fund has a fund node only.
         /// </summary>
-        /// <value>The bucket set results for the valuation point: for each bucket set, the per-node (fund and share class) buckets and NAV.</value>
+        /// <value>The bucket set results for the valuation point: for each bucket set, the per-node (fund and share class) buckets and NAV. A non-unitised fund has a fund node only.</value>
         [DataMember(Name = "bucketSetResults", EmitDefaultValue = true)]
         public List<BucketSetResult> BucketSetResults { get; set; }
 

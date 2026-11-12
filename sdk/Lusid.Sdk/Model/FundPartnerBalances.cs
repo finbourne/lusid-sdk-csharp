@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="recallable">The returned capital that may be recalled. (required).</param>
         /// <param name="unfunded">The unfunded capital. (required).</param>
         /// <param name="funded">The funded capital. (required).</param>
-        /// <param name="outstandingCalls">Capital called but not yet paid in. Omitted on a register line that has had returned capital marked recallable, since recalled capital is not yet tracked as a balance and the figure would exclude it..</param>
+        /// <param name="outstandingCalls">Capital called but not yet paid in, counting capital that was returned as recallable and has since been recalled. Omitted while a line that has had returned capital marked recallable has not been rebuilt with recalled capital as a balance, since the figure could then miss an unpaid recall..</param>
         public FundPartnerBalances(decimal committed = default(decimal), decimal uncalledCommitment = default(decimal), decimal paidIn = default(decimal), decimal returned = default(decimal), decimal recallable = default(decimal), decimal unfunded = default(decimal), decimal funded = default(decimal), decimal? outstandingCalls = default(decimal?))
         {
             this.Committed = committed;
@@ -106,9 +106,9 @@ namespace Lusid.Sdk.Model
         public decimal Funded { get; set; }
 
         /// <summary>
-        /// Capital called but not yet paid in. Omitted on a register line that has had returned capital marked recallable, since recalled capital is not yet tracked as a balance and the figure would exclude it.
+        /// Capital called but not yet paid in, counting capital that was returned as recallable and has since been recalled. Omitted while a line that has had returned capital marked recallable has not been rebuilt with recalled capital as a balance, since the figure could then miss an unpaid recall.
         /// </summary>
-        /// <value>Capital called but not yet paid in. Omitted on a register line that has had returned capital marked recallable, since recalled capital is not yet tracked as a balance and the figure would exclude it.</value>
+        /// <value>Capital called but not yet paid in, counting capital that was returned as recallable and has since been recalled. Omitted while a line that has had returned capital marked recallable has not been rebuilt with recalled capital as a balance, since the figure could then miss an unpaid recall.</value>
         [DataMember(Name = "outstandingCalls", EmitDefaultValue = true)]
         public decimal? OutstandingCalls { get; set; }
 

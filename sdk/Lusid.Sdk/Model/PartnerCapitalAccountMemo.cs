@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="uncalledCommitment">The commitment not yet called. (required).</param>
         /// <param name="recallable">Distributions that the fund may recall. (required).</param>
         /// <param name="availableCommitment">The commitment available to call, being uncalled plus recallable. (required).</param>
-        /// <param name="contributionsReceivable">Called contributions not yet received from the partner. Omitted when a register line of the partner has had returned capital marked recallable, since recalled capital is not yet tracked as a balance and the figure would exclude it..</param>
+        /// <param name="contributionsReceivable">Called contributions not yet received from the partner, counting capital that was returned as recallable and has since been recalled. Omitted while a register line of the partner that has had returned capital marked recallable has not been rebuilt with recalled capital as a balance, since the figure could then miss an unpaid recall; the declared distributions are then served gross..</param>
         /// <param name="distributionsDeclaredNotPaid">Distributions declared to the partner but not yet paid. (required).</param>
         public PartnerCapitalAccountMemo(decimal commitment = default(decimal), decimal uncalledCommitment = default(decimal), decimal recallable = default(decimal), decimal availableCommitment = default(decimal), decimal? contributionsReceivable = default(decimal?), decimal distributionsDeclaredNotPaid = default(decimal))
         {
@@ -81,9 +81,9 @@ namespace Lusid.Sdk.Model
         public decimal AvailableCommitment { get; set; }
 
         /// <summary>
-        /// Called contributions not yet received from the partner. Omitted when a register line of the partner has had returned capital marked recallable, since recalled capital is not yet tracked as a balance and the figure would exclude it.
+        /// Called contributions not yet received from the partner, counting capital that was returned as recallable and has since been recalled. Omitted while a register line of the partner that has had returned capital marked recallable has not been rebuilt with recalled capital as a balance, since the figure could then miss an unpaid recall; the declared distributions are then served gross.
         /// </summary>
-        /// <value>Called contributions not yet received from the partner. Omitted when a register line of the partner has had returned capital marked recallable, since recalled capital is not yet tracked as a balance and the figure would exclude it.</value>
+        /// <value>Called contributions not yet received from the partner, counting capital that was returned as recallable and has since been recalled. Omitted while a register line of the partner that has had returned capital marked recallable has not been rebuilt with recalled capital as a balance, since the figure could then miss an unpaid recall; the declared distributions are then served gross.</value>
         [DataMember(Name = "contributionsReceivable", EmitDefaultValue = true)]
         public decimal? ContributionsReceivable { get; set; }
 

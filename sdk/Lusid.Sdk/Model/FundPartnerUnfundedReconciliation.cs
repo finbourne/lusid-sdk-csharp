@@ -52,7 +52,8 @@ namespace Lusid.Sdk.Model
         /// <param name="difference">Closing unfunded less the register&#39;s unfunded at the closing datetime. Zero when the statement ties. (required).</param>
         /// <param name="ties">Whether the closing unfunded equals the register&#39;s unfunded at the closing datetime. (required).</param>
         /// <param name="lines">Every booked allocation to the partner over the period, in event date order, with the ILPA transaction type each is reported under and its effect on unfunded. (required).</param>
-        public FundPartnerUnfundedReconciliation(string investorRecordId = default(string), ResourceId fundId = default(ResourceId), string currency = default(string), DateTimeOffset periodFrom = default(DateTimeOffset), DateTimeOffset periodTo = default(DateTimeOffset), decimal openingUnfunded = default(decimal), decimal contributionsInsideCommitment = default(decimal), decimal recallableDistributions = default(decimal), decimal expiredRecallable = default(decimal), decimal commitmentChanges = default(decimal), decimal transfers = default(decimal), decimal closingUnfunded = default(decimal), decimal registerUnfunded = default(decimal), decimal difference = default(decimal), bool ties = default(bool), List<FundPartnerUnfundedReconciliationLine> lines = default(List<FundPartnerUnfundedReconciliationLine>))
+        /// <param name="warnings">Soft warnings about how the statement was built. Empty when the period and the register agree without caveats..</param>
+        public FundPartnerUnfundedReconciliation(string investorRecordId = default(string), ResourceId fundId = default(ResourceId), string currency = default(string), DateTimeOffset periodFrom = default(DateTimeOffset), DateTimeOffset periodTo = default(DateTimeOffset), decimal openingUnfunded = default(decimal), decimal contributionsInsideCommitment = default(decimal), decimal recallableDistributions = default(decimal), decimal expiredRecallable = default(decimal), decimal commitmentChanges = default(decimal), decimal transfers = default(decimal), decimal closingUnfunded = default(decimal), decimal registerUnfunded = default(decimal), decimal difference = default(decimal), bool ties = default(bool), List<FundPartnerUnfundedReconciliationLine> lines = default(List<FundPartnerUnfundedReconciliationLine>), List<FundPartnerUnfundedReconciliationWarning> warnings = default(List<FundPartnerUnfundedReconciliationWarning>))
         {
             // to ensure "investorRecordId" is required (not null)
             if (investorRecordId == null)
@@ -90,6 +91,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("lines is a required property for FundPartnerUnfundedReconciliation and cannot be null");
             }
             this.Lines = lines;
+            this.Warnings = warnings;
         }
 
         /// <summary>
@@ -204,6 +206,13 @@ namespace Lusid.Sdk.Model
         public List<FundPartnerUnfundedReconciliationLine> Lines { get; set; }
 
         /// <summary>
+        /// Soft warnings about how the statement was built. Empty when the period and the register agree without caveats.
+        /// </summary>
+        /// <value>Soft warnings about how the statement was built. Empty when the period and the register agree without caveats.</value>
+        [DataMember(Name = "warnings", EmitDefaultValue = true)]
+        public List<FundPartnerUnfundedReconciliationWarning> Warnings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -227,6 +236,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Difference: ").Append(Difference).Append("\n");
             sb.Append("  Ties: ").Append(Ties).Append("\n");
             sb.Append("  Lines: ").Append(Lines).Append("\n");
+            sb.Append("  Warnings: ").Append(Warnings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -332,6 +342,12 @@ namespace Lusid.Sdk.Model
                     this.Lines != null &&
                     input.Lines != null &&
                     this.Lines.SequenceEqual(input.Lines)
+                ) && 
+                (
+                    this.Warnings == input.Warnings ||
+                    this.Warnings != null &&
+                    input.Warnings != null &&
+                    this.Warnings.SequenceEqual(input.Warnings)
                 );
         }
 
@@ -377,6 +393,10 @@ namespace Lusid.Sdk.Model
                 if (this.Lines != null)
                 {
                     hashCode = (hashCode * 59) + this.Lines.GetHashCode();
+                }
+                if (this.Warnings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
                 }
                 return hashCode;
             }

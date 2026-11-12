@@ -855,7 +855,7 @@ catch (ApiException e)
 
 <a id="upsertallocationmap"></a>
 # **UpsertAllocationMap**
-> AllocationMap UpsertAllocationMap (string scope, string code, AllocationMapRequest allocationMapRequest)
+> AllocationMap UpsertAllocationMap (string scope, string code, AllocationMapRequest allocationMapRequest, DateTimeOrCutLabel? effectiveAt = null)
 
 [EARLY ACCESS] UpsertAllocationMap: Upsert an Allocation Map.
 
@@ -903,14 +903,15 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Allocation Map.
             var code = "code_example";  // string | The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map.
             var allocationMapRequest = new AllocationMapRequest(); // AllocationMapRequest | The definition of the Allocation Map.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label from which the definition applies, when the request body does not give one. Required to update an existing Allocation Map; a new one created without it applies from the beginning of time. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // AllocationMap result = apiInstance.UpsertAllocationMap(scope, code, allocationMapRequest, opts: opts);
+                // AllocationMap result = apiInstance.UpsertAllocationMap(scope, code, allocationMapRequest, effectiveAt, opts: opts);
 
                 // [EARLY ACCESS] UpsertAllocationMap: Upsert an Allocation Map.
-                AllocationMap result = apiInstance.UpsertAllocationMap(scope, code, allocationMapRequest);
+                AllocationMap result = apiInstance.UpsertAllocationMap(scope, code, allocationMapRequest, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -931,7 +932,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] UpsertAllocationMap: Upsert an Allocation Map.
-    ApiResponse<AllocationMap> response = apiInstance.UpsertAllocationMapWithHttpInfo(scope, code, allocationMapRequest);
+    ApiResponse<AllocationMap> response = apiInstance.UpsertAllocationMapWithHttpInfo(scope, code, allocationMapRequest, effectiveAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -951,6 +952,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Allocation Map. |  |
 | **code** | **string** | The code of the Allocation Map. Together with the scope this uniquely identifies the Allocation Map. |  |
 | **allocationMapRequest** | [**AllocationMapRequest**](AllocationMapRequest.md) | The definition of the Allocation Map. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label from which the definition applies, when the request body does not give one. Required to update an existing Allocation Map; a new one created without it applies from the beginning of time. | [optional]  |
 
 ### Return type
 

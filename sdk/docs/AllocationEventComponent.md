@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **OriginMemberShortCode** | **string** | The member of the structure the component originates from, for a basis measured per deal such as PaidInForDeal. Absent means the map&#39;s own member. | [optional] 
 **WaterfallTier** | **string** | For a distribution component, the tier of the waterfall it was paid under: ReturnOfContributions, PreferredReturn, CatchUp, CarriedInterest or Residual. | [optional] 
 **TaxCharacter** | **string** | For a distribution component, the tax character of the amount: ROC, Gain, Income or Deemed. | [optional] 
+**RecallableAmount** | **decimal?** | For the ROC component of a Distribution only, how much of the component the fund may call back, between zero and the component amount. Shared pro rata to each investor&#39;s ROC share. Absent means the allocation map&#39;s recall window decides. | [optional] 
+**RecallableUntil** | **DateTimeOffset?** | For the ROC component of a Distribution only, the last date the recallable amount may be called back. Must not be before the event date and requires a non-zero recallable amount. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -26,7 +28,9 @@ AllocationEventComponent allocationEventComponentInstance = new AllocationEventC
     amount: amount,
     originMemberShortCode: originMemberShortCode,
     waterfallTier: waterfallTier,
-    taxCharacter: taxCharacter);
+    taxCharacter: taxCharacter,
+    recallableAmount: recallableAmount,
+    recallableUntil: recallableUntil);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

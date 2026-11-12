@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Conventions** | [**FlowConventions**](FlowConventions.md) |  | [optional] 
 **FirstResetDate** | **DateTimeOffset?** | The date of the first price reset. Optional; when absent the reset dates are rolled forward from the swap start date. | [optional] 
 **Frequency** | **string** | The frequency at which the asset price is reset and the price return is exchanged, e.g. 3M. | 
+**FundingStartLag** | [**RelativeDateOffset**](RelativeDateOffset.md) |  | [optional] 
 **LastResetDate** | **DateTimeOffset?** | The date of the last price reset. Optional; when absent the reset dates are rolled forward until the swap maturity date. | [optional] 
 
 ```csharp
@@ -17,11 +18,14 @@ using System;
 FlowConventions? conventions = new FlowConventions();
 
 string frequency = "frequency";
+RelativeDateOffset? fundingStartLag = new RelativeDateOffset();
+
 
 ResetSchedule resetScheduleInstance = new ResetSchedule(
     conventions: conventions,
     firstResetDate: firstResetDate,
     frequency: frequency,
+    fundingStartLag: fundingStartLag,
     lastResetDate: lastResetDate);
 ```
 

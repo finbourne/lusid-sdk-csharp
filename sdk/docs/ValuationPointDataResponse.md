@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **ShareClassData** | [**List&lt;ShareClassData&gt;**](ShareClassData.md) | The data for all share classes in fund. Share classes are identified by their short codes. | 
 **ValuationPointCode** | **string** | The code of the valuation point. | [optional] 
 **PreviousValuationPointCode** | **string** | The code of the previous valuation point. | [optional] 
-**ApportionmentResults** | [**List&lt;ApportionmentBreakdown&gt;**](ApportionmentBreakdown.md) | The apportionment results for the valuation point: one fund-level entry plus one entry per allocation group. | [optional] 
-**BucketSetResults** | [**List&lt;BucketSetResult&gt;**](BucketSetResult.md) | The bucket set results for the valuation point: for each bucket set, the per-node (fund and share class) buckets and NAV. | [optional] 
+**ApportionmentResults** | [**List&lt;ApportionmentBreakdown&gt;**](ApportionmentBreakdown.md) | The apportionment results for the valuation point: one fund-level entry plus one entry per allocation group. Empty for a non-unitised fund, which has nothing to apportion. | [optional] 
+**BucketSetResults** | [**List&lt;BucketSetResult&gt;**](BucketSetResult.md) | The bucket set results for the valuation point: for each bucket set, the per-node (fund and share class) buckets and NAV. A non-unitised fund has a fund node only. | [optional] 
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **IsBackfilled** | **bool** | Set to True if the Valuation Point has backfilled bucket set results, False otherwise. | [optional] 
 **ApplyClearDown** | **bool** | Set to True if the Valuation Point applies a clear down, False otherwise. The Valuation Point shows its bucket values before the clear down, and the next Valuation Point opens from the balances after it. | [optional] 

@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="InflationIndexationEvent" /> class.
         /// </summary>
         /// <param name="currency">The bond&#39;s domestic currency. (required).</param>
-        /// <param name="eventDate">The calendar day on which the new index ratio applies. On an event LUSID generates it carries the bond&#39;s  local offset, so its date part is the bond&#39;s local calendar day; it is returned as generated and not  normalised to UTC. An upserted event may give it with any offset; it is normalised to UTC when stored..</param>
+        /// <param name="eventDate">The instant from which the new index ratio applies: the bond&#39;s local midnight on the indexation day. On an  event LUSID generates it is returned in UTC, and the event id names the bond&#39;s local calendar day. An  upserted event may give it with any offset; it is normalised to UTC when stored..</param>
         /// <param name="indexRatioAfter">The bond&#39;s un-floored inflation index ratio on the event date. (required).</param>
         /// <param name="indexRatioBefore">The bond&#39;s un-floored inflation index ratio on the day before the event date. (required).</param>
         /// <param name="indexedFaceChangePerUnit">The day&#39;s change in indexed face per unit: the un-indexed face per unit multiplied by  (index ratio after minus index ratio before). (required).</param>
@@ -66,9 +66,9 @@ namespace Lusid.Sdk.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// The calendar day on which the new index ratio applies. On an event LUSID generates it carries the bond&#39;s  local offset, so its date part is the bond&#39;s local calendar day; it is returned as generated and not  normalised to UTC. An upserted event may give it with any offset; it is normalised to UTC when stored.
+        /// The instant from which the new index ratio applies: the bond&#39;s local midnight on the indexation day. On an  event LUSID generates it is returned in UTC, and the event id names the bond&#39;s local calendar day. An  upserted event may give it with any offset; it is normalised to UTC when stored.
         /// </summary>
-        /// <value>The calendar day on which the new index ratio applies. On an event LUSID generates it carries the bond&#39;s  local offset, so its date part is the bond&#39;s local calendar day; it is returned as generated and not  normalised to UTC. An upserted event may give it with any offset; it is normalised to UTC when stored.</value>
+        /// <value>The instant from which the new index ratio applies: the bond&#39;s local midnight on the indexation day. On an  event LUSID generates it is returned in UTC, and the event id names the bond&#39;s local calendar day. An  upserted event may give it with any offset; it is normalised to UTC when stored.</value>
         [DataMember(Name = "eventDate", EmitDefaultValue = false)]
         public DateTimeOffset EventDate { get; set; }
 

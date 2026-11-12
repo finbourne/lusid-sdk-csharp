@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Component** | **string** | The component of the event the share belongs to. Absent when the event was resolved whole. | [optional] 
 **OriginMemberShortCode** | **string** | The deal the share is for, when a capital call&#39;s use of proceeds split one component across deals. Absent when the component&#39;s own origin applies. | [optional] 
+**RecallableAmount** | **decimal?** | For the ROC component of a Distribution with a recallable amount, the investor record&#39;s pro rata share of it. Absent otherwise. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -36,7 +37,8 @@ AllocationMapAllocation allocationMapAllocationInstance = new AllocationMapAlloc
     commitmentLineId: commitmentLineId,
     portfolioId: portfolioId,
     component: component,
-    originMemberShortCode: originMemberShortCode);
+    originMemberShortCode: originMemberShortCode,
+    recallableAmount: recallableAmount);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

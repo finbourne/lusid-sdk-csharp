@@ -51,7 +51,8 @@ namespace Lusid.Sdk.Model
         /// <param name="endEffectiveAt">Deprecated and no longer honoured: a fixed forward date stops being a forward view once  the live edge passes it. Use effectiveForwardDays instead. Still accepted and echoed back  so existing subscriptions keep round-tripping..</param>
         /// <param name="effectiveForwardDays">How far forward the subscription reports, as a number of calendar days past the live  edge — a rolling forward view that advances as time passes..</param>
         /// <param name="instrumentIdentifiers">The instrument identifiers each published holding carries, as Instrument/default/{type} property keys,  for example Instrument/default/ClientInternal. Each must name an instrument identifier type. At most 5.  Not valid for a transactions subscription..</param>
-        public SubscriptionDefinition(string scope = default(string), string code = default(string), string displayName = default(string), string description = default(string), ResourceId portfolioId = default(ResourceId), ResourceId timelineId = default(ResourceId), string timelineProperty = default(string), string portfolioFilter = default(string), List<string> addressKeys = default(List<string>), bool byTaxLots = default(bool), string subscriptionType = default(string), DateTimeOffset? startEffectiveAt = default(DateTimeOffset?), DateTimeOffset? endEffectiveAt = default(DateTimeOffset?), int? effectiveForwardDays = default(int?), List<string> instrumentIdentifiers = default(List<string>))
+        /// <param name="reportCurrency">The currency the report-currency values are given in, as a three-letter ISO code stored upper-case. Required  when addressKeys names any key other than the quantity, cost, current face, notional cost, variation margin  and currency keys: Holding/Units, Holding/SettledUnits, Holding/Cost/Dom, Holding/Cost/Pfolio,  Holding/CurrentFace, Holding/NotionalCost, Holding/VariationMargin, Holding/VariationMarginInPortfolioCcy,  Holding/HoldingType, Holding/DomCcy and Holding/PortfolioCcy. Not valid for a transactions subscription..</param>
+        public SubscriptionDefinition(string scope = default(string), string code = default(string), string displayName = default(string), string description = default(string), ResourceId portfolioId = default(ResourceId), ResourceId timelineId = default(ResourceId), string timelineProperty = default(string), string portfolioFilter = default(string), List<string> addressKeys = default(List<string>), bool byTaxLots = default(bool), string subscriptionType = default(string), DateTimeOffset? startEffectiveAt = default(DateTimeOffset?), DateTimeOffset? endEffectiveAt = default(DateTimeOffset?), int? effectiveForwardDays = default(int?), List<string> instrumentIdentifiers = default(List<string>), string reportCurrency = default(string))
         {
             // to ensure "scope" is required (not null)
             if (scope == null)
@@ -88,6 +89,7 @@ namespace Lusid.Sdk.Model
             this.EndEffectiveAt = endEffectiveAt;
             this.EffectiveForwardDays = effectiveForwardDays;
             this.InstrumentIdentifiers = instrumentIdentifiers;
+            this.ReportCurrency = reportCurrency;
         }
 
         /// <summary>
@@ -188,6 +190,13 @@ namespace Lusid.Sdk.Model
         public List<string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
+        /// The currency the report-currency values are given in, as a three-letter ISO code stored upper-case. Required  when addressKeys names any key other than the quantity, cost, current face, notional cost, variation margin  and currency keys: Holding/Units, Holding/SettledUnits, Holding/Cost/Dom, Holding/Cost/Pfolio,  Holding/CurrentFace, Holding/NotionalCost, Holding/VariationMargin, Holding/VariationMarginInPortfolioCcy,  Holding/HoldingType, Holding/DomCcy and Holding/PortfolioCcy. Not valid for a transactions subscription.
+        /// </summary>
+        /// <value>The currency the report-currency values are given in, as a three-letter ISO code stored upper-case. Required  when addressKeys names any key other than the quantity, cost, current face, notional cost, variation margin  and currency keys: Holding/Units, Holding/SettledUnits, Holding/Cost/Dom, Holding/Cost/Pfolio,  Holding/CurrentFace, Holding/NotionalCost, Holding/VariationMargin, Holding/VariationMarginInPortfolioCcy,  Holding/HoldingType, Holding/DomCcy and Holding/PortfolioCcy. Not valid for a transactions subscription.</value>
+        [DataMember(Name = "reportCurrency", EmitDefaultValue = true)]
+        public string ReportCurrency { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -210,6 +219,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EndEffectiveAt: ").Append(EndEffectiveAt).Append("\n");
             sb.Append("  EffectiveForwardDays: ").Append(EffectiveForwardDays).Append("\n");
             sb.Append("  InstrumentIdentifiers: ").Append(InstrumentIdentifiers).Append("\n");
+            sb.Append("  ReportCurrency: ").Append(ReportCurrency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -320,6 +330,11 @@ namespace Lusid.Sdk.Model
                     this.InstrumentIdentifiers != null &&
                     input.InstrumentIdentifiers != null &&
                     this.InstrumentIdentifiers.SequenceEqual(input.InstrumentIdentifiers)
+                ) && 
+                (
+                    this.ReportCurrency == input.ReportCurrency ||
+                    (this.ReportCurrency != null &&
+                    this.ReportCurrency.Equals(input.ReportCurrency))
                 );
         }
 
@@ -388,6 +403,10 @@ namespace Lusid.Sdk.Model
                 if (this.InstrumentIdentifiers != null)
                 {
                     hashCode = (hashCode * 59) + this.InstrumentIdentifiers.GetHashCode();
+                }
+                if (this.ReportCurrency != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReportCurrency.GetHashCode();
                 }
                 return hashCode;
             }
@@ -516,6 +535,25 @@ namespace Lusid.Sdk.Model
             if (this.EffectiveForwardDays < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EffectiveForwardDays, must be a value greater than or equal to 1.", new [] { "EffectiveForwardDays" });
+            }
+
+            // ReportCurrency (string) maxLength
+            if (this.ReportCurrency != null && this.ReportCurrency.Length > 3)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportCurrency, length must be less than 3.", new [] { "ReportCurrency" });
+            }
+
+            // ReportCurrency (string) minLength
+            if (this.ReportCurrency != null && this.ReportCurrency.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportCurrency, length must be greater than 0.", new [] { "ReportCurrency" });
+            }
+
+            // ReportCurrency (string) pattern
+            Regex regexReportCurrency = new Regex(@"^[a-zA-Z]*$", RegexOptions.CultureInvariant);
+            if (false == regexReportCurrency.Match(this.ReportCurrency).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportCurrency, must match a pattern of " + regexReportCurrency, new [] { "ReportCurrency" });
             }
 
             yield break;

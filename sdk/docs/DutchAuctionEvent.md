@@ -26,6 +26,10 @@ Name | Type | Description | Notes
 **FractionalUnitsCashPrice** | **decimal?** | Cash-in-lieu price per fractional unit on the SECU and CASE paths.  Null indicates round-down disposition of fractional remainders.  Distinct from the CASE path&#39;s main cash settlement (which lives on CashAndSecurityOfferElection). | [optional] 
 **FractionalUnitsCashCurrency** | **string** | Currency of the cash-in-lieu paid on fractional remainders on the SECU and CASE paths.  Required when FractionalUnitsCashPrice is non-null. | [optional] 
 **BidPrice** | **decimal?** | Per-holder bid price submitted at instruction time. Audit-only; no calculation impact. | [optional] 
+**ElectionProrationRates** | [**List&lt;ElectionProrationRate&gt;**](ElectionProrationRate.md) | Optional proration rate per option, keyed by election key. An entry overrides ProrationRate for that  election; an option without an entry uses ProrationRate. Each key must name a TenderOffer, SecurityOffer,  CashAndSecurityOffer or MixedLotConstituents election of this event, once, with a rate in (0, 1]. | [optional] 
+**MinPieceSize** | **decimal?** | Optional minimum tradable piece of the accepted quantity, in face for a bond and in units otherwise.  Must be strictly positive when set. With AcceptedQuantityRounding RoundDown, an accepted quantity below it  is rounded to zero. | [optional] 
+**MinIncrement** | **decimal?** | Optional tradable increment above MinPieceSize, in the same unit. When set, MinPieceSize must also be set.  Must be strictly positive. With AcceptedQuantityRounding RoundDown, the accepted quantity is rounded down to  MinPieceSize plus a whole number of increments. | [optional] 
+**AcceptedQuantityRounding** | **string** | How a prorated accepted quantity that is not a whole tradable lot is disposed of. RoundDown rounds it down  to the tradable lot, or to a whole unit when no lot size is given, and the remainder stays in the holding.  CashInLieu accepts the unrounded quantity. When omitted the accepted quantity is not rounded. Available values: RoundDown, CashInLieu. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -41,6 +45,8 @@ List<UnknownProceedsElection> unknownProceedsElections = new List<UnknownProceed
 NewInstrument? newInstrument = new NewInstrument();
 
 string fractionalUnitsCashCurrency = "example fractionalUnitsCashCurrency";
+List<ElectionProrationRate> electionProrationRates = new List<ElectionProrationRate>();
+string acceptedQuantityRounding = "example acceptedQuantityRounding";
 
 DutchAuctionEvent dutchAuctionEventInstance = new DutchAuctionEvent(
     paymentDate: paymentDate,
@@ -62,7 +68,11 @@ DutchAuctionEvent dutchAuctionEventInstance = new DutchAuctionEvent(
     newInstrument: newInstrument,
     fractionalUnitsCashPrice: fractionalUnitsCashPrice,
     fractionalUnitsCashCurrency: fractionalUnitsCashCurrency,
-    bidPrice: bidPrice);
+    bidPrice: bidPrice,
+    electionProrationRates: electionProrationRates,
+    minPieceSize: minPieceSize,
+    minIncrement: minIncrement,
+    acceptedQuantityRounding: acceptedQuantityRounding);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

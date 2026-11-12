@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **EndEffectiveAt** | **DateTimeOffset?** | Deprecated and no longer honoured: a fixed forward date stops being a forward view once  the live edge passes it. Use effectiveForwardDays instead. Still accepted and echoed back  so existing subscriptions keep round-tripping. | [optional] 
 **EffectiveForwardDays** | **int?** | How far forward the subscription reports, as a number of calendar days past the live  edge — a rolling forward view that advances as time passes. | [optional] 
 **InstrumentIdentifiers** | **List&lt;string&gt;** | The instrument identifiers each published holding carries, as Instrument/default/{type} property keys,  for example Instrument/default/ClientInternal. Each must name an instrument identifier type. At most 5.  Not valid for a transactions subscription. | [optional] 
+**ReportCurrency** | **string** | The currency the report-currency values are given in, as a three-letter ISO code stored upper-case. Required  when addressKeys names any key other than the quantity, cost, current face, notional cost, variation margin  and currency keys: Holding/Units, Holding/SettledUnits, Holding/Cost/Dom, Holding/Cost/Pfolio,  Holding/CurrentFace, Holding/NotionalCost, Holding/VariationMargin, Holding/VariationMarginInPortfolioCcy,  Holding/HoldingType, Holding/DomCcy and Holding/PortfolioCcy. Not valid for a transactions subscription. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -37,6 +38,7 @@ List<string> addressKeys = new List<string>();
 bool byTaxLots = //"True";
 string subscriptionType = "subscriptionType";
 List<string> instrumentIdentifiers = new List<string>();
+string reportCurrency = "example reportCurrency";
 
 SubscriptionDefinition subscriptionDefinitionInstance = new SubscriptionDefinition(
     scope: scope,
@@ -53,7 +55,8 @@ SubscriptionDefinition subscriptionDefinitionInstance = new SubscriptionDefiniti
     startEffectiveAt: startEffectiveAt,
     endEffectiveAt: endEffectiveAt,
     effectiveForwardDays: effectiveForwardDays,
-    instrumentIdentifiers: instrumentIdentifiers);
+    instrumentIdentifiers: instrumentIdentifiers,
+    reportCurrency: reportCurrency);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

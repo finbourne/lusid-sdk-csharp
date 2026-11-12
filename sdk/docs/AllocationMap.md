@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **BasisByEventType** | [**List&lt;AllocationMapEventBasis&gt;**](AllocationMapEventBasis.md) | The basis on which each kind of allocation event is shared between the participants. At most one entry per event type and component; an entry without a component is the default for the event type. | 
 **RoundingPartnerLine** | **string** | The investor record that takes every minor unit left over when the shares of an event are rounded. Absent means the leftover is spread one minor unit at a time over the largest remainders. | [optional] 
 **IlpaTransactionTypes** | [**List&lt;AllocationMapIlpaTransactionType&gt;**](AllocationMapIlpaTransactionType.md) | The ILPA transaction types the map reports particular kinds of allocation event under, where they differ from the default for the event type and component. At most one entry per event type and component; an entry without a component is the default for the event type. Every value must be one the system IlpaTransactionType data type lists. | [optional] 
+**ExcuseCapMultiple** | **decimal?** | How far above its pro-rata share of a call a line may be taken when other participants are excused, as a multiple of that share: the LPA&#39;s over-call cap. At least 1. Absent means the platform default of 1.25. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
@@ -48,6 +49,7 @@ AllocationMap allocationMapInstance = new AllocationMap(
     basisByEventType: basisByEventType,
     roundingPartnerLine: roundingPartnerLine,
     ilpaTransactionTypes: ilpaTransactionTypes,
+    excuseCapMultiple: excuseCapMultiple,
     varVersion: varVersion,
     links: links);
 ```

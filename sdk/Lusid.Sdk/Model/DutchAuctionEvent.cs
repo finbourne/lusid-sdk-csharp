@@ -58,8 +58,12 @@ namespace Lusid.Sdk.Model
         /// <param name="fractionalUnitsCashPrice">Cash-in-lieu price per fractional unit on the SECU and CASE paths.  Null indicates round-down disposition of fractional remainders.  Distinct from the CASE path&#39;s main cash settlement (which lives on CashAndSecurityOfferElection)..</param>
         /// <param name="fractionalUnitsCashCurrency">Currency of the cash-in-lieu paid on fractional remainders on the SECU and CASE paths.  Required when FractionalUnitsCashPrice is non-null..</param>
         /// <param name="bidPrice">Per-holder bid price submitted at instruction time. Audit-only; no calculation impact..</param>
+        /// <param name="electionProrationRates">Optional proration rate per option, keyed by election key. An entry overrides ProrationRate for that  election; an option without an entry uses ProrationRate. Each key must name a TenderOffer, SecurityOffer,  CashAndSecurityOffer or MixedLotConstituents election of this event, once, with a rate in (0, 1]..</param>
+        /// <param name="minPieceSize">Optional minimum tradable piece of the accepted quantity, in face for a bond and in units otherwise.  Must be strictly positive when set. With AcceptedQuantityRounding RoundDown, an accepted quantity below it  is rounded to zero..</param>
+        /// <param name="minIncrement">Optional tradable increment above MinPieceSize, in the same unit. When set, MinPieceSize must also be set.  Must be strictly positive. With AcceptedQuantityRounding RoundDown, the accepted quantity is rounded down to  MinPieceSize plus a whole number of increments..</param>
+        /// <param name="acceptedQuantityRounding">How a prorated accepted quantity that is not a whole tradable lot is disposed of. RoundDown rounds it down  to the tradable lot, or to a whole unit when no lot size is given, and the remainder stays in the holding.  CashInLieu accepts the unrounded quantity. When omitted the accepted quantity is not rounded. Available values: RoundDown, CashInLieu..</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent, TotalReturnSwapCashFlowEvent, GlobalLoanFacilityReinitialisationEvent, InvestorLoanFacilityReinitialisationEvent, CapitalCallReceiptEvent, RecallableCapitalExpiryEvent, CapitalInterestTransferEvent, FacilityDrawEvent, FacilityRepaymentEvent, FacilityInterestEvent, FacilityCommitmentFeeEvent, InstalmentCallEvent, DepositInterestCapitalisationEvent, PartialRedemptionWithoutReductionOfNominalValueEvent, StripBondCashflowEvent, CapitalisationEvent, SharesPremiumDividendEvent, CashDistributionFromNonEligibleSecuritiesSalesEvent, InflationIndexationEvent. (required) (default to &quot;DutchAuctionEvent&quot;).</param>
-        public DutchAuctionEvent(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset marketDeadlineDate = default(DateTimeOffset), string currency = default(string), List<TenderOfferElection> tenderOfferElections = default(List<TenderOfferElection>), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<LapseElection> lapseElections = default(List<LapseElection>), List<MixedLotConstituentsElection> mixedLotConstituentsElections = default(List<MixedLotConstituentsElection>), List<UnknownProceedsElection> unknownProceedsElections = default(List<UnknownProceedsElection>), DateTimeOffset? responseDeadlineDate = default(DateTimeOffset?), DateTimeOffset? earlyResponseDeadline = default(DateTimeOffset?), DateTimeOffset? exDate = default(DateTimeOffset?), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset? announcementDate = default(DateTimeOffset?), decimal? targetQuantity = default(decimal?), decimal prorationRate = default(decimal), NewInstrument newInstrument = default(NewInstrument), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), decimal? bidPrice = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public DutchAuctionEvent(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset marketDeadlineDate = default(DateTimeOffset), string currency = default(string), List<TenderOfferElection> tenderOfferElections = default(List<TenderOfferElection>), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<LapseElection> lapseElections = default(List<LapseElection>), List<MixedLotConstituentsElection> mixedLotConstituentsElections = default(List<MixedLotConstituentsElection>), List<UnknownProceedsElection> unknownProceedsElections = default(List<UnknownProceedsElection>), DateTimeOffset? responseDeadlineDate = default(DateTimeOffset?), DateTimeOffset? earlyResponseDeadline = default(DateTimeOffset?), DateTimeOffset? exDate = default(DateTimeOffset?), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset? announcementDate = default(DateTimeOffset?), decimal? targetQuantity = default(decimal?), decimal prorationRate = default(decimal), NewInstrument newInstrument = default(NewInstrument), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), decimal? bidPrice = default(decimal?), List<ElectionProrationRate> electionProrationRates = default(List<ElectionProrationRate>), decimal? minPieceSize = default(decimal?), decimal? minIncrement = default(decimal?), string acceptedQuantityRounding = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.PaymentDate = paymentDate;
             this.MarketDeadlineDate = marketDeadlineDate;
@@ -81,6 +85,10 @@ namespace Lusid.Sdk.Model
             this.FractionalUnitsCashPrice = fractionalUnitsCashPrice;
             this.FractionalUnitsCashCurrency = fractionalUnitsCashCurrency;
             this.BidPrice = bidPrice;
+            this.ElectionProrationRates = electionProrationRates;
+            this.MinPieceSize = minPieceSize;
+            this.MinIncrement = minIncrement;
+            this.AcceptedQuantityRounding = acceptedQuantityRounding;
         }
 
         /// <summary>
@@ -223,6 +231,34 @@ namespace Lusid.Sdk.Model
         public decimal? BidPrice { get; set; }
 
         /// <summary>
+        /// Optional proration rate per option, keyed by election key. An entry overrides ProrationRate for that  election; an option without an entry uses ProrationRate. Each key must name a TenderOffer, SecurityOffer,  CashAndSecurityOffer or MixedLotConstituents election of this event, once, with a rate in (0, 1].
+        /// </summary>
+        /// <value>Optional proration rate per option, keyed by election key. An entry overrides ProrationRate for that  election; an option without an entry uses ProrationRate. Each key must name a TenderOffer, SecurityOffer,  CashAndSecurityOffer or MixedLotConstituents election of this event, once, with a rate in (0, 1].</value>
+        [DataMember(Name = "electionProrationRates", EmitDefaultValue = true)]
+        public List<ElectionProrationRate> ElectionProrationRates { get; set; }
+
+        /// <summary>
+        /// Optional minimum tradable piece of the accepted quantity, in face for a bond and in units otherwise.  Must be strictly positive when set. With AcceptedQuantityRounding RoundDown, an accepted quantity below it  is rounded to zero.
+        /// </summary>
+        /// <value>Optional minimum tradable piece of the accepted quantity, in face for a bond and in units otherwise.  Must be strictly positive when set. With AcceptedQuantityRounding RoundDown, an accepted quantity below it  is rounded to zero.</value>
+        [DataMember(Name = "minPieceSize", EmitDefaultValue = true)]
+        public decimal? MinPieceSize { get; set; }
+
+        /// <summary>
+        /// Optional tradable increment above MinPieceSize, in the same unit. When set, MinPieceSize must also be set.  Must be strictly positive. With AcceptedQuantityRounding RoundDown, the accepted quantity is rounded down to  MinPieceSize plus a whole number of increments.
+        /// </summary>
+        /// <value>Optional tradable increment above MinPieceSize, in the same unit. When set, MinPieceSize must also be set.  Must be strictly positive. With AcceptedQuantityRounding RoundDown, the accepted quantity is rounded down to  MinPieceSize plus a whole number of increments.</value>
+        [DataMember(Name = "minIncrement", EmitDefaultValue = true)]
+        public decimal? MinIncrement { get; set; }
+
+        /// <summary>
+        /// How a prorated accepted quantity that is not a whole tradable lot is disposed of. RoundDown rounds it down  to the tradable lot, or to a whole unit when no lot size is given, and the remainder stays in the holding.  CashInLieu accepts the unrounded quantity. When omitted the accepted quantity is not rounded. Available values: RoundDown, CashInLieu.
+        /// </summary>
+        /// <value>How a prorated accepted quantity that is not a whole tradable lot is disposed of. RoundDown rounds it down  to the tradable lot, or to a whole unit when no lot size is given, and the remainder stays in the holding.  CashInLieu accepts the unrounded quantity. When omitted the accepted quantity is not rounded. Available values: RoundDown, CashInLieu.</value>
+        [DataMember(Name = "acceptedQuantityRounding", EmitDefaultValue = true)]
+        public string AcceptedQuantityRounding { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -251,6 +287,10 @@ namespace Lusid.Sdk.Model
             sb.Append("  FractionalUnitsCashPrice: ").Append(FractionalUnitsCashPrice).Append("\n");
             sb.Append("  FractionalUnitsCashCurrency: ").Append(FractionalUnitsCashCurrency).Append("\n");
             sb.Append("  BidPrice: ").Append(BidPrice).Append("\n");
+            sb.Append("  ElectionProrationRates: ").Append(ElectionProrationRates).Append("\n");
+            sb.Append("  MinPieceSize: ").Append(MinPieceSize).Append("\n");
+            sb.Append("  MinIncrement: ").Append(MinIncrement).Append("\n");
+            sb.Append("  AcceptedQuantityRounding: ").Append(AcceptedQuantityRounding).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -390,6 +430,27 @@ namespace Lusid.Sdk.Model
                     this.BidPrice == input.BidPrice ||
                     (this.BidPrice != null &&
                     this.BidPrice.Equals(input.BidPrice))
+                ) && base.Equals(input) && 
+                (
+                    this.ElectionProrationRates == input.ElectionProrationRates ||
+                    this.ElectionProrationRates != null &&
+                    input.ElectionProrationRates != null &&
+                    this.ElectionProrationRates.SequenceEqual(input.ElectionProrationRates)
+                ) && base.Equals(input) && 
+                (
+                    this.MinPieceSize == input.MinPieceSize ||
+                    (this.MinPieceSize != null &&
+                    this.MinPieceSize.Equals(input.MinPieceSize))
+                ) && base.Equals(input) && 
+                (
+                    this.MinIncrement == input.MinIncrement ||
+                    (this.MinIncrement != null &&
+                    this.MinIncrement.Equals(input.MinIncrement))
+                ) && base.Equals(input) && 
+                (
+                    this.AcceptedQuantityRounding == input.AcceptedQuantityRounding ||
+                    (this.AcceptedQuantityRounding != null &&
+                    this.AcceptedQuantityRounding.Equals(input.AcceptedQuantityRounding))
                 );
         }
 
@@ -478,6 +539,22 @@ namespace Lusid.Sdk.Model
                 if (this.BidPrice != null)
                 {
                     hashCode = (hashCode * 59) + this.BidPrice.GetHashCode();
+                }
+                if (this.ElectionProrationRates != null)
+                {
+                    hashCode = (hashCode * 59) + this.ElectionProrationRates.GetHashCode();
+                }
+                if (this.MinPieceSize != null)
+                {
+                    hashCode = (hashCode * 59) + this.MinPieceSize.GetHashCode();
+                }
+                if (this.MinIncrement != null)
+                {
+                    hashCode = (hashCode * 59) + this.MinIncrement.GetHashCode();
+                }
+                if (this.AcceptedQuantityRounding != null)
+                {
+                    hashCode = (hashCode * 59) + this.AcceptedQuantityRounding.GetHashCode();
                 }
                 return hashCode;
             }

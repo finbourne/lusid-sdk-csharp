@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Recallable** | **decimal** | The returned capital that may be recalled. | 
 **Unfunded** | **decimal** | The unfunded capital. | 
 **Funded** | **decimal** | The funded capital. | 
-**OutstandingCalls** | **decimal?** | Capital called but not yet paid in. Omitted on a register line that has had returned capital marked recallable, since recalled capital is not yet tracked as a balance and the figure would exclude it. | [optional] 
+**OutstandingCalls** | **decimal?** | Capital called but not yet paid in, counting capital that was returned as recallable and has since been recalled. Omitted while a line that has had returned capital marked recallable has not been rebuilt with recalled capital as a balance, since the figure could then miss an unpaid recall. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

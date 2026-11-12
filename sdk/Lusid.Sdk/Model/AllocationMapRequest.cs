@@ -45,8 +45,9 @@ namespace Lusid.Sdk.Model
         /// <param name="basisByEventType">The basis on which each kind of allocation event is shared between the participants. At most one entry per event type and component; an entry without a component is the default for the event type..</param>
         /// <param name="roundingPartnerLine">The investor record that takes every minor unit left over when the shares of an event are rounded. Absent means the leftover is spread one minor unit at a time over the largest remainders..</param>
         /// <param name="ilpaTransactionTypes">The ILPA transaction types the map reports particular kinds of allocation event under, where they differ from the default for the event type and component. At most one entry per event type and component; an entry without a component is the default for the event type. Every value must be one the system IlpaTransactionType data type lists..</param>
-        /// <param name="effectiveAt">The effective datetime from which the Allocation Map applies. Defaults to the beginning of time if not specified, so that the map is visible at every effective datetime..</param>
-        public AllocationMapRequest(string code = default(string), string name = default(string), string description = default(string), ResourceId structureMemberId = default(ResourceId), ResourceId inheritsFrom = default(ResourceId), AllocationMapParticipants participants = default(AllocationMapParticipants), List<AllocationMapEventBasis> basisByEventType = default(List<AllocationMapEventBasis>), string roundingPartnerLine = default(string), List<AllocationMapIlpaTransactionType> ilpaTransactionTypes = default(List<AllocationMapIlpaTransactionType>), DateTimeOffset? effectiveAt = default(DateTimeOffset?))
+        /// <param name="excuseCapMultiple">How far above its pro-rata share of a call a line may be taken when other participants are excused, as a multiple of that share: the LPA&#39;s over-call cap. At least 1. Absent means the platform default of 1.25..</param>
+        /// <param name="effectiveAt">The effective datetime from which the Allocation Map applies. On create, defaults to the beginning of time if not specified, so that the map is visible at every effective datetime. On update of an existing Allocation Map it is required, in the body or as the effectiveAt query parameter, so that a change is never back-dated or forward-dated by accident..</param>
+        public AllocationMapRequest(string code = default(string), string name = default(string), string description = default(string), ResourceId structureMemberId = default(ResourceId), ResourceId inheritsFrom = default(ResourceId), AllocationMapParticipants participants = default(AllocationMapParticipants), List<AllocationMapEventBasis> basisByEventType = default(List<AllocationMapEventBasis>), string roundingPartnerLine = default(string), List<AllocationMapIlpaTransactionType> ilpaTransactionTypes = default(List<AllocationMapIlpaTransactionType>), decimal? excuseCapMultiple = default(decimal?), DateTimeOffset? effectiveAt = default(DateTimeOffset?))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -72,6 +73,7 @@ namespace Lusid.Sdk.Model
             this.BasisByEventType = basisByEventType;
             this.RoundingPartnerLine = roundingPartnerLine;
             this.IlpaTransactionTypes = ilpaTransactionTypes;
+            this.ExcuseCapMultiple = excuseCapMultiple;
             this.EffectiveAt = effectiveAt;
         }
 
@@ -136,9 +138,16 @@ namespace Lusid.Sdk.Model
         public List<AllocationMapIlpaTransactionType> IlpaTransactionTypes { get; set; }
 
         /// <summary>
-        /// The effective datetime from which the Allocation Map applies. Defaults to the beginning of time if not specified, so that the map is visible at every effective datetime.
+        /// How far above its pro-rata share of a call a line may be taken when other participants are excused, as a multiple of that share: the LPA&#39;s over-call cap. At least 1. Absent means the platform default of 1.25.
         /// </summary>
-        /// <value>The effective datetime from which the Allocation Map applies. Defaults to the beginning of time if not specified, so that the map is visible at every effective datetime.</value>
+        /// <value>How far above its pro-rata share of a call a line may be taken when other participants are excused, as a multiple of that share: the LPA&#39;s over-call cap. At least 1. Absent means the platform default of 1.25.</value>
+        [DataMember(Name = "excuseCapMultiple", EmitDefaultValue = true)]
+        public decimal? ExcuseCapMultiple { get; set; }
+
+        /// <summary>
+        /// The effective datetime from which the Allocation Map applies. On create, defaults to the beginning of time if not specified, so that the map is visible at every effective datetime. On update of an existing Allocation Map it is required, in the body or as the effectiveAt query parameter, so that a change is never back-dated or forward-dated by accident.
+        /// </summary>
+        /// <value>The effective datetime from which the Allocation Map applies. On create, defaults to the beginning of time if not specified, so that the map is visible at every effective datetime. On update of an existing Allocation Map it is required, in the body or as the effectiveAt query parameter, so that a change is never back-dated or forward-dated by accident.</value>
         [DataMember(Name = "effectiveAt", EmitDefaultValue = true)]
         public DateTimeOffset? EffectiveAt { get; set; }
 
@@ -159,6 +168,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  BasisByEventType: ").Append(BasisByEventType).Append("\n");
             sb.Append("  RoundingPartnerLine: ").Append(RoundingPartnerLine).Append("\n");
             sb.Append("  IlpaTransactionTypes: ").Append(IlpaTransactionTypes).Append("\n");
+            sb.Append("  ExcuseCapMultiple: ").Append(ExcuseCapMultiple).Append("\n");
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -243,6 +253,11 @@ namespace Lusid.Sdk.Model
                     this.IlpaTransactionTypes.SequenceEqual(input.IlpaTransactionTypes)
                 ) && 
                 (
+                    this.ExcuseCapMultiple == input.ExcuseCapMultiple ||
+                    (this.ExcuseCapMultiple != null &&
+                    this.ExcuseCapMultiple.Equals(input.ExcuseCapMultiple))
+                ) && 
+                (
                     this.EffectiveAt == input.EffectiveAt ||
                     (this.EffectiveAt != null &&
                     this.EffectiveAt.Equals(input.EffectiveAt))
@@ -293,6 +308,10 @@ namespace Lusid.Sdk.Model
                 if (this.IlpaTransactionTypes != null)
                 {
                     hashCode = (hashCode * 59) + this.IlpaTransactionTypes.GetHashCode();
+                }
+                if (this.ExcuseCapMultiple != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExcuseCapMultiple.GetHashCode();
                 }
                 if (this.EffectiveAt != null)
                 {
