@@ -14,7 +14,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**PlaceBlocks**](OrderManagementApi.md#placeblocks) | **POST** /api/ordermanagement/placeblocks | [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests. |
 | [**PreviewBlocks**](OrderManagementApi.md#previewblocks) | **POST** /api/ordermanagement/$previewblocks | PreviewBlocks: Preview the blocks a set of orders would form |
 | [**RunAllocationService**](OrderManagementApi.md#runallocationservice) | **POST** /api/ordermanagement/allocate | RunAllocationService: Runs the Allocation Service |
-| [**RunAllocationServiceWithWeights**](OrderManagementApi.md#runallocationservicewithweights) | **POST** /api/ordermanagement/allocate/weighted | [EXPERIMENTAL] RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights |
+| [**RunAllocationServiceWithWeights**](OrderManagementApi.md#runallocationservicewithweights) | **POST** /api/ordermanagement/allocate/weighted | RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights |
 | [**SweepBlocks**](OrderManagementApi.md#sweepblocks) | **POST** /api/ordermanagement/SweepBlocks | [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful. |
 | [**UpdateOrders**](OrderManagementApi.md#updateorders) | **POST** /api/ordermanagement/updateorders | [EARLY ACCESS] UpdateOrders: Update existing orders |
 | [**UpdatePlacements**](OrderManagementApi.md#updateplacements) | **POST** /api/ordermanagement/$updateplacements | [EARLY ACCESS] UpdatePlacements: Update existing placements |
@@ -1176,7 +1176,7 @@ catch (ApiException e)
 # **RunAllocationServiceWithWeights**
 > AllocationServiceRunResponse RunAllocationServiceWithWeights (WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = null, bool? cancelAndCorrect = null)
 
-[EXPERIMENTAL] RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
+RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
 
 Allocates Executions for a given list of placements to a specified set of portfolios by weight,  creating Allocations to record the results. Used for the unsolicited Block and Block Trade booking flows where no Orders exist against the Block.  Weights are relative to each other and are not required to sum to 1 or 100.
 
@@ -1228,7 +1228,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AllocationServiceRunResponse result = apiInstance.RunAllocationServiceWithWeights(weightedAllocationServiceRunRequest, allocationAlgorithm, cancelAndCorrect, opts: opts);
 
-                // [EXPERIMENTAL] RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
+                // RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
                 AllocationServiceRunResponse result = apiInstance.RunAllocationServiceWithWeights(weightedAllocationServiceRunRequest, allocationAlgorithm, cancelAndCorrect);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1249,7 +1249,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
+    // RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
     ApiResponse<AllocationServiceRunResponse> response = apiInstance.RunAllocationServiceWithWeightsWithHttpInfo(weightedAllocationServiceRunRequest, allocationAlgorithm, cancelAndCorrect);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

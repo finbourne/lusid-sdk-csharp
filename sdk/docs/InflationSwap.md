@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **InstrumentType** | **string** | Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap, BondForward, PreferredShare, CapitalInterest, WholeLoanFacility, StripBond. | 
 **StartDate** | **DateTimeOffset** | The start date of the instrument. This is normally synonymous with the trade-date. | 
 **MaturityDate** | **DateTimeOffset** | The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. | 
-**InflationLeg** | [**InflationLeg**](InflationLeg.md) |  | 
-**FixedLeg** | [**FixedLeg**](FixedLeg.md) |  | 
+**InflationLeg** | [**InflationLeg**](InflationLeg.md) |  | [optional] 
+**FixedLeg** | [**FixedLeg**](FixedLeg.md) |  | [optional] 
 **AdditionalPayments** | [**List&lt;AdditionalPayment&gt;**](AdditionalPayment.md) | Optional additional payments at a given date e.g. to level off an uneven inflation swap.  The dates must be distinct and either all payments are Pay or all payments are Receive. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
@@ -17,8 +17,10 @@ Name | Type | Description | Notes
 using Lusid.Sdk.Model;
 using System;
 
-InflationLeg inflationLeg = new InflationLeg();
-FixedLeg fixedLeg = new FixedLeg();
+InflationLeg? inflationLeg = new InflationLeg();
+
+FixedLeg? fixedLeg = new FixedLeg();
+
 List<AdditionalPayment> additionalPayments = new List<AdditionalPayment>();
 TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
 

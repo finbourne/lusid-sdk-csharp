@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**GroupId** | **int** | A stable identifier for this group within the rule, the same across the rule-result and breakdown endpoints,  so a group can be correlated between the two. | 
 **GroupStatus** | **string** | The status of this subset of results. | 
 **ResultsUsed** | **Dictionary&lt;string, decimal&gt;** | Dictionary of AddressKey (as string) and their corresponding decimal values, that were used in this rule. | 
 **FormulaValues** | **Dictionary&lt;string, decimal&gt;** | The value each formula within the check criterion evaluated to for this group. Empty where the criterion  compares a single value or is not numerical, since the operand values already recorded describe those. | [optional] 
@@ -23,6 +24,7 @@ List<string> missingDataInformation = new List<string>();
 List<LineageMember> lineage = new List<LineageMember>();
 
 ComplianceRuleBreakdown complianceRuleBreakdownInstance = new ComplianceRuleBreakdown(
+    groupId: groupId,
     groupStatus: groupStatus,
     resultsUsed: resultsUsed,
     formulaValues: formulaValues,

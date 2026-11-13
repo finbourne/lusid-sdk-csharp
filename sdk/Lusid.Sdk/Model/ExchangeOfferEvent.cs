@@ -57,8 +57,9 @@ namespace Lusid.Sdk.Model
         /// <param name="fractionalUnitsRoundingConvention">The convention used to round the fractional units entitlement. Defaults to Floor. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding..</param>
         /// <param name="fractionalUnitsDecimalPlaces">The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces..</param>
         /// <param name="instructionReference">instructionReference.</param>
+        /// <param name="accruedInterestPerUnit">Optional per-unit interest accrued on the old bond that the offer pays in cash, on the same basis as the  cash offer price. Taken from the offer terms and never calculated. If supplied and above zero, each chosen  election that removes the old units (security, cash, cash-and-security, consent-and-exchange or mixed lot)  books one additional cash transaction per holding of units removed multiplied by this value. Bond and  complex bond instrument types only. Must be 0 or more. If left empty or 0, no accrued interest is booked..</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent, TotalReturnSwapCashFlowEvent, GlobalLoanFacilityReinitialisationEvent, InvestorLoanFacilityReinitialisationEvent, CapitalCallReceiptEvent, RecallableCapitalExpiryEvent, CapitalInterestTransferEvent, FacilityDrawEvent, FacilityRepaymentEvent, FacilityInterestEvent, FacilityCommitmentFeeEvent, InstalmentCallEvent, DepositInterestCapitalisationEvent, PartialRedemptionWithoutReductionOfNominalValueEvent, StripBondCashflowEvent, CapitalisationEvent, SharesPremiumDividendEvent, CashDistributionFromNonEligibleSecuritiesSalesEvent, InflationIndexationEvent. (required) (default to &quot;ExchangeOfferEvent&quot;).</param>
-        public ExchangeOfferEvent(DateTimeOffset effectiveDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), string eventSource = default(string), NewInstrument newInstrument = default(NewInstrument), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), List<MixedLotConstituentsElection> mixedLotConstituentsElections = default(List<MixedLotConstituentsElection>), List<LapseElection> lapseElections = default(List<LapseElection>), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<ConsentAndExchangeElection> consentAndExchangeElections = default(List<ConsentAndExchangeElection>), List<AbstainElection> abstainElections = default(List<AbstainElection>), List<UnknownProceedsElection> unknownProceedsElections = default(List<UnknownProceedsElection>), decimal? minPieceSize = default(decimal?), decimal? minIncrement = default(decimal?), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), string fractionalUnitsRoundingConvention = default(string), int? fractionalUnitsDecimalPlaces = default(int?), string instructionReference = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public ExchangeOfferEvent(DateTimeOffset effectiveDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), string eventSource = default(string), NewInstrument newInstrument = default(NewInstrument), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), List<MixedLotConstituentsElection> mixedLotConstituentsElections = default(List<MixedLotConstituentsElection>), List<LapseElection> lapseElections = default(List<LapseElection>), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<ConsentAndExchangeElection> consentAndExchangeElections = default(List<ConsentAndExchangeElection>), List<AbstainElection> abstainElections = default(List<AbstainElection>), List<UnknownProceedsElection> unknownProceedsElections = default(List<UnknownProceedsElection>), decimal? minPieceSize = default(decimal?), decimal? minIncrement = default(decimal?), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), string fractionalUnitsRoundingConvention = default(string), int? fractionalUnitsDecimalPlaces = default(int?), string instructionReference = default(string), decimal? accruedInterestPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "eventSource" is required (not null)
             if (eventSource == null)
@@ -84,6 +85,7 @@ namespace Lusid.Sdk.Model
             this.FractionalUnitsRoundingConvention = fractionalUnitsRoundingConvention;
             this.FractionalUnitsDecimalPlaces = fractionalUnitsDecimalPlaces;
             this.InstructionReference = instructionReference;
+            this.AccruedInterestPerUnit = accruedInterestPerUnit;
         }
 
         /// <summary>
@@ -211,6 +213,13 @@ namespace Lusid.Sdk.Model
         public string InstructionReference { get; set; }
 
         /// <summary>
+        /// Optional per-unit interest accrued on the old bond that the offer pays in cash, on the same basis as the  cash offer price. Taken from the offer terms and never calculated. If supplied and above zero, each chosen  election that removes the old units (security, cash, cash-and-security, consent-and-exchange or mixed lot)  books one additional cash transaction per holding of units removed multiplied by this value. Bond and  complex bond instrument types only. Must be 0 or more. If left empty or 0, no accrued interest is booked.
+        /// </summary>
+        /// <value>Optional per-unit interest accrued on the old bond that the offer pays in cash, on the same basis as the  cash offer price. Taken from the offer terms and never calculated. If supplied and above zero, each chosen  election that removes the old units (security, cash, cash-and-security, consent-and-exchange or mixed lot)  books one additional cash transaction per holding of units removed multiplied by this value. Bond and  complex bond instrument types only. Must be 0 or more. If left empty or 0, no accrued interest is booked.</value>
+        [DataMember(Name = "accruedInterestPerUnit", EmitDefaultValue = true)]
+        public decimal? AccruedInterestPerUnit { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -238,6 +247,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  FractionalUnitsRoundingConvention: ").Append(FractionalUnitsRoundingConvention).Append("\n");
             sb.Append("  FractionalUnitsDecimalPlaces: ").Append(FractionalUnitsDecimalPlaces).Append("\n");
             sb.Append("  InstructionReference: ").Append(InstructionReference).Append("\n");
+            sb.Append("  AccruedInterestPerUnit: ").Append(AccruedInterestPerUnit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -375,6 +385,11 @@ namespace Lusid.Sdk.Model
                     this.InstructionReference == input.InstructionReference ||
                     (this.InstructionReference != null &&
                     this.InstructionReference.Equals(input.InstructionReference))
+                ) && base.Equals(input) && 
+                (
+                    this.AccruedInterestPerUnit == input.AccruedInterestPerUnit ||
+                    (this.AccruedInterestPerUnit != null &&
+                    this.AccruedInterestPerUnit.Equals(input.AccruedInterestPerUnit))
                 );
         }
 
@@ -462,6 +477,10 @@ namespace Lusid.Sdk.Model
                 if (this.InstructionReference != null)
                 {
                     hashCode = (hashCode * 59) + this.InstructionReference.GetHashCode();
+                }
+                if (this.AccruedInterestPerUnit != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccruedInterestPerUnit.GetHashCode();
                 }
                 return hashCode;
             }

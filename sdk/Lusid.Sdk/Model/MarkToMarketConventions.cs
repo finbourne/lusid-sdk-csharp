@@ -34,11 +34,15 @@ namespace Lusid.Sdk.Model
         /// <param name="calendarCode">The calendar to use when generating mark to market cashflows and events..</param>
         /// <param name="hourOffsetTenor">The hour tenor component of the time offset against the maturity date.  This is an optional field, if a value is provided it must be a positive value between &#39;0hour&#39; and &#39;23hour&#39;..</param>
         /// <param name="minuteOffsetTenor">The minute tenor component of the time offset against the maturity date.  This is an optional field, if a value is provided it must be a positive value between &#39;0min&#39; and &#39;59min&#39;..</param>
-        public MarkToMarketConventions(string calendarCode = default(string), string hourOffsetTenor = default(string), string minuteOffsetTenor = default(string))
+        /// <param name="mtmSettleDays">The number of business days after each mark to market date on which its variation margin is paid.  This is an optional field, defaulting to 0 (paid on the mark to market date); if a value is provided it must be between 0 and 10 inclusive..</param>
+        /// <param name="mtmSettlementCalendar">The calendar the mark to market settlement days are counted on.  This is an optional field; if no value is provided the mark to market calendar is used, and without that only weekends are non-business days..</param>
+        public MarkToMarketConventions(string calendarCode = default(string), string hourOffsetTenor = default(string), string minuteOffsetTenor = default(string), int? mtmSettleDays = default(int?), string mtmSettlementCalendar = default(string))
         {
             this.CalendarCode = calendarCode;
             this.HourOffsetTenor = hourOffsetTenor;
             this.MinuteOffsetTenor = minuteOffsetTenor;
+            this.MtmSettleDays = mtmSettleDays;
+            this.MtmSettlementCalendar = mtmSettlementCalendar;
         }
 
         /// <summary>
@@ -63,6 +67,20 @@ namespace Lusid.Sdk.Model
         public string MinuteOffsetTenor { get; set; }
 
         /// <summary>
+        /// The number of business days after each mark to market date on which its variation margin is paid.  This is an optional field, defaulting to 0 (paid on the mark to market date); if a value is provided it must be between 0 and 10 inclusive.
+        /// </summary>
+        /// <value>The number of business days after each mark to market date on which its variation margin is paid.  This is an optional field, defaulting to 0 (paid on the mark to market date); if a value is provided it must be between 0 and 10 inclusive.</value>
+        [DataMember(Name = "mtmSettleDays", EmitDefaultValue = true)]
+        public int? MtmSettleDays { get; set; }
+
+        /// <summary>
+        /// The calendar the mark to market settlement days are counted on.  This is an optional field; if no value is provided the mark to market calendar is used, and without that only weekends are non-business days.
+        /// </summary>
+        /// <value>The calendar the mark to market settlement days are counted on.  This is an optional field; if no value is provided the mark to market calendar is used, and without that only weekends are non-business days.</value>
+        [DataMember(Name = "mtmSettlementCalendar", EmitDefaultValue = true)]
+        public string MtmSettlementCalendar { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +91,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  CalendarCode: ").Append(CalendarCode).Append("\n");
             sb.Append("  HourOffsetTenor: ").Append(HourOffsetTenor).Append("\n");
             sb.Append("  MinuteOffsetTenor: ").Append(MinuteOffsetTenor).Append("\n");
+            sb.Append("  MtmSettleDays: ").Append(MtmSettleDays).Append("\n");
+            sb.Append("  MtmSettlementCalendar: ").Append(MtmSettlementCalendar).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +142,16 @@ namespace Lusid.Sdk.Model
                     this.MinuteOffsetTenor == input.MinuteOffsetTenor ||
                     (this.MinuteOffsetTenor != null &&
                     this.MinuteOffsetTenor.Equals(input.MinuteOffsetTenor))
+                ) && 
+                (
+                    this.MtmSettleDays == input.MtmSettleDays ||
+                    (this.MtmSettleDays != null &&
+                    this.MtmSettleDays.Equals(input.MtmSettleDays))
+                ) && 
+                (
+                    this.MtmSettlementCalendar == input.MtmSettlementCalendar ||
+                    (this.MtmSettlementCalendar != null &&
+                    this.MtmSettlementCalendar.Equals(input.MtmSettlementCalendar))
                 );
         }
 
@@ -145,6 +175,14 @@ namespace Lusid.Sdk.Model
                 if (this.MinuteOffsetTenor != null)
                 {
                     hashCode = (hashCode * 59) + this.MinuteOffsetTenor.GetHashCode();
+                }
+                if (this.MtmSettleDays != null)
+                {
+                    hashCode = (hashCode * 59) + this.MtmSettleDays.GetHashCode();
+                }
+                if (this.MtmSettlementCalendar != null)
+                {
+                    hashCode = (hashCode * 59) + this.MtmSettlementCalendar.GetHashCode();
                 }
                 return hashCode;
             }
@@ -191,6 +229,18 @@ namespace Lusid.Sdk.Model
             if (this.MinuteOffsetTenor != null && this.MinuteOffsetTenor.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinuteOffsetTenor, length must be greater than 0.", new [] { "MinuteOffsetTenor" });
+            }
+
+            // MtmSettlementCalendar (string) maxLength
+            if (this.MtmSettlementCalendar != null && this.MtmSettlementCalendar.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MtmSettlementCalendar, length must be less than 50.", new [] { "MtmSettlementCalendar" });
+            }
+
+            // MtmSettlementCalendar (string) minLength
+            if (this.MtmSettlementCalendar != null && this.MtmSettlementCalendar.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MtmSettlementCalendar, length must be greater than 0.", new [] { "MtmSettlementCalendar" });
             }
 
             yield break;

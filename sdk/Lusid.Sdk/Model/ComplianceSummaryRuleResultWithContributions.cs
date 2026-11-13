@@ -37,15 +37,13 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ComplianceSummaryRuleResultWithContributions" /> class.
         /// </summary>
         /// <param name="ruleId">ruleId (required).</param>
-        /// <param name="templateId">templateId (required).</param>
-        /// <param name="variation">variation (required).</param>
-        /// <param name="ruleStatus">ruleStatus (required).</param>
+        /// <param name="status">status (required).</param>
+        /// <param name="checkType">The kind of check the rule applied across its groups: \&quot;PercentCheck\&quot; or \&quot;Check\&quot;. Static per rule. Absent for a  rule no check reached..</param>
         /// <param name="affectedPortfolios">affectedPortfolios (required).</param>
-        /// <param name="affectedOrders">affectedOrders (required).</param>
-        /// <param name="parametersUsed">parametersUsed (required).</param>
-        /// <param name="ruleBreakdown">ruleBreakdown (required).</param>
-        /// <param name="otherPositionsConsidered">The rest of the basis the rule was measured against but did not directly evaluate — the positions in  the referenced/denominator (or initial) group that are not in the RuleBreakdown&#39;s  contributions. Together with those contributions this forms the whole basis, with no overlap, so a  breach can be explained against the full picture (e.g. the non-equity remainder behind an equity limit).  Empty when the rule evaluated everything it considered. (required).</param>
-        public ComplianceSummaryRuleResultWithContributions(ResourceId ruleId = default(ResourceId), ResourceId templateId = default(ResourceId), string variation = default(string), string ruleStatus = default(string), List<ResourceId> affectedPortfolios = default(List<ResourceId>), List<ResourceId> affectedOrders = default(List<ResourceId>), Dictionary<string, string> parametersUsed = default(Dictionary<string, string>), List<ComplianceRuleBreakdownWithContributions> ruleBreakdown = default(List<ComplianceRuleBreakdownWithContributions>), List<ComplianceRuleContribution> otherPositionsConsidered = default(List<ComplianceRuleContribution>))
+        /// <param name="affectedOrders">The orders the rule affected. Omitted for a holdings-based run..</param>
+        /// <param name="groups">groups (required).</param>
+        /// <param name="otherPositionsConsidered">The rest of the basis the rule was measured against but did not directly evaluate — the positions in  the referenced/denominator (or initial) group that are not in a group&#39;s contributions. Together with those  contributions this forms the whole basis, with no overlap, so a breach can be explained against the full picture  (e.g. the non-equity remainder behind an equity limit). Omitted when the rule evaluated everything it considered..</param>
+        public ComplianceSummaryRuleResultWithContributions(ResourceId ruleId = default(ResourceId), string status = default(string), string checkType = default(string), List<ResourceId> affectedPortfolios = default(List<ResourceId>), List<ResourceId> affectedOrders = default(List<ResourceId>), List<ComplianceRuleBreakdownWithContributions> groups = default(List<ComplianceRuleBreakdownWithContributions>), List<ComplianceRuleContribution> otherPositionsConsidered = default(List<ComplianceRuleContribution>))
         {
             // to ensure "ruleId" is required (not null)
             if (ruleId == null)
@@ -53,53 +51,26 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("ruleId is a required property for ComplianceSummaryRuleResultWithContributions and cannot be null");
             }
             this.RuleId = ruleId;
-            // to ensure "templateId" is required (not null)
-            if (templateId == null)
+            // to ensure "status" is required (not null)
+            if (status == null)
             {
-                throw new ArgumentNullException("templateId is a required property for ComplianceSummaryRuleResultWithContributions and cannot be null");
+                throw new ArgumentNullException("status is a required property for ComplianceSummaryRuleResultWithContributions and cannot be null");
             }
-            this.TemplateId = templateId;
-            // to ensure "variation" is required (not null)
-            if (variation == null)
-            {
-                throw new ArgumentNullException("variation is a required property for ComplianceSummaryRuleResultWithContributions and cannot be null");
-            }
-            this.Variation = variation;
-            // to ensure "ruleStatus" is required (not null)
-            if (ruleStatus == null)
-            {
-                throw new ArgumentNullException("ruleStatus is a required property for ComplianceSummaryRuleResultWithContributions and cannot be null");
-            }
-            this.RuleStatus = ruleStatus;
+            this.Status = status;
             // to ensure "affectedPortfolios" is required (not null)
             if (affectedPortfolios == null)
             {
                 throw new ArgumentNullException("affectedPortfolios is a required property for ComplianceSummaryRuleResultWithContributions and cannot be null");
             }
             this.AffectedPortfolios = affectedPortfolios;
-            // to ensure "affectedOrders" is required (not null)
-            if (affectedOrders == null)
+            // to ensure "groups" is required (not null)
+            if (groups == null)
             {
-                throw new ArgumentNullException("affectedOrders is a required property for ComplianceSummaryRuleResultWithContributions and cannot be null");
+                throw new ArgumentNullException("groups is a required property for ComplianceSummaryRuleResultWithContributions and cannot be null");
             }
+            this.Groups = groups;
+            this.CheckType = checkType;
             this.AffectedOrders = affectedOrders;
-            // to ensure "parametersUsed" is required (not null)
-            if (parametersUsed == null)
-            {
-                throw new ArgumentNullException("parametersUsed is a required property for ComplianceSummaryRuleResultWithContributions and cannot be null");
-            }
-            this.ParametersUsed = parametersUsed;
-            // to ensure "ruleBreakdown" is required (not null)
-            if (ruleBreakdown == null)
-            {
-                throw new ArgumentNullException("ruleBreakdown is a required property for ComplianceSummaryRuleResultWithContributions and cannot be null");
-            }
-            this.RuleBreakdown = ruleBreakdown;
-            // to ensure "otherPositionsConsidered" is required (not null)
-            if (otherPositionsConsidered == null)
-            {
-                throw new ArgumentNullException("otherPositionsConsidered is a required property for ComplianceSummaryRuleResultWithContributions and cannot be null");
-            }
             this.OtherPositionsConsidered = otherPositionsConsidered;
         }
 
@@ -110,22 +81,17 @@ namespace Lusid.Sdk.Model
         public ResourceId RuleId { get; set; }
 
         /// <summary>
-        /// Gets or Sets TemplateId
+        /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "templateId", IsRequired = true, EmitDefaultValue = true)]
-        public ResourceId TemplateId { get; set; }
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        public string Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets Variation
+        /// The kind of check the rule applied across its groups: \&quot;PercentCheck\&quot; or \&quot;Check\&quot;. Static per rule. Absent for a  rule no check reached.
         /// </summary>
-        [DataMember(Name = "variation", IsRequired = true, EmitDefaultValue = true)]
-        public string Variation { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RuleStatus
-        /// </summary>
-        [DataMember(Name = "ruleStatus", IsRequired = true, EmitDefaultValue = true)]
-        public string RuleStatus { get; set; }
+        /// <value>The kind of check the rule applied across its groups: \&quot;PercentCheck\&quot; or \&quot;Check\&quot;. Static per rule. Absent for a  rule no check reached.</value>
+        [DataMember(Name = "checkType", EmitDefaultValue = true)]
+        public string CheckType { get; set; }
 
         /// <summary>
         /// Gets or Sets AffectedPortfolios
@@ -134,28 +100,23 @@ namespace Lusid.Sdk.Model
         public List<ResourceId> AffectedPortfolios { get; set; }
 
         /// <summary>
-        /// Gets or Sets AffectedOrders
+        /// The orders the rule affected. Omitted for a holdings-based run.
         /// </summary>
-        [DataMember(Name = "affectedOrders", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>The orders the rule affected. Omitted for a holdings-based run.</value>
+        [DataMember(Name = "affectedOrders", EmitDefaultValue = true)]
         public List<ResourceId> AffectedOrders { get; set; }
 
         /// <summary>
-        /// Gets or Sets ParametersUsed
+        /// Gets or Sets Groups
         /// </summary>
-        [DataMember(Name = "parametersUsed", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, string> ParametersUsed { get; set; }
+        [DataMember(Name = "groups", IsRequired = true, EmitDefaultValue = true)]
+        public List<ComplianceRuleBreakdownWithContributions> Groups { get; set; }
 
         /// <summary>
-        /// Gets or Sets RuleBreakdown
+        /// The rest of the basis the rule was measured against but did not directly evaluate — the positions in  the referenced/denominator (or initial) group that are not in a group&#39;s contributions. Together with those  contributions this forms the whole basis, with no overlap, so a breach can be explained against the full picture  (e.g. the non-equity remainder behind an equity limit). Omitted when the rule evaluated everything it considered.
         /// </summary>
-        [DataMember(Name = "ruleBreakdown", IsRequired = true, EmitDefaultValue = true)]
-        public List<ComplianceRuleBreakdownWithContributions> RuleBreakdown { get; set; }
-
-        /// <summary>
-        /// The rest of the basis the rule was measured against but did not directly evaluate — the positions in  the referenced/denominator (or initial) group that are not in the RuleBreakdown&#39;s  contributions. Together with those contributions this forms the whole basis, with no overlap, so a  breach can be explained against the full picture (e.g. the non-equity remainder behind an equity limit).  Empty when the rule evaluated everything it considered.
-        /// </summary>
-        /// <value>The rest of the basis the rule was measured against but did not directly evaluate — the positions in  the referenced/denominator (or initial) group that are not in the RuleBreakdown&#39;s  contributions. Together with those contributions this forms the whole basis, with no overlap, so a  breach can be explained against the full picture (e.g. the non-equity remainder behind an equity limit).  Empty when the rule evaluated everything it considered.</value>
-        [DataMember(Name = "otherPositionsConsidered", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>The rest of the basis the rule was measured against but did not directly evaluate — the positions in  the referenced/denominator (or initial) group that are not in a group&#39;s contributions. Together with those  contributions this forms the whole basis, with no overlap, so a breach can be explained against the full picture  (e.g. the non-equity remainder behind an equity limit). Omitted when the rule evaluated everything it considered.</value>
+        [DataMember(Name = "otherPositionsConsidered", EmitDefaultValue = true)]
         public List<ComplianceRuleContribution> OtherPositionsConsidered { get; set; }
 
         /// <summary>
@@ -167,13 +128,11 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ComplianceSummaryRuleResultWithContributions {\n");
             sb.Append("  RuleId: ").Append(RuleId).Append("\n");
-            sb.Append("  TemplateId: ").Append(TemplateId).Append("\n");
-            sb.Append("  Variation: ").Append(Variation).Append("\n");
-            sb.Append("  RuleStatus: ").Append(RuleStatus).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  CheckType: ").Append(CheckType).Append("\n");
             sb.Append("  AffectedPortfolios: ").Append(AffectedPortfolios).Append("\n");
             sb.Append("  AffectedOrders: ").Append(AffectedOrders).Append("\n");
-            sb.Append("  ParametersUsed: ").Append(ParametersUsed).Append("\n");
-            sb.Append("  RuleBreakdown: ").Append(RuleBreakdown).Append("\n");
+            sb.Append("  Groups: ").Append(Groups).Append("\n");
             sb.Append("  OtherPositionsConsidered: ").Append(OtherPositionsConsidered).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -216,19 +175,14 @@ namespace Lusid.Sdk.Model
                     this.RuleId.Equals(input.RuleId))
                 ) && 
                 (
-                    this.TemplateId == input.TemplateId ||
-                    (this.TemplateId != null &&
-                    this.TemplateId.Equals(input.TemplateId))
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
-                    this.Variation == input.Variation ||
-                    (this.Variation != null &&
-                    this.Variation.Equals(input.Variation))
-                ) && 
-                (
-                    this.RuleStatus == input.RuleStatus ||
-                    (this.RuleStatus != null &&
-                    this.RuleStatus.Equals(input.RuleStatus))
+                    this.CheckType == input.CheckType ||
+                    (this.CheckType != null &&
+                    this.CheckType.Equals(input.CheckType))
                 ) && 
                 (
                     this.AffectedPortfolios == input.AffectedPortfolios ||
@@ -243,16 +197,10 @@ namespace Lusid.Sdk.Model
                     this.AffectedOrders.SequenceEqual(input.AffectedOrders)
                 ) && 
                 (
-                    this.ParametersUsed == input.ParametersUsed ||
-                    this.ParametersUsed != null &&
-                    input.ParametersUsed != null &&
-                    this.ParametersUsed.SequenceEqual(input.ParametersUsed)
-                ) && 
-                (
-                    this.RuleBreakdown == input.RuleBreakdown ||
-                    this.RuleBreakdown != null &&
-                    input.RuleBreakdown != null &&
-                    this.RuleBreakdown.SequenceEqual(input.RuleBreakdown)
+                    this.Groups == input.Groups ||
+                    this.Groups != null &&
+                    input.Groups != null &&
+                    this.Groups.SequenceEqual(input.Groups)
                 ) && 
                 (
                     this.OtherPositionsConsidered == input.OtherPositionsConsidered ||
@@ -275,17 +223,13 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.RuleId.GetHashCode();
                 }
-                if (this.TemplateId != null)
+                if (this.Status != null)
                 {
-                    hashCode = (hashCode * 59) + this.TemplateId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
-                if (this.Variation != null)
+                if (this.CheckType != null)
                 {
-                    hashCode = (hashCode * 59) + this.Variation.GetHashCode();
-                }
-                if (this.RuleStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.RuleStatus.GetHashCode();
+                    hashCode = (hashCode * 59) + this.CheckType.GetHashCode();
                 }
                 if (this.AffectedPortfolios != null)
                 {
@@ -295,13 +239,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.AffectedOrders.GetHashCode();
                 }
-                if (this.ParametersUsed != null)
+                if (this.Groups != null)
                 {
-                    hashCode = (hashCode * 59) + this.ParametersUsed.GetHashCode();
-                }
-                if (this.RuleBreakdown != null)
-                {
-                    hashCode = (hashCode * 59) + this.RuleBreakdown.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Groups.GetHashCode();
                 }
                 if (this.OtherPositionsConsidered != null)
                 {
@@ -318,16 +258,10 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Variation (string) minLength
-            if (this.Variation != null && this.Variation.Length < 1)
+            // Status (string) minLength
+            if (this.Status != null && this.Status.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Variation, length must be greater than 1.", new [] { "Variation" });
-            }
-
-            // RuleStatus (string) minLength
-            if (this.RuleStatus != null && this.RuleStatus.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RuleStatus, length must be greater than 1.", new [] { "RuleStatus" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Status, length must be greater than 1.", new [] { "Status" });
             }
 
             yield break;

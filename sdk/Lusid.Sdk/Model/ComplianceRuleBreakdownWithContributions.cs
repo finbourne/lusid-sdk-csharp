@@ -36,85 +36,98 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ComplianceRuleBreakdownWithContributions" /> class.
         /// </summary>
-        /// <param name="groupStatus">The status of this subset of results. (required).</param>
-        /// <param name="resultsUsed">Dictionary of AddressKey (as string) and their corresponding decimal values, that were used in this rule. (required).</param>
-        /// <param name="propertiesUsed">Dictionary of PropertyKey (as string) and their corresponding Properties, that were used in this rule (required).</param>
-        /// <param name="missingDataInformation">List of string information detailing data that was missing from contributions processed in this rule (required).</param>
-        /// <param name="lineage">lineage (required).</param>
+        /// <param name="groupId">A stable identifier for this group within the rule, matching the same group in the rule-result endpoint. (required).</param>
+        /// <param name="status">The status of this subset of results. (required).</param>
+        /// <param name="groupKey">groupKey.</param>
+        /// <param name="nav">The portfolio net asset value the group sits within. Absent where no contribution carried it..</param>
+        /// <param name="results">The valuation result totals the group aggregated. Omitted when empty..</param>
+        /// <param name="comparisons">Every leaf comparison the check criterion made for this group, drawn from both the hard and the soft limit.  Omitted for a group no check reached..</param>
+        /// <param name="properties">The property values the group aggregated. Omitted when empty..</param>
+        /// <param name="formulaValues">The value each formula within the check criterion evaluated to for this group. Omitted when empty..</param>
         /// <param name="contributions">The per-position contributions aggregated into this rule breakdown group. Empty when the run  genuinely produced no contributions; a run with no recorded breakdown (e.g. one that predates  this feature) returns a 404 rather than this response. (required).</param>
-        public ComplianceRuleBreakdownWithContributions(string groupStatus = default(string), Dictionary<string, decimal> resultsUsed = default(Dictionary<string, decimal>), Dictionary<string, List<Property>> propertiesUsed = default(Dictionary<string, List<Property>>), List<string> missingDataInformation = default(List<string>), List<LineageMember> lineage = default(List<LineageMember>), List<ComplianceRuleContribution> contributions = default(List<ComplianceRuleContribution>))
+        /// <param name="missingDataInformation">List of string information detailing data that was missing from contributions processed in this rule. Omitted when empty..</param>
+        /// <param name="contributionCount">The number of contributions aggregated into this group, before any cap. (required).</param>
+        /// <param name="contributionsTruncated">Whether the reported contributions were capped below ContributionCount. Always false today. (required).</param>
+        public ComplianceRuleBreakdownWithContributions(int groupId = default(int), string status = default(string), ComplianceGroupKey groupKey = default(ComplianceGroupKey), decimal? nav = default(decimal?), Dictionary<string, decimal> results = default(Dictionary<string, decimal>), List<ComplianceComparison> comparisons = default(List<ComplianceComparison>), Dictionary<string, List<Property>> properties = default(Dictionary<string, List<Property>>), Dictionary<string, decimal> formulaValues = default(Dictionary<string, decimal>), List<ComplianceRuleContribution> contributions = default(List<ComplianceRuleContribution>), List<string> missingDataInformation = default(List<string>), int contributionCount = default(int), bool contributionsTruncated = default(bool))
         {
-            // to ensure "groupStatus" is required (not null)
-            if (groupStatus == null)
+            this.GroupId = groupId;
+            // to ensure "status" is required (not null)
+            if (status == null)
             {
-                throw new ArgumentNullException("groupStatus is a required property for ComplianceRuleBreakdownWithContributions and cannot be null");
+                throw new ArgumentNullException("status is a required property for ComplianceRuleBreakdownWithContributions and cannot be null");
             }
-            this.GroupStatus = groupStatus;
-            // to ensure "resultsUsed" is required (not null)
-            if (resultsUsed == null)
-            {
-                throw new ArgumentNullException("resultsUsed is a required property for ComplianceRuleBreakdownWithContributions and cannot be null");
-            }
-            this.ResultsUsed = resultsUsed;
-            // to ensure "propertiesUsed" is required (not null)
-            if (propertiesUsed == null)
-            {
-                throw new ArgumentNullException("propertiesUsed is a required property for ComplianceRuleBreakdownWithContributions and cannot be null");
-            }
-            this.PropertiesUsed = propertiesUsed;
-            // to ensure "missingDataInformation" is required (not null)
-            if (missingDataInformation == null)
-            {
-                throw new ArgumentNullException("missingDataInformation is a required property for ComplianceRuleBreakdownWithContributions and cannot be null");
-            }
-            this.MissingDataInformation = missingDataInformation;
-            // to ensure "lineage" is required (not null)
-            if (lineage == null)
-            {
-                throw new ArgumentNullException("lineage is a required property for ComplianceRuleBreakdownWithContributions and cannot be null");
-            }
-            this.Lineage = lineage;
+            this.Status = status;
             // to ensure "contributions" is required (not null)
             if (contributions == null)
             {
                 throw new ArgumentNullException("contributions is a required property for ComplianceRuleBreakdownWithContributions and cannot be null");
             }
             this.Contributions = contributions;
+            this.ContributionCount = contributionCount;
+            this.ContributionsTruncated = contributionsTruncated;
+            this.GroupKey = groupKey;
+            this.Nav = nav;
+            this.Results = results;
+            this.Comparisons = comparisons;
+            this.Properties = properties;
+            this.FormulaValues = formulaValues;
+            this.MissingDataInformation = missingDataInformation;
         }
+
+        /// <summary>
+        /// A stable identifier for this group within the rule, matching the same group in the rule-result endpoint.
+        /// </summary>
+        /// <value>A stable identifier for this group within the rule, matching the same group in the rule-result endpoint.</value>
+        [DataMember(Name = "groupId", IsRequired = true, EmitDefaultValue = true)]
+        public int GroupId { get; set; }
 
         /// <summary>
         /// The status of this subset of results.
         /// </summary>
         /// <value>The status of this subset of results.</value>
-        [DataMember(Name = "groupStatus", IsRequired = true, EmitDefaultValue = true)]
-        public string GroupStatus { get; set; }
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        public string Status { get; set; }
 
         /// <summary>
-        /// Dictionary of AddressKey (as string) and their corresponding decimal values, that were used in this rule.
+        /// Gets or Sets GroupKey
         /// </summary>
-        /// <value>Dictionary of AddressKey (as string) and their corresponding decimal values, that were used in this rule.</value>
-        [DataMember(Name = "resultsUsed", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, decimal> ResultsUsed { get; set; }
+        [DataMember(Name = "groupKey", EmitDefaultValue = false)]
+        public ComplianceGroupKey GroupKey { get; set; }
 
         /// <summary>
-        /// Dictionary of PropertyKey (as string) and their corresponding Properties, that were used in this rule
+        /// The portfolio net asset value the group sits within. Absent where no contribution carried it.
         /// </summary>
-        /// <value>Dictionary of PropertyKey (as string) and their corresponding Properties, that were used in this rule</value>
-        [DataMember(Name = "propertiesUsed", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, List<Property>> PropertiesUsed { get; set; }
+        /// <value>The portfolio net asset value the group sits within. Absent where no contribution carried it.</value>
+        [DataMember(Name = "nav", EmitDefaultValue = true)]
+        public decimal? Nav { get; set; }
 
         /// <summary>
-        /// List of string information detailing data that was missing from contributions processed in this rule
+        /// The valuation result totals the group aggregated. Omitted when empty.
         /// </summary>
-        /// <value>List of string information detailing data that was missing from contributions processed in this rule</value>
-        [DataMember(Name = "missingDataInformation", IsRequired = true, EmitDefaultValue = true)]
-        public List<string> MissingDataInformation { get; set; }
+        /// <value>The valuation result totals the group aggregated. Omitted when empty.</value>
+        [DataMember(Name = "results", EmitDefaultValue = true)]
+        public Dictionary<string, decimal> Results { get; set; }
 
         /// <summary>
-        /// Gets or Sets Lineage
+        /// Every leaf comparison the check criterion made for this group, drawn from both the hard and the soft limit.  Omitted for a group no check reached.
         /// </summary>
-        [DataMember(Name = "lineage", IsRequired = true, EmitDefaultValue = true)]
-        public List<LineageMember> Lineage { get; set; }
+        /// <value>Every leaf comparison the check criterion made for this group, drawn from both the hard and the soft limit.  Omitted for a group no check reached.</value>
+        [DataMember(Name = "comparisons", EmitDefaultValue = true)]
+        public List<ComplianceComparison> Comparisons { get; set; }
+
+        /// <summary>
+        /// The property values the group aggregated. Omitted when empty.
+        /// </summary>
+        /// <value>The property values the group aggregated. Omitted when empty.</value>
+        [DataMember(Name = "properties", EmitDefaultValue = true)]
+        public Dictionary<string, List<Property>> Properties { get; set; }
+
+        /// <summary>
+        /// The value each formula within the check criterion evaluated to for this group. Omitted when empty.
+        /// </summary>
+        /// <value>The value each formula within the check criterion evaluated to for this group. Omitted when empty.</value>
+        [DataMember(Name = "formulaValues", EmitDefaultValue = true)]
+        public Dictionary<string, decimal> FormulaValues { get; set; }
 
         /// <summary>
         /// The per-position contributions aggregated into this rule breakdown group. Empty when the run  genuinely produced no contributions; a run with no recorded breakdown (e.g. one that predates  this feature) returns a 404 rather than this response.
@@ -124,6 +137,27 @@ namespace Lusid.Sdk.Model
         public List<ComplianceRuleContribution> Contributions { get; set; }
 
         /// <summary>
+        /// List of string information detailing data that was missing from contributions processed in this rule. Omitted when empty.
+        /// </summary>
+        /// <value>List of string information detailing data that was missing from contributions processed in this rule. Omitted when empty.</value>
+        [DataMember(Name = "missingDataInformation", EmitDefaultValue = true)]
+        public List<string> MissingDataInformation { get; set; }
+
+        /// <summary>
+        /// The number of contributions aggregated into this group, before any cap.
+        /// </summary>
+        /// <value>The number of contributions aggregated into this group, before any cap.</value>
+        [DataMember(Name = "contributionCount", IsRequired = true, EmitDefaultValue = true)]
+        public int ContributionCount { get; set; }
+
+        /// <summary>
+        /// Whether the reported contributions were capped below ContributionCount. Always false today.
+        /// </summary>
+        /// <value>Whether the reported contributions were capped below ContributionCount. Always false today.</value>
+        [DataMember(Name = "contributionsTruncated", IsRequired = true, EmitDefaultValue = true)]
+        public bool ContributionsTruncated { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -131,12 +165,18 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ComplianceRuleBreakdownWithContributions {\n");
-            sb.Append("  GroupStatus: ").Append(GroupStatus).Append("\n");
-            sb.Append("  ResultsUsed: ").Append(ResultsUsed).Append("\n");
-            sb.Append("  PropertiesUsed: ").Append(PropertiesUsed).Append("\n");
-            sb.Append("  MissingDataInformation: ").Append(MissingDataInformation).Append("\n");
-            sb.Append("  Lineage: ").Append(Lineage).Append("\n");
+            sb.Append("  GroupId: ").Append(GroupId).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  GroupKey: ").Append(GroupKey).Append("\n");
+            sb.Append("  Nav: ").Append(Nav).Append("\n");
+            sb.Append("  Results: ").Append(Results).Append("\n");
+            sb.Append("  Comparisons: ").Append(Comparisons).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  FormulaValues: ").Append(FormulaValues).Append("\n");
             sb.Append("  Contributions: ").Append(Contributions).Append("\n");
+            sb.Append("  MissingDataInformation: ").Append(MissingDataInformation).Append("\n");
+            sb.Append("  ContributionCount: ").Append(ContributionCount).Append("\n");
+            sb.Append("  ContributionsTruncated: ").Append(ContributionsTruncated).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -173,21 +213,53 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.GroupStatus == input.GroupStatus ||
-                    (this.GroupStatus != null &&
-                    this.GroupStatus.Equals(input.GroupStatus))
+                    this.GroupId == input.GroupId ||
+                    this.GroupId.Equals(input.GroupId)
                 ) && 
                 (
-                    this.ResultsUsed == input.ResultsUsed ||
-                    this.ResultsUsed != null &&
-                    input.ResultsUsed != null &&
-                    this.ResultsUsed.SequenceEqual(input.ResultsUsed)
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
-                    this.PropertiesUsed == input.PropertiesUsed ||
-                    this.PropertiesUsed != null &&
-                    input.PropertiesUsed != null &&
-                    this.PropertiesUsed.SequenceEqual(input.PropertiesUsed)
+                    this.GroupKey == input.GroupKey ||
+                    (this.GroupKey != null &&
+                    this.GroupKey.Equals(input.GroupKey))
+                ) && 
+                (
+                    this.Nav == input.Nav ||
+                    (this.Nav != null &&
+                    this.Nav.Equals(input.Nav))
+                ) && 
+                (
+                    this.Results == input.Results ||
+                    this.Results != null &&
+                    input.Results != null &&
+                    this.Results.SequenceEqual(input.Results)
+                ) && 
+                (
+                    this.Comparisons == input.Comparisons ||
+                    this.Comparisons != null &&
+                    input.Comparisons != null &&
+                    this.Comparisons.SequenceEqual(input.Comparisons)
+                ) && 
+                (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
+                    this.FormulaValues == input.FormulaValues ||
+                    this.FormulaValues != null &&
+                    input.FormulaValues != null &&
+                    this.FormulaValues.SequenceEqual(input.FormulaValues)
+                ) && 
+                (
+                    this.Contributions == input.Contributions ||
+                    this.Contributions != null &&
+                    input.Contributions != null &&
+                    this.Contributions.SequenceEqual(input.Contributions)
                 ) && 
                 (
                     this.MissingDataInformation == input.MissingDataInformation ||
@@ -196,16 +268,12 @@ namespace Lusid.Sdk.Model
                     this.MissingDataInformation.SequenceEqual(input.MissingDataInformation)
                 ) && 
                 (
-                    this.Lineage == input.Lineage ||
-                    this.Lineage != null &&
-                    input.Lineage != null &&
-                    this.Lineage.SequenceEqual(input.Lineage)
+                    this.ContributionCount == input.ContributionCount ||
+                    this.ContributionCount.Equals(input.ContributionCount)
                 ) && 
                 (
-                    this.Contributions == input.Contributions ||
-                    this.Contributions != null &&
-                    input.Contributions != null &&
-                    this.Contributions.SequenceEqual(input.Contributions)
+                    this.ContributionsTruncated == input.ContributionsTruncated ||
+                    this.ContributionsTruncated.Equals(input.ContributionsTruncated)
                 );
         }
 
@@ -218,30 +286,45 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.GroupStatus != null)
+                hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
+                if (this.Status != null)
                 {
-                    hashCode = (hashCode * 59) + this.GroupStatus.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
-                if (this.ResultsUsed != null)
+                if (this.GroupKey != null)
                 {
-                    hashCode = (hashCode * 59) + this.ResultsUsed.GetHashCode();
+                    hashCode = (hashCode * 59) + this.GroupKey.GetHashCode();
                 }
-                if (this.PropertiesUsed != null)
+                if (this.Nav != null)
                 {
-                    hashCode = (hashCode * 59) + this.PropertiesUsed.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Nav.GetHashCode();
                 }
-                if (this.MissingDataInformation != null)
+                if (this.Results != null)
                 {
-                    hashCode = (hashCode * 59) + this.MissingDataInformation.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Results.GetHashCode();
                 }
-                if (this.Lineage != null)
+                if (this.Comparisons != null)
                 {
-                    hashCode = (hashCode * 59) + this.Lineage.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Comparisons.GetHashCode();
+                }
+                if (this.Properties != null)
+                {
+                    hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                }
+                if (this.FormulaValues != null)
+                {
+                    hashCode = (hashCode * 59) + this.FormulaValues.GetHashCode();
                 }
                 if (this.Contributions != null)
                 {
                     hashCode = (hashCode * 59) + this.Contributions.GetHashCode();
                 }
+                if (this.MissingDataInformation != null)
+                {
+                    hashCode = (hashCode * 59) + this.MissingDataInformation.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ContributionCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.ContributionsTruncated.GetHashCode();
                 return hashCode;
             }
         }
@@ -253,10 +336,10 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // GroupStatus (string) minLength
-            if (this.GroupStatus != null && this.GroupStatus.Length < 1)
+            // Status (string) minLength
+            if (this.Status != null && this.Status.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GroupStatus, length must be greater than 1.", new [] { "GroupStatus" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Status, length must be greater than 1.", new [] { "Status" });
             }
 
             yield break;

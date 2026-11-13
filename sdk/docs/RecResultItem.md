@@ -5,13 +5,14 @@ An individual item that makes up (one side of) a rec result. Polymorphic by item
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ItemType** | **string** | The polymorphic item-type discriminator: Holding, ValuedHolding, Transaction, SettlementActivity, RelationalDataPoint or the entity type of a LusidEntity rec. Names the item rather than the rec type: Holding and CashHolding recs produce Holding items, a Valuation rec produces ValuedHolding items, both transaction rec types produce Transaction items, and a relational dataset side produces RelationalDataPoint items whatever the rec type. A LusidEntity rec produces items of its entity type, for example Instrument items. Available values: SettlementActivity, Holding, Transaction, ValuedHolding, RelationalDataPoint, Instrument, LegalEntity, Portfolio. | 
+**ItemType** | **string** | The polymorphic item-type discriminator: Holding, ValuedHolding, Transaction, SettlementActivity, RelationalDataPoint or the entity type of a LusidEntity rec. Names the item rather than the rec type: Holding and CashHolding recs produce Holding items, a Valuation rec produces ValuedHolding items, both transaction rec types produce Transaction items, and a relational dataset side produces RelationalDataPoint items whatever the rec type. A LusidEntity rec produces items of its entity type, for example Instrument items. Available values: SettlementActivity, Holding, Transaction, ValuedHolding, RelationalDataPoint, Instrument, LegalEntity, Portfolio, CustomEntity. | 
 **RuleAndAttributeValues** | **Dictionary&lt;string, string&gt;** | The core rule, aggregate rule and supplemental attribute values for the item, keyed by name. | [optional] 
 **WritebackSuggestions** | [**List&lt;WritebackSuggestion&gt;**](WritebackSuggestion.md) | The writebacks suggested against this item, as configured by the matching ruleset&#39;s writebackConfigurations. Only ever populated on target-side items. Suggestions only: a user is expected to review them before acting. Required, but may be empty. | [readonly] 
-**EntityScope** | **string** | The scope of the entity the run read. Null for an entity type that has no scope. | [optional] 
+**EntityType** | **string** | The custom entity type of the entity the run read. It starts with a tilde. | 
 **EntityUniqueId** | **string** | The unique id of the entity the run read. It identifies the entity across scopes. | 
 **EntityDisplayName** | **string** | The display name of the entity, as it stood at the dates the run read its side. | [optional] 
 **Identifiers** | **Dictionary&lt;string, string&gt;** | The unique identifiers of the entity, keyed by identifier property key. The values are as at the dates the run read the side of the item, so they can differ from the current values. | 
+**EntityScope** | **string** | The scope of the entity the run read. Null for an entity type that has no scope. | [optional] 
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | 
 **PortfolioDisplayName** | **string** | The display name of the item&#39;s portfolio, as it stood at the asAt the run read its data. Null where the run did not read it. | [optional] 
 **HoldingId** | **string** | The holding identifier, at holding level: the same id whichever granularity the holding was read at, so that items of different rec types over one holding name it alike. | [optional] 
@@ -38,16 +39,17 @@ Name | Type | Description | Notes
 using Lusid.Sdk.Model;
 using System;
 ```
- [RecResultExternalIdentifiersItem](./RecResultExternalIdentifiersItem.md)See all compatible oneOf types with RecResultItem
+ [RecResultCustomEntityItem](./RecResultCustomEntityItem.md)See all compatible oneOf types with RecResultItem
 
 # Example with RecResultItem
 {
-     Type  =  "RecResultExternalIdentifiersItem"
+     Type  =  "RecResultCustomEntityItem"
 };
 //Create RecResultItem Instance
-var recResultItemInstance = new recResultItem(recResultExternalIdentifiersItemInstance)
+var recResultItemInstance = new recResultItem(recResultCustomEntityItemInstance)
 
 
+ * [RecResultExternalIdentifiersItem](./RecResultExternalIdentifiersItem.md)
  * [RecResultHoldingItem](./RecResultHoldingItem.md)
  * [RecResultRelationalDataItem](./RecResultRelationalDataItem.md)
  * [RecResultResourceIdItem](./RecResultResourceIdItem.md)

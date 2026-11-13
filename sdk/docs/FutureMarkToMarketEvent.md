@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **EffectiveDate** | **DateTimeOffset** | The date of the mark to market event. | [optional] 
 **SettlementCurrency** | **string** | The currency in which the Future contract is paid. | 
 **NotionalAmountPerUnit** | **decimal?** | The notional value of the contract on the effective date. | [optional] 
+**PaymentDate** | **DateTimeOffset?** | The date the variation margin is paid: the effective date plus the future&#39;s mark to market settlement offset.  This is an optional field; when absent the variation margin is paid on the effective date. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -19,7 +20,8 @@ string settlementCurrency = "settlementCurrency";
 FutureMarkToMarketEvent futureMarkToMarketEventInstance = new FutureMarkToMarketEvent(
     effectiveDate: effectiveDate,
     settlementCurrency: settlementCurrency,
-    notionalAmountPerUnit: notionalAmountPerUnit);
+    notionalAmountPerUnit: notionalAmountPerUnit,
+    paymentDate: paymentDate);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

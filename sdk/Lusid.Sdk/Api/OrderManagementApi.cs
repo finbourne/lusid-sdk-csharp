@@ -294,7 +294,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of AllocationServiceRunResponse</returns>
         Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> RunAllocationServiceWithHttpInfo(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
+        /// RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
         /// </summary>
         /// <remarks>
         /// Allocates Executions for a given list of placements to a specified set of portfolios by weight,  creating Allocations to record the results. Used for the unsolicited Block and Block Trade booking flows where no Orders exist against the Block.  Weights are relative to each other and are not required to sum to 1 or 100.
@@ -309,7 +309,7 @@ namespace Lusid.Sdk.Api
         AllocationServiceRunResponse RunAllocationServiceWithWeights(WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
+        /// RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
         /// </summary>
         /// <remarks>
         /// Allocates Executions for a given list of placements to a specified set of portfolios by weight,  creating Allocations to record the results. Used for the unsolicited Block and Block Trade booking flows where no Orders exist against the Block.  Weights are relative to each other and are not required to sum to 1 or 100.
@@ -689,7 +689,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (AllocationServiceRunResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse>> RunAllocationServiceWithHttpInfoAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
+        /// RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
         /// </summary>
         /// <remarks>
         /// Allocates Executions for a given list of placements to a specified set of portfolios by weight,  creating Allocations to record the results. Used for the unsolicited Block and Block Trade booking flows where no Orders exist against the Block.  Weights are relative to each other and are not required to sum to 1 or 100.
@@ -705,7 +705,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<AllocationServiceRunResponse> RunAllocationServiceWithWeightsAsync(WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
+        /// RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
         /// </summary>
         /// <remarks>
         /// Allocates Executions for a given list of placements to a specified set of portfolios by weight,  creating Allocations to record the results. Used for the unsolicited Block and Block Trade booking flows where no Orders exist against the Block.  Weights are relative to each other and are not required to sum to 1 or 100.
@@ -3107,7 +3107,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights Allocates Executions for a given list of placements to a specified set of portfolios by weight,  creating Allocations to record the results. Used for the unsolicited Block and Block Trade booking flows where no Orders exist against the Block.  Weights are relative to each other and are not required to sum to 1 or 100.
+        /// RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights Allocates Executions for a given list of placements to a specified set of portfolios by weight,  creating Allocations to record the results. Used for the unsolicited Block and Block Trade booking flows where no Orders exist against the Block.  Weights are relative to each other and are not required to sum to 1 or 100.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="weightedAllocationServiceRunRequest">The placement IDs to allocate against, and the portfolio weights to use for the allocation split.</param>
@@ -3123,7 +3123,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights Allocates Executions for a given list of placements to a specified set of portfolios by weight,  creating Allocations to record the results. Used for the unsolicited Block and Block Trade booking flows where no Orders exist against the Block.  Weights are relative to each other and are not required to sum to 1 or 100.
+        /// RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights Allocates Executions for a given list of placements to a specified set of portfolios by weight,  creating Allocations to record the results. Used for the unsolicited Block and Block Trade booking flows where no Orders exist against the Block.  Weights are relative to each other and are not required to sum to 1 or 100.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="weightedAllocationServiceRunRequest">The placement IDs to allocate against, and the portfolio weights to use for the allocation split.</param>
@@ -3225,7 +3225,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights Allocates Executions for a given list of placements to a specified set of portfolios by weight,  creating Allocations to record the results. Used for the unsolicited Block and Block Trade booking flows where no Orders exist against the Block.  Weights are relative to each other and are not required to sum to 1 or 100.
+        /// RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights Allocates Executions for a given list of placements to a specified set of portfolios by weight,  creating Allocations to record the results. Used for the unsolicited Block and Block Trade booking flows where no Orders exist against the Block.  Weights are relative to each other and are not required to sum to 1 or 100.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="weightedAllocationServiceRunRequest">The placement IDs to allocate against, and the portfolio weights to use for the allocation split.</param>
@@ -3242,7 +3242,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights Allocates Executions for a given list of placements to a specified set of portfolios by weight,  creating Allocations to record the results. Used for the unsolicited Block and Block Trade booking flows where no Orders exist against the Block.  Weights are relative to each other and are not required to sum to 1 or 100.
+        /// RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights Allocates Executions for a given list of placements to a specified set of portfolios by weight,  creating Allocations to record the results. Used for the unsolicited Block and Block Trade booking flows where no Orders exist against the Block.  Weights are relative to each other and are not required to sum to 1 or 100.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="weightedAllocationServiceRunRequest">The placement IDs to allocate against, and the portfolio weights to use for the allocation split.</param>

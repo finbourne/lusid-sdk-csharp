@@ -39,9 +39,10 @@ namespace Lusid.Sdk.Model
         /// <param name="runId">runId (required).</param>
         /// <param name="instigatedAt">instigatedAt (required).</param>
         /// <param name="completedAt">completedAt (required).</param>
+        /// <param name="ruleDefinitionsAsAt">ruleDefinitionsAsAt (required).</param>
         /// <param name="schedule">Available values: PreTrade, PostTrade, PreAndPostTrade. (required).</param>
         /// <param name="ruleResult">ruleResult (required).</param>
-        public ComplianceRuleResultV2WithContributions(ResourceId runId = default(ResourceId), DateTimeOffset instigatedAt = default(DateTimeOffset), DateTimeOffset completedAt = default(DateTimeOffset), string schedule = default(string), ComplianceSummaryRuleResultWithContributions ruleResult = default(ComplianceSummaryRuleResultWithContributions))
+        public ComplianceRuleResultV2WithContributions(ResourceId runId = default(ResourceId), DateTimeOffset instigatedAt = default(DateTimeOffset), DateTimeOffset completedAt = default(DateTimeOffset), DateTimeOffset ruleDefinitionsAsAt = default(DateTimeOffset), string schedule = default(string), ComplianceSummaryRuleResultWithContributions ruleResult = default(ComplianceSummaryRuleResultWithContributions))
         {
             // to ensure "runId" is required (not null)
             if (runId == null)
@@ -51,6 +52,7 @@ namespace Lusid.Sdk.Model
             this.RunId = runId;
             this.InstigatedAt = instigatedAt;
             this.CompletedAt = completedAt;
+            this.RuleDefinitionsAsAt = ruleDefinitionsAsAt;
             // to ensure "schedule" is required (not null)
             if (schedule == null)
             {
@@ -84,6 +86,12 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset CompletedAt { get; set; }
 
         /// <summary>
+        /// Gets or Sets RuleDefinitionsAsAt
+        /// </summary>
+        [DataMember(Name = "ruleDefinitionsAsAt", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset RuleDefinitionsAsAt { get; set; }
+
+        /// <summary>
         /// Available values: PreTrade, PostTrade, PreAndPostTrade.
         /// </summary>
         /// <value>Available values: PreTrade, PostTrade, PreAndPostTrade.</value>
@@ -107,6 +115,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  RunId: ").Append(RunId).Append("\n");
             sb.Append("  InstigatedAt: ").Append(InstigatedAt).Append("\n");
             sb.Append("  CompletedAt: ").Append(CompletedAt).Append("\n");
+            sb.Append("  RuleDefinitionsAsAt: ").Append(RuleDefinitionsAsAt).Append("\n");
             sb.Append("  Schedule: ").Append(Schedule).Append("\n");
             sb.Append("  RuleResult: ").Append(RuleResult).Append("\n");
             sb.Append("}\n");
@@ -160,6 +169,11 @@ namespace Lusid.Sdk.Model
                     this.CompletedAt.Equals(input.CompletedAt))
                 ) && 
                 (
+                    this.RuleDefinitionsAsAt == input.RuleDefinitionsAsAt ||
+                    (this.RuleDefinitionsAsAt != null &&
+                    this.RuleDefinitionsAsAt.Equals(input.RuleDefinitionsAsAt))
+                ) && 
+                (
                     this.Schedule == input.Schedule ||
                     (this.Schedule != null &&
                     this.Schedule.Equals(input.Schedule))
@@ -191,6 +205,10 @@ namespace Lusid.Sdk.Model
                 if (this.CompletedAt != null)
                 {
                     hashCode = (hashCode * 59) + this.CompletedAt.GetHashCode();
+                }
+                if (this.RuleDefinitionsAsAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.RuleDefinitionsAsAt.GetHashCode();
                 }
                 if (this.Schedule != null)
                 {

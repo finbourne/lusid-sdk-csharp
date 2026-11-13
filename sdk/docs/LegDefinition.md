@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **LastCouponType** | **string** | Optional coupon type setting for the last coupon, can be used with Stub coupons.  If set to \&quot;ProRata\&quot; (the default), the coupon year fraction is calculated as normal,  however if set to \&quot;Full\&quot; the year fraction is overwritten with the standard year fraction  for a regular ful\&quot; coupon. Note this does not use the day count convention but rather is defined  directly from the tenor (i.e. a quarterly leg will be set to 0.25).    Supported string (enumeration) values are: [ProRata, Full]. | [optional] 
 **FxLinkedNotionalSchedule** | [**FxLinkedNotionalSchedule**](FxLinkedNotionalSchedule.md) |  | [optional] 
 **IntermediateNotionalExchange** | **bool?** | Indicates whether there are intermediate notional exchanges. | [optional] 
+**InitialExchangeAmount** | **decimal?** | The amount exchanged at the start of the leg, when NotionalExchangeType is Initial or Both.  Defaults to the notional. Coupons accrue on the notional regardless. Must be non-negative, and cannot be  set together with an FxLinkedNotionalSchedule. | [optional] 
+**FinalExchangeAmount** | **decimal?** | The amount exchanged at maturity, when NotionalExchangeType is Final or Both.  Defaults to the notional. Coupons accrue on the notional regardless. Must be non-negative, and cannot be  set together with an FxLinkedNotionalSchedule. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -67,7 +69,9 @@ LegDefinition legDefinitionInstance = new LegDefinition(
     lastRegularPaymentDate: lastRegularPaymentDate,
     lastCouponType: lastCouponType,
     fxLinkedNotionalSchedule: fxLinkedNotionalSchedule,
-    intermediateNotionalExchange: intermediateNotionalExchange);
+    intermediateNotionalExchange: intermediateNotionalExchange,
+    initialExchangeAmount: initialExchangeAmount,
+    finalExchangeAmount: finalExchangeAmount);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

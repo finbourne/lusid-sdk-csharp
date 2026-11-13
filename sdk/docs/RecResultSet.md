@@ -5,8 +5,9 @@ The collection of reconciliation results for a given rec type within a rec insta
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RecType** | **string** | The type of rec that this result set belongs to (e.g. Holding). Together with the rec instance, this uniquely identifies the result set. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument, LegalEntity, Portfolio. | 
+**RecType** | **string** | The type of rec that this result set belongs to (e.g. Holding). Together with the rec instance, this uniquely identifies the result set. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument, LegalEntity, Portfolio, CustomEntity. | 
 **ExternalRecTypeName** | **string** | The client&#39;s name for an External rec type, as stamped from the matching ruleset&#39;s externalRecType when the run executed. Null for native rec types. Filterable. | [optional] 
+**CustomEntityType** | **string** | The name of the custom entity type, which starts with ~. Set when the rec type is CustomEntity and null for every other rec type. Filterable. | [optional] 
 **RecInstance** | [**RecInstanceSummary**](RecInstanceSummary.md) |  | 
 **RunNumber** | **int** | The run number within the instance. Increments with each re-run. | 
 **RunAsAt** | **DateTimeOffset** | The asAt datetime at which the run happened. | 
@@ -29,6 +30,7 @@ using System;
 
 string recType = "recType";
 string externalRecTypeName = "example externalRecTypeName";
+string customEntityType = "example customEntityType";
 RecInstanceSummary recInstance = new RecInstanceSummary();
 RecExecution execution = new RecExecution();
 RecDatesReconciled datesReconciled = new RecDatesReconciled();
@@ -47,6 +49,7 @@ List<Link> links = new List<Link>();
 RecResultSet recResultSetInstance = new RecResultSet(
     recType: recType,
     externalRecTypeName: externalRecTypeName,
+    customEntityType: customEntityType,
     recInstance: recInstance,
     runNumber: runNumber,
     runAsAt: runAsAt,

@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **FractionalUnitsRoundingConvention** | **string** | The convention used to round the fractional units entitlement. Defaults to Floor. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding. | [optional] 
 **FractionalUnitsDecimalPlaces** | **int?** | The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces. | [optional] 
 **InstructionReference** | **string** |  | [optional] 
+**AccruedInterestPerUnit** | **decimal?** | Optional per-unit interest accrued on the old bond that the offer pays in cash, on the same basis as the  cash offer price. Taken from the offer terms and never calculated. If supplied and above zero, each chosen  election that removes the old units (security, cash, cash-and-security, consent-and-exchange or mixed lot)  books one additional cash transaction per holding of units removed multiplied by this value. Bond and  complex bond instrument types only. Must be 0 or more. If left empty or 0, no accrued interest is booked. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -64,7 +65,8 @@ ExchangeOfferEvent exchangeOfferEventInstance = new ExchangeOfferEvent(
     fractionalUnitsCashCurrency: fractionalUnitsCashCurrency,
     fractionalUnitsRoundingConvention: fractionalUnitsRoundingConvention,
     fractionalUnitsDecimalPlaces: fractionalUnitsDecimalPlaces,
-    instructionReference: instructionReference);
+    instructionReference: instructionReference,
+    accruedInterestPerUnit: accruedInterestPerUnit);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

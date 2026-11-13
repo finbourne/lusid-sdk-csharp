@@ -41,8 +41,9 @@ namespace Lusid.Sdk.Model
         /// <param name="effectiveDate">The date of the mark to market event..</param>
         /// <param name="settlementCurrency">The currency in which the Future contract is paid. (required).</param>
         /// <param name="notionalAmountPerUnit">The notional value of the contract on the effective date..</param>
+        /// <param name="paymentDate">The date the variation margin is paid: the effective date plus the future&#39;s mark to market settlement offset.  This is an optional field; when absent the variation margin is paid on the effective date..</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent, TotalReturnSwapCashFlowEvent, GlobalLoanFacilityReinitialisationEvent, InvestorLoanFacilityReinitialisationEvent, CapitalCallReceiptEvent, RecallableCapitalExpiryEvent, CapitalInterestTransferEvent, FacilityDrawEvent, FacilityRepaymentEvent, FacilityInterestEvent, FacilityCommitmentFeeEvent, InstalmentCallEvent, DepositInterestCapitalisationEvent, PartialRedemptionWithoutReductionOfNominalValueEvent, StripBondCashflowEvent, CapitalisationEvent, SharesPremiumDividendEvent, CashDistributionFromNonEligibleSecuritiesSalesEvent, InflationIndexationEvent. (required) (default to &quot;FutureMarkToMarketEvent&quot;).</param>
-        public FutureMarkToMarketEvent(DateTimeOffset effectiveDate = default(DateTimeOffset), string settlementCurrency = default(string), decimal? notionalAmountPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public FutureMarkToMarketEvent(DateTimeOffset effectiveDate = default(DateTimeOffset), string settlementCurrency = default(string), decimal? notionalAmountPerUnit = default(decimal?), DateTimeOffset? paymentDate = default(DateTimeOffset?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "settlementCurrency" is required (not null)
             if (settlementCurrency == null)
@@ -52,6 +53,7 @@ namespace Lusid.Sdk.Model
             this.SettlementCurrency = settlementCurrency;
             this.EffectiveDate = effectiveDate;
             this.NotionalAmountPerUnit = notionalAmountPerUnit;
+            this.PaymentDate = paymentDate;
         }
 
         /// <summary>
@@ -76,6 +78,13 @@ namespace Lusid.Sdk.Model
         public decimal? NotionalAmountPerUnit { get; set; }
 
         /// <summary>
+        /// The date the variation margin is paid: the effective date plus the future&#39;s mark to market settlement offset.  This is an optional field; when absent the variation margin is paid on the effective date.
+        /// </summary>
+        /// <value>The date the variation margin is paid: the effective date plus the future&#39;s mark to market settlement offset.  This is an optional field; when absent the variation margin is paid on the effective date.</value>
+        [DataMember(Name = "paymentDate", EmitDefaultValue = true)]
+        public DateTimeOffset? PaymentDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -87,6 +96,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EffectiveDate: ").Append(EffectiveDate).Append("\n");
             sb.Append("  SettlementCurrency: ").Append(SettlementCurrency).Append("\n");
             sb.Append("  NotionalAmountPerUnit: ").Append(NotionalAmountPerUnit).Append("\n");
+            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,6 +146,11 @@ namespace Lusid.Sdk.Model
                     this.NotionalAmountPerUnit == input.NotionalAmountPerUnit ||
                     (this.NotionalAmountPerUnit != null &&
                     this.NotionalAmountPerUnit.Equals(input.NotionalAmountPerUnit))
+                ) && base.Equals(input) && 
+                (
+                    this.PaymentDate == input.PaymentDate ||
+                    (this.PaymentDate != null &&
+                    this.PaymentDate.Equals(input.PaymentDate))
                 );
         }
 
@@ -159,6 +174,10 @@ namespace Lusid.Sdk.Model
                 if (this.NotionalAmountPerUnit != null)
                 {
                     hashCode = (hashCode * 59) + this.NotionalAmountPerUnit.GetHashCode();
+                }
+                if (this.PaymentDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
                 }
                 return hashCode;
             }

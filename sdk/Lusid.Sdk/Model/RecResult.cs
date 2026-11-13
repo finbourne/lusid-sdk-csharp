@@ -39,8 +39,9 @@ namespace Lusid.Sdk.Model
         /// <param name="id">The id of the result within its instance: its rec type, result type and result number, e.g. &#39;Holding-break-3&#39;. Unique within the instance, and kept across its runs for as long as the result keeps its result type. (required).</param>
         /// <param name="resultNumber">The result&#39;s number within its result type. Kept across runs while the result keeps its type; never reused once assigned. (required).</param>
         /// <param name="firstRunSeen">The run in which the result was first assigned its id. (required).</param>
-        /// <param name="recType">The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument, LegalEntity, Portfolio. (required).</param>
+        /// <param name="recType">The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument, LegalEntity, Portfolio, CustomEntity. (required).</param>
         /// <param name="externalRecTypeName">The client&#39;s name for an External rec type, as stamped from the matching ruleset&#39;s externalRecType when the run executed. Null for native rec types. Filterable..</param>
+        /// <param name="customEntityType">The name of the custom entity type, which starts with ~. Set when the rec type is CustomEntity and null for every other rec type. Filterable..</param>
         /// <param name="instanceId">instanceId (required).</param>
         /// <param name="asAtInstantiated">The asAt datetime at which the instance was first created. (required).</param>
         /// <param name="recDefinitionId">recDefinitionId (required).</param>
@@ -65,7 +66,7 @@ namespace Lusid.Sdk.Model
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public RecResult(string id = default(string), int resultNumber = default(int), int firstRunSeen = default(int), string recType = default(string), string externalRecTypeName = default(string), RecInstanceId instanceId = default(RecInstanceId), DateTimeOffset asAtInstantiated = default(DateTimeOffset), ResourceId recDefinitionId = default(ResourceId), string recDefinitionDisplayName = default(string), int runNumber = default(int), DateTimeOffset runAsAt = default(DateTimeOffset), RecDatesReconciled datesReconciled = default(RecDatesReconciled), string resultType = default(string), string resultCardinality = default(string), string resultLifeCycle = default(string), RecResultException exception = default(RecResultException), RecResultReview review = default(RecResultReview), List<CoreRuleValues> coreRules = default(List<CoreRuleValues>), List<AggregateRuleValues> aggregateRules = default(List<AggregateRuleValues>), List<SupplementalAttributeValues> supplementalAttributes = default(List<SupplementalAttributeValues>), RecResultItemDetails items = default(RecResultItemDetails), List<RecLinkedResult> linkedResults = default(List<RecLinkedResult>), List<RecUserComment> comments = default(List<RecUserComment>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string assignedUser = default(string), string assignedRole = default(string), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public RecResult(string id = default(string), int resultNumber = default(int), int firstRunSeen = default(int), string recType = default(string), string externalRecTypeName = default(string), string customEntityType = default(string), RecInstanceId instanceId = default(RecInstanceId), DateTimeOffset asAtInstantiated = default(DateTimeOffset), ResourceId recDefinitionId = default(ResourceId), string recDefinitionDisplayName = default(string), int runNumber = default(int), DateTimeOffset runAsAt = default(DateTimeOffset), RecDatesReconciled datesReconciled = default(RecDatesReconciled), string resultType = default(string), string resultCardinality = default(string), string resultLifeCycle = default(string), RecResultException exception = default(RecResultException), RecResultReview review = default(RecResultReview), List<CoreRuleValues> coreRules = default(List<CoreRuleValues>), List<AggregateRuleValues> aggregateRules = default(List<AggregateRuleValues>), List<SupplementalAttributeValues> supplementalAttributes = default(List<SupplementalAttributeValues>), RecResultItemDetails items = default(RecResultItemDetails), List<RecLinkedResult> linkedResults = default(List<RecLinkedResult>), List<RecUserComment> comments = default(List<RecUserComment>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string assignedUser = default(string), string assignedRole = default(string), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -169,6 +170,7 @@ namespace Lusid.Sdk.Model
             }
             this.Comments = comments;
             this.ExternalRecTypeName = externalRecTypeName;
+            this.CustomEntityType = customEntityType;
             this.Exception = exception;
             this.Properties = properties;
             this.AssignedUser = assignedUser;
@@ -200,9 +202,9 @@ namespace Lusid.Sdk.Model
         public int FirstRunSeen { get; set; }
 
         /// <summary>
-        /// The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument, LegalEntity, Portfolio.
+        /// The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument, LegalEntity, Portfolio, CustomEntity.
         /// </summary>
-        /// <value>The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument, LegalEntity, Portfolio.</value>
+        /// <value>The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument, LegalEntity, Portfolio, CustomEntity.</value>
         [DataMember(Name = "recType", IsRequired = true, EmitDefaultValue = true)]
         public string RecType { get; set; }
 
@@ -212,6 +214,13 @@ namespace Lusid.Sdk.Model
         /// <value>The client&#39;s name for an External rec type, as stamped from the matching ruleset&#39;s externalRecType when the run executed. Null for native rec types. Filterable.</value>
         [DataMember(Name = "externalRecTypeName", EmitDefaultValue = true)]
         public string ExternalRecTypeName { get; set; }
+
+        /// <summary>
+        /// The name of the custom entity type, which starts with ~. Set when the rec type is CustomEntity and null for every other rec type. Filterable.
+        /// </summary>
+        /// <value>The name of the custom entity type, which starts with ~. Set when the rec type is CustomEntity and null for every other rec type. Filterable.</value>
+        [DataMember(Name = "customEntityType", EmitDefaultValue = true)]
+        public string CustomEntityType { get; set; }
 
         /// <summary>
         /// Gets or Sets InstanceId
@@ -386,6 +395,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  FirstRunSeen: ").Append(FirstRunSeen).Append("\n");
             sb.Append("  RecType: ").Append(RecType).Append("\n");
             sb.Append("  ExternalRecTypeName: ").Append(ExternalRecTypeName).Append("\n");
+            sb.Append("  CustomEntityType: ").Append(CustomEntityType).Append("\n");
             sb.Append("  InstanceId: ").Append(InstanceId).Append("\n");
             sb.Append("  AsAtInstantiated: ").Append(AsAtInstantiated).Append("\n");
             sb.Append("  RecDefinitionId: ").Append(RecDefinitionId).Append("\n");
@@ -467,6 +477,11 @@ namespace Lusid.Sdk.Model
                     this.ExternalRecTypeName == input.ExternalRecTypeName ||
                     (this.ExternalRecTypeName != null &&
                     this.ExternalRecTypeName.Equals(input.ExternalRecTypeName))
+                ) && 
+                (
+                    this.CustomEntityType == input.CustomEntityType ||
+                    (this.CustomEntityType != null &&
+                    this.CustomEntityType.Equals(input.CustomEntityType))
                 ) && 
                 (
                     this.InstanceId == input.InstanceId ||
@@ -618,6 +633,10 @@ namespace Lusid.Sdk.Model
                 if (this.ExternalRecTypeName != null)
                 {
                     hashCode = (hashCode * 59) + this.ExternalRecTypeName.GetHashCode();
+                }
+                if (this.CustomEntityType != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustomEntityType.GetHashCode();
                 }
                 if (this.InstanceId != null)
                 {

@@ -40,8 +40,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
-        /// <param name="inflationLeg">inflationLeg (required).</param>
-        /// <param name="fixedLeg">fixedLeg (required).</param>
+        /// <param name="inflationLeg">inflationLeg.</param>
+        /// <param name="fixedLeg">fixedLeg.</param>
         /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven inflation swap.  The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap, BondForward, PreferredShare, CapitalInterest, WholeLoanFacility, StripBond. (required) (default to &quot;InflationSwap&quot;).</param>
@@ -49,17 +49,7 @@ namespace Lusid.Sdk.Model
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
-            // to ensure "inflationLeg" is required (not null)
-            if (inflationLeg == null)
-            {
-                throw new ArgumentNullException("inflationLeg is a required property for InflationSwap and cannot be null");
-            }
             this.InflationLeg = inflationLeg;
-            // to ensure "fixedLeg" is required (not null)
-            if (fixedLeg == null)
-            {
-                throw new ArgumentNullException("fixedLeg is a required property for InflationSwap and cannot be null");
-            }
             this.FixedLeg = fixedLeg;
             this.AdditionalPayments = additionalPayments;
             this.TimeZoneConventions = timeZoneConventions;
@@ -82,13 +72,13 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets InflationLeg
         /// </summary>
-        [DataMember(Name = "inflationLeg", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "inflationLeg", EmitDefaultValue = false)]
         public InflationLeg InflationLeg { get; set; }
 
         /// <summary>
         /// Gets or Sets FixedLeg
         /// </summary>
-        [DataMember(Name = "fixedLeg", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "fixedLeg", EmitDefaultValue = false)]
         public FixedLeg FixedLeg { get; set; }
 
         /// <summary>

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **Check** | [**ComplianceRuleV3Check**](ComplianceRuleV3Check.md) |  | [optional] 
 **ComputedFilter** | [**ComplianceRuleV3ComputedFilter**](ComplianceRuleV3ComputedFilter.md) |  | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**PlainEnglish** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -39,6 +40,7 @@ ComplianceRuleV3ComputedFilter? computedFilter = new ComplianceRuleV3ComputedFil
 
 ModelVersion? varVersion = new ModelVersion();
 
+string plainEnglish = "example plainEnglish";
 List<Link> links = new List<Link>();
 
 ComplianceRuleV3Response complianceRuleV3ResponseInstance = new ComplianceRuleV3Response(
@@ -53,6 +55,7 @@ ComplianceRuleV3Response complianceRuleV3ResponseInstance = new ComplianceRuleV3
     check: check,
     computedFilter: computedFilter,
     varVersion: varVersion,
+    plainEnglish: plainEnglish,
     links: links);
 ```
 

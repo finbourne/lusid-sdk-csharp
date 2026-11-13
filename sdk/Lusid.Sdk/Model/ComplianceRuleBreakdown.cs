@@ -36,14 +36,16 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ComplianceRuleBreakdown" /> class.
         /// </summary>
+        /// <param name="groupId">A stable identifier for this group within the rule, the same across the rule-result and breakdown endpoints,  so a group can be correlated between the two. (required).</param>
         /// <param name="groupStatus">The status of this subset of results. (required).</param>
         /// <param name="resultsUsed">Dictionary of AddressKey (as string) and their corresponding decimal values, that were used in this rule. (required).</param>
         /// <param name="formulaValues">The value each formula within the check criterion evaluated to for this group. Empty where the criterion  compares a single value or is not numerical, since the operand values already recorded describe those..</param>
         /// <param name="propertiesUsed">Dictionary of PropertyKey (as string) and their corresponding Properties, that were used in this rule (required).</param>
         /// <param name="missingDataInformation">List of string information detailing data that was missing from contributions processed in this rule (required).</param>
         /// <param name="lineage">lineage (required).</param>
-        public ComplianceRuleBreakdown(string groupStatus = default(string), Dictionary<string, decimal> resultsUsed = default(Dictionary<string, decimal>), Dictionary<string, decimal> formulaValues = default(Dictionary<string, decimal>), Dictionary<string, List<Property>> propertiesUsed = default(Dictionary<string, List<Property>>), List<string> missingDataInformation = default(List<string>), List<LineageMember> lineage = default(List<LineageMember>))
+        public ComplianceRuleBreakdown(int groupId = default(int), string groupStatus = default(string), Dictionary<string, decimal> resultsUsed = default(Dictionary<string, decimal>), Dictionary<string, decimal> formulaValues = default(Dictionary<string, decimal>), Dictionary<string, List<Property>> propertiesUsed = default(Dictionary<string, List<Property>>), List<string> missingDataInformation = default(List<string>), List<LineageMember> lineage = default(List<LineageMember>))
         {
+            this.GroupId = groupId;
             // to ensure "groupStatus" is required (not null)
             if (groupStatus == null)
             {
@@ -76,6 +78,13 @@ namespace Lusid.Sdk.Model
             this.Lineage = lineage;
             this.FormulaValues = formulaValues;
         }
+
+        /// <summary>
+        /// A stable identifier for this group within the rule, the same across the rule-result and breakdown endpoints,  so a group can be correlated between the two.
+        /// </summary>
+        /// <value>A stable identifier for this group within the rule, the same across the rule-result and breakdown endpoints,  so a group can be correlated between the two.</value>
+        [DataMember(Name = "groupId", IsRequired = true, EmitDefaultValue = true)]
+        public int GroupId { get; set; }
 
         /// <summary>
         /// The status of this subset of results.
@@ -126,6 +135,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ComplianceRuleBreakdown {\n");
+            sb.Append("  GroupId: ").Append(GroupId).Append("\n");
             sb.Append("  GroupStatus: ").Append(GroupStatus).Append("\n");
             sb.Append("  ResultsUsed: ").Append(ResultsUsed).Append("\n");
             sb.Append("  FormulaValues: ").Append(FormulaValues).Append("\n");
@@ -167,6 +177,10 @@ namespace Lusid.Sdk.Model
                 return false;
             }
             return 
+                (
+                    this.GroupId == input.GroupId ||
+                    this.GroupId.Equals(input.GroupId)
+                ) && 
                 (
                     this.GroupStatus == input.GroupStatus ||
                     (this.GroupStatus != null &&
@@ -213,6 +227,7 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
                 if (this.GroupStatus != null)
                 {
                     hashCode = (hashCode * 59) + this.GroupStatus.GetHashCode();

@@ -36,19 +36,16 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ComplianceRuleContribution" /> class.
         /// </summary>
-        /// <param name="index">The position of this contribution within the compliance run. (required).</param>
         /// <param name="portfolioId">portfolioId (required).</param>
         /// <param name="orderId">orderId.</param>
         /// <param name="instrument">The LUSID instrument identifier (LUID) of the instrument for this contribution. (required).</param>
         /// <param name="instrumentType">Optional. The economic type of the instrument for this contribution..</param>
         /// <param name="holdingType">Optional. The holding type of this contribution..</param>
         /// <param name="holdingId">Optional. The internal holding identifier encoding the detail of what the holding includes..</param>
-        /// <param name="resultValues">Dictionary of AddressKey (as string) and their corresponding decimal valuation results for this contribution. (required).</param>
-        /// <param name="properties">Dictionary of PropertyKey (as string) and their corresponding property for this contribution. (required).</param>
-        /// <param name="relatedProperties">Dictionary of related property keys (as string) and their string values, read from related entities across a relationship. (required).</param>
-        public ComplianceRuleContribution(int index = default(int), ResourceId portfolioId = default(ResourceId), ResourceId orderId = default(ResourceId), string instrument = default(string), string instrumentType = default(string), string holdingType = default(string), string holdingId = default(string), Dictionary<string, decimal> resultValues = default(Dictionary<string, decimal>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), Dictionary<string, string> relatedProperties = default(Dictionary<string, string>))
+        /// <param name="heldBy">Optional. Where this holding sits relative to the rule&#39;s benchmark: portfolio, benchmark or both.  Meaningful only for benchmark-relative rules..</param>
+        /// <param name="keysUsed">The keys this holding contributed to the rule: each key the rule read (plus the portfolio NAV key), with the  role(s) it played, the holding&#39;s own value for it, and which bag the value came from. (required).</param>
+        public ComplianceRuleContribution(ResourceId portfolioId = default(ResourceId), ResourceId orderId = default(ResourceId), string instrument = default(string), string instrumentType = default(string), string holdingType = default(string), string holdingId = default(string), string heldBy = default(string), List<ComplianceKeyUsed> keysUsed = default(List<ComplianceKeyUsed>))
         {
-            this.Index = index;
             // to ensure "portfolioId" is required (not null)
             if (portfolioId == null)
             {
@@ -61,36 +58,18 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("instrument is a required property for ComplianceRuleContribution and cannot be null");
             }
             this.Instrument = instrument;
-            // to ensure "resultValues" is required (not null)
-            if (resultValues == null)
+            // to ensure "keysUsed" is required (not null)
+            if (keysUsed == null)
             {
-                throw new ArgumentNullException("resultValues is a required property for ComplianceRuleContribution and cannot be null");
+                throw new ArgumentNullException("keysUsed is a required property for ComplianceRuleContribution and cannot be null");
             }
-            this.ResultValues = resultValues;
-            // to ensure "properties" is required (not null)
-            if (properties == null)
-            {
-                throw new ArgumentNullException("properties is a required property for ComplianceRuleContribution and cannot be null");
-            }
-            this.Properties = properties;
-            // to ensure "relatedProperties" is required (not null)
-            if (relatedProperties == null)
-            {
-                throw new ArgumentNullException("relatedProperties is a required property for ComplianceRuleContribution and cannot be null");
-            }
-            this.RelatedProperties = relatedProperties;
+            this.KeysUsed = keysUsed;
             this.OrderId = orderId;
             this.InstrumentType = instrumentType;
             this.HoldingType = holdingType;
             this.HoldingId = holdingId;
+            this.HeldBy = heldBy;
         }
-
-        /// <summary>
-        /// The position of this contribution within the compliance run.
-        /// </summary>
-        /// <value>The position of this contribution within the compliance run.</value>
-        [DataMember(Name = "index", IsRequired = true, EmitDefaultValue = true)]
-        public int Index { get; set; }
 
         /// <summary>
         /// Gets or Sets PortfolioId
@@ -133,25 +112,18 @@ namespace Lusid.Sdk.Model
         public string HoldingId { get; set; }
 
         /// <summary>
-        /// Dictionary of AddressKey (as string) and their corresponding decimal valuation results for this contribution.
+        /// Optional. Where this holding sits relative to the rule&#39;s benchmark: portfolio, benchmark or both.  Meaningful only for benchmark-relative rules.
         /// </summary>
-        /// <value>Dictionary of AddressKey (as string) and their corresponding decimal valuation results for this contribution.</value>
-        [DataMember(Name = "resultValues", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, decimal> ResultValues { get; set; }
+        /// <value>Optional. Where this holding sits relative to the rule&#39;s benchmark: portfolio, benchmark or both.  Meaningful only for benchmark-relative rules.</value>
+        [DataMember(Name = "heldBy", EmitDefaultValue = true)]
+        public string HeldBy { get; set; }
 
         /// <summary>
-        /// Dictionary of PropertyKey (as string) and their corresponding property for this contribution.
+        /// The keys this holding contributed to the rule: each key the rule read (plus the portfolio NAV key), with the  role(s) it played, the holding&#39;s own value for it, and which bag the value came from.
         /// </summary>
-        /// <value>Dictionary of PropertyKey (as string) and their corresponding property for this contribution.</value>
-        [DataMember(Name = "properties", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, Property> Properties { get; set; }
-
-        /// <summary>
-        /// Dictionary of related property keys (as string) and their string values, read from related entities across a relationship.
-        /// </summary>
-        /// <value>Dictionary of related property keys (as string) and their string values, read from related entities across a relationship.</value>
-        [DataMember(Name = "relatedProperties", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, string> RelatedProperties { get; set; }
+        /// <value>The keys this holding contributed to the rule: each key the rule read (plus the portfolio NAV key), with the  role(s) it played, the holding&#39;s own value for it, and which bag the value came from.</value>
+        [DataMember(Name = "keysUsed", IsRequired = true, EmitDefaultValue = true)]
+        public List<ComplianceKeyUsed> KeysUsed { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -161,16 +133,14 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ComplianceRuleContribution {\n");
-            sb.Append("  Index: ").Append(Index).Append("\n");
             sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  Instrument: ").Append(Instrument).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("  HoldingType: ").Append(HoldingType).Append("\n");
             sb.Append("  HoldingId: ").Append(HoldingId).Append("\n");
-            sb.Append("  ResultValues: ").Append(ResultValues).Append("\n");
-            sb.Append("  Properties: ").Append(Properties).Append("\n");
-            sb.Append("  RelatedProperties: ").Append(RelatedProperties).Append("\n");
+            sb.Append("  HeldBy: ").Append(HeldBy).Append("\n");
+            sb.Append("  KeysUsed: ").Append(KeysUsed).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -207,10 +177,6 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Index == input.Index ||
-                    this.Index.Equals(input.Index)
-                ) && 
-                (
                     this.PortfolioId == input.PortfolioId ||
                     (this.PortfolioId != null &&
                     this.PortfolioId.Equals(input.PortfolioId))
@@ -241,22 +207,15 @@ namespace Lusid.Sdk.Model
                     this.HoldingId.Equals(input.HoldingId))
                 ) && 
                 (
-                    this.ResultValues == input.ResultValues ||
-                    this.ResultValues != null &&
-                    input.ResultValues != null &&
-                    this.ResultValues.SequenceEqual(input.ResultValues)
+                    this.HeldBy == input.HeldBy ||
+                    (this.HeldBy != null &&
+                    this.HeldBy.Equals(input.HeldBy))
                 ) && 
                 (
-                    this.Properties == input.Properties ||
-                    this.Properties != null &&
-                    input.Properties != null &&
-                    this.Properties.SequenceEqual(input.Properties)
-                ) && 
-                (
-                    this.RelatedProperties == input.RelatedProperties ||
-                    this.RelatedProperties != null &&
-                    input.RelatedProperties != null &&
-                    this.RelatedProperties.SequenceEqual(input.RelatedProperties)
+                    this.KeysUsed == input.KeysUsed ||
+                    this.KeysUsed != null &&
+                    input.KeysUsed != null &&
+                    this.KeysUsed.SequenceEqual(input.KeysUsed)
                 );
         }
 
@@ -269,7 +228,6 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Index.GetHashCode();
                 if (this.PortfolioId != null)
                 {
                     hashCode = (hashCode * 59) + this.PortfolioId.GetHashCode();
@@ -294,17 +252,13 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.HoldingId.GetHashCode();
                 }
-                if (this.ResultValues != null)
+                if (this.HeldBy != null)
                 {
-                    hashCode = (hashCode * 59) + this.ResultValues.GetHashCode();
+                    hashCode = (hashCode * 59) + this.HeldBy.GetHashCode();
                 }
-                if (this.Properties != null)
+                if (this.KeysUsed != null)
                 {
-                    hashCode = (hashCode * 59) + this.Properties.GetHashCode();
-                }
-                if (this.RelatedProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.RelatedProperties.GetHashCode();
+                    hashCode = (hashCode * 59) + this.KeysUsed.GetHashCode();
                 }
                 return hashCode;
             }
@@ -363,6 +317,18 @@ namespace Lusid.Sdk.Model
             if (this.HoldingId != null && this.HoldingId.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HoldingId, length must be greater than 0.", new [] { "HoldingId" });
+            }
+
+            // HeldBy (string) maxLength
+            if (this.HeldBy != null && this.HeldBy.Length > 6000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeldBy, length must be less than 6000.", new [] { "HeldBy" });
+            }
+
+            // HeldBy (string) minLength
+            if (this.HeldBy != null && this.HeldBy.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeldBy, length must be greater than 0.", new [] { "HeldBy" });
             }
 
             yield break;

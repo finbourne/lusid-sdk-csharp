@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **RunId** | [**ResourceId**](ResourceId.md) |  | 
 **InstigatedAt** | **DateTimeOffset** |  | 
 **CompletedAt** | **DateTimeOffset** |  | 
+**RuleDefinitionsAsAt** | **DateTimeOffset** |  | 
 **Schedule** | **string** | Available values: PreTrade, PostTrade, PreAndPostTrade. | 
 **RuleResult** | [**ComplianceSummaryRuleResultWithContributions**](ComplianceSummaryRuleResultWithContributions.md) |  | 
 
@@ -22,6 +23,7 @@ ComplianceRuleResultV2WithContributions complianceRuleResultV2WithContributionsI
     runId: runId,
     instigatedAt: instigatedAt,
     completedAt: completedAt,
+    ruleDefinitionsAsAt: ruleDefinitionsAsAt,
     schedule: schedule,
     ruleResult: ruleResult);
 ```

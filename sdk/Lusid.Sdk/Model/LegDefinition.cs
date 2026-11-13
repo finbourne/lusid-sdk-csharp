@@ -53,7 +53,9 @@ namespace Lusid.Sdk.Model
         /// <param name="lastCouponType">Optional coupon type setting for the last coupon, can be used with Stub coupons.  If set to \&quot;ProRata\&quot; (the default), the coupon year fraction is calculated as normal,  however if set to \&quot;Full\&quot; the year fraction is overwritten with the standard year fraction  for a regular ful\&quot; coupon. Note this does not use the day count convention but rather is defined  directly from the tenor (i.e. a quarterly leg will be set to 0.25).    Supported string (enumeration) values are: [ProRata, Full]..</param>
         /// <param name="fxLinkedNotionalSchedule">fxLinkedNotionalSchedule.</param>
         /// <param name="intermediateNotionalExchange">Indicates whether there are intermediate notional exchanges..</param>
-        public LegDefinition(FlowConventionName conventionName = default(FlowConventionName), FlowConventions conventions = default(FlowConventions), IndexConvention indexConvention = default(IndexConvention), FlowConventionName indexConventionName = default(FlowConventionName), string notionalExchangeType = default(string), string payReceive = default(string), decimal rateOrSpread = default(decimal), string resetConvention = default(string), string stubType = default(string), Compounding compounding = default(Compounding), StepSchedule amortisation = default(StepSchedule), DateTimeOffset? firstRegularPaymentDate = default(DateTimeOffset?), string firstCouponType = default(string), DateTimeOffset? lastRegularPaymentDate = default(DateTimeOffset?), string lastCouponType = default(string), FxLinkedNotionalSchedule fxLinkedNotionalSchedule = default(FxLinkedNotionalSchedule), bool? intermediateNotionalExchange = default(bool?))
+        /// <param name="initialExchangeAmount">The amount exchanged at the start of the leg, when NotionalExchangeType is Initial or Both.  Defaults to the notional. Coupons accrue on the notional regardless. Must be non-negative, and cannot be  set together with an FxLinkedNotionalSchedule..</param>
+        /// <param name="finalExchangeAmount">The amount exchanged at maturity, when NotionalExchangeType is Final or Both.  Defaults to the notional. Coupons accrue on the notional regardless. Must be non-negative, and cannot be  set together with an FxLinkedNotionalSchedule..</param>
+        public LegDefinition(FlowConventionName conventionName = default(FlowConventionName), FlowConventions conventions = default(FlowConventions), IndexConvention indexConvention = default(IndexConvention), FlowConventionName indexConventionName = default(FlowConventionName), string notionalExchangeType = default(string), string payReceive = default(string), decimal rateOrSpread = default(decimal), string resetConvention = default(string), string stubType = default(string), Compounding compounding = default(Compounding), StepSchedule amortisation = default(StepSchedule), DateTimeOffset? firstRegularPaymentDate = default(DateTimeOffset?), string firstCouponType = default(string), DateTimeOffset? lastRegularPaymentDate = default(DateTimeOffset?), string lastCouponType = default(string), FxLinkedNotionalSchedule fxLinkedNotionalSchedule = default(FxLinkedNotionalSchedule), bool? intermediateNotionalExchange = default(bool?), decimal? initialExchangeAmount = default(decimal?), decimal? finalExchangeAmount = default(decimal?))
         {
             // to ensure "notionalExchangeType" is required (not null)
             if (notionalExchangeType == null)
@@ -87,6 +89,8 @@ namespace Lusid.Sdk.Model
             this.LastCouponType = lastCouponType;
             this.FxLinkedNotionalSchedule = fxLinkedNotionalSchedule;
             this.IntermediateNotionalExchange = intermediateNotionalExchange;
+            this.InitialExchangeAmount = initialExchangeAmount;
+            this.FinalExchangeAmount = finalExchangeAmount;
         }
 
         /// <summary>
@@ -202,6 +206,20 @@ namespace Lusid.Sdk.Model
         public bool? IntermediateNotionalExchange { get; set; }
 
         /// <summary>
+        /// The amount exchanged at the start of the leg, when NotionalExchangeType is Initial or Both.  Defaults to the notional. Coupons accrue on the notional regardless. Must be non-negative, and cannot be  set together with an FxLinkedNotionalSchedule.
+        /// </summary>
+        /// <value>The amount exchanged at the start of the leg, when NotionalExchangeType is Initial or Both.  Defaults to the notional. Coupons accrue on the notional regardless. Must be non-negative, and cannot be  set together with an FxLinkedNotionalSchedule.</value>
+        [DataMember(Name = "initialExchangeAmount", EmitDefaultValue = true)]
+        public decimal? InitialExchangeAmount { get; set; }
+
+        /// <summary>
+        /// The amount exchanged at maturity, when NotionalExchangeType is Final or Both.  Defaults to the notional. Coupons accrue on the notional regardless. Must be non-negative, and cannot be  set together with an FxLinkedNotionalSchedule.
+        /// </summary>
+        /// <value>The amount exchanged at maturity, when NotionalExchangeType is Final or Both.  Defaults to the notional. Coupons accrue on the notional regardless. Must be non-negative, and cannot be  set together with an FxLinkedNotionalSchedule.</value>
+        [DataMember(Name = "finalExchangeAmount", EmitDefaultValue = true)]
+        public decimal? FinalExchangeAmount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -226,6 +244,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  LastCouponType: ").Append(LastCouponType).Append("\n");
             sb.Append("  FxLinkedNotionalSchedule: ").Append(FxLinkedNotionalSchedule).Append("\n");
             sb.Append("  IntermediateNotionalExchange: ").Append(IntermediateNotionalExchange).Append("\n");
+            sb.Append("  InitialExchangeAmount: ").Append(InitialExchangeAmount).Append("\n");
+            sb.Append("  FinalExchangeAmount: ").Append(FinalExchangeAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -344,6 +364,16 @@ namespace Lusid.Sdk.Model
                     this.IntermediateNotionalExchange == input.IntermediateNotionalExchange ||
                     (this.IntermediateNotionalExchange != null &&
                     this.IntermediateNotionalExchange.Equals(input.IntermediateNotionalExchange))
+                ) && 
+                (
+                    this.InitialExchangeAmount == input.InitialExchangeAmount ||
+                    (this.InitialExchangeAmount != null &&
+                    this.InitialExchangeAmount.Equals(input.InitialExchangeAmount))
+                ) && 
+                (
+                    this.FinalExchangeAmount == input.FinalExchangeAmount ||
+                    (this.FinalExchangeAmount != null &&
+                    this.FinalExchangeAmount.Equals(input.FinalExchangeAmount))
                 );
         }
 
@@ -420,6 +450,14 @@ namespace Lusid.Sdk.Model
                 if (this.IntermediateNotionalExchange != null)
                 {
                     hashCode = (hashCode * 59) + this.IntermediateNotionalExchange.GetHashCode();
+                }
+                if (this.InitialExchangeAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.InitialExchangeAmount.GetHashCode();
+                }
+                if (this.FinalExchangeAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.FinalExchangeAmount.GetHashCode();
                 }
                 return hashCode;
             }
