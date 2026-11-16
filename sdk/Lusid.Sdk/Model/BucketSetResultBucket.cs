@@ -47,7 +47,8 @@ namespace Lusid.Sdk.Model
         /// <param name="previousCumulativePerUnitValue">The bucket&#39;s cumulative value at the start of the period, per unit in issue at that point - so it reads as it did at the previous valuation point rather than being restated at this period&#39;s unit count. Omitted where the bucket had no per-unit value at the previous valuation point: on the fund node, where the share class or the bucket is not unitised, where the share class then had no units in issue, and at the fund&#39;s first valuation point..</param>
         /// <param name="cumulativePerUnitValue">The bucket&#39;s cumulative value at the end of the period per unit in issue (CumulativeValue divided by UnitsInIssue), unrounded. Omitted where either the share class or the bucket is not unitised, and where a unitised share class has no units in issue to divide by..</param>
         /// <param name="displayName">The display name of the bucket, as configured on the fund configuration..</param>
-        public BucketSetResultBucket(string bucketId = default(string), string bucketType = default(string), decimal value = default(decimal), decimal previousCumulativeValue = default(decimal), decimal cumulativeValue = default(decimal), Dictionary<string, decimal> sourceBreakdown = default(Dictionary<string, decimal>), decimal? perUnitValue = default(decimal?), decimal? unitsInIssue = default(decimal?), decimal? previousCumulativePerUnitValue = default(decimal?), decimal? cumulativePerUnitValue = default(decimal?), string displayName = default(string))
+        /// <param name="unmatchedBreakdown">unmatchedBreakdown.</param>
+        public BucketSetResultBucket(string bucketId = default(string), string bucketType = default(string), decimal value = default(decimal), decimal previousCumulativeValue = default(decimal), decimal cumulativeValue = default(decimal), Dictionary<string, decimal> sourceBreakdown = default(Dictionary<string, decimal>), decimal? perUnitValue = default(decimal?), decimal? unitsInIssue = default(decimal?), decimal? previousCumulativePerUnitValue = default(decimal?), decimal? cumulativePerUnitValue = default(decimal?), string displayName = default(string), UnmatchedBreakdown unmatchedBreakdown = default(UnmatchedBreakdown))
         {
             // to ensure "bucketId" is required (not null)
             if (bucketId == null)
@@ -70,6 +71,7 @@ namespace Lusid.Sdk.Model
             this.PreviousCumulativePerUnitValue = previousCumulativePerUnitValue;
             this.CumulativePerUnitValue = cumulativePerUnitValue;
             this.DisplayName = displayName;
+            this.UnmatchedBreakdown = unmatchedBreakdown;
         }
 
         /// <summary>
@@ -150,6 +152,12 @@ namespace Lusid.Sdk.Model
         public string DisplayName { get; set; }
 
         /// <summary>
+        /// Gets or Sets UnmatchedBreakdown
+        /// </summary>
+        [DataMember(Name = "unmatchedBreakdown", EmitDefaultValue = false)]
+        public UnmatchedBreakdown UnmatchedBreakdown { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -168,6 +176,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PreviousCumulativePerUnitValue: ").Append(PreviousCumulativePerUnitValue).Append("\n");
             sb.Append("  CumulativePerUnitValue: ").Append(CumulativePerUnitValue).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  UnmatchedBreakdown: ").Append(UnmatchedBreakdown).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -255,6 +264,11 @@ namespace Lusid.Sdk.Model
                     this.DisplayName == input.DisplayName ||
                     (this.DisplayName != null &&
                     this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.UnmatchedBreakdown == input.UnmatchedBreakdown ||
+                    (this.UnmatchedBreakdown != null &&
+                    this.UnmatchedBreakdown.Equals(input.UnmatchedBreakdown))
                 );
         }
 
@@ -301,6 +315,10 @@ namespace Lusid.Sdk.Model
                 if (this.DisplayName != null)
                 {
                     hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.UnmatchedBreakdown != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnmatchedBreakdown.GetHashCode();
                 }
                 return hashCode;
             }

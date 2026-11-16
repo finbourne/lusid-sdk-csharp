@@ -8,6 +8,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**AccrueCarry**](FundsApi.md#accruecarry) | **POST** /api/funds/{scope}/{code}/carry/$accrue | [EARLY ACCESS] AccrueCarry: [EXPERIMENTAL] AccrueCarry: Accrue carried interest to the Fund&#39;s partners. |
 | [**AddAllocationGroups**](FundsApi.md#addallocationgroups) | **POST** /api/funds/{scope}/{code}/allocationgroups | [EARLY ACCESS] AddAllocationGroups: Add Allocation Groups to a Fund. |
 | [**AddSeries**](FundsApi.md#addseries) | **POST** /api/funds/{scope}/{code}/series | [EARLY ACCESS] AddSeries: Add Series to a Fund. |
+| [**AdvanceTaxReturn**](FundsApi.md#advancetaxreturn) | **POST** /api/funds/{scope}/{code}/tax/return/advance | [EARLY ACCESS] AdvanceTaxReturn: [EARLY ACCESS] AdvanceTaxReturn: Advance the tax return one workflow step. |
 | [**ApproveTaxProvision**](FundsApi.md#approvetaxprovision) | **POST** /api/funds/{scope}/{code}/valuationpoints/{diaryEntryCode}/tax/provision/approve | [EARLY ACCESS] ApproveTaxProvision: [EARLY ACCESS] ApproveTaxProvision: Approve the deferred-tax provision of a Valuation Point. |
 | [**CalculateManagementFees**](FundsApi.md#calculatemanagementfees) | **POST** /api/funds/{scope}/{code}/fees/$calculate | [EARLY ACCESS] CalculateManagementFees: [EXPERIMENTAL] CalculateManagementFees: Calculate the management fee per partner for a period. |
 | [**CreateFacility**](FundsApi.md#createfacility) | **POST** /api/funds/{scope}/{code}/facilities | [EXPERIMENTAL] CreateFacility: [EXPERIMENTAL] CreateFacility: Create a Facility. |
@@ -43,7 +44,14 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**GetPartners**](FundsApi.md#getpartners) | **GET** /api/funds/{scope}/{code}/partners | [EARLY ACCESS] GetPartners: [EARLY ACCESS] GetPartners: Get the partners of a partnership fund. |
 | [**GetPartnershipConfigPack**](FundsApi.md#getpartnershipconfigpack) | **GET** /api/funds/{scope}/{code}/partnershipaccounting/configpack | [EARLY ACCESS] GetPartnershipConfigPack: [EXPERIMENTAL] GetPartnershipConfigPack: Get the partnership configuration pack of a Fund. |
 | [**GetSeries**](FundsApi.md#getseries) | **GET** /api/funds/{scope}/{code}/series | [EARLY ACCESS] GetSeries: [EARLY ACCESS] GetSeries: List the Series of a Fund. |
+| [**GetTaxDeemedDisposal**](FundsApi.md#gettaxdeemeddisposal) | **GET** /api/funds/{scope}/{code}/tax/deemed-disposals/{holdingId}/{date} | [EARLY ACCESS] GetTaxDeemedDisposal: [EARLY ACCESS] GetTaxDeemedDisposal: Get one deemed disposal. |
+| [**GetTaxDeemedDisposals**](FundsApi.md#gettaxdeemeddisposals) | **GET** /api/funds/{scope}/{code}/tax/deemed-disposals | [EARLY ACCESS] GetTaxDeemedDisposals: [EARLY ACCESS] GetTaxDeemedDisposals: List the deemed disposals of a Fund or company. |
+| [**GetTaxFundReconciliation**](FundsApi.md#gettaxfundreconciliation) | **GET** /api/funds/{scope}/{code}/tax/fund-reconciliation | [EARLY ACCESS] GetTaxFundReconciliation: [EARLY ACCESS] GetTaxFundReconciliation: Reconcile a company&#39;s tax figures to its member funds. |
+| [**GetTaxFundReconciliationHolding**](FundsApi.md#gettaxfundreconciliationholding) | **GET** /api/funds/{scope}/{code}/tax/fund-reconciliation/holdings/{holdingId} | [EARLY ACCESS] GetTaxFundReconciliationHolding: [EARLY ACCESS] GetTaxFundReconciliationHolding: Drill into one holding of the company-to-funds reconciliation. |
+| [**GetTaxLedgerReconciliation**](FundsApi.md#gettaxledgerreconciliation) | **GET** /api/funds/{scope}/{code}/tax/ledger-reconciliation | [EARLY ACCESS] GetTaxLedgerReconciliation: [EARLY ACCESS] GetTaxLedgerReconciliation: Reconcile the tax figures of a Fund or company to its ledger. |
+| [**GetTaxLedgerReconciliationHolding**](FundsApi.md#gettaxledgerreconciliationholding) | **GET** /api/funds/{scope}/{code}/tax/ledger-reconciliation/holdings/{holdingId} | [EARLY ACCESS] GetTaxLedgerReconciliationHolding: [EARLY ACCESS] GetTaxLedgerReconciliationHolding: Drill into one holding of the tax-to-ledger reconciliation. |
 | [**GetTaxProvision**](FundsApi.md#gettaxprovision) | **GET** /api/funds/{scope}/{code}/tax/provision | [EARLY ACCESS] GetTaxProvision: [EARLY ACCESS] GetTaxProvision: Get the deferred-tax provision of a Valuation Point. |
+| [**GetTaxReturn**](FundsApi.md#gettaxreturn) | **GET** /api/funds/{scope}/{code}/tax/return | [EARLY ACCESS] GetTaxReturn: [EARLY ACCESS] GetTaxReturn: Get the year-end tax return of a Fund or company. |
 | [**GetTaxSyncStatus**](FundsApi.md#gettaxsyncstatus) | **GET** /api/funds/{scope}/{code}/tax/sync | [EARLY ACCESS] GetTaxSyncStatus: [EARLY ACCESS] GetTaxSyncStatus: Get the tax sync position of each portfolio in a Fund. |
 | [**GetValuationForFund**](FundsApi.md#getvaluationforfund) | **POST** /api/funds/{scope}/{code}/$valuation | [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund. |
 | [**GetValuationPointData**](FundsApi.md#getvaluationpointdata) | **POST** /api/funds/{scope}/{code}/valuationpoints/$query | [EARLY ACCESS] GetValuationPointData: Get Valuation Point Data for a Fund. |
@@ -75,6 +83,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**QueryCashStatementLocalCurrency**](FundsApi.md#querycashstatementlocalcurrency) | **POST** /api/funds/{scope}/{code}/valuationpoints/cashstatementlocalcurrency/$query | [EARLY ACCESS] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point. |
 | [**RevertValuationPointToEstimate**](FundsApi.md#revertvaluationpointtoestimate) | **POST** /api/funds/{scope}/{code}/valuationpoints/$reverttoestimate | [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate. |
 | [**RunPartnerAllocations**](FundsApi.md#runpartnerallocations) | **POST** /api/funds/{scope}/{code}/partnerallocations/$run | [EARLY ACCESS] RunPartnerAllocations: [EXPERIMENTAL] RunPartnerAllocations: Allocate a period&#39;s income to the Fund&#39;s partners. |
+| [**SendBackTaxReturn**](FundsApi.md#sendbacktaxreturn) | **POST** /api/funds/{scope}/{code}/tax/return/send-back | [EARLY ACCESS] SendBackTaxReturn: [EARLY ACCESS] SendBackTaxReturn: Send the tax return back one workflow step. |
 | [**SetShareClassInstruments**](FundsApi.md#setshareclassinstruments) | **PUT** /api/funds/{scope}/{code}/shareclasses | [EARLY ACCESS] SetShareClassInstruments: Set the ShareClass Instruments on a Fund. |
 | [**UpdateValuationPoint**](FundsApi.md#updatevaluationpoint) | **PUT** /api/funds/{scope}/{code}/valuationpoints | [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point. |
 | [**UpsertBookmark**](FundsApi.md#upsertbookmark) | **POST** /api/funds/{scope}/{code}/bookmarks | [EARLY ACCESS] UpsertBookmark: Upsert a bookmark. |
@@ -83,6 +92,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**UpsertFeeProperties**](FundsApi.md#upsertfeeproperties) | **POST** /api/funds/{scope}/{code}/fees/{feeCode}/properties/$upsert | [EARLY ACCESS] UpsertFeeProperties: Upsert Fee properties. |
 | [**UpsertFundProperties**](FundsApi.md#upsertfundproperties) | **POST** /api/funds/{scope}/{code}/properties/$upsert | [EARLY ACCESS] UpsertFundProperties: Upsert Fund properties. |
 | [**UpsertNavActivityAdjustments**](FundsApi.md#upsertnavactivityadjustments) | **POST** /api/funds/{scope}/{code}/navAdjustment | [EARLY ACCESS] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point |
+| [**UpsertShareClassProperties**](FundsApi.md#upsertshareclassproperties) | **POST** /api/funds/{scope}/{code}/shareclasses/{shareClassShortCode}/properties/$upsert | [EARLY ACCESS] UpsertShareClassProperties: Upsert Share Class properties. |
 | [**UpsertTaxCostRecords**](FundsApi.md#upserttaxcostrecords) | **POST** /api/funds/{scope}/{code}/taxcostrecords | [EXPERIMENTAL] UpsertTaxCostRecords: [EXPERIMENTAL] UpsertTaxCostRecords: Upsert Tax Cost Records for a specified Fund. |
 
 <a id="acceptestimatevaluationpoint"></a>
@@ -552,6 +562,127 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The updated Fund with the added Series. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="advancetaxreturn"></a>
+# **AdvanceTaxReturn**
+> TaxReturnResponse AdvanceTaxReturn (string scope, string code, TaxReturnTransitionRequest taxReturnTransitionRequest, DateTimeOrCutLabel? effectiveAt = null, string? taxPeriod = null)
+
+[EARLY ACCESS] AdvanceTaxReturn: [EARLY ACCESS] AdvanceTaxReturn: Advance the tax return one workflow step.
+
+Moves the return from Draft to Prepared, Prepared to Reviewed, Reviewed to SignedOff or SignedOff to Final. Advancing past Reviewed requires the tax records to be in sync with the ledger. Each step is recorded with the supplied reason.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var taxReturnTransitionRequest = new TaxReturnTransitionRequest(); // TaxReturnTransitionRequest | The reason for advancing the return.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label that selects the accounting period. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var taxPeriod = "taxPeriod_example";  // string? | An optional accounting period label that overrides the period selected by effectiveAt. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // TaxReturnResponse result = apiInstance.AdvanceTaxReturn(scope, code, taxReturnTransitionRequest, effectiveAt, taxPeriod, opts: opts);
+
+                // [EARLY ACCESS] AdvanceTaxReturn: [EARLY ACCESS] AdvanceTaxReturn: Advance the tax return one workflow step.
+                TaxReturnResponse result = apiInstance.AdvanceTaxReturn(scope, code, taxReturnTransitionRequest, effectiveAt, taxPeriod);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.AdvanceTaxReturn: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the AdvanceTaxReturnWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] AdvanceTaxReturn: [EARLY ACCESS] AdvanceTaxReturn: Advance the tax return one workflow step.
+    ApiResponse<TaxReturnResponse> response = apiInstance.AdvanceTaxReturnWithHttpInfo(scope, code, taxReturnTransitionRequest, effectiveAt, taxPeriod);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.AdvanceTaxReturnWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **taxReturnTransitionRequest** | [**TaxReturnTransitionRequest**](TaxReturnTransitionRequest.md) | The reason for advancing the return. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label that selects the accounting period. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **taxPeriod** | **string?** | An optional accounting period label that overrides the period selected by effectiveAt. | [optional]  |
+
+### Return type
+
+[**TaxReturnResponse**](TaxReturnResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The tax return after the transition. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -4779,6 +4910,738 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
+<a id="gettaxdeemeddisposal"></a>
+# **GetTaxDeemedDisposal**
+> TaxDeemedDisposalResponse GetTaxDeemedDisposal (string scope, string code, string holdingId, DateTimeOrCutLabel date, DateTimeOffset? asAt = null, string? taxPeriod = null)
+
+[EARLY ACCESS] GetTaxDeemedDisposal: [EARLY ACCESS] GetTaxDeemedDisposal: Get one deemed disposal.
+
+Returns the deemed disposal of a holding on a given date.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var holdingId = "holdingId_example";  // string | The identifier of the holding to drill into, as returned by the parent reconciliation.
+            var date = "date_example";  // DateTimeOrCutLabel | The date of the deemed disposal.
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to read the deemed disposal. Defaults to returning the latest version if not specified. (optional) 
+            var taxPeriod = "taxPeriod_example";  // string? | An optional accounting period label that overrides the period selected by effectiveAt. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // TaxDeemedDisposalResponse result = apiInstance.GetTaxDeemedDisposal(scope, code, holdingId, date, asAt, taxPeriod, opts: opts);
+
+                // [EARLY ACCESS] GetTaxDeemedDisposal: [EARLY ACCESS] GetTaxDeemedDisposal: Get one deemed disposal.
+                TaxDeemedDisposalResponse result = apiInstance.GetTaxDeemedDisposal(scope, code, holdingId, date, asAt, taxPeriod);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.GetTaxDeemedDisposal: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the GetTaxDeemedDisposalWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetTaxDeemedDisposal: [EARLY ACCESS] GetTaxDeemedDisposal: Get one deemed disposal.
+    ApiResponse<TaxDeemedDisposalResponse> response = apiInstance.GetTaxDeemedDisposalWithHttpInfo(scope, code, holdingId, date, asAt, taxPeriod);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.GetTaxDeemedDisposalWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **holdingId** | **string** | The identifier of the holding to drill into, as returned by the parent reconciliation. |  |
+| **date** | **DateTimeOrCutLabel** | The date of the deemed disposal. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to read the deemed disposal. Defaults to returning the latest version if not specified. | [optional]  |
+| **taxPeriod** | **string?** | An optional accounting period label that overrides the period selected by effectiveAt. | [optional]  |
+
+### Return type
+
+[**TaxDeemedDisposalResponse**](TaxDeemedDisposalResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The deemed disposal. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="gettaxdeemeddisposals"></a>
+# **GetTaxDeemedDisposals**
+> TaxDeemedDisposalsResponse GetTaxDeemedDisposals (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? taxPeriod = null)
+
+[EARLY ACCESS] GetTaxDeemedDisposals: [EARLY ACCESS] GetTaxDeemedDisposals: List the deemed disposals of a Fund or company.
+
+Returns the period-end deemed disposals, the vintages they roll into and the seven-year spreading matrix. A company's disposals are actual and a fund's are notional.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label that selects the accounting period. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to read the deemed disposals. Defaults to returning the latest version if not specified. (optional) 
+            var taxPeriod = "taxPeriod_example";  // string? | An optional accounting period label that overrides the period selected by effectiveAt. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // TaxDeemedDisposalsResponse result = apiInstance.GetTaxDeemedDisposals(scope, code, effectiveAt, asAt, taxPeriod, opts: opts);
+
+                // [EARLY ACCESS] GetTaxDeemedDisposals: [EARLY ACCESS] GetTaxDeemedDisposals: List the deemed disposals of a Fund or company.
+                TaxDeemedDisposalsResponse result = apiInstance.GetTaxDeemedDisposals(scope, code, effectiveAt, asAt, taxPeriod);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.GetTaxDeemedDisposals: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the GetTaxDeemedDisposalsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetTaxDeemedDisposals: [EARLY ACCESS] GetTaxDeemedDisposals: List the deemed disposals of a Fund or company.
+    ApiResponse<TaxDeemedDisposalsResponse> response = apiInstance.GetTaxDeemedDisposalsWithHttpInfo(scope, code, effectiveAt, asAt, taxPeriod);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.GetTaxDeemedDisposalsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label that selects the accounting period. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to read the deemed disposals. Defaults to returning the latest version if not specified. | [optional]  |
+| **taxPeriod** | **string?** | An optional accounting period label that overrides the period selected by effectiveAt. | [optional]  |
+
+### Return type
+
+[**TaxDeemedDisposalsResponse**](TaxDeemedDisposalsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The deemed disposals for the period. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="gettaxfundreconciliation"></a>
+# **GetTaxFundReconciliation**
+> TaxFundReconciliationResponse GetTaxFundReconciliation (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? taxPeriod = null)
+
+[EARLY ACCESS] GetTaxFundReconciliation: [EARLY ACCESS] GetTaxFundReconciliation: Reconcile a company's tax figures to its member funds.
+
+Compares the company's return total to the sum of its member funds' notional figures and explains each difference by scope, pool averaging, matching, indexation, the kink test or an out-of-sync holding. Only available for a company; a fund returns a failure.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label that selects the accounting period. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to read the reconciliation. Defaults to returning the latest version if not specified. (optional) 
+            var taxPeriod = "taxPeriod_example";  // string? | An optional accounting period label that overrides the period selected by effectiveAt. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // TaxFundReconciliationResponse result = apiInstance.GetTaxFundReconciliation(scope, code, effectiveAt, asAt, taxPeriod, opts: opts);
+
+                // [EARLY ACCESS] GetTaxFundReconciliation: [EARLY ACCESS] GetTaxFundReconciliation: Reconcile a company's tax figures to its member funds.
+                TaxFundReconciliationResponse result = apiInstance.GetTaxFundReconciliation(scope, code, effectiveAt, asAt, taxPeriod);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.GetTaxFundReconciliation: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the GetTaxFundReconciliationWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetTaxFundReconciliation: [EARLY ACCESS] GetTaxFundReconciliation: Reconcile a company's tax figures to its member funds.
+    ApiResponse<TaxFundReconciliationResponse> response = apiInstance.GetTaxFundReconciliationWithHttpInfo(scope, code, effectiveAt, asAt, taxPeriod);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.GetTaxFundReconciliationWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label that selects the accounting period. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to read the reconciliation. Defaults to returning the latest version if not specified. | [optional]  |
+| **taxPeriod** | **string?** | An optional accounting period label that overrides the period selected by effectiveAt. | [optional]  |
+
+### Return type
+
+[**TaxFundReconciliationResponse**](TaxFundReconciliationResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The company-to-funds reconciliation for the period. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="gettaxfundreconciliationholding"></a>
+# **GetTaxFundReconciliationHolding**
+> TaxFundReconciliationHoldingResponse GetTaxFundReconciliationHolding (string scope, string code, string holdingId, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? taxPeriod = null)
+
+[EARLY ACCESS] GetTaxFundReconciliationHolding: [EARLY ACCESS] GetTaxFundReconciliationHolding: Drill into one holding of the company-to-funds reconciliation.
+
+Returns the company figure for a holding beside each member fund's notional figure, with the category and explanation of any difference.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var holdingId = "holdingId_example";  // string | The identifier of the holding to drill into, as returned by the parent reconciliation.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label that selects the accounting period. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to read the reconciliation. Defaults to returning the latest version if not specified. (optional) 
+            var taxPeriod = "taxPeriod_example";  // string? | An optional accounting period label that overrides the period selected by effectiveAt. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // TaxFundReconciliationHoldingResponse result = apiInstance.GetTaxFundReconciliationHolding(scope, code, holdingId, effectiveAt, asAt, taxPeriod, opts: opts);
+
+                // [EARLY ACCESS] GetTaxFundReconciliationHolding: [EARLY ACCESS] GetTaxFundReconciliationHolding: Drill into one holding of the company-to-funds reconciliation.
+                TaxFundReconciliationHoldingResponse result = apiInstance.GetTaxFundReconciliationHolding(scope, code, holdingId, effectiveAt, asAt, taxPeriod);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.GetTaxFundReconciliationHolding: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the GetTaxFundReconciliationHoldingWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetTaxFundReconciliationHolding: [EARLY ACCESS] GetTaxFundReconciliationHolding: Drill into one holding of the company-to-funds reconciliation.
+    ApiResponse<TaxFundReconciliationHoldingResponse> response = apiInstance.GetTaxFundReconciliationHoldingWithHttpInfo(scope, code, holdingId, effectiveAt, asAt, taxPeriod);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.GetTaxFundReconciliationHoldingWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **holdingId** | **string** | The identifier of the holding to drill into, as returned by the parent reconciliation. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label that selects the accounting period. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to read the reconciliation. Defaults to returning the latest version if not specified. | [optional]  |
+| **taxPeriod** | **string?** | An optional accounting period label that overrides the period selected by effectiveAt. | [optional]  |
+
+### Return type
+
+[**TaxFundReconciliationHoldingResponse**](TaxFundReconciliationHoldingResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The holding-level reconciliation. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="gettaxledgerreconciliation"></a>
+# **GetTaxLedgerReconciliation**
+> TaxLedgerReconciliationResponse GetTaxLedgerReconciliation (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? taxPeriod = null)
+
+[EARLY ACCESS] GetTaxLedgerReconciliation: [EARLY ACCESS] GetTaxLedgerReconciliation: Reconcile the tax figures of a Fund or company to its ledger.
+
+Compares the ledger's capital gain or loss for the period to the comparable tax figure, explains each difference as an excluded holding, a tax cost adjustment or an out-of-sync holding, and bridges from the ledger figure to the return total.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label that selects the accounting period. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to read the reconciliation. Defaults to returning the latest version if not specified. (optional) 
+            var taxPeriod = "taxPeriod_example";  // string? | An optional accounting period label that overrides the period selected by effectiveAt. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // TaxLedgerReconciliationResponse result = apiInstance.GetTaxLedgerReconciliation(scope, code, effectiveAt, asAt, taxPeriod, opts: opts);
+
+                // [EARLY ACCESS] GetTaxLedgerReconciliation: [EARLY ACCESS] GetTaxLedgerReconciliation: Reconcile the tax figures of a Fund or company to its ledger.
+                TaxLedgerReconciliationResponse result = apiInstance.GetTaxLedgerReconciliation(scope, code, effectiveAt, asAt, taxPeriod);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.GetTaxLedgerReconciliation: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the GetTaxLedgerReconciliationWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetTaxLedgerReconciliation: [EARLY ACCESS] GetTaxLedgerReconciliation: Reconcile the tax figures of a Fund or company to its ledger.
+    ApiResponse<TaxLedgerReconciliationResponse> response = apiInstance.GetTaxLedgerReconciliationWithHttpInfo(scope, code, effectiveAt, asAt, taxPeriod);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.GetTaxLedgerReconciliationWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label that selects the accounting period. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to read the reconciliation. Defaults to returning the latest version if not specified. | [optional]  |
+| **taxPeriod** | **string?** | An optional accounting period label that overrides the period selected by effectiveAt. | [optional]  |
+
+### Return type
+
+[**TaxLedgerReconciliationResponse**](TaxLedgerReconciliationResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The tax-to-ledger reconciliation for the period. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="gettaxledgerreconciliationholding"></a>
+# **GetTaxLedgerReconciliationHolding**
+> TaxLedgerReconciliationHoldingResponse GetTaxLedgerReconciliationHolding (string scope, string code, string holdingId, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? taxPeriod = null)
+
+[EARLY ACCESS] GetTaxLedgerReconciliationHolding: [EARLY ACCESS] GetTaxLedgerReconciliationHolding: Drill into one holding of the tax-to-ledger reconciliation.
+
+Returns the ledger and tax figures of a single holding side by side with the category and explanation of any difference.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var holdingId = "holdingId_example";  // string | The identifier of the holding to drill into, as returned by the parent reconciliation.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label that selects the accounting period. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to read the reconciliation. Defaults to returning the latest version if not specified. (optional) 
+            var taxPeriod = "taxPeriod_example";  // string? | An optional accounting period label that overrides the period selected by effectiveAt. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // TaxLedgerReconciliationHoldingResponse result = apiInstance.GetTaxLedgerReconciliationHolding(scope, code, holdingId, effectiveAt, asAt, taxPeriod, opts: opts);
+
+                // [EARLY ACCESS] GetTaxLedgerReconciliationHolding: [EARLY ACCESS] GetTaxLedgerReconciliationHolding: Drill into one holding of the tax-to-ledger reconciliation.
+                TaxLedgerReconciliationHoldingResponse result = apiInstance.GetTaxLedgerReconciliationHolding(scope, code, holdingId, effectiveAt, asAt, taxPeriod);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.GetTaxLedgerReconciliationHolding: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the GetTaxLedgerReconciliationHoldingWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetTaxLedgerReconciliationHolding: [EARLY ACCESS] GetTaxLedgerReconciliationHolding: Drill into one holding of the tax-to-ledger reconciliation.
+    ApiResponse<TaxLedgerReconciliationHoldingResponse> response = apiInstance.GetTaxLedgerReconciliationHoldingWithHttpInfo(scope, code, holdingId, effectiveAt, asAt, taxPeriod);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.GetTaxLedgerReconciliationHoldingWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **holdingId** | **string** | The identifier of the holding to drill into, as returned by the parent reconciliation. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label that selects the accounting period. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to read the reconciliation. Defaults to returning the latest version if not specified. | [optional]  |
+| **taxPeriod** | **string?** | An optional accounting period label that overrides the period selected by effectiveAt. | [optional]  |
+
+### Return type
+
+[**TaxLedgerReconciliationHoldingResponse**](TaxLedgerReconciliationHoldingResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The holding-level reconciliation. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
 <a id="gettaxprovision"></a>
 # **GetTaxProvision**
 > TaxProvision GetTaxProvision (string scope, string code, string diaryEntryCode, DateTimeOffset? asAt = null, string? navTypeCode = null)
@@ -4895,6 +5758,127 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The deferred-tax provision of the Valuation Point |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="gettaxreturn"></a>
+# **GetTaxReturn**
+> TaxReturnResponse GetTaxReturn (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? taxPeriod = null)
+
+[EARLY ACCESS] GetTaxReturn: [EARLY ACCESS] GetTaxReturn: Get the year-end tax return of a Fund or company.
+
+Returns the chargeable gains on actual disposals (line A), the spread instalments of deemed disposals (line D), the loan relationship net credit or debit (line LR, company level), the holdings outside the regime, the memo rows and the workflow history for the accounting period containing effectiveAt.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label that selects the accounting period. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to read the return. Defaults to returning the latest version if not specified. (optional) 
+            var taxPeriod = "taxPeriod_example";  // string? | An optional accounting period label that overrides the period selected by effectiveAt. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // TaxReturnResponse result = apiInstance.GetTaxReturn(scope, code, effectiveAt, asAt, taxPeriod, opts: opts);
+
+                // [EARLY ACCESS] GetTaxReturn: [EARLY ACCESS] GetTaxReturn: Get the year-end tax return of a Fund or company.
+                TaxReturnResponse result = apiInstance.GetTaxReturn(scope, code, effectiveAt, asAt, taxPeriod);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.GetTaxReturn: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the GetTaxReturnWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetTaxReturn: [EARLY ACCESS] GetTaxReturn: Get the year-end tax return of a Fund or company.
+    ApiResponse<TaxReturnResponse> response = apiInstance.GetTaxReturnWithHttpInfo(scope, code, effectiveAt, asAt, taxPeriod);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.GetTaxReturnWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label that selects the accounting period. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to read the return. Defaults to returning the latest version if not specified. | [optional]  |
+| **taxPeriod** | **string?** | An optional accounting period label that overrides the period selected by effectiveAt. | [optional]  |
+
+### Return type
+
+[**TaxReturnResponse**](TaxReturnResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The tax return for the period. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -8781,6 +9765,127 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
+<a id="sendbacktaxreturn"></a>
+# **SendBackTaxReturn**
+> TaxReturnResponse SendBackTaxReturn (string scope, string code, TaxReturnTransitionRequest taxReturnTransitionRequest, DateTimeOrCutLabel? effectiveAt = null, string? taxPeriod = null)
+
+[EARLY ACCESS] SendBackTaxReturn: [EARLY ACCESS] SendBackTaxReturn: Send the tax return back one workflow step.
+
+Moves the return one step towards Draft, recording the supplied reason. A Final return cannot be sent back.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var taxReturnTransitionRequest = new TaxReturnTransitionRequest(); // TaxReturnTransitionRequest | The reason for sending the return back.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label that selects the accounting period. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var taxPeriod = "taxPeriod_example";  // string? | An optional accounting period label that overrides the period selected by effectiveAt. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // TaxReturnResponse result = apiInstance.SendBackTaxReturn(scope, code, taxReturnTransitionRequest, effectiveAt, taxPeriod, opts: opts);
+
+                // [EARLY ACCESS] SendBackTaxReturn: [EARLY ACCESS] SendBackTaxReturn: Send the tax return back one workflow step.
+                TaxReturnResponse result = apiInstance.SendBackTaxReturn(scope, code, taxReturnTransitionRequest, effectiveAt, taxPeriod);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.SendBackTaxReturn: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the SendBackTaxReturnWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] SendBackTaxReturn: [EARLY ACCESS] SendBackTaxReturn: Send the tax return back one workflow step.
+    ApiResponse<TaxReturnResponse> response = apiInstance.SendBackTaxReturnWithHttpInfo(scope, code, taxReturnTransitionRequest, effectiveAt, taxPeriod);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.SendBackTaxReturnWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **taxReturnTransitionRequest** | [**TaxReturnTransitionRequest**](TaxReturnTransitionRequest.md) | The reason for sending the return back. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label that selects the accounting period. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **taxPeriod** | **string?** | An optional accounting period label that overrides the period selected by effectiveAt. | [optional]  |
+
+### Return type
+
+[**TaxReturnResponse**](TaxReturnResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The tax return after the transition. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
 <a id="setshareclassinstruments"></a>
 # **SetShareClassInstruments**
 > Fund SetShareClassInstruments (string scope, string code, SetShareClassInstrumentsRequest setShareClassInstrumentsRequest)
@@ -9727,6 +10832,125 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The date and time of the successfully applied Nav Activity Adjustments. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="upsertshareclassproperties"></a>
+# **UpsertShareClassProperties**
+> ShareClassProperties UpsertShareClassProperties (string scope, string code, string shareClassShortCode, Dictionary<string, Property>? requestBody = null)
+
+[EARLY ACCESS] UpsertShareClassProperties: Upsert Share Class properties.
+
+Update or insert one or more Instrument-domain properties onto a single Share Class.  A property will be updated if it already exists and inserted if it does not.  Upserting with a null value deletes the property instance.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var shareClassShortCode = "shareClassShortCode_example";  // string | The short code of the Share Class to update or insert the properties onto.
+            var requestBody = new Dictionary<string, Property>?(); // Dictionary<string, Property>? | The properties to be updated or inserted onto the Share Class, keyed by property key (e.g. \"Instrument/Manager/Id\"). (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ShareClassProperties result = apiInstance.UpsertShareClassProperties(scope, code, shareClassShortCode, requestBody, opts: opts);
+
+                // [EARLY ACCESS] UpsertShareClassProperties: Upsert Share Class properties.
+                ShareClassProperties result = apiInstance.UpsertShareClassProperties(scope, code, shareClassShortCode, requestBody);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.UpsertShareClassProperties: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the UpsertShareClassPropertiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] UpsertShareClassProperties: Upsert Share Class properties.
+    ApiResponse<ShareClassProperties> response = apiInstance.UpsertShareClassPropertiesWithHttpInfo(scope, code, shareClassShortCode, requestBody);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.UpsertShareClassPropertiesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **shareClassShortCode** | **string** | The short code of the Share Class to update or insert the properties onto. |  |
+| **requestBody** | [**Dictionary&lt;string, Property&gt;?**](Property.md) | The properties to be updated or inserted onto the Share Class, keyed by property key (e.g. \&quot;Instrument/Manager/Id\&quot;). | [optional]  |
+
+### Return type
+
+[**ShareClassProperties**](ShareClassProperties.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The updated or inserted properties |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

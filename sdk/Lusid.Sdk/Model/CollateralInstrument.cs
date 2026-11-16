@@ -38,7 +38,9 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="units">The amount of the instrument in the basket for this repurchase agreement. (required).</param>
         /// <param name="instrument">instrument (required).</param>
-        public CollateralInstrument(decimal units = default(decimal), MasteredInstrument instrument = default(MasteredInstrument))
+        /// <param name="collateralStartDate">The date from which the instrument is held as collateral for this repurchase agreement.  Read only: an instrument upsert cannot set or change it. An existing value must be sent back unchanged.  When not set, the instrument is held from the StartDate of the FlexibleRepo..</param>
+        /// <param name="collateralEndDate">The date on which the instrument stops being held as collateral for this repurchase agreement.  Read only: an instrument upsert cannot set or change it. An existing value must be sent back unchanged.  When not set, the instrument is held until the MaturityDate of the FlexibleRepo..</param>
+        public CollateralInstrument(decimal units = default(decimal), MasteredInstrument instrument = default(MasteredInstrument), DateTimeOffset? collateralStartDate = default(DateTimeOffset?), DateTimeOffset? collateralEndDate = default(DateTimeOffset?))
         {
             this.Units = units;
             // to ensure "instrument" is required (not null)
@@ -47,6 +49,8 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("instrument is a required property for CollateralInstrument and cannot be null");
             }
             this.Instrument = instrument;
+            this.CollateralStartDate = collateralStartDate;
+            this.CollateralEndDate = collateralEndDate;
         }
 
         /// <summary>
@@ -63,6 +67,20 @@ namespace Lusid.Sdk.Model
         public MasteredInstrument Instrument { get; set; }
 
         /// <summary>
+        /// The date from which the instrument is held as collateral for this repurchase agreement.  Read only: an instrument upsert cannot set or change it. An existing value must be sent back unchanged.  When not set, the instrument is held from the StartDate of the FlexibleRepo.
+        /// </summary>
+        /// <value>The date from which the instrument is held as collateral for this repurchase agreement.  Read only: an instrument upsert cannot set or change it. An existing value must be sent back unchanged.  When not set, the instrument is held from the StartDate of the FlexibleRepo.</value>
+        [DataMember(Name = "collateralStartDate", EmitDefaultValue = true)]
+        public DateTimeOffset? CollateralStartDate { get; set; }
+
+        /// <summary>
+        /// The date on which the instrument stops being held as collateral for this repurchase agreement.  Read only: an instrument upsert cannot set or change it. An existing value must be sent back unchanged.  When not set, the instrument is held until the MaturityDate of the FlexibleRepo.
+        /// </summary>
+        /// <value>The date on which the instrument stops being held as collateral for this repurchase agreement.  Read only: an instrument upsert cannot set or change it. An existing value must be sent back unchanged.  When not set, the instrument is held until the MaturityDate of the FlexibleRepo.</value>
+        [DataMember(Name = "collateralEndDate", EmitDefaultValue = true)]
+        public DateTimeOffset? CollateralEndDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,6 +90,8 @@ namespace Lusid.Sdk.Model
             sb.Append("class CollateralInstrument {\n");
             sb.Append("  Units: ").Append(Units).Append("\n");
             sb.Append("  Instrument: ").Append(Instrument).Append("\n");
+            sb.Append("  CollateralStartDate: ").Append(CollateralStartDate).Append("\n");
+            sb.Append("  CollateralEndDate: ").Append(CollateralEndDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,6 +135,16 @@ namespace Lusid.Sdk.Model
                     this.Instrument == input.Instrument ||
                     (this.Instrument != null &&
                     this.Instrument.Equals(input.Instrument))
+                ) && 
+                (
+                    this.CollateralStartDate == input.CollateralStartDate ||
+                    (this.CollateralStartDate != null &&
+                    this.CollateralStartDate.Equals(input.CollateralStartDate))
+                ) && 
+                (
+                    this.CollateralEndDate == input.CollateralEndDate ||
+                    (this.CollateralEndDate != null &&
+                    this.CollateralEndDate.Equals(input.CollateralEndDate))
                 );
         }
 
@@ -131,6 +161,14 @@ namespace Lusid.Sdk.Model
                 if (this.Instrument != null)
                 {
                     hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
+                }
+                if (this.CollateralStartDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.CollateralStartDate.GetHashCode();
+                }
+                if (this.CollateralEndDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.CollateralEndDate.GetHashCode();
                 }
                 return hashCode;
             }

@@ -41,7 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="frequency">The frequency at which the asset price is reset and the price return is exchanged, e.g. 3M. (required).</param>
         /// <param name="fundingStartLag">fundingStartLag.</param>
         /// <param name="lastResetDate">The date of the last price reset. Optional; when absent the reset dates are rolled forward until the swap maturity date..</param>
-        public ResetSchedule(FlowConventions conventions = default(FlowConventions), DateTimeOffset? firstResetDate = default(DateTimeOffset?), string frequency = default(string), RelativeDateOffset fundingStartLag = default(RelativeDateOffset), DateTimeOffset? lastResetDate = default(DateTimeOffset?))
+        /// <param name="paymentLag">paymentLag.</param>
+        public ResetSchedule(FlowConventions conventions = default(FlowConventions), DateTimeOffset? firstResetDate = default(DateTimeOffset?), string frequency = default(string), RelativeDateOffset fundingStartLag = default(RelativeDateOffset), DateTimeOffset? lastResetDate = default(DateTimeOffset?), RelativeDateOffset paymentLag = default(RelativeDateOffset))
         {
             // to ensure "frequency" is required (not null)
             if (frequency == null)
@@ -53,6 +54,7 @@ namespace Lusid.Sdk.Model
             this.FirstResetDate = firstResetDate;
             this.FundingStartLag = fundingStartLag;
             this.LastResetDate = lastResetDate;
+            this.PaymentLag = paymentLag;
         }
 
         /// <summary>
@@ -89,6 +91,12 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? LastResetDate { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentLag
+        /// </summary>
+        [DataMember(Name = "paymentLag", EmitDefaultValue = false)]
+        public RelativeDateOffset PaymentLag { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -101,6 +109,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Frequency: ").Append(Frequency).Append("\n");
             sb.Append("  FundingStartLag: ").Append(FundingStartLag).Append("\n");
             sb.Append("  LastResetDate: ").Append(LastResetDate).Append("\n");
+            sb.Append("  PaymentLag: ").Append(PaymentLag).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -160,6 +169,11 @@ namespace Lusid.Sdk.Model
                     this.LastResetDate == input.LastResetDate ||
                     (this.LastResetDate != null &&
                     this.LastResetDate.Equals(input.LastResetDate))
+                ) && 
+                (
+                    this.PaymentLag == input.PaymentLag ||
+                    (this.PaymentLag != null &&
+                    this.PaymentLag.Equals(input.PaymentLag))
                 );
         }
 
@@ -191,6 +205,10 @@ namespace Lusid.Sdk.Model
                 if (this.LastResetDate != null)
                 {
                     hashCode = (hashCode * 59) + this.LastResetDate.GetHashCode();
+                }
+                if (this.PaymentLag != null)
+                {
+                    hashCode = (hashCode * 59) + this.PaymentLag.GetHashCode();
                 }
                 return hashCode;
             }

@@ -827,7 +827,7 @@ catch (ApiException e)
 
 <a id="listderivedrecipes"></a>
 # **ListDerivedRecipes**
-> ResourceListOfGetRecipeResponse ListDerivedRecipes (DateTimeOffset? asAt = null, string? filter = null)
+> ResourceListOfGetRecipeResponse ListDerivedRecipes (DateTimeOffset? asAt = null, string? filter = null, List<string>? sortBy = null)
 
 ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
 
@@ -873,15 +873,16 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationRecipeApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfGetRecipeResponse result = apiInstance.ListDerivedRecipes(asAt, filter, opts: opts);
+                // ResourceListOfGetRecipeResponse result = apiInstance.ListDerivedRecipes(asAt, filter, sortBy, opts: opts);
 
                 // ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
-                ResourceListOfGetRecipeResponse result = apiInstance.ListDerivedRecipes(asAt, filter);
+                ResourceListOfGetRecipeResponse result = apiInstance.ListDerivedRecipes(asAt, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -901,7 +902,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
-    ApiResponse<ResourceListOfGetRecipeResponse> response = apiInstance.ListDerivedRecipesWithHttpInfo(asAt, filter);
+    ApiResponse<ResourceListOfGetRecipeResponse> response = apiInstance.ListDerivedRecipesWithHttpInfo(asAt, filter, sortBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -919,7 +920,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the result set, note this functionality is not yet enabled for this endpoint. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
 
 ### Return type
 

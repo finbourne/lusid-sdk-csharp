@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="nodeType">The kind of node: the fund aggregate or a single share class. Available values: Fund, Class. (required).</param>
         /// <param name="shareClassShortCode">The short code of the share class this node is for. Omitted on the fund node..</param>
-        /// <param name="nav">The net asset value at this node, in the fund currency..</param>
+        /// <param name="nav">The net asset value at this node, in the fund currency. It is the sum of the node&#39;s buckets&#39; cumulative values, leaving out the reserved _unmatched_* buckets: those hold journal entry lines no bucket classified, which are reported for diagnosis but are not part of the valuation. On an estimate with unmatched lines the NAV is therefore less than the sum of every bucket shown. A finalised valuation point has no unmatched amounts..</param>
         /// <param name="capitalRatio">The share class&#39;s capital ratio (its share of the fund NAV). Omitted on the fund node..</param>
         /// <param name="buckets">The buckets on this node, each with its period movement and cumulative values. (required).</param>
         /// <param name="perUnitValue">The share class&#39;s NAV per unit in issue, in the fund currency, unrounded whatever the share class&#39;s price rounding convention. Omitted on the fund node, for a share class that is not unitised, and for a unitised share class with no units in issue to divide by (SharesInIssue is then reported as zero). The dealing price - in the share class currency, with its rounding convention applied - is on the share class breakdown&#39;s unitisation data..</param>
@@ -97,9 +97,9 @@ namespace Lusid.Sdk.Model
         public string ShareClassShortCode { get; set; }
 
         /// <summary>
-        /// The net asset value at this node, in the fund currency.
+        /// The net asset value at this node, in the fund currency. It is the sum of the node&#39;s buckets&#39; cumulative values, leaving out the reserved _unmatched_* buckets: those hold journal entry lines no bucket classified, which are reported for diagnosis but are not part of the valuation. On an estimate with unmatched lines the NAV is therefore less than the sum of every bucket shown. A finalised valuation point has no unmatched amounts.
         /// </summary>
-        /// <value>The net asset value at this node, in the fund currency.</value>
+        /// <value>The net asset value at this node, in the fund currency. It is the sum of the node&#39;s buckets&#39; cumulative values, leaving out the reserved _unmatched_* buckets: those hold journal entry lines no bucket classified, which are reported for diagnosis but are not part of the valuation. On an estimate with unmatched lines the NAV is therefore less than the sum of every bucket shown. A finalised valuation point has no unmatched amounts.</value>
         [DataMember(Name = "nav", EmitDefaultValue = true)]
         public decimal? Nav { get; set; }
 

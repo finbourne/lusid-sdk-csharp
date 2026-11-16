@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **BankChargeBearer** | **string** | Who bears the bank charge: Partner leaves it outstanding on the investor, Fund books it as a fund expense. Defaults to the map&#39;s policy. | [optional] 
 **ShortfallWrittenOff** | **decimal** | Any small shortfall within the map&#39;s tolerance that was written off rather than left outstanding. | [optional] 
 **PostingId** | **string** | The identifier of the receipt posting on the investor&#39;s line. | [optional] 
+**SettledLineId** | **string** | The register line the receipt settled, as the booking posted it. Written by the booking, not by the caller; absent on a receipt recorded before the line was kept. | [optional] 
+**Reference** | **string** | The caller&#39;s reference the receipt was recorded under, as sent. Absent on a receipt sent without one. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -26,6 +28,8 @@ string investorRecordId = "example investorRecordId";decimal? amount = "example 
 string paymentCurrency = "example paymentCurrency";decimal? fxDifference = "example fxDifference";decimal? bankCharge = "example bankCharge";
 string bankChargeBearer = "example bankChargeBearer";decimal? shortfallWrittenOff = "example shortfallWrittenOff";
 string postingId = "example postingId";
+string settledLineId = "example settledLineId";
+string reference = "example reference";
 
 AllocationEventReceipt allocationEventReceiptInstance = new AllocationEventReceipt(
     investorRecordId: investorRecordId,
@@ -39,7 +43,9 @@ AllocationEventReceipt allocationEventReceiptInstance = new AllocationEventRecei
     bankCharge: bankCharge,
     bankChargeBearer: bankChargeBearer,
     shortfallWrittenOff: shortfallWrittenOff,
-    postingId: postingId);
+    postingId: postingId,
+    settledLineId: settledLineId,
+    reference: reference);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

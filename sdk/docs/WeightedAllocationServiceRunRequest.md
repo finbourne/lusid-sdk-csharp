@@ -6,7 +6,7 @@ The request body for the RunAllocationServiceWithWeights endpoint.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PlacementIds** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The set of Placement IDs to allocate. | 
-**PortfolioWeights** | [**List&lt;PortfolioWeight&gt;**](PortfolioWeight.md) | The set of Portfolios and their associated weights to use for allocation. | [optional] 
+**PortfolioWeights** | [**List&lt;PortfolioWeight&gt;**](PortfolioWeight.md) | The set of Portfolios and their associated weights to use for allocation. | 
 
 ```csharp
 using Lusid.Sdk.Model;

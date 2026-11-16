@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// LUSID representation of an Inflation Swap.  The implementation supports the following swap types:  * Zero Coupon inflation swap, with a single payment at maturity.  * LPI Swap (capped and floored)  * Year on Year inflation swap                This instrument has multiple legs, to see how legs are used in LUSID see [How does LUSID handle instrument legs?](https://support.lusid.com/docs/how-does-lusid-handle-instrument-legs).                | Leg Index | Leg Identifier | Description |  | - -- -- -- -- | - -- -- -- -- -- -- - | - -- -- -- -- -- |  | 1 | InflationLeg | Cash flows with a rate relating to an underlying inflation index. |  | 2 | FixedLeg | Cash flows with a fixed rate. |  | 3 | AdditionalPayments | Cash flows relating to any additional payments (optional). |
+    /// LUSID representation of an Inflation Swap.  The implementation supports the following swap types:  * Zero Coupon inflation swap, with a single payment at maturity.  * LPI Swap (capped and floored)  * Year on Year inflation swap                This instrument has multiple legs, to see how legs are used in LUSID see [How does LUSID handle instrument legs?](https://support.lusid.com/docs/how-does-lusid-handle-instrument-legs).                | Leg Index | Leg Identifier | Description |  | - -- -- -- -- | - -- -- -- -- -- -- - | - -- -- -- -- -- |  | 1 | InflationLeg | Cash flows with a rate relating to an underlying inflation index. |  | 2 | FixedLeg | Cash flows with a fixed rate. |  | 3 | AdditionalPayments | Cash flows relating to any additional payments (optional). |                With &#x60;legs&#x60;, the legs are in the order given and identified as InflationLeg, FixedLeg or FloatingLeg, so a  linker asset swap, a year-on-year or LPI swap against a floating leg, an income swap or a cross-currency  proceeds asset swap books as one instrument. The &#x60;inflationLeg&#x60; and &#x60;fixedLeg&#x60; fields remain for the original  shape and cannot be combined with &#x60;legs&#x60;.
     /// </summary>
     [DataContract(Name = "InflationSwap")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentType")]
@@ -44,8 +44,9 @@ namespace Lusid.Sdk.Model
         /// <param name="fixedLeg">fixedLeg.</param>
         /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven inflation swap.  The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
+        /// <param name="legs">The legs of the swap: exactly two, exactly one of them an InflationLeg and the other a FixedLeg or a  FloatingLeg, one paid and one received, each starting on or after the swap and maturing on or before it.  The legs may be in different currencies; the first leg&#39;s currency is the swap&#39;s domestic currency.  Not set together with InflationLeg and FixedLeg. In this shape capRate and floorRate are accepted only on  a YearOnYear inflation leg..</param>
         /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap, BondForward, PreferredShare, CapitalInterest, WholeLoanFacility, StripBond. (required) (default to InstrumentTypeEnum.InflationSwap).</param>
-        public InflationSwap(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), InflationLeg inflationLeg = default(InflationLeg), FixedLeg fixedLeg = default(FixedLeg), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public InflationSwap(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), InflationLeg inflationLeg = default(InflationLeg), FixedLeg fixedLeg = default(FixedLeg), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), List<LusidInstrument> legs = default(List<LusidInstrument>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -53,6 +54,7 @@ namespace Lusid.Sdk.Model
             this.FixedLeg = fixedLeg;
             this.AdditionalPayments = additionalPayments;
             this.TimeZoneConventions = timeZoneConventions;
+            this.Legs = legs;
         }
 
         /// <summary>
@@ -95,6 +97,13 @@ namespace Lusid.Sdk.Model
         public TimeZoneConventions TimeZoneConventions { get; set; }
 
         /// <summary>
+        /// The legs of the swap: exactly two, exactly one of them an InflationLeg and the other a FixedLeg or a  FloatingLeg, one paid and one received, each starting on or after the swap and maturing on or before it.  The legs may be in different currencies; the first leg&#39;s currency is the swap&#39;s domestic currency.  Not set together with InflationLeg and FixedLeg. In this shape capRate and floorRate are accepted only on  a YearOnYear inflation leg.
+        /// </summary>
+        /// <value>The legs of the swap: exactly two, exactly one of them an InflationLeg and the other a FixedLeg or a  FloatingLeg, one paid and one received, each starting on or after the swap and maturing on or before it.  The legs may be in different currencies; the first leg&#39;s currency is the swap&#39;s domestic currency.  Not set together with InflationLeg and FixedLeg. In this shape capRate and floorRate are accepted only on  a YearOnYear inflation leg.</value>
+        [DataMember(Name = "legs", EmitDefaultValue = true)]
+        public List<LusidInstrument> Legs { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -109,6 +118,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  FixedLeg: ").Append(FixedLeg).Append("\n");
             sb.Append("  AdditionalPayments: ").Append(AdditionalPayments).Append("\n");
             sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
+            sb.Append("  Legs: ").Append(Legs).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -174,6 +184,12 @@ namespace Lusid.Sdk.Model
                     this.TimeZoneConventions == input.TimeZoneConventions ||
                     (this.TimeZoneConventions != null &&
                     this.TimeZoneConventions.Equals(input.TimeZoneConventions))
+                ) && base.Equals(input) && 
+                (
+                    this.Legs == input.Legs ||
+                    this.Legs != null &&
+                    input.Legs != null &&
+                    this.Legs.SequenceEqual(input.Legs)
                 );
         }
 
@@ -209,6 +225,10 @@ namespace Lusid.Sdk.Model
                 if (this.TimeZoneConventions != null)
                 {
                     hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
+                }
+                if (this.Legs != null)
+                {
+                    hashCode = (hashCode * 59) + this.Legs.GetHashCode();
                 }
                 return hashCode;
             }

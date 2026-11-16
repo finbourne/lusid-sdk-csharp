@@ -39,6 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="id">The id of the result within its instance: its rec type, result type and result number, e.g. &#39;Holding-break-3&#39;. Unique within the instance, and kept across its runs for as long as the result keeps its result type. (required).</param>
         /// <param name="resultNumber">The result&#39;s number within its result type. Kept across runs while the result keeps its type; never reused once assigned. (required).</param>
         /// <param name="firstRunSeen">The run in which the result was first assigned its id. (required).</param>
+        /// <param name="asAtFirstSeen">The runAsAt of the run in which the result first appeared in its instance, the run numbered firstRunSeen. Written once: re-runs leave it unchanged. (required).</param>
         /// <param name="recType">The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument, LegalEntity, Portfolio, CustomEntity. (required).</param>
         /// <param name="externalRecTypeName">The client&#39;s name for an External rec type, as stamped from the matching ruleset&#39;s externalRecType when the run executed. Null for native rec types. Filterable..</param>
         /// <param name="customEntityType">The name of the custom entity type, which starts with ~. Set when the rec type is CustomEntity and null for every other rec type. Filterable..</param>
@@ -60,13 +61,14 @@ namespace Lusid.Sdk.Model
         /// <param name="items">items (required).</param>
         /// <param name="linkedResults">Results of other rec types in the same rec instance run whose items share an identifier with this result&#39;s items. Only exceptions link, and only to exceptions; symmetric. Set by the linking pass once every rec type of the run has completed, so empty until then. (required).</param>
         /// <param name="comments">User-authored comments attached to the result. Carried forward across runs. (required).</param>
+        /// <param name="streak">streak.</param>
         /// <param name="properties">Properties in the RecResult domain. Filterable and sortable. Always includes the properties the matching ruleset populates, with a null value where the result holds none yet..</param>
         /// <param name="assignedUser">The LUSID user id assigned to the result..</param>
         /// <param name="assignedRole">The LUSID IAM role id assigned to the result..</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public RecResult(string id = default(string), int resultNumber = default(int), int firstRunSeen = default(int), string recType = default(string), string externalRecTypeName = default(string), string customEntityType = default(string), RecInstanceId instanceId = default(RecInstanceId), DateTimeOffset asAtInstantiated = default(DateTimeOffset), ResourceId recDefinitionId = default(ResourceId), string recDefinitionDisplayName = default(string), int runNumber = default(int), DateTimeOffset runAsAt = default(DateTimeOffset), RecDatesReconciled datesReconciled = default(RecDatesReconciled), string resultType = default(string), string resultCardinality = default(string), string resultLifeCycle = default(string), RecResultException exception = default(RecResultException), RecResultReview review = default(RecResultReview), List<CoreRuleValues> coreRules = default(List<CoreRuleValues>), List<AggregateRuleValues> aggregateRules = default(List<AggregateRuleValues>), List<SupplementalAttributeValues> supplementalAttributes = default(List<SupplementalAttributeValues>), RecResultItemDetails items = default(RecResultItemDetails), List<RecLinkedResult> linkedResults = default(List<RecLinkedResult>), List<RecUserComment> comments = default(List<RecUserComment>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string assignedUser = default(string), string assignedRole = default(string), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public RecResult(string id = default(string), int resultNumber = default(int), int firstRunSeen = default(int), DateTimeOffset asAtFirstSeen = default(DateTimeOffset), string recType = default(string), string externalRecTypeName = default(string), string customEntityType = default(string), RecInstanceId instanceId = default(RecInstanceId), DateTimeOffset asAtInstantiated = default(DateTimeOffset), ResourceId recDefinitionId = default(ResourceId), string recDefinitionDisplayName = default(string), int runNumber = default(int), DateTimeOffset runAsAt = default(DateTimeOffset), RecDatesReconciled datesReconciled = default(RecDatesReconciled), string resultType = default(string), string resultCardinality = default(string), string resultLifeCycle = default(string), RecResultException exception = default(RecResultException), RecResultReview review = default(RecResultReview), List<CoreRuleValues> coreRules = default(List<CoreRuleValues>), List<AggregateRuleValues> aggregateRules = default(List<AggregateRuleValues>), List<SupplementalAttributeValues> supplementalAttributes = default(List<SupplementalAttributeValues>), RecResultItemDetails items = default(RecResultItemDetails), List<RecLinkedResult> linkedResults = default(List<RecLinkedResult>), List<RecUserComment> comments = default(List<RecUserComment>), RecResultStreak streak = default(RecResultStreak), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string assignedUser = default(string), string assignedRole = default(string), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -76,6 +78,7 @@ namespace Lusid.Sdk.Model
             this.Id = id;
             this.ResultNumber = resultNumber;
             this.FirstRunSeen = firstRunSeen;
+            this.AsAtFirstSeen = asAtFirstSeen;
             // to ensure "recType" is required (not null)
             if (recType == null)
             {
@@ -172,6 +175,7 @@ namespace Lusid.Sdk.Model
             this.ExternalRecTypeName = externalRecTypeName;
             this.CustomEntityType = customEntityType;
             this.Exception = exception;
+            this.Streak = streak;
             this.Properties = properties;
             this.AssignedUser = assignedUser;
             this.AssignedRole = assignedRole;
@@ -200,6 +204,13 @@ namespace Lusid.Sdk.Model
         /// <value>The run in which the result was first assigned its id.</value>
         [DataMember(Name = "firstRunSeen", IsRequired = true, EmitDefaultValue = true)]
         public int FirstRunSeen { get; set; }
+
+        /// <summary>
+        /// The runAsAt of the run in which the result first appeared in its instance, the run numbered firstRunSeen. Written once: re-runs leave it unchanged.
+        /// </summary>
+        /// <value>The runAsAt of the run in which the result first appeared in its instance, the run numbered firstRunSeen. Written once: re-runs leave it unchanged.</value>
+        [DataMember(Name = "asAtFirstSeen", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset AsAtFirstSeen { get; set; }
 
         /// <summary>
         /// The type of rec that the result belongs to (e.g. Holding). Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity, External, Instrument, LegalEntity, Portfolio, CustomEntity.
@@ -343,6 +354,12 @@ namespace Lusid.Sdk.Model
         public List<RecUserComment> Comments { get; set; }
 
         /// <summary>
+        /// Gets or Sets Streak
+        /// </summary>
+        [DataMember(Name = "streak", EmitDefaultValue = false)]
+        public RecResultStreak Streak { get; set; }
+
+        /// <summary>
         /// Properties in the RecResult domain. Filterable and sortable. Always includes the properties the matching ruleset populates, with a null value where the result holds none yet.
         /// </summary>
         /// <value>Properties in the RecResult domain. Filterable and sortable. Always includes the properties the matching ruleset populates, with a null value where the result holds none yet.</value>
@@ -393,6 +410,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ResultNumber: ").Append(ResultNumber).Append("\n");
             sb.Append("  FirstRunSeen: ").Append(FirstRunSeen).Append("\n");
+            sb.Append("  AsAtFirstSeen: ").Append(AsAtFirstSeen).Append("\n");
             sb.Append("  RecType: ").Append(RecType).Append("\n");
             sb.Append("  ExternalRecTypeName: ").Append(ExternalRecTypeName).Append("\n");
             sb.Append("  CustomEntityType: ").Append(CustomEntityType).Append("\n");
@@ -414,6 +432,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("  LinkedResults: ").Append(LinkedResults).Append("\n");
             sb.Append("  Comments: ").Append(Comments).Append("\n");
+            sb.Append("  Streak: ").Append(Streak).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  AssignedUser: ").Append(AssignedUser).Append("\n");
             sb.Append("  AssignedRole: ").Append(AssignedRole).Append("\n");
@@ -467,6 +486,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.FirstRunSeen == input.FirstRunSeen ||
                     this.FirstRunSeen.Equals(input.FirstRunSeen)
+                ) && 
+                (
+                    this.AsAtFirstSeen == input.AsAtFirstSeen ||
+                    (this.AsAtFirstSeen != null &&
+                    this.AsAtFirstSeen.Equals(input.AsAtFirstSeen))
                 ) && 
                 (
                     this.RecType == input.RecType ||
@@ -578,6 +602,11 @@ namespace Lusid.Sdk.Model
                     this.Comments.SequenceEqual(input.Comments)
                 ) && 
                 (
+                    this.Streak == input.Streak ||
+                    (this.Streak != null &&
+                    this.Streak.Equals(input.Streak))
+                ) && 
+                (
                     this.Properties == input.Properties ||
                     this.Properties != null &&
                     input.Properties != null &&
@@ -626,6 +655,10 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.ResultNumber.GetHashCode();
                 hashCode = (hashCode * 59) + this.FirstRunSeen.GetHashCode();
+                if (this.AsAtFirstSeen != null)
+                {
+                    hashCode = (hashCode * 59) + this.AsAtFirstSeen.GetHashCode();
+                }
                 if (this.RecType != null)
                 {
                     hashCode = (hashCode * 59) + this.RecType.GetHashCode();
@@ -706,6 +739,10 @@ namespace Lusid.Sdk.Model
                 if (this.Comments != null)
                 {
                     hashCode = (hashCode * 59) + this.Comments.GetHashCode();
+                }
+                if (this.Streak != null)
+                {
+                    hashCode = (hashCode * 59) + this.Streak.GetHashCode();
                 }
                 if (this.Properties != null)
                 {

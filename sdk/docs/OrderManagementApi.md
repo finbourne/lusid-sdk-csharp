@@ -1094,7 +1094,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderManagementApi>();
             var resourceId = new List<ResourceId>(); // List<ResourceId> | The List of Placement IDs for which you wish to allocate Executions.
             var allocationAlgorithm = "allocationAlgorithm_example";  // string? | A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \"PR-FIFO\".  This defaults to \"PR-FIFO\". (optional) 
-            var cancelAndCorrect = false;  // bool? | Whether to re-allocate allocations that already have booked transactions or to skip them.  The transactions booked against the re-allocated allocations are cancelled, and a subsequent call to  BookTransactions books corrected ones.  Defaults to false, which leaves allocations with booked transactions untouched. (optional)  (default to false)
+            var cancelAndCorrect = true;  // bool? | Whether to re-allocate allocations that already have booked transactions or to skip them.  The transactions booked against the re-allocated allocations are cancelled, and a subsequent call to  BookTransactions books corrected ones.  Defaults to true. Set to false to leave allocations with booked transactions untouched. (optional)  (default to true)
 
             try
             {
@@ -1141,7 +1141,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **resourceId** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The List of Placement IDs for which you wish to allocate Executions. |  |
 | **allocationAlgorithm** | **string?** | A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. | [optional]  |
-| **cancelAndCorrect** | **bool?** | Whether to re-allocate allocations that already have booked transactions or to skip them.  The transactions booked against the re-allocated allocations are cancelled, and a subsequent call to  BookTransactions books corrected ones.  Defaults to false, which leaves allocations with booked transactions untouched. | [optional] [default to false] |
+| **cancelAndCorrect** | **bool?** | Whether to re-allocate allocations that already have booked transactions or to skip them.  The transactions booked against the re-allocated allocations are cancelled, and a subsequent call to  BookTransactions books corrected ones.  Defaults to true. Set to false to leave allocations with booked transactions untouched. | [optional] [default to true] |
 
 ### Return type
 
@@ -1211,7 +1211,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderManagementApi>();
             var weightedAllocationServiceRunRequest = new WeightedAllocationServiceRunRequest(); // WeightedAllocationServiceRunRequest | The placement IDs to allocate against, and the portfolio weights to use for the allocation split.
             var allocationAlgorithm = "allocationAlgorithm_example";  // string? | A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \"PR-LF\".  Allocating with weights means the base algorithm is always pro-rata, and the orphan allocation algorithm is either Largest First or Smallest First.  This defaults to \"PR-LF\". Valid values are \"PR-LF\", \"PR-SF\", \"LF\", \"SF\". (optional) 
-            var cancelAndCorrect = false;  // bool? | Whether to cancel the transactions booked against this placement's allocations once the run has re-split the  full executed quantity by the weights. A subsequent call to BookTransactions then books corrected ones.  Defaults to true. Set to false to leave the booked transactions in place. (optional)  (default to false)
+            var cancelAndCorrect = true;  // bool? | Whether to cancel the transactions booked against this placement's allocations once the run has re-split the  full executed quantity by the weights. A subsequent call to BookTransactions then books corrected ones.  Defaults to true. Set to false to leave the booked transactions in place. (optional)  (default to true)
 
             try
             {
@@ -1258,7 +1258,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **weightedAllocationServiceRunRequest** | [**WeightedAllocationServiceRunRequest**](WeightedAllocationServiceRunRequest.md) | The placement IDs to allocate against, and the portfolio weights to use for the allocation split. |  |
 | **allocationAlgorithm** | **string?** | A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-LF\&quot;.  Allocating with weights means the base algorithm is always pro-rata, and the orphan allocation algorithm is either Largest First or Smallest First.  This defaults to \&quot;PR-LF\&quot;. Valid values are \&quot;PR-LF\&quot;, \&quot;PR-SF\&quot;, \&quot;LF\&quot;, \&quot;SF\&quot;. | [optional]  |
-| **cancelAndCorrect** | **bool?** | Whether to cancel the transactions booked against this placement&#39;s allocations once the run has re-split the  full executed quantity by the weights. A subsequent call to BookTransactions then books corrected ones.  Defaults to true. Set to false to leave the booked transactions in place. | [optional] [default to false] |
+| **cancelAndCorrect** | **bool?** | Whether to cancel the transactions booked against this placement&#39;s allocations once the run has re-split the  full executed quantity by the weights. A subsequent call to BookTransactions then books corrected ones.  Defaults to true. Set to false to leave the booked transactions in place. | [optional] [default to true] |
 
 ### Return type
 

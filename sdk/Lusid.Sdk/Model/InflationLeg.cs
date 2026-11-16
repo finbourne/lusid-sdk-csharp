@@ -42,15 +42,22 @@ namespace Lusid.Sdk.Model
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
         /// <param name="flowConventions">flowConventions (required).</param>
         /// <param name="baseCPI">Optional BaseCPI, if specified it will be used in place of BaseCPI(StartDate).  This should not be required for standard inflation swaps..</param>
-        /// <param name="calculationType">The calculation type.  ZeroCoupon is used for CPILegs where there is a single payment at maturity of  Notional * (CPI(T) / CPI(T0) - 1)  where CPI(T0) is the BaseCPI of this leg  YearOnYear is used for YoY and LPI swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(t-1) - 1)  If a cap and floor is added to this it becomes an LPI swap leg.  Compounded is used for inflation swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(T0) - 1)  i.e. the BaseCPI is used every year. These swaps are not as common as CPI or    Supported string (enumeration) values are: [ZeroCoupon, YearOnYear, Compounded]. (required).</param>
-        /// <param name="capRate">Optional cap, needed for LPI Legs or CPI Legs with Caps.</param>
-        /// <param name="floorRate">Optional floor, needed for LPI Legs or CPI Legs with Floors..</param>
+        /// <param name="calculationType">The calculation type.  ZeroCoupon is used for CPILegs where there is a single payment at maturity of  Notional * (CPI(T) / CPI(T0) - 1)  where CPI(T0) is the BaseCPI of this leg  YearOnYear is used for YoY and LPI swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(t-1) - 1)  If a cap and floor is added to this it becomes an LPI swap leg.  Compounded is used for inflation swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(T0) - 1)  i.e. the BaseCPI is used every year. These swaps are not as common as CPI or    IndexedCoupon is used for the coupon stream of an inflation-linked bond, where each period pays  Notional * FixedRate * dayCount * IndexRatio(t)  and IndexRatio(t) is CPI(t) / BaseCPI rounded to IndexPrecision, as on InflationLinkedBond.                Supported string (enumeration) values are: [ZeroCoupon, YearOnYear, Compounded, IndexedCoupon]. (required).</param>
+        /// <param name="capRate">Optional cap on a YearOnYear leg: each period&#39;s 12-month inflation rate is clamped to at most this rate before  the accrual fraction is applied, at any payment frequency, so an LPI leg caps each year at 5%. In the legs  form of an InflationSwap it is rejected on a ZeroCoupon, Compounded or IndexedCoupon leg, where it would clamp  the total change since the start. In the deprecated inflationLeg form a ZeroCoupon or Compounded cap keeps  clamping that total change, as today..</param>
+        /// <param name="floorRate">Optional floor on a YearOnYear leg: each period&#39;s 12-month inflation rate is clamped to at least this rate  before the accrual fraction is applied, at any payment frequency, so a 0% floor stops deflation being paid.  In the legs form of an InflationSwap it is rejected on a ZeroCoupon, Compounded or IndexedCoupon leg, where it  would clamp the total change since the start. In the deprecated inflationLeg form a ZeroCoupon or Compounded  floor keeps clamping that total change, as today..</param>
         /// <param name="inflationIndexConventions">inflationIndexConventions (required).</param>
         /// <param name="notional">The notional (required).</param>
         /// <param name="payReceive">PayReceive flag for the inflation leg.  This field is optional and defaults to Pay.    Supported string (enumeration) values are: [Pay, Receive]..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
+        /// <param name="fixedRate">The real coupon rate of an IndexedCoupon leg: each period pays Notional * FixedRate * dayCount * IndexRatio.  Required when CalculationType is IndexedCoupon and not allowed otherwise..</param>
+        /// <param name="baseCPIDate">Optional date the base CPI is observed on, with the same meaning as on InflationLinkedBond: the un-lagged  date (for a bond asset swap, the bond&#39;s dated date) whose reference CPI is the base. Defaults to the StartDate.  Ignored when BaseCPI is given..</param>
+        /// <param name="indexPrecision">Number of decimal places the IndexedCoupon index ratio is rounded to, as on InflationLinkedBond. Defaults to 5..</param>
+        /// <param name="principalProtection">Whether an indexed final notional exchange is floored at par, paying max(IndexRatio, 1) times the amount, as on  InflationLinkedBond. Coupons are never floored. Defaults to true..</param>
+        /// <param name="notionalExchangeType">Which notional exchanges the leg makes. The start exchange pays the un-indexed amount against the leg; the  maturity exchange pays the amount times the index ratio with the leg, floored at par under PrincipalProtection.                Supported string (enumeration) values are: [None, Initial, Final, Both].  Defaults to \&quot;None\&quot; if not set..</param>
+        /// <param name="initialExchangeAmount">The amount exchanged at the start of the leg, when NotionalExchangeType is Initial or Both. Defaults to the  notional. Never indexed. Must be non-negative..</param>
+        /// <param name="finalExchangeAmount">The real amount exchanged at maturity, when NotionalExchangeType is Final or Both. Defaults to the notional.  Paid times the index ratio, floored at par under PrincipalProtection. Must be non-negative..</param>
         /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward, BondOption, CdsOption, CommodityCalendarSwap, BondForward, PreferredShare, CapitalInterest, WholeLoanFacility, StripBond. (required) (default to InstrumentTypeEnum.InflationLeg).</param>
-        public InflationLeg(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), decimal? baseCPI = default(decimal?), string calculationType = default(string), decimal? capRate = default(decimal?), decimal? floorRate = default(decimal?), InflationIndexConventions inflationIndexConventions = default(InflationIndexConventions), decimal notional = default(decimal), string payReceive = default(string), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public InflationLeg(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), decimal? baseCPI = default(decimal?), string calculationType = default(string), decimal? capRate = default(decimal?), decimal? floorRate = default(decimal?), InflationIndexConventions inflationIndexConventions = default(InflationIndexConventions), decimal notional = default(decimal), string payReceive = default(string), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), decimal? fixedRate = default(decimal?), DateTimeOffset? baseCPIDate = default(DateTimeOffset?), int indexPrecision = default(int), bool principalProtection = default(bool), string notionalExchangeType = default(string), decimal? initialExchangeAmount = default(decimal?), decimal? finalExchangeAmount = default(decimal?), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -78,6 +85,13 @@ namespace Lusid.Sdk.Model
             this.FloorRate = floorRate;
             this.PayReceive = payReceive;
             this.TimeZoneConventions = timeZoneConventions;
+            this.FixedRate = fixedRate;
+            this.BaseCPIDate = baseCPIDate;
+            this.IndexPrecision = indexPrecision;
+            this.PrincipalProtection = principalProtection;
+            this.NotionalExchangeType = notionalExchangeType;
+            this.InitialExchangeAmount = initialExchangeAmount;
+            this.FinalExchangeAmount = finalExchangeAmount;
         }
 
         /// <summary>
@@ -108,23 +122,23 @@ namespace Lusid.Sdk.Model
         public decimal? BaseCPI { get; set; }
 
         /// <summary>
-        /// The calculation type.  ZeroCoupon is used for CPILegs where there is a single payment at maturity of  Notional * (CPI(T) / CPI(T0) - 1)  where CPI(T0) is the BaseCPI of this leg  YearOnYear is used for YoY and LPI swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(t-1) - 1)  If a cap and floor is added to this it becomes an LPI swap leg.  Compounded is used for inflation swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(T0) - 1)  i.e. the BaseCPI is used every year. These swaps are not as common as CPI or    Supported string (enumeration) values are: [ZeroCoupon, YearOnYear, Compounded].
+        /// The calculation type.  ZeroCoupon is used for CPILegs where there is a single payment at maturity of  Notional * (CPI(T) / CPI(T0) - 1)  where CPI(T0) is the BaseCPI of this leg  YearOnYear is used for YoY and LPI swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(t-1) - 1)  If a cap and floor is added to this it becomes an LPI swap leg.  Compounded is used for inflation swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(T0) - 1)  i.e. the BaseCPI is used every year. These swaps are not as common as CPI or    IndexedCoupon is used for the coupon stream of an inflation-linked bond, where each period pays  Notional * FixedRate * dayCount * IndexRatio(t)  and IndexRatio(t) is CPI(t) / BaseCPI rounded to IndexPrecision, as on InflationLinkedBond.                Supported string (enumeration) values are: [ZeroCoupon, YearOnYear, Compounded, IndexedCoupon].
         /// </summary>
-        /// <value>The calculation type.  ZeroCoupon is used for CPILegs where there is a single payment at maturity of  Notional * (CPI(T) / CPI(T0) - 1)  where CPI(T0) is the BaseCPI of this leg  YearOnYear is used for YoY and LPI swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(t-1) - 1)  If a cap and floor is added to this it becomes an LPI swap leg.  Compounded is used for inflation swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(T0) - 1)  i.e. the BaseCPI is used every year. These swaps are not as common as CPI or    Supported string (enumeration) values are: [ZeroCoupon, YearOnYear, Compounded].</value>
+        /// <value>The calculation type.  ZeroCoupon is used for CPILegs where there is a single payment at maturity of  Notional * (CPI(T) / CPI(T0) - 1)  where CPI(T0) is the BaseCPI of this leg  YearOnYear is used for YoY and LPI swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(t-1) - 1)  If a cap and floor is added to this it becomes an LPI swap leg.  Compounded is used for inflation swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(T0) - 1)  i.e. the BaseCPI is used every year. These swaps are not as common as CPI or    IndexedCoupon is used for the coupon stream of an inflation-linked bond, where each period pays  Notional * FixedRate * dayCount * IndexRatio(t)  and IndexRatio(t) is CPI(t) / BaseCPI rounded to IndexPrecision, as on InflationLinkedBond.                Supported string (enumeration) values are: [ZeroCoupon, YearOnYear, Compounded, IndexedCoupon].</value>
         [DataMember(Name = "calculationType", IsRequired = true, EmitDefaultValue = true)]
         public string CalculationType { get; set; }
 
         /// <summary>
-        /// Optional cap, needed for LPI Legs or CPI Legs with Caps
+        /// Optional cap on a YearOnYear leg: each period&#39;s 12-month inflation rate is clamped to at most this rate before  the accrual fraction is applied, at any payment frequency, so an LPI leg caps each year at 5%. In the legs  form of an InflationSwap it is rejected on a ZeroCoupon, Compounded or IndexedCoupon leg, where it would clamp  the total change since the start. In the deprecated inflationLeg form a ZeroCoupon or Compounded cap keeps  clamping that total change, as today.
         /// </summary>
-        /// <value>Optional cap, needed for LPI Legs or CPI Legs with Caps</value>
+        /// <value>Optional cap on a YearOnYear leg: each period&#39;s 12-month inflation rate is clamped to at most this rate before  the accrual fraction is applied, at any payment frequency, so an LPI leg caps each year at 5%. In the legs  form of an InflationSwap it is rejected on a ZeroCoupon, Compounded or IndexedCoupon leg, where it would clamp  the total change since the start. In the deprecated inflationLeg form a ZeroCoupon or Compounded cap keeps  clamping that total change, as today.</value>
         [DataMember(Name = "capRate", EmitDefaultValue = true)]
         public decimal? CapRate { get; set; }
 
         /// <summary>
-        /// Optional floor, needed for LPI Legs or CPI Legs with Floors.
+        /// Optional floor on a YearOnYear leg: each period&#39;s 12-month inflation rate is clamped to at least this rate  before the accrual fraction is applied, at any payment frequency, so a 0% floor stops deflation being paid.  In the legs form of an InflationSwap it is rejected on a ZeroCoupon, Compounded or IndexedCoupon leg, where it  would clamp the total change since the start. In the deprecated inflationLeg form a ZeroCoupon or Compounded  floor keeps clamping that total change, as today.
         /// </summary>
-        /// <value>Optional floor, needed for LPI Legs or CPI Legs with Floors.</value>
+        /// <value>Optional floor on a YearOnYear leg: each period&#39;s 12-month inflation rate is clamped to at least this rate  before the accrual fraction is applied, at any payment frequency, so a 0% floor stops deflation being paid.  In the legs form of an InflationSwap it is rejected on a ZeroCoupon, Compounded or IndexedCoupon leg, where it  would clamp the total change since the start. In the deprecated inflationLeg form a ZeroCoupon or Compounded  floor keeps clamping that total change, as today.</value>
         [DataMember(Name = "floorRate", EmitDefaultValue = true)]
         public decimal? FloorRate { get; set; }
 
@@ -155,6 +169,55 @@ namespace Lusid.Sdk.Model
         public TimeZoneConventions TimeZoneConventions { get; set; }
 
         /// <summary>
+        /// The real coupon rate of an IndexedCoupon leg: each period pays Notional * FixedRate * dayCount * IndexRatio.  Required when CalculationType is IndexedCoupon and not allowed otherwise.
+        /// </summary>
+        /// <value>The real coupon rate of an IndexedCoupon leg: each period pays Notional * FixedRate * dayCount * IndexRatio.  Required when CalculationType is IndexedCoupon and not allowed otherwise.</value>
+        [DataMember(Name = "fixedRate", EmitDefaultValue = true)]
+        public decimal? FixedRate { get; set; }
+
+        /// <summary>
+        /// Optional date the base CPI is observed on, with the same meaning as on InflationLinkedBond: the un-lagged  date (for a bond asset swap, the bond&#39;s dated date) whose reference CPI is the base. Defaults to the StartDate.  Ignored when BaseCPI is given.
+        /// </summary>
+        /// <value>Optional date the base CPI is observed on, with the same meaning as on InflationLinkedBond: the un-lagged  date (for a bond asset swap, the bond&#39;s dated date) whose reference CPI is the base. Defaults to the StartDate.  Ignored when BaseCPI is given.</value>
+        [DataMember(Name = "baseCPIDate", EmitDefaultValue = true)]
+        public DateTimeOffset? BaseCPIDate { get; set; }
+
+        /// <summary>
+        /// Number of decimal places the IndexedCoupon index ratio is rounded to, as on InflationLinkedBond. Defaults to 5.
+        /// </summary>
+        /// <value>Number of decimal places the IndexedCoupon index ratio is rounded to, as on InflationLinkedBond. Defaults to 5.</value>
+        [DataMember(Name = "indexPrecision", EmitDefaultValue = true)]
+        public int IndexPrecision { get; set; }
+
+        /// <summary>
+        /// Whether an indexed final notional exchange is floored at par, paying max(IndexRatio, 1) times the amount, as on  InflationLinkedBond. Coupons are never floored. Defaults to true.
+        /// </summary>
+        /// <value>Whether an indexed final notional exchange is floored at par, paying max(IndexRatio, 1) times the amount, as on  InflationLinkedBond. Coupons are never floored. Defaults to true.</value>
+        [DataMember(Name = "principalProtection", EmitDefaultValue = true)]
+        public bool PrincipalProtection { get; set; }
+
+        /// <summary>
+        /// Which notional exchanges the leg makes. The start exchange pays the un-indexed amount against the leg; the  maturity exchange pays the amount times the index ratio with the leg, floored at par under PrincipalProtection.                Supported string (enumeration) values are: [None, Initial, Final, Both].  Defaults to \&quot;None\&quot; if not set.
+        /// </summary>
+        /// <value>Which notional exchanges the leg makes. The start exchange pays the un-indexed amount against the leg; the  maturity exchange pays the amount times the index ratio with the leg, floored at par under PrincipalProtection.                Supported string (enumeration) values are: [None, Initial, Final, Both].  Defaults to \&quot;None\&quot; if not set.</value>
+        [DataMember(Name = "notionalExchangeType", EmitDefaultValue = true)]
+        public string NotionalExchangeType { get; set; }
+
+        /// <summary>
+        /// The amount exchanged at the start of the leg, when NotionalExchangeType is Initial or Both. Defaults to the  notional. Never indexed. Must be non-negative.
+        /// </summary>
+        /// <value>The amount exchanged at the start of the leg, when NotionalExchangeType is Initial or Both. Defaults to the  notional. Never indexed. Must be non-negative.</value>
+        [DataMember(Name = "initialExchangeAmount", EmitDefaultValue = true)]
+        public decimal? InitialExchangeAmount { get; set; }
+
+        /// <summary>
+        /// The real amount exchanged at maturity, when NotionalExchangeType is Final or Both. Defaults to the notional.  Paid times the index ratio, floored at par under PrincipalProtection. Must be non-negative.
+        /// </summary>
+        /// <value>The real amount exchanged at maturity, when NotionalExchangeType is Final or Both. Defaults to the notional.  Paid times the index ratio, floored at par under PrincipalProtection. Must be non-negative.</value>
+        [DataMember(Name = "finalExchangeAmount", EmitDefaultValue = true)]
+        public decimal? FinalExchangeAmount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -174,6 +237,13 @@ namespace Lusid.Sdk.Model
             sb.Append("  Notional: ").Append(Notional).Append("\n");
             sb.Append("  PayReceive: ").Append(PayReceive).Append("\n");
             sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
+            sb.Append("  FixedRate: ").Append(FixedRate).Append("\n");
+            sb.Append("  BaseCPIDate: ").Append(BaseCPIDate).Append("\n");
+            sb.Append("  IndexPrecision: ").Append(IndexPrecision).Append("\n");
+            sb.Append("  PrincipalProtection: ").Append(PrincipalProtection).Append("\n");
+            sb.Append("  NotionalExchangeType: ").Append(NotionalExchangeType).Append("\n");
+            sb.Append("  InitialExchangeAmount: ").Append(InitialExchangeAmount).Append("\n");
+            sb.Append("  FinalExchangeAmount: ").Append(FinalExchangeAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -262,6 +332,39 @@ namespace Lusid.Sdk.Model
                     this.TimeZoneConventions == input.TimeZoneConventions ||
                     (this.TimeZoneConventions != null &&
                     this.TimeZoneConventions.Equals(input.TimeZoneConventions))
+                ) && base.Equals(input) && 
+                (
+                    this.FixedRate == input.FixedRate ||
+                    (this.FixedRate != null &&
+                    this.FixedRate.Equals(input.FixedRate))
+                ) && base.Equals(input) && 
+                (
+                    this.BaseCPIDate == input.BaseCPIDate ||
+                    (this.BaseCPIDate != null &&
+                    this.BaseCPIDate.Equals(input.BaseCPIDate))
+                ) && base.Equals(input) && 
+                (
+                    this.IndexPrecision == input.IndexPrecision ||
+                    this.IndexPrecision.Equals(input.IndexPrecision)
+                ) && base.Equals(input) && 
+                (
+                    this.PrincipalProtection == input.PrincipalProtection ||
+                    this.PrincipalProtection.Equals(input.PrincipalProtection)
+                ) && base.Equals(input) && 
+                (
+                    this.NotionalExchangeType == input.NotionalExchangeType ||
+                    (this.NotionalExchangeType != null &&
+                    this.NotionalExchangeType.Equals(input.NotionalExchangeType))
+                ) && base.Equals(input) && 
+                (
+                    this.InitialExchangeAmount == input.InitialExchangeAmount ||
+                    (this.InitialExchangeAmount != null &&
+                    this.InitialExchangeAmount.Equals(input.InitialExchangeAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.FinalExchangeAmount == input.FinalExchangeAmount ||
+                    (this.FinalExchangeAmount != null &&
+                    this.FinalExchangeAmount.Equals(input.FinalExchangeAmount))
                 );
         }
 
@@ -315,6 +418,28 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
                 }
+                if (this.FixedRate != null)
+                {
+                    hashCode = (hashCode * 59) + this.FixedRate.GetHashCode();
+                }
+                if (this.BaseCPIDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.BaseCPIDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IndexPrecision.GetHashCode();
+                hashCode = (hashCode * 59) + this.PrincipalProtection.GetHashCode();
+                if (this.NotionalExchangeType != null)
+                {
+                    hashCode = (hashCode * 59) + this.NotionalExchangeType.GetHashCode();
+                }
+                if (this.InitialExchangeAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.InitialExchangeAmount.GetHashCode();
+                }
+                if (this.FinalExchangeAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.FinalExchangeAmount.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -362,6 +487,18 @@ namespace Lusid.Sdk.Model
             if (this.PayReceive != null && this.PayReceive.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PayReceive, length must be greater than 0.", new [] { "PayReceive" });
+            }
+
+            // NotionalExchangeType (string) maxLength
+            if (this.NotionalExchangeType != null && this.NotionalExchangeType.Length > 32)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotionalExchangeType, length must be less than 32.", new [] { "NotionalExchangeType" });
+            }
+
+            // NotionalExchangeType (string) minLength
+            if (this.NotionalExchangeType != null && this.NotionalExchangeType.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotionalExchangeType, length must be greater than 0.", new [] { "NotionalExchangeType" });
             }
 
             yield break;

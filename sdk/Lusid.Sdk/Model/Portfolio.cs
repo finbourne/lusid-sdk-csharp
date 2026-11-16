@@ -212,9 +212,10 @@ namespace Lusid.Sdk.Model
         /// <param name="fractionalUnitsTrueUpConfiguration">fractionalUnitsTrueUpConfiguration.</param>
         /// <param name="holdingsFungibility">Whether the portfolio&#39;s holdings are fungible across the currencies of a currency group. This can be: Default or Enabled. Defaults to Default if not specified, which currently means holdings fungibility is not applied. Supply Default to explicitly reset it; a reset or never-configured flag reads back as absent. Available values: Default, Enabled..</param>
         /// <param name="chargeableGainsRegime">The chargeable gains regime the portfolio is elected into. This can be: Default or UkChargeableGains. Defaults to Default if not specified, which means no chargeable gains pooling is applied. Under UkChargeableGains, in-scope holdings (equities, preferred shares, fund share classes and simple instruments) are depleted under the UK chargeable gains rules regardless of the accounting method on the portfolio, transaction or custodian account; other holdings use the portfolio&#39;s accounting method. Supply Default to explicitly reset it; a reset or never-configured regime reads back as absent. Available values: Default, UkChargeableGains..</param>
+        /// <param name="amortisationHorizon">amortisationHorizon.</param>
         /// <param name="whtParameters">whtParameters.</param>
         /// <param name="links">links.</param>
-        public Portfolio(string href = default(string), ResourceId id = default(ResourceId), TypeEnum type = default(TypeEnum), string displayName = default(string), string description = default(string), DateTimeOffset created = default(DateTimeOffset), DateTimeOffset? enablementDate = default(DateTimeOffset?), ResourceId parentPortfolioId = default(ResourceId), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isDerived = default(bool), string baseCurrency = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), List<string> instrumentScopes = default(List<string>), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), string taxRuleSetScope = default(string), PortfolioSettlementConfiguration settlementConfiguration = default(PortfolioSettlementConfiguration), string transactionExclusionFilter = default(string), string taxLotSelectionCostBasis = default(string), FractionalUnitsTrueUpConfiguration fractionalUnitsTrueUpConfiguration = default(FractionalUnitsTrueUpConfiguration), string holdingsFungibility = default(string), string chargeableGainsRegime = default(string), WhtParameters whtParameters = default(WhtParameters), List<Link> links = default(List<Link>))
+        public Portfolio(string href = default(string), ResourceId id = default(ResourceId), TypeEnum type = default(TypeEnum), string displayName = default(string), string description = default(string), DateTimeOffset created = default(DateTimeOffset), DateTimeOffset? enablementDate = default(DateTimeOffset?), ResourceId parentPortfolioId = default(ResourceId), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isDerived = default(bool), string baseCurrency = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), List<string> instrumentScopes = default(List<string>), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), string taxRuleSetScope = default(string), PortfolioSettlementConfiguration settlementConfiguration = default(PortfolioSettlementConfiguration), string transactionExclusionFilter = default(string), string taxLotSelectionCostBasis = default(string), FractionalUnitsTrueUpConfiguration fractionalUnitsTrueUpConfiguration = default(FractionalUnitsTrueUpConfiguration), string holdingsFungibility = default(string), string chargeableGainsRegime = default(string), AmortisationHorizon amortisationHorizon = default(AmortisationHorizon), WhtParameters whtParameters = default(WhtParameters), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -254,6 +255,7 @@ namespace Lusid.Sdk.Model
             this.FractionalUnitsTrueUpConfiguration = fractionalUnitsTrueUpConfiguration;
             this.HoldingsFungibility = holdingsFungibility;
             this.ChargeableGainsRegime = chargeableGainsRegime;
+            this.AmortisationHorizon = amortisationHorizon;
             this.WhtParameters = whtParameters;
             this.Links = links;
         }
@@ -433,6 +435,12 @@ namespace Lusid.Sdk.Model
         public string ChargeableGainsRegime { get; set; }
 
         /// <summary>
+        /// Gets or Sets AmortisationHorizon
+        /// </summary>
+        [DataMember(Name = "amortisationHorizon", EmitDefaultValue = false)]
+        public AmortisationHorizon AmortisationHorizon { get; set; }
+
+        /// <summary>
         /// Gets or Sets WhtParameters
         /// </summary>
         [DataMember(Name = "whtParameters", EmitDefaultValue = false)]
@@ -480,6 +488,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  FractionalUnitsTrueUpConfiguration: ").Append(FractionalUnitsTrueUpConfiguration).Append("\n");
             sb.Append("  HoldingsFungibility: ").Append(HoldingsFungibility).Append("\n");
             sb.Append("  ChargeableGainsRegime: ").Append(ChargeableGainsRegime).Append("\n");
+            sb.Append("  AmortisationHorizon: ").Append(AmortisationHorizon).Append("\n");
             sb.Append("  WhtParameters: ").Append(WhtParameters).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -658,6 +667,11 @@ namespace Lusid.Sdk.Model
                     this.ChargeableGainsRegime.Equals(input.ChargeableGainsRegime))
                 ) && 
                 (
+                    this.AmortisationHorizon == input.AmortisationHorizon ||
+                    (this.AmortisationHorizon != null &&
+                    this.AmortisationHorizon.Equals(input.AmortisationHorizon))
+                ) && 
+                (
                     this.WhtParameters == input.WhtParameters ||
                     (this.WhtParameters != null &&
                     this.WhtParameters.Equals(input.WhtParameters))
@@ -781,6 +795,10 @@ namespace Lusid.Sdk.Model
                 if (this.ChargeableGainsRegime != null)
                 {
                     hashCode = (hashCode * 59) + this.ChargeableGainsRegime.GetHashCode();
+                }
+                if (this.AmortisationHorizon != null)
+                {
+                    hashCode = (hashCode * 59) + this.AmortisationHorizon.GetHashCode();
                 }
                 if (this.WhtParameters != null)
                 {

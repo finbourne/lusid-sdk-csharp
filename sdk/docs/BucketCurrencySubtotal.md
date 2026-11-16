@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Open** | [**BucketAmounts**](BucketAmounts.md) |  | [optional] 
 **ActivityTotal** | [**BucketAmounts**](BucketAmounts.md) |  | [optional] 
 **Close** | [**BucketAmounts**](BucketAmounts.md) |  | [optional] 
+**FxTranslation** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -24,6 +25,8 @@ BucketAmounts? activityTotal = new BucketAmounts();
 
 BucketAmounts? close = new BucketAmounts();
 
+CurrencyAndAmount? fxTranslation = new CurrencyAndAmount();
+
 List<Link> links = new List<Link>();
 
 BucketCurrencySubtotal bucketCurrencySubtotalInstance = new BucketCurrencySubtotal(
@@ -33,6 +36,7 @@ BucketCurrencySubtotal bucketCurrencySubtotalInstance = new BucketCurrencySubtot
     open: open,
     activityTotal: activityTotal,
     close: close,
+    fxTranslation: fxTranslation,
     links: links);
 ```
 

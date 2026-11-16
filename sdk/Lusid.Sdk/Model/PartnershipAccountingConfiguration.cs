@@ -46,7 +46,9 @@ namespace Lusid.Sdk.Model
         /// <param name="effectiveCapabilities">Derived on the way out; ignored on the way in..</param>
         /// <param name="presentation">presentation.</param>
         /// <param name="allocationBases">allocationBases.</param>
-        public PartnershipAccountingConfiguration(bool enabled = default(bool), ResourceId configPack = default(ResourceId), string commitmentCurrencyPolicy = default(string), ResourceId registerPortfolioGroup = default(ResourceId), string capitalModel = default(string), List<CapabilityOverride> capabilityOverrides = default(List<CapabilityOverride>), SeriesConfiguration series = default(SeriesConfiguration), Dictionary<string, string> effectiveCapabilities = default(Dictionary<string, string>), PresentationConfiguration presentation = default(PresentationConfiguration), List<AllocationBasisRule> allocationBases = default(List<AllocationBasisRule>))
+        /// <param name="allocationBucketSet">allocationBucketSet.</param>
+        /// <param name="allocationRules">On the way in, the configuration&#39;s rules or its overrides of a system set&#39;s rules; on the way out, the  effective rules the fund allocates by..</param>
+        public PartnershipAccountingConfiguration(bool enabled = default(bool), ResourceId configPack = default(ResourceId), string commitmentCurrencyPolicy = default(string), ResourceId registerPortfolioGroup = default(ResourceId), string capitalModel = default(string), List<CapabilityOverride> capabilityOverrides = default(List<CapabilityOverride>), SeriesConfiguration series = default(SeriesConfiguration), Dictionary<string, string> effectiveCapabilities = default(Dictionary<string, string>), PresentationConfiguration presentation = default(PresentationConfiguration), List<AllocationBasisRule> allocationBases = default(List<AllocationBasisRule>), string allocationBucketSet = default(string), List<AllocationRule> allocationRules = default(List<AllocationRule>))
         {
             this.Enabled = enabled;
             this.ConfigPack = configPack;
@@ -58,6 +60,8 @@ namespace Lusid.Sdk.Model
             this.EffectiveCapabilities = effectiveCapabilities;
             this.Presentation = presentation;
             this.AllocationBases = allocationBases;
+            this.AllocationBucketSet = allocationBucketSet;
+            this.AllocationRules = allocationRules;
         }
 
         /// <summary>
@@ -124,6 +128,19 @@ namespace Lusid.Sdk.Model
         public List<AllocationBasisRule> AllocationBases { get; set; }
 
         /// <summary>
+        /// Gets or Sets AllocationBucketSet
+        /// </summary>
+        [DataMember(Name = "allocationBucketSet", EmitDefaultValue = true)]
+        public string AllocationBucketSet { get; set; }
+
+        /// <summary>
+        /// On the way in, the configuration&#39;s rules or its overrides of a system set&#39;s rules; on the way out, the  effective rules the fund allocates by.
+        /// </summary>
+        /// <value>On the way in, the configuration&#39;s rules or its overrides of a system set&#39;s rules; on the way out, the  effective rules the fund allocates by.</value>
+        [DataMember(Name = "allocationRules", EmitDefaultValue = true)]
+        public List<AllocationRule> AllocationRules { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -141,6 +158,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  EffectiveCapabilities: ").Append(EffectiveCapabilities).Append("\n");
             sb.Append("  Presentation: ").Append(Presentation).Append("\n");
             sb.Append("  AllocationBases: ").Append(AllocationBases).Append("\n");
+            sb.Append("  AllocationBucketSet: ").Append(AllocationBucketSet).Append("\n");
+            sb.Append("  AllocationRules: ").Append(AllocationRules).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -227,6 +246,17 @@ namespace Lusid.Sdk.Model
                     this.AllocationBases != null &&
                     input.AllocationBases != null &&
                     this.AllocationBases.SequenceEqual(input.AllocationBases)
+                ) && 
+                (
+                    this.AllocationBucketSet == input.AllocationBucketSet ||
+                    (this.AllocationBucketSet != null &&
+                    this.AllocationBucketSet.Equals(input.AllocationBucketSet))
+                ) && 
+                (
+                    this.AllocationRules == input.AllocationRules ||
+                    this.AllocationRules != null &&
+                    input.AllocationRules != null &&
+                    this.AllocationRules.SequenceEqual(input.AllocationRules)
                 );
         }
 
@@ -276,6 +306,14 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.AllocationBases.GetHashCode();
                 }
+                if (this.AllocationBucketSet != null)
+                {
+                    hashCode = (hashCode * 59) + this.AllocationBucketSet.GetHashCode();
+                }
+                if (this.AllocationRules != null)
+                {
+                    hashCode = (hashCode * 59) + this.AllocationRules.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -287,6 +325,18 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // AllocationBucketSet (string) maxLength
+            if (this.AllocationBucketSet != null && this.AllocationBucketSet.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AllocationBucketSet, length must be less than 64.", new [] { "AllocationBucketSet" });
+            }
+
+            // AllocationBucketSet (string) minLength
+            if (this.AllocationBucketSet != null && this.AllocationBucketSet.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AllocationBucketSet, length must be greater than 1.", new [] { "AllocationBucketSet" });
+            }
+
             yield break;
         }
     }

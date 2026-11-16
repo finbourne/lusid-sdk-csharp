@@ -36,14 +36,16 @@ namespace Lusid.Sdk.Model
         /// <param name="fractionalUnitsTrueUpConfiguration">fractionalUnitsTrueUpConfiguration.</param>
         /// <param name="holdingsFungibility">Whether the portfolio&#39;s holdings are fungible across the currencies of a currency group. This can be: Default or Enabled. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. A reset or never-configured flag reads back as absent. Available values: Default, Enabled..</param>
         /// <param name="chargeableGainsRegime">The chargeable gains regime the portfolio is elected into. This can be: Default or UkChargeableGains. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. A reset or never-configured regime reads back as absent. Available values: Default, UkChargeableGains..</param>
+        /// <param name="amortisationHorizon">amortisationHorizon.</param>
         /// <param name="whtParameters">whtParameters.</param>
-        public CreatePortfolioDetails(ResourceId corporateActionSourceId = default(ResourceId), string taxLotSelectionCostBasis = default(string), FractionalUnitsTrueUpConfiguration fractionalUnitsTrueUpConfiguration = default(FractionalUnitsTrueUpConfiguration), string holdingsFungibility = default(string), string chargeableGainsRegime = default(string), WhtParameters whtParameters = default(WhtParameters))
+        public CreatePortfolioDetails(ResourceId corporateActionSourceId = default(ResourceId), string taxLotSelectionCostBasis = default(string), FractionalUnitsTrueUpConfiguration fractionalUnitsTrueUpConfiguration = default(FractionalUnitsTrueUpConfiguration), string holdingsFungibility = default(string), string chargeableGainsRegime = default(string), AmortisationHorizon amortisationHorizon = default(AmortisationHorizon), WhtParameters whtParameters = default(WhtParameters))
         {
             this.CorporateActionSourceId = corporateActionSourceId;
             this.TaxLotSelectionCostBasis = taxLotSelectionCostBasis;
             this.FractionalUnitsTrueUpConfiguration = fractionalUnitsTrueUpConfiguration;
             this.HoldingsFungibility = holdingsFungibility;
             this.ChargeableGainsRegime = chargeableGainsRegime;
+            this.AmortisationHorizon = amortisationHorizon;
             this.WhtParameters = whtParameters;
         }
 
@@ -81,6 +83,12 @@ namespace Lusid.Sdk.Model
         public string ChargeableGainsRegime { get; set; }
 
         /// <summary>
+        /// Gets or Sets AmortisationHorizon
+        /// </summary>
+        [DataMember(Name = "amortisationHorizon", EmitDefaultValue = false)]
+        public AmortisationHorizon AmortisationHorizon { get; set; }
+
+        /// <summary>
         /// Gets or Sets WhtParameters
         /// </summary>
         [DataMember(Name = "whtParameters", EmitDefaultValue = false)]
@@ -99,6 +107,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  FractionalUnitsTrueUpConfiguration: ").Append(FractionalUnitsTrueUpConfiguration).Append("\n");
             sb.Append("  HoldingsFungibility: ").Append(HoldingsFungibility).Append("\n");
             sb.Append("  ChargeableGainsRegime: ").Append(ChargeableGainsRegime).Append("\n");
+            sb.Append("  AmortisationHorizon: ").Append(AmortisationHorizon).Append("\n");
             sb.Append("  WhtParameters: ").Append(WhtParameters).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -161,6 +170,11 @@ namespace Lusid.Sdk.Model
                     this.ChargeableGainsRegime.Equals(input.ChargeableGainsRegime))
                 ) && 
                 (
+                    this.AmortisationHorizon == input.AmortisationHorizon ||
+                    (this.AmortisationHorizon != null &&
+                    this.AmortisationHorizon.Equals(input.AmortisationHorizon))
+                ) && 
+                (
                     this.WhtParameters == input.WhtParameters ||
                     (this.WhtParameters != null &&
                     this.WhtParameters.Equals(input.WhtParameters))
@@ -195,6 +209,10 @@ namespace Lusid.Sdk.Model
                 if (this.ChargeableGainsRegime != null)
                 {
                     hashCode = (hashCode * 59) + this.ChargeableGainsRegime.GetHashCode();
+                }
+                if (this.AmortisationHorizon != null)
+                {
+                    hashCode = (hashCode * 59) + this.AmortisationHorizon.GetHashCode();
                 }
                 if (this.WhtParameters != null)
                 {

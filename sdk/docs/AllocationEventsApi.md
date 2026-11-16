@@ -12,6 +12,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**GetAllocationEventReceivables**](AllocationEventsApi.md#getallocationeventreceivables) | **GET** /api/allocationevents/{scope}/{code}/receivables | [EARLY ACCESS] GetAllocationEventReceivables: Get the receivables of an Allocation Event. |
 | [**ListAllocationEvents**](AllocationEventsApi.md#listallocationevents) | **GET** /api/allocationevents | [EARLY ACCESS] ListAllocationEvents: List Allocation Events. |
 | [**ListAllocationPaymentHolds**](AllocationEventsApi.md#listallocationpaymentholds) | **GET** /api/allocationevents/{scope}/{code}/allocations/{investorRecordId}/holds | [EARLY ACCESS] ListAllocationPaymentHolds: [EARLY ACCESS] ListAllocationPaymentHolds: List the holds placed on a partner&#39;s payment. |
+| [**PayAllocationEventRefund**](AllocationEventsApi.md#payallocationeventrefund) | **POST** /api/allocationevents/{scope}/{code}/refunds | [EARLY ACCESS] PayAllocationEventRefund: Pay out a refund owed on an Allocation Event. |
 | [**PlanAllocationEventBooking**](AllocationEventsApi.md#planallocationeventbooking) | **POST** /api/allocationevents/{scope}/{code}/plan | [EARLY ACCESS] PlanAllocationEventBooking: Plan the booking of an Allocation Event. |
 | [**PutAllocationPaymentHold**](AllocationEventsApi.md#putallocationpaymenthold) | **PUT** /api/allocationevents/{scope}/{code}/allocations/{investorRecordId}/hold | [EARLY ACCESS] PutAllocationPaymentHold: [EARLY ACCESS] PutAllocationPaymentHold: Place, move or release a hold on a partner&#39;s payment. |
 | [**ReallocateAllocationEvent**](AllocationEventsApi.md#reallocateallocationevent) | **POST** /api/allocationevents/{scope}/{code}/reallocate | [EARLY ACCESS] ReallocateAllocationEvent: Reallocate an Allocation Event. |
@@ -965,6 +966,125 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The holds placed on the partner&#39;s payment. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="payallocationeventrefund"></a>
+# **PayAllocationEventRefund**
+> AllocationEvent PayAllocationEventRefund (string scope, string code, AllocationEventRefundPaymentRequest allocationEventRefundPaymentRequest, DateTimeOrCutLabel? effectiveAt = null)
+
+[EARLY ACCESS] PayAllocationEventRefund: Pay out a refund owed on an Allocation Event.
+
+Pay out part or all of the refund owed to an investor whose receipt against a booked capital call exceeded  what it owed. The cash leaves the fund against the refund payable the receipt recorded; no register balance  moves, since the excess was never paid-in capital. The amount may not exceed what is still payable, may be no  finer than the event currency's minor unit, and may not be dated before the receipt that created the payable.  Posting the same reference again returns the event unchanged.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AllocationEventsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AllocationEventsApi>();
+            var scope = "scope_example";  // string | The scope of the Allocation Event.
+            var code = "code_example";  // string | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event.
+            var allocationEventRefundPaymentRequest = new AllocationEventRefundPaymentRequest(); // AllocationEventRefundPaymentRequest | The investor, amount, date and reference of the payment.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to read the Allocation Event paying the refund. The payment is recorded on the version in force at that time, from that version's own effective date; the payment posting is dated by the request. Defaults to the current LUSID system datetime if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // AllocationEvent result = apiInstance.PayAllocationEventRefund(scope, code, allocationEventRefundPaymentRequest, effectiveAt, opts: opts);
+
+                // [EARLY ACCESS] PayAllocationEventRefund: Pay out a refund owed on an Allocation Event.
+                AllocationEvent result = apiInstance.PayAllocationEventRefund(scope, code, allocationEventRefundPaymentRequest, effectiveAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling AllocationEventsApi.PayAllocationEventRefund: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the PayAllocationEventRefundWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] PayAllocationEventRefund: Pay out a refund owed on an Allocation Event.
+    ApiResponse<AllocationEvent> response = apiInstance.PayAllocationEventRefundWithHttpInfo(scope, code, allocationEventRefundPaymentRequest, effectiveAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling AllocationEventsApi.PayAllocationEventRefundWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Allocation Event. |  |
+| **code** | **string** | The code of the Allocation Event. Together with the scope this uniquely identifies the Allocation Event. |  |
+| **allocationEventRefundPaymentRequest** | [**AllocationEventRefundPaymentRequest**](AllocationEventRefundPaymentRequest.md) | The investor, amount, date and reference of the payment. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to read the Allocation Event paying the refund. The payment is recorded on the version in force at that time, from that version&#39;s own effective date; the payment posting is dated by the request. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+
+### Return type
+
+[**AllocationEvent**](AllocationEvent.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The Allocation Event with the refund payment recorded. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

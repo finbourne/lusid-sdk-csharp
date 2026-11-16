@@ -9,8 +9,9 @@ Name | Type | Description | Notes
 **Event** | [**AllocationEventNoticeEvent**](AllocationEventNoticeEvent.md) |  | 
 **Partner** | [**AllocationEventNoticePartner**](AllocationEventNoticePartner.md) |  | 
 **Currency** | **string** | The currency the notice amounts are expressed in. | 
-**Lines** | [**List&lt;AllocationEventNoticeLine&gt;**](AllocationEventNoticeLine.md) | The notice lines, one per component of the partner&#39;s allocation. | 
-**NetAmountDue** | **decimal** | The net amount due, positive when the partner pays the fund and negative when the fund pays the partner. | 
+**Lines** | [**List&lt;AllocationEventNoticeLine&gt;**](AllocationEventNoticeLine.md) | The notice lines, one per component of the partner&#39;s allocation. Tax withheld from a distribution on the partner&#39;s behalf is its own line, under the Distribution: Withholding Tax transaction type, as part of what is distributed. | 
+**NetAmountDue** | **decimal** | The net amount due, positive when the partner pays the fund and negative when the fund pays the partner. On a distribution it is what the partner is paid: the lines less any tax withheld on the partner&#39;s behalf. | 
+**TaxWithheld** | **decimal** | Tax withheld from the distribution on the partner&#39;s behalf: distributed to the partner but paid to the tax authority rather than to them, so it is not in the net amount due. Zero when nothing was withheld. | 
 **UnfundedReconciliation** | [**AllocationEventNoticeUnfundedReconciliation**](AllocationEventNoticeUnfundedReconciliation.md) |  | 
 **Cumulative** | [**AllocationEventNoticeCumulative**](AllocationEventNoticeCumulative.md) |  | 
 **GpColumn** | [**AllocationEventNoticeCumulative**](AllocationEventNoticeCumulative.md) |  | [optional] 
@@ -27,6 +28,7 @@ AllocationEventNoticeEvent event = new AllocationEventNoticeEvent();
 AllocationEventNoticePartner partner = new AllocationEventNoticePartner();
 string currency = "currency";
 List<AllocationEventNoticeLine> lines = new List<AllocationEventNoticeLine>();decimal netAmountDue = "netAmountDue";
+decimal taxWithheld = "taxWithheld";
 
 AllocationEventNoticeUnfundedReconciliation unfundedReconciliation = new AllocationEventNoticeUnfundedReconciliation();
 AllocationEventNoticeCumulative cumulative = new AllocationEventNoticeCumulative();
@@ -45,6 +47,7 @@ AllocationEventNotice allocationEventNoticeInstance = new AllocationEventNotice(
     currency: currency,
     lines: lines,
     netAmountDue: netAmountDue,
+    taxWithheld: taxWithheld,
     unfundedReconciliation: unfundedReconciliation,
     cumulative: cumulative,
     gpColumn: gpColumn,

@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **FractionalUnitsDecimalPlaces** | **int?** | The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces. | [optional] 
 **InstructionReference** | **string** |  | [optional] 
 **AccruedInterestPerUnit** | **decimal?** | Optional per-unit interest accrued on the old bond that the offer pays in cash, on the same basis as the  cash offer price. Taken from the offer terms and never calculated. If supplied and above zero, each chosen  election that removes the old units (security, cash, cash-and-security, consent-and-exchange or mixed lot)  books one additional cash transaction per holding of units removed multiplied by this value. Bond and  complex bond instrument types only. Must be 0 or more. If left empty or 0, no accrued interest is booked. | [optional] 
+**ProrationRate** | **decimal** | The fraction of the instructed units that the offeror accepts. Defaults to 1, the whole instruction.  Must be greater than 0 and less than or equal to 1. The event removes the instructed units multiplied by  this rate from the old instrument; the new units, the cash and the cost follow the accepted units. The  units not accepted stay on the old instrument at their own cost. | [optional] [default to 1D]
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -44,7 +45,7 @@ List<AbstainElection> abstainElections = new List<AbstainElection>();
 List<UnknownProceedsElection> unknownProceedsElections = new List<UnknownProceedsElection>();
 string fractionalUnitsCashCurrency = "example fractionalUnitsCashCurrency";
 string fractionalUnitsRoundingConvention = "example fractionalUnitsRoundingConvention";
-string instructionReference = "example instructionReference";
+string instructionReference = "example instructionReference";decimal? prorationRate = "example prorationRate";
 
 ExchangeOfferEvent exchangeOfferEventInstance = new ExchangeOfferEvent(
     effectiveDate: effectiveDate,
@@ -66,7 +67,8 @@ ExchangeOfferEvent exchangeOfferEventInstance = new ExchangeOfferEvent(
     fractionalUnitsRoundingConvention: fractionalUnitsRoundingConvention,
     fractionalUnitsDecimalPlaces: fractionalUnitsDecimalPlaces,
     instructionReference: instructionReference,
-    accruedInterestPerUnit: accruedInterestPerUnit);
+    accruedInterestPerUnit: accruedInterestPerUnit,
+    prorationRate: prorationRate);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

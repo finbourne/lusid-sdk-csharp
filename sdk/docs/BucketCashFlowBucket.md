@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **ActivityTotal** | [**BucketAmounts**](BucketAmounts.md) |  | [optional] 
 **Activity** | [**List&lt;CashFlowDetail&gt;**](CashFlowDetail.md) | The cash flows in the bucket, with the attributes a cash flow has in Values. | [optional] 
 **Close** | [**BucketAmounts**](BucketAmounts.md) |  | [optional] 
+**StartingBalanceRate** | **decimal?** | The spot rate the starting balance (the holdings&#39; cash at the window start) was converted at to open the report currency balances, under a rate type other than FxSpot. Absent under FxSpot, when the starting balance is zero, or when no report currency was requested. | [optional] 
+**FxTranslation** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -33,6 +35,8 @@ BucketAmounts? activityTotal = new BucketAmounts();
 List<CashFlowDetail> activity = new List<CashFlowDetail>();
 BucketAmounts? close = new BucketAmounts();
 
+CurrencyAndAmount? fxTranslation = new CurrencyAndAmount();
+
 List<Link> links = new List<Link>();
 
 BucketCashFlowBucket bucketCashFlowBucketInstance = new BucketCashFlowBucket(
@@ -46,6 +50,8 @@ BucketCashFlowBucket bucketCashFlowBucketInstance = new BucketCashFlowBucket(
     activityTotal: activityTotal,
     activity: activity,
     close: close,
+    startingBalanceRate: startingBalanceRate,
+    fxTranslation: fxTranslation,
     links: links);
 ```
 

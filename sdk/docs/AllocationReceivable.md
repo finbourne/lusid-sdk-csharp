@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Bucket** | **string** | The ageing bucket: Current, 1-30, 31-60, 61-90 or 90+. | [optional] 
 **Portfolio** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Side** | **string** | Whether the record owes on its own line (LP) or as a feeder&#39;s roll-up on the master (ROLLUP). | [optional] 
+**RefundPayable** | **decimal** | What the fund still owes the investor record back: receipts beyond what it owed, less the refunds paid out. Zero once the event is reversed, when the reversal&#39;s own refund takes over. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -22,7 +23,7 @@ string investorRecordId = "example investorRecordId";decimal? called = "example 
 string bucket = "example bucket";
 ResourceId? portfolio = new ResourceId();
 
-string side = "example side";
+string side = "example side";decimal? refundPayable = "example refundPayable";
 
 AllocationReceivable allocationReceivableInstance = new AllocationReceivable(
     investorRecordId: investorRecordId,
@@ -32,7 +33,8 @@ AllocationReceivable allocationReceivableInstance = new AllocationReceivable(
     daysPastDue: daysPastDue,
     bucket: bucket,
     portfolio: portfolio,
-    side: side);
+    side: side,
+    refundPayable: refundPayable);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

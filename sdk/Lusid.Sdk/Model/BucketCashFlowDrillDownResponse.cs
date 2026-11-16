@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="windowStart">The window start the buckets&#39; balances run from: where the first bucket&#39;s opening balance is taken. (required).</param>
         /// <param name="buckets">One bucket per period of the schedule, per member portfolio, payment currency and sub-holding key combination, each with its  opening balance, activity and closing balance. (required).</param>
         /// <param name="currencySubtotals">The buckets summed across portfolios and sub-holding keys, one per period and payment currency. (required).</param>
-        /// <param name="issues">What the balances do not cover, for example that they are in the payment currency only and gross of haircut; absent when there is nothing to report..</param>
+        /// <param name="issues">What the balances do not cover, for example that they are gross of haircut, or that no rate was found to give them in the report currency; absent when there is nothing to report..</param>
         /// <param name="links">links.</param>
         public BucketCashFlowDrillDownResponse(string reportCurrency = default(string), DateTimeOffset windowStart = default(DateTimeOffset), List<BucketCashFlowBucket> buckets = default(List<BucketCashFlowBucket>), List<BucketCurrencySubtotal> currencySubtotals = default(List<BucketCurrencySubtotal>), List<string> issues = default(List<string>), List<Link> links = default(List<Link>))
         {
@@ -91,9 +91,9 @@ namespace Lusid.Sdk.Model
         public List<BucketCurrencySubtotal> CurrencySubtotals { get; set; }
 
         /// <summary>
-        /// What the balances do not cover, for example that they are in the payment currency only and gross of haircut; absent when there is nothing to report.
+        /// What the balances do not cover, for example that they are gross of haircut, or that no rate was found to give them in the report currency; absent when there is nothing to report.
         /// </summary>
-        /// <value>What the balances do not cover, for example that they are in the payment currency only and gross of haircut; absent when there is nothing to report.</value>
+        /// <value>What the balances do not cover, for example that they are gross of haircut, or that no rate was found to give them in the report currency; absent when there is nothing to report.</value>
         [DataMember(Name = "issues", EmitDefaultValue = true)]
         public List<string> Issues { get; set; }
 

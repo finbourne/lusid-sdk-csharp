@@ -68,8 +68,9 @@ namespace Lusid.Sdk.Model
         /// <param name="dueDate">The date the investors&#39; cash is due..</param>
         /// <param name="settlementDate">The date the postings settle. Defaults to the event date..</param>
         /// <param name="receipts">The cash received against the event, in the order it was recorded..</param>
+        /// <param name="refundPayments">The refunds paid out against the event to investors whose receipts exceeded what they owed, in the order they were recorded..</param>
         /// <param name="links">links.</param>
-        public AllocationEvent(string href = default(string), ResourceId id = default(ResourceId), string description = default(string), ResourceId allocationMapId = default(ResourceId), string eventType = default(string), decimal amount = default(decimal), string currency = default(string), DateTimeOffset eventDate = default(DateTimeOffset), string status = default(string), string basisSource = default(string), List<AllocationMapAllocation> allocations = default(List<AllocationMapAllocation>), string bookingReference = default(string), DateTimeOffset? bookedAt = default(DateTimeOffset?), string reallocationReason = default(string), List<AllocationEventComponent> components = default(List<AllocationEventComponent>), List<AllocationEventRoundingResidual> residuals = default(List<AllocationEventRoundingResidual>), AllocationEventBasisDiagnostics basisDiagnostics = default(AllocationEventBasisDiagnostics), List<string> writtenIds = default(List<string>), List<AllocationEventBookingError> bookingErrors = default(List<AllocationEventBookingError>), List<AllocationEventBookingWarning> warnings = default(List<AllocationEventBookingWarning>), List<AllocationEventTransfer> transfers = default(List<AllocationEventTransfer>), AllocationEventEqualisation equalisation = default(AllocationEventEqualisation), List<AllocationEventUseOfProceeds> useOfProceeds = default(List<AllocationEventUseOfProceeds>), AllocationEventDealFunding dealFunding = default(AllocationEventDealFunding), ModelVersion varVersion = default(ModelVersion), ResourceId parentAllocationEventId = default(ResourceId), ResourceId replaces = default(ResourceId), AllocationEventReversal reversal = default(AllocationEventReversal), DateTimeOffset? noticeDate = default(DateTimeOffset?), DateTimeOffset? dueDate = default(DateTimeOffset?), DateTimeOffset? settlementDate = default(DateTimeOffset?), List<AllocationEventReceipt> receipts = default(List<AllocationEventReceipt>), List<Link> links = default(List<Link>))
+        public AllocationEvent(string href = default(string), ResourceId id = default(ResourceId), string description = default(string), ResourceId allocationMapId = default(ResourceId), string eventType = default(string), decimal amount = default(decimal), string currency = default(string), DateTimeOffset eventDate = default(DateTimeOffset), string status = default(string), string basisSource = default(string), List<AllocationMapAllocation> allocations = default(List<AllocationMapAllocation>), string bookingReference = default(string), DateTimeOffset? bookedAt = default(DateTimeOffset?), string reallocationReason = default(string), List<AllocationEventComponent> components = default(List<AllocationEventComponent>), List<AllocationEventRoundingResidual> residuals = default(List<AllocationEventRoundingResidual>), AllocationEventBasisDiagnostics basisDiagnostics = default(AllocationEventBasisDiagnostics), List<string> writtenIds = default(List<string>), List<AllocationEventBookingError> bookingErrors = default(List<AllocationEventBookingError>), List<AllocationEventBookingWarning> warnings = default(List<AllocationEventBookingWarning>), List<AllocationEventTransfer> transfers = default(List<AllocationEventTransfer>), AllocationEventEqualisation equalisation = default(AllocationEventEqualisation), List<AllocationEventUseOfProceeds> useOfProceeds = default(List<AllocationEventUseOfProceeds>), AllocationEventDealFunding dealFunding = default(AllocationEventDealFunding), ModelVersion varVersion = default(ModelVersion), ResourceId parentAllocationEventId = default(ResourceId), ResourceId replaces = default(ResourceId), AllocationEventReversal reversal = default(AllocationEventReversal), DateTimeOffset? noticeDate = default(DateTimeOffset?), DateTimeOffset? dueDate = default(DateTimeOffset?), DateTimeOffset? settlementDate = default(DateTimeOffset?), List<AllocationEventReceipt> receipts = default(List<AllocationEventReceipt>), List<AllocationEventRefundPayment> refundPayments = default(List<AllocationEventRefundPayment>), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -133,6 +134,7 @@ namespace Lusid.Sdk.Model
             this.DueDate = dueDate;
             this.SettlementDate = settlementDate;
             this.Receipts = receipts;
+            this.RefundPayments = refundPayments;
             this.Links = links;
         }
 
@@ -352,6 +354,13 @@ namespace Lusid.Sdk.Model
         public List<AllocationEventReceipt> Receipts { get; set; }
 
         /// <summary>
+        /// The refunds paid out against the event to investors whose receipts exceeded what they owed, in the order they were recorded.
+        /// </summary>
+        /// <value>The refunds paid out against the event to investors whose receipts exceeded what they owed, in the order they were recorded.</value>
+        [DataMember(Name = "refundPayments", EmitDefaultValue = true)]
+        public List<AllocationEventRefundPayment> RefundPayments { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -397,6 +406,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DueDate: ").Append(DueDate).Append("\n");
             sb.Append("  SettlementDate: ").Append(SettlementDate).Append("\n");
             sb.Append("  Receipts: ").Append(Receipts).Append("\n");
+            sb.Append("  RefundPayments: ").Append(RefundPayments).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -602,6 +612,12 @@ namespace Lusid.Sdk.Model
                     this.Receipts.SequenceEqual(input.Receipts)
                 ) && 
                 (
+                    this.RefundPayments == input.RefundPayments ||
+                    this.RefundPayments != null &&
+                    input.RefundPayments != null &&
+                    this.RefundPayments.SequenceEqual(input.RefundPayments)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -742,6 +758,10 @@ namespace Lusid.Sdk.Model
                 if (this.Receipts != null)
                 {
                     hashCode = (hashCode * 59) + this.Receipts.GetHashCode();
+                }
+                if (this.RefundPayments != null)
+                {
+                    hashCode = (hashCode * 59) + this.RefundPayments.GetHashCode();
                 }
                 if (this.Links != null)
                 {

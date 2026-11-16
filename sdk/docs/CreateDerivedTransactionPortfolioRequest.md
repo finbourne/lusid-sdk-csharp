@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **FractionalUnitsTrueUpConfiguration** | [**FractionalUnitsTrueUpConfiguration**](FractionalUnitsTrueUpConfiguration.md) |  | [optional] 
 **HoldingsFungibility** | **string** | Whether the portfolio&#39;s holdings are fungible across the currencies of a currency group. This can be: Default or Enabled. Defaults to Default if not specified, which currently means holdings fungibility is not applied. Supply Default to explicitly reset it; a reset or never-configured flag reads back as absent. Available values: Default, Enabled. | [optional] 
 **ChargeableGainsRegime** | **string** | The chargeable gains regime the portfolio is elected into. This can be: Default or UkChargeableGains. Defaults to Default if not specified, which means no chargeable gains pooling is applied. Under UkChargeableGains, in-scope holdings (equities, preferred shares, fund share classes and simple instruments) are depleted under the UK chargeable gains rules regardless of the accounting method on the portfolio, transaction or custodian account; other holdings use the portfolio&#39;s accounting method. Supply Default to explicitly reset it; a reset or never-configured regime reads back as absent. Available values: Default, UkChargeableGains. | [optional] 
+**AmortisationHorizon** | [**AmortisationHorizon**](AmortisationHorizon.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -54,6 +55,8 @@ FractionalUnitsTrueUpConfiguration? fractionalUnitsTrueUpConfiguration = new Fra
 
 string holdingsFungibility = "example holdingsFungibility";
 string chargeableGainsRegime = "example chargeableGainsRegime";
+AmortisationHorizon? amortisationHorizon = new AmortisationHorizon();
+
 
 CreateDerivedTransactionPortfolioRequest createDerivedTransactionPortfolioRequestInstance = new CreateDerivedTransactionPortfolioRequest(
     displayName: displayName,
@@ -76,7 +79,8 @@ CreateDerivedTransactionPortfolioRequest createDerivedTransactionPortfolioReques
     taxLotSelectionCostBasis: taxLotSelectionCostBasis,
     fractionalUnitsTrueUpConfiguration: fractionalUnitsTrueUpConfiguration,
     holdingsFungibility: holdingsFungibility,
-    chargeableGainsRegime: chargeableGainsRegime);
+    chargeableGainsRegime: chargeableGainsRegime,
+    amortisationHorizon: amortisationHorizon);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

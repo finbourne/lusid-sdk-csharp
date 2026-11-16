@@ -42,10 +42,13 @@ namespace Lusid.Sdk.Model
         /// <param name="navTypeCode">The NAV type to allocate under. Defaults to the fund&#39;s primary NAV type. (required).</param>
         /// <param name="status">The outcome of the run. Available values: Computed, Booked, DryRun. (required).</param>
         /// <param name="runId">The identifier of the run, which prefixes every transaction it books. (required).</param>
-        /// <param name="pools">The pools of fund-level amount that were allocated. (required).</param>
-        /// <param name="unattributed">Fund-level amounts that no pool claimed. (required).</param>
+        /// <param name="pools">The pools of fund-level amount that were allocated, in the allocation bucket set&#39;s bucket order with any tag pools after. (required).</param>
+        /// <param name="unattributed">Always empty: every profit and loss line is now pooled or the run is refused. Kept for one release. (required).</param>
         /// <param name="bookedTransactionIds">The identifiers of the transactions the run booked, if any. (required).</param>
-        public PartnerAllocationRunResult(ResourceId fundId = default(ResourceId), DateTimeOffset periodStart = default(DateTimeOffset), DateTimeOffset periodEnd = default(DateTimeOffset), string navTypeCode = default(string), string status = default(string), string runId = default(string), List<PartnerAllocationPool> pools = default(List<PartnerAllocationPool>), List<UnattributedAmount> unattributed = default(List<UnattributedAmount>), List<string> bookedTransactionIds = default(List<string>))
+        /// <param name="warnings">What the run noticed but did not refuse, for example an excluded investor record that is not on the register at the period end..</param>
+        /// <param name="ignoredTags">The distribution character tags the run did not pool by, by account..</param>
+        /// <param name="accruedFees">The management fees accrued per partner in the period, which the accrual allocates and the run therefore leaves out of the pools..</param>
+        public PartnerAllocationRunResult(ResourceId fundId = default(ResourceId), DateTimeOffset periodStart = default(DateTimeOffset), DateTimeOffset periodEnd = default(DateTimeOffset), string navTypeCode = default(string), string status = default(string), string runId = default(string), List<PartnerAllocationPool> pools = default(List<PartnerAllocationPool>), List<UnattributedAmount> unattributed = default(List<UnattributedAmount>), List<string> bookedTransactionIds = default(List<string>), List<string> warnings = default(List<string>), List<IgnoredDistributionTag> ignoredTags = default(List<IgnoredDistributionTag>), List<AccruedFeeLine> accruedFees = default(List<AccruedFeeLine>))
         {
             // to ensure "fundId" is required (not null)
             if (fundId == null)
@@ -91,6 +94,9 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("bookedTransactionIds is a required property for PartnerAllocationRunResult and cannot be null");
             }
             this.BookedTransactionIds = bookedTransactionIds;
+            this.Warnings = warnings;
+            this.IgnoredTags = ignoredTags;
+            this.AccruedFees = accruedFees;
         }
 
         /// <summary>
@@ -135,16 +141,16 @@ namespace Lusid.Sdk.Model
         public string RunId { get; set; }
 
         /// <summary>
-        /// The pools of fund-level amount that were allocated.
+        /// The pools of fund-level amount that were allocated, in the allocation bucket set&#39;s bucket order with any tag pools after.
         /// </summary>
-        /// <value>The pools of fund-level amount that were allocated.</value>
+        /// <value>The pools of fund-level amount that were allocated, in the allocation bucket set&#39;s bucket order with any tag pools after.</value>
         [DataMember(Name = "pools", IsRequired = true, EmitDefaultValue = true)]
         public List<PartnerAllocationPool> Pools { get; set; }
 
         /// <summary>
-        /// Fund-level amounts that no pool claimed.
+        /// Always empty: every profit and loss line is now pooled or the run is refused. Kept for one release.
         /// </summary>
-        /// <value>Fund-level amounts that no pool claimed.</value>
+        /// <value>Always empty: every profit and loss line is now pooled or the run is refused. Kept for one release.</value>
         [DataMember(Name = "unattributed", IsRequired = true, EmitDefaultValue = true)]
         public List<UnattributedAmount> Unattributed { get; set; }
 
@@ -154,6 +160,27 @@ namespace Lusid.Sdk.Model
         /// <value>The identifiers of the transactions the run booked, if any.</value>
         [DataMember(Name = "bookedTransactionIds", IsRequired = true, EmitDefaultValue = true)]
         public List<string> BookedTransactionIds { get; set; }
+
+        /// <summary>
+        /// What the run noticed but did not refuse, for example an excluded investor record that is not on the register at the period end.
+        /// </summary>
+        /// <value>What the run noticed but did not refuse, for example an excluded investor record that is not on the register at the period end.</value>
+        [DataMember(Name = "warnings", EmitDefaultValue = true)]
+        public List<string> Warnings { get; set; }
+
+        /// <summary>
+        /// The distribution character tags the run did not pool by, by account.
+        /// </summary>
+        /// <value>The distribution character tags the run did not pool by, by account.</value>
+        [DataMember(Name = "ignoredTags", EmitDefaultValue = true)]
+        public List<IgnoredDistributionTag> IgnoredTags { get; set; }
+
+        /// <summary>
+        /// The management fees accrued per partner in the period, which the accrual allocates and the run therefore leaves out of the pools.
+        /// </summary>
+        /// <value>The management fees accrued per partner in the period, which the accrual allocates and the run therefore leaves out of the pools.</value>
+        [DataMember(Name = "accruedFees", EmitDefaultValue = true)]
+        public List<AccruedFeeLine> AccruedFees { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -172,6 +199,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  Pools: ").Append(Pools).Append("\n");
             sb.Append("  Unattributed: ").Append(Unattributed).Append("\n");
             sb.Append("  BookedTransactionIds: ").Append(BookedTransactionIds).Append("\n");
+            sb.Append("  Warnings: ").Append(Warnings).Append("\n");
+            sb.Append("  IgnoredTags: ").Append(IgnoredTags).Append("\n");
+            sb.Append("  AccruedFees: ").Append(AccruedFees).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -254,6 +284,24 @@ namespace Lusid.Sdk.Model
                     this.BookedTransactionIds != null &&
                     input.BookedTransactionIds != null &&
                     this.BookedTransactionIds.SequenceEqual(input.BookedTransactionIds)
+                ) && 
+                (
+                    this.Warnings == input.Warnings ||
+                    this.Warnings != null &&
+                    input.Warnings != null &&
+                    this.Warnings.SequenceEqual(input.Warnings)
+                ) && 
+                (
+                    this.IgnoredTags == input.IgnoredTags ||
+                    this.IgnoredTags != null &&
+                    input.IgnoredTags != null &&
+                    this.IgnoredTags.SequenceEqual(input.IgnoredTags)
+                ) && 
+                (
+                    this.AccruedFees == input.AccruedFees ||
+                    this.AccruedFees != null &&
+                    input.AccruedFees != null &&
+                    this.AccruedFees.SequenceEqual(input.AccruedFees)
                 );
         }
 
@@ -301,6 +349,18 @@ namespace Lusid.Sdk.Model
                 if (this.BookedTransactionIds != null)
                 {
                     hashCode = (hashCode * 59) + this.BookedTransactionIds.GetHashCode();
+                }
+                if (this.Warnings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
+                }
+                if (this.IgnoredTags != null)
+                {
+                    hashCode = (hashCode * 59) + this.IgnoredTags.GetHashCode();
+                }
+                if (this.AccruedFees != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccruedFees.GetHashCode();
                 }
                 return hashCode;
             }

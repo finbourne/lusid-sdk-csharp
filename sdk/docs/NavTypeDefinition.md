@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **NotionalDealingCostTableId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **ValuationTemplateId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **ChargeableGainsRegime** | **string** | The chargeable gains regime the Nav Type&#39;s derived portfolio is elected into. This can be: Default or UkChargeableGains. Omit it, or supply Default, to leave the derived portfolio inheriting its parent portfolio&#39;s regime. Under UkChargeableGains, in-scope holdings in the derived portfolio are depleted under the UK chargeable gains rules regardless of the Nav Type&#39;s accounting method; it requires the Fund&#39;s base currency to be GBP. Available values: Default, UkChargeableGains. | [optional] 
+**CashCostReliefMethod** | **string** | How this Nav Type relieves base cost when a cash position&#39;s local balance reduces towards zero. This can be: AverageCost or SettlementAmount. Omit it, or supply AverageCost, and a cash disposal releases the position&#39;s average base cost and posts the difference to the contra leg as realised FX on the settlement date. Under SettlementAmount, a cash disposal releases the base amount at which the contra leg of the same transaction is posted, so the settlement nets to nil in base currency and no realised FX is posted on the cash leg; the cash position then carries the unrecognised FX in its base cost until the deemed exposure event recognises it. It cannot be combined with calculateTradeDateToSettlementFxPnL, whether set on the Nav Type&#39;s settlement configuration or inherited from a portfolio&#39;s; a valuation point on the Nav Type fails while a transaction type in its scope turns calculateTradeDateToSettlementFxPnL on for a movement; and it can be changed on an existing Nav Type only while the Nav Type has no positions. Available values: AverageCost, SettlementAmount. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -59,6 +60,7 @@ ResourceId? notionalDealingCostTableId = new ResourceId();
 ResourceId? valuationTemplateId = new ResourceId();
 
 string chargeableGainsRegime = "example chargeableGainsRegime";
+string cashCostReliefMethod = "example cashCostReliefMethod";
 
 NavTypeDefinition navTypeDefinitionInstance = new NavTypeDefinition(
     code: code,
@@ -83,7 +85,8 @@ NavTypeDefinition navTypeDefinitionInstance = new NavTypeDefinition(
     swingPricing: swingPricing,
     notionalDealingCostTableId: notionalDealingCostTableId,
     valuationTemplateId: valuationTemplateId,
-    chargeableGainsRegime: chargeableGainsRegime);
+    chargeableGainsRegime: chargeableGainsRegime,
+    cashCostReliefMethod: cashCostReliefMethod);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

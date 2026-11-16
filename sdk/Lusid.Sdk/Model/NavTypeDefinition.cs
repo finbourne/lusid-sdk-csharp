@@ -59,7 +59,8 @@ namespace Lusid.Sdk.Model
         /// <param name="notionalDealingCostTableId">notionalDealingCostTableId.</param>
         /// <param name="valuationTemplateId">valuationTemplateId.</param>
         /// <param name="chargeableGainsRegime">The chargeable gains regime the Nav Type&#39;s derived portfolio is elected into. This can be: Default or UkChargeableGains. Omit it, or supply Default, to leave the derived portfolio inheriting its parent portfolio&#39;s regime. Under UkChargeableGains, in-scope holdings in the derived portfolio are depleted under the UK chargeable gains rules regardless of the Nav Type&#39;s accounting method; it requires the Fund&#39;s base currency to be GBP. Available values: Default, UkChargeableGains..</param>
-        public NavTypeDefinition(string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), NavSettlementConfiguration settlementConfiguration = default(NavSettlementConfiguration), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), ResourceId amortisationRuleSetId = default(ResourceId), string leaderNavTypeCode = default(string), string transactionTemplateScope = default(string), string transactionExclusionFilter = default(string), string pricingBasis = default(string), SwingPricingRule swingPricing = default(SwingPricingRule), ResourceId notionalDealingCostTableId = default(ResourceId), ResourceId valuationTemplateId = default(ResourceId), string chargeableGainsRegime = default(string))
+        /// <param name="cashCostReliefMethod">How this Nav Type relieves base cost when a cash position&#39;s local balance reduces towards zero. This can be: AverageCost or SettlementAmount. Omit it, or supply AverageCost, and a cash disposal releases the position&#39;s average base cost and posts the difference to the contra leg as realised FX on the settlement date. Under SettlementAmount, a cash disposal releases the base amount at which the contra leg of the same transaction is posted, so the settlement nets to nil in base currency and no realised FX is posted on the cash leg; the cash position then carries the unrecognised FX in its base cost until the deemed exposure event recognises it. It cannot be combined with calculateTradeDateToSettlementFxPnL, whether set on the Nav Type&#39;s settlement configuration or inherited from a portfolio&#39;s; a valuation point on the Nav Type fails while a transaction type in its scope turns calculateTradeDateToSettlementFxPnL on for a movement; and it can be changed on an existing Nav Type only while the Nav Type has no positions. Available values: AverageCost, SettlementAmount..</param>
+        public NavTypeDefinition(string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), NavSettlementConfiguration settlementConfiguration = default(NavSettlementConfiguration), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), ResourceId amortisationRuleSetId = default(ResourceId), string leaderNavTypeCode = default(string), string transactionTemplateScope = default(string), string transactionExclusionFilter = default(string), string pricingBasis = default(string), SwingPricingRule swingPricing = default(SwingPricingRule), ResourceId notionalDealingCostTableId = default(ResourceId), ResourceId valuationTemplateId = default(ResourceId), string chargeableGainsRegime = default(string), string cashCostReliefMethod = default(string))
         {
             // to ensure "chartOfAccountsId" is required (not null)
             if (chartOfAccountsId == null)
@@ -129,6 +130,7 @@ namespace Lusid.Sdk.Model
             this.NotionalDealingCostTableId = notionalDealingCostTableId;
             this.ValuationTemplateId = valuationTemplateId;
             this.ChargeableGainsRegime = chargeableGainsRegime;
+            this.CashCostReliefMethod = cashCostReliefMethod;
         }
 
         /// <summary>
@@ -285,6 +287,13 @@ namespace Lusid.Sdk.Model
         public string ChargeableGainsRegime { get; set; }
 
         /// <summary>
+        /// How this Nav Type relieves base cost when a cash position&#39;s local balance reduces towards zero. This can be: AverageCost or SettlementAmount. Omit it, or supply AverageCost, and a cash disposal releases the position&#39;s average base cost and posts the difference to the contra leg as realised FX on the settlement date. Under SettlementAmount, a cash disposal releases the base amount at which the contra leg of the same transaction is posted, so the settlement nets to nil in base currency and no realised FX is posted on the cash leg; the cash position then carries the unrecognised FX in its base cost until the deemed exposure event recognises it. It cannot be combined with calculateTradeDateToSettlementFxPnL, whether set on the Nav Type&#39;s settlement configuration or inherited from a portfolio&#39;s; a valuation point on the Nav Type fails while a transaction type in its scope turns calculateTradeDateToSettlementFxPnL on for a movement; and it can be changed on an existing Nav Type only while the Nav Type has no positions. Available values: AverageCost, SettlementAmount.
+        /// </summary>
+        /// <value>How this Nav Type relieves base cost when a cash position&#39;s local balance reduces towards zero. This can be: AverageCost or SettlementAmount. Omit it, or supply AverageCost, and a cash disposal releases the position&#39;s average base cost and posts the difference to the contra leg as realised FX on the settlement date. Under SettlementAmount, a cash disposal releases the base amount at which the contra leg of the same transaction is posted, so the settlement nets to nil in base currency and no realised FX is posted on the cash leg; the cash position then carries the unrecognised FX in its base cost until the deemed exposure event recognises it. It cannot be combined with calculateTradeDateToSettlementFxPnL, whether set on the Nav Type&#39;s settlement configuration or inherited from a portfolio&#39;s; a valuation point on the Nav Type fails while a transaction type in its scope turns calculateTradeDateToSettlementFxPnL on for a movement; and it can be changed on an existing Nav Type only while the Nav Type has no positions. Available values: AverageCost, SettlementAmount.</value>
+        [DataMember(Name = "cashCostReliefMethod", EmitDefaultValue = true)]
+        public string CashCostReliefMethod { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -315,6 +324,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  NotionalDealingCostTableId: ").Append(NotionalDealingCostTableId).Append("\n");
             sb.Append("  ValuationTemplateId: ").Append(ValuationTemplateId).Append("\n");
             sb.Append("  ChargeableGainsRegime: ").Append(ChargeableGainsRegime).Append("\n");
+            sb.Append("  CashCostReliefMethod: ").Append(CashCostReliefMethod).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -467,6 +477,11 @@ namespace Lusid.Sdk.Model
                     this.ChargeableGainsRegime == input.ChargeableGainsRegime ||
                     (this.ChargeableGainsRegime != null &&
                     this.ChargeableGainsRegime.Equals(input.ChargeableGainsRegime))
+                ) && 
+                (
+                    this.CashCostReliefMethod == input.CashCostReliefMethod ||
+                    (this.CashCostReliefMethod != null &&
+                    this.CashCostReliefMethod.Equals(input.CashCostReliefMethod))
                 );
         }
 
@@ -570,6 +585,10 @@ namespace Lusid.Sdk.Model
                 if (this.ChargeableGainsRegime != null)
                 {
                     hashCode = (hashCode * 59) + this.ChargeableGainsRegime.GetHashCode();
+                }
+                if (this.CashCostReliefMethod != null)
+                {
+                    hashCode = (hashCode * 59) + this.CashCostReliefMethod.GetHashCode();
                 }
                 return hashCode;
             }

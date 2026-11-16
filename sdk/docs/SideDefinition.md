@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **NotionalAmount** | **string** | The value, field or property key defining the side&#39;s notional amount | [optional] 
 **CurrentFace** | **string** | The value, field or property key defining the side&#39;s current face / outstanding notional. | [optional] 
 **Scope** | **string** | The scope in which the side definition exists. | [optional] 
+**Metadata** | **Dictionary&lt;string, List&lt;ResponseMetaData&gt;&gt;** | Contains warnings related to the side definition, such as a stored copy of a platform side that differs from the platform&#39;s current definition. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -28,6 +29,7 @@ string amount = "amount";
 string notionalAmount = "example notionalAmount";
 string currentFace = "example currentFace";
 string scope = "example scope";
+Dictionary<string, List<ResponseMetaData>> metadata = new Dictionary<string, List<ResponseMetaData>>();
 List<Link> links = new List<Link>();
 
 SideDefinition sideDefinitionInstance = new SideDefinition(
@@ -40,6 +42,7 @@ SideDefinition sideDefinitionInstance = new SideDefinition(
     notionalAmount: notionalAmount,
     currentFace: currentFace,
     scope: scope,
+    metadata: metadata,
     links: links);
 ```
 

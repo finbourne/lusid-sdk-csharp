@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **EffectiveCapabilities** | **Dictionary&lt;string, string&gt;** | Derived on the way out; ignored on the way in. | [optional] 
 **Presentation** | [**PresentationConfiguration**](PresentationConfiguration.md) |  | [optional] 
 **AllocationBases** | [**List&lt;AllocationBasisRule&gt;**](AllocationBasisRule.md) |  | [optional] 
+**AllocationBucketSet** | **string** |  | [optional] 
+**AllocationRules** | [**List&lt;AllocationRule&gt;**](AllocationRule.md) | On the way in, the configuration&#39;s rules or its overrides of a system set&#39;s rules; on the way out, the  effective rules the fund allocates by. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -33,6 +35,8 @@ Dictionary<string, string> effectiveCapabilities = new Dictionary<string, string
 PresentationConfiguration? presentation = new PresentationConfiguration();
 
 List<AllocationBasisRule> allocationBases = new List<AllocationBasisRule>();
+string allocationBucketSet = "example allocationBucketSet";
+List<AllocationRule> allocationRules = new List<AllocationRule>();
 
 PartnershipAccountingConfiguration partnershipAccountingConfigurationInstance = new PartnershipAccountingConfiguration(
     enabled: enabled,
@@ -44,7 +48,9 @@ PartnershipAccountingConfiguration partnershipAccountingConfigurationInstance = 
     series: series,
     effectiveCapabilities: effectiveCapabilities,
     presentation: presentation,
-    allocationBases: allocationBases);
+    allocationBases: allocationBases,
+    allocationBucketSet: allocationBucketSet,
+    allocationRules: allocationRules);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

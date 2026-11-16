@@ -167,7 +167,8 @@ namespace Lusid.Sdk.Model
         /// <param name="fractionalUnitsTrueUpConfiguration">fractionalUnitsTrueUpConfiguration.</param>
         /// <param name="holdingsFungibility">Whether the portfolio&#39;s holdings are fungible across the currencies of a currency group. This can be: Default or Enabled. Defaults to Default if not specified, which currently means holdings fungibility is not applied. Supply Default to explicitly reset it; a reset or never-configured flag reads back as absent. Available values: Default, Enabled..</param>
         /// <param name="chargeableGainsRegime">The chargeable gains regime the portfolio is elected into. This can be: Default or UkChargeableGains. Defaults to Default if not specified, which means no chargeable gains pooling is applied. Under UkChargeableGains, in-scope holdings (equities, preferred shares, fund share classes and simple instruments) are depleted under the UK chargeable gains rules regardless of the accounting method on the portfolio, transaction or custodian account; other holdings use the portfolio&#39;s accounting method. Supply Default to explicitly reset it; a reset or never-configured regime reads back as absent. Available values: Default, UkChargeableGains..</param>
-        public CreateDerivedTransactionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), ResourceId parentPortfolioId = default(ResourceId), DateTimeOffset? created = default(DateTimeOffset?), DateTimeOffset? enablementDate = default(DateTimeOffset?), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), ResourceId amortisationRuleSetId = default(ResourceId), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), PortfolioSettlementConfiguration settlementConfiguration = default(PortfolioSettlementConfiguration), string transactionExclusionFilter = default(string), string taxLotSelectionCostBasis = default(string), FractionalUnitsTrueUpConfiguration fractionalUnitsTrueUpConfiguration = default(FractionalUnitsTrueUpConfiguration), string holdingsFungibility = default(string), string chargeableGainsRegime = default(string))
+        /// <param name="amortisationHorizon">amortisationHorizon.</param>
+        public CreateDerivedTransactionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), ResourceId parentPortfolioId = default(ResourceId), DateTimeOffset? created = default(DateTimeOffset?), DateTimeOffset? enablementDate = default(DateTimeOffset?), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), ResourceId amortisationRuleSetId = default(ResourceId), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), PortfolioSettlementConfiguration settlementConfiguration = default(PortfolioSettlementConfiguration), string transactionExclusionFilter = default(string), string taxLotSelectionCostBasis = default(string), FractionalUnitsTrueUpConfiguration fractionalUnitsTrueUpConfiguration = default(FractionalUnitsTrueUpConfiguration), string holdingsFungibility = default(string), string chargeableGainsRegime = default(string), AmortisationHorizon amortisationHorizon = default(AmortisationHorizon))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -205,6 +206,7 @@ namespace Lusid.Sdk.Model
             this.FractionalUnitsTrueUpConfiguration = fractionalUnitsTrueUpConfiguration;
             this.HoldingsFungibility = holdingsFungibility;
             this.ChargeableGainsRegime = chargeableGainsRegime;
+            this.AmortisationHorizon = amortisationHorizon;
         }
 
         /// <summary>
@@ -342,6 +344,12 @@ namespace Lusid.Sdk.Model
         public string ChargeableGainsRegime { get; set; }
 
         /// <summary>
+        /// Gets or Sets AmortisationHorizon
+        /// </summary>
+        [DataMember(Name = "amortisationHorizon", EmitDefaultValue = false)]
+        public AmortisationHorizon AmortisationHorizon { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -370,6 +378,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  FractionalUnitsTrueUpConfiguration: ").Append(FractionalUnitsTrueUpConfiguration).Append("\n");
             sb.Append("  HoldingsFungibility: ").Append(HoldingsFungibility).Append("\n");
             sb.Append("  ChargeableGainsRegime: ").Append(ChargeableGainsRegime).Append("\n");
+            sb.Append("  AmortisationHorizon: ").Append(AmortisationHorizon).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -510,6 +519,11 @@ namespace Lusid.Sdk.Model
                     this.ChargeableGainsRegime == input.ChargeableGainsRegime ||
                     (this.ChargeableGainsRegime != null &&
                     this.ChargeableGainsRegime.Equals(input.ChargeableGainsRegime))
+                ) && 
+                (
+                    this.AmortisationHorizon == input.AmortisationHorizon ||
+                    (this.AmortisationHorizon != null &&
+                    this.AmortisationHorizon.Equals(input.AmortisationHorizon))
                 );
         }
 
@@ -602,6 +616,10 @@ namespace Lusid.Sdk.Model
                 if (this.ChargeableGainsRegime != null)
                 {
                     hashCode = (hashCode * 59) + this.ChargeableGainsRegime.GetHashCode();
+                }
+                if (this.AmortisationHorizon != null)
+                {
+                    hashCode = (hashCode * 59) + this.AmortisationHorizon.GetHashCode();
                 }
                 return hashCode;
             }

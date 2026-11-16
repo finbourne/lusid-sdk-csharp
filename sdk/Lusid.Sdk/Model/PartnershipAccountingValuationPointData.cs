@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The partnership accounting view of a valuation point: what is left on the income summary to allocate to the  partners, and the configuration pack the allocation books under.
+    /// The partnership accounting view of a valuation point: what is left on the income summary to allocate to the  partners, the configuration pack the allocation books under and, when the period cannot be allocated as it  stands, why.
     /// </summary>
     [DataContract(Name = "PartnershipAccountingValuationPointData")]
     public partial class PartnershipAccountingValuationPointData : IEquatable<PartnershipAccountingValuationPointData>, IValidatableObject
@@ -36,10 +36,11 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PartnershipAccountingValuationPointData" /> class.
         /// </summary>
-        /// <param name="unallocatedIncomeSummary">The profit and loss of the valuation point&#39;s period that has not yet been allocated to the partners: what the period&#39;s income, gain and expense lines would pool, less what the partner allocation has posted for the period. Must be zero before the valuation point can be finalised. (required).</param>
+        /// <param name="unallocatedIncomeSummary">The profit and loss of the valuation point&#39;s period that has not yet been allocated to the partners: what the period&#39;s profit and loss lines, as the allocation bucket set classifies them, would pool, less what the partner allocation has posted for the period. Lines no bucket claims count as unallocated. Must be zero before the valuation point can be finalised. (required).</param>
         /// <param name="configPackScope">The scope of the configuration pack. (required).</param>
         /// <param name="configPackCode">The code of the configuration pack. (required).</param>
-        public PartnershipAccountingValuationPointData(decimal unallocatedIncomeSummary = default(decimal), string configPackScope = default(string), string configPackCode = default(string))
+        /// <param name="allocationProblem">allocationProblem.</param>
+        public PartnershipAccountingValuationPointData(decimal unallocatedIncomeSummary = default(decimal), string configPackScope = default(string), string configPackCode = default(string), PartnershipAllocationProblem allocationProblem = default(PartnershipAllocationProblem))
         {
             this.UnallocatedIncomeSummary = unallocatedIncomeSummary;
             // to ensure "configPackScope" is required (not null)
@@ -54,12 +55,13 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("configPackCode is a required property for PartnershipAccountingValuationPointData and cannot be null");
             }
             this.ConfigPackCode = configPackCode;
+            this.AllocationProblem = allocationProblem;
         }
 
         /// <summary>
-        /// The profit and loss of the valuation point&#39;s period that has not yet been allocated to the partners: what the period&#39;s income, gain and expense lines would pool, less what the partner allocation has posted for the period. Must be zero before the valuation point can be finalised.
+        /// The profit and loss of the valuation point&#39;s period that has not yet been allocated to the partners: what the period&#39;s profit and loss lines, as the allocation bucket set classifies them, would pool, less what the partner allocation has posted for the period. Lines no bucket claims count as unallocated. Must be zero before the valuation point can be finalised.
         /// </summary>
-        /// <value>The profit and loss of the valuation point&#39;s period that has not yet been allocated to the partners: what the period&#39;s income, gain and expense lines would pool, less what the partner allocation has posted for the period. Must be zero before the valuation point can be finalised.</value>
+        /// <value>The profit and loss of the valuation point&#39;s period that has not yet been allocated to the partners: what the period&#39;s profit and loss lines, as the allocation bucket set classifies them, would pool, less what the partner allocation has posted for the period. Lines no bucket claims count as unallocated. Must be zero before the valuation point can be finalised.</value>
         [DataMember(Name = "unallocatedIncomeSummary", IsRequired = true, EmitDefaultValue = true)]
         public decimal UnallocatedIncomeSummary { get; set; }
 
@@ -78,6 +80,12 @@ namespace Lusid.Sdk.Model
         public string ConfigPackCode { get; set; }
 
         /// <summary>
+        /// Gets or Sets AllocationProblem
+        /// </summary>
+        [DataMember(Name = "allocationProblem", EmitDefaultValue = false)]
+        public PartnershipAllocationProblem AllocationProblem { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -88,6 +96,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  UnallocatedIncomeSummary: ").Append(UnallocatedIncomeSummary).Append("\n");
             sb.Append("  ConfigPackScope: ").Append(ConfigPackScope).Append("\n");
             sb.Append("  ConfigPackCode: ").Append(ConfigPackCode).Append("\n");
+            sb.Append("  AllocationProblem: ").Append(AllocationProblem).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,6 +145,11 @@ namespace Lusid.Sdk.Model
                     this.ConfigPackCode == input.ConfigPackCode ||
                     (this.ConfigPackCode != null &&
                     this.ConfigPackCode.Equals(input.ConfigPackCode))
+                ) && 
+                (
+                    this.AllocationProblem == input.AllocationProblem ||
+                    (this.AllocationProblem != null &&
+                    this.AllocationProblem.Equals(input.AllocationProblem))
                 );
         }
 
@@ -156,6 +170,10 @@ namespace Lusid.Sdk.Model
                 if (this.ConfigPackCode != null)
                 {
                     hashCode = (hashCode * 59) + this.ConfigPackCode.GetHashCode();
+                }
+                if (this.AllocationProblem != null)
+                {
+                    hashCode = (hashCode * 59) + this.AllocationProblem.GetHashCode();
                 }
                 return hashCode;
             }

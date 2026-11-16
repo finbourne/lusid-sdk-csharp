@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **FractionalUnitsTrueUpConfiguration** | [**FractionalUnitsTrueUpConfiguration**](FractionalUnitsTrueUpConfiguration.md) |  | [optional] 
 **HoldingsFungibility** | **string** | Whether the portfolio&#39;s holdings are fungible across the currencies of a currency group. This can be: Default or Enabled. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. A reset or never-configured flag reads back as absent. Available values: Default, Enabled. | [optional] 
 **ChargeableGainsRegime** | **string** | The chargeable gains regime the portfolio is elected into. This can be: Default or UkChargeableGains. If not supplied, the portfolio&#39;s current value is left unchanged; supply Default to reset it. A reset or never-configured regime reads back as absent. Available values: Default, UkChargeableGains. | [optional] 
+**AmortisationHorizon** | [**AmortisationHorizon**](AmortisationHorizon.md) |  | [optional] 
 **WhtParameters** | [**WhtParameters**](WhtParameters.md) |  | [optional] 
 
 ```csharp
@@ -22,6 +23,8 @@ FractionalUnitsTrueUpConfiguration? fractionalUnitsTrueUpConfiguration = new Fra
 
 string holdingsFungibility = "example holdingsFungibility";
 string chargeableGainsRegime = "example chargeableGainsRegime";
+AmortisationHorizon? amortisationHorizon = new AmortisationHorizon();
+
 WhtParameters? whtParameters = new WhtParameters();
 
 
@@ -31,6 +34,7 @@ CreatePortfolioDetails createPortfolioDetailsInstance = new CreatePortfolioDetai
     fractionalUnitsTrueUpConfiguration: fractionalUnitsTrueUpConfiguration,
     holdingsFungibility: holdingsFungibility,
     chargeableGainsRegime: chargeableGainsRegime,
+    amortisationHorizon: amortisationHorizon,
     whtParameters: whtParameters);
 ```
 

@@ -40,15 +40,16 @@ namespace Lusid.Sdk.Model
         /// <param name="varEvent">varEvent (required).</param>
         /// <param name="partner">partner (required).</param>
         /// <param name="currency">The currency the notice amounts are expressed in. (required).</param>
-        /// <param name="lines">The notice lines, one per component of the partner&#39;s allocation. (required).</param>
-        /// <param name="netAmountDue">The net amount due, positive when the partner pays the fund and negative when the fund pays the partner. (required).</param>
+        /// <param name="lines">The notice lines, one per component of the partner&#39;s allocation. Tax withheld from a distribution on the partner&#39;s behalf is its own line, under the Distribution: Withholding Tax transaction type, as part of what is distributed. (required).</param>
+        /// <param name="netAmountDue">The net amount due, positive when the partner pays the fund and negative when the fund pays the partner. On a distribution it is what the partner is paid: the lines less any tax withheld on the partner&#39;s behalf. (required).</param>
+        /// <param name="taxWithheld">Tax withheld from the distribution on the partner&#39;s behalf: distributed to the partner but paid to the tax authority rather than to them, so it is not in the net amount due. Zero when nothing was withheld. (required).</param>
         /// <param name="unfundedReconciliation">unfundedReconciliation (required).</param>
         /// <param name="cumulative">cumulative (required).</param>
         /// <param name="gpColumn">gpColumn.</param>
         /// <param name="wire">wire.</param>
         /// <param name="paymentHold">paymentHold.</param>
         /// <param name="watermark">DRAFT until the allocation event is booked, otherwise null..</param>
-        public AllocationEventNotice(ResourceId fund = default(ResourceId), AllocationEventNoticeEvent varEvent = default(AllocationEventNoticeEvent), AllocationEventNoticePartner partner = default(AllocationEventNoticePartner), string currency = default(string), List<AllocationEventNoticeLine> lines = default(List<AllocationEventNoticeLine>), decimal netAmountDue = default(decimal), AllocationEventNoticeUnfundedReconciliation unfundedReconciliation = default(AllocationEventNoticeUnfundedReconciliation), AllocationEventNoticeCumulative cumulative = default(AllocationEventNoticeCumulative), AllocationEventNoticeCumulative gpColumn = default(AllocationEventNoticeCumulative), AllocationEventNoticeWire wire = default(AllocationEventNoticeWire), AllocationPaymentHold paymentHold = default(AllocationPaymentHold), string watermark = default(string))
+        public AllocationEventNotice(ResourceId fund = default(ResourceId), AllocationEventNoticeEvent varEvent = default(AllocationEventNoticeEvent), AllocationEventNoticePartner partner = default(AllocationEventNoticePartner), string currency = default(string), List<AllocationEventNoticeLine> lines = default(List<AllocationEventNoticeLine>), decimal netAmountDue = default(decimal), decimal taxWithheld = default(decimal), AllocationEventNoticeUnfundedReconciliation unfundedReconciliation = default(AllocationEventNoticeUnfundedReconciliation), AllocationEventNoticeCumulative cumulative = default(AllocationEventNoticeCumulative), AllocationEventNoticeCumulative gpColumn = default(AllocationEventNoticeCumulative), AllocationEventNoticeWire wire = default(AllocationEventNoticeWire), AllocationPaymentHold paymentHold = default(AllocationPaymentHold), string watermark = default(string))
         {
             // to ensure "fund" is required (not null)
             if (fund == null)
@@ -81,6 +82,7 @@ namespace Lusid.Sdk.Model
             }
             this.Lines = lines;
             this.NetAmountDue = netAmountDue;
+            this.TaxWithheld = taxWithheld;
             // to ensure "unfundedReconciliation" is required (not null)
             if (unfundedReconciliation == null)
             {
@@ -125,18 +127,25 @@ namespace Lusid.Sdk.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// The notice lines, one per component of the partner&#39;s allocation.
+        /// The notice lines, one per component of the partner&#39;s allocation. Tax withheld from a distribution on the partner&#39;s behalf is its own line, under the Distribution: Withholding Tax transaction type, as part of what is distributed.
         /// </summary>
-        /// <value>The notice lines, one per component of the partner&#39;s allocation.</value>
+        /// <value>The notice lines, one per component of the partner&#39;s allocation. Tax withheld from a distribution on the partner&#39;s behalf is its own line, under the Distribution: Withholding Tax transaction type, as part of what is distributed.</value>
         [DataMember(Name = "lines", IsRequired = true, EmitDefaultValue = true)]
         public List<AllocationEventNoticeLine> Lines { get; set; }
 
         /// <summary>
-        /// The net amount due, positive when the partner pays the fund and negative when the fund pays the partner.
+        /// The net amount due, positive when the partner pays the fund and negative when the fund pays the partner. On a distribution it is what the partner is paid: the lines less any tax withheld on the partner&#39;s behalf.
         /// </summary>
-        /// <value>The net amount due, positive when the partner pays the fund and negative when the fund pays the partner.</value>
+        /// <value>The net amount due, positive when the partner pays the fund and negative when the fund pays the partner. On a distribution it is what the partner is paid: the lines less any tax withheld on the partner&#39;s behalf.</value>
         [DataMember(Name = "netAmountDue", IsRequired = true, EmitDefaultValue = true)]
         public decimal NetAmountDue { get; set; }
+
+        /// <summary>
+        /// Tax withheld from the distribution on the partner&#39;s behalf: distributed to the partner but paid to the tax authority rather than to them, so it is not in the net amount due. Zero when nothing was withheld.
+        /// </summary>
+        /// <value>Tax withheld from the distribution on the partner&#39;s behalf: distributed to the partner but paid to the tax authority rather than to them, so it is not in the net amount due. Zero when nothing was withheld.</value>
+        [DataMember(Name = "taxWithheld", IsRequired = true, EmitDefaultValue = true)]
+        public decimal TaxWithheld { get; set; }
 
         /// <summary>
         /// Gets or Sets UnfundedReconciliation
@@ -189,6 +198,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  Lines: ").Append(Lines).Append("\n");
             sb.Append("  NetAmountDue: ").Append(NetAmountDue).Append("\n");
+            sb.Append("  TaxWithheld: ").Append(TaxWithheld).Append("\n");
             sb.Append("  UnfundedReconciliation: ").Append(UnfundedReconciliation).Append("\n");
             sb.Append("  Cumulative: ").Append(Cumulative).Append("\n");
             sb.Append("  GpColumn: ").Append(GpColumn).Append("\n");
@@ -261,6 +271,10 @@ namespace Lusid.Sdk.Model
                     this.NetAmountDue.Equals(input.NetAmountDue)
                 ) && 
                 (
+                    this.TaxWithheld == input.TaxWithheld ||
+                    this.TaxWithheld.Equals(input.TaxWithheld)
+                ) && 
+                (
                     this.UnfundedReconciliation == input.UnfundedReconciliation ||
                     (this.UnfundedReconciliation != null &&
                     this.UnfundedReconciliation.Equals(input.UnfundedReconciliation))
@@ -322,6 +336,7 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.Lines.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.NetAmountDue.GetHashCode();
+                hashCode = (hashCode * 59) + this.TaxWithheld.GetHashCode();
                 if (this.UnfundedReconciliation != null)
                 {
                     hashCode = (hashCode * 59) + this.UnfundedReconciliation.GetHashCode();

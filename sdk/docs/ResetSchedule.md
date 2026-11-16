@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Frequency** | **string** | The frequency at which the asset price is reset and the price return is exchanged, e.g. 3M. | 
 **FundingStartLag** | [**RelativeDateOffset**](RelativeDateOffset.md) |  | [optional] 
 **LastResetDate** | **DateTimeOffset?** | The date of the last price reset. Optional; when absent the reset dates are rolled forward until the swap maturity date. | [optional] 
+**PaymentLag** | [**RelativeDateOffset**](RelativeDateOffset.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -20,13 +21,16 @@ FlowConventions? conventions = new FlowConventions();
 string frequency = "frequency";
 RelativeDateOffset? fundingStartLag = new RelativeDateOffset();
 
+RelativeDateOffset? paymentLag = new RelativeDateOffset();
+
 
 ResetSchedule resetScheduleInstance = new ResetSchedule(
     conventions: conventions,
     firstResetDate: firstResetDate,
     frequency: frequency,
     fundingStartLag: fundingStartLag,
-    lastResetDate: lastResetDate);
+    lastResetDate: lastResetDate,
+    paymentLag: paymentLag);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

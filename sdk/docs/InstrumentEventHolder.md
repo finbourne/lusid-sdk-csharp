@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | The set of identifiers which determine the instrument this event relates to. | 
 **LusidInstrumentId** | **string** | The LUID for the instrument. | 
 **InstrumentScope** | **string** | The scope of the instrument. | 
-**Description** | **string** | The description of the instrument event. | 
+**Description** | **string** | The description of the instrument event. | [optional] 
 **EventDateRange** | [**EventDateRange**](EventDateRange.md) |  | 
 **Completeness** | **string** | Is the event Economically Complete, or is it missing some DataDependent fields (Incomplete). Available values: Complete, Incomplete. | [optional] [readonly] 
 **InstrumentEvent** | [**InstrumentEvent**](InstrumentEvent.md) |  | 
@@ -31,7 +31,7 @@ ResourceId? corporateActionSourceId = new ResourceId();
 Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
 string lusidInstrumentId = "lusidInstrumentId";
 string instrumentScope = "instrumentScope";
-string description = "description";
+string description = "example description";
 EventDateRange eventDateRange = new EventDateRange();
 string completeness = "example completeness";
 InstrumentEvent instrumentEvent = new InstrumentEvent();

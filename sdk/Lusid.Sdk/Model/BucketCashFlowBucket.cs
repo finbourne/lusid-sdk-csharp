@@ -41,8 +41,10 @@ namespace Lusid.Sdk.Model
         /// <param name="activityTotal">activityTotal.</param>
         /// <param name="activity">The cash flows in the bucket, with the attributes a cash flow has in Values..</param>
         /// <param name="close">close.</param>
+        /// <param name="startingBalanceRate">The spot rate the starting balance (the holdings&#39; cash at the window start) was converted at to open the report currency balances, under a rate type other than FxSpot. Absent under FxSpot, when the starting balance is zero, or when no report currency was requested..</param>
+        /// <param name="fxTranslation">fxTranslation.</param>
         /// <param name="links">links.</param>
-        public BucketCashFlowBucket(string bucketId = default(string), DateTimeOffset bucketStart = default(DateTimeOffset), DateTimeOffset bucketEnd = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string currency = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), BucketAmounts open = default(BucketAmounts), BucketAmounts activityTotal = default(BucketAmounts), List<CashFlowDetail> activity = default(List<CashFlowDetail>), BucketAmounts close = default(BucketAmounts), List<Link> links = default(List<Link>))
+        public BucketCashFlowBucket(string bucketId = default(string), DateTimeOffset bucketStart = default(DateTimeOffset), DateTimeOffset bucketEnd = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string currency = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), BucketAmounts open = default(BucketAmounts), BucketAmounts activityTotal = default(BucketAmounts), List<CashFlowDetail> activity = default(List<CashFlowDetail>), BucketAmounts close = default(BucketAmounts), decimal? startingBalanceRate = default(decimal?), CurrencyAndAmount fxTranslation = default(CurrencyAndAmount), List<Link> links = default(List<Link>))
         {
             this.BucketId = bucketId;
             this.BucketStart = bucketStart;
@@ -54,6 +56,8 @@ namespace Lusid.Sdk.Model
             this.ActivityTotal = activityTotal;
             this.Activity = activity;
             this.Close = close;
+            this.StartingBalanceRate = startingBalanceRate;
+            this.FxTranslation = fxTranslation;
             this.Links = links;
         }
 
@@ -124,6 +128,19 @@ namespace Lusid.Sdk.Model
         public BucketAmounts Close { get; set; }
 
         /// <summary>
+        /// The spot rate the starting balance (the holdings&#39; cash at the window start) was converted at to open the report currency balances, under a rate type other than FxSpot. Absent under FxSpot, when the starting balance is zero, or when no report currency was requested.
+        /// </summary>
+        /// <value>The spot rate the starting balance (the holdings&#39; cash at the window start) was converted at to open the report currency balances, under a rate type other than FxSpot. Absent under FxSpot, when the starting balance is zero, or when no report currency was requested.</value>
+        [DataMember(Name = "startingBalanceRate", EmitDefaultValue = true)]
+        public decimal? StartingBalanceRate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FxTranslation
+        /// </summary>
+        [DataMember(Name = "fxTranslation", EmitDefaultValue = false)]
+        public CurrencyAndAmount FxTranslation { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -147,6 +164,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  ActivityTotal: ").Append(ActivityTotal).Append("\n");
             sb.Append("  Activity: ").Append(Activity).Append("\n");
             sb.Append("  Close: ").Append(Close).Append("\n");
+            sb.Append("  StartingBalanceRate: ").Append(StartingBalanceRate).Append("\n");
+            sb.Append("  FxTranslation: ").Append(FxTranslation).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -236,6 +255,16 @@ namespace Lusid.Sdk.Model
                     this.Close.Equals(input.Close))
                 ) && 
                 (
+                    this.StartingBalanceRate == input.StartingBalanceRate ||
+                    (this.StartingBalanceRate != null &&
+                    this.StartingBalanceRate.Equals(input.StartingBalanceRate))
+                ) && 
+                (
+                    this.FxTranslation == input.FxTranslation ||
+                    (this.FxTranslation != null &&
+                    this.FxTranslation.Equals(input.FxTranslation))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -291,6 +320,14 @@ namespace Lusid.Sdk.Model
                 if (this.Close != null)
                 {
                     hashCode = (hashCode * 59) + this.Close.GetHashCode();
+                }
+                if (this.StartingBalanceRate != null)
+                {
+                    hashCode = (hashCode * 59) + this.StartingBalanceRate.GetHashCode();
+                }
+                if (this.FxTranslation != null)
+                {
+                    hashCode = (hashCode * 59) + this.FxTranslation.GetHashCode();
                 }
                 if (this.Links != null)
                 {

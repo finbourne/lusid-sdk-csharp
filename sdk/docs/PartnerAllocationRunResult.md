@@ -11,9 +11,12 @@ Name | Type | Description | Notes
 **NavTypeCode** | **string** | The NAV type to allocate under. Defaults to the fund&#39;s primary NAV type. | 
 **Status** | **string** | The outcome of the run. Available values: Computed, Booked, DryRun. | 
 **RunId** | **string** | The identifier of the run, which prefixes every transaction it books. | 
-**Pools** | [**List&lt;PartnerAllocationPool&gt;**](PartnerAllocationPool.md) | The pools of fund-level amount that were allocated. | 
-**Unattributed** | [**List&lt;UnattributedAmount&gt;**](UnattributedAmount.md) | Fund-level amounts that no pool claimed. | 
+**Pools** | [**List&lt;PartnerAllocationPool&gt;**](PartnerAllocationPool.md) | The pools of fund-level amount that were allocated, in the allocation bucket set&#39;s bucket order with any tag pools after. | 
+**Unattributed** | [**List&lt;UnattributedAmount&gt;**](UnattributedAmount.md) | Always empty: every profit and loss line is now pooled or the run is refused. Kept for one release. | 
 **BookedTransactionIds** | **List&lt;string&gt;** | The identifiers of the transactions the run booked, if any. | 
+**Warnings** | **List&lt;string&gt;** | What the run noticed but did not refuse, for example an excluded investor record that is not on the register at the period end. | [optional] 
+**IgnoredTags** | [**List&lt;IgnoredDistributionTag&gt;**](IgnoredDistributionTag.md) | The distribution character tags the run did not pool by, by account. | [optional] 
+**AccruedFees** | [**List&lt;AccruedFeeLine&gt;**](AccruedFeeLine.md) | The management fees accrued per partner in the period, which the accrual allocates and the run therefore leaves out of the pools. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -26,6 +29,9 @@ string runId = "runId";
 List<PartnerAllocationPool> pools = new List<PartnerAllocationPool>();
 List<UnattributedAmount> unattributed = new List<UnattributedAmount>();
 List<string> bookedTransactionIds = new List<string>();
+List<string> warnings = new List<string>();
+List<IgnoredDistributionTag> ignoredTags = new List<IgnoredDistributionTag>();
+List<AccruedFeeLine> accruedFees = new List<AccruedFeeLine>();
 
 PartnerAllocationRunResult partnerAllocationRunResultInstance = new PartnerAllocationRunResult(
     fundId: fundId,
@@ -36,7 +42,10 @@ PartnerAllocationRunResult partnerAllocationRunResultInstance = new PartnerAlloc
     runId: runId,
     pools: pools,
     unattributed: unattributed,
-    bookedTransactionIds: bookedTransactionIds);
+    bookedTransactionIds: bookedTransactionIds,
+    warnings: warnings,
+    ignoredTags: ignoredTags,
+    accruedFees: accruedFees);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

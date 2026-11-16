@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Amends the total committed capital of a CapitalInterest. A positive amount increases the commitment and a  negative amount decreases it.
+    /// Amends the total committed capital of a CapitalInterest. The component says whether the amount raises  (&#39;Commitment&#39;) or lowers (&#39;Release&#39;) the commitment.
     /// </summary>
     [DataContract(Name = "AmendCommitmentEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
@@ -39,8 +39,8 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="AmendCommitmentEvent" /> class.
         /// </summary>
         /// <param name="date">The date the commitment amendment takes effect..</param>
-        /// <param name="amount">The signed change to the total commitment. Positive implies an increase, and negative implies a  decrease. (required).</param>
-        /// <param name="component">The component of the commitment the amendment is recorded under: &#39;Commitment&#39; for a commitment made  or upsized, &#39;Release&#39; for committed capital released. Optional; when absent the sign of the amount  decides..</param>
+        /// <param name="amount">The amount the total commitment is amended by. Must not be negative: the component decides whether  it raises or lowers the commitment. (required).</param>
+        /// <param name="component">The component of the commitment the amendment is recorded under: &#39;Commitment&#39; for a commitment made  or upsized, which raises the commitment by the amount, or &#39;Release&#39; for committed capital released,  which lowers it by the amount. Optional; when absent the amount raises the commitment. Available values: Commitment, Release..</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent, TotalReturnSwapCashFlowEvent, GlobalLoanFacilityReinitialisationEvent, InvestorLoanFacilityReinitialisationEvent, CapitalCallReceiptEvent, RecallableCapitalExpiryEvent, CapitalInterestTransferEvent, FacilityDrawEvent, FacilityRepaymentEvent, FacilityInterestEvent, FacilityCommitmentFeeEvent, InstalmentCallEvent, DepositInterestCapitalisationEvent, PartialRedemptionWithoutReductionOfNominalValueEvent, StripBondCashflowEvent, CapitalisationEvent, SharesPremiumDividendEvent, CashDistributionFromNonEligibleSecuritiesSalesEvent, InflationIndexationEvent. (required) (default to InstrumentEventTypeEnum.AmendCommitmentEvent).</param>
         public AmendCommitmentEvent(DateTimeOffset date = default(DateTimeOffset), decimal amount = default(decimal), string component = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
@@ -57,16 +57,16 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset Date { get; set; }
 
         /// <summary>
-        /// The signed change to the total commitment. Positive implies an increase, and negative implies a  decrease.
+        /// The amount the total commitment is amended by. Must not be negative: the component decides whether  it raises or lowers the commitment.
         /// </summary>
-        /// <value>The signed change to the total commitment. Positive implies an increase, and negative implies a  decrease.</value>
+        /// <value>The amount the total commitment is amended by. Must not be negative: the component decides whether  it raises or lowers the commitment.</value>
         [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
         public decimal Amount { get; set; }
 
         /// <summary>
-        /// The component of the commitment the amendment is recorded under: &#39;Commitment&#39; for a commitment made  or upsized, &#39;Release&#39; for committed capital released. Optional; when absent the sign of the amount  decides.
+        /// The component of the commitment the amendment is recorded under: &#39;Commitment&#39; for a commitment made  or upsized, which raises the commitment by the amount, or &#39;Release&#39; for committed capital released,  which lowers it by the amount. Optional; when absent the amount raises the commitment. Available values: Commitment, Release.
         /// </summary>
-        /// <value>The component of the commitment the amendment is recorded under: &#39;Commitment&#39; for a commitment made  or upsized, &#39;Release&#39; for committed capital released. Optional; when absent the sign of the amount  decides.</value>
+        /// <value>The component of the commitment the amendment is recorded under: &#39;Commitment&#39; for a commitment made  or upsized, which raises the commitment by the amount, or &#39;Release&#39; for committed capital released,  which lowers it by the amount. Optional; when absent the amount raises the commitment. Available values: Commitment, Release.</value>
         [DataMember(Name = "component", EmitDefaultValue = true)]
         public string Component { get; set; }
 

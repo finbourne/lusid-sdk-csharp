@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **DueDate** | **DateTimeOffset?** | The date the investors&#39; cash is due. | [optional] 
 **SettlementDate** | **DateTimeOffset?** | The date the postings settle. Defaults to the event date. | [optional] 
 **Receipts** | [**List&lt;AllocationEventReceipt&gt;**](AllocationEventReceipt.md) | The cash received against the event, in the order it was recorded. | [optional] 
+**RefundPayments** | [**List&lt;AllocationEventRefundPayment&gt;**](AllocationEventRefundPayment.md) | The refunds paid out against the event to investors whose receipts exceeded what they owed, in the order they were recorded. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -77,6 +78,7 @@ ResourceId? replaces = new ResourceId();
 AllocationEventReversal? reversal = new AllocationEventReversal();
 
 List<AllocationEventReceipt> receipts = new List<AllocationEventReceipt>();
+List<AllocationEventRefundPayment> refundPayments = new List<AllocationEventRefundPayment>();
 List<Link> links = new List<Link>();
 
 AllocationEvent allocationEventInstance = new AllocationEvent(
@@ -112,6 +114,7 @@ AllocationEvent allocationEventInstance = new AllocationEvent(
     dueDate: dueDate,
     settlementDate: settlementDate,
     receipts: receipts,
+    refundPayments: refundPayments,
     links: links);
 ```
 

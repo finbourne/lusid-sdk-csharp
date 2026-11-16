@@ -33,10 +33,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="settlementInstruction">settlementInstruction.</param>
         /// <param name="matchedTransaction">matchedTransaction.</param>
-        public SettlementInstructionWithTransaction(TransactionSettlementInstruction settlementInstruction = default(TransactionSettlementInstruction), OutputTransaction matchedTransaction = default(OutputTransaction))
+        /// <param name="settlementFx">settlementFx.</param>
+        public SettlementInstructionWithTransaction(TransactionSettlementInstruction settlementInstruction = default(TransactionSettlementInstruction), OutputTransaction matchedTransaction = default(OutputTransaction), SettlementFx settlementFx = default(SettlementFx))
         {
             this.SettlementInstruction = settlementInstruction;
             this.MatchedTransaction = matchedTransaction;
+            this.SettlementFx = settlementFx;
         }
 
         /// <summary>
@@ -52,6 +54,12 @@ namespace Lusid.Sdk.Model
         public OutputTransaction MatchedTransaction { get; set; }
 
         /// <summary>
+        /// Gets or Sets SettlementFx
+        /// </summary>
+        [DataMember(Name = "settlementFx", EmitDefaultValue = false)]
+        public SettlementFx SettlementFx { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,6 +69,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class SettlementInstructionWithTransaction {\n");
             sb.Append("  SettlementInstruction: ").Append(SettlementInstruction).Append("\n");
             sb.Append("  MatchedTransaction: ").Append(MatchedTransaction).Append("\n");
+            sb.Append("  SettlementFx: ").Append(SettlementFx).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,6 +114,11 @@ namespace Lusid.Sdk.Model
                     this.MatchedTransaction == input.MatchedTransaction ||
                     (this.MatchedTransaction != null &&
                     this.MatchedTransaction.Equals(input.MatchedTransaction))
+                ) && 
+                (
+                    this.SettlementFx == input.SettlementFx ||
+                    (this.SettlementFx != null &&
+                    this.SettlementFx.Equals(input.SettlementFx))
                 );
         }
 
@@ -124,6 +138,10 @@ namespace Lusid.Sdk.Model
                 if (this.MatchedTransaction != null)
                 {
                     hashCode = (hashCode * 59) + this.MatchedTransaction.GetHashCode();
+                }
+                if (this.SettlementFx != null)
+                {
+                    hashCode = (hashCode * 59) + this.SettlementFx.GetHashCode();
                 }
                 return hashCode;
             }

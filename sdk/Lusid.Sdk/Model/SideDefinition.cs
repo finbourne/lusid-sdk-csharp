@@ -45,8 +45,9 @@ namespace Lusid.Sdk.Model
         /// <param name="notionalAmount">The value, field or property key defining the side&#39;s notional amount.</param>
         /// <param name="currentFace">The value, field or property key defining the side&#39;s current face / outstanding notional..</param>
         /// <param name="scope">The scope in which the side definition exists..</param>
+        /// <param name="metadata">Contains warnings related to the side definition, such as a stored copy of a platform side that differs from the platform&#39;s current definition..</param>
         /// <param name="links">links.</param>
-        public SideDefinition(string side = default(string), string security = default(string), string currency = default(string), string rate = default(string), string units = default(string), string amount = default(string), string notionalAmount = default(string), string currentFace = default(string), string scope = default(string), List<Link> links = default(List<Link>))
+        public SideDefinition(string side = default(string), string security = default(string), string currency = default(string), string rate = default(string), string units = default(string), string amount = default(string), string notionalAmount = default(string), string currentFace = default(string), string scope = default(string), Dictionary<string, List<ResponseMetaData>> metadata = default(Dictionary<string, List<ResponseMetaData>>), List<Link> links = default(List<Link>))
         {
             // to ensure "side" is required (not null)
             if (side == null)
@@ -87,6 +88,7 @@ namespace Lusid.Sdk.Model
             this.NotionalAmount = notionalAmount;
             this.CurrentFace = currentFace;
             this.Scope = scope;
+            this.Metadata = metadata;
             this.Links = links;
         }
 
@@ -154,6 +156,13 @@ namespace Lusid.Sdk.Model
         public string Scope { get; set; }
 
         /// <summary>
+        /// Contains warnings related to the side definition, such as a stored copy of a platform side that differs from the platform&#39;s current definition.
+        /// </summary>
+        /// <value>Contains warnings related to the side definition, such as a stored copy of a platform side that differs from the platform&#39;s current definition.</value>
+        [DataMember(Name = "metadata", EmitDefaultValue = true)]
+        public Dictionary<string, List<ResponseMetaData>> Metadata { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -176,6 +185,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  NotionalAmount: ").Append(NotionalAmount).Append("\n");
             sb.Append("  CurrentFace: ").Append(CurrentFace).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -258,6 +268,12 @@ namespace Lusid.Sdk.Model
                     this.Scope.Equals(input.Scope))
                 ) && 
                 (
+                    this.Metadata == input.Metadata ||
+                    this.Metadata != null &&
+                    input.Metadata != null &&
+                    this.Metadata.SequenceEqual(input.Metadata)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -309,6 +325,10 @@ namespace Lusid.Sdk.Model
                 if (this.Scope != null)
                 {
                     hashCode = (hashCode * 59) + this.Scope.GetHashCode();
+                }
+                if (this.Metadata != null)
+                {
+                    hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
                 }
                 if (this.Links != null)
                 {
