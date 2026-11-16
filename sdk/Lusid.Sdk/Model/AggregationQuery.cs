@@ -102,7 +102,6 @@ namespace Lusid.Sdk.Model
             ResultND = 11
         }
 
-
         /// <summary>
         /// Financially meaningful results can be presented as either simple flat types or more complex expanded types. This field gives the type of the more complex representation.    For example, the present value (PV) of a holding could be represented either as a simple decimal (with currency implied) or as a decimal-currency pair. In this example, the type returned in this field would be \&quot;Result0D\&quot;, the decimal-currency pair. Available values: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Result1D, Result2D, Json, ResultND.
         /// </summary>
@@ -182,7 +181,6 @@ namespace Lusid.Sdk.Model
             [EnumMember(Value = "ResultND")]
             ResultND = 11
         }
-
 
         /// <summary>
         /// Financially meaningful results can be presented as either simple flat types or more complex expanded types. This field gives the type of the simpler representation.    For example, the present value (PV) of a holding could be represented either as a simple decimal (with currency implied) or as a decimal-currency pair. In this example, the type returned in this field would be \&quot;Decimal\&quot;. Available values: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Result1D, Result2D, Json, ResultND.

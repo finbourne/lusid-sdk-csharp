@@ -60,7 +60,6 @@ namespace Lusid.Sdk.Model
             SimplePosition = 4
         }
 
-
         /// <summary>
         /// The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition.
         /// </summary>
@@ -170,7 +169,6 @@ namespace Lusid.Sdk.Model
             [EnumMember(Value = "MaximumLossMinimumGainPortfolioCurrency")]
             MaximumLossMinimumGainPortfolioCurrency = 16
         }
-
 
         /// <summary>
         /// The AccountingMethod used for the portfolio. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency.

@@ -90,7 +90,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the AddDiaryEntryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -208,7 +207,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ClosePeriodWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -325,7 +323,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateAborWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -441,7 +438,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteAborWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -558,7 +554,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteDiaryEntryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -678,7 +673,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAborWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -799,7 +793,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAborPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -922,7 +915,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetJournalEntryLinesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1048,7 +1040,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTrialBalanceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1174,7 +1165,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListAborsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1302,7 +1292,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListDiaryEntriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1426,7 +1415,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the LockPeriodWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1544,7 +1532,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchAborWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1662,7 +1649,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ReOpenPeriodsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1780,7 +1766,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertAborPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

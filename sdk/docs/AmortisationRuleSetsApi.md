@@ -82,7 +82,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateAmortisationRuleSetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -199,7 +198,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteAmortisationRulesIntervalWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -316,7 +314,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteAmortisationRulesetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -434,7 +431,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAmortisationRuleSetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -556,7 +552,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListAmortisationRuleSetsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -679,7 +674,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListAmortisationRulesIntervalsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -799,7 +793,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetAmortisationRulesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -917,7 +910,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateAmortisationRuleSetDetailsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

@@ -97,7 +97,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the AcceptMarginCallWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -217,7 +216,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchAcceptMarginCallsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -337,7 +335,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DisputeMarginCallWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -462,7 +459,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetMarginCallWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -586,7 +582,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetMarginCallAllocationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -710,7 +705,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetMarginCallExplanationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -831,7 +825,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetMarginLineExplanationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -947,7 +940,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetMarginRunWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1069,7 +1061,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListMarginCallLinesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1197,7 +1188,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListMarginCallsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1321,7 +1311,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListMarginLinesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1442,7 +1431,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListMarginRunRecommendationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1561,7 +1549,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListMarginRunsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1680,7 +1667,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListNettingRecommendationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1803,7 +1789,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RankMarginCallWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1929,7 +1914,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RecordCounterpartyDemandWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2049,7 +2033,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RetryMarginRunWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2163,7 +2146,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RunMarginCalculationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

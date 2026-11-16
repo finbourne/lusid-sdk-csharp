@@ -79,7 +79,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateSequenceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -195,7 +194,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteSequenceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -311,7 +309,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetSequenceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -428,7 +425,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListSequencesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -546,7 +542,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the NextWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

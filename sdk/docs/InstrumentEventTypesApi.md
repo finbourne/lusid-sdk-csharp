@@ -83,7 +83,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateTransactionTemplateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -202,7 +201,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteTransactionTemplateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -321,7 +319,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTransactionTemplateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -438,7 +435,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTransactionTemplateSpecificationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -556,7 +552,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListTransactionTemplateSpecificationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -678,7 +673,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListTransactionTemplatesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -799,7 +793,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateTransactionTemplateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

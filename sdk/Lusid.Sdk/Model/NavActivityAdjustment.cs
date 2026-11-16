@@ -80,7 +80,6 @@ namespace Lusid.Sdk.Model
             InstrumentEventActivity = 6
         }
 
-
         /// <summary>
         /// The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity, InstrumentEventActivity.
         /// </summary>

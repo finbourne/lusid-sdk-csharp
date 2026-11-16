@@ -136,7 +136,6 @@ namespace Lusid.Sdk.Model
             InflationFixingDependency = 14
         }
 
-
         /// <summary>
         /// Available values: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency.
         /// </summary>

@@ -123,11 +123,8 @@ namespace Lusid.Sdk.Model
                     case "SettleExpectedActivity":
                         newWritebackSuggestion = new WritebackSuggestion(JsonConvert.DeserializeObject<SettleExpectedActivityWritebackSuggestion>(jsonString, WritebackSuggestion.AdditionalPropertiesSerializerSettings));
                         return newWritebackSuggestion;
-                    case "SettleExpectedActivityWritebackSuggestion":
-                        newWritebackSuggestion = new WritebackSuggestion(JsonConvert.DeserializeObject<SettleExpectedActivityWritebackSuggestion>(jsonString, WritebackSuggestion.AdditionalPropertiesSerializerSettings));
-                        return newWritebackSuggestion;
                     default:
-                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for WritebackSuggestion. Possible values: SettleExpectedActivity SettleExpectedActivityWritebackSuggestion", discriminatorValue));
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for WritebackSuggestion. Possible values: SettleExpectedActivity", discriminatorValue));
                         break;
                 }
             }

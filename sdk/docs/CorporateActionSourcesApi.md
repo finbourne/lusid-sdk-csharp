@@ -84,7 +84,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchUpsertCorporateActionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -200,7 +199,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateCorporateActionSourceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -315,7 +313,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteCorporateActionSourceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -432,7 +429,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteCorporateActionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -550,7 +546,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteInstrumentEventsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -673,7 +668,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCorporateActionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -802,7 +796,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetInstrumentEventsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -928,7 +921,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListCorporateActionSourcesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1048,7 +1040,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertInstrumentEventsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

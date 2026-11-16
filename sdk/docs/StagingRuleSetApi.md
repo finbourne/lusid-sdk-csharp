@@ -79,7 +79,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateStagingRuleSetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -194,7 +193,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteStagingRuleSetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -309,7 +307,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetStagingRuleSetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -428,7 +425,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListStagingRuleSetsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -547,7 +543,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateStagingRuleSetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

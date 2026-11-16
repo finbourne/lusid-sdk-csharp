@@ -65,7 +65,6 @@ namespace Lusid.Sdk.Model
             ReconcileExact = 4
         }
 
-
         /// <summary>
         /// Available values: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact.
         /// </summary>

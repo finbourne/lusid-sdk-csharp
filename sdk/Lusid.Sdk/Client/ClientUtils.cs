@@ -97,6 +97,12 @@ namespace Lusid.Sdk.Client
                 // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
                 // For example: 2009-06-15T13:45:30.0000000
                 return dateTimeOffset.ToString((configuration ?? GlobalConfiguration.Instance).DateTimeFormat);
+            if (obj is DateOnly dateOnly)
+                // Return a formatted date string - Can be customized with Configuration.DateTimeFormat
+                // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
+                // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
+                // For example: 2009-06-15
+                return dateOnly.ToString((configuration ?? GlobalConfiguration.Instance).DateTimeFormat);
             if (obj is bool boolean)
                 return boolean ? "true" : "false";
             if (obj is ICollection collection) {
@@ -119,6 +125,34 @@ namespace Lusid.Sdk.Client
         public static string Serialize(object obj)
         {
             return obj != null ? Newtonsoft.Json.JsonConvert.SerializeObject(obj) : null;
+        }
+
+        /// <summary>
+        /// Serializes the given object as an ASCII-safe JSON string. Used to serialize the value of
+        /// a header parameter whose content type is JSON (e.g. <c>content: application/json</c>),
+        /// so model objects are rendered as JSON instead of their debug ToString() representation.
+        /// </summary>
+        /// <param name="obj">The object to serialize.</param>
+        /// <returns>JSON representation of the object with every C0 control character (including CR and LF), DEL, and non-ASCII character escaped as \uXXXX, so raw control bytes can never reach the header value.</returns>
+        public static string ParameterToJsonString(object obj)
+        {
+            // JsonConvert renders a null reference as the JSON literal "null" (not a null string).
+            string json = Newtonsoft.Json.JsonConvert.SerializeObject(obj);
+
+            // Escape everything that is not printable ASCII: C0 controls (including CR and LF), DEL,
+            // and all non-ASCII characters, as \uXXXX. Because this runs over the final serialized
+            // string, the result is safe to use as an HTTP header value even if a custom converter
+            // emitted raw control characters or non-ASCII text (preventing header splitting/injection).
+            StringBuilder escaped = new StringBuilder(json.Length);
+            foreach (char c in json)
+            {
+                if (c < 0x20 || c >= 0x7f)
+                    escaped.Append("\\u").Append(((int)c).ToString("x4", CultureInfo.InvariantCulture));
+                else
+                    escaped.Append(c);
+            }
+
+            return escaped.ToString();
         }
 
         /// <summary>

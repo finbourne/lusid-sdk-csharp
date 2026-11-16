@@ -89,7 +89,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteQuoteAccessMetadataRuleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -211,7 +210,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteQuotesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -330,7 +328,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetQuotesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -456,7 +453,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetQuotesAccessMetadataRuleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -582,7 +578,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListQuotesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -701,7 +696,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListQuotesAccessMetadataRulesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -820,7 +814,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListQuotesForScopeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -941,7 +934,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertQuoteAccessMetadataRuleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1059,7 +1051,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertQuotesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

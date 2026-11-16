@@ -54,7 +54,6 @@ namespace Lusid.Sdk.Model
             Periodical = 3
         }
 
-
         /// <summary>
         /// Available values: Static, Floating, Periodical.
         /// </summary>
@@ -98,7 +97,6 @@ namespace Lusid.Sdk.Model
             [EnumMember(Value = "Annually")]
             Annually = 5
         }
-
 
         /// <summary>
         /// Available values: Daily, Weekly, Monthly, Quarterly, Annually.

@@ -48,7 +48,6 @@ namespace Lusid.Sdk.Model
             SettleDate = 2
         }
 
-
         /// <summary>
         /// The date to compare against the upper and lower bounds for the effective datetime or cut label. Default value: TradeDate. Available values: TradeDate, SettleDate.
         /// </summary>

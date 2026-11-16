@@ -79,7 +79,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CalculateOrderDatesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -194,7 +193,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CancelTransferAgencyTransactionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -309,7 +307,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteTransferAgencyOrdersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -423,7 +420,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the EstimateTransferAgencyOrdersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -537,7 +533,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertTransferAgencyOrdersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -652,7 +647,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertTransferAgencyTransactionsFromOrdersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

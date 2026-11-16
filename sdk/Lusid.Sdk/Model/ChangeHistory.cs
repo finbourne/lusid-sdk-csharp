@@ -54,7 +54,6 @@ namespace Lusid.Sdk.Model
             Delete = 3
         }
 
-
         /// <summary>
         /// The action performed on the transaction. Available values: Create, Update, Delete.
         /// </summary>

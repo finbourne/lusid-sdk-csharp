@@ -81,7 +81,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchAmendWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -197,7 +196,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateCustomDataModelWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -314,7 +312,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteCustomDataModelWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -433,7 +430,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCustomDataModelWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -552,7 +548,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListDataModelHierarchiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -667,7 +662,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListSupportedEntityTypesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -779,7 +773,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateCustomDataModelWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

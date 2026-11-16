@@ -54,7 +54,6 @@ namespace Lusid.Sdk.Model
             Deleted = 3
         }
 
-
         /// <summary>
         /// The Account status. Available values: Active, Inactive, Deleted.
         /// </summary>

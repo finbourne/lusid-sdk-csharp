@@ -80,7 +80,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateReferencePortfolioWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -197,7 +196,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteReferencePortfolioConstituentAdjustmentWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -317,7 +315,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetReferencePortfolioConstituentsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -439,7 +436,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListConstituentsAdjustmentsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -559,7 +555,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertReferencePortfolioConstituentPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -677,7 +672,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertReferencePortfolioConstituentsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

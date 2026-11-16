@@ -76,7 +76,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateDerivedPortfolioWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -193,7 +192,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteDerivedPortfolioDetailsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

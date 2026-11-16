@@ -56,7 +56,6 @@ namespace Lusid.Sdk.Model
             Percentage = 3
         }
 
-
         /// <summary>
         /// Available values: Absolute, Relative, Percentage.
         /// </summary>
@@ -203,7 +202,6 @@ namespace Lusid.Sdk.Model
             EffectiveYield = 22
         }
 
-
         /// <summary>
         /// Available values: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor, ForwardPrice, DiscountFactor, PrincipalDistributed, EffectiveYield.
         /// </summary>
@@ -223,7 +221,7 @@ namespace Lusid.Sdk.Model
         /// <param name="amount">amount.</param>
         /// <param name="shiftType">Available values: Absolute, Relative, Percentage. (required).</param>
         /// <param name="quoteType">Available values: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor, ForwardPrice, DiscountFactor, PrincipalDistributed, EffectiveYield..</param>
-        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition, CreditSpreadShiftDefinition, ModelOptionShiftDefinition. (required) (default to &quot;PriceShiftDefinition&quot;).</param>
+        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition, CreditSpreadShiftDefinition, ModelOptionShiftDefinition. (required) (default to ScenarioShiftTypeEnum.PriceShiftDefinition).</param>
         public PriceShiftDefinition(string instrument = default(string), string filter = default(string), decimal? amount = default(decimal?), ShiftTypeEnum shiftType = default(ShiftTypeEnum), QuoteTypeEnum ?quoteType = default(QuoteTypeEnum?), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
             this.ShiftType = shiftType;

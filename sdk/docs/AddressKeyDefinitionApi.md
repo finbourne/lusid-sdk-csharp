@@ -76,7 +76,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateAddressKeyDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -191,7 +190,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAddressKeyDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -309,7 +307,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListAddressKeyDefinitionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

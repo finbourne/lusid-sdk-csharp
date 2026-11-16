@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="corporateActionSourceScope">The scope of the corporate action source that the instrument event belongs to. (required).</param>
         /// <param name="corporateActionSourceCode">The code of the corporate action source that the instrument event belongs to. (required).</param>
         /// <param name="instrumentEventId">The Id of the instrument event being adjusted. (required).</param>
-        /// <param name="navActivityAdjustmentType">The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity, InstrumentEventActivity. (required) (default to &quot;InstrumentEventActivity&quot;).</param>
+        /// <param name="navActivityAdjustmentType">The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity, InstrumentEventActivity. (required) (default to NavActivityAdjustmentTypeEnum.InstrumentEventActivity).</param>
         public InstrumentEventActivity(DateTimeOffset asAt = default(DateTimeOffset), string corporateActionSourceScope = default(string), string corporateActionSourceCode = default(string), string instrumentEventId = default(string), NavActivityAdjustmentTypeEnum navActivityAdjustmentType = default(NavActivityAdjustmentTypeEnum)) : base(navActivityAdjustmentType)
         {
             this.AsAt = asAt;

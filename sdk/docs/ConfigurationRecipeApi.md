@@ -85,7 +85,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteConfigurationRecipeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -201,7 +200,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteRecipeComposerWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -318,7 +316,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetConfigurationRecipeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -436,7 +433,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetDerivedRecipeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -554,7 +550,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetRecipeComposerWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -670,7 +665,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetRecipeComposerResolvedInlineWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -785,7 +779,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListConfigurationRecipesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -901,7 +894,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListDerivedRecipesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1017,7 +1009,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListRecipeComposersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1132,7 +1123,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertConfigurationRecipeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1246,7 +1236,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertRecipeComposerWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

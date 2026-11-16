@@ -81,7 +81,6 @@ namespace Lusid.Sdk.Model
             PercentCheckStepRequest = 6
         }
 
-
         /// <summary>
         /// The type of the compliance step. Available values: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest, PercentCheckStepRequest.
         /// </summary>

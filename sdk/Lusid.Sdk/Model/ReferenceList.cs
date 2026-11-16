@@ -108,7 +108,6 @@ namespace Lusid.Sdk.Model
             FilteredPortfolioIdList = 10
         }
 
-
         /// <summary>
         /// The reference list values. Available values: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList, FilteredFundIdList, FilteredPortfolioIdList.
         /// </summary>

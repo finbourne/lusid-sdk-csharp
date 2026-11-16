@@ -50,7 +50,6 @@ namespace Lusid.Sdk.Model
             Relative = 2
         }
 
-
         /// <summary>
         /// Available values: Absolute, Relative.
         /// </summary>
@@ -71,7 +70,7 @@ namespace Lusid.Sdk.Model
         /// <param name="ccy">For options carrying per-currency overrides (e.g. HullWhite1F&#39;s VolatilityByCurrency): the  three to five letter currency code whose effective value the shift moves. The shifted entry starts from the  existing override for that currency, or from the scalar option where no override exists.  Omitted, the shift moves the scalar option and every per-currency override together, so the  effective value moves for every instrument regardless of which level supplies it..</param>
         /// <param name="amount">The size of the shift, in the units given by ShiftType: the option&#39;s own units for Absolute  (0.0010 on a volatility of 0.008 is ten basis points of annualised volatility), or a  fraction of the configured value for Relative (0.1 raises it by ten percent)..</param>
         /// <param name="shiftType">Available values: Absolute, Relative. (required).</param>
-        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition, CreditSpreadShiftDefinition, ModelOptionShiftDefinition. (required) (default to &quot;ModelOptionShiftDefinition&quot;).</param>
+        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition, CreditSpreadShiftDefinition, ModelOptionShiftDefinition. (required) (default to ScenarioShiftTypeEnum.ModelOptionShiftDefinition).</param>
         public ModelOptionShiftDefinition(string modelName = default(string), string instrumentType = default(string), string optionName = default(string), string ccy = default(string), decimal? amount = default(decimal?), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
             // to ensure "modelName" is required (not null)

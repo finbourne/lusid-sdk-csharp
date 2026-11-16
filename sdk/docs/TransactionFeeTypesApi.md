@@ -80,7 +80,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateTransactionFeeTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -197,7 +196,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteTransactionFeeTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -316,7 +314,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTransactionFeeTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -440,7 +437,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListTransactionFeeTypesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -562,7 +558,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateTransactionFeeTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

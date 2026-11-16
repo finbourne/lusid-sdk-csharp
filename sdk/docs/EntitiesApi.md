@@ -90,7 +90,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetBookmarkByEntityUniqueIdWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -208,7 +207,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetComplianceRuleByEntityUniqueIdWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -326,7 +324,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetComplianceRuleTemplateByEntityUniqueIdWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -444,7 +441,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCorporateActionSourceByEntityUniqueIdWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -563,7 +559,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCustomEntityByEntityUniqueIdWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -682,7 +677,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetDataTypeByEntityUniqueIdWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -804,7 +798,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetEntityHistoryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -929,7 +922,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetInstrumentByEntityUniqueIdWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1050,7 +1042,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetInstrumentEventByEntityUniqueIdWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1168,7 +1159,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetInstrumentEventInstructionByEntityUniqueIdWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1287,7 +1277,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioByEntityUniqueIdWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1406,7 +1395,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioChangesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1525,7 +1513,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPropertyDefinitionByEntityUniqueIdWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1646,7 +1633,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTransactionByEntityUniqueIdWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1766,7 +1752,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetValuationPointByEntityUniqueIdWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

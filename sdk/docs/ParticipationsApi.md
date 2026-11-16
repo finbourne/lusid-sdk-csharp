@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteParticipationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -196,7 +195,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetParticipationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -318,7 +316,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListParticipationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -437,7 +434,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertParticipationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

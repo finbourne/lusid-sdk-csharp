@@ -84,7 +84,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the AddAllocationMapExceptionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -202,7 +201,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateAllocationMapWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -319,7 +317,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteAllocationMapWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -438,7 +435,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAllocationMapWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -560,7 +556,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListAllocationMapsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -682,7 +677,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RemoveAllocationMapExceptionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -803,7 +797,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ResolveAllocationMapWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -924,7 +917,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertAllocationMapWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

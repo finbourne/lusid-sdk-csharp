@@ -109,7 +109,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateChartOfAccountsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -226,7 +225,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateCleardownModuleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -344,7 +342,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateGeneralLedgerProfileWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -462,7 +459,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreatePostingModuleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -581,7 +577,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteAccountsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -699,7 +694,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteChartOfAccountsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -816,7 +810,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteCleardownModuleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -934,7 +927,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteGeneralLedgerProfileWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1052,7 +1044,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeletePostingModuleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1173,7 +1164,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAccountWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1296,7 +1286,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAccountPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1418,7 +1407,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetChartOfAccountsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1539,7 +1527,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetChartOfAccountsPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1659,7 +1646,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCleardownModuleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1779,7 +1765,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetGeneralLedgerProfileWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1899,7 +1884,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPostingModuleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2023,7 +2007,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListAccountsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2150,7 +2133,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListChartsOfAccountsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2276,7 +2258,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListCleardownModuleRulesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2402,7 +2383,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListCleardownModulesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2528,7 +2508,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListGeneralLedgerProfilesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2655,7 +2634,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListPostingModuleRulesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2782,7 +2760,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListPostingModulesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2904,7 +2881,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchChartOfAccountsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3023,7 +2999,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchCleardownModuleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3143,7 +3118,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchPostingModuleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3263,7 +3237,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetCleardownModuleDetailsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3383,7 +3356,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetCleardownModuleRulesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3503,7 +3475,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetGeneralLedgerProfileMappingsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3623,7 +3594,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetPostingModuleDetailsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3743,7 +3713,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetPostingModuleRulesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3864,7 +3833,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SupersedePostingModuleRuleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3985,7 +3953,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertAccountPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -4104,7 +4071,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertAccountsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -4222,7 +4188,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertChartOfAccountsPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

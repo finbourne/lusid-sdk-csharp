@@ -84,7 +84,6 @@ namespace Lusid.Sdk.Model
             StartsWith = 8
         }
 
-
         /// <summary>
         /// Available values: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In, StartsWith.
         /// </summary>
@@ -110,7 +109,6 @@ namespace Lusid.Sdk.Model
             [EnumMember(Value = "Property")]
             Property = 2
         }
-
 
         /// <summary>
         /// Available values: Absolute, Property.

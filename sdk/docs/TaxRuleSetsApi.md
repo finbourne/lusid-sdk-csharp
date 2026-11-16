@@ -79,7 +79,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateTaxRuleSetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -195,7 +194,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteTaxRuleSetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -313,7 +311,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTaxRuleSetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -431,7 +428,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListTaxRuleSetsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -549,7 +545,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateTaxRuleSetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

@@ -87,7 +87,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTranslationDialectWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -210,7 +209,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTranslationScriptWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -330,7 +328,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListDialectIdsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -450,7 +447,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListTranslationScriptIdsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -567,7 +563,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the TranslateEntitiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -681,7 +676,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the TranslateEntitiesInlinedWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -795,7 +789,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertTranslationDialectWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -909,7 +902,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertTranslationScriptWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

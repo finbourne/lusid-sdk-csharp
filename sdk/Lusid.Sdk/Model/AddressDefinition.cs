@@ -102,7 +102,6 @@ namespace Lusid.Sdk.Model
             ResultND = 11
         }
 
-
         /// <summary>
         /// Available values: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Result1D, Result2D, Json, ResultND.
         /// </summary>

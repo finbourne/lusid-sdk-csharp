@@ -86,7 +86,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateItemWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -204,7 +203,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateWorkspaceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -323,7 +321,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteItemWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -442,7 +439,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteWorkspaceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -562,7 +558,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetItemWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -683,7 +678,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetWorkspaceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -806,7 +800,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListItemsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -932,7 +925,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListWorkspacesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1057,7 +1049,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SearchItemsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1180,7 +1171,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateItemWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1301,7 +1291,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateWorkspaceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

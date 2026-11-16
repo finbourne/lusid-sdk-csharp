@@ -636,7 +636,6 @@ namespace Lusid.Sdk.Model
             RelationalDatasetDefinition = 100
         }
 
-
         /// <summary>
         /// The type of entity to which the identifier can be attached. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, ProcessingGroup, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition, RecResult, JournalEntry, CollateralAgreement, EligibleCollateralSchedule.
         /// </summary>
@@ -662,7 +661,6 @@ namespace Lusid.Sdk.Model
             [EnumMember(Value = "TimeVariant")]
             TimeVariant = 2
         }
-
 
         /// <summary>
         /// Describes whether an identifier value is associated with an entity for all effective dates or applies within a specified effective date range. Available values: Perpetual, TimeVariant.

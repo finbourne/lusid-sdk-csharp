@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="flowConventions">flowConventions.</param>
         /// <param name="paymentCurrency">The currency in which each periodic cash settlement is paid..</param>
         /// <param name="stubType">How any non-integral first or last period is handled when generating the settlement periods.  If not specified, this defaults to None.                Supported string (enumeration) values are: [ShortFront, ShortBack, LongBack, LongFront, Both]. Available values: None, ShortFront, ShortBack, LongBack, LongFront, Both, Invalid..</param>
-        /// <param name="scheduleType">Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, CommodityCalendarSchedule, Invalid, CancelSchedule. (required) (default to &quot;CommodityCalendarSchedule&quot;).</param>
+        /// <param name="scheduleType">Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, CommodityCalendarSchedule, Invalid, CancelSchedule. (required) (default to ScheduleTypeEnum.CommodityCalendarSchedule).</param>
         public CommodityCalendarSchedule(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), string paymentCurrency = default(string), string stubType = default(string), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
         {
             this.StartDate = startDate;

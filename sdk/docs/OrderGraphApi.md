@@ -83,7 +83,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListOrderGraphBlocksWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -210,7 +209,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListOrderGraphPlacementChildrenWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -335,7 +333,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListOrderGraphPlacementsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

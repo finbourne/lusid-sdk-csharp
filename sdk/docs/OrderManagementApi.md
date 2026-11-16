@@ -89,7 +89,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BookTransactionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -205,7 +204,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CancelOrdersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -319,7 +317,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CancelOrdersAndMoveRemainingWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -433,7 +430,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CancelPlacementsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -547,7 +543,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateOrdersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -663,7 +658,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetOrderHistoryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -780,7 +774,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the MoveOrdersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -894,7 +887,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PlaceBlocksWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1008,7 +1000,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PreviewBlocksWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1124,7 +1115,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RunAllocationServiceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1242,7 +1232,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RunAllocationServiceWithWeightsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1358,7 +1347,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SweepBlocksWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1472,7 +1460,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateOrdersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1586,7 +1573,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdatePlacementsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

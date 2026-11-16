@@ -48,7 +48,6 @@ namespace Lusid.Sdk.Model
             Descending = 2
         }
 
-
         /// <summary>
         /// Available values: Ascending, Descending.
         /// </summary>

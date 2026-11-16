@@ -84,7 +84,6 @@ namespace Lusid.Sdk.Model
             Client = 8
         }
 
-
         /// <summary>
         /// Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc, Client.
         /// </summary>

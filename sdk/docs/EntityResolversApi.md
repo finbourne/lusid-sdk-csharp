@@ -77,7 +77,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateEntityResolverWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -192,7 +191,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteEntityResolverWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -309,7 +307,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetEntityResolverWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -427,7 +424,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateEntityResolverWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

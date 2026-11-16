@@ -97,7 +97,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the AddRecResultSetApprovalDecisionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -213,7 +212,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchManageRecResultCommentsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -329,7 +327,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchReviewRecResultsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -444,7 +441,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateMatchingRulesetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -558,7 +554,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateRecDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -673,7 +668,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteMatchingRulesetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -789,7 +783,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteRecDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -906,7 +899,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetMatchingRulesetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1025,7 +1017,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetRecDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1144,7 +1135,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetRecInstanceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1264,7 +1254,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetRecResultWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1384,7 +1373,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetRecResultSetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1500,7 +1488,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the InstantiateRecWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1618,7 +1605,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListMatchingRulesetsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1741,7 +1727,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListRecDefinitionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1864,7 +1849,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListRecInstancesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1987,7 +1971,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListRecResultSetsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2111,7 +2094,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListRecResultsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2231,7 +2213,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SubmitRecResultSetReviewWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2348,7 +2329,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the TransitionRecInstanceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2466,7 +2446,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateMatchingRulesetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2584,7 +2563,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateRecDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2702,7 +2680,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertRecDefinitionPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

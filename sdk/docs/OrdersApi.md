@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteOrderWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -196,7 +195,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetOrderWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -322,7 +320,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListOrdersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -447,7 +444,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertOrdersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

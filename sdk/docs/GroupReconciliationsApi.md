@@ -90,7 +90,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchUpdateComparisonResultsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -207,7 +206,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateComparisonRulesetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -321,7 +319,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateGroupReconciliationDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -436,7 +433,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteComparisonRulesetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -552,7 +548,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteGroupReconciliationDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -670,7 +665,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetComparisonResultWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -789,7 +783,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetComparisonRulesetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -908,7 +901,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetGroupReconciliationDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1029,7 +1021,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListComparisonResultsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1151,7 +1142,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListComparisonRulesetsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1274,7 +1264,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListGroupReconciliationDefinitionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1396,7 +1385,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RunReconciliationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1515,7 +1503,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateComparisonRulesetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1633,7 +1620,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateGroupReconciliationDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

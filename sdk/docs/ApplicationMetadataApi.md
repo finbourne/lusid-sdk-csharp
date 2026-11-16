@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetExcelAddinWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -191,7 +190,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetLatestAsAtWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -299,7 +297,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetLusidVersionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -408,7 +405,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListAccessControlledResourcesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -521,7 +517,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListApiEndpointsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

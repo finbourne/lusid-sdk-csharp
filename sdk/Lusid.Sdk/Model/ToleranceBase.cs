@@ -210,17 +210,8 @@ namespace Lusid.Sdk.Model
                     case "Numeric":
                         newToleranceBase = new ToleranceBase(JsonConvert.DeserializeObject<AggregateNumericTolerance>(jsonString, ToleranceBase.AdditionalPropertiesSerializerSettings));
                         return newToleranceBase;
-                    case "AggregateNumericTolerance":
-                        newToleranceBase = new ToleranceBase(JsonConvert.DeserializeObject<AggregateNumericTolerance>(jsonString, ToleranceBase.AdditionalPropertiesSerializerSettings));
-                        return newToleranceBase;
-                    case "CoreAttributeOptionalityTolerance":
-                        newToleranceBase = new ToleranceBase(JsonConvert.DeserializeObject<CoreAttributeOptionalityTolerance>(jsonString, ToleranceBase.AdditionalPropertiesSerializerSettings));
-                        return newToleranceBase;
-                    case "CoreStringCrossTolerance":
-                        newToleranceBase = new ToleranceBase(JsonConvert.DeserializeObject<CoreStringCrossTolerance>(jsonString, ToleranceBase.AdditionalPropertiesSerializerSettings));
-                        return newToleranceBase;
                     default:
-                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for ToleranceBase. Possible values: CoreAttributeOptionality CoreDateTolerance CoreStringCross Numeric AggregateNumericTolerance CoreAttributeOptionalityTolerance CoreStringCrossTolerance", discriminatorValue));
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for ToleranceBase. Possible values: CoreAttributeOptionality CoreDateTolerance CoreStringCross Numeric", discriminatorValue));
                         break;
                 }
             }

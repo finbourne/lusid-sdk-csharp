@@ -88,7 +88,6 @@ namespace Lusid.Sdk.Model
             PercentCheckStep = 7
         }
 
-
         /// <summary>
         /// The type of the compliance step. Available values: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep, PercentCheckStep.
         /// </summary>

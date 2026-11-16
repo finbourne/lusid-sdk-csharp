@@ -84,7 +84,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateScenarioFromTemplateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -200,7 +199,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteScenarioWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -317,7 +315,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetScenarioWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -432,7 +429,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListScenarioTemplatesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -545,7 +541,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListScenarioVersionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -666,7 +661,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListScenariosWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -787,7 +781,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListScenariosForScopeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -905,7 +898,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PreviewScenarioWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1019,7 +1011,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SolveReverseStressWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1133,7 +1124,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertScenarioWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

@@ -50,7 +50,6 @@ namespace Lusid.Sdk.Model
             Relative = 2
         }
 
-
         /// <summary>
         /// Available values: Absolute, Relative.
         /// </summary>
@@ -70,7 +69,7 @@ namespace Lusid.Sdk.Model
         /// <param name="strike">strike.</param>
         /// <param name="expiry">The expiry of the surface points the shift applies to, resolved against the valuation  date. A whole number of units, in any case: BD (business day), D, W, M, Q or Qtr, SA  (semi-annual), Y or A - for example \&quot;1BD\&quot;, \&quot;3m\&quot;, \&quot;6M\&quot;, \&quot;1Qtr\&quot;, \&quot;5y\&quot;. Omitted, every  expiry on the surface is shifted..</param>
         /// <param name="shiftType">Available values: Absolute, Relative. (required).</param>
-        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition, CreditSpreadShiftDefinition, ModelOptionShiftDefinition. (required) (default to &quot;VolSurfaceShiftDefinition&quot;).</param>
+        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition, CreditSpreadShiftDefinition, ModelOptionShiftDefinition. (required) (default to ScenarioShiftTypeEnum.VolSurfaceShiftDefinition).</param>
         public VolSurfaceShiftDefinition(string instrument = default(string), decimal? amount = default(decimal?), decimal? strike = default(decimal?), string expiry = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
             // to ensure "instrument" is required (not null)

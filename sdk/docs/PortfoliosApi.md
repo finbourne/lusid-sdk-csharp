@@ -107,7 +107,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchUpsertPortfolioAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -226,7 +225,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteInstrumentEventInstructionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -347,7 +345,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteKeyFromPortfolioAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -466,7 +463,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeletePortfolioWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -584,7 +580,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeletePortfolioPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -707,7 +702,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeletePortfolioReturnsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -830,7 +824,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAggregatedReturnsDispersionMetricsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -952,7 +945,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCompositeBreakdownWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1078,7 +1070,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetInstrumentEventInstructionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1204,7 +1195,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1336,7 +1326,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioAggregateReturnsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1468,7 +1457,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioAggregatedReturnsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1593,7 +1581,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioCommandsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1716,7 +1703,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1836,7 +1822,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1960,7 +1945,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioPropertiesTimeSeriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2088,7 +2072,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioPropertyTimeSeriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2214,7 +2197,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioRelationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2338,7 +2320,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioRelationshipsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2464,7 +2445,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioReturnsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2589,7 +2569,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfoliosAccessMetadataByKeyWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2717,7 +2696,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListInstrumentEventInstructionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2846,7 +2824,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListPortfolioPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2973,7 +2950,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListPortfoliosWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3103,7 +3079,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListPortfoliosForScopeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3227,7 +3202,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchPortfolioWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3347,7 +3321,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchPortfolioAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3468,7 +3441,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdatePortfolioWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3589,7 +3561,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertInstrumentEventInstructionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3712,7 +3683,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertPortfolioAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3833,7 +3803,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertPortfolioPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3953,7 +3922,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertPortfolioReturnsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

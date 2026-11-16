@@ -56,7 +56,6 @@ namespace Lusid.Sdk.Model
             FundBookmark = 3
         }
 
-
         /// <summary>
         /// The type of the Fund Calendar Entry. Available values: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark.
         /// </summary>
@@ -90,7 +89,7 @@ namespace Lusid.Sdk.Model
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
         /// <param name="leaderNavTypeCode">The code of the Nav Type that this Nav Type will follow when set..</param>
         /// <param name="dateOfLastPcaScan">The last date a PCA scan was conducted for a Valuation Point.</param>
-        /// <param name="fundCalendarEntriesType">The type of the Calendar Entry. Available values: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark. (required) (default to &quot;FinalisedValuationPoint&quot;).</param>
+        /// <param name="fundCalendarEntriesType">The type of the Calendar Entry. Available values: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark. (required) (default to FundCalendarEntriesTypeEnum.FinalisedValuationPoint).</param>
         public FinalisedValuationPoint(string code = default(string), string finalisedFromVariant = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), ResourceId timelineId = default(ResourceId), PreviousFundCalendarEntry previousEntry = default(PreviousFundCalendarEntry), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), string status = default(string), bool applyClearDown = default(bool), DateTimeOffset? holdingsAsAtOverride = default(DateTimeOffset?), DateTimeOffset? valuationsAsAtOverride = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string), string leaderNavTypeCode = default(string), DateTimeOffset? dateOfLastPcaScan = default(DateTimeOffset?), FundCalendarEntriesTypeEnum fundCalendarEntriesType = default(FundCalendarEntriesTypeEnum)) : base(fundCalendarEntriesType)
         {
             // to ensure "code" is required (not null)

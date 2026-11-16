@@ -88,7 +88,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteCustomEntityWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -211,7 +210,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteCustomEntityAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -336,7 +334,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAllCustomEntityAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -460,7 +457,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAllCustomEntityPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -587,7 +583,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCustomEntityWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -715,7 +710,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCustomEntityAccessMetadataByKeyWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -842,7 +836,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCustomEntityRelationshipsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -972,7 +965,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListCustomEntitiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1101,7 +1093,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchCustomEntityAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1223,7 +1214,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertCustomEntitiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1340,7 +1330,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertCustomEntityWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1462,7 +1451,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertCustomEntityAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

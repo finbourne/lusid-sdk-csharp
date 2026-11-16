@@ -79,7 +79,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteComplexMarketDataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -201,7 +200,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetComplexMarketDataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -330,7 +328,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListComplexMarketDataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -454,7 +451,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertAppendComplexMarketDataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -571,7 +567,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertComplexMarketDataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

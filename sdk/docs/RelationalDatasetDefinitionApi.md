@@ -80,7 +80,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateRelationalDatasetDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -195,7 +194,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteRelationalDatasetDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -312,7 +310,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetRelationalDatasetDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -432,7 +429,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListRelationalDatasetDefinitionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -552,7 +548,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateRelationalDatasetDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -670,7 +665,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateRelationalDatasetDetailsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -788,7 +782,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateRelationalDatasetFieldSchemaWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

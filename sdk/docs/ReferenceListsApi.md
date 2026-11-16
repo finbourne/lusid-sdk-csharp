@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteReferenceListWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -196,7 +195,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetReferenceListWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -316,7 +314,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListReferenceListsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -433,7 +430,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertReferenceListWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

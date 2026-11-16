@@ -48,7 +48,6 @@ namespace Lusid.Sdk.Model
             Remove = 2
         }
 
-
         /// <summary>
         /// Available values: add, remove.
         /// </summary>

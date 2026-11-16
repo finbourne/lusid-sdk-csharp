@@ -77,7 +77,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateRelationshipWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -195,7 +194,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteRelationshipWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

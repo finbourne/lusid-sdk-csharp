@@ -83,7 +83,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateDataMapWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -199,7 +198,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteStructuredResultDataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -319,7 +317,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAddressKeyDefinitionsForDocumentWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -439,7 +436,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetDataMapWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -557,7 +553,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetStructuredResultDataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -676,7 +671,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetVirtualDocumentWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -800,7 +794,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetVirtualDocumentRowsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -923,7 +916,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertResultValueWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1039,7 +1031,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertStructuredResultDataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

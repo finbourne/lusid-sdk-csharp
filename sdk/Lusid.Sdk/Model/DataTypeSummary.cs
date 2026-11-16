@@ -48,7 +48,6 @@ namespace Lusid.Sdk.Model
             Closed = 2
         }
 
-
         /// <summary>
         /// Indicates the range of data acceptable by a data type. Available values: Open, Closed.
         /// </summary>
@@ -189,7 +188,6 @@ namespace Lusid.Sdk.Model
             UnindexedText = 21
         }
 
-
         /// <summary>
         /// The expected type of the values. Available values: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText.
         /// </summary>
@@ -221,7 +219,6 @@ namespace Lusid.Sdk.Model
             [EnumMember(Value = "Iso4217Currency")]
             Iso4217Currency = 3
         }
-
 
         /// <summary>
         /// The schema of the data type&#39;s units. Available values: NoUnits, Basic, Iso4217Currency.

@@ -89,7 +89,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateScheduledReconciliationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -205,7 +204,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteReconciliationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -321,7 +319,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteReconciliationMappingWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -440,7 +437,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetReconciliationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -559,7 +555,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetReconciliationMappingWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -674,7 +669,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListReconciliationMappingsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -793,7 +787,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListReconciliationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -912,7 +905,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ReconcileGenericWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1029,7 +1021,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ReconcileHoldingsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1146,7 +1137,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ReconcileInlineWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1260,7 +1250,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ReconcileTransactionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1374,7 +1363,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ReconcileTransactionsV2WithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1488,7 +1476,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ReconcileValuationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1604,7 +1591,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateReconciliationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1720,7 +1706,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertReconciliationMappingWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

@@ -94,7 +94,6 @@ namespace Lusid.Sdk.Model
             ModelOptionShiftDefinition = 8
         }
 
-
         /// <summary>
         /// Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition, CreditSpreadShiftDefinition, ModelOptionShiftDefinition.
         /// </summary>

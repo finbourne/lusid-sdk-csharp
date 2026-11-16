@@ -80,7 +80,6 @@ namespace Lusid.Sdk.Model
             InstrumentEventActivityAdjustment = 6
         }
 
-
         /// <summary>
         /// The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment, ComplexMarketDataActivityAdjustment, InstrumentEventActivityAdjustment.
         /// </summary>

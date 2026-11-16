@@ -85,7 +85,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateDerivedPropertyDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -199,7 +198,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreatePropertyDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -315,7 +313,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeletePropertyDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -435,7 +432,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeletePropertyDefinitionPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -555,7 +551,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetDerivedFormulaExplanationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -674,7 +669,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetMultiplePropertyDefinitionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -795,7 +789,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPropertyDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -920,7 +913,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPropertyDefinitionPropertyTimeSeriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1047,7 +1039,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListPropertyDefinitionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1170,7 +1161,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateDerivedPropertyDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1290,7 +1280,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdatePropertyDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1411,7 +1400,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertPropertyDefinitionPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

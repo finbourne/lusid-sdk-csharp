@@ -60,7 +60,6 @@ namespace Lusid.Sdk.Model
             SimplePosition = 4
         }
 
-
         /// <summary>
         /// The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition.
         /// </summary>

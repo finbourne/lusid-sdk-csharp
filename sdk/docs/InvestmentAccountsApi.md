@@ -84,7 +84,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteInvestmentAccountWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -207,7 +206,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteInvestmentAccountAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -332,7 +330,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAllInvestmentAccountAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -458,7 +455,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetInvestmentAccountWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -586,7 +582,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetInvestmentAccountRelationshipsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -714,7 +709,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListAllInvestmentAccountsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -841,7 +835,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchInvestmentAccountAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -962,7 +955,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertInvestmentAccountsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

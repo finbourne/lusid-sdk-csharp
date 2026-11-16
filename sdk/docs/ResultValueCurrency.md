@@ -5,7 +5,7 @@ A simple result for a currency value
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResultValueType** | **string** | Available values: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset. | 
+**ResultValueType** | **string** | Available values: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset. | [default to ResultValueTypeEnum.ResultValue]
 **Value** | **string** | The value itself | [optional] 
 
 ```csharp

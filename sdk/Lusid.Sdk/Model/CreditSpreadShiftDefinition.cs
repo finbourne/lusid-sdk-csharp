@@ -68,7 +68,6 @@ namespace Lusid.Sdk.Model
             Tent = 5
         }
 
-
         /// <summary>
         /// Available values: Parallel, Steepen, Flatten, Twist, Tent.
         /// </summary>
@@ -94,7 +93,6 @@ namespace Lusid.Sdk.Model
             [EnumMember(Value = "Percentage")]
             Percentage = 2
         }
-
 
         /// <summary>
         /// Available values: Bps, Percentage.
@@ -128,7 +126,6 @@ namespace Lusid.Sdk.Model
             Negative = 3
         }
 
-
         /// <summary>
         /// Available values: Any, Positive, Negative.
         /// </summary>
@@ -153,7 +150,7 @@ namespace Lusid.Sdk.Model
         /// <param name="pivotTenor">The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,  falling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape. Only  valid with ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. In the  same units as StartTenor. Declared last on purpose: generated SDKs emit their positional  constructor in property-declaration order, and this property must not shift the parameters  of the ones before it..</param>
         /// <param name="minimumAmountBps">The smallest magnitude, in basis points, of the shift finally applied at each curve point,  evaluated per point AFTER the shape weight, in the direction the shift acts there. Exactly  the rate curve shift&#39;s MinimumAmountBps - see that field for the full semantics; the  curve shifts keep one vocabulary. Omitted, no floor applies - today&#39;s behaviour.  Declared after PivotTenor on purpose, for the constructor-ordering reason given there..</param>
         /// <param name="applyWhenValue">Available values: Any, Positive, Negative..</param>
-        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition, CreditSpreadShiftDefinition, ModelOptionShiftDefinition. (required) (default to &quot;CreditSpreadShiftDefinition&quot;).</param>
+        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition, CreditSpreadShiftDefinition, ModelOptionShiftDefinition. (required) (default to ScenarioShiftTypeEnum.CreditSpreadShiftDefinition).</param>
         public CreditSpreadShiftDefinition(string ticker = default(string), string ccy = default(string), decimal? amount = default(decimal?), string startTenor = default(string), string endTenor = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScaleEnum ?scale = default(ScaleEnum?), string pivotTenor = default(string), decimal? minimumAmountBps = default(decimal?), ApplyWhenValueEnum ?applyWhenValue = default(ApplyWhenValueEnum?), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
             // to ensure "ticker" is required (not null)

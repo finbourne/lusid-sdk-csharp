@@ -56,7 +56,6 @@ namespace Lusid.Sdk.Model
             FundBookmark = 3
         }
 
-
         /// <summary>
         /// The type of the Fund Calendar Entry. Available values: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark.
         /// </summary>
@@ -81,7 +80,7 @@ namespace Lusid.Sdk.Model
         /// <param name="applyClearDown">Set to true if that closed period should have the clear down applied..</param>
         /// <param name="leaderNavTypeCode">The code of the Nav Type that this Nav Type will follow when set..</param>
         /// <param name="variants">The variants of the Estimate Valuation Point. .</param>
-        /// <param name="fundCalendarEntriesType">The type of the Calendar Entry. Available values: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark. (required) (default to &quot;FundEstimateValuationPoint&quot;).</param>
+        /// <param name="fundCalendarEntriesType">The type of the Calendar Entry. Available values: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark. (required) (default to FundCalendarEntriesTypeEnum.FundEstimateValuationPoint).</param>
         public FundEstimateValuationPoint(string code = default(string), string navTypeCode = default(string), ResourceId timelineId = default(ResourceId), PreviousFundCalendarEntry previousEntry = default(PreviousFundCalendarEntry), DateTimeOffset effectiveAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), string status = default(string), bool applyClearDown = default(bool), string leaderNavTypeCode = default(string), List<EstimateVariant> variants = default(List<EstimateVariant>), FundCalendarEntriesTypeEnum fundCalendarEntriesType = default(FundCalendarEntriesTypeEnum)) : base(fundCalendarEntriesType)
         {
             // to ensure "code" is required (not null)

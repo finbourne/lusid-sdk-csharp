@@ -99,7 +99,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchUpsertInstrumentPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -222,7 +221,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CalculateSettlementDateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -342,7 +340,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteInstrumentWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -464,7 +461,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteInstrumentPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -586,7 +582,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteInstrumentsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -702,7 +697,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAllPossibleFeaturesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -822,7 +816,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetExistingInstrumentCapabilitiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -947,7 +940,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetExistingInstrumentModelsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1077,7 +1069,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetInstrumentWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1201,7 +1192,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetInstrumentIdentifierTypesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1316,7 +1306,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetInstrumentPaymentDiaryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1440,7 +1429,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetInstrumentPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1566,7 +1554,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetInstrumentPropertyTimeSeriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1694,7 +1681,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetInstrumentRelationshipsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1822,7 +1808,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetInstrumentsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1950,7 +1935,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListInstrumentPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2084,7 +2068,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListInstrumentsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2213,7 +2196,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the QueryInstrumentCapabilitiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2333,7 +2315,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateInstrumentIdentifierWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2455,7 +2436,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertInstrumentsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2575,7 +2555,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertInstrumentsPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

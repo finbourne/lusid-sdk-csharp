@@ -91,7 +91,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BookAllocationEventWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -209,7 +208,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateAllocationEventWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -326,7 +324,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteAllocationEventWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -445,7 +442,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAllocationEventWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -566,7 +562,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAllocationEventNoticesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -687,7 +682,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAllocationEventReceivablesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -809,7 +803,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListAllocationEventsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -930,7 +923,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListAllocationPaymentHoldsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1049,7 +1041,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PlanAllocationEventBookingWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1169,7 +1160,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutAllocationPaymentHoldWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1289,7 +1279,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ReallocateAllocationEventWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1409,7 +1398,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ReceiveAllocationEventWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1529,7 +1517,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ReverseAllocationEventWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1649,7 +1636,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UnbookAllocationEventWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1768,7 +1754,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertAllocationEventWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListEntityScopesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -195,7 +194,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListScopesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

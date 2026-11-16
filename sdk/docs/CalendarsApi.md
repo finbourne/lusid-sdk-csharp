@@ -89,7 +89,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the AddBusinessDaysToDateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -206,7 +205,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the AddDateToCalendarWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -325,7 +323,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchUpsertDatesForCalendarWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -442,7 +439,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateCalendarWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -557,7 +553,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteCalendarWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -674,7 +669,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteDateFromCalendarWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -792,7 +786,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteDatesFromCalendarWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -910,7 +903,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GenerateScheduleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1029,7 +1021,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCalendarWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1151,7 +1142,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetDatesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1273,7 +1263,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the IsBusinessDateTimeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1394,7 +1383,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListCalendarsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1517,7 +1505,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListCalendarsInScopeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1636,7 +1623,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ResolveTenorsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1752,7 +1738,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateCalendarWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

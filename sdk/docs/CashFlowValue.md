@@ -5,7 +5,7 @@ Result class for a cash flow value
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResultValueType** | **string** | Available values: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset. | 
+**ResultValueType** | **string** | Available values: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset. | [default to ResultValueTypeEnum.ResultValue]
 **PaymentDate** | **DateTimeOffset** | The payment date of the cash flow | 
 **Diagnostics** | [**ResultValueDictionary**](ResultValueDictionary.md) |  | [optional] 
 **CashFlowLineage** | [**CashFlowLineage**](CashFlowLineage.md) |  | [optional] 

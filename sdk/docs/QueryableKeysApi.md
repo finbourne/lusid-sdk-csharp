@@ -75,7 +75,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAllQueryableKeysWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

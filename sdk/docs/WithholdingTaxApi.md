@@ -89,7 +89,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchDeleteWithholdingTaxRatesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -211,7 +210,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchUpsertWithholdingTaxRatesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -329,7 +327,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateWithholdingTaxDatasetDefinitionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -444,7 +441,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteWithholdingTaxConfigurationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -560,7 +556,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteWithholdingTaxDatasetDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -677,7 +672,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetWithholdingTaxConfigurationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -795,7 +789,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetWithholdingTaxDatasetDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -915,7 +908,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListWithholdingTaxConfigurationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1037,7 +1029,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListWithholdingTaxDatasetDefinitionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1157,7 +1148,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchWithholdingTaxDatasetDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1276,7 +1266,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ResolveWithholdingTaxWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1395,7 +1384,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertWithholdingTaxConfigurationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

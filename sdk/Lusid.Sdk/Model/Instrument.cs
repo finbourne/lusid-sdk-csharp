@@ -54,7 +54,6 @@ namespace Lusid.Sdk.Model
             Deleted = 3
         }
 
-
         /// <summary>
         /// The state of of the instrument at the asAt datetime of this version of the instrument definition. Available values: Active, Inactive, Deleted.
         /// </summary>
@@ -128,7 +127,6 @@ namespace Lusid.Sdk.Model
             [EnumMember(Value = "Exotic")]
             Exotic = 10
         }
-
 
         /// <summary>
         /// The nominal asset class of the instrument. Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown, RealEstate, Exotic.

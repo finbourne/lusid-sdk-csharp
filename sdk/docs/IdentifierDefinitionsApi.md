@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateIdentifierDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -194,7 +193,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteIdentifierDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -315,7 +313,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetIdentifierDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -440,7 +437,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListIdentifierDefinitionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -563,7 +559,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateIdentifierDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

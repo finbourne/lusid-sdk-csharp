@@ -78,7 +78,6 @@ namespace Lusid.Sdk.Model
             CdsPrice = 7
         }
 
-
         /// <summary>
         /// Available values: Price, Yield, Spread, CashFlowPerUnit, CleanPrice, DirtyPrice, CdsPrice.
         /// </summary>

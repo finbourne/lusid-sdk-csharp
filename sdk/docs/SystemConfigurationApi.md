@@ -80,7 +80,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateConfigurationTransactionTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -194,7 +193,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateSideDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -308,7 +306,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteTransactionConfigurationSourceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -423,7 +420,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTransactionConfigurationSourceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -538,7 +534,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListConfigurationTransactionTypesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -652,7 +647,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetConfigurationTransactionTypesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -767,7 +761,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetTransactionConfigurationSourceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

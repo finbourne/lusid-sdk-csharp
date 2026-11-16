@@ -80,7 +80,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the InstrumentsSearchWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -201,7 +200,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SearchPortfolioGroupsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -323,7 +321,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SearchPortfoliosWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -445,7 +442,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SearchPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

@@ -79,7 +79,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchDeleteRelationalDataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -199,7 +198,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchUpsertRelationalDataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -322,7 +320,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the QueryRelationalDataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

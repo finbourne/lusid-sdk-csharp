@@ -90,7 +90,6 @@ namespace Lusid.Sdk.Model
             Cusip = 9
         }
 
-
         /// <summary>
         /// The type of instrument identifier used to uniquely identify the instrument that the quote is for. Available values: LusidInstrumentId, Figi, RIC, QuotePermId, Isin, CurrencyPair, ClientInternal, Sedol, Cusip.
         /// </summary>
@@ -236,7 +235,6 @@ namespace Lusid.Sdk.Model
             [EnumMember(Value = "EffectiveYield")]
             EffectiveYield = 22
         }
-
 
         /// <summary>
         /// The type of the quote. This allows for quotes other than prices e.g. rates or spreads to be used. Available values: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor, ForwardPrice, DiscountFactor, PrincipalDistributed, EffectiveYield.

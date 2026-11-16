@@ -86,7 +86,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteCdsFlowConventionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -202,7 +201,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteFlowConventionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -318,7 +316,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteIndexConventionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -435,7 +432,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCdsFlowConventionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -553,7 +549,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetFlowConventionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -671,7 +666,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetIndexConventionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -787,7 +781,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListCdsFlowConventionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -901,7 +894,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListFlowConventionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1015,7 +1007,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListIndexConventionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1129,7 +1120,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertCdsFlowConventionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1243,7 +1233,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertFlowConventionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1357,7 +1346,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertIndexConventionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

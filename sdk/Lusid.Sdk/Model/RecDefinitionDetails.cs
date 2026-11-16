@@ -181,17 +181,8 @@ namespace Lusid.Sdk.Model
                     case "PortfolioContents":
                         newRecDefinitionDetails = new RecDefinitionDetails(JsonConvert.DeserializeObject<PortfolioContentsRecDefinitionDetails>(jsonString, RecDefinitionDetails.AdditionalPropertiesSerializerSettings));
                         return newRecDefinitionDetails;
-                    case "ExternalRecDefinitionDetails":
-                        newRecDefinitionDetails = new RecDefinitionDetails(JsonConvert.DeserializeObject<ExternalRecDefinitionDetails>(jsonString, RecDefinitionDetails.AdditionalPropertiesSerializerSettings));
-                        return newRecDefinitionDetails;
-                    case "LusidEntityRecDefinitionDetails":
-                        newRecDefinitionDetails = new RecDefinitionDetails(JsonConvert.DeserializeObject<LusidEntityRecDefinitionDetails>(jsonString, RecDefinitionDetails.AdditionalPropertiesSerializerSettings));
-                        return newRecDefinitionDetails;
-                    case "PortfolioContentsRecDefinitionDetails":
-                        newRecDefinitionDetails = new RecDefinitionDetails(JsonConvert.DeserializeObject<PortfolioContentsRecDefinitionDetails>(jsonString, RecDefinitionDetails.AdditionalPropertiesSerializerSettings));
-                        return newRecDefinitionDetails;
                     default:
-                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for RecDefinitionDetails. Possible values: External LusidEntity PortfolioContents ExternalRecDefinitionDetails LusidEntityRecDefinitionDetails PortfolioContentsRecDefinitionDetails", discriminatorValue));
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for RecDefinitionDetails. Possible values: External LusidEntity PortfolioContents", discriminatorValue));
                         break;
                 }
             }

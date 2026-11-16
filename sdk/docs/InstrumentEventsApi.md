@@ -82,7 +82,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the QueryApplicableInstrumentEventsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -199,7 +198,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the QueryBucketCashFlowDrillDownWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -313,7 +311,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the QueryBucketedCashFlowsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -429,7 +426,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the QueryCashFlowsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -547,7 +543,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the QueryInstrumentEventsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -665,7 +660,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the QueryTradeTicketsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

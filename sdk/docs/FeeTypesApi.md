@@ -80,7 +80,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateFeeTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -196,7 +195,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteFeeTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -310,7 +308,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetFeeTemplateSpecificationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -421,7 +418,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetFeeTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -541,7 +537,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListFeeTypesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -661,7 +656,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateFeeTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

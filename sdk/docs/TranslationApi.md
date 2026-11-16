@@ -75,7 +75,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the TranslateInstrumentDefinitionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -189,7 +188,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the TranslateTradeTicketsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

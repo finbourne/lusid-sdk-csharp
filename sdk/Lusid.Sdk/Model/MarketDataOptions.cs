@@ -52,7 +52,6 @@ namespace Lusid.Sdk.Model
             VolCubeOptions = 2
         }
 
-
         /// <summary>
         /// Available values: CurveOptions, VolCubeOptions. Available values: CurveOptions, VolCubeOptions.
         /// </summary>

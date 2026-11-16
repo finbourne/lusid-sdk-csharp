@@ -85,7 +85,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteSideDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -202,7 +201,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteTransactionTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -319,7 +317,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteTransactionTypeSourceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -437,7 +434,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetSideDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -558,7 +554,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTransactionTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -678,7 +673,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListSideDefinitionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -796,7 +790,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListTransactionTypesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -914,7 +907,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetSideDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1031,7 +1023,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetSideDefinitionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1149,7 +1140,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetTransactionTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1268,7 +1258,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetTransactionTypeSourceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

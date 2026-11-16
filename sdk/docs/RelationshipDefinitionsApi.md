@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateRelationshipDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -193,7 +192,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteRelationshipDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -310,7 +308,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetRelationshipDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -430,7 +427,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListRelationshipDefinitionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -550,7 +546,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateRelationshipDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

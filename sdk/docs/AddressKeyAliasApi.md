@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteAddressKeyAliasWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -195,7 +194,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAddressKeyAliasWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -315,7 +313,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListAddressKeyAliasesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -433,7 +430,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertAddressKeyAliasWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

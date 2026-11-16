@@ -82,7 +82,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteLegacyComplianceRuleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -200,7 +199,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetLegacyBreachedOrdersInfoWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -320,7 +318,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetLegacyComplianceRuleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -440,7 +437,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetLegacyComplianceRunResultsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -561,7 +557,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListLegacyComplianceRulesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -682,7 +677,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListLegacyComplianceRunInfoWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -802,7 +796,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RunLegacyComplianceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -920,7 +913,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertLegacyComplianceRulesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

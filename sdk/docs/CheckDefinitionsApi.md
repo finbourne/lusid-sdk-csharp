@@ -81,7 +81,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateCheckDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -196,7 +195,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteCheckDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -313,7 +311,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteRulesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -433,7 +430,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCheckDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -557,7 +553,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListCheckDefinitionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -679,7 +674,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RunCheckDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -797,7 +791,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateCheckDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -915,7 +908,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertRulesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

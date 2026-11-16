@@ -81,7 +81,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateAborConfigurationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -197,7 +196,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteAborConfigurationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -316,7 +314,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAborConfigurationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -437,7 +434,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAborConfigurationPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -560,7 +556,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListAborConfigurationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -682,7 +677,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchAborConfigurationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -800,7 +794,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertAborConfigurationPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

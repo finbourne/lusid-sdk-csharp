@@ -80,7 +80,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateFundConfigurationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -196,7 +195,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteFundConfigurationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -315,7 +313,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetFundConfigurationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -439,7 +436,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListFundConfigurationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -561,7 +557,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchFundConfigurationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -679,7 +674,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertFundConfigurationPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

@@ -84,7 +84,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the AddFundStructureMemberWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -204,7 +203,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CloseFundStructureWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -322,7 +320,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateFundStructureWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -439,7 +436,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteFundStructureWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -559,7 +555,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetFundStructureWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -683,7 +678,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListFundStructuresWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -806,7 +800,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RemoveFundStructureMemberWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -925,7 +918,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertFundStructureWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

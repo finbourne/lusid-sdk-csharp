@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateTransferWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -197,7 +196,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteTransferWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -318,7 +316,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the EditTransferWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -435,7 +432,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTransferWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -556,7 +552,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListTransfersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

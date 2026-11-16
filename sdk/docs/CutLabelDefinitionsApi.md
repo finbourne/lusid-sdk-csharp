@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateCutLabelDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -192,7 +191,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteCutLabelDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -307,7 +305,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCutLabelDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -426,7 +423,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListCutLabelDefinitionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -545,7 +541,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateCutLabelDefinitionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

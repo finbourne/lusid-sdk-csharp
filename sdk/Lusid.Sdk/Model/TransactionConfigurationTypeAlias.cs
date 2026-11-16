@@ -84,7 +84,6 @@ namespace Lusid.Sdk.Model
             AllRoles = 8
         }
 
-
         /// <summary>
         /// Transactions role within a class. E.g. Increase a long position. Available values: None, LongLonger, LongShorter, ShortShorter, Shorter, ShortLonger, Longer, AllRoles.
         /// </summary>

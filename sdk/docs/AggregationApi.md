@@ -80,7 +80,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GenerateConfigurationRecipeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -198,7 +197,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetQueryableKeysWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -314,7 +312,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetQueryableKeysForMetricsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -428,7 +425,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetValuationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -542,7 +538,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetValuationOfWeightedInstrumentsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

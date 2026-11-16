@@ -156,7 +156,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the AcceptEstimateValuationPointWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -276,7 +275,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the AccrueCarryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -395,7 +393,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the AddAllocationGroupsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -513,7 +510,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the AddSeriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -632,7 +628,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ApproveTaxProvisionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -752,7 +747,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CalculateManagementFeesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -871,7 +865,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateFacilityWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -990,7 +983,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateFeeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1108,7 +1100,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateFundWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1224,7 +1215,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateFundV2WithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1342,7 +1332,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateValuationPointWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1462,7 +1451,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeactivateNavTypesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1582,7 +1570,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteBookmarkWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1701,7 +1688,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteFacilityWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1819,7 +1805,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteFeeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1936,7 +1921,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteFundWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2056,7 +2040,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteNavActivityAdjustmentsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2178,7 +2161,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteSeriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2297,7 +2279,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteTaxCostRecordWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2417,7 +2398,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteValuationPointWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2539,7 +2519,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DiffPartnerStatementWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2660,7 +2639,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the FinaliseCandidateValuationPointWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2783,7 +2761,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetA2BDataForFundWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2909,7 +2886,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetA2BMovementsForFundWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3033,7 +3009,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetFacilityWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3156,7 +3131,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetFeeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3279,7 +3253,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetFeePropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3401,7 +3374,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetFundWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3522,7 +3494,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetFundPerformanceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3642,7 +3613,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetFundPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3762,7 +3732,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetFundTaxScopeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3889,7 +3858,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetHoldingContributorsForFundWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -4021,7 +3989,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetHoldingsForFundWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -4150,7 +4117,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPartnerCapitalAccountWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -4276,7 +4242,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPartnerPerformanceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -4400,7 +4365,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPartnerUnfundedReconciliationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -4526,7 +4490,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPartnersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -4648,7 +4611,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPartnershipConfigPackWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -4768,7 +4730,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetSeriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -4890,7 +4851,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTaxProvisionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -5010,7 +4970,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTaxSyncStatusWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -5129,7 +5088,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetValuationForFundWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -5250,7 +5208,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetValuationPointDataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -5378,7 +5335,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetValuationPointJournalEntryLinesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -5510,7 +5466,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetValuationPointPnlSummaryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -5638,7 +5593,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetValuationPointQuotesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -5771,7 +5725,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetValuationPointTransactionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -5908,7 +5861,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetValuationPointTrialBalanceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -6040,7 +5992,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetValuationPointUnsettledTransactionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -6169,7 +6120,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListFacilitiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -6298,7 +6248,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListFeesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -6427,7 +6376,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListFundCalendarWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -6555,7 +6503,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListFundCalendarEntriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -6682,7 +6629,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListFundsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -6810,7 +6756,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListNavActivityAdjustmentsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -6939,7 +6884,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListPartnerCapitalAccountsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -7062,7 +7006,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListPartnerStatementsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -7185,7 +7128,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListTaxCostRecordsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -7309,7 +7251,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListTaxExceptionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -7428,7 +7369,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListTaxExceptionsAcrossFundsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -7549,7 +7489,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListTaxProvisionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -7674,7 +7613,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListValuationPointComplexMarketDataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -7804,7 +7742,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListValuationPointInstrumentsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -7936,7 +7873,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListValuationPointOverviewWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -8061,7 +7997,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchFeeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -8181,7 +8116,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchFundWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -8302,7 +8236,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ProducePartnerStatementWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -8428,7 +8361,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the QueryCashStatementWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -8558,7 +8490,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the QueryCashStatementLocalCurrencyWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -8683,7 +8614,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RevertValuationPointToEstimateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -8803,7 +8733,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RunPartnerAllocationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -8922,7 +8851,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetShareClassInstrumentsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -9041,7 +8969,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateValuationPointWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -9162,7 +9089,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertBookmarkWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -9282,7 +9208,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertDiaryEntryTypeValuationPointWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -9401,7 +9326,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertExternalDealingEstimatesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -9520,7 +9444,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertFeePropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -9639,7 +9562,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertFundPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -9760,7 +9682,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertNavActivityAdjustmentsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -9881,7 +9802,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertTaxCostRecordsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

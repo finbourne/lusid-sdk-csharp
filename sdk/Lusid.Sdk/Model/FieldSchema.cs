@@ -162,7 +162,6 @@ namespace Lusid.Sdk.Model
             UnindexedText = 21
         }
 
-
         /// <summary>
         /// Available values: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText.
         /// </summary>

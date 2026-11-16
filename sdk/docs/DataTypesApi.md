@@ -82,7 +82,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateDataTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -197,7 +196,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteDataTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -314,7 +312,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetDataTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -434,7 +431,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetUnitsFromDataTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -556,7 +552,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListDataTypeSummariesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -679,7 +674,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListDataTypesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -800,7 +794,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateDataTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -918,7 +911,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateReferenceDataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1036,7 +1028,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateReferenceValuesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

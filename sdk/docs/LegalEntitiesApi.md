@@ -93,7 +93,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteLegalEntityWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -214,7 +213,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteLegalEntityAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -337,7 +335,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteLegalEntityIdentifiersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -459,7 +456,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteLegalEntityPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -581,7 +577,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAllLegalEntityAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -705,7 +700,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetLegalEntityWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -830,7 +824,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetLegalEntityAccessMetadataByKeyWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -956,7 +949,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetLegalEntityPropertyTimeSeriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1083,7 +1075,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetLegalEntityRelationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1209,7 +1200,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetLegalEntityRelationshipsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1336,7 +1326,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListAllLegalEntitiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1466,7 +1455,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListLegalEntitiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1594,7 +1582,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchLegalEntityAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1716,7 +1703,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetLegalEntityIdentifiersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1836,7 +1822,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetLegalEntityPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1954,7 +1939,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertLegalEntitiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2069,7 +2053,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertLegalEntityWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2189,7 +2172,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertLegalEntityAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

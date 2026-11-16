@@ -82,7 +82,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteCounterpartyAgreementWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -198,7 +197,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteCreditSupportAnnexWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -315,7 +313,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCounterpartyAgreementWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -433,7 +430,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCreditSupportAnnexWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -549,7 +545,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListCounterpartyAgreementsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -663,7 +658,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListCreditSupportAnnexesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -777,7 +771,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertCounterpartyAgreementWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -891,7 +884,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertCreditSupportAnnexWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

@@ -79,7 +79,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateEligibleCollateralScheduleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -196,7 +195,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteEligibleCollateralScheduleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -316,7 +314,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetEligibleCollateralScheduleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -440,7 +437,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListEligibleCollateralSchedulesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -562,7 +558,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertEligibleCollateralScheduleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

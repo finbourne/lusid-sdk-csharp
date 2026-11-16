@@ -84,7 +84,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteInvestorRecordWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -207,7 +206,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteInvestorRecordAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -332,7 +330,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAllInvestorRecordAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -458,7 +455,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetInvestorRecordWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -586,7 +582,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetInvestorRecordRelationshipsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -714,7 +709,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListAllInvestorRecordsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -841,7 +835,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchInvestorRecordAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -962,7 +955,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertInvestorRecordsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

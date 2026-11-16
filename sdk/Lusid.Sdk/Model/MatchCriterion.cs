@@ -59,7 +59,6 @@ namespace Lusid.Sdk.Model
             SubHoldingKeyValueEquals = 3
         }
 
-
         /// <summary>
         /// Available values: PropertyValueEquals, PropertyValueIn, SubHoldingKeyValueEquals.
         /// </summary>

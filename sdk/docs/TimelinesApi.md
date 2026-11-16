@@ -89,7 +89,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchCreateClosedPeriodCandidatesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -207,7 +206,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchCreateClosedPeriodsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -326,7 +324,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ConfirmClosedPeriodWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -445,7 +442,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateClosedPeriodWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -563,7 +559,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateClosedPeriodCandidateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -679,7 +674,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateTimelineWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -794,7 +788,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteTimelineWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -913,7 +906,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetClosedPeriodWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1035,7 +1027,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTimelineWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1160,7 +1151,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListClosedPeriodsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1287,7 +1277,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListTimelinesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1410,7 +1399,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetPostCloseActivityWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1530,7 +1518,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UnconfirmClosedPeriodWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1649,7 +1636,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateTimelineWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

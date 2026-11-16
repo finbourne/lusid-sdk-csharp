@@ -131,7 +131,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the AdjustHoldingsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -255,7 +254,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchAdjustHoldingsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -376,7 +374,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchAmendSettlementInstructionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -495,7 +492,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchCreateTradeTicketsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -615,7 +611,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchSetHoldingsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -736,7 +731,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchUpsertSettlementInstructionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -859,7 +853,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchUpsertTransactionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -981,7 +974,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BuildSettlementInstructionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1107,7 +1099,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BuildTransactionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1233,7 +1224,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CancelAdjustHoldingsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1352,7 +1342,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CancelSingleAdjustHoldingWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1471,7 +1460,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CancelTransactionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1588,7 +1576,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreatePortfolioWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1705,7 +1692,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateTradeTicketWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1824,7 +1810,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteCustodianAccountsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1944,7 +1929,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeletePropertiesFromTransactionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2063,7 +2047,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteSettlementInstructionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2182,7 +2165,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteVirtualTransactionOverrideWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2307,7 +2289,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetA2BDataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2441,7 +2422,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetA2BMovementsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2578,7 +2558,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetA2BMovementsTradingVsHoldingWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2705,7 +2684,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetBucketedCashFlowsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2827,7 +2805,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCustodianAccountWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2950,7 +2927,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetDetailsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3080,7 +3056,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetHoldingContributorsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3218,7 +3193,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetHoldingsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3348,7 +3322,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetHoldingsAdjustmentWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3477,7 +3450,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetHoldingsWithOrdersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3614,7 +3586,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetMultipleHoldingContributorsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3751,7 +3722,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioCashFlowsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3885,7 +3855,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioCashLadderWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -4017,7 +3986,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioCashStatementWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -4142,7 +4110,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTransactionHistoryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -4264,7 +4231,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTransactionSettlementStatusWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -4396,7 +4362,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTransactionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -4533,7 +4498,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetUpsertablePortfolioCashFlowsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -4661,7 +4625,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetVirtualTransactionOverrideWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -4786,7 +4749,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListCustodianAccountsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -4912,7 +4874,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListHoldingsAdjustmentsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -5042,7 +5003,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListSettlementInstructionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -5172,7 +5132,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListVirtualTransactionOverridesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -5294,7 +5253,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchPortfolioDetailsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -5418,7 +5376,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PreviewTransactionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -5545,7 +5502,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ResolveInstrumentWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -5671,7 +5627,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetHoldingsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -5793,7 +5748,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertCustodianAccountsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -5913,7 +5867,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertCustodianAccountsPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -6034,7 +5987,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertPortfolioDetailsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -6153,7 +6105,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertSettlementInstructionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -6272,7 +6223,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertTransactionPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -6394,7 +6344,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertTransactionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -6518,7 +6467,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertVirtualTransactionOverrideWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

@@ -303,29 +303,8 @@ namespace Lusid.Sdk.Model
                     case "ValuedHolding":
                         newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultHoldingItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
                         return newRecResultItem;
-                    case "RecResultCustomEntityItem":
-                        newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultCustomEntityItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
-                        return newRecResultItem;
-                    case "RecResultExternalIdentifiersItem":
-                        newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultExternalIdentifiersItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
-                        return newRecResultItem;
-                    case "RecResultHoldingItem":
-                        newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultHoldingItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
-                        return newRecResultItem;
-                    case "RecResultRelationalDataItem":
-                        newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultRelationalDataItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
-                        return newRecResultItem;
-                    case "RecResultResourceIdItem":
-                        newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultResourceIdItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
-                        return newRecResultItem;
-                    case "RecResultSettlementActivityItem":
-                        newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultSettlementActivityItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
-                        return newRecResultItem;
-                    case "RecResultTransactionItem":
-                        newRecResultItem = new RecResultItem(JsonConvert.DeserializeObject<RecResultTransactionItem>(jsonString, RecResultItem.AdditionalPropertiesSerializerSettings));
-                        return newRecResultItem;
                     default:
-                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for RecResultItem. Possible values: CustomEntity Holding Instrument LegalEntity Portfolio RelationalDataPoint SettlementActivity Transaction ValuedHolding RecResultCustomEntityItem RecResultExternalIdentifiersItem RecResultHoldingItem RecResultRelationalDataItem RecResultResourceIdItem RecResultSettlementActivityItem RecResultTransactionItem", discriminatorValue));
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for RecResultItem. Possible values: CustomEntity Holding Instrument LegalEntity Portfolio RelationalDataPoint SettlementActivity Transaction ValuedHolding", discriminatorValue));
                         break;
                 }
             }

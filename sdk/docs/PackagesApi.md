@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeletePackageWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -196,7 +195,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPackageWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -318,7 +316,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListPackagesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -437,7 +434,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertPackagesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

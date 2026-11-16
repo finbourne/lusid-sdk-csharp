@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="VolCubeOptions" /> class.
         /// </summary>
         /// <param name="dayCountConvention">Day count convention the vols are quoted on. The cube places its expiry pillars on it, and a swaption priced off  the cube measures its time to expiry on it. Supported values: Actual360, Actual365, Act365F, Act365_25 and  ActualActual, or their aliases Act360, MoneyMarket, Act365, ActAct and ActActIsda. Default value: ActualActual. Available values: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIcma, ActActIsma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM, Invalid..</param>
-        /// <param name="marketDataOptionsType">Available values: CurveOptions, VolCubeOptions. Available values: CurveOptions, VolCubeOptions. (required) (default to &quot;VolCubeOptions&quot;).</param>
+        /// <param name="marketDataOptionsType">Available values: CurveOptions, VolCubeOptions. Available values: CurveOptions, VolCubeOptions. (required) (default to MarketDataOptionsTypeEnum.VolCubeOptions).</param>
         public VolCubeOptions(string dayCountConvention = default(string), MarketDataOptionsTypeEnum marketDataOptionsType = default(MarketDataOptionsTypeEnum)) : base(marketDataOptionsType)
         {
             this.DayCountConvention = dayCountConvention;

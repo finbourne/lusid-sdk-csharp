@@ -81,7 +81,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateProcessingGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -197,7 +196,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteProcessingGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -315,7 +313,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetProcessingGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -435,7 +432,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetProcessingGroupNextScheduledDetailsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -557,7 +553,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetResolvedProcessingGroupScheduleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -680,7 +675,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListProcessingGroupsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -801,7 +795,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchProcessingGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

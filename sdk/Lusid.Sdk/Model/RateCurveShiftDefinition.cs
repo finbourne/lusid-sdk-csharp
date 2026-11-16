@@ -68,7 +68,6 @@ namespace Lusid.Sdk.Model
             Tent = 5
         }
 
-
         /// <summary>
         /// Available values: Parallel, Steepen, Flatten, Twist, Tent.
         /// </summary>
@@ -94,7 +93,6 @@ namespace Lusid.Sdk.Model
             [EnumMember(Value = "Percentage")]
             Percentage = 2
         }
-
 
         /// <summary>
         /// Available values: Bps, Percentage.
@@ -134,7 +132,6 @@ namespace Lusid.Sdk.Model
             Exclusive = 4
         }
 
-
         /// <summary>
         /// Available values: Inclusive, StartExclusive, EndExclusive, Exclusive.
         /// </summary>
@@ -167,7 +164,6 @@ namespace Lusid.Sdk.Model
             Negative = 3
         }
 
-
         /// <summary>
         /// Available values: Any, Positive, Negative.
         /// </summary>
@@ -194,7 +190,7 @@ namespace Lusid.Sdk.Model
         /// <param name="curveName">The funding identifier of the one curve in the currency this shift targets, letting a  scenario shock a named curve (say, an issuer discounting curve) without also moving the  risk-free curve mastered in the same currency. Omitted - as on every scenario stored  before this field existed - the shift matches every rate curve in the currency, exactly  as before. Declared last on purpose: generated SDKs emit their positional constructor in  property-declaration order, and this property must not shift the parameters of the ones  before it..</param>
         /// <param name="minimumAmountBps">The smallest magnitude, in basis points, of the shift finally applied at each curve point.  Evaluated per point AFTER the shape weight, in the direction the shift acts there (the sign  of Amount times the shape weight): the applied move becomes at least the minimum in that  direction, even where a Percentage shift on a negative rate would have pointed the other  way - the Solvency II up-shock&#39;s \&quot;at least one percentage point at any maturity\&quot; is  MinimumAmountBps &#x3D; 100 on the relative shift the regulation states. A point whose shape  weight is exactly zero stays unshifted: the floor strengthens a shock where the shape  applies one, it does not extend the shock to points the shape excludes (a Tent&#39;s window  ends remain unmoved). Deliberately in basis points rather than in Scale units, because the  floor and the shift are in different units by construction: the regulation states a  relative shock with an absolute floor. Omitted, no floor applies - today&#39;s behaviour.  Declared after PivotTenor on purpose, for the constructor-ordering reason given there..</param>
         /// <param name="applyWhenValue">Available values: Any, Positive, Negative..</param>
-        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition, CreditSpreadShiftDefinition, ModelOptionShiftDefinition. (required) (default to &quot;RateCurveShiftDefinition&quot;).</param>
+        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition, CreditSpreadShiftDefinition, ModelOptionShiftDefinition. (required) (default to ScenarioShiftTypeEnum.RateCurveShiftDefinition).</param>
         public RateCurveShiftDefinition(string ccy = default(string), decimal? amount = default(decimal?), string startTenor = default(string), string endTenor = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScaleEnum ?scale = default(ScaleEnum?), string applyTo = default(string), string pivotTenor = default(string), WindowBoundsEnum ?windowBounds = default(WindowBoundsEnum?), string curveName = default(string), decimal? minimumAmountBps = default(decimal?), ApplyWhenValueEnum ?applyWhenValue = default(ApplyWhenValueEnum?), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
             // to ensure "ccy" is required (not null)

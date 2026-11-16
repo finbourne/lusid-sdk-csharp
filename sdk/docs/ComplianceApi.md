@@ -100,7 +100,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateComplianceTemplateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -216,7 +215,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteComplianceRuleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -332,7 +330,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteComplianceRuleV3WithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -448,7 +445,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteComplianceTemplateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -565,7 +561,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DescribeComplianceRuleV3WithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -684,7 +679,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetComplianceRuleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -804,7 +798,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetComplianceRuleBreakdownWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -924,7 +917,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetComplianceRuleResultWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1043,7 +1035,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetComplianceRuleV3WithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1161,7 +1152,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetComplianceTemplateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1279,7 +1269,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetDecoratedComplianceRunSummaryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1395,7 +1384,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetFilteredDecoratedComplianceRunSummaryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1513,7 +1501,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListComplianceRulesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1635,7 +1622,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListComplianceRulesV3WithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1757,7 +1743,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListComplianceRunsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1878,7 +1863,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListComplianceTemplatesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1999,7 +1983,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListOrderBreachHistoryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2121,7 +2104,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RunComplianceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2243,7 +2225,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RunCompliancePreviewWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2361,7 +2342,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RunComplianceV3WithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2475,7 +2455,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RunComplianceV3PreTradeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2591,7 +2570,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateComplianceTemplateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2707,7 +2685,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertComplianceRuleWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2821,7 +2798,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertComplianceRuleV3WithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2935,7 +2911,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertComplianceRunSummaryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3049,7 +3024,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ValidateComplianceRuleV3WithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

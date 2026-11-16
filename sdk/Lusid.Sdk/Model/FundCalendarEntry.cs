@@ -48,7 +48,6 @@ namespace Lusid.Sdk.Model
             BookmarkFundCalendarEntry = 2
         }
 
-
         /// <summary>
         /// The type of the Fund Calendar Entry. Available values: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry.
         /// </summary>

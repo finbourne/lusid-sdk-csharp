@@ -54,7 +54,6 @@ namespace Lusid.Sdk.Model
             Iso4217Currency = 3
         }
 
-
         /// <summary>
         /// Available values: NoUnits, Basic, Iso4217Currency.
         /// </summary>

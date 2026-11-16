@@ -58,7 +58,6 @@ namespace Lusid.Sdk.Model
             PortfolioResultDataKeyRule = 3
         }
 
-
         /// <summary>
         /// Available values: Invalid, ResultDataKeyRule, PortfolioResultDataKeyRule.
         /// </summary>

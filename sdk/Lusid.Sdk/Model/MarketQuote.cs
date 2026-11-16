@@ -168,7 +168,6 @@ namespace Lusid.Sdk.Model
             EffectiveYield = 22
         }
 
-
         /// <summary>
         /// Available values: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor, ForwardPrice, DiscountFactor, PrincipalDistributed, EffectiveYield.
         /// </summary>

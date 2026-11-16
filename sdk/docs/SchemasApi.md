@@ -77,7 +77,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetEntitySchemaWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -192,7 +191,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPropertySchemaWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -308,7 +306,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetValueTypesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -422,7 +419,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListEntitiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

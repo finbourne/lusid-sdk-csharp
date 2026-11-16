@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteValuationAddressKeyTemplateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -195,7 +194,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetValuationAddressKeyTemplateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -315,7 +313,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListValuationAddressKeyTemplatesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -435,7 +432,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertValuationAddressKeyTemplateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

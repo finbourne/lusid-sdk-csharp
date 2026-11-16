@@ -81,7 +81,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteResourceRecordWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -200,7 +199,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetResourceRecordWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -319,7 +317,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListResourceRecordCodesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -437,7 +434,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListResourceRecordScopesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -559,7 +555,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListResourceRecordsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -679,7 +674,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertResourceRecordWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

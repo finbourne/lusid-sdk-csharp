@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OpaqueDependency" /> class.
         /// </summary>
-        /// <param name="dependencyType">Available values: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency. (required) (default to &quot;OpaqueDependency&quot;).</param>
+        /// <param name="dependencyType">Available values: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency. (required) (default to DependencyTypeEnum.OpaqueDependency).</param>
         public OpaqueDependency(DependencyTypeEnum dependencyType = default(DependencyTypeEnum)) : base(dependencyType)
         {
         }

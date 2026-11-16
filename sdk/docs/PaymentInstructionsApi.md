@@ -80,7 +80,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeletePaymentInstructionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -199,7 +198,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPaymentInstructionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -320,7 +318,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPaymentInstructionsByPaymentRecordIdsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -443,7 +440,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListPaymentInstructionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -564,7 +560,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the TransitionPaymentInstructionStatusesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -679,7 +674,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertPaymentInstructionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

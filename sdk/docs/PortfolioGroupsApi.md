@@ -103,7 +103,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the AddPortfolioToGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -223,7 +222,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the AddSubGroupToGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -350,7 +348,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BuildTransactionsForPortfolioGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -475,7 +472,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreatePortfolioGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -593,7 +589,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteGroupPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -714,7 +709,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteKeyFromPortfolioGroupAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -836,7 +830,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeletePortfolioFromGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -955,7 +948,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeletePortfolioGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1074,7 +1066,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteSubGroupFromGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1200,7 +1191,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetA2BDataForPortfolioGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1325,7 +1315,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetGroupPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1449,7 +1438,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetHoldingsForPortfolioGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1576,7 +1564,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1700,7 +1687,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioGroupAccessMetadataByKeyWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1822,7 +1808,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioGroupCommandsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1944,7 +1929,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioGroupExpansionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2065,7 +2049,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioGroupMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2189,7 +2172,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioGroupPropertyTimeSeriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2315,7 +2297,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioGroupRelationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2439,7 +2420,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPortfolioGroupRelationshipsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2571,7 +2551,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTransactionsForPortfolioGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2706,7 +2685,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListAllPortfolioGroupsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2837,7 +2815,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListPortfolioGroupsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2964,7 +2941,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchPortfolioGroupAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3085,7 +3061,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdatePortfolioGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3204,7 +3179,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertGroupPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -3325,7 +3299,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertPortfolioGroupAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

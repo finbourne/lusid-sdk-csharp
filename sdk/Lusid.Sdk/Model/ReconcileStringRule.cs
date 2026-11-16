@@ -74,7 +74,6 @@ namespace Lusid.Sdk.Model
             IsOneOfCaseInsensitive = 6
         }
 
-
         /// <summary>
         /// Available values: Exact, Contains, CaseInsensitive, ContainsAnyCase, IsOneOf, IsOneOfCaseInsensitive.
         /// </summary>
@@ -92,7 +91,7 @@ namespace Lusid.Sdk.Model
         /// <param name="comparisonType">Available values: Exact, Contains, CaseInsensitive, ContainsAnyCase, IsOneOf, IsOneOfCaseInsensitive. (required).</param>
         /// <param name="oneOfCandidates">For cases of \&quot;IsOneOf\&quot; or \&quot;IsOneOfCaseInsensitive\&quot;, a mapping from the left hand to side to lists of  equivalent alternative values on the right hand side.  Fuzzy matching of strings against one of a set. There can be cases where systems \&quot;A\&quot; and \&quot;B\&quot; might use different terms for the same logical entity. A common case would be  comparison of something like a day count fraction where some convention like the \&quot;actual 365\&quot; convention might be represented as one of [\&quot;A365\&quot;, \&quot;Act365\&quot;, \&quot;Actual365\&quot;] or similar.  This is to allow this kind of fuzzy matching of values. Note that as this is exhaustive comparison across sets it will be slow and should therefore be used sparingly..</param>
         /// <param name="appliesTo">appliesTo (required).</param>
-        /// <param name="ruleType">Available values: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact. (required) (default to &quot;ReconcileStringRule&quot;).</param>
+        /// <param name="ruleType">Available values: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact. (required) (default to RuleTypeEnum.ReconcileStringRule).</param>
         public ReconcileStringRule(ComparisonTypeEnum comparisonType = default(ComparisonTypeEnum), Dictionary<string, List<string>> oneOfCandidates = default(Dictionary<string, List<string>>), AggregateSpec appliesTo = default(AggregateSpec), RuleTypeEnum ruleType = default(RuleTypeEnum)) : base(ruleType)
         {
             this.ComparisonType = comparisonType;

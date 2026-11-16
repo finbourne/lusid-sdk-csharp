@@ -88,7 +88,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteReturnsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -210,7 +209,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteReturnsEntityWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -325,7 +323,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAggregatedReturnsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -447,7 +444,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetReturnsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -571,7 +567,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetReturnsEntityWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -687,7 +682,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListReturnsEntitiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -806,7 +800,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertReturnsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -925,7 +918,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertReturnsEntityWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

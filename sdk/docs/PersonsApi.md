@@ -93,7 +93,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeletePersonWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -214,7 +213,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeletePersonAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -337,7 +335,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeletePersonIdentifiersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -459,7 +456,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeletePersonPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -581,7 +577,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetAllPersonAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -705,7 +700,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPersonWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -830,7 +824,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPersonAccessMetadataByKeyWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -956,7 +949,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPersonPropertyTimeSeriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1083,7 +1075,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPersonRelationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1209,7 +1200,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPersonRelationshipsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1335,7 +1325,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListAllPersonsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1463,7 +1452,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListPersonsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1590,7 +1578,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PatchPersonAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1712,7 +1699,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetPersonIdentifiersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1832,7 +1818,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetPersonPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1949,7 +1934,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertPersonWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2069,7 +2053,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertPersonAccessMetadataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2190,7 +2173,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertPersonsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

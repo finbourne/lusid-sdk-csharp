@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateCustomEntityTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -192,7 +191,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteCustomEntityTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -307,7 +305,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCustomEntityTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -426,7 +423,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListCustomEntityTypesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -545,7 +541,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateCustomEntityTypeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

@@ -84,7 +84,6 @@ namespace Lusid.Sdk.Model
             Reversed = 8
         }
 
-
         /// <summary>
         /// The status of the transaction. Available values: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp, PendingReversal, Reversed.
         /// </summary>

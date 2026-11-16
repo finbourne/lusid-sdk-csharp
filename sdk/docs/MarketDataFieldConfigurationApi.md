@@ -76,7 +76,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetMarketDataFieldConfigurationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -192,7 +191,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateMarketDataFieldConfigurationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

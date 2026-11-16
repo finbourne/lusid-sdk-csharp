@@ -77,7 +77,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteCurrencyGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -192,7 +191,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCurrencyGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -311,7 +309,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListCurrencyGroupsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -429,7 +426,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertCurrencyGroupWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

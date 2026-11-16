@@ -48,7 +48,6 @@ namespace Lusid.Sdk.Model
             ExternalTradeTicket = 2
         }
 
-
         /// <summary>
         /// Available values: LusidTradeTicket, ExternalTradeTicket.
         /// </summary>

@@ -59,7 +59,6 @@ namespace Lusid.Sdk.Model
             FundBookmark = 3
         }
 
-
         /// <summary>
         /// The type of the Calendar Entry. Available values: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark.
         /// </summary>

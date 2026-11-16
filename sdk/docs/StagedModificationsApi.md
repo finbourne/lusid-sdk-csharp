@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the AddDecisionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -194,7 +193,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetStagedModificationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -314,7 +312,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListRequestedChangesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -437,7 +434,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListStagedModificationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

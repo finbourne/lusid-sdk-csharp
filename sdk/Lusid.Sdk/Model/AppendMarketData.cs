@@ -73,7 +73,6 @@ namespace Lusid.Sdk.Model
             AppendFxForwardTenorPipsCurveData = 5
         }
 
-
         /// <summary>
         /// Available values: AppendFxForwardCurveByQuoteReference, AppendFxForwardCurveData, AppendFxForwardPipsCurveData, AppendFxForwardTenorCurveData, AppendFxForwardTenorPipsCurveData.
         /// </summary>

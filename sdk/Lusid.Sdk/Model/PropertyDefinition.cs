@@ -162,7 +162,6 @@ namespace Lusid.Sdk.Model
             UnindexedText = 21
         }
 
-
         /// <summary>
         /// The type of values that can be associated with this property. This is defined by the property&#39;s data type. Available values: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText.
         /// </summary>
@@ -195,7 +194,6 @@ namespace Lusid.Sdk.Model
             Information = 3
         }
 
-
         /// <summary>
         /// The type of the property. Available values: Label, Metric, Information.
         /// </summary>
@@ -227,7 +225,6 @@ namespace Lusid.Sdk.Model
             [EnumMember(Value = "Iso4217Currency")]
             Iso4217Currency = 3
         }
-
 
         /// <summary>
         /// The units that can be associated with the property&#39;s values. This is defined by the property&#39;s data type. Available values: NoUnits, Basic, Iso4217Currency.
@@ -843,7 +840,6 @@ namespace Lusid.Sdk.Model
             RelationalDatasetDefinition = 100
         }
 
-
         /// <summary>
         /// The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, ProcessingGroup, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition, RecResult, JournalEntry, CollateralAgreement, EligibleCollateralSchedule.
         /// </summary>
@@ -870,7 +866,6 @@ namespace Lusid.Sdk.Model
             TimeVariant = 2
         }
 
-
         /// <summary>
         /// Describes how the property&#39;s values can change over time. Available values: Perpetual, TimeVariant.
         /// </summary>
@@ -896,7 +891,6 @@ namespace Lusid.Sdk.Model
             [EnumMember(Value = "DerivedDefinition")]
             DerivedDefinition = 2
         }
-
 
         /// <summary>
         /// The definition type. Available values: ValueProperty, DerivedDefinition.

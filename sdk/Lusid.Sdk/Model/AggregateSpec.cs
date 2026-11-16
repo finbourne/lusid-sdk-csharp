@@ -120,7 +120,6 @@ namespace Lusid.Sdk.Model
             SumCumulativeInArrears = 14
         }
 
-
         /// <summary>
         /// Available values: Sum, DefaultSum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears.
         /// </summary>

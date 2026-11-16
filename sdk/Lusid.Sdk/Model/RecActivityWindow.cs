@@ -152,14 +152,8 @@ namespace Lusid.Sdk.Model
                     case "FixedPeriodLookback":
                         newRecActivityWindow = new RecActivityWindow(JsonConvert.DeserializeObject<FixedPeriodLookbackActivityWindow>(jsonString, RecActivityWindow.AdditionalPropertiesSerializerSettings));
                         return newRecActivityWindow;
-                    case "ContiguousActivityWindow":
-                        newRecActivityWindow = new RecActivityWindow(JsonConvert.DeserializeObject<ContiguousActivityWindow>(jsonString, RecActivityWindow.AdditionalPropertiesSerializerSettings));
-                        return newRecActivityWindow;
-                    case "FixedPeriodLookbackActivityWindow":
-                        newRecActivityWindow = new RecActivityWindow(JsonConvert.DeserializeObject<FixedPeriodLookbackActivityWindow>(jsonString, RecActivityWindow.AdditionalPropertiesSerializerSettings));
-                        return newRecActivityWindow;
                     default:
-                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for RecActivityWindow. Possible values: Contiguous FixedPeriodLookback ContiguousActivityWindow FixedPeriodLookbackActivityWindow", discriminatorValue));
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for RecActivityWindow. Possible values: Contiguous FixedPeriodLookback", discriminatorValue));
                         break;
                 }
             }

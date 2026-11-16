@@ -84,7 +84,6 @@ namespace Lusid.Sdk.Model
             Client = 8
         }
 
-
         /// <summary>
         /// Available values: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc, Client.
         /// </summary>
@@ -260,7 +259,6 @@ namespace Lusid.Sdk.Model
             [EnumMember(Value = "DiscountedForward")]
             DiscountedForward = 27
         }
-
 
         /// <summary>
         /// Available values: SimpleStatic, Discounting, VendorDefault, BlackScholes, ConstantTimeValueOfMoney, Bachelier, ForwardWithPoints, ForwardWithPointsUndiscounted, ForwardSpecifiedRate, ForwardSpecifiedRateUndiscounted, IndexNav, IndexPrice, InlinedIndex, ForwardFromCurve, ForwardFromCurveUndiscounted, BlackScholesDigital, BjerksundStensland1993, BondLookupPricer, FlexibleLoanPricer, CdsLookupPricer, LoanFacilityPricer, OverrideOnlyPricer, FlexibleRepoSimplePricer, InflationForward, HullWhite1F, CapitalInterestPricer, DiscountedForward.

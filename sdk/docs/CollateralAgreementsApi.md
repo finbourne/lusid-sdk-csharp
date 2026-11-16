@@ -80,7 +80,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateCollateralAgreementWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -197,7 +196,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteCollateralAgreementWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -317,7 +315,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCollateralAgreementWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -439,7 +436,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCollateralAgreementApplicabilityWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -563,7 +559,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListCollateralAgreementsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -685,7 +680,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertCollateralAgreementWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

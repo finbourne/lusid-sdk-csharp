@@ -82,7 +82,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTaxClassificationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -203,7 +202,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTaxQualifyingInvestmentsHistoryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -323,7 +321,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListTaxClassificationExceptionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -443,7 +440,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListTaxClassificationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -563,7 +559,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RemoveTaxTreatmentOverrideWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -681,7 +676,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertTaxTreatmentOverrideWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

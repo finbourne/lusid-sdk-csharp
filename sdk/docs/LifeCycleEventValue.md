@@ -5,7 +5,7 @@ The instrument life cycle event result value type
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResultValueType** | **string** | Available values: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset. | 
+**ResultValueType** | **string** | Available values: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset. | [default to ResultValueTypeEnum.ResultValue]
 **EffectiveDate** | **DateTimeOffset** | The effective date of the event | [optional] 
 **EventValues** | [**ResultValueDictionary**](ResultValueDictionary.md) |  | [optional] 
 **EventLineage** | [**LifeCycleEventLineage**](LifeCycleEventLineage.md) |  | [optional] 

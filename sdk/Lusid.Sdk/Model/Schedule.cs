@@ -120,7 +120,6 @@ namespace Lusid.Sdk.Model
             CancelSchedule = 12
         }
 
-
         /// <summary>
         /// Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, CommodityCalendarSchedule, Invalid, CancelSchedule.
         /// </summary>
