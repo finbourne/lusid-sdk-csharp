@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **Status** | **string** | The outcome of the run. Available values: Computed, Booked, DryRun. | 
 **RunId** | **string** | The identifier of the run, which prefixes every transaction it books. | 
 **Pools** | [**List&lt;PartnerAllocationPool&gt;**](PartnerAllocationPool.md) | The pools of fund-level amount that were allocated, in the allocation bucket set&#39;s bucket order with any tag pools after. | 
-**Unattributed** | [**List&lt;UnattributedAmount&gt;**](UnattributedAmount.md) | Always empty: every profit and loss line is now pooled or the run is refused. Kept for one release. | 
+**Unattributed** | [**List&lt;UnattributedAmount&gt;**](UnattributedAmount.md) | Always empty: every profit and loss line is pooled or the run is refused. Kept until no published SDK requires it. | 
 **BookedTransactionIds** | **List&lt;string&gt;** | The identifiers of the transactions the run booked, if any. | 
-**Warnings** | **List&lt;string&gt;** | What the run noticed but did not refuse, for example an excluded investor record that is not on the register at the period end. | [optional] 
+**Warnings** | **List&lt;string&gt;** | What the run noticed but did not refuse, for example an excluded investor record that is not on the register at the period end, or a fee accrual naming no investor that was pooled as unaccrued fee (AccruedFeeWithoutInvestor). | [optional] 
 **IgnoredTags** | [**List&lt;IgnoredDistributionTag&gt;**](IgnoredDistributionTag.md) | The distribution character tags the run did not pool by, by account. | [optional] 
 **AccruedFees** | [**List&lt;AccruedFeeLine&gt;**](AccruedFeeLine.md) | The management fees accrued per partner in the period, which the accrual allocates and the run therefore leaves out of the pools. | [optional] 
 

@@ -40,7 +40,9 @@ namespace Lusid.Sdk.Model
         /// <param name="isDefault">Is this election automatically applied in the absence of an election having been made.  May only be true for one election if multiple are provided..</param>
         /// <param name="isChosen">Is this the election that has been explicitly chosen from multiple options..</param>
         /// <param name="unitsRatio">unitsRatio (required).</param>
-        public ConsentAndExchangeElection(string electionKey = default(string), bool isDefault = default(bool), bool isChosen = default(bool), UnitsRatio unitsRatio = default(UnitsRatio))
+        /// <param name="consentFeePrice">Optional. The consent fee paid to holders who consent, on top of the exchange consideration. Quoted per 1,000 of face for bonds, using the current notional at the effective date of the event, and per unit for other instruments. Must be greater than 0. Required together with ConsentFeeCurrency, and only supported on an ExchangeOfferEvent..</param>
+        /// <param name="consentFeeCurrency">Optional. Currency of the consent fee. Required if a consent fee price is provided, and only supported on an ExchangeOfferEvent..</param>
+        public ConsentAndExchangeElection(string electionKey = default(string), bool isDefault = default(bool), bool isChosen = default(bool), UnitsRatio unitsRatio = default(UnitsRatio), decimal? consentFeePrice = default(decimal?), string consentFeeCurrency = default(string))
         {
             // to ensure "electionKey" is required (not null)
             if (electionKey == null)
@@ -56,6 +58,8 @@ namespace Lusid.Sdk.Model
             this.UnitsRatio = unitsRatio;
             this.IsDefault = isDefault;
             this.IsChosen = isChosen;
+            this.ConsentFeePrice = consentFeePrice;
+            this.ConsentFeeCurrency = consentFeeCurrency;
         }
 
         /// <summary>
@@ -86,6 +90,20 @@ namespace Lusid.Sdk.Model
         public UnitsRatio UnitsRatio { get; set; }
 
         /// <summary>
+        /// Optional. The consent fee paid to holders who consent, on top of the exchange consideration. Quoted per 1,000 of face for bonds, using the current notional at the effective date of the event, and per unit for other instruments. Must be greater than 0. Required together with ConsentFeeCurrency, and only supported on an ExchangeOfferEvent.
+        /// </summary>
+        /// <value>Optional. The consent fee paid to holders who consent, on top of the exchange consideration. Quoted per 1,000 of face for bonds, using the current notional at the effective date of the event, and per unit for other instruments. Must be greater than 0. Required together with ConsentFeeCurrency, and only supported on an ExchangeOfferEvent.</value>
+        [DataMember(Name = "consentFeePrice", EmitDefaultValue = true)]
+        public decimal? ConsentFeePrice { get; set; }
+
+        /// <summary>
+        /// Optional. Currency of the consent fee. Required if a consent fee price is provided, and only supported on an ExchangeOfferEvent.
+        /// </summary>
+        /// <value>Optional. Currency of the consent fee. Required if a consent fee price is provided, and only supported on an ExchangeOfferEvent.</value>
+        [DataMember(Name = "consentFeeCurrency", EmitDefaultValue = true)]
+        public string ConsentFeeCurrency { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -97,6 +115,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  IsDefault: ").Append(IsDefault).Append("\n");
             sb.Append("  IsChosen: ").Append(IsChosen).Append("\n");
             sb.Append("  UnitsRatio: ").Append(UnitsRatio).Append("\n");
+            sb.Append("  ConsentFeePrice: ").Append(ConsentFeePrice).Append("\n");
+            sb.Append("  ConsentFeeCurrency: ").Append(ConsentFeeCurrency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -149,6 +169,16 @@ namespace Lusid.Sdk.Model
                     this.UnitsRatio == input.UnitsRatio ||
                     (this.UnitsRatio != null &&
                     this.UnitsRatio.Equals(input.UnitsRatio))
+                ) && 
+                (
+                    this.ConsentFeePrice == input.ConsentFeePrice ||
+                    (this.ConsentFeePrice != null &&
+                    this.ConsentFeePrice.Equals(input.ConsentFeePrice))
+                ) && 
+                (
+                    this.ConsentFeeCurrency == input.ConsentFeeCurrency ||
+                    (this.ConsentFeeCurrency != null &&
+                    this.ConsentFeeCurrency.Equals(input.ConsentFeeCurrency))
                 );
         }
 
@@ -170,6 +200,14 @@ namespace Lusid.Sdk.Model
                 if (this.UnitsRatio != null)
                 {
                     hashCode = (hashCode * 59) + this.UnitsRatio.GetHashCode();
+                }
+                if (this.ConsentFeePrice != null)
+                {
+                    hashCode = (hashCode * 59) + this.ConsentFeePrice.GetHashCode();
+                }
+                if (this.ConsentFeeCurrency != null)
+                {
+                    hashCode = (hashCode * 59) + this.ConsentFeeCurrency.GetHashCode();
                 }
                 return hashCode;
             }

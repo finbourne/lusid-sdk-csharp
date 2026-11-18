@@ -143,7 +143,8 @@ namespace Lusid.Sdk.Model
         /// <param name="unresolvedCustodianAccounts">Set of Custodian Entries on the Transaction that no movement was booked against, i.e. those which did not match a movement&#39;s account type and selector..</param>
         /// <param name="isExcluded">Whether the transaction was excluded from the portfolio&#39;s holdings by the portfolio&#39;s transaction exclusion filter..</param>
         /// <param name="entityLinks">Links to the entities that manage this transaction..</param>
-        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum ?transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails), decimal grossTransactionAmount = default(decimal), OtcConfirmation otcConfirmation = default(OtcConfirmation), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), DateTimeOffset? accountingDate = default(DateTimeOffset?), List<Economics> economics = default(List<Economics>), DataModelMembership dataModelMembership = default(DataModelMembership), int? sequence = default(int?), int? sequencePriority = default(int?), TransactionSettlementSummary settlementSummary = default(TransactionSettlementSummary), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<CustodianEntry> custodianEntries = default(List<CustodianEntry>), List<ResolvedCustodianAccount> resolvedCustodianAccounts = default(List<ResolvedCustodianAccount>), List<CustodianEntry> unresolvedCustodianAccounts = default(List<CustodianEntry>), bool isExcluded = default(bool), List<TransactionEntityLink> entityLinks = default(List<TransactionEntityLink>))
+        /// <param name="sourcePortfolioId">sourcePortfolioId.</param>
+        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum ?transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails), decimal grossTransactionAmount = default(decimal), OtcConfirmation otcConfirmation = default(OtcConfirmation), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), DateTimeOffset? accountingDate = default(DateTimeOffset?), List<Economics> economics = default(List<Economics>), DataModelMembership dataModelMembership = default(DataModelMembership), int? sequence = default(int?), int? sequencePriority = default(int?), TransactionSettlementSummary settlementSummary = default(TransactionSettlementSummary), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<CustodianEntry> custodianEntries = default(List<CustodianEntry>), List<ResolvedCustodianAccount> resolvedCustodianAccounts = default(List<ResolvedCustodianAccount>), List<CustodianEntry> unresolvedCustodianAccounts = default(List<CustodianEntry>), bool isExcluded = default(bool), List<TransactionEntityLink> entityLinks = default(List<TransactionEntityLink>), ResourceId sourcePortfolioId = default(ResourceId))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -205,6 +206,7 @@ namespace Lusid.Sdk.Model
             this.UnresolvedCustodianAccounts = unresolvedCustodianAccounts;
             this.IsExcluded = isExcluded;
             this.EntityLinks = entityLinks;
+            this.SourcePortfolioId = sourcePortfolioId;
         }
 
         /// <summary>
@@ -505,6 +507,12 @@ namespace Lusid.Sdk.Model
         public List<TransactionEntityLink> EntityLinks { get; set; }
 
         /// <summary>
+        /// Gets or Sets SourcePortfolioId
+        /// </summary>
+        [DataMember(Name = "sourcePortfolioId", EmitDefaultValue = false)]
+        public ResourceId SourcePortfolioId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -557,6 +565,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  UnresolvedCustodianAccounts: ").Append(UnresolvedCustodianAccounts).Append("\n");
             sb.Append("  IsExcluded: ").Append(IsExcluded).Append("\n");
             sb.Append("  EntityLinks: ").Append(EntityLinks).Append("\n");
+            sb.Append("  SourcePortfolioId: ").Append(SourcePortfolioId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -819,6 +828,11 @@ namespace Lusid.Sdk.Model
                     this.EntityLinks != null &&
                     input.EntityLinks != null &&
                     this.EntityLinks.SequenceEqual(input.EntityLinks)
+                ) && 
+                (
+                    this.SourcePortfolioId == input.SourcePortfolioId ||
+                    (this.SourcePortfolioId != null &&
+                    this.SourcePortfolioId.Equals(input.SourcePortfolioId))
                 );
         }
 
@@ -992,6 +1006,10 @@ namespace Lusid.Sdk.Model
                 if (this.EntityLinks != null)
                 {
                     hashCode = (hashCode * 59) + this.EntityLinks.GetHashCode();
+                }
+                if (this.SourcePortfolioId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SourcePortfolioId.GetHashCode();
                 }
                 return hashCode;
             }

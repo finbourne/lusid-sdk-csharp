@@ -43,9 +43,9 @@ namespace Lusid.Sdk.Model
         /// <param name="status">The outcome of the run. Available values: Computed, Booked, DryRun. (required).</param>
         /// <param name="runId">The identifier of the run, which prefixes every transaction it books. (required).</param>
         /// <param name="pools">The pools of fund-level amount that were allocated, in the allocation bucket set&#39;s bucket order with any tag pools after. (required).</param>
-        /// <param name="unattributed">Always empty: every profit and loss line is now pooled or the run is refused. Kept for one release. (required).</param>
+        /// <param name="unattributed">Always empty: every profit and loss line is pooled or the run is refused. Kept until no published SDK requires it. (required).</param>
         /// <param name="bookedTransactionIds">The identifiers of the transactions the run booked, if any. (required).</param>
-        /// <param name="warnings">What the run noticed but did not refuse, for example an excluded investor record that is not on the register at the period end..</param>
+        /// <param name="warnings">What the run noticed but did not refuse, for example an excluded investor record that is not on the register at the period end, or a fee accrual naming no investor that was pooled as unaccrued fee (AccruedFeeWithoutInvestor)..</param>
         /// <param name="ignoredTags">The distribution character tags the run did not pool by, by account..</param>
         /// <param name="accruedFees">The management fees accrued per partner in the period, which the accrual allocates and the run therefore leaves out of the pools..</param>
         public PartnerAllocationRunResult(ResourceId fundId = default(ResourceId), DateTimeOffset periodStart = default(DateTimeOffset), DateTimeOffset periodEnd = default(DateTimeOffset), string navTypeCode = default(string), string status = default(string), string runId = default(string), List<PartnerAllocationPool> pools = default(List<PartnerAllocationPool>), List<UnattributedAmount> unattributed = default(List<UnattributedAmount>), List<string> bookedTransactionIds = default(List<string>), List<string> warnings = default(List<string>), List<IgnoredDistributionTag> ignoredTags = default(List<IgnoredDistributionTag>), List<AccruedFeeLine> accruedFees = default(List<AccruedFeeLine>))
@@ -148,9 +148,9 @@ namespace Lusid.Sdk.Model
         public List<PartnerAllocationPool> Pools { get; set; }
 
         /// <summary>
-        /// Always empty: every profit and loss line is now pooled or the run is refused. Kept for one release.
+        /// Always empty: every profit and loss line is pooled or the run is refused. Kept until no published SDK requires it.
         /// </summary>
-        /// <value>Always empty: every profit and loss line is now pooled or the run is refused. Kept for one release.</value>
+        /// <value>Always empty: every profit and loss line is pooled or the run is refused. Kept until no published SDK requires it.</value>
         [DataMember(Name = "unattributed", IsRequired = true, EmitDefaultValue = true)]
         public List<UnattributedAmount> Unattributed { get; set; }
 
@@ -162,9 +162,9 @@ namespace Lusid.Sdk.Model
         public List<string> BookedTransactionIds { get; set; }
 
         /// <summary>
-        /// What the run noticed but did not refuse, for example an excluded investor record that is not on the register at the period end.
+        /// What the run noticed but did not refuse, for example an excluded investor record that is not on the register at the period end, or a fee accrual naming no investor that was pooled as unaccrued fee (AccruedFeeWithoutInvestor).
         /// </summary>
-        /// <value>What the run noticed but did not refuse, for example an excluded investor record that is not on the register at the period end.</value>
+        /// <value>What the run noticed but did not refuse, for example an excluded investor record that is not on the register at the period end, or a fee accrual naming no investor that was pooled as unaccrued fee (AccruedFeeWithoutInvestor).</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<string> Warnings { get; set; }
 

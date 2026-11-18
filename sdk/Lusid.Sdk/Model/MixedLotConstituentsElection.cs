@@ -42,7 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="securitiesConstituents">securitiesConstituents.</param>
         /// <param name="cashConstituents">cashConstituents.</param>
         /// <param name="costFactor">costFactor.</param>
-        public MixedLotConstituentsElection(string electionKey = default(string), bool isDefault = default(bool), bool isChosen = default(bool), List<SecurityOfferConstituent> securitiesConstituents = default(List<SecurityOfferConstituent>), List<CashOfferConstituent> cashConstituents = default(List<CashOfferConstituent>), decimal? costFactor = default(decimal?))
+        /// <param name="consentFeePrice">Optional. The consent fee paid to holders who consent, on top of the exchange consideration. Quoted per 1,000 of face for bonds, using the current notional at the effective date of the event, and per unit for other instruments. Must be greater than 0. Required together with ConsentFeeCurrency, and only supported on an ExchangeOfferEvent..</param>
+        /// <param name="consentFeeCurrency">Optional. Currency of the consent fee. Required if a consent fee price is provided, and only supported on an ExchangeOfferEvent..</param>
+        public MixedLotConstituentsElection(string electionKey = default(string), bool isDefault = default(bool), bool isChosen = default(bool), List<SecurityOfferConstituent> securitiesConstituents = default(List<SecurityOfferConstituent>), List<CashOfferConstituent> cashConstituents = default(List<CashOfferConstituent>), decimal? costFactor = default(decimal?), decimal? consentFeePrice = default(decimal?), string consentFeeCurrency = default(string))
         {
             // to ensure "electionKey" is required (not null)
             if (electionKey == null)
@@ -55,6 +57,8 @@ namespace Lusid.Sdk.Model
             this.SecuritiesConstituents = securitiesConstituents;
             this.CashConstituents = cashConstituents;
             this.CostFactor = costFactor;
+            this.ConsentFeePrice = consentFeePrice;
+            this.ConsentFeeCurrency = consentFeeCurrency;
         }
 
         /// <summary>
@@ -94,6 +98,20 @@ namespace Lusid.Sdk.Model
         public decimal? CostFactor { get; set; }
 
         /// <summary>
+        /// Optional. The consent fee paid to holders who consent, on top of the exchange consideration. Quoted per 1,000 of face for bonds, using the current notional at the effective date of the event, and per unit for other instruments. Must be greater than 0. Required together with ConsentFeeCurrency, and only supported on an ExchangeOfferEvent.
+        /// </summary>
+        /// <value>Optional. The consent fee paid to holders who consent, on top of the exchange consideration. Quoted per 1,000 of face for bonds, using the current notional at the effective date of the event, and per unit for other instruments. Must be greater than 0. Required together with ConsentFeeCurrency, and only supported on an ExchangeOfferEvent.</value>
+        [DataMember(Name = "consentFeePrice", EmitDefaultValue = true)]
+        public decimal? ConsentFeePrice { get; set; }
+
+        /// <summary>
+        /// Optional. Currency of the consent fee. Required if a consent fee price is provided, and only supported on an ExchangeOfferEvent.
+        /// </summary>
+        /// <value>Optional. Currency of the consent fee. Required if a consent fee price is provided, and only supported on an ExchangeOfferEvent.</value>
+        [DataMember(Name = "consentFeeCurrency", EmitDefaultValue = true)]
+        public string ConsentFeeCurrency { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -107,6 +125,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  SecuritiesConstituents: ").Append(SecuritiesConstituents).Append("\n");
             sb.Append("  CashConstituents: ").Append(CashConstituents).Append("\n");
             sb.Append("  CostFactor: ").Append(CostFactor).Append("\n");
+            sb.Append("  ConsentFeePrice: ").Append(ConsentFeePrice).Append("\n");
+            sb.Append("  ConsentFeeCurrency: ").Append(ConsentFeeCurrency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -171,6 +191,16 @@ namespace Lusid.Sdk.Model
                     this.CostFactor == input.CostFactor ||
                     (this.CostFactor != null &&
                     this.CostFactor.Equals(input.CostFactor))
+                ) && 
+                (
+                    this.ConsentFeePrice == input.ConsentFeePrice ||
+                    (this.ConsentFeePrice != null &&
+                    this.ConsentFeePrice.Equals(input.ConsentFeePrice))
+                ) && 
+                (
+                    this.ConsentFeeCurrency == input.ConsentFeeCurrency ||
+                    (this.ConsentFeeCurrency != null &&
+                    this.ConsentFeeCurrency.Equals(input.ConsentFeeCurrency))
                 );
         }
 
@@ -200,6 +230,14 @@ namespace Lusid.Sdk.Model
                 if (this.CostFactor != null)
                 {
                     hashCode = (hashCode * 59) + this.CostFactor.GetHashCode();
+                }
+                if (this.ConsentFeePrice != null)
+                {
+                    hashCode = (hashCode * 59) + this.ConsentFeePrice.GetHashCode();
+                }
+                if (this.ConsentFeeCurrency != null)
+                {
+                    hashCode = (hashCode * 59) + this.ConsentFeeCurrency.GetHashCode();
                 }
                 return hashCode;
             }

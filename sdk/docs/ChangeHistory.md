@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **RequestId** | **string** | The unique identifier of the request that the changes were part of. | 
 **Action** | **string** | The action performed on the transaction. Available values: Create, Update, Delete. | 
 **Changes** | [**List&lt;ChangeItem&gt;**](ChangeItem.md) | The collection of changes that were made. | 
+**SourcePortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -20,6 +21,8 @@ string userId = "userId";
 string requestId = "requestId";
 string action = "action";
 List<ChangeItem> changes = new List<ChangeItem>();
+ResourceId? sourcePortfolioId = new ResourceId();
+
 List<Link> links = new List<Link>();
 
 ChangeHistory changeHistoryInstance = new ChangeHistory(
@@ -28,6 +31,7 @@ ChangeHistory changeHistoryInstance = new ChangeHistory(
     requestId: requestId,
     action: action,
     changes: changes,
+    sourcePortfolioId: sourcePortfolioId,
     links: links);
 ```
 

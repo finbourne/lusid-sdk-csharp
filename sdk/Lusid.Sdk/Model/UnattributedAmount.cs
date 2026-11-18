@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// An amount on the income summary an allocation run could not attribute to any pool.
+    /// An amount on the income summary an allocation run could not attribute to any pool. Always empty: every profit and  loss line is pooled or the run is refused. Kept, required, until no published SDK requires it.
     /// </summary>
     [DataContract(Name = "UnattributedAmount")]
     public partial class UnattributedAmount : IEquatable<UnattributedAmount>, IValidatableObject

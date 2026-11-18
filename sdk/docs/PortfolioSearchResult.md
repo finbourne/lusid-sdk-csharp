@@ -6,13 +6,14 @@ A list of portfolios.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | [**ResourceId**](ResourceId.md) |  | 
-**Type** | **string** | The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition. | 
+**Type** | **string** | The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition, Composite. | 
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **Description** | **string** | The long form description of the portfolio. | [optional] 
 **DisplayName** | **string** | The name of the portfolio. | 
 **IsDerived** | **bool** | Whether or not this is a derived portfolio. | [optional] [readonly] 
 **Created** | **DateTimeOffset** | The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date. | 
 **ParentPortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**ParentPortfolioIds** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The scope and code of each portfolio this portfolio takes its contents from: the parent of a derived transaction portfolio, or the constituents of a composite portfolio at the effective date. Empty for a portfolio with no parent. | [optional] 
 **BaseCurrency** | **string** | The base currency of the portfolio. | [optional] 
 **Properties** | [**List&lt;Property&gt;**](Property.md) | The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
@@ -29,6 +30,7 @@ string displayName = "displayName";
 bool isDerived = //"True";
 ResourceId? parentPortfolioId = new ResourceId();
 
+List<ResourceId> parentPortfolioIds = new List<ResourceId>();
 string baseCurrency = "example baseCurrency";
 List<Property> properties = new List<Property>();
 List<Link> links = new List<Link>();
@@ -42,6 +44,7 @@ PortfolioSearchResult portfolioSearchResultInstance = new PortfolioSearchResult(
     isDerived: isDerived,
     created: created,
     parentPortfolioId: parentPortfolioId,
+    parentPortfolioIds: parentPortfolioIds,
     baseCurrency: baseCurrency,
     properties: properties,
     links: links);

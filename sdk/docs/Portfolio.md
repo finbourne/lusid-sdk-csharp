@@ -7,12 +7,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **Id** | [**ResourceId**](ResourceId.md) |  | 
-**Type** | **string** | The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition. | 
+**Type** | **string** | The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition, Composite. | 
 **DisplayName** | **string** | The name of the portfolio. | 
 **Description** | **string** | The long form description of the portfolio. | [optional] 
 **Created** | **DateTimeOffset** | The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date. | 
 **EnablementDate** | **DateTimeOffset?** | The effective datetime from which instrument events and corporate actions are generated and applied to the portfolio. Transactions and holdings booked to the portfolio contribute to holdings, valuations and other computed results from its creation date whatever the enablement date. Defaults to the portfolio&#39;s creation date when not explicitly set. | [optional] 
 **ParentPortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**ParentPortfolioIds** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The scope and code of each portfolio this portfolio takes its contents from: the parent of a derived transaction portfolio, or the constituents of a composite portfolio at the effective date. Empty for a portfolio with no parent. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **IsDerived** | **bool** | Whether or not this is a derived portfolio. | [optional] 
@@ -48,6 +49,7 @@ string displayName = "displayName";
 string description = "example description";
 ResourceId? parentPortfolioId = new ResourceId();
 
+List<ResourceId> parentPortfolioIds = new List<ResourceId>();
 ModelVersion? varVersion = new ModelVersion();
 
 StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
@@ -89,6 +91,7 @@ Portfolio portfolioInstance = new Portfolio(
     created: created,
     enablementDate: enablementDate,
     parentPortfolioId: parentPortfolioId,
+    parentPortfolioIds: parentPortfolioIds,
     varVersion: varVersion,
     stagedModifications: stagedModifications,
     isDerived: isDerived,

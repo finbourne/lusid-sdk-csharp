@@ -247,6 +247,35 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ManagementFeeResult</returns>
         Lusid.Sdk.Client.ApiResponse<ManagementFeeResult> CalculateManagementFeesWithHttpInfo(string scope, string code, ManagementFeeRequest managementFeeRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] CheckPartnershipTransactionTypes: [EXPERIMENTAL] CheckPartnershipTransactionTypes: Check the Fund&#39;s transaction types against its partnership configuration pack.
+        /// </summary>
+        /// <remarks>
+        /// Resolve every transaction type the Fund&#39;s portfolios book with, through their transaction type scope and each  source in it, and compare the register balance deltas each type&#39;s movements carry against the type contract of  the Fund&#39;s partnership configuration pack. A type whose deltas are not its contract, counted with repeats, is  returned as a difference with the deltas expected and the deltas carried; a Fund whose types all match has the  status Ok and no differences. A type the contract names, or that moves a register balance, whose movements book  through a side the Fund&#39;s transaction type scope does not define is a difference too, naming the missing sides.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="asAt">The asAt datetime at which to read the Fund and its transaction types. Defaults to return the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PartnershipTypeCheckResult</returns>
+        PartnershipTypeCheckResult CheckPartnershipTransactionTypes(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] CheckPartnershipTransactionTypes: [EXPERIMENTAL] CheckPartnershipTransactionTypes: Check the Fund&#39;s transaction types against its partnership configuration pack.
+        /// </summary>
+        /// <remarks>
+        /// Resolve every transaction type the Fund&#39;s portfolios book with, through their transaction type scope and each  source in it, and compare the register balance deltas each type&#39;s movements carry against the type contract of  the Fund&#39;s partnership configuration pack. A type whose deltas are not its contract, counted with repeats, is  returned as a difference with the deltas expected and the deltas carried; a Fund whose types all match has the  status Ok and no differences. A type the contract names, or that moves a register balance, whose movements book  through a side the Fund&#39;s transaction type scope does not define is a difference too, naming the missing sides.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="asAt">The asAt datetime at which to read the Fund and its transaction types. Defaults to return the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PartnershipTypeCheckResult</returns>
+        Lusid.Sdk.Client.ApiResponse<PartnershipTypeCheckResult> CheckPartnershipTransactionTypesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] CreateFacility: [EXPERIMENTAL] CreateFacility: Create a Facility.
         /// </summary>
         /// <remarks>
@@ -3325,6 +3354,37 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ManagementFeeResult)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ManagementFeeResult>> CalculateManagementFeesWithHttpInfoAsync(string scope, string code, ManagementFeeRequest managementFeeRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] CheckPartnershipTransactionTypes: [EXPERIMENTAL] CheckPartnershipTransactionTypes: Check the Fund&#39;s transaction types against its partnership configuration pack.
+        /// </summary>
+        /// <remarks>
+        /// Resolve every transaction type the Fund&#39;s portfolios book with, through their transaction type scope and each  source in it, and compare the register balance deltas each type&#39;s movements carry against the type contract of  the Fund&#39;s partnership configuration pack. A type whose deltas are not its contract, counted with repeats, is  returned as a difference with the deltas expected and the deltas carried; a Fund whose types all match has the  status Ok and no differences. A type the contract names, or that moves a register balance, whose movements book  through a side the Fund&#39;s transaction type scope does not define is a difference too, naming the missing sides.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="asAt">The asAt datetime at which to read the Fund and its transaction types. Defaults to return the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PartnershipTypeCheckResult</returns>
+        System.Threading.Tasks.Task<PartnershipTypeCheckResult> CheckPartnershipTransactionTypesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] CheckPartnershipTransactionTypes: [EXPERIMENTAL] CheckPartnershipTransactionTypes: Check the Fund&#39;s transaction types against its partnership configuration pack.
+        /// </summary>
+        /// <remarks>
+        /// Resolve every transaction type the Fund&#39;s portfolios book with, through their transaction type scope and each  source in it, and compare the register balance deltas each type&#39;s movements carry against the type contract of  the Fund&#39;s partnership configuration pack. A type whose deltas are not its contract, counted with repeats, is  returned as a difference with the deltas expected and the deltas carried; a Fund whose types all match has the  status Ok and no differences. A type the contract names, or that moves a register balance, whose movements book  through a side the Fund&#39;s transaction type scope does not define is a difference too, naming the missing sides.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="asAt">The asAt datetime at which to read the Fund and its transaction types. Defaults to return the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PartnershipTypeCheckResult)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PartnershipTypeCheckResult>> CheckPartnershipTransactionTypesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] CreateFacility: [EXPERIMENTAL] CreateFacility: Create a Facility.
         /// </summary>
@@ -8252,6 +8312,241 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CalculateManagementFees", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CheckPartnershipTransactionTypes: [EXPERIMENTAL] CheckPartnershipTransactionTypes: Check the Fund&#39;s transaction types against its partnership configuration pack. Resolve every transaction type the Fund&#39;s portfolios book with, through their transaction type scope and each  source in it, and compare the register balance deltas each type&#39;s movements carry against the type contract of  the Fund&#39;s partnership configuration pack. A type whose deltas are not its contract, counted with repeats, is  returned as a difference with the deltas expected and the deltas carried; a Fund whose types all match has the  status Ok and no differences. A type the contract names, or that moves a register balance, whose movements book  through a side the Fund&#39;s transaction type scope does not define is a difference too, naming the missing sides.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="asAt">The asAt datetime at which to read the Fund and its transaction types. Defaults to return the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PartnershipTypeCheckResult</returns>
+        public PartnershipTypeCheckResult CheckPartnershipTransactionTypes(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PartnershipTypeCheckResult> localVarResponse = CheckPartnershipTransactionTypesWithHttpInfo(scope, code, asAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CheckPartnershipTransactionTypes: [EXPERIMENTAL] CheckPartnershipTransactionTypes: Check the Fund&#39;s transaction types against its partnership configuration pack. Resolve every transaction type the Fund&#39;s portfolios book with, through their transaction type scope and each  source in it, and compare the register balance deltas each type&#39;s movements carry against the type contract of  the Fund&#39;s partnership configuration pack. A type whose deltas are not its contract, counted with repeats, is  returned as a difference with the deltas expected and the deltas carried; a Fund whose types all match has the  status Ok and no differences. A type the contract names, or that moves a register balance, whose movements book  through a side the Fund&#39;s transaction type scope does not define is a difference too, naming the missing sides.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="asAt">The asAt datetime at which to read the Fund and its transaction types. Defaults to return the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PartnershipTypeCheckResult</returns>
+        public Lusid.Sdk.Client.ApiResponse<PartnershipTypeCheckResult> CheckPartnershipTransactionTypesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->CheckPartnershipTransactionTypes");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->CheckPartnershipTransactionTypes");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "FundsApi.CheckPartnershipTransactionTypes";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<PartnershipTypeCheckResult>("/api/funds/{scope}/{code}/partnershipaccounting/typecheck", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CheckPartnershipTransactionTypes", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CheckPartnershipTransactionTypes: [EXPERIMENTAL] CheckPartnershipTransactionTypes: Check the Fund&#39;s transaction types against its partnership configuration pack. Resolve every transaction type the Fund&#39;s portfolios book with, through their transaction type scope and each  source in it, and compare the register balance deltas each type&#39;s movements carry against the type contract of  the Fund&#39;s partnership configuration pack. A type whose deltas are not its contract, counted with repeats, is  returned as a difference with the deltas expected and the deltas carried; a Fund whose types all match has the  status Ok and no differences. A type the contract names, or that moves a register balance, whose movements book  through a side the Fund&#39;s transaction type scope does not define is a difference too, naming the missing sides.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="asAt">The asAt datetime at which to read the Fund and its transaction types. Defaults to return the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PartnershipTypeCheckResult</returns>
+        public async System.Threading.Tasks.Task<PartnershipTypeCheckResult> CheckPartnershipTransactionTypesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PartnershipTypeCheckResult> localVarResponse = await CheckPartnershipTransactionTypesWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CheckPartnershipTransactionTypes: [EXPERIMENTAL] CheckPartnershipTransactionTypes: Check the Fund&#39;s transaction types against its partnership configuration pack. Resolve every transaction type the Fund&#39;s portfolios book with, through their transaction type scope and each  source in it, and compare the register balance deltas each type&#39;s movements carry against the type contract of  the Fund&#39;s partnership configuration pack. A type whose deltas are not its contract, counted with repeats, is  returned as a difference with the deltas expected and the deltas carried; a Fund whose types all match has the  status Ok and no differences. A type the contract names, or that moves a register balance, whose movements book  through a side the Fund&#39;s transaction type scope does not define is a difference too, naming the missing sides.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="asAt">The asAt datetime at which to read the Fund and its transaction types. Defaults to return the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PartnershipTypeCheckResult)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PartnershipTypeCheckResult>> CheckPartnershipTransactionTypesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->CheckPartnershipTransactionTypes");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->CheckPartnershipTransactionTypes");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "FundsApi.CheckPartnershipTransactionTypes";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PartnershipTypeCheckResult>("/api/funds/{scope}/{code}/partnershipaccounting/typecheck", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CheckPartnershipTransactionTypes", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

@@ -39,7 +39,8 @@ namespace Lusid.Sdk.Model
         /// <param name="investorRecordId">The investor record the allocation belongs to. (required).</param>
         /// <param name="basisWeight">The partner&#39;s weight in the pool&#39;s basis. (required).</param>
         /// <param name="amount">The amount allocated to the partner. (required).</param>
-        public PartnerAllocation(string investorRecordId = default(string), decimal basisWeight = default(decimal), decimal amount = default(decimal))
+        /// <param name="reason">Why a partner listed at 0.00 took no share of the pool. Available values: Excluded (the bucket&#39;s rule leaves the partner out), Exempt (the partner&#39;s register flag sits it out), ZeroBasis (the partner has nothing on the pool&#39;s basis). Absent on a partner that shares; a partner at 0.00 with no reason shares the pool, but its share rounded to nothing at the pool&#39;s scale..</param>
+        public PartnerAllocation(string investorRecordId = default(string), decimal basisWeight = default(decimal), decimal amount = default(decimal), string reason = default(string))
         {
             // to ensure "investorRecordId" is required (not null)
             if (investorRecordId == null)
@@ -49,6 +50,7 @@ namespace Lusid.Sdk.Model
             this.InvestorRecordId = investorRecordId;
             this.BasisWeight = basisWeight;
             this.Amount = amount;
+            this.Reason = reason;
         }
 
         /// <summary>
@@ -73,6 +75,13 @@ namespace Lusid.Sdk.Model
         public decimal Amount { get; set; }
 
         /// <summary>
+        /// Why a partner listed at 0.00 took no share of the pool. Available values: Excluded (the bucket&#39;s rule leaves the partner out), Exempt (the partner&#39;s register flag sits it out), ZeroBasis (the partner has nothing on the pool&#39;s basis). Absent on a partner that shares; a partner at 0.00 with no reason shares the pool, but its share rounded to nothing at the pool&#39;s scale.
+        /// </summary>
+        /// <value>Why a partner listed at 0.00 took no share of the pool. Available values: Excluded (the bucket&#39;s rule leaves the partner out), Exempt (the partner&#39;s register flag sits it out), ZeroBasis (the partner has nothing on the pool&#39;s basis). Absent on a partner that shares; a partner at 0.00 with no reason shares the pool, but its share rounded to nothing at the pool&#39;s scale.</value>
+        [DataMember(Name = "reason", EmitDefaultValue = true)]
+        public string Reason { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +92,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InvestorRecordId: ").Append(InvestorRecordId).Append("\n");
             sb.Append("  BasisWeight: ").Append(BasisWeight).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -130,6 +140,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.Amount == input.Amount ||
                     this.Amount.Equals(input.Amount)
+                ) && 
+                (
+                    this.Reason == input.Reason ||
+                    (this.Reason != null &&
+                    this.Reason.Equals(input.Reason))
                 );
         }
 
@@ -148,6 +163,10 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.BasisWeight.GetHashCode();
                 hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                if (this.Reason != null)
+                {
+                    hashCode = (hashCode * 59) + this.Reason.GetHashCode();
+                }
                 return hashCode;
             }
         }

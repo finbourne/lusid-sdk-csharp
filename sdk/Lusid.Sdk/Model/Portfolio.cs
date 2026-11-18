@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class Portfolio : IEquatable<Portfolio>, IValidatableObject
     {
         /// <summary>
-        /// The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition.
+        /// The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition, Composite.
         /// </summary>
-        /// <value>The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition.</value>
+        /// <value>The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition, Composite.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -57,13 +57,19 @@ namespace Lusid.Sdk.Model
             /// Enum SimplePosition for value: SimplePosition
             /// </summary>
             [EnumMember(Value = "SimplePosition")]
-            SimplePosition = 4
+            SimplePosition = 4,
+
+            /// <summary>
+            /// Enum Composite for value: Composite
+            /// </summary>
+            [EnumMember(Value = "Composite")]
+            Composite = 5
         }
 
         /// <summary>
-        /// The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition.
+        /// The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition, Composite.
         /// </summary>
-        /// <value>The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition.</value>
+        /// <value>The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition, Composite.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public TypeEnum Type { get; set; }
         /// <summary>
@@ -186,12 +192,13 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="id">id (required).</param>
-        /// <param name="type">The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition. (required).</param>
+        /// <param name="type">The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition, Composite. (required).</param>
         /// <param name="displayName">The name of the portfolio. (required).</param>
         /// <param name="description">The long form description of the portfolio..</param>
         /// <param name="created">The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date. (required).</param>
         /// <param name="enablementDate">The effective datetime from which instrument events and corporate actions are generated and applied to the portfolio. Transactions and holdings booked to the portfolio contribute to holdings, valuations and other computed results from its creation date whatever the enablement date. Defaults to the portfolio&#39;s creation date when not explicitly set..</param>
         /// <param name="parentPortfolioId">parentPortfolioId.</param>
+        /// <param name="parentPortfolioIds">The scope and code of each portfolio this portfolio takes its contents from: the parent of a derived transaction portfolio, or the constituents of a composite portfolio at the effective date. Empty for a portfolio with no parent..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="isDerived">Whether or not this is a derived portfolio..</param>
@@ -215,7 +222,7 @@ namespace Lusid.Sdk.Model
         /// <param name="amortisationHorizon">amortisationHorizon.</param>
         /// <param name="whtParameters">whtParameters.</param>
         /// <param name="links">links.</param>
-        public Portfolio(string href = default(string), ResourceId id = default(ResourceId), TypeEnum type = default(TypeEnum), string displayName = default(string), string description = default(string), DateTimeOffset created = default(DateTimeOffset), DateTimeOffset? enablementDate = default(DateTimeOffset?), ResourceId parentPortfolioId = default(ResourceId), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isDerived = default(bool), string baseCurrency = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), List<string> instrumentScopes = default(List<string>), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), string taxRuleSetScope = default(string), PortfolioSettlementConfiguration settlementConfiguration = default(PortfolioSettlementConfiguration), string transactionExclusionFilter = default(string), string taxLotSelectionCostBasis = default(string), FractionalUnitsTrueUpConfiguration fractionalUnitsTrueUpConfiguration = default(FractionalUnitsTrueUpConfiguration), string holdingsFungibility = default(string), string chargeableGainsRegime = default(string), AmortisationHorizon amortisationHorizon = default(AmortisationHorizon), WhtParameters whtParameters = default(WhtParameters), List<Link> links = default(List<Link>))
+        public Portfolio(string href = default(string), ResourceId id = default(ResourceId), TypeEnum type = default(TypeEnum), string displayName = default(string), string description = default(string), DateTimeOffset created = default(DateTimeOffset), DateTimeOffset? enablementDate = default(DateTimeOffset?), ResourceId parentPortfolioId = default(ResourceId), List<ResourceId> parentPortfolioIds = default(List<ResourceId>), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isDerived = default(bool), string baseCurrency = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), List<string> instrumentScopes = default(List<string>), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), string taxRuleSetScope = default(string), PortfolioSettlementConfiguration settlementConfiguration = default(PortfolioSettlementConfiguration), string transactionExclusionFilter = default(string), string taxLotSelectionCostBasis = default(string), FractionalUnitsTrueUpConfiguration fractionalUnitsTrueUpConfiguration = default(FractionalUnitsTrueUpConfiguration), string holdingsFungibility = default(string), string chargeableGainsRegime = default(string), AmortisationHorizon amortisationHorizon = default(AmortisationHorizon), WhtParameters whtParameters = default(WhtParameters), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -235,6 +242,7 @@ namespace Lusid.Sdk.Model
             this.Description = description;
             this.EnablementDate = enablementDate;
             this.ParentPortfolioId = parentPortfolioId;
+            this.ParentPortfolioIds = parentPortfolioIds;
             this.VarVersion = varVersion;
             this.StagedModifications = stagedModifications;
             this.IsDerived = isDerived;
@@ -306,6 +314,13 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "parentPortfolioId", EmitDefaultValue = false)]
         public ResourceId ParentPortfolioId { get; set; }
+
+        /// <summary>
+        /// The scope and code of each portfolio this portfolio takes its contents from: the parent of a derived transaction portfolio, or the constituents of a composite portfolio at the effective date. Empty for a portfolio with no parent.
+        /// </summary>
+        /// <value>The scope and code of each portfolio this portfolio takes its contents from: the parent of a derived transaction portfolio, or the constituents of a composite portfolio at the effective date. Empty for a portfolio with no parent.</value>
+        [DataMember(Name = "parentPortfolioIds", EmitDefaultValue = true)]
+        public List<ResourceId> ParentPortfolioIds { get; set; }
 
         /// <summary>
         /// Gets or Sets VarVersion
@@ -468,6 +483,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  EnablementDate: ").Append(EnablementDate).Append("\n");
             sb.Append("  ParentPortfolioId: ").Append(ParentPortfolioId).Append("\n");
+            sb.Append("  ParentPortfolioIds: ").Append(ParentPortfolioIds).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("  IsDerived: ").Append(IsDerived).Append("\n");
@@ -564,6 +580,12 @@ namespace Lusid.Sdk.Model
                     this.ParentPortfolioId == input.ParentPortfolioId ||
                     (this.ParentPortfolioId != null &&
                     this.ParentPortfolioId.Equals(input.ParentPortfolioId))
+                ) && 
+                (
+                    this.ParentPortfolioIds == input.ParentPortfolioIds ||
+                    this.ParentPortfolioIds != null &&
+                    input.ParentPortfolioIds != null &&
+                    this.ParentPortfolioIds.SequenceEqual(input.ParentPortfolioIds)
                 ) && 
                 (
                     this.VarVersion == input.VarVersion ||
@@ -721,6 +743,10 @@ namespace Lusid.Sdk.Model
                 if (this.ParentPortfolioId != null)
                 {
                     hashCode = (hashCode * 59) + this.ParentPortfolioId.GetHashCode();
+                }
+                if (this.ParentPortfolioIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.ParentPortfolioIds.GetHashCode();
                 }
                 if (this.VarVersion != null)
                 {

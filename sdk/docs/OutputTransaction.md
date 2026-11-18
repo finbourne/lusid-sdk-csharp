@@ -50,6 +50,7 @@ Name | Type | Description | Notes
 **UnresolvedCustodianAccounts** | [**List&lt;CustodianEntry&gt;**](CustodianEntry.md) | Set of Custodian Entries on the Transaction that no movement was booked against, i.e. those which did not match a movement&#39;s account type and selector. | [optional] 
 **IsExcluded** | **bool** | Whether the transaction was excluded from the portfolio&#39;s holdings by the portfolio&#39;s transaction exclusion filter. | [optional] 
 **EntityLinks** | [**List&lt;TransactionEntityLink&gt;**](TransactionEntityLink.md) | Links to the entities that manage this transaction. | [optional] 
+**SourcePortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -100,6 +101,8 @@ List<ResolvedCustodianAccount> resolvedCustodianAccounts = new List<ResolvedCust
 List<CustodianEntry> unresolvedCustodianAccounts = new List<CustodianEntry>();
 bool isExcluded = //"True";
 List<TransactionEntityLink> entityLinks = new List<TransactionEntityLink>();
+ResourceId? sourcePortfolioId = new ResourceId();
+
 
 OutputTransaction outputTransactionInstance = new OutputTransaction(
     transactionId: transactionId,
@@ -146,7 +149,8 @@ OutputTransaction outputTransactionInstance = new OutputTransaction(
     resolvedCustodianAccounts: resolvedCustodianAccounts,
     unresolvedCustodianAccounts: unresolvedCustodianAccounts,
     isExcluded: isExcluded,
-    entityLinks: entityLinks);
+    entityLinks: entityLinks,
+    sourcePortfolioId: sourcePortfolioId);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

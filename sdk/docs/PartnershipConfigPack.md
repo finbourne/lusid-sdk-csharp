@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.PartnershipConfigPack
-The partnership configuration pack a fund resolves to: the transaction types, chart of accounts and posting rules  the partners' ledger is booked under.
+The partnership configuration pack a fund resolves to: the transaction types, chart of accounts and posting rules  the partners' ledger is booked under, and the register deltas each transaction type the partner register depends  on must carry.
 
 ## Properties
 
@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **ChartOfAccounts** | [**List&lt;PackAccount&gt;**](PackAccount.md) | The accounts the pack posts partner capital to. | 
 **PostingRules** | [**List&lt;PackPostingRule&gt;**](PackPostingRule.md) | The rules that move each transaction type between its accounts. | 
 **GeneralLedgerProfileCode** | **string** | The code of the general ledger profile the pack&#39;s posting rules belong to. | [optional] 
+**TypeContracts** | [**List&lt;PackTypeContract&gt;**](PackTypeContract.md) | The register balance deltas each transaction type the partner register depends on must carry. A type not named must carry none. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -24,6 +25,7 @@ List<PackTransactionType> transactionTypes = new List<PackTransactionType>();
 List<PackAccount> chartOfAccounts = new List<PackAccount>();
 List<PackPostingRule> postingRules = new List<PackPostingRule>();
 string generalLedgerProfileCode = "example generalLedgerProfileCode";
+List<PackTypeContract> typeContracts = new List<PackTypeContract>();
 
 PartnershipConfigPack partnershipConfigPackInstance = new PartnershipConfigPack(
     scope: scope,
@@ -32,7 +34,8 @@ PartnershipConfigPack partnershipConfigPackInstance = new PartnershipConfigPack(
     transactionTypes: transactionTypes,
     chartOfAccounts: chartOfAccounts,
     postingRules: postingRules,
-    generalLedgerProfileCode: generalLedgerProfileCode);
+    generalLedgerProfileCode: generalLedgerProfileCode,
+    typeContracts: typeContracts);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

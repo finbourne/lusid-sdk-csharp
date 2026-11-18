@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class PortfolioSearchResult : IEquatable<PortfolioSearchResult>, IValidatableObject
     {
         /// <summary>
-        /// The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition.
+        /// The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition, Composite.
         /// </summary>
-        /// <value>The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition.</value>
+        /// <value>The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition, Composite.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -57,13 +57,19 @@ namespace Lusid.Sdk.Model
             /// Enum SimplePosition for value: SimplePosition
             /// </summary>
             [EnumMember(Value = "SimplePosition")]
-            SimplePosition = 4
+            SimplePosition = 4,
+
+            /// <summary>
+            /// Enum Composite for value: Composite
+            /// </summary>
+            [EnumMember(Value = "Composite")]
+            Composite = 5
         }
 
         /// <summary>
-        /// The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition.
+        /// The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition, Composite.
         /// </summary>
-        /// <value>The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition.</value>
+        /// <value>The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition, Composite.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public TypeEnum Type { get; set; }
         /// <summary>
@@ -75,16 +81,17 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="PortfolioSearchResult" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
-        /// <param name="type">The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition. (required).</param>
+        /// <param name="type">The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition, Composite. (required).</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="description">The long form description of the portfolio..</param>
         /// <param name="displayName">The name of the portfolio. (required).</param>
         /// <param name="created">The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date. (required).</param>
         /// <param name="parentPortfolioId">parentPortfolioId.</param>
+        /// <param name="parentPortfolioIds">The scope and code of each portfolio this portfolio takes its contents from: the parent of a derived transaction portfolio, or the constituents of a composite portfolio at the effective date. Empty for a portfolio with no parent..</param>
         /// <param name="baseCurrency">The base currency of the portfolio..</param>
         /// <param name="properties">The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain..</param>
         /// <param name="links">links.</param>
-        public PortfolioSearchResult(ResourceId id = default(ResourceId), TypeEnum type = default(TypeEnum), string href = default(string), string description = default(string), string displayName = default(string), DateTimeOffset created = default(DateTimeOffset), ResourceId parentPortfolioId = default(ResourceId), string baseCurrency = default(string), List<Property> properties = default(List<Property>), List<Link> links = default(List<Link>))
+        public PortfolioSearchResult(ResourceId id = default(ResourceId), TypeEnum type = default(TypeEnum), string href = default(string), string description = default(string), string displayName = default(string), DateTimeOffset created = default(DateTimeOffset), ResourceId parentPortfolioId = default(ResourceId), List<ResourceId> parentPortfolioIds = default(List<ResourceId>), string baseCurrency = default(string), List<Property> properties = default(List<Property>), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -103,6 +110,7 @@ namespace Lusid.Sdk.Model
             this.Href = href;
             this.Description = description;
             this.ParentPortfolioId = parentPortfolioId;
+            this.ParentPortfolioIds = parentPortfolioIds;
             this.BaseCurrency = baseCurrency;
             this.Properties = properties;
             this.Links = links;
@@ -164,6 +172,13 @@ namespace Lusid.Sdk.Model
         public ResourceId ParentPortfolioId { get; set; }
 
         /// <summary>
+        /// The scope and code of each portfolio this portfolio takes its contents from: the parent of a derived transaction portfolio, or the constituents of a composite portfolio at the effective date. Empty for a portfolio with no parent.
+        /// </summary>
+        /// <value>The scope and code of each portfolio this portfolio takes its contents from: the parent of a derived transaction portfolio, or the constituents of a composite portfolio at the effective date. Empty for a portfolio with no parent.</value>
+        [DataMember(Name = "parentPortfolioIds", EmitDefaultValue = true)]
+        public List<ResourceId> ParentPortfolioIds { get; set; }
+
+        /// <summary>
         /// The base currency of the portfolio.
         /// </summary>
         /// <value>The base currency of the portfolio.</value>
@@ -199,6 +214,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  IsDerived: ").Append(IsDerived).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  ParentPortfolioId: ").Append(ParentPortfolioId).Append("\n");
+            sb.Append("  ParentPortfolioIds: ").Append(ParentPortfolioIds).Append("\n");
             sb.Append("  BaseCurrency: ").Append(BaseCurrency).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -276,6 +292,12 @@ namespace Lusid.Sdk.Model
                     this.ParentPortfolioId.Equals(input.ParentPortfolioId))
                 ) && 
                 (
+                    this.ParentPortfolioIds == input.ParentPortfolioIds ||
+                    this.ParentPortfolioIds != null &&
+                    input.ParentPortfolioIds != null &&
+                    this.ParentPortfolioIds.SequenceEqual(input.ParentPortfolioIds)
+                ) && 
+                (
                     this.BaseCurrency == input.BaseCurrency ||
                     (this.BaseCurrency != null &&
                     this.BaseCurrency.Equals(input.BaseCurrency))
@@ -328,6 +350,10 @@ namespace Lusid.Sdk.Model
                 if (this.ParentPortfolioId != null)
                 {
                     hashCode = (hashCode * 59) + this.ParentPortfolioId.GetHashCode();
+                }
+                if (this.ParentPortfolioIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.ParentPortfolioIds.GetHashCode();
                 }
                 if (this.BaseCurrency != null)
                 {

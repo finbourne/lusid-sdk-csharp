@@ -36,8 +36,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SupersedePostingModuleRuleRequest" /> class.
         /// </summary>
-        /// <param name="ruleId">The identifier of the Posting Rule. At most one rule in the request may have the ruleId of the superseded rule. If it does, the existing rule is capped so that it stops applying from this rule&#39;s EffectiveFrom, and this rule is created as its next version. Otherwise this rule is created as a new rule. (required).</param>
-        /// <param name="effectiveFrom">The inclusive accounting date from which this rule applies. If this rule has the ruleId of the superseded rule, the superseded rule&#39;s latest version stops applying from this date, unless it already ends by then; it is never extended. (required).</param>
+        /// <param name="ruleId">The identifier of the Posting Rule. At most one rule in the request may have the ruleId of the superseded rule, in which case this rule is created as its next version. Otherwise this rule is created as a new rule. (required).</param>
+        /// <param name="effectiveFrom">The inclusive accounting date from which this rule applies. All rules in the request must share the same EffectiveFrom. The superseded rule&#39;s latest version stops applying from this date. (required).</param>
         /// <param name="effectiveUntil">The exclusive accounting date until which this rule applies. If not set, it applies until the end of time..</param>
         /// <param name="generalLedgerAccountCode">The general ledger account this rule posts the Activity credit or debit to. (required).</param>
         /// <param name="ruleFilter">The filter syntax for this rule. See https://support.lusid.com/docs/assigning-economic-activity-to-general-ledger-accounts-using-posting-rules for more information on filter syntax. (required).</param>
@@ -66,16 +66,16 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The identifier of the Posting Rule. At most one rule in the request may have the ruleId of the superseded rule. If it does, the existing rule is capped so that it stops applying from this rule&#39;s EffectiveFrom, and this rule is created as its next version. Otherwise this rule is created as a new rule.
+        /// The identifier of the Posting Rule. At most one rule in the request may have the ruleId of the superseded rule, in which case this rule is created as its next version. Otherwise this rule is created as a new rule.
         /// </summary>
-        /// <value>The identifier of the Posting Rule. At most one rule in the request may have the ruleId of the superseded rule. If it does, the existing rule is capped so that it stops applying from this rule&#39;s EffectiveFrom, and this rule is created as its next version. Otherwise this rule is created as a new rule.</value>
+        /// <value>The identifier of the Posting Rule. At most one rule in the request may have the ruleId of the superseded rule, in which case this rule is created as its next version. Otherwise this rule is created as a new rule.</value>
         [DataMember(Name = "ruleId", IsRequired = true, EmitDefaultValue = true)]
         public string RuleId { get; set; }
 
         /// <summary>
-        /// The inclusive accounting date from which this rule applies. If this rule has the ruleId of the superseded rule, the superseded rule&#39;s latest version stops applying from this date, unless it already ends by then; it is never extended.
+        /// The inclusive accounting date from which this rule applies. All rules in the request must share the same EffectiveFrom. The superseded rule&#39;s latest version stops applying from this date.
         /// </summary>
-        /// <value>The inclusive accounting date from which this rule applies. If this rule has the ruleId of the superseded rule, the superseded rule&#39;s latest version stops applying from this date, unless it already ends by then; it is never extended.</value>
+        /// <value>The inclusive accounting date from which this rule applies. All rules in the request must share the same EffectiveFrom. The superseded rule&#39;s latest version stops applying from this date.</value>
         [DataMember(Name = "effectiveFrom", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset EffectiveFrom { get; set; }
 

@@ -73,8 +73,9 @@ namespace Lusid.Sdk.Model
         /// <param name="requestId">The unique identifier of the request that the changes were part of. (required).</param>
         /// <param name="action">The action performed on the transaction. Available values: Create, Update, Delete. (required).</param>
         /// <param name="changes">The collection of changes that were made. (required).</param>
+        /// <param name="sourcePortfolioId">sourcePortfolioId.</param>
         /// <param name="links">links.</param>
-        public ChangeHistory(string userId = default(string), DateTimeOffset modifiedAsAt = default(DateTimeOffset), string requestId = default(string), ActionEnum action = default(ActionEnum), List<ChangeItem> changes = default(List<ChangeItem>), List<Link> links = default(List<Link>))
+        public ChangeHistory(string userId = default(string), DateTimeOffset modifiedAsAt = default(DateTimeOffset), string requestId = default(string), ActionEnum action = default(ActionEnum), List<ChangeItem> changes = default(List<ChangeItem>), ResourceId sourcePortfolioId = default(ResourceId), List<Link> links = default(List<Link>))
         {
             // to ensure "userId" is required (not null)
             if (userId == null)
@@ -96,6 +97,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("changes is a required property for ChangeHistory and cannot be null");
             }
             this.Changes = changes;
+            this.SourcePortfolioId = sourcePortfolioId;
             this.Links = links;
         }
 
@@ -128,6 +130,12 @@ namespace Lusid.Sdk.Model
         public List<ChangeItem> Changes { get; set; }
 
         /// <summary>
+        /// Gets or Sets SourcePortfolioId
+        /// </summary>
+        [DataMember(Name = "sourcePortfolioId", EmitDefaultValue = false)]
+        public ResourceId SourcePortfolioId { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -146,6 +154,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  Action: ").Append(Action).Append("\n");
             sb.Append("  Changes: ").Append(Changes).Append("\n");
+            sb.Append("  SourcePortfolioId: ").Append(SourcePortfolioId).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -208,6 +217,11 @@ namespace Lusid.Sdk.Model
                     this.Changes.SequenceEqual(input.Changes)
                 ) && 
                 (
+                    this.SourcePortfolioId == input.SourcePortfolioId ||
+                    (this.SourcePortfolioId != null &&
+                    this.SourcePortfolioId.Equals(input.SourcePortfolioId))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -240,6 +254,10 @@ namespace Lusid.Sdk.Model
                 if (this.Changes != null)
                 {
                     hashCode = (hashCode * 59) + this.Changes.GetHashCode();
+                }
+                if (this.SourcePortfolioId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SourcePortfolioId.GetHashCode();
                 }
                 if (this.Links != null)
                 {

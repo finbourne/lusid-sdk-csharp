@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="poolAmount">The amount in the pool. (required).</param>
         /// <param name="basis">The basis the pool was shared on. Available values: CommittedCapital, PaidInCapital, DealPaidIn. (required).</param>
         /// <param name="basisSource">Where the figures a deal pool was shared on came from; absent on a fund-level pool, which is shared on the register&#39;s balances. Available values: DealContributions (what each partner paid into the pool&#39;s deal, from the booked allocation events), Fallback (a deal pool no partner has paid into, shared on its character&#39;s fund-level basis instead)..</param>
-        /// <param name="allocations">Each partner&#39;s share of the pool. (required).</param>
+        /// <param name="allocations">Each partner&#39;s share of the pool; a partner who took none is listed at 0.00 with the reason. (required).</param>
         /// <param name="residual">The rounding residual, carried by the largest allocation. (required).</param>
         /// <param name="poolId">The pool&#39;s identifier: the allocation rule&#39;s bucket id, or TAG: followed by the character for lines pooled by their distribution character tag. (required).</param>
         /// <param name="bucketSet">The code of the allocation bucket set the pool was classified by, with its version, for example PA-ALLOCATION-v1. (required).</param>
@@ -144,9 +144,9 @@ namespace Lusid.Sdk.Model
         public string BasisSource { get; set; }
 
         /// <summary>
-        /// Each partner&#39;s share of the pool.
+        /// Each partner&#39;s share of the pool; a partner who took none is listed at 0.00 with the reason.
         /// </summary>
-        /// <value>Each partner&#39;s share of the pool.</value>
+        /// <value>Each partner&#39;s share of the pool; a partner who took none is listed at 0.00 with the reason.</value>
         [DataMember(Name = "allocations", IsRequired = true, EmitDefaultValue = true)]
         public List<PartnerAllocation> Allocations { get; set; }
 

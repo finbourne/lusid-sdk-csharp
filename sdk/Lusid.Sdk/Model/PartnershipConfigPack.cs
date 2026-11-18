@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The partnership configuration pack a fund resolves to: the transaction types, chart of accounts and posting rules  the partners&#39; ledger is booked under.
+    /// The partnership configuration pack a fund resolves to: the transaction types, chart of accounts and posting rules  the partners&#39; ledger is booked under, and the register deltas each transaction type the partner register depends  on must carry.
     /// </summary>
     [DataContract(Name = "PartnershipConfigPack")]
     public partial class PartnershipConfigPack : IEquatable<PartnershipConfigPack>, IValidatableObject
@@ -43,7 +43,8 @@ namespace Lusid.Sdk.Model
         /// <param name="chartOfAccounts">The accounts the pack posts partner capital to. (required).</param>
         /// <param name="postingRules">The rules that move each transaction type between its accounts. (required).</param>
         /// <param name="generalLedgerProfileCode">The code of the general ledger profile the pack&#39;s posting rules belong to..</param>
-        public PartnershipConfigPack(string scope = default(string), string code = default(string), string varVersion = default(string), List<PackTransactionType> transactionTypes = default(List<PackTransactionType>), List<PackAccount> chartOfAccounts = default(List<PackAccount>), List<PackPostingRule> postingRules = default(List<PackPostingRule>), string generalLedgerProfileCode = default(string))
+        /// <param name="typeContracts">The register balance deltas each transaction type the partner register depends on must carry. A type not named must carry none..</param>
+        public PartnershipConfigPack(string scope = default(string), string code = default(string), string varVersion = default(string), List<PackTransactionType> transactionTypes = default(List<PackTransactionType>), List<PackAccount> chartOfAccounts = default(List<PackAccount>), List<PackPostingRule> postingRules = default(List<PackPostingRule>), string generalLedgerProfileCode = default(string), List<PackTypeContract> typeContracts = default(List<PackTypeContract>))
         {
             // to ensure "scope" is required (not null)
             if (scope == null)
@@ -82,6 +83,7 @@ namespace Lusid.Sdk.Model
             }
             this.PostingRules = postingRules;
             this.GeneralLedgerProfileCode = generalLedgerProfileCode;
+            this.TypeContracts = typeContracts;
         }
 
         /// <summary>
@@ -134,6 +136,13 @@ namespace Lusid.Sdk.Model
         public string GeneralLedgerProfileCode { get; set; }
 
         /// <summary>
+        /// The register balance deltas each transaction type the partner register depends on must carry. A type not named must carry none.
+        /// </summary>
+        /// <value>The register balance deltas each transaction type the partner register depends on must carry. A type not named must carry none.</value>
+        [DataMember(Name = "typeContracts", EmitDefaultValue = true)]
+        public List<PackTypeContract> TypeContracts { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -148,6 +157,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ChartOfAccounts: ").Append(ChartOfAccounts).Append("\n");
             sb.Append("  PostingRules: ").Append(PostingRules).Append("\n");
             sb.Append("  GeneralLedgerProfileCode: ").Append(GeneralLedgerProfileCode).Append("\n");
+            sb.Append("  TypeContracts: ").Append(TypeContracts).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -220,6 +230,12 @@ namespace Lusid.Sdk.Model
                     this.GeneralLedgerProfileCode == input.GeneralLedgerProfileCode ||
                     (this.GeneralLedgerProfileCode != null &&
                     this.GeneralLedgerProfileCode.Equals(input.GeneralLedgerProfileCode))
+                ) && 
+                (
+                    this.TypeContracts == input.TypeContracts ||
+                    this.TypeContracts != null &&
+                    input.TypeContracts != null &&
+                    this.TypeContracts.SequenceEqual(input.TypeContracts)
                 );
         }
 
@@ -259,6 +275,10 @@ namespace Lusid.Sdk.Model
                 if (this.GeneralLedgerProfileCode != null)
                 {
                     hashCode = (hashCode * 59) + this.GeneralLedgerProfileCode.GetHashCode();
+                }
+                if (this.TypeContracts != null)
+                {
+                    hashCode = (hashCode * 59) + this.TypeContracts.GetHashCode();
                 }
                 return hashCode;
             }

@@ -50,7 +50,13 @@ namespace Lusid.Sdk.Model
         /// Enum SimplePosition for value: SimplePosition
         /// </summary>
         [EnumMember(Value = "SimplePosition")]
-        SimplePosition = 4
+        SimplePosition = 4,
+
+        /// <summary>
+        /// Enum Composite for value: Composite
+        /// </summary>
+        [EnumMember(Value = "Composite")]
+        Composite = 5
     }
 
 }
