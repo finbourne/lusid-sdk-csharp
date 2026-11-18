@@ -50,7 +50,7 @@ namespace Lusid.Sdk.Model
         /// <param name="startEffectiveAt">startEffectiveAt.</param>
         /// <param name="endEffectiveAt">Deprecated and no longer honoured: a fixed forward date stops being a forward view once  the live edge passes it. Use effectiveForwardDays instead. Still accepted and echoed back  so existing subscriptions keep round-tripping..</param>
         /// <param name="effectiveForwardDays">How far forward the subscription reports, as a number of calendar days past the live  edge — a rolling forward view that advances as time passes..</param>
-        /// <param name="instrumentIdentifiers">The instrument identifiers each published holding carries, as Instrument/default/{type} property keys,  for example Instrument/default/ClientInternal. Each must name an instrument identifier type. At most 5.  Not valid for a transactions subscription..</param>
+        /// <param name="instrumentIdentifiers">The instrument identifiers each published change carries, as Instrument/default/{type} property keys, for  example Instrument/default/ClientInternal. Each must name an instrument identifier type. At most 5..</param>
         /// <param name="reportCurrency">The currency the report-currency values are given in, as a three-letter ISO code stored upper-case. Required  when addressKeys names any key other than the quantity, cost, current face, notional cost, variation margin  and currency keys: Holding/Units, Holding/SettledUnits, Holding/Cost/Dom, Holding/Cost/Pfolio,  Holding/CurrentFace, Holding/NotionalCost, Holding/VariationMargin, Holding/VariationMarginInPortfolioCcy,  Holding/HoldingType, Holding/DomCcy and Holding/PortfolioCcy. Not valid for a transactions subscription..</param>
         public SubscriptionDefinition(string scope = default(string), string code = default(string), string displayName = default(string), string description = default(string), ResourceId portfolioId = default(ResourceId), ResourceId timelineId = default(ResourceId), string timelineProperty = default(string), string portfolioFilter = default(string), List<string> addressKeys = default(List<string>), bool byTaxLots = default(bool), string subscriptionType = default(string), DateTimeOffset? startEffectiveAt = default(DateTimeOffset?), DateTimeOffset? endEffectiveAt = default(DateTimeOffset?), int? effectiveForwardDays = default(int?), List<string> instrumentIdentifiers = default(List<string>), string reportCurrency = default(string))
         {
@@ -183,9 +183,9 @@ namespace Lusid.Sdk.Model
         public int? EffectiveForwardDays { get; set; }
 
         /// <summary>
-        /// The instrument identifiers each published holding carries, as Instrument/default/{type} property keys,  for example Instrument/default/ClientInternal. Each must name an instrument identifier type. At most 5.  Not valid for a transactions subscription.
+        /// The instrument identifiers each published change carries, as Instrument/default/{type} property keys, for  example Instrument/default/ClientInternal. Each must name an instrument identifier type. At most 5.
         /// </summary>
-        /// <value>The instrument identifiers each published holding carries, as Instrument/default/{type} property keys,  for example Instrument/default/ClientInternal. Each must name an instrument identifier type. At most 5.  Not valid for a transactions subscription.</value>
+        /// <value>The instrument identifiers each published change carries, as Instrument/default/{type} property keys, for  example Instrument/default/ClientInternal. Each must name an instrument identifier type. At most 5.</value>
         [DataMember(Name = "instrumentIdentifiers", EmitDefaultValue = true)]
         public List<string> InstrumentIdentifiers { get; set; }
 

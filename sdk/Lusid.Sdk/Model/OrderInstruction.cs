@@ -41,15 +41,17 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">Client-defined properties associated with this execution..</param>
         /// <param name="portfolioId">portfolioId.</param>
         /// <param name="instrumentIdentifiers">The instrument ordered. (required).</param>
-        /// <param name="quantity">The quantity of given instrument ordered..</param>
-        /// <param name="weight">The proportion of the total portfolio value ordered for the given instrument ordered..</param>
+        /// <param name="quantity">The quantity of given instrument..</param>
+        /// <param name="weight">The proportion of the total portfolio value..</param>
         /// <param name="price">price.</param>
         /// <param name="instrumentScope">The scope in which the instrument lies.</param>
         /// <param name="lusidInstrumentId">The LUSID instrument id for the instrument ordered..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="dataModelMembership">dataModelMembership.</param>
+        /// <param name="amount">amount.</param>
+        /// <param name="instructionType">Whether the instruction is a change to the holding or a target for it, one of: Change, Target. Defaults to Target for a weight-only instruction and to Change otherwise..</param>
         /// <param name="links">links.</param>
-        public OrderInstruction(ResourceId id = default(ResourceId), DateTimeOffset createdDate = default(DateTimeOffset), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ResourceId portfolioId = default(ResourceId), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), decimal? weight = default(decimal?), CurrencyAndAmount price = default(CurrencyAndAmount), string instrumentScope = default(string), string lusidInstrumentId = default(string), ModelVersion varVersion = default(ModelVersion), DataModelMembership dataModelMembership = default(DataModelMembership), List<Link> links = default(List<Link>))
+        public OrderInstruction(ResourceId id = default(ResourceId), DateTimeOffset createdDate = default(DateTimeOffset), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ResourceId portfolioId = default(ResourceId), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), decimal? weight = default(decimal?), CurrencyAndAmount price = default(CurrencyAndAmount), string instrumentScope = default(string), string lusidInstrumentId = default(string), ModelVersion varVersion = default(ModelVersion), DataModelMembership dataModelMembership = default(DataModelMembership), CurrencyAndAmount amount = default(CurrencyAndAmount), string instructionType = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -73,6 +75,8 @@ namespace Lusid.Sdk.Model
             this.LusidInstrumentId = lusidInstrumentId;
             this.VarVersion = varVersion;
             this.DataModelMembership = dataModelMembership;
+            this.Amount = amount;
+            this.InstructionType = instructionType;
             this.Links = links;
         }
 
@@ -110,16 +114,16 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
-        /// The quantity of given instrument ordered.
+        /// The quantity of given instrument.
         /// </summary>
-        /// <value>The quantity of given instrument ordered.</value>
+        /// <value>The quantity of given instrument.</value>
         [DataMember(Name = "quantity", EmitDefaultValue = true)]
         public decimal? Quantity { get; set; }
 
         /// <summary>
-        /// The proportion of the total portfolio value ordered for the given instrument ordered.
+        /// The proportion of the total portfolio value.
         /// </summary>
-        /// <value>The proportion of the total portfolio value ordered for the given instrument ordered.</value>
+        /// <value>The proportion of the total portfolio value.</value>
         [DataMember(Name = "weight", EmitDefaultValue = true)]
         public decimal? Weight { get; set; }
 
@@ -156,6 +160,19 @@ namespace Lusid.Sdk.Model
         public DataModelMembership DataModelMembership { get; set; }
 
         /// <summary>
+        /// Gets or Sets Amount
+        /// </summary>
+        [DataMember(Name = "amount", EmitDefaultValue = false)]
+        public CurrencyAndAmount Amount { get; set; }
+
+        /// <summary>
+        /// Whether the instruction is a change to the holding or a target for it, one of: Change, Target. Defaults to Target for a weight-only instruction and to Change otherwise.
+        /// </summary>
+        /// <value>Whether the instruction is a change to the holding or a target for it, one of: Change, Target. Defaults to Target for a weight-only instruction and to Change otherwise.</value>
+        [DataMember(Name = "instructionType", EmitDefaultValue = true)]
+        public string InstructionType { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -181,6 +198,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  LusidInstrumentId: ").Append(LusidInstrumentId).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  DataModelMembership: ").Append(DataModelMembership).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  InstructionType: ").Append(InstructionType).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -280,6 +299,16 @@ namespace Lusid.Sdk.Model
                     this.DataModelMembership.Equals(input.DataModelMembership))
                 ) && 
                 (
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
+                ) && 
+                (
+                    this.InstructionType == input.InstructionType ||
+                    (this.InstructionType != null &&
+                    this.InstructionType.Equals(input.InstructionType))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -343,6 +372,14 @@ namespace Lusid.Sdk.Model
                 if (this.DataModelMembership != null)
                 {
                     hashCode = (hashCode * 59) + this.DataModelMembership.GetHashCode();
+                }
+                if (this.Amount != null)
+                {
+                    hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                }
+                if (this.InstructionType != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstructionType.GetHashCode();
                 }
                 if (this.Links != null)
                 {

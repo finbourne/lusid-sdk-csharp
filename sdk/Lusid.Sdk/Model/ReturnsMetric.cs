@@ -17,40 +17,92 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
+using System.Reflection;
 
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A metric requested from the aggregated-returns (TWR) endpoint. Supports only the  period &#x60;Return&#x60; (the grid granularity is set on the request via Period, not per metric);  &#x60;Alias&#x60; is the key the metric appears under in the response&#39;s metricsValue dictionary.
+    /// Base class for a metric requested from the aggregated-returns (TWR) endpoint, measured over each period of  the grid (the grid granularity is set on the request via Period, not per metric). Polymorphic by type;  each supported type has a corresponding inherited class carrying the inputs only that metric takes.
     /// </summary>
+    [JsonConverter(typeof(ReturnsMetricJsonConverter))]
     [DataContract(Name = "ReturnsMetric")]
-    public partial class ReturnsMetric : IEquatable<ReturnsMetric>, IValidatableObject
+    public partial class ReturnsMetric : AbstractOpenAPISchema, IEquatable<ReturnsMetric>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReturnsMetric" /> class.
+        /// Initializes a new instance of the <see cref="ReturnsMetric" /> class
+        /// with the <see cref="IndicativeAmountMetric" /> class
         /// </summary>
-        /// <param name="type">Available values: Return..</param>
-        /// <param name="alias">alias.</param>
-        public ReturnsMetric(string type = default(string), string alias = default(string))
+        /// <param name="actualInstance">An instance of IndicativeAmountMetric.</param>
+        public ReturnsMetric(IndicativeAmountMetric actualInstance)
         {
-            this.Type = type;
-            this.Alias = alias;
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
         /// <summary>
-        /// Available values: Return.
+        /// Initializes a new instance of the <see cref="ReturnsMetric" /> class
+        /// with the <see cref="ReturnMetric" /> class
         /// </summary>
-        /// <value>Available values: Return.</value>
-        [DataMember(Name = "type", EmitDefaultValue = true)]
-        public string Type { get; set; }
+        /// <param name="actualInstance">An instance of ReturnMetric.</param>
+        public ReturnsMetric(ReturnMetric actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+
+        private Object _actualInstance;
 
         /// <summary>
-        /// Gets or Sets Alias
+        /// Gets or Sets ActualInstance
         /// </summary>
-        [DataMember(Name = "alias", EmitDefaultValue = true)]
-        public string Alias { get; set; }
+        public override Object ActualInstance
+        {
+            get
+            {
+                return _actualInstance;
+            }
+            set
+            {
+                if (value.GetType() == typeof(IndicativeAmountMetric) || value is IndicativeAmountMetric)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(ReturnMetric) || value is ReturnMetric)
+                {
+                    this._actualInstance = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Invalid instance found. Must be the following types: IndicativeAmountMetric, ReturnMetric");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Get the actual instance of `IndicativeAmountMetric`. If the actual instance is not `IndicativeAmountMetric`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of IndicativeAmountMetric</returns>
+        public IndicativeAmountMetric GetIndicativeAmountMetric()
+        {
+            return (IndicativeAmountMetric)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `ReturnMetric`. If the actual instance is not `ReturnMetric`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of ReturnMetric</returns>
+        public ReturnMetric GetReturnMetric()
+        {
+            return (ReturnMetric)this.ActualInstance;
+        }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -58,10 +110,9 @@ namespace Lusid.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class ReturnsMetric {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Alias: ").Append(Alias).Append("\n");
+            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -70,9 +121,101 @@ namespace Lusid.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return JsonConvert.SerializeObject(this.ActualInstance, ReturnsMetric.SerializerSettings);
+        }
+
+        /// <summary>
+        /// Converts the JSON string into an instance of ReturnsMetric
+        /// </summary>
+        /// <param name="jsonString">JSON string</param>
+        /// <returns>An instance of ReturnsMetric</returns>
+        public static ReturnsMetric FromJson(string jsonString)
+        {
+            ReturnsMetric newReturnsMetric = null;
+
+            if (string.IsNullOrEmpty(jsonString))
+            {
+                return newReturnsMetric;
+            }
+
+            try
+            {
+                var discriminatorObj = JObject.Parse(jsonString)["type"];
+                string discriminatorValue =  discriminatorObj == null ?string.Empty :discriminatorObj.ToString();
+                switch (discriminatorValue)
+                {
+                    case "IndicativeAmount":
+                        newReturnsMetric = new ReturnsMetric(JsonConvert.DeserializeObject<IndicativeAmountMetric>(jsonString, ReturnsMetric.AdditionalPropertiesSerializerSettings));
+                        return newReturnsMetric;
+                    case "Return":
+                        newReturnsMetric = new ReturnsMetric(JsonConvert.DeserializeObject<ReturnMetric>(jsonString, ReturnsMetric.AdditionalPropertiesSerializerSettings));
+                        return newReturnsMetric;
+                    default:
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for ReturnsMetric. Possible values: IndicativeAmount Return", discriminatorValue));
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to parse the json data : `{0}` {1}", jsonString, ex.ToString()));
+            }
+
+            int match = 0;
+            List<string> matchedTypes = new List<string>();
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(IndicativeAmountMetric).GetProperty("AdditionalProperties") == null)
+                {
+                    newReturnsMetric = new ReturnsMetric(JsonConvert.DeserializeObject<IndicativeAmountMetric>(jsonString, ReturnsMetric.SerializerSettings));
+                }
+                else
+                {
+                    newReturnsMetric = new ReturnsMetric(JsonConvert.DeserializeObject<IndicativeAmountMetric>(jsonString, ReturnsMetric.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("IndicativeAmountMetric");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into IndicativeAmountMetric: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(ReturnMetric).GetProperty("AdditionalProperties") == null)
+                {
+                    newReturnsMetric = new ReturnsMetric(JsonConvert.DeserializeObject<ReturnMetric>(jsonString, ReturnsMetric.SerializerSettings));
+                }
+                else
+                {
+                    newReturnsMetric = new ReturnsMetric(JsonConvert.DeserializeObject<ReturnMetric>(jsonString, ReturnsMetric.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("ReturnMetric");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ReturnMetric: {1}", jsonString, exception.ToString()));
+            }
+
+            if (match == 0)
+            {
+                throw new InvalidDataException("The JSON string `" + jsonString + "` cannot be deserialized into any schema defined.");
+            }
+            else if (match > 1)
+            {
+                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + String.Join(",", matchedTypes));
+            }
+
+            // deserialization is considered successful at this point if no exception has been thrown.
+            return newReturnsMetric;
         }
 
         /// <summary>
@@ -93,20 +236,9 @@ namespace Lusid.Sdk.Model
         public bool Equals(ReturnsMetric input)
         {
             if (input == null)
-            {
                 return false;
-            }
-            return 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.Alias == input.Alias ||
-                    (this.Alias != null &&
-                    this.Alias.Equals(input.Alias))
-                );
+
+            return this.ActualInstance.Equals(input.ActualInstance);
         }
 
         /// <summary>
@@ -118,17 +250,12 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
-                if (this.Alias != null)
-                {
-                    hashCode = (hashCode * 59) + this.Alias.GetHashCode();
-                }
+                if (this.ActualInstance != null)
+                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
                 return hashCode;
             }
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -137,19 +264,56 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Alias (string) maxLength
-            if (this.Alias != null && this.Alias.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Alias, length must be less than 256.", new [] { "Alias" });
-            }
-
-            // Alias (string) minLength
-            if (this.Alias != null && this.Alias.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Alias, length must be greater than 0.", new [] { "Alias" });
-            }
-
             yield break;
         }
     }
+
+    /// <summary>
+    /// Custom JSON converter for ReturnsMetric
+    /// </summary>
+    public class ReturnsMetricJsonConverter : JsonConverter
+    {
+        /// <summary>
+        /// To write the JSON string
+        /// </summary>
+        /// <param name="writer">JSON writer</param>
+        /// <param name="value">Object to be converted into a JSON string</param>
+        /// <param name="serializer">JSON Serializer</param>
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            writer.WriteRawValue((string)(typeof(ReturnsMetric).GetMethod("ToJson").Invoke(value, null)));
+        }
+
+        /// <summary>
+        /// To convert a JSON string into an object
+        /// </summary>
+        /// <param name="reader">JSON reader</param>
+        /// <param name="objectType">Object type</param>
+        /// <param name="existingValue">Existing value</param>
+        /// <param name="serializer">JSON Serializer</param>
+        /// <returns>The object converted from the JSON string</returns>
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            switch(reader.TokenType) 
+            {
+                case JsonToken.StartObject:
+                    return ReturnsMetric.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartArray:
+                    return ReturnsMetric.FromJson(JArray.Load(reader).ToString(Formatting.None));
+                default:
+                    return null;
+            }
+        }
+
+        /// <summary>
+        /// Check if the object can be converted
+        /// </summary>
+        /// <param name="objectType">Object type</param>
+        /// <returns>True if the object can be converted</returns>
+        public override bool CanConvert(Type objectType)
+        {
+            return false;
+        }
+    }
+
 }

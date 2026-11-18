@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **RecipeId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **ScenarioDiagnostics** | [**ScenarioDiagnostics**](ScenarioDiagnostics.md) |  | [optional] 
 **RecipeProvenance** | [**RecipeProvenance**](RecipeProvenance.md) |  | [optional] 
+**Warnings** | [**List&lt;Warning&gt;**](Warning.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -32,6 +33,7 @@ ScenarioDiagnostics? scenarioDiagnostics = new ScenarioDiagnostics();
 
 RecipeProvenance? recipeProvenance = new RecipeProvenance();
 
+List<Warning> warnings = new List<Warning>();
 List<Link> links = new List<Link>();
 
 ListAggregationResponse listAggregationResponseInstance = new ListAggregationResponse(
@@ -45,6 +47,7 @@ ListAggregationResponse listAggregationResponseInstance = new ListAggregationRes
     recipeId: recipeId,
     scenarioDiagnostics: scenarioDiagnostics,
     recipeProvenance: recipeProvenance,
+    warnings: warnings,
     links: links);
 ```
 

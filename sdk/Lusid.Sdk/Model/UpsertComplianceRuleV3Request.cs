@@ -46,7 +46,8 @@ namespace Lusid.Sdk.Model
         /// <param name="measure">measure (required).</param>
         /// <param name="check">check (required).</param>
         /// <param name="computedFilter">computedFilter.</param>
-        public UpsertComplianceRuleV3Request(ResourceId id = default(ResourceId), string name = default(string), string description = default(string), bool active = default(bool), string subject = default(string), ComplianceRuleV3FilterNode filter = default(ComplianceRuleV3FilterNode), List<string> groupBy = default(List<string>), ComplianceRuleV3Measure measure = default(ComplianceRuleV3Measure), ComplianceRuleV3Check check = default(ComplianceRuleV3Check), ComplianceRuleV3ComputedFilter computedFilter = default(ComplianceRuleV3ComputedFilter))
+        /// <param name="schedule">Available values: PreTrade, PostTrade, PreAndPostTrade..</param>
+        public UpsertComplianceRuleV3Request(ResourceId id = default(ResourceId), string name = default(string), string description = default(string), bool active = default(bool), string subject = default(string), ComplianceRuleV3FilterNode filter = default(ComplianceRuleV3FilterNode), List<string> groupBy = default(List<string>), ComplianceRuleV3Measure measure = default(ComplianceRuleV3Measure), ComplianceRuleV3Check check = default(ComplianceRuleV3Check), ComplianceRuleV3ComputedFilter computedFilter = default(ComplianceRuleV3ComputedFilter), string schedule = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -78,6 +79,7 @@ namespace Lusid.Sdk.Model
             this.Filter = filter;
             this.GroupBy = groupBy;
             this.ComputedFilter = computedFilter;
+            this.Schedule = schedule;
         }
 
         /// <summary>
@@ -142,6 +144,13 @@ namespace Lusid.Sdk.Model
         public ComplianceRuleV3ComputedFilter ComputedFilter { get; set; }
 
         /// <summary>
+        /// Available values: PreTrade, PostTrade, PreAndPostTrade.
+        /// </summary>
+        /// <value>Available values: PreTrade, PostTrade, PreAndPostTrade.</value>
+        [DataMember(Name = "schedule", EmitDefaultValue = true)]
+        public string Schedule { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -159,6 +168,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Measure: ").Append(Measure).Append("\n");
             sb.Append("  Check: ").Append(Check).Append("\n");
             sb.Append("  ComputedFilter: ").Append(ComputedFilter).Append("\n");
+            sb.Append("  Schedule: ").Append(Schedule).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -243,6 +253,11 @@ namespace Lusid.Sdk.Model
                     this.ComputedFilter == input.ComputedFilter ||
                     (this.ComputedFilter != null &&
                     this.ComputedFilter.Equals(input.ComputedFilter))
+                ) && 
+                (
+                    this.Schedule == input.Schedule ||
+                    (this.Schedule != null &&
+                    this.Schedule.Equals(input.Schedule))
                 );
         }
 
@@ -291,6 +306,10 @@ namespace Lusid.Sdk.Model
                 if (this.ComputedFilter != null)
                 {
                     hashCode = (hashCode * 59) + this.ComputedFilter.GetHashCode();
+                }
+                if (this.Schedule != null)
+                {
+                    hashCode = (hashCode * 59) + this.Schedule.GetHashCode();
                 }
                 return hashCode;
             }

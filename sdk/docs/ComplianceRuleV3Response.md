@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Measure** | [**ComplianceRuleV3Measure**](ComplianceRuleV3Measure.md) |  | [optional] 
 **Check** | [**ComplianceRuleV3Check**](ComplianceRuleV3Check.md) |  | [optional] 
 **ComputedFilter** | [**ComplianceRuleV3ComputedFilter**](ComplianceRuleV3ComputedFilter.md) |  | [optional] 
+**Schedule** | **string** | Available values: PreTrade, PostTrade, PreAndPostTrade. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **PlainEnglish** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
@@ -38,6 +39,7 @@ ComplianceRuleV3Check? check = new ComplianceRuleV3Check();
 
 ComplianceRuleV3ComputedFilter? computedFilter = new ComplianceRuleV3ComputedFilter();
 
+string schedule = "example schedule";
 ModelVersion? varVersion = new ModelVersion();
 
 string plainEnglish = "example plainEnglish";
@@ -54,6 +56,7 @@ ComplianceRuleV3Response complianceRuleV3ResponseInstance = new ComplianceRuleV3
     measure: measure,
     check: check,
     computedFilter: computedFilter,
+    schedule: schedule,
     varVersion: varVersion,
     plainEnglish: plainEnglish,
     links: links);

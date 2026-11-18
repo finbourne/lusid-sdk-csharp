@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="status">The outcome of the run. Available values: Computed, Booked, DryRun. (required).</param>
         /// <param name="runId">The identifier of the run, which prefixes every transaction it books. (required).</param>
         /// <param name="pools">The pools of fund-level amount that were allocated, in the allocation bucket set&#39;s bucket order with any tag pools after. (required).</param>
-        /// <param name="unattributed">Always empty: every profit and loss line is pooled or the run is refused. Kept until no published SDK requires it. (required).</param>
+        /// <param name="unattributed">Always empty: every profit and loss line is pooled or the run is refused. No longer required; removed once no published SDK requires it..</param>
         /// <param name="bookedTransactionIds">The identifiers of the transactions the run booked, if any. (required).</param>
         /// <param name="warnings">What the run noticed but did not refuse, for example an excluded investor record that is not on the register at the period end, or a fee accrual naming no investor that was pooled as unaccrued fee (AccruedFeeWithoutInvestor)..</param>
         /// <param name="ignoredTags">The distribution character tags the run did not pool by, by account..</param>
@@ -82,18 +82,13 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("pools is a required property for PartnerAllocationRunResult and cannot be null");
             }
             this.Pools = pools;
-            // to ensure "unattributed" is required (not null)
-            if (unattributed == null)
-            {
-                throw new ArgumentNullException("unattributed is a required property for PartnerAllocationRunResult and cannot be null");
-            }
-            this.Unattributed = unattributed;
             // to ensure "bookedTransactionIds" is required (not null)
             if (bookedTransactionIds == null)
             {
                 throw new ArgumentNullException("bookedTransactionIds is a required property for PartnerAllocationRunResult and cannot be null");
             }
             this.BookedTransactionIds = bookedTransactionIds;
+            this.Unattributed = unattributed;
             this.Warnings = warnings;
             this.IgnoredTags = ignoredTags;
             this.AccruedFees = accruedFees;
@@ -148,10 +143,10 @@ namespace Lusid.Sdk.Model
         public List<PartnerAllocationPool> Pools { get; set; }
 
         /// <summary>
-        /// Always empty: every profit and loss line is pooled or the run is refused. Kept until no published SDK requires it.
+        /// Always empty: every profit and loss line is pooled or the run is refused. No longer required; removed once no published SDK requires it.
         /// </summary>
-        /// <value>Always empty: every profit and loss line is pooled or the run is refused. Kept until no published SDK requires it.</value>
-        [DataMember(Name = "unattributed", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>Always empty: every profit and loss line is pooled or the run is refused. No longer required; removed once no published SDK requires it.</value>
+        [DataMember(Name = "unattributed", EmitDefaultValue = true)]
         public List<UnattributedAmount> Unattributed { get; set; }
 
         /// <summary>

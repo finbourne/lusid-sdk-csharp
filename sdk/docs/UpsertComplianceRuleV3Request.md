@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Measure** | [**ComplianceRuleV3Measure**](ComplianceRuleV3Measure.md) |  | 
 **Check** | [**ComplianceRuleV3Check**](ComplianceRuleV3Check.md) |  | 
 **ComputedFilter** | [**ComplianceRuleV3ComputedFilter**](ComplianceRuleV3ComputedFilter.md) |  | [optional] 
+**Schedule** | **string** | Available values: PreTrade, PostTrade, PreAndPostTrade. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -32,6 +33,7 @@ ComplianceRuleV3Measure measure = new ComplianceRuleV3Measure();
 ComplianceRuleV3Check check = new ComplianceRuleV3Check();
 ComplianceRuleV3ComputedFilter? computedFilter = new ComplianceRuleV3ComputedFilter();
 
+string schedule = "example schedule";
 
 UpsertComplianceRuleV3Request upsertComplianceRuleV3RequestInstance = new UpsertComplianceRuleV3Request(
     id: id,
@@ -43,7 +45,8 @@ UpsertComplianceRuleV3Request upsertComplianceRuleV3RequestInstance = new Upsert
     groupBy: groupBy,
     measure: measure,
     check: check,
-    computedFilter: computedFilter);
+    computedFilter: computedFilter,
+    schedule: schedule);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

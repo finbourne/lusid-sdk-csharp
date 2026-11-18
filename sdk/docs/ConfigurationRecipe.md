@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Description** | **string** | User can assign a description to understand more humanly the recipe. | [optional] 
 **Holding** | [**HoldingContext**](HoldingContext.md) |  | [optional] 
 **Translation** | [**TranslationContext**](TranslationContext.md) |  | [optional] 
+**LoanOptions** | [**LoanOptions**](LoanOptions.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -31,6 +32,8 @@ HoldingContext? holding = new HoldingContext();
 
 TranslationContext? translation = new TranslationContext();
 
+LoanOptions? loanOptions = new LoanOptions();
+
 
 ConfigurationRecipe configurationRecipeInstance = new ConfigurationRecipe(
     scope: scope,
@@ -40,7 +43,8 @@ ConfigurationRecipe configurationRecipeInstance = new ConfigurationRecipe(
     aggregation: aggregation,
     description: description,
     holding: holding,
-    translation: translation);
+    translation: translation,
+    loanOptions: loanOptions);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

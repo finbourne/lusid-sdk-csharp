@@ -44,7 +44,8 @@ namespace Lusid.Sdk.Model
         /// <param name="description">User can assign a description to understand more humanly the recipe..</param>
         /// <param name="holding">holding.</param>
         /// <param name="translation">translation.</param>
-        public ConfigurationRecipe(string scope = default(string), string code = default(string), MarketContext market = default(MarketContext), PricingContext pricing = default(PricingContext), AggregationContext aggregation = default(AggregationContext), string description = default(string), HoldingContext holding = default(HoldingContext), TranslationContext translation = default(TranslationContext))
+        /// <param name="loanOptions">loanOptions.</param>
+        public ConfigurationRecipe(string scope = default(string), string code = default(string), MarketContext market = default(MarketContext), PricingContext pricing = default(PricingContext), AggregationContext aggregation = default(AggregationContext), string description = default(string), HoldingContext holding = default(HoldingContext), TranslationContext translation = default(TranslationContext), LoanOptions loanOptions = default(LoanOptions))
         {
             // to ensure "scope" is required (not null)
             if (scope == null)
@@ -64,6 +65,7 @@ namespace Lusid.Sdk.Model
             this.Description = description;
             this.Holding = holding;
             this.Translation = translation;
+            this.LoanOptions = loanOptions;
         }
 
         /// <summary>
@@ -118,6 +120,12 @@ namespace Lusid.Sdk.Model
         public TranslationContext Translation { get; set; }
 
         /// <summary>
+        /// Gets or Sets LoanOptions
+        /// </summary>
+        [DataMember(Name = "loanOptions", EmitDefaultValue = false)]
+        public LoanOptions LoanOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -133,6 +141,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Holding: ").Append(Holding).Append("\n");
             sb.Append("  Translation: ").Append(Translation).Append("\n");
+            sb.Append("  LoanOptions: ").Append(LoanOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -207,6 +216,11 @@ namespace Lusid.Sdk.Model
                     this.Translation == input.Translation ||
                     (this.Translation != null &&
                     this.Translation.Equals(input.Translation))
+                ) && 
+                (
+                    this.LoanOptions == input.LoanOptions ||
+                    (this.LoanOptions != null &&
+                    this.LoanOptions.Equals(input.LoanOptions))
                 );
         }
 
@@ -250,6 +264,10 @@ namespace Lusid.Sdk.Model
                 if (this.Translation != null)
                 {
                     hashCode = (hashCode * 59) + this.Translation.GetHashCode();
+                }
+                if (this.LoanOptions != null)
+                {
+                    hashCode = (hashCode * 59) + this.LoanOptions.GetHashCode();
                 }
                 return hashCode;
             }

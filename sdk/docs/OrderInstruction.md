@@ -10,13 +10,15 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Client-defined properties associated with this execution. | [optional] 
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | The instrument ordered. | 
-**Quantity** | **decimal?** | The quantity of given instrument ordered. | [optional] 
-**Weight** | **decimal?** | The proportion of the total portfolio value ordered for the given instrument ordered. | [optional] 
+**Quantity** | **decimal?** | The quantity of given instrument. | [optional] 
+**Weight** | **decimal?** | The proportion of the total portfolio value. | [optional] 
 **Price** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **InstrumentScope** | **string** | The scope in which the instrument lies | [optional] 
 **LusidInstrumentId** | **string** | The LUSID instrument id for the instrument ordered. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
+**Amount** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**InstructionType** | **string** | Whether the instruction is a change to the holding or a target for it, one of: Change, Target. Defaults to Target for a weight-only instruction and to Change otherwise. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -36,6 +38,9 @@ ModelVersion? varVersion = new ModelVersion();
 
 DataModelMembership? dataModelMembership = new DataModelMembership();
 
+CurrencyAndAmount? amount = new CurrencyAndAmount();
+
+string instructionType = "example instructionType";
 List<Link> links = new List<Link>();
 
 OrderInstruction orderInstructionInstance = new OrderInstruction(
@@ -51,6 +56,8 @@ OrderInstruction orderInstructionInstance = new OrderInstruction(
     lusidInstrumentId: lusidInstrumentId,
     varVersion: varVersion,
     dataModelMembership: dataModelMembership,
+    amount: amount,
+    instructionType: instructionType,
     links: links);
 ```
 

@@ -801,7 +801,13 @@ namespace Lusid.Sdk.Model
         /// Enum InflationIndexationEvent for value: InflationIndexationEvent
         /// </summary>
         [EnumMember(Value = "InflationIndexationEvent")]
-        InflationIndexationEvent = 129
+        InflationIndexationEvent = 129,
+
+        /// <summary>
+        /// Enum InterestPaymentWithPrincipalEvent for value: InterestPaymentWithPrincipalEvent
+        /// </summary>
+        [EnumMember(Value = "InterestPaymentWithPrincipalEvent")]
+        InterestPaymentWithPrincipalEvent = 130
     }
 
 }

@@ -40,11 +40,13 @@ namespace Lusid.Sdk.Model
         /// <param name="createdDate">The active date of this order instruction. (required).</param>
         /// <param name="portfolioId">portfolioId.</param>
         /// <param name="instrumentIdentifiers">The instrument ordered..</param>
-        /// <param name="quantity">The quantity of given instrument ordered..</param>
-        /// <param name="weight">The proportion of the total portfolio value ordered for the given instrument ordered..</param>
+        /// <param name="quantity">The quantity of given instrument..</param>
+        /// <param name="weight">The proportion of the total portfolio value..</param>
         /// <param name="price">price.</param>
         /// <param name="properties">Client-defined properties associated with this execution..</param>
-        public OrderInstructionRequest(ResourceId id = default(ResourceId), DateTimeOffset createdDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), decimal? weight = default(decimal?), CurrencyAndAmount price = default(CurrencyAndAmount), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
+        /// <param name="amount">amount.</param>
+        /// <param name="instructionType">Whether the instruction is a change to the holding or a target for it, one of: Change, Target. Defaults to Target for a weight-only instruction and to Change otherwise..</param>
+        public OrderInstructionRequest(ResourceId id = default(ResourceId), DateTimeOffset createdDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), decimal? weight = default(decimal?), CurrencyAndAmount price = default(CurrencyAndAmount), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), CurrencyAndAmount amount = default(CurrencyAndAmount), string instructionType = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -59,6 +61,8 @@ namespace Lusid.Sdk.Model
             this.Weight = weight;
             this.Price = price;
             this.Properties = properties;
+            this.Amount = amount;
+            this.InstructionType = instructionType;
         }
 
         /// <summary>
@@ -88,16 +92,16 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
-        /// The quantity of given instrument ordered.
+        /// The quantity of given instrument.
         /// </summary>
-        /// <value>The quantity of given instrument ordered.</value>
+        /// <value>The quantity of given instrument.</value>
         [DataMember(Name = "quantity", EmitDefaultValue = true)]
         public decimal? Quantity { get; set; }
 
         /// <summary>
-        /// The proportion of the total portfolio value ordered for the given instrument ordered.
+        /// The proportion of the total portfolio value.
         /// </summary>
-        /// <value>The proportion of the total portfolio value ordered for the given instrument ordered.</value>
+        /// <value>The proportion of the total portfolio value.</value>
         [DataMember(Name = "weight", EmitDefaultValue = true)]
         public decimal? Weight { get; set; }
 
@@ -115,6 +119,19 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, PerpetualProperty> Properties { get; set; }
 
         /// <summary>
+        /// Gets or Sets Amount
+        /// </summary>
+        [DataMember(Name = "amount", EmitDefaultValue = false)]
+        public CurrencyAndAmount Amount { get; set; }
+
+        /// <summary>
+        /// Whether the instruction is a change to the holding or a target for it, one of: Change, Target. Defaults to Target for a weight-only instruction and to Change otherwise.
+        /// </summary>
+        /// <value>Whether the instruction is a change to the holding or a target for it, one of: Change, Target. Defaults to Target for a weight-only instruction and to Change otherwise.</value>
+        [DataMember(Name = "instructionType", EmitDefaultValue = true)]
+        public string InstructionType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -130,6 +147,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  Weight: ").Append(Weight).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  InstructionType: ").Append(InstructionType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -206,6 +225,16 @@ namespace Lusid.Sdk.Model
                     this.Properties != null &&
                     input.Properties != null &&
                     this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
+                ) && 
+                (
+                    this.InstructionType == input.InstructionType ||
+                    (this.InstructionType != null &&
+                    this.InstructionType.Equals(input.InstructionType))
                 );
         }
 
@@ -250,6 +279,14 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
+                if (this.Amount != null)
+                {
+                    hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                }
+                if (this.InstructionType != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstructionType.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -261,6 +298,18 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // InstructionType (string) maxLength
+            if (this.InstructionType != null && this.InstructionType.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstructionType, length must be less than 64.", new [] { "InstructionType" });
+            }
+
+            // InstructionType (string) minLength
+            if (this.InstructionType != null && this.InstructionType.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstructionType, length must be greater than 1.", new [] { "InstructionType" });
+            }
+
             yield break;
         }
     }

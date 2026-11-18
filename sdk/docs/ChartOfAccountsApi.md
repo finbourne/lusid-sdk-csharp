@@ -4,6 +4,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**CorrectPostingModuleRuleVersion**](ChartOfAccountsApi.md#correctpostingmoduleruleversion) | **PUT** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules/{ruleId}/versions/{version} | [EARLY ACCESS] CorrectPostingModuleRuleVersion: Correct a version of a rule of a Posting Module |
 | [**CreateChartOfAccounts**](ChartOfAccountsApi.md#createchartofaccounts) | **POST** /api/chartofaccounts/{scope} | [EARLY ACCESS] CreateChartOfAccounts: Create a Chart of Accounts |
 | [**CreateCleardownModule**](ChartOfAccountsApi.md#createcleardownmodule) | **POST** /api/chartofaccounts/{scope}/{code}/cleardownmodules | [EARLY ACCESS] CreateCleardownModule: Create a Cleardown Module |
 | [**CreateGeneralLedgerProfile**](ChartOfAccountsApi.md#creategeneralledgerprofile) | **POST** /api/chartofaccounts/{scope}/{code}/generalledgerprofile | [EARLY ACCESS] CreateGeneralLedgerProfile: Create a General Ledger Profile. |
@@ -13,6 +14,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**DeleteCleardownModule**](ChartOfAccountsApi.md#deletecleardownmodule) | **DELETE** /api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode} | [EARLY ACCESS] DeleteCleardownModule: Delete a Cleardown Module. |
 | [**DeleteGeneralLedgerProfile**](ChartOfAccountsApi.md#deletegeneralledgerprofile) | **DELETE** /api/chartofaccounts/{scope}/{code}/generalledgerprofile/{generalLedgerProfileCode} | [EARLY ACCESS] DeleteGeneralLedgerProfile: Delete a General Ledger Profile. |
 | [**DeletePostingModule**](ChartOfAccountsApi.md#deletepostingmodule) | **DELETE** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode} | [EARLY ACCESS] DeletePostingModule: Delete a Posting Module. |
+| [**DeletePostingModuleRuleVersion**](ChartOfAccountsApi.md#deletepostingmoduleruleversion) | **DELETE** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules/{ruleId}/versions/{version} | [EARLY ACCESS] DeletePostingModuleRuleVersion: Delete a version of a rule of a Posting Module |
 | [**GetAccount**](ChartOfAccountsApi.md#getaccount) | **GET** /api/chartofaccounts/{scope}/{code}/accounts/{accountCode} | [EARLY ACCESS] GetAccount: Get Account |
 | [**GetAccountProperties**](ChartOfAccountsApi.md#getaccountproperties) | **GET** /api/chartofaccounts/{scope}/{code}/accounts/{accountCode}/properties | [EARLY ACCESS] GetAccountProperties: Get Account properties |
 | [**GetChartOfAccounts**](ChartOfAccountsApi.md#getchartofaccounts) | **GET** /api/chartofaccounts/{scope}/{code} | [EARLY ACCESS] GetChartOfAccounts: Get ChartOfAccounts |
@@ -39,6 +41,129 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**UpsertAccountProperties**](ChartOfAccountsApi.md#upsertaccountproperties) | **POST** /api/chartofaccounts/{scope}/{code}/accounts/{accountCode}/properties/$upsert | [EARLY ACCESS] UpsertAccountProperties: Upsert account properties |
 | [**UpsertAccounts**](ChartOfAccountsApi.md#upsertaccounts) | **POST** /api/chartofaccounts/{scope}/{code}/accounts | [EARLY ACCESS] UpsertAccounts: Upsert Accounts |
 | [**UpsertChartOfAccountsProperties**](ChartOfAccountsApi.md#upsertchartofaccountsproperties) | **POST** /api/chartofaccounts/{scope}/{code}/properties/$upsert | [EARLY ACCESS] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties |
+
+<a id="correctpostingmoduleruleversion"></a>
+# **CorrectPostingModuleRuleVersion**
+> PostingModuleRulesUpdatedResponse CorrectPostingModuleRuleVersion (string scope, string code, string postingModuleCode, string ruleId, int version, CorrectPostingModuleRuleVersionRequest correctPostingModuleRuleVersionRequest)
+
+[EARLY ACCESS] CorrectPostingModuleRuleVersion: Correct a version of a rule of a Posting Module
+
+Replace the general ledger account, filter and effective window of one version of a Posting Rule, identified by  its ruleId and version. The version keeps its ruleId, version and originalRuleId. The rule's other versions and  every other rule are left as they are. The request replaces all four fields: an effectiveFrom or effectiveUntil  that is not provided is cleared, so provide the existing dates to keep the version's window.                Journal Entry Lines in closed periods are not changed. Activity in a closed period that falls in the corrected  version's window is moved to the corrected account in the next open period, by a reversal and a true-up. To  change the account from a date onwards without restating earlier activity, supersede the rule instead.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
+            var scope = "scope_example";  // string | The scope of the Chart of Accounts.
+            var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
+            var postingModuleCode = "postingModuleCode_example";  // string | The code of the Posting Module to be updated.
+            var ruleId = "ruleId_example";  // string | The identifier of the Posting Rule.
+            var version = 56;  // int | The version of the Posting Rule to correct.
+            var correctPostingModuleRuleVersionRequest = new CorrectPostingModuleRuleVersionRequest(); // CorrectPostingModuleRuleVersionRequest | The corrected content of the version.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PostingModuleRulesUpdatedResponse result = apiInstance.CorrectPostingModuleRuleVersion(scope, code, postingModuleCode, ruleId, version, correctPostingModuleRuleVersionRequest, opts: opts);
+
+                // [EARLY ACCESS] CorrectPostingModuleRuleVersion: Correct a version of a rule of a Posting Module
+                PostingModuleRulesUpdatedResponse result = apiInstance.CorrectPostingModuleRuleVersion(scope, code, postingModuleCode, ruleId, version, correctPostingModuleRuleVersionRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling ChartOfAccountsApi.CorrectPostingModuleRuleVersion: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the CorrectPostingModuleRuleVersionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] CorrectPostingModuleRuleVersion: Correct a version of a rule of a Posting Module
+    ApiResponse<PostingModuleRulesUpdatedResponse> response = apiInstance.CorrectPostingModuleRuleVersionWithHttpInfo(scope, code, postingModuleCode, ruleId, version, correctPostingModuleRuleVersionRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling ChartOfAccountsApi.CorrectPostingModuleRuleVersionWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Chart of Accounts. |  |
+| **code** | **string** | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. |  |
+| **postingModuleCode** | **string** | The code of the Posting Module to be updated. |  |
+| **ruleId** | **string** | The identifier of the Posting Rule. |  |
+| **version** | **int** | The version of the Posting Rule to correct. |  |
+| **correctPostingModuleRuleVersionRequest** | [**CorrectPostingModuleRuleVersionRequest**](CorrectPostingModuleRuleVersionRequest.md) | The corrected content of the version. |  |
+
+### Return type
+
+[**PostingModuleRulesUpdatedResponse**](PostingModuleRulesUpdatedResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The Posting Module with updated rules. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="createchartofaccounts"></a>
 # **CreateChartOfAccounts**
@@ -1086,6 +1211,127 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The datetime that the Posting Module was deleted. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="deletepostingmoduleruleversion"></a>
+# **DeletePostingModuleRuleVersion**
+> PostingModuleRulesUpdatedResponse DeletePostingModuleRuleVersion (string scope, string code, string postingModuleCode, string ruleId, int version)
+
+[EARLY ACCESS] DeletePostingModuleRuleVersion: Delete a version of a rule of a Posting Module
+
+Delete one version of a Posting Rule, identified by its ruleId and version. The rule's other versions and every  other rule are left as they are, and keep their version numbers.                Journal Entry Lines in closed periods are not changed. Activity in a closed period that the deleted version  posted is moved, in the next open period, to the account of the rule that now matches it, by a reversal and a  true-up.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
+            var scope = "scope_example";  // string | The scope of the Chart of Accounts.
+            var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
+            var postingModuleCode = "postingModuleCode_example";  // string | The code of the Posting Module to be updated.
+            var ruleId = "ruleId_example";  // string | The identifier of the Posting Rule.
+            var version = 56;  // int | The version of the Posting Rule to delete.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PostingModuleRulesUpdatedResponse result = apiInstance.DeletePostingModuleRuleVersion(scope, code, postingModuleCode, ruleId, version, opts: opts);
+
+                // [EARLY ACCESS] DeletePostingModuleRuleVersion: Delete a version of a rule of a Posting Module
+                PostingModuleRulesUpdatedResponse result = apiInstance.DeletePostingModuleRuleVersion(scope, code, postingModuleCode, ruleId, version);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling ChartOfAccountsApi.DeletePostingModuleRuleVersion: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the DeletePostingModuleRuleVersionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] DeletePostingModuleRuleVersion: Delete a version of a rule of a Posting Module
+    ApiResponse<PostingModuleRulesUpdatedResponse> response = apiInstance.DeletePostingModuleRuleVersionWithHttpInfo(scope, code, postingModuleCode, ruleId, version);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling ChartOfAccountsApi.DeletePostingModuleRuleVersionWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Chart of Accounts. |  |
+| **code** | **string** | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. |  |
+| **postingModuleCode** | **string** | The code of the Posting Module to be updated. |  |
+| **ruleId** | **string** | The identifier of the Posting Rule. |  |
+| **version** | **int** | The version of the Posting Rule to delete. |  |
+
+### Return type
+
+[**PostingModuleRulesUpdatedResponse**](PostingModuleRulesUpdatedResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The Posting Module with updated rules. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

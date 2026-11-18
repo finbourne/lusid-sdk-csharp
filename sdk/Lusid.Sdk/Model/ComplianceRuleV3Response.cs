@@ -41,10 +41,11 @@ namespace Lusid.Sdk.Model
         /// <param name="measure">measure.</param>
         /// <param name="check">check.</param>
         /// <param name="computedFilter">computedFilter.</param>
+        /// <param name="schedule">Available values: PreTrade, PostTrade, PreAndPostTrade..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="plainEnglish">plainEnglish.</param>
         /// <param name="links">links.</param>
-        public ComplianceRuleV3Response(ResourceId id = default(ResourceId), string name = default(string), string description = default(string), bool active = default(bool), string subject = default(string), ComplianceRuleV3FilterNode filter = default(ComplianceRuleV3FilterNode), List<string> groupBy = default(List<string>), ComplianceRuleV3Measure measure = default(ComplianceRuleV3Measure), ComplianceRuleV3Check check = default(ComplianceRuleV3Check), ComplianceRuleV3ComputedFilter computedFilter = default(ComplianceRuleV3ComputedFilter), ModelVersion varVersion = default(ModelVersion), string plainEnglish = default(string), List<Link> links = default(List<Link>))
+        public ComplianceRuleV3Response(ResourceId id = default(ResourceId), string name = default(string), string description = default(string), bool active = default(bool), string subject = default(string), ComplianceRuleV3FilterNode filter = default(ComplianceRuleV3FilterNode), List<string> groupBy = default(List<string>), ComplianceRuleV3Measure measure = default(ComplianceRuleV3Measure), ComplianceRuleV3Check check = default(ComplianceRuleV3Check), ComplianceRuleV3ComputedFilter computedFilter = default(ComplianceRuleV3ComputedFilter), string schedule = default(string), ModelVersion varVersion = default(ModelVersion), string plainEnglish = default(string), List<Link> links = default(List<Link>))
         {
             this.Id = id;
             this.Name = name;
@@ -56,6 +57,7 @@ namespace Lusid.Sdk.Model
             this.Measure = measure;
             this.Check = check;
             this.ComputedFilter = computedFilter;
+            this.Schedule = schedule;
             this.VarVersion = varVersion;
             this.PlainEnglish = plainEnglish;
             this.Links = links;
@@ -123,6 +125,13 @@ namespace Lusid.Sdk.Model
         public ComplianceRuleV3ComputedFilter ComputedFilter { get; set; }
 
         /// <summary>
+        /// Available values: PreTrade, PostTrade, PreAndPostTrade.
+        /// </summary>
+        /// <value>Available values: PreTrade, PostTrade, PreAndPostTrade.</value>
+        [DataMember(Name = "schedule", EmitDefaultValue = true)]
+        public string Schedule { get; set; }
+
+        /// <summary>
         /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
@@ -158,6 +167,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Measure: ").Append(Measure).Append("\n");
             sb.Append("  Check: ").Append(Check).Append("\n");
             sb.Append("  ComputedFilter: ").Append(ComputedFilter).Append("\n");
+            sb.Append("  Schedule: ").Append(Schedule).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  PlainEnglish: ").Append(PlainEnglish).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -247,6 +257,11 @@ namespace Lusid.Sdk.Model
                     this.ComputedFilter.Equals(input.ComputedFilter))
                 ) && 
                 (
+                    this.Schedule == input.Schedule ||
+                    (this.Schedule != null &&
+                    this.Schedule.Equals(input.Schedule))
+                ) && 
+                (
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
@@ -309,6 +324,10 @@ namespace Lusid.Sdk.Model
                 if (this.ComputedFilter != null)
                 {
                     hashCode = (hashCode * 59) + this.ComputedFilter.GetHashCode();
+                }
+                if (this.Schedule != null)
+                {
+                    hashCode = (hashCode * 59) + this.Schedule.GetHashCode();
                 }
                 if (this.VarVersion != null)
                 {

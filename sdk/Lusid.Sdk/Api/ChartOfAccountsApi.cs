@@ -32,6 +32,41 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// [EARLY ACCESS] CorrectPostingModuleRuleVersion: Correct a version of a rule of a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Replace the general ledger account, filter and effective window of one version of a Posting Rule, identified by  its ruleId and version. The version keeps its ruleId, version and originalRuleId. The rule&#39;s other versions and  every other rule are left as they are. The request replaces all four fields: an effectiveFrom or effectiveUntil  that is not provided is cleared, so provide the existing dates to keep the version&#39;s window.                Journal Entry Lines in closed periods are not changed. Activity in a closed period that falls in the corrected  version&#39;s window is moved to the corrected account in the next open period, by a reversal and a true-up. To  change the account from a date onwards without restating earlier activity, supersede the rule instead.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule.</param>
+        /// <param name="version">The version of the Posting Rule to correct.</param>
+        /// <param name="correctPostingModuleRuleVersionRequest">The corrected content of the version.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PostingModuleRulesUpdatedResponse</returns>
+        PostingModuleRulesUpdatedResponse CorrectPostingModuleRuleVersion(string scope, string code, string postingModuleCode, string ruleId, int version, CorrectPostingModuleRuleVersionRequest correctPostingModuleRuleVersionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] CorrectPostingModuleRuleVersion: Correct a version of a rule of a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Replace the general ledger account, filter and effective window of one version of a Posting Rule, identified by  its ruleId and version. The version keeps its ruleId, version and originalRuleId. The rule&#39;s other versions and  every other rule are left as they are. The request replaces all four fields: an effectiveFrom or effectiveUntil  that is not provided is cleared, so provide the existing dates to keep the version&#39;s window.                Journal Entry Lines in closed periods are not changed. Activity in a closed period that falls in the corrected  version&#39;s window is moved to the corrected account in the next open period, by a reversal and a true-up. To  change the account from a date onwards without restating earlier activity, supersede the rule instead.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule.</param>
+        /// <param name="version">The version of the Posting Rule to correct.</param>
+        /// <param name="correctPostingModuleRuleVersionRequest">The corrected content of the version.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PostingModuleRulesUpdatedResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> CorrectPostingModuleRuleVersionWithHttpInfo(string scope, string code, string postingModuleCode, string ruleId, int version, CorrectPostingModuleRuleVersionRequest correctPostingModuleRuleVersionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] CreateChartOfAccounts: Create a Chart of Accounts
         /// </summary>
         /// <remarks>
@@ -290,6 +325,39 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeletePostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] DeletePostingModuleRuleVersion: Delete a version of a rule of a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Delete one version of a Posting Rule, identified by its ruleId and version. The rule&#39;s other versions and every  other rule are left as they are, and keep their version numbers.                Journal Entry Lines in closed periods are not changed. Activity in a closed period that the deleted version  posted is moved, in the next open period, to the account of the rule that now matches it, by a reversal and a  true-up.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule.</param>
+        /// <param name="version">The version of the Posting Rule to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PostingModuleRulesUpdatedResponse</returns>
+        PostingModuleRulesUpdatedResponse DeletePostingModuleRuleVersion(string scope, string code, string postingModuleCode, string ruleId, int version, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] DeletePostingModuleRuleVersion: Delete a version of a rule of a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Delete one version of a Posting Rule, identified by its ruleId and version. The rule&#39;s other versions and every  other rule are left as they are, and keep their version numbers.                Journal Entry Lines in closed periods are not changed. Activity in a closed period that the deleted version  posted is moved, in the next open period, to the account of the rule that now matches it, by a reversal and a  true-up.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule.</param>
+        /// <param name="version">The version of the Posting Rule to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PostingModuleRulesUpdatedResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> DeletePostingModuleRuleVersionWithHttpInfo(string scope, string code, string postingModuleCode, string ruleId, int version, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetAccount: Get Account
         /// </summary>
@@ -1156,6 +1224,43 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
+        /// [EARLY ACCESS] CorrectPostingModuleRuleVersion: Correct a version of a rule of a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Replace the general ledger account, filter and effective window of one version of a Posting Rule, identified by  its ruleId and version. The version keeps its ruleId, version and originalRuleId. The rule&#39;s other versions and  every other rule are left as they are. The request replaces all four fields: an effectiveFrom or effectiveUntil  that is not provided is cleared, so provide the existing dates to keep the version&#39;s window.                Journal Entry Lines in closed periods are not changed. Activity in a closed period that falls in the corrected  version&#39;s window is moved to the corrected account in the next open period, by a reversal and a true-up. To  change the account from a date onwards without restating earlier activity, supersede the rule instead.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule.</param>
+        /// <param name="version">The version of the Posting Rule to correct.</param>
+        /// <param name="correctPostingModuleRuleVersionRequest">The corrected content of the version.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PostingModuleRulesUpdatedResponse</returns>
+        System.Threading.Tasks.Task<PostingModuleRulesUpdatedResponse> CorrectPostingModuleRuleVersionAsync(string scope, string code, string postingModuleCode, string ruleId, int version, CorrectPostingModuleRuleVersionRequest correctPostingModuleRuleVersionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] CorrectPostingModuleRuleVersion: Correct a version of a rule of a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Replace the general ledger account, filter and effective window of one version of a Posting Rule, identified by  its ruleId and version. The version keeps its ruleId, version and originalRuleId. The rule&#39;s other versions and  every other rule are left as they are. The request replaces all four fields: an effectiveFrom or effectiveUntil  that is not provided is cleared, so provide the existing dates to keep the version&#39;s window.                Journal Entry Lines in closed periods are not changed. Activity in a closed period that falls in the corrected  version&#39;s window is moved to the corrected account in the next open period, by a reversal and a true-up. To  change the account from a date onwards without restating earlier activity, supersede the rule instead.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule.</param>
+        /// <param name="version">The version of the Posting Rule to correct.</param>
+        /// <param name="correctPostingModuleRuleVersionRequest">The corrected content of the version.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PostingModuleRulesUpdatedResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse>> CorrectPostingModuleRuleVersionWithHttpInfoAsync(string scope, string code, string postingModuleCode, string ruleId, int version, CorrectPostingModuleRuleVersionRequest correctPostingModuleRuleVersionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] CreateChartOfAccounts: Create a Chart of Accounts
         /// </summary>
         /// <remarks>
@@ -1432,6 +1537,41 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeletePostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] DeletePostingModuleRuleVersion: Delete a version of a rule of a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Delete one version of a Posting Rule, identified by its ruleId and version. The rule&#39;s other versions and every  other rule are left as they are, and keep their version numbers.                Journal Entry Lines in closed periods are not changed. Activity in a closed period that the deleted version  posted is moved, in the next open period, to the account of the rule that now matches it, by a reversal and a  true-up.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule.</param>
+        /// <param name="version">The version of the Posting Rule to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PostingModuleRulesUpdatedResponse</returns>
+        System.Threading.Tasks.Task<PostingModuleRulesUpdatedResponse> DeletePostingModuleRuleVersionAsync(string scope, string code, string postingModuleCode, string ruleId, int version, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] DeletePostingModuleRuleVersion: Delete a version of a rule of a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Delete one version of a Posting Rule, identified by its ruleId and version. The rule&#39;s other versions and every  other rule are left as they are, and keep their version numbers.                Journal Entry Lines in closed periods are not changed. Activity in a closed period that the deleted version  posted is moved, in the next open period, to the account of the rule that now matches it, by a reversal and a  true-up.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule.</param>
+        /// <param name="version">The version of the Posting Rule to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PostingModuleRulesUpdatedResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse>> DeletePostingModuleRuleVersionWithHttpInfoAsync(string scope, string code, string postingModuleCode, string ruleId, int version, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetAccount: Get Account
         /// </summary>
@@ -2461,6 +2601,296 @@ namespace Lusid.Sdk.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CorrectPostingModuleRuleVersion: Correct a version of a rule of a Posting Module Replace the general ledger account, filter and effective window of one version of a Posting Rule, identified by  its ruleId and version. The version keeps its ruleId, version and originalRuleId. The rule&#39;s other versions and  every other rule are left as they are. The request replaces all four fields: an effectiveFrom or effectiveUntil  that is not provided is cleared, so provide the existing dates to keep the version&#39;s window.                Journal Entry Lines in closed periods are not changed. Activity in a closed period that falls in the corrected  version&#39;s window is moved to the corrected account in the next open period, by a reversal and a true-up. To  change the account from a date onwards without restating earlier activity, supersede the rule instead.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule.</param>
+        /// <param name="version">The version of the Posting Rule to correct.</param>
+        /// <param name="correctPostingModuleRuleVersionRequest">The corrected content of the version.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PostingModuleRulesUpdatedResponse</returns>
+        public PostingModuleRulesUpdatedResponse CorrectPostingModuleRuleVersion(string scope, string code, string postingModuleCode, string ruleId, int version, CorrectPostingModuleRuleVersionRequest correctPostingModuleRuleVersionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> localVarResponse = CorrectPostingModuleRuleVersionWithHttpInfo(scope, code, postingModuleCode, ruleId, version, correctPostingModuleRuleVersionRequest, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CorrectPostingModuleRuleVersion: Correct a version of a rule of a Posting Module Replace the general ledger account, filter and effective window of one version of a Posting Rule, identified by  its ruleId and version. The version keeps its ruleId, version and originalRuleId. The rule&#39;s other versions and  every other rule are left as they are. The request replaces all four fields: an effectiveFrom or effectiveUntil  that is not provided is cleared, so provide the existing dates to keep the version&#39;s window.                Journal Entry Lines in closed periods are not changed. Activity in a closed period that falls in the corrected  version&#39;s window is moved to the corrected account in the next open period, by a reversal and a true-up. To  change the account from a date onwards without restating earlier activity, supersede the rule instead.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule.</param>
+        /// <param name="version">The version of the Posting Rule to correct.</param>
+        /// <param name="correctPostingModuleRuleVersionRequest">The corrected content of the version.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PostingModuleRulesUpdatedResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> CorrectPostingModuleRuleVersionWithHttpInfo(string scope, string code, string postingModuleCode, string ruleId, int version, CorrectPostingModuleRuleVersionRequest correctPostingModuleRuleVersionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->CorrectPostingModuleRuleVersion");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->CorrectPostingModuleRuleVersion");
+            }
+
+            // verify the required parameter 'postingModuleCode' is set
+            if (postingModuleCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'postingModuleCode' when calling ChartOfAccountsApi->CorrectPostingModuleRuleVersion");
+            }
+
+            // verify the required parameter 'ruleId' is set
+            if (ruleId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleId' when calling ChartOfAccountsApi->CorrectPostingModuleRuleVersion");
+            }
+
+            // verify the required parameter 'correctPostingModuleRuleVersionRequest' is set
+            if (correctPostingModuleRuleVersionRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'correctPostingModuleRuleVersionRequest' when calling ChartOfAccountsApi->CorrectPostingModuleRuleVersion");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("postingModuleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(postingModuleCode)); // path parameter
+            localVarRequestOptions.PathParameters.Add("ruleId", Lusid.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("version", Lusid.Sdk.Client.ClientUtils.ParameterToString(version)); // path parameter
+            localVarRequestOptions.Data = correctPostingModuleRuleVersionRequest;
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.CorrectPostingModuleRuleVersion";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<PostingModuleRulesUpdatedResponse>("/api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules/{ruleId}/versions/{version}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CorrectPostingModuleRuleVersion", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CorrectPostingModuleRuleVersion: Correct a version of a rule of a Posting Module Replace the general ledger account, filter and effective window of one version of a Posting Rule, identified by  its ruleId and version. The version keeps its ruleId, version and originalRuleId. The rule&#39;s other versions and  every other rule are left as they are. The request replaces all four fields: an effectiveFrom or effectiveUntil  that is not provided is cleared, so provide the existing dates to keep the version&#39;s window.                Journal Entry Lines in closed periods are not changed. Activity in a closed period that falls in the corrected  version&#39;s window is moved to the corrected account in the next open period, by a reversal and a true-up. To  change the account from a date onwards without restating earlier activity, supersede the rule instead.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule.</param>
+        /// <param name="version">The version of the Posting Rule to correct.</param>
+        /// <param name="correctPostingModuleRuleVersionRequest">The corrected content of the version.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PostingModuleRulesUpdatedResponse</returns>
+        public async System.Threading.Tasks.Task<PostingModuleRulesUpdatedResponse> CorrectPostingModuleRuleVersionAsync(string scope, string code, string postingModuleCode, string ruleId, int version, CorrectPostingModuleRuleVersionRequest correctPostingModuleRuleVersionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> localVarResponse = await CorrectPostingModuleRuleVersionWithHttpInfoAsync(scope, code, postingModuleCode, ruleId, version, correctPostingModuleRuleVersionRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CorrectPostingModuleRuleVersion: Correct a version of a rule of a Posting Module Replace the general ledger account, filter and effective window of one version of a Posting Rule, identified by  its ruleId and version. The version keeps its ruleId, version and originalRuleId. The rule&#39;s other versions and  every other rule are left as they are. The request replaces all four fields: an effectiveFrom or effectiveUntil  that is not provided is cleared, so provide the existing dates to keep the version&#39;s window.                Journal Entry Lines in closed periods are not changed. Activity in a closed period that falls in the corrected  version&#39;s window is moved to the corrected account in the next open period, by a reversal and a true-up. To  change the account from a date onwards without restating earlier activity, supersede the rule instead.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule.</param>
+        /// <param name="version">The version of the Posting Rule to correct.</param>
+        /// <param name="correctPostingModuleRuleVersionRequest">The corrected content of the version.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PostingModuleRulesUpdatedResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse>> CorrectPostingModuleRuleVersionWithHttpInfoAsync(string scope, string code, string postingModuleCode, string ruleId, int version, CorrectPostingModuleRuleVersionRequest correctPostingModuleRuleVersionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->CorrectPostingModuleRuleVersion");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->CorrectPostingModuleRuleVersion");
+            }
+
+            // verify the required parameter 'postingModuleCode' is set
+            if (postingModuleCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'postingModuleCode' when calling ChartOfAccountsApi->CorrectPostingModuleRuleVersion");
+            }
+
+            // verify the required parameter 'ruleId' is set
+            if (ruleId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleId' when calling ChartOfAccountsApi->CorrectPostingModuleRuleVersion");
+            }
+
+            // verify the required parameter 'correctPostingModuleRuleVersionRequest' is set
+            if (correctPostingModuleRuleVersionRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'correctPostingModuleRuleVersionRequest' when calling ChartOfAccountsApi->CorrectPostingModuleRuleVersion");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("postingModuleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(postingModuleCode)); // path parameter
+            localVarRequestOptions.PathParameters.Add("ruleId", Lusid.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("version", Lusid.Sdk.Client.ClientUtils.ParameterToString(version)); // path parameter
+            localVarRequestOptions.Data = correctPostingModuleRuleVersionRequest;
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.CorrectPostingModuleRuleVersion";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<PostingModuleRulesUpdatedResponse>("/api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules/{ruleId}/versions/{version}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CorrectPostingModuleRuleVersion", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>
@@ -4631,6 +5061,270 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeletePostingModule", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeletePostingModuleRuleVersion: Delete a version of a rule of a Posting Module Delete one version of a Posting Rule, identified by its ruleId and version. The rule&#39;s other versions and every  other rule are left as they are, and keep their version numbers.                Journal Entry Lines in closed periods are not changed. Activity in a closed period that the deleted version  posted is moved, in the next open period, to the account of the rule that now matches it, by a reversal and a  true-up.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule.</param>
+        /// <param name="version">The version of the Posting Rule to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PostingModuleRulesUpdatedResponse</returns>
+        public PostingModuleRulesUpdatedResponse DeletePostingModuleRuleVersion(string scope, string code, string postingModuleCode, string ruleId, int version, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> localVarResponse = DeletePostingModuleRuleVersionWithHttpInfo(scope, code, postingModuleCode, ruleId, version, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeletePostingModuleRuleVersion: Delete a version of a rule of a Posting Module Delete one version of a Posting Rule, identified by its ruleId and version. The rule&#39;s other versions and every  other rule are left as they are, and keep their version numbers.                Journal Entry Lines in closed periods are not changed. Activity in a closed period that the deleted version  posted is moved, in the next open period, to the account of the rule that now matches it, by a reversal and a  true-up.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule.</param>
+        /// <param name="version">The version of the Posting Rule to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PostingModuleRulesUpdatedResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> DeletePostingModuleRuleVersionWithHttpInfo(string scope, string code, string postingModuleCode, string ruleId, int version, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->DeletePostingModuleRuleVersion");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->DeletePostingModuleRuleVersion");
+            }
+
+            // verify the required parameter 'postingModuleCode' is set
+            if (postingModuleCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'postingModuleCode' when calling ChartOfAccountsApi->DeletePostingModuleRuleVersion");
+            }
+
+            // verify the required parameter 'ruleId' is set
+            if (ruleId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleId' when calling ChartOfAccountsApi->DeletePostingModuleRuleVersion");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("postingModuleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(postingModuleCode)); // path parameter
+            localVarRequestOptions.PathParameters.Add("ruleId", Lusid.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("version", Lusid.Sdk.Client.ClientUtils.ParameterToString(version)); // path parameter
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.DeletePostingModuleRuleVersion";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<PostingModuleRulesUpdatedResponse>("/api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules/{ruleId}/versions/{version}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeletePostingModuleRuleVersion", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeletePostingModuleRuleVersion: Delete a version of a rule of a Posting Module Delete one version of a Posting Rule, identified by its ruleId and version. The rule&#39;s other versions and every  other rule are left as they are, and keep their version numbers.                Journal Entry Lines in closed periods are not changed. Activity in a closed period that the deleted version  posted is moved, in the next open period, to the account of the rule that now matches it, by a reversal and a  true-up.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule.</param>
+        /// <param name="version">The version of the Posting Rule to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PostingModuleRulesUpdatedResponse</returns>
+        public async System.Threading.Tasks.Task<PostingModuleRulesUpdatedResponse> DeletePostingModuleRuleVersionAsync(string scope, string code, string postingModuleCode, string ruleId, int version, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> localVarResponse = await DeletePostingModuleRuleVersionWithHttpInfoAsync(scope, code, postingModuleCode, ruleId, version, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeletePostingModuleRuleVersion: Delete a version of a rule of a Posting Module Delete one version of a Posting Rule, identified by its ruleId and version. The rule&#39;s other versions and every  other rule are left as they are, and keep their version numbers.                Journal Entry Lines in closed periods are not changed. Activity in a closed period that the deleted version  posted is moved, in the next open period, to the account of the rule that now matches it, by a reversal and a  true-up.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="ruleId">The identifier of the Posting Rule.</param>
+        /// <param name="version">The version of the Posting Rule to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PostingModuleRulesUpdatedResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse>> DeletePostingModuleRuleVersionWithHttpInfoAsync(string scope, string code, string postingModuleCode, string ruleId, int version, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->DeletePostingModuleRuleVersion");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->DeletePostingModuleRuleVersion");
+            }
+
+            // verify the required parameter 'postingModuleCode' is set
+            if (postingModuleCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'postingModuleCode' when calling ChartOfAccountsApi->DeletePostingModuleRuleVersion");
+            }
+
+            // verify the required parameter 'ruleId' is set
+            if (ruleId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleId' when calling ChartOfAccountsApi->DeletePostingModuleRuleVersion");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("postingModuleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(postingModuleCode)); // path parameter
+            localVarRequestOptions.PathParameters.Add("ruleId", Lusid.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("version", Lusid.Sdk.Client.ClientUtils.ParameterToString(version)); // path parameter
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.DeletePostingModuleRuleVersion";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<PostingModuleRulesUpdatedResponse>("/api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules/{ruleId}/versions/{version}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeletePostingModuleRuleVersion", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
