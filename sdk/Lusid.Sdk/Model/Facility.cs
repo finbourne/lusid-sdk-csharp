@@ -47,9 +47,13 @@ namespace Lusid.Sdk.Model
         /// <param name="margin">The margin over the reference rate, expressed as a decimal. Must be zero or greater. (required).</param>
         /// <param name="commitmentFeeRate">The annual commitment fee rate charged on the undrawn balance, expressed as a decimal. Must be zero or greater. (required).</param>
         /// <param name="dayCountConvention">The day count convention used to accrue interest. One of: Act360, Act365, Act365F, Thirty360. (required).</param>
+        /// <param name="availableFrom">The first date the Facility may be drawn, inclusive. A draw dated before it is refused. Required on creation; a Facility stored without one may be drawn on any date..</param>
+        /// <param name="maturityDate">The last date the Facility may be drawn, inclusive. A draw dated after it is refused; a repayment is not. Optional; omit for a Facility with no maturity..</param>
+        /// <param name="limitChanges">Changes to the committed limit after the initial limit, each in force from its effective date until the next. Each must take effect after AvailableFrom and, when set, on or before MaturityDate. A draw is held to the limit in force on its date..</param>
+        /// <param name="warnings">Warnings about the Facility as stored, for example that its limit is now below what is already drawn. Only present on a successful update..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public Facility(string href = default(string), string facilityCode = default(string), string displayName = default(string), string description = default(string), string lender = default(string), decimal limit = default(decimal), string currency = default(string), string rateReference = default(string), decimal margin = default(decimal), decimal commitmentFeeRate = default(decimal), string dayCountConvention = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public Facility(string href = default(string), string facilityCode = default(string), string displayName = default(string), string description = default(string), string lender = default(string), decimal limit = default(decimal), string currency = default(string), string rateReference = default(string), decimal margin = default(decimal), decimal commitmentFeeRate = default(decimal), string dayCountConvention = default(string), DateTimeOffset? availableFrom = default(DateTimeOffset?), DateTimeOffset? maturityDate = default(DateTimeOffset?), List<FacilityLimitChange> limitChanges = default(List<FacilityLimitChange>), List<Warning> warnings = default(List<Warning>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -82,6 +86,10 @@ namespace Lusid.Sdk.Model
             this.FacilityCode = facilityCode;
             this.Description = description;
             this.RateReference = rateReference;
+            this.AvailableFrom = availableFrom;
+            this.MaturityDate = maturityDate;
+            this.LimitChanges = limitChanges;
+            this.Warnings = warnings;
             this.VarVersion = varVersion;
             this.Links = links;
         }
@@ -164,6 +172,34 @@ namespace Lusid.Sdk.Model
         public string DayCountConvention { get; set; }
 
         /// <summary>
+        /// The first date the Facility may be drawn, inclusive. A draw dated before it is refused. Required on creation; a Facility stored without one may be drawn on any date.
+        /// </summary>
+        /// <value>The first date the Facility may be drawn, inclusive. A draw dated before it is refused. Required on creation; a Facility stored without one may be drawn on any date.</value>
+        [DataMember(Name = "availableFrom", EmitDefaultValue = true)]
+        public DateTimeOffset? AvailableFrom { get; set; }
+
+        /// <summary>
+        /// The last date the Facility may be drawn, inclusive. A draw dated after it is refused; a repayment is not. Optional; omit for a Facility with no maturity.
+        /// </summary>
+        /// <value>The last date the Facility may be drawn, inclusive. A draw dated after it is refused; a repayment is not. Optional; omit for a Facility with no maturity.</value>
+        [DataMember(Name = "maturityDate", EmitDefaultValue = true)]
+        public DateTimeOffset? MaturityDate { get; set; }
+
+        /// <summary>
+        /// Changes to the committed limit after the initial limit, each in force from its effective date until the next. Each must take effect after AvailableFrom and, when set, on or before MaturityDate. A draw is held to the limit in force on its date.
+        /// </summary>
+        /// <value>Changes to the committed limit after the initial limit, each in force from its effective date until the next. Each must take effect after AvailableFrom and, when set, on or before MaturityDate. A draw is held to the limit in force on its date.</value>
+        [DataMember(Name = "limitChanges", EmitDefaultValue = true)]
+        public List<FacilityLimitChange> LimitChanges { get; set; }
+
+        /// <summary>
+        /// Warnings about the Facility as stored, for example that its limit is now below what is already drawn. Only present on a successful update.
+        /// </summary>
+        /// <value>Warnings about the Facility as stored, for example that its limit is now below what is already drawn. Only present on a successful update.</value>
+        [DataMember(Name = "warnings", EmitDefaultValue = true)]
+        public List<Warning> Warnings { get; set; }
+
+        /// <summary>
         /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
@@ -194,6 +230,10 @@ namespace Lusid.Sdk.Model
             sb.Append("  Margin: ").Append(Margin).Append("\n");
             sb.Append("  CommitmentFeeRate: ").Append(CommitmentFeeRate).Append("\n");
             sb.Append("  DayCountConvention: ").Append(DayCountConvention).Append("\n");
+            sb.Append("  AvailableFrom: ").Append(AvailableFrom).Append("\n");
+            sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
+            sb.Append("  LimitChanges: ").Append(LimitChanges).Append("\n");
+            sb.Append("  Warnings: ").Append(Warnings).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -284,6 +324,28 @@ namespace Lusid.Sdk.Model
                     this.DayCountConvention.Equals(input.DayCountConvention))
                 ) && 
                 (
+                    this.AvailableFrom == input.AvailableFrom ||
+                    (this.AvailableFrom != null &&
+                    this.AvailableFrom.Equals(input.AvailableFrom))
+                ) && 
+                (
+                    this.MaturityDate == input.MaturityDate ||
+                    (this.MaturityDate != null &&
+                    this.MaturityDate.Equals(input.MaturityDate))
+                ) && 
+                (
+                    this.LimitChanges == input.LimitChanges ||
+                    this.LimitChanges != null &&
+                    input.LimitChanges != null &&
+                    this.LimitChanges.SequenceEqual(input.LimitChanges)
+                ) && 
+                (
+                    this.Warnings == input.Warnings ||
+                    this.Warnings != null &&
+                    input.Warnings != null &&
+                    this.Warnings.SequenceEqual(input.Warnings)
+                ) && 
+                (
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
@@ -339,6 +401,22 @@ namespace Lusid.Sdk.Model
                 if (this.DayCountConvention != null)
                 {
                     hashCode = (hashCode * 59) + this.DayCountConvention.GetHashCode();
+                }
+                if (this.AvailableFrom != null)
+                {
+                    hashCode = (hashCode * 59) + this.AvailableFrom.GetHashCode();
+                }
+                if (this.MaturityDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.MaturityDate.GetHashCode();
+                }
+                if (this.LimitChanges != null)
+                {
+                    hashCode = (hashCode * 59) + this.LimitChanges.GetHashCode();
+                }
+                if (this.Warnings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
                 }
                 if (this.VarVersion != null)
                 {

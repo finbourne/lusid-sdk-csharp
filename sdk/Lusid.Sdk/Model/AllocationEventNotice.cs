@@ -48,8 +48,9 @@ namespace Lusid.Sdk.Model
         /// <param name="gpColumn">gpColumn.</param>
         /// <param name="wire">wire.</param>
         /// <param name="paymentHold">paymentHold.</param>
+        /// <param name="transfer">transfer.</param>
         /// <param name="watermark">DRAFT until the allocation event is booked, otherwise null..</param>
-        public AllocationEventNotice(ResourceId fund = default(ResourceId), AllocationEventNoticeEvent varEvent = default(AllocationEventNoticeEvent), AllocationEventNoticePartner partner = default(AllocationEventNoticePartner), string currency = default(string), List<AllocationEventNoticeLine> lines = default(List<AllocationEventNoticeLine>), decimal netAmountDue = default(decimal), decimal taxWithheld = default(decimal), AllocationEventNoticeUnfundedReconciliation unfundedReconciliation = default(AllocationEventNoticeUnfundedReconciliation), AllocationEventNoticeCumulative cumulative = default(AllocationEventNoticeCumulative), AllocationEventNoticeCumulative gpColumn = default(AllocationEventNoticeCumulative), AllocationEventNoticeWire wire = default(AllocationEventNoticeWire), AllocationPaymentHold paymentHold = default(AllocationPaymentHold), string watermark = default(string))
+        public AllocationEventNotice(ResourceId fund = default(ResourceId), AllocationEventNoticeEvent varEvent = default(AllocationEventNoticeEvent), AllocationEventNoticePartner partner = default(AllocationEventNoticePartner), string currency = default(string), List<AllocationEventNoticeLine> lines = default(List<AllocationEventNoticeLine>), decimal netAmountDue = default(decimal), decimal taxWithheld = default(decimal), AllocationEventNoticeUnfundedReconciliation unfundedReconciliation = default(AllocationEventNoticeUnfundedReconciliation), AllocationEventNoticeCumulative cumulative = default(AllocationEventNoticeCumulative), AllocationEventNoticeCumulative gpColumn = default(AllocationEventNoticeCumulative), AllocationEventNoticeWire wire = default(AllocationEventNoticeWire), AllocationPaymentHold paymentHold = default(AllocationPaymentHold), AllocationEventNoticeTransfer transfer = default(AllocationEventNoticeTransfer), string watermark = default(string))
         {
             // to ensure "fund" is required (not null)
             if (fund == null)
@@ -98,6 +99,7 @@ namespace Lusid.Sdk.Model
             this.GpColumn = gpColumn;
             this.Wire = wire;
             this.PaymentHold = paymentHold;
+            this.Transfer = transfer;
             this.Watermark = watermark;
         }
 
@@ -178,6 +180,12 @@ namespace Lusid.Sdk.Model
         public AllocationPaymentHold PaymentHold { get; set; }
 
         /// <summary>
+        /// Gets or Sets Transfer
+        /// </summary>
+        [DataMember(Name = "transfer", EmitDefaultValue = false)]
+        public AllocationEventNoticeTransfer Transfer { get; set; }
+
+        /// <summary>
         /// DRAFT until the allocation event is booked, otherwise null.
         /// </summary>
         /// <value>DRAFT until the allocation event is booked, otherwise null.</value>
@@ -204,6 +212,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  GpColumn: ").Append(GpColumn).Append("\n");
             sb.Append("  Wire: ").Append(Wire).Append("\n");
             sb.Append("  PaymentHold: ").Append(PaymentHold).Append("\n");
+            sb.Append("  Transfer: ").Append(Transfer).Append("\n");
             sb.Append("  Watermark: ").Append(Watermark).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -300,6 +309,11 @@ namespace Lusid.Sdk.Model
                     this.PaymentHold.Equals(input.PaymentHold))
                 ) && 
                 (
+                    this.Transfer == input.Transfer ||
+                    (this.Transfer != null &&
+                    this.Transfer.Equals(input.Transfer))
+                ) && 
+                (
                     this.Watermark == input.Watermark ||
                     (this.Watermark != null &&
                     this.Watermark.Equals(input.Watermark))
@@ -356,6 +370,10 @@ namespace Lusid.Sdk.Model
                 if (this.PaymentHold != null)
                 {
                     hashCode = (hashCode * 59) + this.PaymentHold.GetHashCode();
+                }
+                if (this.Transfer != null)
+                {
+                    hashCode = (hashCode * 59) + this.Transfer.GetHashCode();
                 }
                 if (this.Watermark != null)
                 {

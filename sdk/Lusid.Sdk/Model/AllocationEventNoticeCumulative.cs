@@ -37,13 +37,15 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="AllocationEventNoticeCumulative" /> class.
         /// </summary>
         /// <param name="contributions">Cumulative contributions after the event. (required).</param>
-        /// <param name="distributions">Cumulative distributions after the event. (required).</param>
+        /// <param name="distributions">Cumulative distributions after the event, tax withheld on the partner&#39;s behalf included, as the capital account&#39;s distributions row counts them. (required).</param>
         /// <param name="recallable">Cumulative recallable distributions after the event. (required).</param>
-        public AllocationEventNoticeCumulative(decimal contributions = default(decimal), decimal distributions = default(decimal), decimal recallable = default(decimal))
+        /// <param name="taxWithheld">Tax withheld from the partner&#39;s distributions to date and paid to the tax authority on its behalf: counted in the cumulative distributions, so the cash the partner actually received is distributions less this. (required).</param>
+        public AllocationEventNoticeCumulative(decimal contributions = default(decimal), decimal distributions = default(decimal), decimal recallable = default(decimal), decimal taxWithheld = default(decimal))
         {
             this.Contributions = contributions;
             this.Distributions = distributions;
             this.Recallable = recallable;
+            this.TaxWithheld = taxWithheld;
         }
 
         /// <summary>
@@ -54,9 +56,9 @@ namespace Lusid.Sdk.Model
         public decimal Contributions { get; set; }
 
         /// <summary>
-        /// Cumulative distributions after the event.
+        /// Cumulative distributions after the event, tax withheld on the partner&#39;s behalf included, as the capital account&#39;s distributions row counts them.
         /// </summary>
-        /// <value>Cumulative distributions after the event.</value>
+        /// <value>Cumulative distributions after the event, tax withheld on the partner&#39;s behalf included, as the capital account&#39;s distributions row counts them.</value>
         [DataMember(Name = "distributions", IsRequired = true, EmitDefaultValue = true)]
         public decimal Distributions { get; set; }
 
@@ -66,6 +68,13 @@ namespace Lusid.Sdk.Model
         /// <value>Cumulative recallable distributions after the event.</value>
         [DataMember(Name = "recallable", IsRequired = true, EmitDefaultValue = true)]
         public decimal Recallable { get; set; }
+
+        /// <summary>
+        /// Tax withheld from the partner&#39;s distributions to date and paid to the tax authority on its behalf: counted in the cumulative distributions, so the cash the partner actually received is distributions less this.
+        /// </summary>
+        /// <value>Tax withheld from the partner&#39;s distributions to date and paid to the tax authority on its behalf: counted in the cumulative distributions, so the cash the partner actually received is distributions less this.</value>
+        [DataMember(Name = "taxWithheld", IsRequired = true, EmitDefaultValue = true)]
+        public decimal TaxWithheld { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -78,6 +87,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Contributions: ").Append(Contributions).Append("\n");
             sb.Append("  Distributions: ").Append(Distributions).Append("\n");
             sb.Append("  Recallable: ").Append(Recallable).Append("\n");
+            sb.Append("  TaxWithheld: ").Append(TaxWithheld).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -124,6 +134,10 @@ namespace Lusid.Sdk.Model
                 (
                     this.Recallable == input.Recallable ||
                     this.Recallable.Equals(input.Recallable)
+                ) && 
+                (
+                    this.TaxWithheld == input.TaxWithheld ||
+                    this.TaxWithheld.Equals(input.TaxWithheld)
                 );
         }
 
@@ -139,6 +153,7 @@ namespace Lusid.Sdk.Model
                 hashCode = (hashCode * 59) + this.Contributions.GetHashCode();
                 hashCode = (hashCode * 59) + this.Distributions.GetHashCode();
                 hashCode = (hashCode * 59) + this.Recallable.GetHashCode();
+                hashCode = (hashCode * 59) + this.TaxWithheld.GetHashCode();
                 return hashCode;
             }
         }

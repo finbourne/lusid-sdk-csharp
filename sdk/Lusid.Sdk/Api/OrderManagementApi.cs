@@ -274,10 +274,11 @@ namespace Lusid.Sdk.Api
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="cancelAndCorrect">Whether to re-allocate allocations that already have booked transactions or to skip them.  The transactions booked against the re-allocated allocations are cancelled, and a subsequent call to  BookTransactions books corrected ones.  Defaults to true. Set to false to leave allocations with booked transactions untouched. (optional, default to true)</param>
+        /// <param name="dryRun">When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \&quot;preview-\&quot; rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AllocationServiceRunResponse</returns>
-        AllocationServiceRunResponse RunAllocationService(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        AllocationServiceRunResponse RunAllocationService(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), bool? dryRun = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// RunAllocationService: Runs the Allocation Service
@@ -289,10 +290,11 @@ namespace Lusid.Sdk.Api
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="cancelAndCorrect">Whether to re-allocate allocations that already have booked transactions or to skip them.  The transactions booked against the re-allocated allocations are cancelled, and a subsequent call to  BookTransactions books corrected ones.  Defaults to true. Set to false to leave allocations with booked transactions untouched. (optional, default to true)</param>
+        /// <param name="dryRun">When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \&quot;preview-\&quot; rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AllocationServiceRunResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> RunAllocationServiceWithHttpInfo(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> RunAllocationServiceWithHttpInfo(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), bool? dryRun = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
         /// </summary>
@@ -303,10 +305,11 @@ namespace Lusid.Sdk.Api
         /// <param name="weightedAllocationServiceRunRequest">The placement IDs to allocate against, and the portfolio weights to use for the allocation split.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-LF\&quot;.  Allocating with weights means the base algorithm is always pro-rata, and the orphan allocation algorithm is either Largest First or Smallest First.  This defaults to \&quot;PR-LF\&quot;. Valid values are \&quot;PR-LF\&quot;, \&quot;PR-SF\&quot;, \&quot;LF\&quot;, \&quot;SF\&quot;. (optional)</param>
         /// <param name="cancelAndCorrect">Whether to cancel the transactions booked against this placement&#39;s allocations once the run has re-split the  full executed quantity by the weights. A subsequent call to BookTransactions then books corrected ones.  Defaults to true. Set to false to leave the booked transactions in place. (optional, default to true)</param>
+        /// <param name="dryRun">When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \&quot;preview-\&quot; rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AllocationServiceRunResponse</returns>
-        AllocationServiceRunResponse RunAllocationServiceWithWeights(WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        AllocationServiceRunResponse RunAllocationServiceWithWeights(WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), bool? dryRun = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
@@ -318,10 +321,11 @@ namespace Lusid.Sdk.Api
         /// <param name="weightedAllocationServiceRunRequest">The placement IDs to allocate against, and the portfolio weights to use for the allocation split.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-LF\&quot;.  Allocating with weights means the base algorithm is always pro-rata, and the orphan allocation algorithm is either Largest First or Smallest First.  This defaults to \&quot;PR-LF\&quot;. Valid values are \&quot;PR-LF\&quot;, \&quot;PR-SF\&quot;, \&quot;LF\&quot;, \&quot;SF\&quot;. (optional)</param>
         /// <param name="cancelAndCorrect">Whether to cancel the transactions booked against this placement&#39;s allocations once the run has re-split the  full executed quantity by the weights. A subsequent call to BookTransactions then books corrected ones.  Defaults to true. Set to false to leave the booked transactions in place. (optional, default to true)</param>
+        /// <param name="dryRun">When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \&quot;preview-\&quot; rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AllocationServiceRunResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> RunAllocationServiceWithWeightsWithHttpInfo(WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> RunAllocationServiceWithWeightsWithHttpInfo(WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), bool? dryRun = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful.
         /// </summary>
@@ -667,11 +671,12 @@ namespace Lusid.Sdk.Api
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="cancelAndCorrect">Whether to re-allocate allocations that already have booked transactions or to skip them.  The transactions booked against the re-allocated allocations are cancelled, and a subsequent call to  BookTransactions books corrected ones.  Defaults to true. Set to false to leave allocations with booked transactions untouched. (optional, default to true)</param>
+        /// <param name="dryRun">When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \&quot;preview-\&quot; rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AllocationServiceRunResponse</returns>
-        System.Threading.Tasks.Task<AllocationServiceRunResponse> RunAllocationServiceAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<AllocationServiceRunResponse> RunAllocationServiceAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// RunAllocationService: Runs the Allocation Service
@@ -683,11 +688,12 @@ namespace Lusid.Sdk.Api
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="cancelAndCorrect">Whether to re-allocate allocations that already have booked transactions or to skip them.  The transactions booked against the re-allocated allocations are cancelled, and a subsequent call to  BookTransactions books corrected ones.  Defaults to true. Set to false to leave allocations with booked transactions untouched. (optional, default to true)</param>
+        /// <param name="dryRun">When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \&quot;preview-\&quot; rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AllocationServiceRunResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse>> RunAllocationServiceWithHttpInfoAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse>> RunAllocationServiceWithHttpInfoAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
         /// </summary>
@@ -698,11 +704,12 @@ namespace Lusid.Sdk.Api
         /// <param name="weightedAllocationServiceRunRequest">The placement IDs to allocate against, and the portfolio weights to use for the allocation split.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-LF\&quot;.  Allocating with weights means the base algorithm is always pro-rata, and the orphan allocation algorithm is either Largest First or Smallest First.  This defaults to \&quot;PR-LF\&quot;. Valid values are \&quot;PR-LF\&quot;, \&quot;PR-SF\&quot;, \&quot;LF\&quot;, \&quot;SF\&quot;. (optional)</param>
         /// <param name="cancelAndCorrect">Whether to cancel the transactions booked against this placement&#39;s allocations once the run has re-split the  full executed quantity by the weights. A subsequent call to BookTransactions then books corrected ones.  Defaults to true. Set to false to leave the booked transactions in place. (optional, default to true)</param>
+        /// <param name="dryRun">When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \&quot;preview-\&quot; rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AllocationServiceRunResponse</returns>
-        System.Threading.Tasks.Task<AllocationServiceRunResponse> RunAllocationServiceWithWeightsAsync(WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<AllocationServiceRunResponse> RunAllocationServiceWithWeightsAsync(WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
@@ -714,11 +721,12 @@ namespace Lusid.Sdk.Api
         /// <param name="weightedAllocationServiceRunRequest">The placement IDs to allocate against, and the portfolio weights to use for the allocation split.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-LF\&quot;.  Allocating with weights means the base algorithm is always pro-rata, and the orphan allocation algorithm is either Largest First or Smallest First.  This defaults to \&quot;PR-LF\&quot;. Valid values are \&quot;PR-LF\&quot;, \&quot;PR-SF\&quot;, \&quot;LF\&quot;, \&quot;SF\&quot;. (optional)</param>
         /// <param name="cancelAndCorrect">Whether to cancel the transactions booked against this placement&#39;s allocations once the run has re-split the  full executed quantity by the weights. A subsequent call to BookTransactions then books corrected ones.  Defaults to true. Set to false to leave the booked transactions in place. (optional, default to true)</param>
+        /// <param name="dryRun">When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \&quot;preview-\&quot; rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AllocationServiceRunResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse>> RunAllocationServiceWithWeightsWithHttpInfoAsync(WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse>> RunAllocationServiceWithWeightsWithHttpInfoAsync(WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful.
         /// </summary>
@@ -2875,12 +2883,13 @@ namespace Lusid.Sdk.Api
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="cancelAndCorrect">Whether to re-allocate allocations that already have booked transactions or to skip them.  The transactions booked against the re-allocated allocations are cancelled, and a subsequent call to  BookTransactions books corrected ones.  Defaults to true. Set to false to leave allocations with booked transactions untouched. (optional, default to true)</param>
+        /// <param name="dryRun">When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \&quot;preview-\&quot; rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AllocationServiceRunResponse</returns>
-        public AllocationServiceRunResponse RunAllocationService(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public AllocationServiceRunResponse RunAllocationService(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), bool? dryRun = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> localVarResponse = RunAllocationServiceWithHttpInfo(resourceId, allocationAlgorithm, cancelAndCorrect, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> localVarResponse = RunAllocationServiceWithHttpInfo(resourceId, allocationAlgorithm, cancelAndCorrect, dryRun, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2891,10 +2900,11 @@ namespace Lusid.Sdk.Api
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="cancelAndCorrect">Whether to re-allocate allocations that already have booked transactions or to skip them.  The transactions booked against the re-allocated allocations are cancelled, and a subsequent call to  BookTransactions books corrected ones.  Defaults to true. Set to false to leave allocations with booked transactions untouched. (optional, default to true)</param>
+        /// <param name="dryRun">When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \&quot;preview-\&quot; rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AllocationServiceRunResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> RunAllocationServiceWithHttpInfo(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> RunAllocationServiceWithHttpInfo(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), bool? dryRun = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'resourceId' is set
             if (resourceId == null)
@@ -2950,6 +2960,11 @@ namespace Lusid.Sdk.Api
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "cancelAndCorrect", cancelAndCorrect));
             }
+            if (dryRun != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dryRun", dryRun));
+            }
             localVarRequestOptions.Data = resourceId;
 
             localVarRequestOptions.Operation = "OrderManagementApi.RunAllocationService";
@@ -2993,13 +3008,14 @@ namespace Lusid.Sdk.Api
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="cancelAndCorrect">Whether to re-allocate allocations that already have booked transactions or to skip them.  The transactions booked against the re-allocated allocations are cancelled, and a subsequent call to  BookTransactions books corrected ones.  Defaults to true. Set to false to leave allocations with booked transactions untouched. (optional, default to true)</param>
+        /// <param name="dryRun">When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \&quot;preview-\&quot; rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AllocationServiceRunResponse</returns>
-        public async System.Threading.Tasks.Task<AllocationServiceRunResponse> RunAllocationServiceAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<AllocationServiceRunResponse> RunAllocationServiceAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> localVarResponse = await RunAllocationServiceWithHttpInfoAsync(resourceId, allocationAlgorithm, cancelAndCorrect, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> localVarResponse = await RunAllocationServiceWithHttpInfoAsync(resourceId, allocationAlgorithm, cancelAndCorrect, dryRun, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3010,11 +3026,12 @@ namespace Lusid.Sdk.Api
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="cancelAndCorrect">Whether to re-allocate allocations that already have booked transactions or to skip them.  The transactions booked against the re-allocated allocations are cancelled, and a subsequent call to  BookTransactions books corrected ones.  Defaults to true. Set to false to leave allocations with booked transactions untouched. (optional, default to true)</param>
+        /// <param name="dryRun">When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \&quot;preview-\&quot; rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AllocationServiceRunResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse>> RunAllocationServiceWithHttpInfoAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse>> RunAllocationServiceWithHttpInfoAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'resourceId' is set
             if (resourceId == null)
@@ -3068,6 +3085,10 @@ namespace Lusid.Sdk.Api
             if (cancelAndCorrect != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "cancelAndCorrect", cancelAndCorrect));
+            }
+            if (dryRun != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dryRun", dryRun));
             }
             localVarRequestOptions.Data = resourceId;
 
@@ -3113,12 +3134,13 @@ namespace Lusid.Sdk.Api
         /// <param name="weightedAllocationServiceRunRequest">The placement IDs to allocate against, and the portfolio weights to use for the allocation split.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-LF\&quot;.  Allocating with weights means the base algorithm is always pro-rata, and the orphan allocation algorithm is either Largest First or Smallest First.  This defaults to \&quot;PR-LF\&quot;. Valid values are \&quot;PR-LF\&quot;, \&quot;PR-SF\&quot;, \&quot;LF\&quot;, \&quot;SF\&quot;. (optional)</param>
         /// <param name="cancelAndCorrect">Whether to cancel the transactions booked against this placement&#39;s allocations once the run has re-split the  full executed quantity by the weights. A subsequent call to BookTransactions then books corrected ones.  Defaults to true. Set to false to leave the booked transactions in place. (optional, default to true)</param>
+        /// <param name="dryRun">When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \&quot;preview-\&quot; rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AllocationServiceRunResponse</returns>
-        public AllocationServiceRunResponse RunAllocationServiceWithWeights(WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public AllocationServiceRunResponse RunAllocationServiceWithWeights(WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), bool? dryRun = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> localVarResponse = RunAllocationServiceWithWeightsWithHttpInfo(weightedAllocationServiceRunRequest, allocationAlgorithm, cancelAndCorrect, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> localVarResponse = RunAllocationServiceWithWeightsWithHttpInfo(weightedAllocationServiceRunRequest, allocationAlgorithm, cancelAndCorrect, dryRun, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3129,10 +3151,11 @@ namespace Lusid.Sdk.Api
         /// <param name="weightedAllocationServiceRunRequest">The placement IDs to allocate against, and the portfolio weights to use for the allocation split.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-LF\&quot;.  Allocating with weights means the base algorithm is always pro-rata, and the orphan allocation algorithm is either Largest First or Smallest First.  This defaults to \&quot;PR-LF\&quot;. Valid values are \&quot;PR-LF\&quot;, \&quot;PR-SF\&quot;, \&quot;LF\&quot;, \&quot;SF\&quot;. (optional)</param>
         /// <param name="cancelAndCorrect">Whether to cancel the transactions booked against this placement&#39;s allocations once the run has re-split the  full executed quantity by the weights. A subsequent call to BookTransactions then books corrected ones.  Defaults to true. Set to false to leave the booked transactions in place. (optional, default to true)</param>
+        /// <param name="dryRun">When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \&quot;preview-\&quot; rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AllocationServiceRunResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> RunAllocationServiceWithWeightsWithHttpInfo(WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> RunAllocationServiceWithWeightsWithHttpInfo(WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), bool? dryRun = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'weightedAllocationServiceRunRequest' is set
             if (weightedAllocationServiceRunRequest == null)
@@ -3188,6 +3211,11 @@ namespace Lusid.Sdk.Api
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "cancelAndCorrect", cancelAndCorrect));
             }
+            if (dryRun != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dryRun", dryRun));
+            }
             localVarRequestOptions.Data = weightedAllocationServiceRunRequest;
 
             localVarRequestOptions.Operation = "OrderManagementApi.RunAllocationServiceWithWeights";
@@ -3231,13 +3259,14 @@ namespace Lusid.Sdk.Api
         /// <param name="weightedAllocationServiceRunRequest">The placement IDs to allocate against, and the portfolio weights to use for the allocation split.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-LF\&quot;.  Allocating with weights means the base algorithm is always pro-rata, and the orphan allocation algorithm is either Largest First or Smallest First.  This defaults to \&quot;PR-LF\&quot;. Valid values are \&quot;PR-LF\&quot;, \&quot;PR-SF\&quot;, \&quot;LF\&quot;, \&quot;SF\&quot;. (optional)</param>
         /// <param name="cancelAndCorrect">Whether to cancel the transactions booked against this placement&#39;s allocations once the run has re-split the  full executed quantity by the weights. A subsequent call to BookTransactions then books corrected ones.  Defaults to true. Set to false to leave the booked transactions in place. (optional, default to true)</param>
+        /// <param name="dryRun">When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \&quot;preview-\&quot; rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AllocationServiceRunResponse</returns>
-        public async System.Threading.Tasks.Task<AllocationServiceRunResponse> RunAllocationServiceWithWeightsAsync(WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<AllocationServiceRunResponse> RunAllocationServiceWithWeightsAsync(WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> localVarResponse = await RunAllocationServiceWithWeightsWithHttpInfoAsync(weightedAllocationServiceRunRequest, allocationAlgorithm, cancelAndCorrect, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> localVarResponse = await RunAllocationServiceWithWeightsWithHttpInfoAsync(weightedAllocationServiceRunRequest, allocationAlgorithm, cancelAndCorrect, dryRun, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3248,11 +3277,12 @@ namespace Lusid.Sdk.Api
         /// <param name="weightedAllocationServiceRunRequest">The placement IDs to allocate against, and the portfolio weights to use for the allocation split.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-LF\&quot;.  Allocating with weights means the base algorithm is always pro-rata, and the orphan allocation algorithm is either Largest First or Smallest First.  This defaults to \&quot;PR-LF\&quot;. Valid values are \&quot;PR-LF\&quot;, \&quot;PR-SF\&quot;, \&quot;LF\&quot;, \&quot;SF\&quot;. (optional)</param>
         /// <param name="cancelAndCorrect">Whether to cancel the transactions booked against this placement&#39;s allocations once the run has re-split the  full executed quantity by the weights. A subsequent call to BookTransactions then books corrected ones.  Defaults to true. Set to false to leave the booked transactions in place. (optional, default to true)</param>
+        /// <param name="dryRun">When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \&quot;preview-\&quot; rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AllocationServiceRunResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse>> RunAllocationServiceWithWeightsWithHttpInfoAsync(WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse>> RunAllocationServiceWithWeightsWithHttpInfoAsync(WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = default(string?), bool? cancelAndCorrect = default(bool?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'weightedAllocationServiceRunRequest' is set
             if (weightedAllocationServiceRunRequest == null)
@@ -3306,6 +3336,10 @@ namespace Lusid.Sdk.Api
             if (cancelAndCorrect != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "cancelAndCorrect", cancelAndCorrect));
+            }
+            if (dryRun != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dryRun", dryRun));
             }
             localVarRequestOptions.Data = weightedAllocationServiceRunRequest;
 

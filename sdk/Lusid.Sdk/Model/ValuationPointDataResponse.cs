@@ -51,8 +51,9 @@ namespace Lusid.Sdk.Model
         /// <param name="applyClearDown">Set to True if the Valuation Point applies a clear down, False otherwise. The Valuation Point shows its bucket values before the clear down, and the next Valuation Point opens from the balances after it..</param>
         /// <param name="diagnostics">Findings made while striking the valuation point that did not stop it but should be looked at, such as a fund structure holder whose declared sharing percentage in a member has drifted from the share its contributions make of that member&#39;s capital, or fees that failed to strike. Absent when there are none..</param>
         /// <param name="bucketSetSeeds">The bucket set seeds set on the Valuation Point, when the request resolved to the Valuation Point itself. Null when it has none..</param>
+        /// <param name="partnerInterestShares">How each partner interest (LP, GP or carry) this fund holds in a partnership-enabled fund structure member flowed when the valuation point was struck: from the member&#39;s booked partner allocation to the holder&#39;s line, from a dry run of it while the member has not booked, at a provisional share of committed capital while the member cannot be allocated, or at the sharing percentage the fund structure edge declares. Absent when the fund holds none..</param>
         /// <param name="links">links.</param>
-        public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), FundDetails fundDetails = default(FundDetails), FundValuationPointData fundValuationPointData = default(FundValuationPointData), List<ShareClassData> shareClassData = default(List<ShareClassData>), string valuationPointCode = default(string), string previousValuationPointCode = default(string), List<ApportionmentBreakdown> apportionmentResults = default(List<ApportionmentBreakdown>), List<BucketSetResult> bucketSetResults = default(List<BucketSetResult>), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isBackfilled = default(bool), bool applyClearDown = default(bool), List<ValuationPointDiagnostic> diagnostics = default(List<ValuationPointDiagnostic>), List<BucketSetSeed> bucketSetSeeds = default(List<BucketSetSeed>), List<Link> links = default(List<Link>))
+        public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), FundDetails fundDetails = default(FundDetails), FundValuationPointData fundValuationPointData = default(FundValuationPointData), List<ShareClassData> shareClassData = default(List<ShareClassData>), string valuationPointCode = default(string), string previousValuationPointCode = default(string), List<ApportionmentBreakdown> apportionmentResults = default(List<ApportionmentBreakdown>), List<BucketSetResult> bucketSetResults = default(List<BucketSetResult>), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isBackfilled = default(bool), bool applyClearDown = default(bool), List<ValuationPointDiagnostic> diagnostics = default(List<ValuationPointDiagnostic>), List<BucketSetSeed> bucketSetSeeds = default(List<BucketSetSeed>), List<PartnerInterestShare> partnerInterestShares = default(List<PartnerInterestShare>), List<Link> links = default(List<Link>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -94,6 +95,7 @@ namespace Lusid.Sdk.Model
             this.ApplyClearDown = applyClearDown;
             this.Diagnostics = diagnostics;
             this.BucketSetSeeds = bucketSetSeeds;
+            this.PartnerInterestShares = partnerInterestShares;
             this.Links = links;
         }
 
@@ -200,6 +202,13 @@ namespace Lusid.Sdk.Model
         public List<BucketSetSeed> BucketSetSeeds { get; set; }
 
         /// <summary>
+        /// How each partner interest (LP, GP or carry) this fund holds in a partnership-enabled fund structure member flowed when the valuation point was struck: from the member&#39;s booked partner allocation to the holder&#39;s line, from a dry run of it while the member has not booked, at a provisional share of committed capital while the member cannot be allocated, or at the sharing percentage the fund structure edge declares. Absent when the fund holds none.
+        /// </summary>
+        /// <value>How each partner interest (LP, GP or carry) this fund holds in a partnership-enabled fund structure member flowed when the valuation point was struck: from the member&#39;s booked partner allocation to the holder&#39;s line, from a dry run of it while the member has not booked, at a provisional share of committed capital while the member cannot be allocated, or at the sharing percentage the fund structure edge declares. Absent when the fund holds none.</value>
+        [DataMember(Name = "partnerInterestShares", EmitDefaultValue = true)]
+        public List<PartnerInterestShare> PartnerInterestShares { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -228,6 +237,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ApplyClearDown: ").Append(ApplyClearDown).Append("\n");
             sb.Append("  Diagnostics: ").Append(Diagnostics).Append("\n");
             sb.Append("  BucketSetSeeds: ").Append(BucketSetSeeds).Append("\n");
+            sb.Append("  PartnerInterestShares: ").Append(PartnerInterestShares).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -343,6 +353,12 @@ namespace Lusid.Sdk.Model
                     this.BucketSetSeeds.SequenceEqual(input.BucketSetSeeds)
                 ) && 
                 (
+                    this.PartnerInterestShares == input.PartnerInterestShares ||
+                    this.PartnerInterestShares != null &&
+                    input.PartnerInterestShares != null &&
+                    this.PartnerInterestShares.SequenceEqual(input.PartnerInterestShares)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -412,6 +428,10 @@ namespace Lusid.Sdk.Model
                 if (this.BucketSetSeeds != null)
                 {
                     hashCode = (hashCode * 59) + this.BucketSetSeeds.GetHashCode();
+                }
+                if (this.PartnerInterestShares != null)
+                {
+                    hashCode = (hashCode * 59) + this.PartnerInterestShares.GetHashCode();
                 }
                 if (this.Links != null)
                 {

@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **GpColumn** | [**AllocationEventNoticeCumulative**](AllocationEventNoticeCumulative.md) |  | [optional] 
 **Wire** | [**AllocationEventNoticeWire**](AllocationEventNoticeWire.md) |  | [optional] 
 **PaymentHold** | [**AllocationPaymentHold**](AllocationPaymentHold.md) |  | [optional] 
+**Transfer** | [**AllocationEventNoticeTransfer**](AllocationEventNoticeTransfer.md) |  | [optional] 
 **Watermark** | **string** | DRAFT until the allocation event is booked, otherwise null. | [optional] 
 
 ```csharp
@@ -38,6 +39,8 @@ AllocationEventNoticeWire? wire = new AllocationEventNoticeWire();
 
 AllocationPaymentHold? paymentHold = new AllocationPaymentHold();
 
+AllocationEventNoticeTransfer? transfer = new AllocationEventNoticeTransfer();
+
 string watermark = "example watermark";
 
 AllocationEventNotice allocationEventNoticeInstance = new AllocationEventNotice(
@@ -53,6 +56,7 @@ AllocationEventNotice allocationEventNoticeInstance = new AllocationEventNotice(
     gpColumn: gpColumn,
     wire: wire,
     paymentHold: paymentHold,
+    transfer: transfer,
     watermark: watermark);
 ```
 

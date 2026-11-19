@@ -38,8 +38,9 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="investorRecordId">The investor record identifier of the partner. (required).</param>
         /// <param name="displayName">The display name of the partner..</param>
-        /// <param name="commitment">The partner&#39;s total commitment. (required).</param>
-        public AllocationEventNoticePartner(string investorRecordId = default(string), string displayName = default(string), decimal commitment = default(decimal))
+        /// <param name="commitment">The partner&#39;s committed capital on the fund the event allocates over at the event date, summed over the lines the event allocates to there; for a partner looked through to, its line on the feeder. Never the partner&#39;s total across funds. (required).</param>
+        /// <param name="lines">The register lines the partner was allocated on, one per line, each with the fund whose register holds it, its commitment at the event date and the partner&#39;s share landing on it. The shares sum to the net amount due before tax withheld..</param>
+        public AllocationEventNoticePartner(string investorRecordId = default(string), string displayName = default(string), decimal commitment = default(decimal), List<AllocationEventNoticePartnerLine> lines = default(List<AllocationEventNoticePartnerLine>))
         {
             // to ensure "investorRecordId" is required (not null)
             if (investorRecordId == null)
@@ -49,6 +50,7 @@ namespace Lusid.Sdk.Model
             this.InvestorRecordId = investorRecordId;
             this.Commitment = commitment;
             this.DisplayName = displayName;
+            this.Lines = lines;
         }
 
         /// <summary>
@@ -66,11 +68,18 @@ namespace Lusid.Sdk.Model
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// The partner&#39;s total commitment.
+        /// The partner&#39;s committed capital on the fund the event allocates over at the event date, summed over the lines the event allocates to there; for a partner looked through to, its line on the feeder. Never the partner&#39;s total across funds.
         /// </summary>
-        /// <value>The partner&#39;s total commitment.</value>
+        /// <value>The partner&#39;s committed capital on the fund the event allocates over at the event date, summed over the lines the event allocates to there; for a partner looked through to, its line on the feeder. Never the partner&#39;s total across funds.</value>
         [DataMember(Name = "commitment", IsRequired = true, EmitDefaultValue = true)]
         public decimal Commitment { get; set; }
+
+        /// <summary>
+        /// The register lines the partner was allocated on, one per line, each with the fund whose register holds it, its commitment at the event date and the partner&#39;s share landing on it. The shares sum to the net amount due before tax withheld.
+        /// </summary>
+        /// <value>The register lines the partner was allocated on, one per line, each with the fund whose register holds it, its commitment at the event date and the partner&#39;s share landing on it. The shares sum to the net amount due before tax withheld.</value>
+        [DataMember(Name = "lines", EmitDefaultValue = true)]
+        public List<AllocationEventNoticePartnerLine> Lines { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,6 +92,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InvestorRecordId: ").Append(InvestorRecordId).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Commitment: ").Append(Commitment).Append("\n");
+            sb.Append("  Lines: ").Append(Lines).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,6 +141,12 @@ namespace Lusid.Sdk.Model
                 (
                     this.Commitment == input.Commitment ||
                     this.Commitment.Equals(input.Commitment)
+                ) && 
+                (
+                    this.Lines == input.Lines ||
+                    this.Lines != null &&
+                    input.Lines != null &&
+                    this.Lines.SequenceEqual(input.Lines)
                 );
         }
 
@@ -152,6 +168,10 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Commitment.GetHashCode();
+                if (this.Lines != null)
+                {
+                    hashCode = (hashCode * 59) + this.Lines.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -1047,7 +1047,7 @@ catch (ApiException e)
 
 <a id="runallocationservice"></a>
 # **RunAllocationService**
-> AllocationServiceRunResponse RunAllocationService (List<ResourceId> resourceId, string? allocationAlgorithm = null, bool? cancelAndCorrect = null)
+> AllocationServiceRunResponse RunAllocationService (List<ResourceId> resourceId, string? allocationAlgorithm = null, bool? cancelAndCorrect = null, bool? dryRun = null)
 
 RunAllocationService: Runs the Allocation Service
 
@@ -1095,14 +1095,15 @@ namespace Examples
             var resourceId = new List<ResourceId>(); // List<ResourceId> | The List of Placement IDs for which you wish to allocate Executions.
             var allocationAlgorithm = "allocationAlgorithm_example";  // string? | A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \"PR-FIFO\".  This defaults to \"PR-FIFO\". (optional) 
             var cancelAndCorrect = true;  // bool? | Whether to re-allocate allocations that already have booked transactions or to skip them.  The transactions booked against the re-allocated allocations are cancelled, and a subsequent call to  BookTransactions books corrected ones.  Defaults to true. Set to false to leave allocations with booked transactions untouched. (optional)  (default to true)
+            var dryRun = false;  // bool? | When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \"preview-\" rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // AllocationServiceRunResponse result = apiInstance.RunAllocationService(resourceId, allocationAlgorithm, cancelAndCorrect, opts: opts);
+                // AllocationServiceRunResponse result = apiInstance.RunAllocationService(resourceId, allocationAlgorithm, cancelAndCorrect, dryRun, opts: opts);
 
                 // RunAllocationService: Runs the Allocation Service
-                AllocationServiceRunResponse result = apiInstance.RunAllocationService(resourceId, allocationAlgorithm, cancelAndCorrect);
+                AllocationServiceRunResponse result = apiInstance.RunAllocationService(resourceId, allocationAlgorithm, cancelAndCorrect, dryRun);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1122,7 +1123,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // RunAllocationService: Runs the Allocation Service
-    ApiResponse<AllocationServiceRunResponse> response = apiInstance.RunAllocationServiceWithHttpInfo(resourceId, allocationAlgorithm, cancelAndCorrect);
+    ApiResponse<AllocationServiceRunResponse> response = apiInstance.RunAllocationServiceWithHttpInfo(resourceId, allocationAlgorithm, cancelAndCorrect, dryRun);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1142,6 +1143,7 @@ catch (ApiException e)
 | **resourceId** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The List of Placement IDs for which you wish to allocate Executions. |  |
 | **allocationAlgorithm** | **string?** | A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. | [optional]  |
 | **cancelAndCorrect** | **bool?** | Whether to re-allocate allocations that already have booked transactions or to skip them.  The transactions booked against the re-allocated allocations are cancelled, and a subsequent call to  BookTransactions books corrected ones.  Defaults to true. Set to false to leave allocations with booked transactions untouched. | [optional] [default to true] |
+| **dryRun** | **bool?** | When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \&quot;preview-\&quot; rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. | [optional] [default to false] |
 
 ### Return type
 
@@ -1164,7 +1166,7 @@ catch (ApiException e)
 
 <a id="runallocationservicewithweights"></a>
 # **RunAllocationServiceWithWeights**
-> AllocationServiceRunResponse RunAllocationServiceWithWeights (WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = null, bool? cancelAndCorrect = null)
+> AllocationServiceRunResponse RunAllocationServiceWithWeights (WeightedAllocationServiceRunRequest weightedAllocationServiceRunRequest, string? allocationAlgorithm = null, bool? cancelAndCorrect = null, bool? dryRun = null)
 
 RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
 
@@ -1212,14 +1214,15 @@ namespace Examples
             var weightedAllocationServiceRunRequest = new WeightedAllocationServiceRunRequest(); // WeightedAllocationServiceRunRequest | The placement IDs to allocate against, and the portfolio weights to use for the allocation split.
             var allocationAlgorithm = "allocationAlgorithm_example";  // string? | A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \"PR-LF\".  Allocating with weights means the base algorithm is always pro-rata, and the orphan allocation algorithm is either Largest First or Smallest First.  This defaults to \"PR-LF\". Valid values are \"PR-LF\", \"PR-SF\", \"LF\", \"SF\". (optional) 
             var cancelAndCorrect = true;  // bool? | Whether to cancel the transactions booked against this placement's allocations once the run has re-split the  full executed quantity by the weights. A subsequent call to BookTransactions then books corrected ones.  Defaults to true. Set to false to leave the booked transactions in place. (optional)  (default to true)
+            var dryRun = false;  // bool? | When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \"preview-\" rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // AllocationServiceRunResponse result = apiInstance.RunAllocationServiceWithWeights(weightedAllocationServiceRunRequest, allocationAlgorithm, cancelAndCorrect, opts: opts);
+                // AllocationServiceRunResponse result = apiInstance.RunAllocationServiceWithWeights(weightedAllocationServiceRunRequest, allocationAlgorithm, cancelAndCorrect, dryRun, opts: opts);
 
                 // RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
-                AllocationServiceRunResponse result = apiInstance.RunAllocationServiceWithWeights(weightedAllocationServiceRunRequest, allocationAlgorithm, cancelAndCorrect);
+                AllocationServiceRunResponse result = apiInstance.RunAllocationServiceWithWeights(weightedAllocationServiceRunRequest, allocationAlgorithm, cancelAndCorrect, dryRun);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1239,7 +1242,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights
-    ApiResponse<AllocationServiceRunResponse> response = apiInstance.RunAllocationServiceWithWeightsWithHttpInfo(weightedAllocationServiceRunRequest, allocationAlgorithm, cancelAndCorrect);
+    ApiResponse<AllocationServiceRunResponse> response = apiInstance.RunAllocationServiceWithWeightsWithHttpInfo(weightedAllocationServiceRunRequest, allocationAlgorithm, cancelAndCorrect, dryRun);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1259,6 +1262,7 @@ catch (ApiException e)
 | **weightedAllocationServiceRunRequest** | [**WeightedAllocationServiceRunRequest**](WeightedAllocationServiceRunRequest.md) | The placement IDs to allocate against, and the portfolio weights to use for the allocation split. |  |
 | **allocationAlgorithm** | **string?** | A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-LF\&quot;.  Allocating with weights means the base algorithm is always pro-rata, and the orphan allocation algorithm is either Largest First or Smallest First.  This defaults to \&quot;PR-LF\&quot;. Valid values are \&quot;PR-LF\&quot;, \&quot;PR-SF\&quot;, \&quot;LF\&quot;, \&quot;SF\&quot;. | [optional]  |
 | **cancelAndCorrect** | **bool?** | Whether to cancel the transactions booked against this placement&#39;s allocations once the run has re-split the  full executed quantity by the weights. A subsequent call to BookTransactions then books corrected ones.  Defaults to true. Set to false to leave the booked transactions in place. | [optional] [default to true] |
+| **dryRun** | **bool?** | When true, the allocations are computed and returned as the run would create them, but nothing is written  and no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers  prefixed \&quot;preview-\&quot; rather than the identifiers a real run would assign. Because nothing is written, the  property entitlement and validation checks made when allocations are stored do not run, so a dry run can  succeed where the real run would be refused, and property values are returned as computed rather than as  their property definitions type them. Defaults to false. | [optional] [default to false] |
 
 ### Return type
 

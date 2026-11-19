@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A departure from the default participation of an Allocation Map for one investor record.
+    /// A departure from the default participation of an Allocation Map for one investor record or one of its register lines.
     /// </summary>
     [DataContract(Name = "AllocationMapException")]
     public partial class AllocationMapException : IEquatable<AllocationMapException>, IValidatableObject
@@ -41,7 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="participationPercent">For a FixedPercentage exception, the fixed share as a fraction in the range (0, 1]. Not allowed on an Excluded exception. The fixed shares of all exceptions may not sum to more than 1..</param>
         /// <param name="reason">Why the exception exists, for example a side letter or regulatory restriction. Required. (required).</param>
         /// <param name="effectiveFrom">The datetime from which the exception is in force. Defaults to always if not specified..</param>
-        public AllocationMapException(string investorRecordId = default(string), string treatment = default(string), decimal? participationPercent = default(decimal?), string reason = default(string), DateTimeOffset? effectiveFrom = default(DateTimeOffset?))
+        /// <param name="commitmentLineId">The register line of the investor record the exception applies to, when it applies to one line rather than the record as a whole. The record&#39;s other lines take part as usual: an Excluded line&#39;s basis leaves the event&#39;s basis total, and a FixedPercentage line takes its fixed share off the top. Optional..</param>
+        public AllocationMapException(string investorRecordId = default(string), string treatment = default(string), decimal? participationPercent = default(decimal?), string reason = default(string), DateTimeOffset? effectiveFrom = default(DateTimeOffset?), string commitmentLineId = default(string))
         {
             // to ensure "investorRecordId" is required (not null)
             if (investorRecordId == null)
@@ -63,6 +64,7 @@ namespace Lusid.Sdk.Model
             this.Reason = reason;
             this.ParticipationPercent = participationPercent;
             this.EffectiveFrom = effectiveFrom;
+            this.CommitmentLineId = commitmentLineId;
         }
 
         /// <summary>
@@ -101,6 +103,13 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? EffectiveFrom { get; set; }
 
         /// <summary>
+        /// The register line of the investor record the exception applies to, when it applies to one line rather than the record as a whole. The record&#39;s other lines take part as usual: an Excluded line&#39;s basis leaves the event&#39;s basis total, and a FixedPercentage line takes its fixed share off the top. Optional.
+        /// </summary>
+        /// <value>The register line of the investor record the exception applies to, when it applies to one line rather than the record as a whole. The record&#39;s other lines take part as usual: an Excluded line&#39;s basis leaves the event&#39;s basis total, and a FixedPercentage line takes its fixed share off the top. Optional.</value>
+        [DataMember(Name = "commitmentLineId", EmitDefaultValue = true)]
+        public string CommitmentLineId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -113,6 +122,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ParticipationPercent: ").Append(ParticipationPercent).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  EffectiveFrom: ").Append(EffectiveFrom).Append("\n");
+            sb.Append("  CommitmentLineId: ").Append(CommitmentLineId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -172,6 +182,11 @@ namespace Lusid.Sdk.Model
                     this.EffectiveFrom == input.EffectiveFrom ||
                     (this.EffectiveFrom != null &&
                     this.EffectiveFrom.Equals(input.EffectiveFrom))
+                ) && 
+                (
+                    this.CommitmentLineId == input.CommitmentLineId ||
+                    (this.CommitmentLineId != null &&
+                    this.CommitmentLineId.Equals(input.CommitmentLineId))
                 );
         }
 
@@ -203,6 +218,10 @@ namespace Lusid.Sdk.Model
                 if (this.EffectiveFrom != null)
                 {
                     hashCode = (hashCode * 59) + this.EffectiveFrom.GetHashCode();
+                }
+                if (this.CommitmentLineId != null)
+                {
+                    hashCode = (hashCode * 59) + this.CommitmentLineId.GetHashCode();
                 }
                 return hashCode;
             }
@@ -257,6 +276,25 @@ namespace Lusid.Sdk.Model
             if (false == regexReason.Match(this.Reason).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Reason, must match a pattern of " + regexReason, new [] { "Reason" });
+            }
+
+            // CommitmentLineId (string) maxLength
+            if (this.CommitmentLineId != null && this.CommitmentLineId.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommitmentLineId, length must be less than 64.", new [] { "CommitmentLineId" });
+            }
+
+            // CommitmentLineId (string) minLength
+            if (this.CommitmentLineId != null && this.CommitmentLineId.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommitmentLineId, length must be greater than 1.", new [] { "CommitmentLineId" });
+            }
+
+            // CommitmentLineId (string) pattern
+            Regex regexCommitmentLineId = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexCommitmentLineId.Match(this.CommitmentLineId).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommitmentLineId, must match a pattern of " + regexCommitmentLineId, new [] { "CommitmentLineId" });
             }
 
             yield break;
