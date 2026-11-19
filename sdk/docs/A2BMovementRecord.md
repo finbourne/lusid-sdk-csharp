@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The properties which have been requested to be decorated onto the holding. These will be from the &#39;Instrument&#39; domain. | [optional] 
 **GroupId** | **string** | Arbitrary string that can be used to cross reference an entry in the A2B report with activity in the A2B-Movements. This should be used purely as a token. The content should not be relied upon. | [optional] 
 **Errors** | [**List&lt;ResponseMetaData&gt;**](ResponseMetaData.md) | Any errors with the record are reported here. | [optional] 
+**Causes** | [**List&lt;A2BCorrectionCause&gt;**](A2BCorrectionCause.md) | For a BackdatedCorrection movement, the transactions booked, amended or cancelled after the previous period closed that the correction reconciles, each with the journal action that explains it. Empty for any other movement. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -55,6 +56,7 @@ A2BCategory? end = new A2BCategory();
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 string groupId = "example groupId";
 List<ResponseMetaData> errors = new List<ResponseMetaData>();
+List<A2BCorrectionCause> causes = new List<A2BCorrectionCause>();
 
 A2BMovementRecord a2BMovementRecordInstance = new A2BMovementRecord(
     portfolioId: portfolioId,
@@ -77,7 +79,8 @@ A2BMovementRecord a2BMovementRecordInstance = new A2BMovementRecord(
     end: end,
     properties: properties,
     groupId: groupId,
-    errors: errors);
+    errors: errors,
+    causes: causes);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

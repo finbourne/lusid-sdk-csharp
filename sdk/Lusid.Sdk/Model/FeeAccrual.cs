@@ -47,8 +47,13 @@ namespace Lusid.Sdk.Model
         /// <param name="capPeriodAccrual">The amount accrued so far in the current fee year (from the fee&#39;s AnchorDate), in the fund currency, against which an annual FeeCap is assessed..</param>
         /// <param name="feeCapApplied">Whether the FeeCap reduced the amount accrued at this valuation point..</param>
         /// <param name="feeFloorApplied">Whether the FeeFloor raised the amount accrued at this valuation point..</param>
+        /// <param name="isPayableDate">Whether the valuation point&#39;s window, from the day after the previous valuation point to this one, holds one of the fee&#39;s payable dates, set by its PayableFrequency and AnchorDate and rolled by its BusinessDayConvention..</param>
+        /// <param name="payableDate">The latest payable date of the fee in the valuation point&#39;s window, after business day adjustment. Null when the window holds no payable date..</param>
+        /// <param name="payableAmount">The accrued balance that became payable at this valuation point: the previous valuation point&#39;s AccruedBalance plus the accrual through the end of the PayableDate, less what the fund&#39;s own transactions tagged with the fee&#39;s code in a Transaction/&lt;fund scope&gt;/FeeCode property deemed payable on or before it. Several payable dates in one window give one combined payable. Never negative: zero when the window holds no payable date, or when the balance due is not positive, as when tagged transactions already deemed more than was due. A share class&#39;s PayableAmount is its share of the fund&#39;s, apportioned by each class&#39;s balance due before deems, so the classes&#39; add up to the fund&#39;s..</param>
+        /// <param name="accruedBalance">The amount accrued and not yet payable. It resets on a payable date, unlike TotalAccrual, and the total consideration of each of the fund&#39;s transactions in the valuation point&#39;s window tagged with the fee&#39;s code in a Transaction/&lt;fund scope&gt;/FeeCode property comes off it. A negative balance, from deeming more than was due, nets off later accruals before anything is payable again, as a prepaid fee does..</param>
+        /// <param name="previousAccruedBalance">The previous valuation point&#39;s AccruedBalance..</param>
         /// <param name="links">links.</param>
-        public FeeAccrual(DateTimeOffset effectiveAt = default(DateTimeOffset), string code = default(string), string name = default(string), decimal calculationBase = default(decimal), decimal amount = default(decimal), decimal previousAccrual = default(decimal), decimal previousTotalAccrual = default(decimal), decimal totalAccrual = default(decimal), decimal capPeriodAccrual = default(decimal), bool feeCapApplied = default(bool), bool feeFloorApplied = default(bool), List<Link> links = default(List<Link>))
+        public FeeAccrual(DateTimeOffset effectiveAt = default(DateTimeOffset), string code = default(string), string name = default(string), decimal calculationBase = default(decimal), decimal amount = default(decimal), decimal previousAccrual = default(decimal), decimal previousTotalAccrual = default(decimal), decimal totalAccrual = default(decimal), decimal capPeriodAccrual = default(decimal), bool feeCapApplied = default(bool), bool feeFloorApplied = default(bool), bool isPayableDate = default(bool), DateTimeOffset? payableDate = default(DateTimeOffset?), decimal payableAmount = default(decimal), decimal accruedBalance = default(decimal), decimal previousAccruedBalance = default(decimal), List<Link> links = default(List<Link>))
         {
             this.EffectiveAt = effectiveAt;
             // to ensure "code" is required (not null)
@@ -71,6 +76,11 @@ namespace Lusid.Sdk.Model
             this.CapPeriodAccrual = capPeriodAccrual;
             this.FeeCapApplied = feeCapApplied;
             this.FeeFloorApplied = feeFloorApplied;
+            this.IsPayableDate = isPayableDate;
+            this.PayableDate = payableDate;
+            this.PayableAmount = payableAmount;
+            this.AccruedBalance = accruedBalance;
+            this.PreviousAccruedBalance = previousAccruedBalance;
             this.Links = links;
         }
 
@@ -152,6 +162,41 @@ namespace Lusid.Sdk.Model
         public bool FeeFloorApplied { get; set; }
 
         /// <summary>
+        /// Whether the valuation point&#39;s window, from the day after the previous valuation point to this one, holds one of the fee&#39;s payable dates, set by its PayableFrequency and AnchorDate and rolled by its BusinessDayConvention.
+        /// </summary>
+        /// <value>Whether the valuation point&#39;s window, from the day after the previous valuation point to this one, holds one of the fee&#39;s payable dates, set by its PayableFrequency and AnchorDate and rolled by its BusinessDayConvention.</value>
+        [DataMember(Name = "isPayableDate", EmitDefaultValue = true)]
+        public bool IsPayableDate { get; set; }
+
+        /// <summary>
+        /// The latest payable date of the fee in the valuation point&#39;s window, after business day adjustment. Null when the window holds no payable date.
+        /// </summary>
+        /// <value>The latest payable date of the fee in the valuation point&#39;s window, after business day adjustment. Null when the window holds no payable date.</value>
+        [DataMember(Name = "payableDate", EmitDefaultValue = true)]
+        public DateTimeOffset? PayableDate { get; set; }
+
+        /// <summary>
+        /// The accrued balance that became payable at this valuation point: the previous valuation point&#39;s AccruedBalance plus the accrual through the end of the PayableDate, less what the fund&#39;s own transactions tagged with the fee&#39;s code in a Transaction/&lt;fund scope&gt;/FeeCode property deemed payable on or before it. Several payable dates in one window give one combined payable. Never negative: zero when the window holds no payable date, or when the balance due is not positive, as when tagged transactions already deemed more than was due. A share class&#39;s PayableAmount is its share of the fund&#39;s, apportioned by each class&#39;s balance due before deems, so the classes&#39; add up to the fund&#39;s.
+        /// </summary>
+        /// <value>The accrued balance that became payable at this valuation point: the previous valuation point&#39;s AccruedBalance plus the accrual through the end of the PayableDate, less what the fund&#39;s own transactions tagged with the fee&#39;s code in a Transaction/&lt;fund scope&gt;/FeeCode property deemed payable on or before it. Several payable dates in one window give one combined payable. Never negative: zero when the window holds no payable date, or when the balance due is not positive, as when tagged transactions already deemed more than was due. A share class&#39;s PayableAmount is its share of the fund&#39;s, apportioned by each class&#39;s balance due before deems, so the classes&#39; add up to the fund&#39;s.</value>
+        [DataMember(Name = "payableAmount", EmitDefaultValue = true)]
+        public decimal PayableAmount { get; set; }
+
+        /// <summary>
+        /// The amount accrued and not yet payable. It resets on a payable date, unlike TotalAccrual, and the total consideration of each of the fund&#39;s transactions in the valuation point&#39;s window tagged with the fee&#39;s code in a Transaction/&lt;fund scope&gt;/FeeCode property comes off it. A negative balance, from deeming more than was due, nets off later accruals before anything is payable again, as a prepaid fee does.
+        /// </summary>
+        /// <value>The amount accrued and not yet payable. It resets on a payable date, unlike TotalAccrual, and the total consideration of each of the fund&#39;s transactions in the valuation point&#39;s window tagged with the fee&#39;s code in a Transaction/&lt;fund scope&gt;/FeeCode property comes off it. A negative balance, from deeming more than was due, nets off later accruals before anything is payable again, as a prepaid fee does.</value>
+        [DataMember(Name = "accruedBalance", EmitDefaultValue = true)]
+        public decimal AccruedBalance { get; set; }
+
+        /// <summary>
+        /// The previous valuation point&#39;s AccruedBalance.
+        /// </summary>
+        /// <value>The previous valuation point&#39;s AccruedBalance.</value>
+        [DataMember(Name = "previousAccruedBalance", EmitDefaultValue = true)]
+        public decimal PreviousAccruedBalance { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -176,6 +221,11 @@ namespace Lusid.Sdk.Model
             sb.Append("  CapPeriodAccrual: ").Append(CapPeriodAccrual).Append("\n");
             sb.Append("  FeeCapApplied: ").Append(FeeCapApplied).Append("\n");
             sb.Append("  FeeFloorApplied: ").Append(FeeFloorApplied).Append("\n");
+            sb.Append("  IsPayableDate: ").Append(IsPayableDate).Append("\n");
+            sb.Append("  PayableDate: ").Append(PayableDate).Append("\n");
+            sb.Append("  PayableAmount: ").Append(PayableAmount).Append("\n");
+            sb.Append("  AccruedBalance: ").Append(AccruedBalance).Append("\n");
+            sb.Append("  PreviousAccruedBalance: ").Append(PreviousAccruedBalance).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -260,6 +310,27 @@ namespace Lusid.Sdk.Model
                     this.FeeFloorApplied.Equals(input.FeeFloorApplied)
                 ) && 
                 (
+                    this.IsPayableDate == input.IsPayableDate ||
+                    this.IsPayableDate.Equals(input.IsPayableDate)
+                ) && 
+                (
+                    this.PayableDate == input.PayableDate ||
+                    (this.PayableDate != null &&
+                    this.PayableDate.Equals(input.PayableDate))
+                ) && 
+                (
+                    this.PayableAmount == input.PayableAmount ||
+                    this.PayableAmount.Equals(input.PayableAmount)
+                ) && 
+                (
+                    this.AccruedBalance == input.AccruedBalance ||
+                    this.AccruedBalance.Equals(input.AccruedBalance)
+                ) && 
+                (
+                    this.PreviousAccruedBalance == input.PreviousAccruedBalance ||
+                    this.PreviousAccruedBalance.Equals(input.PreviousAccruedBalance)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -296,6 +367,14 @@ namespace Lusid.Sdk.Model
                 hashCode = (hashCode * 59) + this.CapPeriodAccrual.GetHashCode();
                 hashCode = (hashCode * 59) + this.FeeCapApplied.GetHashCode();
                 hashCode = (hashCode * 59) + this.FeeFloorApplied.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsPayableDate.GetHashCode();
+                if (this.PayableDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.PayableDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.PayableAmount.GetHashCode();
+                hashCode = (hashCode * 59) + this.AccruedBalance.GetHashCode();
+                hashCode = (hashCode * 59) + this.PreviousAccruedBalance.GetHashCode();
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

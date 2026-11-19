@@ -64,8 +64,12 @@ namespace Lusid.Sdk.Model
         /// <param name="returnedCapitalPortfolioCcyAmount">The returned capital the destination line takes over, already in the portfolio&#39;s base currency at the source line&#39;s historical rates. Used on the &#39;In&#39; side only; must not be negative. An In side carries the source line&#39;s share of ReturnedCapitalPortfolioCcy, as the Out side gives it up, and is refused when it omits a share the source line carries, and the transaction type configuration must include the ReturnedCapitalPortfolioCcy movement for the twin to move..</param>
         /// <param name="excessCapitalReturnedPortfolioCcyAmount">The cumulative excess capital returned that the destination line takes over, already in the portfolio&#39;s base currency at the source line&#39;s historical rates. Used on the &#39;In&#39; side only; must not be negative. An In side carries the source line&#39;s share of ExcessCapitalReturnedPortfolioCcy, as the Out side gives it up, and is refused when it omits a share the source line carries, and the transaction type configuration must include the ExcessCapitalReturnedPortfolioCcy movement for the twin to move..</param>
         /// <param name="recalledCapitalAmount">The cumulative recalled capital that the destination line takes over, in the commitment currency. Used on the &#39;In&#39; side only; must not be negative. An In side carries the source line&#39;s share of RecalledCapital, as the Out side gives it up, and is refused when it omits a share the source line carries, and the transaction type configuration must include the RecalledCapital movement for the balance to move..</param>
+        /// <param name="totalDistributionsAmount">The cumulative distributions that the destination line takes over, in the commitment currency. Used on the &#39;In&#39; side only; must not be negative. An In side that carries it must carry the source line&#39;s share of TotalDistributions, as the Out side gives it up. An In side may leave it out: the Out side still gives the share up and the destination line takes over none of it. The transaction type configuration must include the TotalDistributions movement for the balance to move..</param>
+        /// <param name="callsOutsideCommitmentAmount">The cumulative capital paid outside the commitment that the destination line takes over, in the commitment currency. Used on the &#39;In&#39; side only; must not be negative. An In side that carries it must carry the source line&#39;s share of CallsOutsideCommitment, as the Out side gives it up. An In side may leave it out: the Out side still gives the share up and the destination line takes over none of it. The transaction type configuration must include the CallsOutsideCommitment movement for the balance to move..</param>
+        /// <param name="totalDistributionsPortfolioCcyAmount">The cumulative distributions that the destination line takes over, already in the portfolio&#39;s base currency at the source line&#39;s historical rates. Used on the &#39;In&#39; side only; must not be negative. An In side that carries it must carry the source line&#39;s share of TotalDistributionsPortfolioCcy, as the Out side gives it up. An In side may leave it out: the Out side still gives the share up and the destination line takes over none of it. The transaction type configuration must include the TotalDistributionsPortfolioCcy movement for the twin to move..</param>
+        /// <param name="callsOutsideCommitmentPortfolioCcyAmount">The cumulative capital paid outside the commitment that the destination line takes over, already in the portfolio&#39;s base currency at the source line&#39;s historical rates. Used on the &#39;In&#39; side only; must not be negative. An In side that carries it must carry the source line&#39;s share of CallsOutsideCommitmentPortfolioCcy, as the Out side gives it up. An In side may leave it out: the Out side still gives the share up and the destination line takes over none of it. The transaction type configuration must include the CallsOutsideCommitmentPortfolioCcy movement for the twin to move..</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent, TotalReturnSwapCashFlowEvent, GlobalLoanFacilityReinitialisationEvent, InvestorLoanFacilityReinitialisationEvent, CapitalCallReceiptEvent, RecallableCapitalExpiryEvent, CapitalInterestTransferEvent, FacilityDrawEvent, FacilityRepaymentEvent, FacilityInterestEvent, FacilityCommitmentFeeEvent, InstalmentCallEvent, DepositInterestCapitalisationEvent, PartialRedemptionWithoutReductionOfNominalValueEvent, StripBondCashflowEvent, CapitalisationEvent, SharesPremiumDividendEvent, CashDistributionFromNonEligibleSecuritiesSalesEvent, InflationIndexationEvent, InterestPaymentWithPrincipalEvent. (required) (default to InstrumentEventTypeEnum.CapitalInterestTransferEvent).</param>
-        public CapitalInterestTransferEvent(DateTimeOffset date = default(DateTimeOffset), string direction = default(string), decimal fraction = default(decimal), string fromLineId = default(string), string toLineId = default(string), string mode = default(string), string toPortfolioId = default(string), decimal? considerationAmount = default(decimal?), string considerationCurrency = default(string), bool? considerationRecordOnly = default(bool?), string reason = default(string), string scope = default(string), string dealId = default(string), bool? taxTreatmentAcknowledged = default(bool?), decimal? committedCapitalAmount = default(decimal?), decimal? calledCommitmentAmount = default(decimal?), decimal? paidInCapitalAmount = default(decimal?), decimal? returnedCapitalAmount = default(decimal?), decimal? recallableCapitalAmount = default(decimal?), decimal? nonRecallableCapitalAmount = default(decimal?), decimal? fundedCapitalAmount = default(decimal?), decimal? excessCapitalReturnedAmount = default(decimal?), decimal? paidInCapitalPortfolioCcyAmount = default(decimal?), decimal? returnedCapitalPortfolioCcyAmount = default(decimal?), decimal? excessCapitalReturnedPortfolioCcyAmount = default(decimal?), decimal? recalledCapitalAmount = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public CapitalInterestTransferEvent(DateTimeOffset date = default(DateTimeOffset), string direction = default(string), decimal fraction = default(decimal), string fromLineId = default(string), string toLineId = default(string), string mode = default(string), string toPortfolioId = default(string), decimal? considerationAmount = default(decimal?), string considerationCurrency = default(string), bool? considerationRecordOnly = default(bool?), string reason = default(string), string scope = default(string), string dealId = default(string), bool? taxTreatmentAcknowledged = default(bool?), decimal? committedCapitalAmount = default(decimal?), decimal? calledCommitmentAmount = default(decimal?), decimal? paidInCapitalAmount = default(decimal?), decimal? returnedCapitalAmount = default(decimal?), decimal? recallableCapitalAmount = default(decimal?), decimal? nonRecallableCapitalAmount = default(decimal?), decimal? fundedCapitalAmount = default(decimal?), decimal? excessCapitalReturnedAmount = default(decimal?), decimal? paidInCapitalPortfolioCcyAmount = default(decimal?), decimal? returnedCapitalPortfolioCcyAmount = default(decimal?), decimal? excessCapitalReturnedPortfolioCcyAmount = default(decimal?), decimal? recalledCapitalAmount = default(decimal?), decimal? totalDistributionsAmount = default(decimal?), decimal? callsOutsideCommitmentAmount = default(decimal?), decimal? totalDistributionsPortfolioCcyAmount = default(decimal?), decimal? callsOutsideCommitmentPortfolioCcyAmount = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "direction" is required (not null)
             if (direction == null)
@@ -108,6 +112,10 @@ namespace Lusid.Sdk.Model
             this.ReturnedCapitalPortfolioCcyAmount = returnedCapitalPortfolioCcyAmount;
             this.ExcessCapitalReturnedPortfolioCcyAmount = excessCapitalReturnedPortfolioCcyAmount;
             this.RecalledCapitalAmount = recalledCapitalAmount;
+            this.TotalDistributionsAmount = totalDistributionsAmount;
+            this.CallsOutsideCommitmentAmount = callsOutsideCommitmentAmount;
+            this.TotalDistributionsPortfolioCcyAmount = totalDistributionsPortfolioCcyAmount;
+            this.CallsOutsideCommitmentPortfolioCcyAmount = callsOutsideCommitmentPortfolioCcyAmount;
         }
 
         /// <summary>
@@ -293,6 +301,34 @@ namespace Lusid.Sdk.Model
         public decimal? RecalledCapitalAmount { get; set; }
 
         /// <summary>
+        /// The cumulative distributions that the destination line takes over, in the commitment currency. Used on the &#39;In&#39; side only; must not be negative. An In side that carries it must carry the source line&#39;s share of TotalDistributions, as the Out side gives it up. An In side may leave it out: the Out side still gives the share up and the destination line takes over none of it. The transaction type configuration must include the TotalDistributions movement for the balance to move.
+        /// </summary>
+        /// <value>The cumulative distributions that the destination line takes over, in the commitment currency. Used on the &#39;In&#39; side only; must not be negative. An In side that carries it must carry the source line&#39;s share of TotalDistributions, as the Out side gives it up. An In side may leave it out: the Out side still gives the share up and the destination line takes over none of it. The transaction type configuration must include the TotalDistributions movement for the balance to move.</value>
+        [DataMember(Name = "totalDistributionsAmount", EmitDefaultValue = true)]
+        public decimal? TotalDistributionsAmount { get; set; }
+
+        /// <summary>
+        /// The cumulative capital paid outside the commitment that the destination line takes over, in the commitment currency. Used on the &#39;In&#39; side only; must not be negative. An In side that carries it must carry the source line&#39;s share of CallsOutsideCommitment, as the Out side gives it up. An In side may leave it out: the Out side still gives the share up and the destination line takes over none of it. The transaction type configuration must include the CallsOutsideCommitment movement for the balance to move.
+        /// </summary>
+        /// <value>The cumulative capital paid outside the commitment that the destination line takes over, in the commitment currency. Used on the &#39;In&#39; side only; must not be negative. An In side that carries it must carry the source line&#39;s share of CallsOutsideCommitment, as the Out side gives it up. An In side may leave it out: the Out side still gives the share up and the destination line takes over none of it. The transaction type configuration must include the CallsOutsideCommitment movement for the balance to move.</value>
+        [DataMember(Name = "callsOutsideCommitmentAmount", EmitDefaultValue = true)]
+        public decimal? CallsOutsideCommitmentAmount { get; set; }
+
+        /// <summary>
+        /// The cumulative distributions that the destination line takes over, already in the portfolio&#39;s base currency at the source line&#39;s historical rates. Used on the &#39;In&#39; side only; must not be negative. An In side that carries it must carry the source line&#39;s share of TotalDistributionsPortfolioCcy, as the Out side gives it up. An In side may leave it out: the Out side still gives the share up and the destination line takes over none of it. The transaction type configuration must include the TotalDistributionsPortfolioCcy movement for the twin to move.
+        /// </summary>
+        /// <value>The cumulative distributions that the destination line takes over, already in the portfolio&#39;s base currency at the source line&#39;s historical rates. Used on the &#39;In&#39; side only; must not be negative. An In side that carries it must carry the source line&#39;s share of TotalDistributionsPortfolioCcy, as the Out side gives it up. An In side may leave it out: the Out side still gives the share up and the destination line takes over none of it. The transaction type configuration must include the TotalDistributionsPortfolioCcy movement for the twin to move.</value>
+        [DataMember(Name = "totalDistributionsPortfolioCcyAmount", EmitDefaultValue = true)]
+        public decimal? TotalDistributionsPortfolioCcyAmount { get; set; }
+
+        /// <summary>
+        /// The cumulative capital paid outside the commitment that the destination line takes over, already in the portfolio&#39;s base currency at the source line&#39;s historical rates. Used on the &#39;In&#39; side only; must not be negative. An In side that carries it must carry the source line&#39;s share of CallsOutsideCommitmentPortfolioCcy, as the Out side gives it up. An In side may leave it out: the Out side still gives the share up and the destination line takes over none of it. The transaction type configuration must include the CallsOutsideCommitmentPortfolioCcy movement for the twin to move.
+        /// </summary>
+        /// <value>The cumulative capital paid outside the commitment that the destination line takes over, already in the portfolio&#39;s base currency at the source line&#39;s historical rates. Used on the &#39;In&#39; side only; must not be negative. An In side that carries it must carry the source line&#39;s share of CallsOutsideCommitmentPortfolioCcy, as the Out side gives it up. An In side may leave it out: the Out side still gives the share up and the destination line takes over none of it. The transaction type configuration must include the CallsOutsideCommitmentPortfolioCcy movement for the twin to move.</value>
+        [DataMember(Name = "callsOutsideCommitmentPortfolioCcyAmount", EmitDefaultValue = true)]
+        public decimal? CallsOutsideCommitmentPortfolioCcyAmount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -327,6 +363,10 @@ namespace Lusid.Sdk.Model
             sb.Append("  ReturnedCapitalPortfolioCcyAmount: ").Append(ReturnedCapitalPortfolioCcyAmount).Append("\n");
             sb.Append("  ExcessCapitalReturnedPortfolioCcyAmount: ").Append(ExcessCapitalReturnedPortfolioCcyAmount).Append("\n");
             sb.Append("  RecalledCapitalAmount: ").Append(RecalledCapitalAmount).Append("\n");
+            sb.Append("  TotalDistributionsAmount: ").Append(TotalDistributionsAmount).Append("\n");
+            sb.Append("  CallsOutsideCommitmentAmount: ").Append(CallsOutsideCommitmentAmount).Append("\n");
+            sb.Append("  TotalDistributionsPortfolioCcyAmount: ").Append(TotalDistributionsPortfolioCcyAmount).Append("\n");
+            sb.Append("  CallsOutsideCommitmentPortfolioCcyAmount: ").Append(CallsOutsideCommitmentPortfolioCcyAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -490,6 +530,26 @@ namespace Lusid.Sdk.Model
                     this.RecalledCapitalAmount == input.RecalledCapitalAmount ||
                     (this.RecalledCapitalAmount != null &&
                     this.RecalledCapitalAmount.Equals(input.RecalledCapitalAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.TotalDistributionsAmount == input.TotalDistributionsAmount ||
+                    (this.TotalDistributionsAmount != null &&
+                    this.TotalDistributionsAmount.Equals(input.TotalDistributionsAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.CallsOutsideCommitmentAmount == input.CallsOutsideCommitmentAmount ||
+                    (this.CallsOutsideCommitmentAmount != null &&
+                    this.CallsOutsideCommitmentAmount.Equals(input.CallsOutsideCommitmentAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.TotalDistributionsPortfolioCcyAmount == input.TotalDistributionsPortfolioCcyAmount ||
+                    (this.TotalDistributionsPortfolioCcyAmount != null &&
+                    this.TotalDistributionsPortfolioCcyAmount.Equals(input.TotalDistributionsPortfolioCcyAmount))
+                ) && base.Equals(input) && 
+                (
+                    this.CallsOutsideCommitmentPortfolioCcyAmount == input.CallsOutsideCommitmentPortfolioCcyAmount ||
+                    (this.CallsOutsideCommitmentPortfolioCcyAmount != null &&
+                    this.CallsOutsideCommitmentPortfolioCcyAmount.Equals(input.CallsOutsideCommitmentPortfolioCcyAmount))
                 );
         }
 
@@ -602,6 +662,22 @@ namespace Lusid.Sdk.Model
                 if (this.RecalledCapitalAmount != null)
                 {
                     hashCode = (hashCode * 59) + this.RecalledCapitalAmount.GetHashCode();
+                }
+                if (this.TotalDistributionsAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalDistributionsAmount.GetHashCode();
+                }
+                if (this.CallsOutsideCommitmentAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.CallsOutsideCommitmentAmount.GetHashCode();
+                }
+                if (this.TotalDistributionsPortfolioCcyAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalDistributionsPortfolioCcyAmount.GetHashCode();
+                }
+                if (this.CallsOutsideCommitmentPortfolioCcyAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.CallsOutsideCommitmentPortfolioCcyAmount.GetHashCode();
                 }
                 return hashCode;
             }

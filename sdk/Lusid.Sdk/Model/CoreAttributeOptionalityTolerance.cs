@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="CoreAttributeOptionalityTolerance" /> class.
         /// </summary>
         /// <param name="optionalSide">Which side is allowed to have no value while still attempting to match. Defaults to Either. Available values: Left, Right, Either..</param>
-        /// <param name="toleranceType">Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. (required).</param>
+        /// <param name="toleranceType">Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric, CoreMatchingSet. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric, CoreMatchingSet. (required).</param>
         /// <param name="ruleName">The reference name of the rule that this tolerance relaxes. (required).</param>
         public CoreAttributeOptionalityTolerance(string optionalSide = default(string), string toleranceType = default(string), string ruleName = default(string))
         {
@@ -64,9 +64,9 @@ namespace Lusid.Sdk.Model
         public string OptionalSide { get; set; }
 
         /// <summary>
-        /// Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric.
+        /// Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric, CoreMatchingSet. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric, CoreMatchingSet.
         /// </summary>
-        /// <value>Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric.</value>
+        /// <value>Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric, CoreMatchingSet. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric, CoreMatchingSet.</value>
         [DataMember(Name = "toleranceType", IsRequired = true, EmitDefaultValue = true)]
         public string ToleranceType { get; set; }
 

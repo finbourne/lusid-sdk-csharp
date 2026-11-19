@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **ResponseDeadline** | **DateTimeOffset?** | The holder-instruction deadline. Required for MandatoryWithChoices; must be null for Mandatory. | [optional] 
 **MarketDeadline** | **DateTimeOffset?** | The market-organisation deadline. Required for MandatoryWithChoices; must be null for Mandatory. | [optional] 
 **AnnouncementDate** | **DateTimeOffset?** | The date the event was announced by the issuer. Optional. | [optional] 
+**DueDate** | **DateTimeOffset?** | The date the interest was originally due, when it is paid after the bond&#39;s scheduled coupon date. Optional. When set, the interest is booked on this date and settles on the payment date, and the coupon the bond&#39;s schedule generates for this date is not booked. It must fall between the record date and the payment date. | [optional] 
 **CashElections** | [**List&lt;CashElection&gt;**](CashElection.md) | The cash elections for this event. For Mandatory participation a single declared election is supplied  with IsDeclared, IsDefault and IsChosen all true; for MandatoryWithChoices one entry per offered  currency is supplied, with exactly one declared, one default and one chosen. Every election carries a  per-unit absolute (signed) DividendRate and an ExchangeRate of 1. | 
 
 ```csharp
@@ -25,6 +26,7 @@ InterestPaymentEvent interestPaymentEventInstance = new InterestPaymentEvent(
     responseDeadline: responseDeadline,
     marketDeadline: marketDeadline,
     announcementDate: announcementDate,
+    dueDate: dueDate,
     cashElections: cashElections);
 ```
 

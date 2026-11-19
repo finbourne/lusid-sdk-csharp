@@ -52,7 +52,8 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">The properties which have been requested to be decorated onto the holding. These will be from the &#39;Instrument&#39; domain..</param>
         /// <param name="groupId">Arbitrary string that can be used to cross reference an entry in the A2B report with activity in the A2B-Movements. This should be used purely as a token. The content should not be relied upon..</param>
         /// <param name="errors">Any errors with the record are reported here..</param>
-        public A2BMovementRecord(ResourceId portfolioId = default(ResourceId), string holdingType = default(string), string instrumentScope = default(string), string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string currency = default(string), string transactionId = default(string), string movementName = default(string), DateTimeOffset effectiveDate = default(DateTimeOffset), decimal units = default(decimal), decimal? runningUnits = default(decimal?), A2BCategory runningBalance = default(A2BCategory), decimal? runningCost = default(decimal?), A2BCategory start = default(A2BCategory), A2BCategory flows = default(A2BCategory), A2BCategory gains = default(A2BCategory), A2BCategory carry = default(A2BCategory), A2BCategory end = default(A2BCategory), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string groupId = default(string), List<ResponseMetaData> errors = default(List<ResponseMetaData>))
+        /// <param name="causes">For a BackdatedCorrection movement, the transactions booked, amended or cancelled after the previous period closed that the correction reconciles, each with the journal action that explains it. Empty for any other movement..</param>
+        public A2BMovementRecord(ResourceId portfolioId = default(ResourceId), string holdingType = default(string), string instrumentScope = default(string), string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string currency = default(string), string transactionId = default(string), string movementName = default(string), DateTimeOffset effectiveDate = default(DateTimeOffset), decimal units = default(decimal), decimal? runningUnits = default(decimal?), A2BCategory runningBalance = default(A2BCategory), decimal? runningCost = default(decimal?), A2BCategory start = default(A2BCategory), A2BCategory flows = default(A2BCategory), A2BCategory gains = default(A2BCategory), A2BCategory carry = default(A2BCategory), A2BCategory end = default(A2BCategory), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string groupId = default(string), List<ResponseMetaData> errors = default(List<ResponseMetaData>), List<A2BCorrectionCause> causes = default(List<A2BCorrectionCause>))
         {
             this.PortfolioId = portfolioId;
             this.HoldingType = holdingType;
@@ -75,6 +76,7 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this.GroupId = groupId;
             this.Errors = errors;
+            this.Causes = causes;
         }
 
         /// <summary>
@@ -218,6 +220,13 @@ namespace Lusid.Sdk.Model
         public List<ResponseMetaData> Errors { get; set; }
 
         /// <summary>
+        /// For a BackdatedCorrection movement, the transactions booked, amended or cancelled after the previous period closed that the correction reconciles, each with the journal action that explains it. Empty for any other movement.
+        /// </summary>
+        /// <value>For a BackdatedCorrection movement, the transactions booked, amended or cancelled after the previous period closed that the correction reconciles, each with the journal action that explains it. Empty for any other movement.</value>
+        [DataMember(Name = "causes", EmitDefaultValue = true)]
+        public List<A2BCorrectionCause> Causes { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -246,6 +255,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  GroupId: ").Append(GroupId).Append("\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
+            sb.Append("  Causes: ").Append(Causes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -387,6 +397,12 @@ namespace Lusid.Sdk.Model
                     this.Errors != null &&
                     input.Errors != null &&
                     this.Errors.SequenceEqual(input.Errors)
+                ) && 
+                (
+                    this.Causes == input.Causes ||
+                    this.Causes != null &&
+                    input.Causes != null &&
+                    this.Causes.SequenceEqual(input.Causes)
                 );
         }
 
@@ -479,6 +495,10 @@ namespace Lusid.Sdk.Model
                 if (this.Errors != null)
                 {
                     hashCode = (hashCode * 59) + this.Errors.GetHashCode();
+                }
+                if (this.Causes != null)
+                {
+                    hashCode = (hashCode * 59) + this.Causes.GetHashCode();
                 }
                 return hashCode;
             }

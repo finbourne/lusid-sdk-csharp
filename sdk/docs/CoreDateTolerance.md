@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ReferenceSide** | **string** | Reference side (source of truth). Available values: Left, Right. | 
 **Interval** | **string** | The allowed tolerance for date time core rule values, defined as an ISO Period. | 
 **Offset** | **string** | How the interval should be applied to the reference side value. Defaults to Either. Available values: Earlier, Later, Either. | [optional] 
-**ToleranceType** | **string** | Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. | 
+**ToleranceType** | **string** | Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric, CoreMatchingSet. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric, CoreMatchingSet. | 
 **RuleName** | **string** | The reference name of the rule that this tolerance relaxes. | 
 
 ```csharp

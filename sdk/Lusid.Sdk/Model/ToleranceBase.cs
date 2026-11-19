@@ -69,6 +69,18 @@ namespace Lusid.Sdk.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ToleranceBase" /> class
+        /// with the <see cref="CoreMatchingSetTolerance" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of CoreMatchingSetTolerance.</param>
+        public ToleranceBase(CoreMatchingSetTolerance actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ToleranceBase" /> class
         /// with the <see cref="CoreStringCrossTolerance" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of CoreStringCrossTolerance.</param>
@@ -105,13 +117,17 @@ namespace Lusid.Sdk.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(CoreMatchingSetTolerance) || value is CoreMatchingSetTolerance)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(CoreStringCrossTolerance) || value is CoreStringCrossTolerance)
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: AggregateNumericTolerance, CoreAttributeOptionalityTolerance, CoreDateTolerance, CoreStringCrossTolerance");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: AggregateNumericTolerance, CoreAttributeOptionalityTolerance, CoreDateTolerance, CoreMatchingSetTolerance, CoreStringCrossTolerance");
                 }
             }
         }
@@ -144,6 +160,16 @@ namespace Lusid.Sdk.Model
         public CoreDateTolerance GetCoreDateTolerance()
         {
             return (CoreDateTolerance)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `CoreMatchingSetTolerance`. If the actual instance is not `CoreMatchingSetTolerance`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of CoreMatchingSetTolerance</returns>
+        public CoreMatchingSetTolerance GetCoreMatchingSetTolerance()
+        {
+            return (CoreMatchingSetTolerance)this.ActualInstance;
         }
 
         /// <summary>
@@ -204,6 +230,9 @@ namespace Lusid.Sdk.Model
                     case "CoreDateTolerance":
                         newToleranceBase = new ToleranceBase(JsonConvert.DeserializeObject<CoreDateTolerance>(jsonString, ToleranceBase.AdditionalPropertiesSerializerSettings));
                         return newToleranceBase;
+                    case "CoreMatchingSet":
+                        newToleranceBase = new ToleranceBase(JsonConvert.DeserializeObject<CoreMatchingSetTolerance>(jsonString, ToleranceBase.AdditionalPropertiesSerializerSettings));
+                        return newToleranceBase;
                     case "CoreStringCross":
                         newToleranceBase = new ToleranceBase(JsonConvert.DeserializeObject<CoreStringCrossTolerance>(jsonString, ToleranceBase.AdditionalPropertiesSerializerSettings));
                         return newToleranceBase;
@@ -211,7 +240,7 @@ namespace Lusid.Sdk.Model
                         newToleranceBase = new ToleranceBase(JsonConvert.DeserializeObject<AggregateNumericTolerance>(jsonString, ToleranceBase.AdditionalPropertiesSerializerSettings));
                         return newToleranceBase;
                     default:
-                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for ToleranceBase. Possible values: CoreAttributeOptionality CoreDateTolerance CoreStringCross Numeric", discriminatorValue));
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for ToleranceBase. Possible values: CoreAttributeOptionality CoreDateTolerance CoreMatchingSet CoreStringCross Numeric", discriminatorValue));
                         break;
                 }
             }
@@ -281,6 +310,26 @@ namespace Lusid.Sdk.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CoreDateTolerance: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(CoreMatchingSetTolerance).GetProperty("AdditionalProperties") == null)
+                {
+                    newToleranceBase = new ToleranceBase(JsonConvert.DeserializeObject<CoreMatchingSetTolerance>(jsonString, ToleranceBase.SerializerSettings));
+                }
+                else
+                {
+                    newToleranceBase = new ToleranceBase(JsonConvert.DeserializeObject<CoreMatchingSetTolerance>(jsonString, ToleranceBase.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("CoreMatchingSetTolerance");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CoreMatchingSetTolerance: {1}", jsonString, exception.ToString()));
             }
 
             try

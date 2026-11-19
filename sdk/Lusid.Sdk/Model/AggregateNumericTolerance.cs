@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="relativeThreshold">Allowed difference as a fraction of the reference side value, e.g. 0.01 allows a 1% difference. The fraction is applied to the magnitude of the reference value, so a negative reference is tolerated in the same way as a positive one..</param>
         /// <param name="thresholdPriority">Whether to apply the GreaterOf or LesserOf the absoluteThreshold vs relativeThreshold. Required when both thresholds are provided; must be omitted when only one is. Available values: GreaterOf, LesserOf..</param>
         /// <param name="offset">How the threshold should be applied to the reference side value. Defaults to Either. Available values: Above, Below, Either..</param>
-        /// <param name="toleranceType">Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. (required).</param>
+        /// <param name="toleranceType">Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric, CoreMatchingSet. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric, CoreMatchingSet. (required).</param>
         /// <param name="ruleName">The reference name of the rule that this tolerance relaxes. (required).</param>
         public AggregateNumericTolerance(string referenceSide = default(string), decimal? absoluteThreshold = default(decimal?), decimal? relativeThreshold = default(decimal?), string thresholdPriority = default(string), string offset = default(string), string toleranceType = default(string), string ruleName = default(string))
         {
@@ -105,9 +105,9 @@ namespace Lusid.Sdk.Model
         public string Offset { get; set; }
 
         /// <summary>
-        /// Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric.
+        /// Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric, CoreMatchingSet. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric, CoreMatchingSet.
         /// </summary>
-        /// <value>Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric.</value>
+        /// <value>Polymorphic discriminator. Supported types: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric, CoreMatchingSet. Available values: CoreStringCross, CoreAttributeOptionality, CoreDateTolerance, Numeric, CoreMatchingSet.</value>
         [DataMember(Name = "toleranceType", IsRequired = true, EmitDefaultValue = true)]
         public string ToleranceType { get; set; }
 

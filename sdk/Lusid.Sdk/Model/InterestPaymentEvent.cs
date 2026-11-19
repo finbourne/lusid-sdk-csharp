@@ -43,9 +43,10 @@ namespace Lusid.Sdk.Model
         /// <param name="responseDeadline">The holder-instruction deadline. Required for MandatoryWithChoices; must be null for Mandatory..</param>
         /// <param name="marketDeadline">The market-organisation deadline. Required for MandatoryWithChoices; must be null for Mandatory..</param>
         /// <param name="announcementDate">The date the event was announced by the issuer. Optional..</param>
+        /// <param name="dueDate">The date the interest was originally due, when it is paid after the bond&#39;s scheduled coupon date. Optional. When set, the interest is booked on this date and settles on the payment date, and the coupon the bond&#39;s schedule generates for this date is not booked. It must fall between the record date and the payment date..</param>
         /// <param name="cashElections">The cash elections for this event. For Mandatory participation a single declared election is supplied  with IsDeclared, IsDefault and IsChosen all true; for MandatoryWithChoices one entry per offered  currency is supplied, with exactly one declared, one default and one chosen. Every election carries a  per-unit absolute (signed) DividendRate and an ExchangeRate of 1. (required).</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent, PikBondCouponEvent, PikBondCashCouponEvent, PikBondInterestCapitalisationEvent, PikBondPrincipalEvent, DelistingEvent, PikBondInterestEvent, CommodityForwardCashSettlementEvent, PaymentInKindEvent, CommodityForwardPhysicalSettlementEvent, CancelSwapEvent, BondOptionTerminationEvent, TerminationEvent, CommodityCalendarSwapCashFlowEvent, DepositSweepEvent, BondForwardCashSettlementEvent, BondForwardTerminationEvent, AmendCommitmentEvent, CapitalCallEvent, FundDistributionEvent, NavReportEvent, DividendSuspensionEvent, LoanInterestCapitalisationEvent, TotalReturnSwapCashFlowEvent, GlobalLoanFacilityReinitialisationEvent, InvestorLoanFacilityReinitialisationEvent, CapitalCallReceiptEvent, RecallableCapitalExpiryEvent, CapitalInterestTransferEvent, FacilityDrawEvent, FacilityRepaymentEvent, FacilityInterestEvent, FacilityCommitmentFeeEvent, InstalmentCallEvent, DepositInterestCapitalisationEvent, PartialRedemptionWithoutReductionOfNominalValueEvent, StripBondCashflowEvent, CapitalisationEvent, SharesPremiumDividendEvent, CashDistributionFromNonEligibleSecuritiesSalesEvent, InflationIndexationEvent, InterestPaymentWithPrincipalEvent. (required) (default to InstrumentEventTypeEnum.InterestPaymentEvent).</param>
-        public InterestPaymentEvent(DateTimeOffset recordDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? responseDeadline = default(DateTimeOffset?), DateTimeOffset? marketDeadline = default(DateTimeOffset?), DateTimeOffset? announcementDate = default(DateTimeOffset?), List<CashElection> cashElections = default(List<CashElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public InterestPaymentEvent(DateTimeOffset recordDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? responseDeadline = default(DateTimeOffset?), DateTimeOffset? marketDeadline = default(DateTimeOffset?), DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset? dueDate = default(DateTimeOffset?), List<CashElection> cashElections = default(List<CashElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "cashElections" is required (not null)
             if (cashElections == null)
@@ -58,6 +59,7 @@ namespace Lusid.Sdk.Model
             this.ResponseDeadline = responseDeadline;
             this.MarketDeadline = marketDeadline;
             this.AnnouncementDate = announcementDate;
+            this.DueDate = dueDate;
         }
 
         /// <summary>
@@ -96,6 +98,13 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? AnnouncementDate { get; set; }
 
         /// <summary>
+        /// The date the interest was originally due, when it is paid after the bond&#39;s scheduled coupon date. Optional. When set, the interest is booked on this date and settles on the payment date, and the coupon the bond&#39;s schedule generates for this date is not booked. It must fall between the record date and the payment date.
+        /// </summary>
+        /// <value>The date the interest was originally due, when it is paid after the bond&#39;s scheduled coupon date. Optional. When set, the interest is booked on this date and settles on the payment date, and the coupon the bond&#39;s schedule generates for this date is not booked. It must fall between the record date and the payment date.</value>
+        [DataMember(Name = "dueDate", EmitDefaultValue = true)]
+        public DateTimeOffset? DueDate { get; set; }
+
+        /// <summary>
         /// The cash elections for this event. For Mandatory participation a single declared election is supplied  with IsDeclared, IsDefault and IsChosen all true; for MandatoryWithChoices one entry per offered  currency is supplied, with exactly one declared, one default and one chosen. Every election carries a  per-unit absolute (signed) DividendRate and an ExchangeRate of 1.
         /// </summary>
         /// <value>The cash elections for this event. For Mandatory participation a single declared election is supplied  with IsDeclared, IsDefault and IsChosen all true; for MandatoryWithChoices one entry per offered  currency is supplied, with exactly one declared, one default and one chosen. Every election carries a  per-unit absolute (signed) DividendRate and an ExchangeRate of 1.</value>
@@ -116,6 +125,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ResponseDeadline: ").Append(ResponseDeadline).Append("\n");
             sb.Append("  MarketDeadline: ").Append(MarketDeadline).Append("\n");
             sb.Append("  AnnouncementDate: ").Append(AnnouncementDate).Append("\n");
+            sb.Append("  DueDate: ").Append(DueDate).Append("\n");
             sb.Append("  CashElections: ").Append(CashElections).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -178,6 +188,11 @@ namespace Lusid.Sdk.Model
                     this.AnnouncementDate.Equals(input.AnnouncementDate))
                 ) && base.Equals(input) && 
                 (
+                    this.DueDate == input.DueDate ||
+                    (this.DueDate != null &&
+                    this.DueDate.Equals(input.DueDate))
+                ) && base.Equals(input) && 
+                (
                     this.CashElections == input.CashElections ||
                     this.CashElections != null &&
                     input.CashElections != null &&
@@ -213,6 +228,10 @@ namespace Lusid.Sdk.Model
                 if (this.AnnouncementDate != null)
                 {
                     hashCode = (hashCode * 59) + this.AnnouncementDate.GetHashCode();
+                }
+                if (this.DueDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.DueDate.GetHashCode();
                 }
                 if (this.CashElections != null)
                 {
