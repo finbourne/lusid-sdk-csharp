@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **DecimalPlaces** | **int?** | Number of decimal places for reporting | [optional] 
 **YearEndDate** | [**DayMonth**](DayMonth.md) |  | 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Fund. | [optional] 
+**PartnershipAccountingPortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -32,6 +33,8 @@ List<InstrumentResolutionDetail> shareClassInstruments = new List<InstrumentReso
 string type = "type";
 DayMonth yearEndDate = new DayMonth();
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
+ResourceId? partnershipAccountingPortfolioId = new ResourceId();
+
 
 FundRequest fundRequestInstance = new FundRequest(
     code: code,
@@ -45,7 +48,8 @@ FundRequest fundRequestInstance = new FundRequest(
     inceptionDate: inceptionDate,
     decimalPlaces: decimalPlaces,
     yearEndDate: yearEndDate,
-    properties: properties);
+    properties: properties,
+    partnershipAccountingPortfolioId: partnershipAccountingPortfolioId);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

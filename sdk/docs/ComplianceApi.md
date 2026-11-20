@@ -23,8 +23,8 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**ListOrderBreachHistory**](ComplianceApi.md#listorderbreachhistory) | **GET** /api/compliance/runs/breaches | [EXPERIMENTAL] ListOrderBreachHistory: List Historical Order Breaches. |
 | [**RunCompliance**](ComplianceApi.md#runcompliance) | **POST** /api/compliance/runs | [EARLY ACCESS] RunCompliance: Run a compliance check. |
 | [**RunCompliancePreview**](ComplianceApi.md#runcompliancepreview) | **POST** /api/compliance/preview/runs | [EARLY ACCESS] RunCompliancePreview: Run a compliance check. |
-| [**RunComplianceV3**](ComplianceApi.md#runcompliancev3) | **POST** /api/compliance/v3/runs | [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group. |
-| [**RunComplianceV3PreTrade**](ComplianceApi.md#runcompliancev3pretrade) | **POST** /api/compliance/v3/runs/$pretrade | [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against a portfolio group. |
+| [**RunComplianceV3**](ComplianceApi.md#runcompliancev3) | **POST** /api/compliance/v3/runs | [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against one or more individual portfolios. |
+| [**RunComplianceV3PreTrade**](ComplianceApi.md#runcompliancev3pretrade) | **POST** /api/compliance/v3/runs/$pretrade | [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against one or more individual portfolios. |
 | [**UpdateComplianceTemplate**](ComplianceApi.md#updatecompliancetemplate) | **PUT** /api/compliance/templates/{scope}/{code} | [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate |
 | [**UpsertComplianceRule**](ComplianceApi.md#upsertcompliancerule) | **POST** /api/compliance/rules | [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule. |
 | [**UpsertComplianceRuleV3**](ComplianceApi.md#upsertcompliancerulev3) | **POST** /api/compliance/v3/rules | [EXPERIMENTAL] UpsertComplianceRuleV3: [EXPERIMENTAL] Upsert a V3 compliance rule. |
@@ -2278,9 +2278,9 @@ catch (ApiException e)
 # **RunComplianceV3**
 > ComplianceRunV3Response RunComplianceV3 (RunComplianceV3Request? runComplianceV3Request = null)
 
-[EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group.
+[EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against one or more individual portfolios.
 
-Use this endpoint to run one or more V3 compliance rules against a portfolio group, valuing holdings  with the supplied recipe, and return each rule's result.
+Use this endpoint to run one or more V3 compliance rules against one or more individual portfolios,  each evaluated on its own, valuing holdings with the supplied recipe, and return each rule's result.
 
 ### Example
 ```csharp
@@ -2328,7 +2328,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ComplianceRunV3Response result = apiInstance.RunComplianceV3(runComplianceV3Request, opts: opts);
 
-                // [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group.
+                // [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against one or more individual portfolios.
                 ComplianceRunV3Response result = apiInstance.RunComplianceV3(runComplianceV3Request);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2348,7 +2348,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group.
+    // [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against one or more individual portfolios.
     ApiResponse<ComplianceRunV3Response> response = apiInstance.RunComplianceV3WithHttpInfo(runComplianceV3Request);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2391,9 +2391,9 @@ catch (ApiException e)
 # **RunComplianceV3PreTrade**
 > ComplianceRunV3Response RunComplianceV3PreTrade (RunComplianceV3Request? runComplianceV3Request = null)
 
-[EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against a portfolio group.
+[EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against one or more individual portfolios.
 
-Use this endpoint to run one or more V3 compliance rules against a portfolio group including its live  order flow (pre-trade), valuing holdings with the supplied recipe, and return each rule's result.
+Use this endpoint to run one or more V3 compliance rules against one or more individual portfolios,  each evaluated on its own, including each portfolio's live order flow (pre-trade), valuing holdings  with the supplied recipe, and return each rule's result.
 
 ### Example
 ```csharp
@@ -2441,7 +2441,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ComplianceRunV3Response result = apiInstance.RunComplianceV3PreTrade(runComplianceV3Request, opts: opts);
 
-                // [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against a portfolio group.
+                // [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against one or more individual portfolios.
                 ComplianceRunV3Response result = apiInstance.RunComplianceV3PreTrade(runComplianceV3Request);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2461,7 +2461,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against a portfolio group.
+    // [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against one or more individual portfolios.
     ApiResponse<ComplianceRunV3Response> response = apiInstance.RunComplianceV3PreTradeWithHttpInfo(runComplianceV3Request);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

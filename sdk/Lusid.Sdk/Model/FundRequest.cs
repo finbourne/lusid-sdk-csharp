@@ -48,7 +48,8 @@ namespace Lusid.Sdk.Model
         /// <param name="decimalPlaces">Number of decimal places for reporting.</param>
         /// <param name="yearEndDate">yearEndDate (required).</param>
         /// <param name="properties">A set of properties for the Fund..</param>
-        public FundRequest(string code = default(string), string displayName = default(string), string description = default(string), ResourceId fundConfigurationId = default(ResourceId), ResourceId aborId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        /// <param name="partnershipAccountingPortfolioId">partnershipAccountingPortfolioId.</param>
+        public FundRequest(string code = default(string), string displayName = default(string), string description = default(string), ResourceId fundConfigurationId = default(ResourceId), ResourceId aborId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ResourceId partnershipAccountingPortfolioId = default(ResourceId))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -87,6 +88,7 @@ namespace Lusid.Sdk.Model
             this.ShareClassInstruments = shareClassInstruments;
             this.DecimalPlaces = decimalPlaces;
             this.Properties = properties;
+            this.PartnershipAccountingPortfolioId = partnershipAccountingPortfolioId;
         }
 
         /// <summary>
@@ -171,6 +173,12 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
+        /// Gets or Sets PartnershipAccountingPortfolioId
+        /// </summary>
+        [DataMember(Name = "partnershipAccountingPortfolioId", EmitDefaultValue = false)]
+        public ResourceId PartnershipAccountingPortfolioId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -190,6 +198,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DecimalPlaces: ").Append(DecimalPlaces).Append("\n");
             sb.Append("  YearEndDate: ").Append(YearEndDate).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  PartnershipAccountingPortfolioId: ").Append(PartnershipAccountingPortfolioId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -287,6 +296,11 @@ namespace Lusid.Sdk.Model
                     this.Properties != null &&
                     input.Properties != null &&
                     this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
+                    this.PartnershipAccountingPortfolioId == input.PartnershipAccountingPortfolioId ||
+                    (this.PartnershipAccountingPortfolioId != null &&
+                    this.PartnershipAccountingPortfolioId.Equals(input.PartnershipAccountingPortfolioId))
                 );
         }
 
@@ -346,6 +360,10 @@ namespace Lusid.Sdk.Model
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                }
+                if (this.PartnershipAccountingPortfolioId != null)
+                {
+                    hashCode = (hashCode * 59) + this.PartnershipAccountingPortfolioId.GetHashCode();
                 }
                 return hashCode;
             }

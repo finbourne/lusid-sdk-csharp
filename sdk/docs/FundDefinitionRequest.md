@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **DealingEstimates** | [**DealingEstimates**](DealingEstimates.md) |  | [optional] 
 **WhtParameters** | [**WhtParameters**](WhtParameters.md) |  | [optional] 
 **ValuationTemplateId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**PartnershipAccountingPortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -62,6 +63,8 @@ WhtParameters? whtParameters = new WhtParameters();
 
 ResourceId? valuationTemplateId = new ResourceId();
 
+ResourceId? partnershipAccountingPortfolioId = new ResourceId();
+
 
 FundDefinitionRequest fundDefinitionRequestInstance = new FundDefinitionRequest(
     code: code,
@@ -88,7 +91,8 @@ FundDefinitionRequest fundDefinitionRequestInstance = new FundDefinitionRequest(
     reportingPrices: reportingPrices,
     dealingEstimates: dealingEstimates,
     whtParameters: whtParameters,
-    valuationTemplateId: valuationTemplateId);
+    valuationTemplateId: valuationTemplateId,
+    partnershipAccountingPortfolioId: partnershipAccountingPortfolioId);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

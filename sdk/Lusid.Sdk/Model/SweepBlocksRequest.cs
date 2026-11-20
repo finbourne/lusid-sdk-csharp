@@ -36,9 +36,10 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SweepBlocksRequest" /> class.
         /// </summary>
-        /// <param name="blockIds">A dictionary mapping ephemeral identifiers, which live as long as the request, to specific blocks to sweep. (required).</param>
-        /// <param name="latestAllowableModificationTime">Timestamp or cut label which the  block or related entities must not have been updated after. (required).</param>
-        public SweepBlocksRequest(Dictionary<string, ResourceId> blockIds = default(Dictionary<string, ResourceId>), string latestAllowableModificationTime = default(string))
+        /// <param name="blockIds">The identifiers of the blocks to sweep. (required).</param>
+        /// <param name="latestAllowableModificationTime">Timestamp, cut label or tenor. A block can only be swept if none of its executions or allocations were modified after this time. A tenor is relative to the current time, for example &#39;1D&#39; means one day ago. A business day tenor, for example &#39;1BD&#39;, requires calendarId. A tenor cannot go back further than 1 January 1900. For more information on tenors, see [Specifying tenors in LUSID](https://support.lusid.com/docs/specifying-tenors-in-lusid) (required).</param>
+        /// <param name="calendarId">calendarId.</param>
+        public SweepBlocksRequest(List<ResourceId> blockIds = default(List<ResourceId>), string latestAllowableModificationTime = default(string), ResourceId calendarId = default(ResourceId))
         {
             // to ensure "blockIds" is required (not null)
             if (blockIds == null)
@@ -52,21 +53,28 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("latestAllowableModificationTime is a required property for SweepBlocksRequest and cannot be null");
             }
             this.LatestAllowableModificationTime = latestAllowableModificationTime;
+            this.CalendarId = calendarId;
         }
 
         /// <summary>
-        /// A dictionary mapping ephemeral identifiers, which live as long as the request, to specific blocks to sweep.
+        /// The identifiers of the blocks to sweep.
         /// </summary>
-        /// <value>A dictionary mapping ephemeral identifiers, which live as long as the request, to specific blocks to sweep.</value>
+        /// <value>The identifiers of the blocks to sweep.</value>
         [DataMember(Name = "blockIds", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, ResourceId> BlockIds { get; set; }
+        public List<ResourceId> BlockIds { get; set; }
 
         /// <summary>
-        /// Timestamp or cut label which the  block or related entities must not have been updated after.
+        /// Timestamp, cut label or tenor. A block can only be swept if none of its executions or allocations were modified after this time. A tenor is relative to the current time, for example &#39;1D&#39; means one day ago. A business day tenor, for example &#39;1BD&#39;, requires calendarId. A tenor cannot go back further than 1 January 1900. For more information on tenors, see [Specifying tenors in LUSID](https://support.lusid.com/docs/specifying-tenors-in-lusid)
         /// </summary>
-        /// <value>Timestamp or cut label which the  block or related entities must not have been updated after.</value>
+        /// <value>Timestamp, cut label or tenor. A block can only be swept if none of its executions or allocations were modified after this time. A tenor is relative to the current time, for example &#39;1D&#39; means one day ago. A business day tenor, for example &#39;1BD&#39;, requires calendarId. A tenor cannot go back further than 1 January 1900. For more information on tenors, see [Specifying tenors in LUSID](https://support.lusid.com/docs/specifying-tenors-in-lusid)</value>
         [DataMember(Name = "latestAllowableModificationTime", IsRequired = true, EmitDefaultValue = true)]
         public string LatestAllowableModificationTime { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CalendarId
+        /// </summary>
+        [DataMember(Name = "calendarId", EmitDefaultValue = false)]
+        public ResourceId CalendarId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -78,6 +86,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class SweepBlocksRequest {\n");
             sb.Append("  BlockIds: ").Append(BlockIds).Append("\n");
             sb.Append("  LatestAllowableModificationTime: ").Append(LatestAllowableModificationTime).Append("\n");
+            sb.Append("  CalendarId: ").Append(CalendarId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +132,11 @@ namespace Lusid.Sdk.Model
                     this.LatestAllowableModificationTime == input.LatestAllowableModificationTime ||
                     (this.LatestAllowableModificationTime != null &&
                     this.LatestAllowableModificationTime.Equals(input.LatestAllowableModificationTime))
+                ) && 
+                (
+                    this.CalendarId == input.CalendarId ||
+                    (this.CalendarId != null &&
+                    this.CalendarId.Equals(input.CalendarId))
                 );
         }
 
@@ -142,6 +156,10 @@ namespace Lusid.Sdk.Model
                 if (this.LatestAllowableModificationTime != null)
                 {
                     hashCode = (hashCode * 59) + this.LatestAllowableModificationTime.GetHashCode();
+                }
+                if (this.CalendarId != null)
+                {
+                    hashCode = (hashCode * 59) + this.CalendarId.GetHashCode();
                 }
                 return hashCode;
             }

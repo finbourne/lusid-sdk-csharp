@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Values** | [**Dictionary&lt;string, ResourceId&gt;**](ResourceId.md) | The identifiers of blocks which have been successfully swept, indexed by ephemeral request-lived id. | [optional] 
+**Values** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The identifiers of blocks which have been successfully swept. | [optional] 
 **Failed** | [**Dictionary&lt;string, ErrorDetail&gt;**](ErrorDetail.md) | The identifiers of blocks that could not be swept, along with a reason for their failure. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 
-Dictionary<string, ResourceId> values = new Dictionary<string, ResourceId>();
+List<ResourceId> values = new List<ResourceId>();
 Dictionary<string, ErrorDetail> failed = new Dictionary<string, ErrorDetail>();
 
 SweepBlocksResponse sweepBlocksResponseInstance = new SweepBlocksResponse(

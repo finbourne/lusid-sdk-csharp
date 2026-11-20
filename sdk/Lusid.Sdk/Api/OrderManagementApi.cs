@@ -3469,7 +3469,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<SweepBlocksResponse>("/api/ordermanagement/SweepBlocks", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<SweepBlocksResponse>("/api/ordermanagement/sweepblocks", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SweepBlocks", localVarResponse);
@@ -3576,7 +3576,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<SweepBlocksResponse>("/api/ordermanagement/SweepBlocks", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<SweepBlocksResponse>("/api/ordermanagement/sweepblocks", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

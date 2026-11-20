@@ -31,20 +31,20 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SweepBlocksResponse" /> class.
         /// </summary>
-        /// <param name="values">The identifiers of blocks which have been successfully swept, indexed by ephemeral request-lived id..</param>
+        /// <param name="values">The identifiers of blocks which have been successfully swept..</param>
         /// <param name="failed">The identifiers of blocks that could not be swept, along with a reason for their failure..</param>
-        public SweepBlocksResponse(Dictionary<string, ResourceId> values = default(Dictionary<string, ResourceId>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>))
+        public SweepBlocksResponse(List<ResourceId> values = default(List<ResourceId>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>))
         {
             this.Values = values;
             this.Failed = failed;
         }
 
         /// <summary>
-        /// The identifiers of blocks which have been successfully swept, indexed by ephemeral request-lived id.
+        /// The identifiers of blocks which have been successfully swept.
         /// </summary>
-        /// <value>The identifiers of blocks which have been successfully swept, indexed by ephemeral request-lived id.</value>
+        /// <value>The identifiers of blocks which have been successfully swept.</value>
         [DataMember(Name = "values", EmitDefaultValue = true)]
-        public Dictionary<string, ResourceId> Values { get; set; }
+        public List<ResourceId> Values { get; set; }
 
         /// <summary>
         /// The identifiers of blocks that could not be swept, along with a reason for their failure.

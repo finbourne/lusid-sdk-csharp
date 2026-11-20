@@ -15,7 +15,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**PreviewBlocks**](OrderManagementApi.md#previewblocks) | **POST** /api/ordermanagement/$previewblocks | PreviewBlocks: Preview the blocks a set of orders would form |
 | [**RunAllocationService**](OrderManagementApi.md#runallocationservice) | **POST** /api/ordermanagement/allocate | RunAllocationService: Runs the Allocation Service |
 | [**RunAllocationServiceWithWeights**](OrderManagementApi.md#runallocationservicewithweights) | **POST** /api/ordermanagement/allocate/weighted | RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights |
-| [**SweepBlocks**](OrderManagementApi.md#sweepblocks) | **POST** /api/ordermanagement/SweepBlocks | [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful. |
+| [**SweepBlocks**](OrderManagementApi.md#sweepblocks) | **POST** /api/ordermanagement/sweepblocks | [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful. |
 | [**UpdateOrders**](OrderManagementApi.md#updateorders) | **POST** /api/ordermanagement/updateorders | [EARLY ACCESS] UpdateOrders: Update existing orders |
 | [**UpdatePlacements**](OrderManagementApi.md#updateplacements) | **POST** /api/ordermanagement/$updateplacements | [EARLY ACCESS] UpdatePlacements: Update existing placements |
 

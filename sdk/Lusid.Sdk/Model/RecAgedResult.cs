@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A summary of a rec result in another instance, as at the stamp that first recorded it.
+    /// A summary of a rec result in another instance, as at the stamp, or as last recorded if the result can no longer be read.
     /// </summary>
     [DataContract(Name = "RecAgedResult")]
     public partial class RecAgedResult : IEquatable<RecAgedResult>, IValidatableObject
@@ -38,13 +38,13 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="id">The id of the result within its instance, e.g. &#39;Holding-break-1&#39;. With instanceId, it fully qualifies the result. (required).</param>
         /// <param name="instanceId">instanceId (required).</param>
-        /// <param name="runNumber">The result&#39;s latest run as at the stamp that first recorded it. (required).</param>
-        /// <param name="runAsAt">The asAt datetime of the result&#39;s latest run as at the stamp that first recorded it. (required).</param>
+        /// <param name="runNumber">The result&#39;s latest run as at the stamp, or as last recorded if the result can no longer be read. (required).</param>
+        /// <param name="runAsAt">The asAt datetime of the result&#39;s latest run as at the stamp, or as last recorded if the result can no longer be read. (required).</param>
         /// <param name="firstRunSeen">The run in which the result was first assigned its id. (required).</param>
         /// <param name="asAtFirstSeen">The runAsAt of the run in which the result first appeared in its instance, the run numbered firstRunSeen. Written once: re-runs leave it unchanged. (required).</param>
         /// <param name="datesReconciled">datesReconciled (required).</param>
-        /// <param name="exceptionStatus">The result&#39;s exception status as at the stamp that first recorded it: Open or Closed. Available values: Open, Closed. (required).</param>
-        /// <param name="closureType">The result&#39;s exception closure type as at the stamp that first recorded it. Null while the exception is open. Available values: Cleared, Accepted, ForceMatched..</param>
+        /// <param name="exceptionStatus">The result&#39;s exception status as at the stamp, or as last recorded if the result can no longer be read: Open or Closed. Available values: Open, Closed. (required).</param>
+        /// <param name="closureType">The result&#39;s exception closure type as at the stamp, or as last recorded if the result can no longer be read. Null while the exception is open. Available values: Cleared, Accepted, ForceMatched..</param>
         public RecAgedResult(string id = default(string), RecInstanceId instanceId = default(RecInstanceId), int runNumber = default(int), DateTimeOffset runAsAt = default(DateTimeOffset), int firstRunSeen = default(int), DateTimeOffset asAtFirstSeen = default(DateTimeOffset), RecDatesReconciled datesReconciled = default(RecDatesReconciled), string exceptionStatus = default(string), string closureType = default(string))
         {
             // to ensure "id" is required (not null)
@@ -92,16 +92,16 @@ namespace Lusid.Sdk.Model
         public RecInstanceId InstanceId { get; set; }
 
         /// <summary>
-        /// The result&#39;s latest run as at the stamp that first recorded it.
+        /// The result&#39;s latest run as at the stamp, or as last recorded if the result can no longer be read.
         /// </summary>
-        /// <value>The result&#39;s latest run as at the stamp that first recorded it.</value>
+        /// <value>The result&#39;s latest run as at the stamp, or as last recorded if the result can no longer be read.</value>
         [DataMember(Name = "runNumber", IsRequired = true, EmitDefaultValue = true)]
         public int RunNumber { get; set; }
 
         /// <summary>
-        /// The asAt datetime of the result&#39;s latest run as at the stamp that first recorded it.
+        /// The asAt datetime of the result&#39;s latest run as at the stamp, or as last recorded if the result can no longer be read.
         /// </summary>
-        /// <value>The asAt datetime of the result&#39;s latest run as at the stamp that first recorded it.</value>
+        /// <value>The asAt datetime of the result&#39;s latest run as at the stamp, or as last recorded if the result can no longer be read.</value>
         [DataMember(Name = "runAsAt", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset RunAsAt { get; set; }
 
@@ -126,16 +126,16 @@ namespace Lusid.Sdk.Model
         public RecDatesReconciled DatesReconciled { get; set; }
 
         /// <summary>
-        /// The result&#39;s exception status as at the stamp that first recorded it: Open or Closed. Available values: Open, Closed.
+        /// The result&#39;s exception status as at the stamp, or as last recorded if the result can no longer be read: Open or Closed. Available values: Open, Closed.
         /// </summary>
-        /// <value>The result&#39;s exception status as at the stamp that first recorded it: Open or Closed. Available values: Open, Closed.</value>
+        /// <value>The result&#39;s exception status as at the stamp, or as last recorded if the result can no longer be read: Open or Closed. Available values: Open, Closed.</value>
         [DataMember(Name = "exceptionStatus", IsRequired = true, EmitDefaultValue = true)]
         public string ExceptionStatus { get; set; }
 
         /// <summary>
-        /// The result&#39;s exception closure type as at the stamp that first recorded it. Null while the exception is open. Available values: Cleared, Accepted, ForceMatched.
+        /// The result&#39;s exception closure type as at the stamp, or as last recorded if the result can no longer be read. Null while the exception is open. Available values: Cleared, Accepted, ForceMatched.
         /// </summary>
-        /// <value>The result&#39;s exception closure type as at the stamp that first recorded it. Null while the exception is open. Available values: Cleared, Accepted, ForceMatched.</value>
+        /// <value>The result&#39;s exception closure type as at the stamp, or as last recorded if the result can no longer be read. Null while the exception is open. Available values: Cleared, Accepted, ForceMatched.</value>
         [DataMember(Name = "closureType", EmitDefaultValue = true)]
         public string ClosureType { get; set; }
 

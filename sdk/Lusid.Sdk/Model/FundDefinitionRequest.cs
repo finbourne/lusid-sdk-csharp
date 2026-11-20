@@ -61,7 +61,8 @@ namespace Lusid.Sdk.Model
         /// <param name="dealingEstimates">dealingEstimates.</param>
         /// <param name="whtParameters">whtParameters.</param>
         /// <param name="valuationTemplateId">valuationTemplateId.</param>
-        public FundDefinitionRequest(string code = default(string), string shortCode = default(string), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId fundConfigurationId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), string taxTransparency = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), NavTypeDefinition primaryNavType = default(NavTypeDefinition), List<NavTypeDefinition> additionalNavTypes = default(List<NavTypeDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), string instrumentScope = default(string), List<ShareClassDefinition> shareClasses = default(List<ShareClassDefinition>), PricingMethodology pricingMethodology = default(PricingMethodology), List<ReportingPrice> reportingPrices = default(List<ReportingPrice>), DealingEstimates dealingEstimates = default(DealingEstimates), WhtParameters whtParameters = default(WhtParameters), ResourceId valuationTemplateId = default(ResourceId))
+        /// <param name="partnershipAccountingPortfolioId">partnershipAccountingPortfolioId.</param>
+        public FundDefinitionRequest(string code = default(string), string shortCode = default(string), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId fundConfigurationId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), string taxTransparency = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), NavTypeDefinition primaryNavType = default(NavTypeDefinition), List<NavTypeDefinition> additionalNavTypes = default(List<NavTypeDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), string instrumentScope = default(string), List<ShareClassDefinition> shareClasses = default(List<ShareClassDefinition>), PricingMethodology pricingMethodology = default(PricingMethodology), List<ReportingPrice> reportingPrices = default(List<ReportingPrice>), DealingEstimates dealingEstimates = default(DealingEstimates), WhtParameters whtParameters = default(WhtParameters), ResourceId valuationTemplateId = default(ResourceId), ResourceId partnershipAccountingPortfolioId = default(ResourceId))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -118,6 +119,7 @@ namespace Lusid.Sdk.Model
             this.DealingEstimates = dealingEstimates;
             this.WhtParameters = whtParameters;
             this.ValuationTemplateId = valuationTemplateId;
+            this.PartnershipAccountingPortfolioId = partnershipAccountingPortfolioId;
         }
 
         /// <summary>
@@ -290,6 +292,12 @@ namespace Lusid.Sdk.Model
         public ResourceId ValuationTemplateId { get; set; }
 
         /// <summary>
+        /// Gets or Sets PartnershipAccountingPortfolioId
+        /// </summary>
+        [DataMember(Name = "partnershipAccountingPortfolioId", EmitDefaultValue = false)]
+        public ResourceId PartnershipAccountingPortfolioId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -322,6 +330,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DealingEstimates: ").Append(DealingEstimates).Append("\n");
             sb.Append("  WhtParameters: ").Append(WhtParameters).Append("\n");
             sb.Append("  ValuationTemplateId: ").Append(ValuationTemplateId).Append("\n");
+            sb.Append("  PartnershipAccountingPortfolioId: ").Append(PartnershipAccountingPortfolioId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -487,6 +496,11 @@ namespace Lusid.Sdk.Model
                     this.ValuationTemplateId == input.ValuationTemplateId ||
                     (this.ValuationTemplateId != null &&
                     this.ValuationTemplateId.Equals(input.ValuationTemplateId))
+                ) && 
+                (
+                    this.PartnershipAccountingPortfolioId == input.PartnershipAccountingPortfolioId ||
+                    (this.PartnershipAccountingPortfolioId != null &&
+                    this.PartnershipAccountingPortfolioId.Equals(input.PartnershipAccountingPortfolioId))
                 );
         }
 
@@ -595,6 +609,10 @@ namespace Lusid.Sdk.Model
                 if (this.ValuationTemplateId != null)
                 {
                     hashCode = (hashCode * 59) + this.ValuationTemplateId.GetHashCode();
+                }
+                if (this.PartnershipAccountingPortfolioId != null)
+                {
+                    hashCode = (hashCode * 59) + this.PartnershipAccountingPortfolioId.GetHashCode();
                 }
                 return hashCode;
             }

@@ -603,10 +603,10 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ComplianceRunInfoV2</returns>
         Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2> RunCompliancePreviewWithHttpInfo(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group.
+        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against one or more individual portfolios.
         /// </summary>
         /// <remarks>
-        /// Use this endpoint to run one or more V3 compliance rules against a portfolio group, valuing holdings  with the supplied recipe, and return each rule&#39;s result.
+        /// Use this endpoint to run one or more V3 compliance rules against one or more individual portfolios,  each evaluated on its own, valuing holdings with the supplied recipe, and return each rule&#39;s result.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runComplianceV3Request"> (optional)</param>
@@ -616,10 +616,10 @@ namespace Lusid.Sdk.Api
         ComplianceRunV3Response RunComplianceV3(RunComplianceV3Request? runComplianceV3Request = default(RunComplianceV3Request?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group.
+        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against one or more individual portfolios.
         /// </summary>
         /// <remarks>
-        /// Use this endpoint to run one or more V3 compliance rules against a portfolio group, valuing holdings  with the supplied recipe, and return each rule&#39;s result.
+        /// Use this endpoint to run one or more V3 compliance rules against one or more individual portfolios,  each evaluated on its own, valuing holdings with the supplied recipe, and return each rule&#39;s result.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runComplianceV3Request"> (optional)</param>
@@ -628,10 +628,10 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ComplianceRunV3Response</returns>
         Lusid.Sdk.Client.ApiResponse<ComplianceRunV3Response> RunComplianceV3WithHttpInfo(RunComplianceV3Request? runComplianceV3Request = default(RunComplianceV3Request?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against a portfolio group.
+        /// [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against one or more individual portfolios.
         /// </summary>
         /// <remarks>
-        /// Use this endpoint to run one or more V3 compliance rules against a portfolio group including its live  order flow (pre-trade), valuing holdings with the supplied recipe, and return each rule&#39;s result.
+        /// Use this endpoint to run one or more V3 compliance rules against one or more individual portfolios,  each evaluated on its own, including each portfolio&#39;s live order flow (pre-trade), valuing holdings  with the supplied recipe, and return each rule&#39;s result.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runComplianceV3Request"> (optional)</param>
@@ -641,10 +641,10 @@ namespace Lusid.Sdk.Api
         ComplianceRunV3Response RunComplianceV3PreTrade(RunComplianceV3Request? runComplianceV3Request = default(RunComplianceV3Request?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against a portfolio group.
+        /// [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against one or more individual portfolios.
         /// </summary>
         /// <remarks>
-        /// Use this endpoint to run one or more V3 compliance rules against a portfolio group including its live  order flow (pre-trade), valuing holdings with the supplied recipe, and return each rule&#39;s result.
+        /// Use this endpoint to run one or more V3 compliance rules against one or more individual portfolios,  each evaluated on its own, including each portfolio&#39;s live order flow (pre-trade), valuing holdings  with the supplied recipe, and return each rule&#39;s result.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runComplianceV3Request"> (optional)</param>
@@ -1400,10 +1400,10 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ComplianceRunInfoV2)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2>> RunCompliancePreviewWithHttpInfoAsync(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group.
+        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against one or more individual portfolios.
         /// </summary>
         /// <remarks>
-        /// Use this endpoint to run one or more V3 compliance rules against a portfolio group, valuing holdings  with the supplied recipe, and return each rule&#39;s result.
+        /// Use this endpoint to run one or more V3 compliance rules against one or more individual portfolios,  each evaluated on its own, valuing holdings with the supplied recipe, and return each rule&#39;s result.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runComplianceV3Request"> (optional)</param>
@@ -1414,10 +1414,10 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ComplianceRunV3Response> RunComplianceV3Async(RunComplianceV3Request? runComplianceV3Request = default(RunComplianceV3Request?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group.
+        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against one or more individual portfolios.
         /// </summary>
         /// <remarks>
-        /// Use this endpoint to run one or more V3 compliance rules against a portfolio group, valuing holdings  with the supplied recipe, and return each rule&#39;s result.
+        /// Use this endpoint to run one or more V3 compliance rules against one or more individual portfolios,  each evaluated on its own, valuing holdings with the supplied recipe, and return each rule&#39;s result.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runComplianceV3Request"> (optional)</param>
@@ -1427,10 +1427,10 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ComplianceRunV3Response)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRunV3Response>> RunComplianceV3WithHttpInfoAsync(RunComplianceV3Request? runComplianceV3Request = default(RunComplianceV3Request?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against a portfolio group.
+        /// [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against one or more individual portfolios.
         /// </summary>
         /// <remarks>
-        /// Use this endpoint to run one or more V3 compliance rules against a portfolio group including its live  order flow (pre-trade), valuing holdings with the supplied recipe, and return each rule&#39;s result.
+        /// Use this endpoint to run one or more V3 compliance rules against one or more individual portfolios,  each evaluated on its own, including each portfolio&#39;s live order flow (pre-trade), valuing holdings  with the supplied recipe, and return each rule&#39;s result.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runComplianceV3Request"> (optional)</param>
@@ -1441,10 +1441,10 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ComplianceRunV3Response> RunComplianceV3PreTradeAsync(RunComplianceV3Request? runComplianceV3Request = default(RunComplianceV3Request?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against a portfolio group.
+        /// [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against one or more individual portfolios.
         /// </summary>
         /// <remarks>
-        /// Use this endpoint to run one or more V3 compliance rules against a portfolio group including its live  order flow (pre-trade), valuing holdings with the supplied recipe, and return each rule&#39;s result.
+        /// Use this endpoint to run one or more V3 compliance rules against one or more individual portfolios,  each evaluated on its own, including each portfolio&#39;s live order flow (pre-trade), valuing holdings  with the supplied recipe, and return each rule&#39;s result.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runComplianceV3Request"> (optional)</param>
@@ -6294,7 +6294,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group. Use this endpoint to run one or more V3 compliance rules against a portfolio group, valuing holdings  with the supplied recipe, and return each rule&#39;s result.
+        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against one or more individual portfolios. Use this endpoint to run one or more V3 compliance rules against one or more individual portfolios,  each evaluated on its own, valuing holdings with the supplied recipe, and return each rule&#39;s result.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runComplianceV3Request"> (optional)</param>
@@ -6308,7 +6308,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group. Use this endpoint to run one or more V3 compliance rules against a portfolio group, valuing holdings  with the supplied recipe, and return each rule&#39;s result.
+        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against one or more individual portfolios. Use this endpoint to run one or more V3 compliance rules against one or more individual portfolios,  each evaluated on its own, valuing holdings with the supplied recipe, and return each rule&#39;s result.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runComplianceV3Request"> (optional)</param>
@@ -6392,7 +6392,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group. Use this endpoint to run one or more V3 compliance rules against a portfolio group, valuing holdings  with the supplied recipe, and return each rule&#39;s result.
+        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against one or more individual portfolios. Use this endpoint to run one or more V3 compliance rules against one or more individual portfolios,  each evaluated on its own, valuing holdings with the supplied recipe, and return each rule&#39;s result.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runComplianceV3Request"> (optional)</param>
@@ -6407,7 +6407,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against a portfolio group. Use this endpoint to run one or more V3 compliance rules against a portfolio group, valuing holdings  with the supplied recipe, and return each rule&#39;s result.
+        /// [EXPERIMENTAL] RunComplianceV3: [EXPERIMENTAL] Run V3 compliance rules against one or more individual portfolios. Use this endpoint to run one or more V3 compliance rules against one or more individual portfolios,  each evaluated on its own, valuing holdings with the supplied recipe, and return each rule&#39;s result.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runComplianceV3Request"> (optional)</param>
@@ -6494,7 +6494,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against a portfolio group. Use this endpoint to run one or more V3 compliance rules against a portfolio group including its live  order flow (pre-trade), valuing holdings with the supplied recipe, and return each rule&#39;s result.
+        /// [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against one or more individual portfolios. Use this endpoint to run one or more V3 compliance rules against one or more individual portfolios,  each evaluated on its own, including each portfolio&#39;s live order flow (pre-trade), valuing holdings  with the supplied recipe, and return each rule&#39;s result.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runComplianceV3Request"> (optional)</param>
@@ -6508,7 +6508,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against a portfolio group. Use this endpoint to run one or more V3 compliance rules against a portfolio group including its live  order flow (pre-trade), valuing holdings with the supplied recipe, and return each rule&#39;s result.
+        /// [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against one or more individual portfolios. Use this endpoint to run one or more V3 compliance rules against one or more individual portfolios,  each evaluated on its own, including each portfolio&#39;s live order flow (pre-trade), valuing holdings  with the supplied recipe, and return each rule&#39;s result.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runComplianceV3Request"> (optional)</param>
@@ -6592,7 +6592,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against a portfolio group. Use this endpoint to run one or more V3 compliance rules against a portfolio group including its live  order flow (pre-trade), valuing holdings with the supplied recipe, and return each rule&#39;s result.
+        /// [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against one or more individual portfolios. Use this endpoint to run one or more V3 compliance rules against one or more individual portfolios,  each evaluated on its own, including each portfolio&#39;s live order flow (pre-trade), valuing holdings  with the supplied recipe, and return each rule&#39;s result.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runComplianceV3Request"> (optional)</param>
@@ -6607,7 +6607,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against a portfolio group. Use this endpoint to run one or more V3 compliance rules against a portfolio group including its live  order flow (pre-trade), valuing holdings with the supplied recipe, and return each rule&#39;s result.
+        /// [EXPERIMENTAL] RunComplianceV3PreTrade: [EXPERIMENTAL] Run V3 compliance rules pre-trade against one or more individual portfolios. Use this endpoint to run one or more V3 compliance rules against one or more individual portfolios,  each evaluated on its own, including each portfolio&#39;s live order flow (pre-trade), valuing holdings  with the supplied recipe, and return each rule&#39;s result.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runComplianceV3Request"> (optional)</param>

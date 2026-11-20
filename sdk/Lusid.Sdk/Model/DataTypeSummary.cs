@@ -239,7 +239,7 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The display name of the data type. (required).</param>
         /// <param name="description">The description of the data type. (required).</param>
         /// <param name="valueType">The expected type of the values. Available values: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText. (required).</param>
-        /// <param name="acceptableValues">The acceptable set of values for this data type. Only applies to &#39;open&#39; value type range..</param>
+        /// <param name="acceptableValues">The acceptable set of values for this data type. Only applies when the type value range is &#39;Closed&#39;; it is ignored on write and returned as null for &#39;Open&#39; data types. If reference data is supplied on a &#39;Closed&#39; data type and this field is omitted, the acceptable values are derived from the reference data values..</param>
         /// <param name="unitSchema">The schema of the data type&#39;s units. Available values: NoUnits, Basic, Iso4217Currency..</param>
         /// <param name="acceptableUnits">The definitions of the acceptable units..</param>
         /// <param name="varVersion">varVersion.</param>
@@ -292,9 +292,9 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The acceptable set of values for this data type. Only applies to &#39;open&#39; value type range.
+        /// The acceptable set of values for this data type. Only applies when the type value range is &#39;Closed&#39;; it is ignored on write and returned as null for &#39;Open&#39; data types. If reference data is supplied on a &#39;Closed&#39; data type and this field is omitted, the acceptable values are derived from the reference data values.
         /// </summary>
-        /// <value>The acceptable set of values for this data type. Only applies to &#39;open&#39; value type range.</value>
+        /// <value>The acceptable set of values for this data type. Only applies when the type value range is &#39;Closed&#39;; it is ignored on write and returned as null for &#39;Open&#39; data types. If reference data is supplied on a &#39;Closed&#39; data type and this field is omitted, the acceptable values are derived from the reference data values.</value>
         [DataMember(Name = "acceptableValues", EmitDefaultValue = true)]
         public List<string> AcceptableValues { get; set; }
 

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A request to run one or more V3 compliance rules against a portfolio group, valuing holdings with the  supplied recipe. The pre-trade variant additionally includes the group&#39;s live order flow.
+    /// A request to run one or more V3 compliance rules against one or more individual portfolios, valuing  holdings with the supplied recipe. Each portfolio is evaluated on its own. The pre-trade variant  additionally includes each portfolio&#39;s live order flow.
     /// </summary>
     [DataContract(Name = "RunComplianceV3Request")]
     public partial class RunComplianceV3Request : IEquatable<RunComplianceV3Request>, IValidatableObject
@@ -37,12 +37,11 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="RunComplianceV3Request" /> class.
         /// </summary>
         /// <param name="ruleIds">ruleIds (required).</param>
-        /// <param name="portfolioGroupId">portfolioGroupId (required).</param>
+        /// <param name="portfolioIds">portfolioIds (required).</param>
         /// <param name="recipeId">recipeId (required).</param>
         /// <param name="effectiveAt">effectiveAt.</param>
         /// <param name="asAt">asAt.</param>
-        /// <param name="evaluationMode">Available values: PerPortfolio, GroupTotal..</param>
-        public RunComplianceV3Request(List<ResourceId> ruleIds = default(List<ResourceId>), ResourceId portfolioGroupId = default(ResourceId), ResourceId recipeId = default(ResourceId), DateTimeOffset? effectiveAt = default(DateTimeOffset?), DateTimeOffset? asAt = default(DateTimeOffset?), string evaluationMode = default(string))
+        public RunComplianceV3Request(List<ResourceId> ruleIds = default(List<ResourceId>), List<ResourceId> portfolioIds = default(List<ResourceId>), ResourceId recipeId = default(ResourceId), DateTimeOffset? effectiveAt = default(DateTimeOffset?), DateTimeOffset? asAt = default(DateTimeOffset?))
         {
             // to ensure "ruleIds" is required (not null)
             if (ruleIds == null)
@@ -50,12 +49,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("ruleIds is a required property for RunComplianceV3Request and cannot be null");
             }
             this.RuleIds = ruleIds;
-            // to ensure "portfolioGroupId" is required (not null)
-            if (portfolioGroupId == null)
+            // to ensure "portfolioIds" is required (not null)
+            if (portfolioIds == null)
             {
-                throw new ArgumentNullException("portfolioGroupId is a required property for RunComplianceV3Request and cannot be null");
+                throw new ArgumentNullException("portfolioIds is a required property for RunComplianceV3Request and cannot be null");
             }
-            this.PortfolioGroupId = portfolioGroupId;
+            this.PortfolioIds = portfolioIds;
             // to ensure "recipeId" is required (not null)
             if (recipeId == null)
             {
@@ -64,7 +63,6 @@ namespace Lusid.Sdk.Model
             this.RecipeId = recipeId;
             this.EffectiveAt = effectiveAt;
             this.AsAt = asAt;
-            this.EvaluationMode = evaluationMode;
         }
 
         /// <summary>
@@ -74,10 +72,10 @@ namespace Lusid.Sdk.Model
         public List<ResourceId> RuleIds { get; set; }
 
         /// <summary>
-        /// Gets or Sets PortfolioGroupId
+        /// Gets or Sets PortfolioIds
         /// </summary>
-        [DataMember(Name = "portfolioGroupId", IsRequired = true, EmitDefaultValue = true)]
-        public ResourceId PortfolioGroupId { get; set; }
+        [DataMember(Name = "portfolioIds", IsRequired = true, EmitDefaultValue = true)]
+        public List<ResourceId> PortfolioIds { get; set; }
 
         /// <summary>
         /// Gets or Sets RecipeId
@@ -98,13 +96,6 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? AsAt { get; set; }
 
         /// <summary>
-        /// Available values: PerPortfolio, GroupTotal.
-        /// </summary>
-        /// <value>Available values: PerPortfolio, GroupTotal.</value>
-        [DataMember(Name = "evaluationMode", EmitDefaultValue = true)]
-        public string EvaluationMode { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -113,11 +104,10 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class RunComplianceV3Request {\n");
             sb.Append("  RuleIds: ").Append(RuleIds).Append("\n");
-            sb.Append("  PortfolioGroupId: ").Append(PortfolioGroupId).Append("\n");
+            sb.Append("  PortfolioIds: ").Append(PortfolioIds).Append("\n");
             sb.Append("  RecipeId: ").Append(RecipeId).Append("\n");
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("  AsAt: ").Append(AsAt).Append("\n");
-            sb.Append("  EvaluationMode: ").Append(EvaluationMode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -160,9 +150,10 @@ namespace Lusid.Sdk.Model
                     this.RuleIds.SequenceEqual(input.RuleIds)
                 ) && 
                 (
-                    this.PortfolioGroupId == input.PortfolioGroupId ||
-                    (this.PortfolioGroupId != null &&
-                    this.PortfolioGroupId.Equals(input.PortfolioGroupId))
+                    this.PortfolioIds == input.PortfolioIds ||
+                    this.PortfolioIds != null &&
+                    input.PortfolioIds != null &&
+                    this.PortfolioIds.SequenceEqual(input.PortfolioIds)
                 ) && 
                 (
                     this.RecipeId == input.RecipeId ||
@@ -178,11 +169,6 @@ namespace Lusid.Sdk.Model
                     this.AsAt == input.AsAt ||
                     (this.AsAt != null &&
                     this.AsAt.Equals(input.AsAt))
-                ) && 
-                (
-                    this.EvaluationMode == input.EvaluationMode ||
-                    (this.EvaluationMode != null &&
-                    this.EvaluationMode.Equals(input.EvaluationMode))
                 );
         }
 
@@ -199,9 +185,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.RuleIds.GetHashCode();
                 }
-                if (this.PortfolioGroupId != null)
+                if (this.PortfolioIds != null)
                 {
-                    hashCode = (hashCode * 59) + this.PortfolioGroupId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PortfolioIds.GetHashCode();
                 }
                 if (this.RecipeId != null)
                 {
@@ -214,10 +200,6 @@ namespace Lusid.Sdk.Model
                 if (this.AsAt != null)
                 {
                     hashCode = (hashCode * 59) + this.AsAt.GetHashCode();
-                }
-                if (this.EvaluationMode != null)
-                {
-                    hashCode = (hashCode * 59) + this.EvaluationMode.GetHashCode();
                 }
                 return hashCode;
             }

@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **WhtParameters** | [**WhtParameters**](WhtParameters.md) |  | [optional] 
 **ValuationTemplateId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**PartnershipAccountingPortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -79,6 +80,8 @@ WhtParameters? whtParameters = new WhtParameters();
 
 ResourceId? valuationTemplateId = new ResourceId();
 
+ResourceId? partnershipAccountingPortfolioId = new ResourceId();
+
 List<Link> links = new List<Link>();
 
 Fund fundInstance = new Fund(
@@ -112,6 +115,7 @@ Fund fundInstance = new Fund(
     varVersion: varVersion,
     whtParameters: whtParameters,
     valuationTemplateId: valuationTemplateId,
+    partnershipAccountingPortfolioId: partnershipAccountingPortfolioId,
     links: links);
 ```
 
