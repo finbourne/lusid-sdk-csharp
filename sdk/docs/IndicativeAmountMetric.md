@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SeedAmount** | **string** |  | 
 **Window** | [**ReturnsMetricWindow**](ReturnsMetricWindow.md) |  | [optional] 
-**Type** | **string** | Available values: Return, IndicativeAmount. | 
+**Type** | **string** | Available values: Return, IndicativeAmount, Volatility. | 
 **Alias** | **string** |  | [optional] 
 
 ```csharp

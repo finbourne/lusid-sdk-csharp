@@ -5,8 +5,10 @@ Base class for the activity windows that give the date range a rec definition's 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WindowType** | **string** | Polymorphic discriminator. Supported types: Contiguous, FixedPeriodLookback. Contiguous requires effectiveAtProgression Series; FixedPeriodLookback is accepted under any progression. Available values: Contiguous, FixedPeriodLookback, Explicit, ClosedPeriod, ContiguousAsAt. | 
+**WindowType** | **string** | Polymorphic discriminator. Supported types: Contiguous, FixedPeriodLookback, FixedBusinessDayLookback. Contiguous requires effectiveAtProgression Series; the lookback types are accepted under any progression. Available values: Contiguous, FixedPeriodLookback, FixedBusinessDayLookback, Explicit, ClosedPeriod, ContiguousAsAt. | 
 **InitialActivitySinceEffectiveAt** | [**RecActivitySinceEffectiveAt**](RecActivitySinceEffectiveAt.md) |  | 
+**Left** | [**RecBusinessDayLookbackSide**](RecBusinessDayLookbackSide.md) |  | 
+**Right** | [**RecBusinessDayLookbackSide**](RecBusinessDayLookbackSide.md) |  | 
 **LookbackPeriod** | **string** | The ISO 8601 period each side&#39;s window reaches back from its effectiveAt, e.g. P1D or PT12H. Whole counts of years, months, days, hours, minutes and seconds (P[n]Y[n]M[n]DT[n]H[n]M[n]S); weeks and fractions are not supported. Must be greater than zero, and applies to both sides. Evaluated in UTC, so P1D is exactly 24 hours. The since bound is exclusive. | 
 
 ```csharp
@@ -23,6 +25,7 @@ using System;
 var recActivityWindowInstance = new recActivityWindow(contiguousActivityWindowInstance)
 
 
+ * [FixedBusinessDayLookbackActivityWindow](./FixedBusinessDayLookbackActivityWindow.md)
  * [FixedPeriodLookbackActivityWindow](./FixedPeriodLookbackActivityWindow.md)
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

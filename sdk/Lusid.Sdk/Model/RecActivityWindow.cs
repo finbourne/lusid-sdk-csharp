@@ -45,6 +45,18 @@ namespace Lusid.Sdk.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RecActivityWindow" /> class
+        /// with the <see cref="FixedBusinessDayLookbackActivityWindow" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of FixedBusinessDayLookbackActivityWindow.</param>
+        public RecActivityWindow(FixedBusinessDayLookbackActivityWindow actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RecActivityWindow" /> class
         /// with the <see cref="FixedPeriodLookbackActivityWindow" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of FixedPeriodLookbackActivityWindow.</param>
@@ -73,13 +85,17 @@ namespace Lusid.Sdk.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(FixedBusinessDayLookbackActivityWindow) || value is FixedBusinessDayLookbackActivityWindow)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(FixedPeriodLookbackActivityWindow) || value is FixedPeriodLookbackActivityWindow)
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: ContiguousActivityWindow, FixedPeriodLookbackActivityWindow");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: ContiguousActivityWindow, FixedBusinessDayLookbackActivityWindow, FixedPeriodLookbackActivityWindow");
                 }
             }
         }
@@ -92,6 +108,16 @@ namespace Lusid.Sdk.Model
         public ContiguousActivityWindow GetContiguousActivityWindow()
         {
             return (ContiguousActivityWindow)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `FixedBusinessDayLookbackActivityWindow`. If the actual instance is not `FixedBusinessDayLookbackActivityWindow`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of FixedBusinessDayLookbackActivityWindow</returns>
+        public FixedBusinessDayLookbackActivityWindow GetFixedBusinessDayLookbackActivityWindow()
+        {
+            return (FixedBusinessDayLookbackActivityWindow)this.ActualInstance;
         }
 
         /// <summary>
@@ -149,11 +175,14 @@ namespace Lusid.Sdk.Model
                     case "Contiguous":
                         newRecActivityWindow = new RecActivityWindow(JsonConvert.DeserializeObject<ContiguousActivityWindow>(jsonString, RecActivityWindow.AdditionalPropertiesSerializerSettings));
                         return newRecActivityWindow;
+                    case "FixedBusinessDayLookback":
+                        newRecActivityWindow = new RecActivityWindow(JsonConvert.DeserializeObject<FixedBusinessDayLookbackActivityWindow>(jsonString, RecActivityWindow.AdditionalPropertiesSerializerSettings));
+                        return newRecActivityWindow;
                     case "FixedPeriodLookback":
                         newRecActivityWindow = new RecActivityWindow(JsonConvert.DeserializeObject<FixedPeriodLookbackActivityWindow>(jsonString, RecActivityWindow.AdditionalPropertiesSerializerSettings));
                         return newRecActivityWindow;
                     default:
-                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for RecActivityWindow. Possible values: Contiguous FixedPeriodLookback", discriminatorValue));
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for RecActivityWindow. Possible values: Contiguous FixedBusinessDayLookback FixedPeriodLookback", discriminatorValue));
                         break;
                 }
             }
@@ -183,6 +212,26 @@ namespace Lusid.Sdk.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ContiguousActivityWindow: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(FixedBusinessDayLookbackActivityWindow).GetProperty("AdditionalProperties") == null)
+                {
+                    newRecActivityWindow = new RecActivityWindow(JsonConvert.DeserializeObject<FixedBusinessDayLookbackActivityWindow>(jsonString, RecActivityWindow.SerializerSettings));
+                }
+                else
+                {
+                    newRecActivityWindow = new RecActivityWindow(JsonConvert.DeserializeObject<FixedBusinessDayLookbackActivityWindow>(jsonString, RecActivityWindow.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("FixedBusinessDayLookbackActivityWindow");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into FixedBusinessDayLookbackActivityWindow: {1}", jsonString, exception.ToString()));
             }
 
             try

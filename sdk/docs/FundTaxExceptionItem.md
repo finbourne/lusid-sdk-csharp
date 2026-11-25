@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **VarClient** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Fund** | [**ResourceId**](ResourceId.md) |  | 
 **Id** | **string** | An identifier stable within a response, built from the category, portfolio and instrument. | 
-**Category** | **string** | The kind of exception: UnmatchedDisposal, NegativePool, MissingValuation, UnclassifiedInstrument or CostWithoutUnits. | 
+**Category** | **string** | The kind of exception: UnmatchedDisposal, NegativePool, MissingValuation, UnclassifiedInstrument, CostWithoutUnits or DisposalBeforeIndexationFreeze. | 
 **Severity** | **string** | Error when the exception blocks the tax computation, Warning when it casts doubt on it. | 
 **Portfolio** | [**ResourceId**](ResourceId.md) |  | 
 **Instrument** | **string** | The LUSID unique identifier of the instrument the exception was raised against. | [optional] 

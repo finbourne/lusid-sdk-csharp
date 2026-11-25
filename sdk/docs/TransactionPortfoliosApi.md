@@ -3913,7 +3913,7 @@ catch (ApiException e)
 
 <a id="getportfoliocashstatement"></a>
 # **GetPortfolioCashStatement**
-> ResourceListOfPortfolioCashFlow GetPortfolioCashStatement (string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = null, string? filter = null, string? recipeIdScope = null, string? recipeIdCode = null, List<string>? propertyKeys = null)
+> ResourceListOfPortfolioCashFlow GetPortfolioCashStatement (string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = null, string? filter = null, string? recipeIdScope = null, string? recipeIdCode = null, List<string>? propertyKeys = null, string? dateRangeBasis = null)
 
 GetPortfolioCashStatement: Get portfolio cash statement
 
@@ -3967,14 +3967,15 @@ namespace Examples
             var recipeIdScope = "recipeIdScope_example";  // string? | The scope of the given recipeId (optional) 
             var recipeIdCode = "recipeIdCode_example";  // string? | The code of the given recipeID (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Instrument\" or \"Transaction\" domain to decorate onto              the cash flows' transactions. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or              \"Transaction/strategy/quantsignal\". (optional) 
+            var dateRangeBasis = "dateRangeBasis_example";  // string? | The date basis for selecting cash statement rows.              SettlementDate (default): rows whose cash movement settles in the date range, with Open and Closed balance rows.              TransactionDate: Activity rows only whose originating transaction date falls in the range (no Open/Closed).              AsAt: Activity rows only whose originating transaction entry date/time falls in the range (no Open/Closed).              For TransactionDate and AsAt the date range also drives the settlement window used to fetch cash flows,              so only transactions whose settlement date falls within the range are candidates for filtering. Available values: SettlementDate, TransactionDate, AsAt. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfPortfolioCashFlow result = apiInstance.GetPortfolioCashStatement(scope, code, fromEffectiveAt, toEffectiveAt, asAt, filter, recipeIdScope, recipeIdCode, propertyKeys, opts: opts);
+                // ResourceListOfPortfolioCashFlow result = apiInstance.GetPortfolioCashStatement(scope, code, fromEffectiveAt, toEffectiveAt, asAt, filter, recipeIdScope, recipeIdCode, propertyKeys, dateRangeBasis, opts: opts);
 
                 // GetPortfolioCashStatement: Get portfolio cash statement
-                ResourceListOfPortfolioCashFlow result = apiInstance.GetPortfolioCashStatement(scope, code, fromEffectiveAt, toEffectiveAt, asAt, filter, recipeIdScope, recipeIdCode, propertyKeys);
+                ResourceListOfPortfolioCashFlow result = apiInstance.GetPortfolioCashStatement(scope, code, fromEffectiveAt, toEffectiveAt, asAt, filter, recipeIdScope, recipeIdCode, propertyKeys, dateRangeBasis);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -3994,7 +3995,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetPortfolioCashStatement: Get portfolio cash statement
-    ApiResponse<ResourceListOfPortfolioCashFlow> response = apiInstance.GetPortfolioCashStatementWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt, filter, recipeIdScope, recipeIdCode, propertyKeys);
+    ApiResponse<ResourceListOfPortfolioCashFlow> response = apiInstance.GetPortfolioCashStatementWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt, filter, recipeIdScope, recipeIdCode, propertyKeys, dateRangeBasis);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -4020,6 +4021,7 @@ catch (ApiException e)
 | **recipeIdScope** | **string?** | The scope of the given recipeId | [optional]  |
 | **recipeIdCode** | **string?** | The code of the given recipeID | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the cash flows&#39; transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. | [optional]  |
+| **dateRangeBasis** | **string?** | The date basis for selecting cash statement rows.              SettlementDate (default): rows whose cash movement settles in the date range, with Open and Closed balance rows.              TransactionDate: Activity rows only whose originating transaction date falls in the range (no Open/Closed).              AsAt: Activity rows only whose originating transaction entry date/time falls in the range (no Open/Closed).              For TransactionDate and AsAt the date range also drives the settlement window used to fetch cash flows,              so only transactions whose settlement date falls within the range are candidates for filtering. Available values: SettlementDate, TransactionDate, AsAt. | [optional]  |
 
 ### Return type
 

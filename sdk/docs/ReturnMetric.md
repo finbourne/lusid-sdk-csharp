@@ -6,7 +6,7 @@ The rate of return over each period of the grid, or over a window looking back f
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Window** | [**ReturnsMetricWindow**](ReturnsMetricWindow.md) |  | [optional] 
-**Type** | **string** | Available values: Return, IndicativeAmount. | 
+**Type** | **string** | Available values: Return, IndicativeAmount, Volatility. | 
 **Alias** | **string** |  | [optional] 
 
 ```csharp

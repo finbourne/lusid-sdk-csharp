@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Reason** | **string** | Why the fund manager overrode the methodology&#39;s decision. | 
 **User** | **string** | The user who made the override. | [optional] 
 **Timestamp** | **DateTimeOffset** | When the override was made. | 
+**NetCashflow** | **decimal?** | The fund&#39;s net dealing cashflow the decision was taken on, in the fund currency, read as at the override&#39;s timestamp. An inflow is positive and an outflow negative. A net that moves within its swing tier leaves the decision standing, so this can differ from the audit&#39;s current netCashflow, and both are kept on the final valuation point. Null when the swing policy approves automatically, or the decision was taken before the net was recorded. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -22,7 +23,8 @@ PricingMethodologyOverride pricingMethodologyOverrideInstance = new PricingMetho
     decision: decision,
     reason: reason,
     user: user,
-    timestamp: timestamp);
+    timestamp: timestamp,
+    netCashflow: netCashflow);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

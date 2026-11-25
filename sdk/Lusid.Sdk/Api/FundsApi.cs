@@ -2856,6 +2856,68 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ReactivatedNavTypesResponse</returns>
         Lusid.Sdk.Client.ApiResponse<ReactivatedNavTypesResponse> ReactivateNavTypesWithHttpInfo(string scope, string code, List<string> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] ReseedFacilityBalance: [EXPERIMENTAL] ReseedFacilityBalance: Re-seed a Facility&#39;s balance from its booked draws and repayments.
+        /// </summary>
+        /// <remarks>
+        /// Rebuild the balance a Facility&#39;s limit is judged on from the draws and repayments booked on it: DealFundings  drawn from it and capital calls repaying it, in Booked or Booking status, on allocation maps whose  structureMemberId is the Fund, and FacilityDrawEvents and FacilityRepaymentEvents in the sources of the Fund&#39;s  portfolios. Afterwards the balance is the booked draws and repayments. Running it again writes nothing. A  Facility with nothing booked on it is seeded with 0. Draws and repayments still in Booking status count, and  are named in a FacilityBookingInProgress warning.  A draw or repayment written at the same time makes the re-seed fail as a concurrent modification; retry it.  A draw or repayment naming the Facility on an allocation map whose structureMemberId is not a fund cannot be  attributed, and the re-seed is refused with 409 FacilityFlowsUnattributable naming them; nothing is written,  and draws, repayments, FacilityInterestEvents and FacilityCommitmentFeeEvents on the Facility are refused the  same way until the maps are fixed and the Facility is re-seeded.  With dryRun, nothing is written: the response says what a re-seed would write, or lists the draws and  repayments that cannot be attributed. Requires the Fund&#39;s update entitlement, except for a dry run.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="facilityCode">The code of the Facility to re-seed.</param>
+        /// <param name="dryRun">Report what a re-seed would write, and any draws or repayments that cannot be attributed, without writing anything. Defaults to false. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>FacilityReseedResult</returns>
+        FacilityReseedResult ReseedFacilityBalance(string scope, string code, string facilityCode, bool? dryRun = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReseedFacilityBalance: [EXPERIMENTAL] ReseedFacilityBalance: Re-seed a Facility&#39;s balance from its booked draws and repayments.
+        /// </summary>
+        /// <remarks>
+        /// Rebuild the balance a Facility&#39;s limit is judged on from the draws and repayments booked on it: DealFundings  drawn from it and capital calls repaying it, in Booked or Booking status, on allocation maps whose  structureMemberId is the Fund, and FacilityDrawEvents and FacilityRepaymentEvents in the sources of the Fund&#39;s  portfolios. Afterwards the balance is the booked draws and repayments. Running it again writes nothing. A  Facility with nothing booked on it is seeded with 0. Draws and repayments still in Booking status count, and  are named in a FacilityBookingInProgress warning.  A draw or repayment written at the same time makes the re-seed fail as a concurrent modification; retry it.  A draw or repayment naming the Facility on an allocation map whose structureMemberId is not a fund cannot be  attributed, and the re-seed is refused with 409 FacilityFlowsUnattributable naming them; nothing is written,  and draws, repayments, FacilityInterestEvents and FacilityCommitmentFeeEvents on the Facility are refused the  same way until the maps are fixed and the Facility is re-seeded.  With dryRun, nothing is written: the response says what a re-seed would write, or lists the draws and  repayments that cannot be attributed. Requires the Fund&#39;s update entitlement, except for a dry run.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="facilityCode">The code of the Facility to re-seed.</param>
+        /// <param name="dryRun">Report what a re-seed would write, and any draws or repayments that cannot be attributed, without writing anything. Defaults to false. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of FacilityReseedResult</returns>
+        Lusid.Sdk.Client.ApiResponse<FacilityReseedResult> ReseedFacilityBalanceWithHttpInfo(string scope, string code, string facilityCode, bool? dryRun = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] ResplitPrepaidManagementFees: [EXPERIMENTAL] ResplitPrepaidManagementFees: Re-split the Fund&#39;s prepaid management fee periods.
+        /// </summary>
+        /// <remarks>
+        /// Derive again, for every prepaid management fee period meeting the window, the split of its offsets between the  fee payable and a receivable from the manager, from the period&#39;s prepayment, its accruals and the payments to  the manager the Fund&#39;s books now hold, without calculating any fee again. A payment booked after a split leaves  it out of date until the period is re-split, which a valuation point over the period does before it is struck.  An unchanged split writes nothing, a re-split into a final period is its post-close activity, and a dry run  writes nothing and says which periods&#39; splits are out of date.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="managementFeeResplitRequest">The window to re-split, and whether to write.</param>
+        /// <param name="asAt">The asAt datetime at which to read the Fund, on a dry run only. Defaults to return the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ManagementFeeResplitResult</returns>
+        ManagementFeeResplitResult ResplitPrepaidManagementFees(string scope, string code, ManagementFeeResplitRequest managementFeeResplitRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] ResplitPrepaidManagementFees: [EXPERIMENTAL] ResplitPrepaidManagementFees: Re-split the Fund&#39;s prepaid management fee periods.
+        /// </summary>
+        /// <remarks>
+        /// Derive again, for every prepaid management fee period meeting the window, the split of its offsets between the  fee payable and a receivable from the manager, from the period&#39;s prepayment, its accruals and the payments to  the manager the Fund&#39;s books now hold, without calculating any fee again. A payment booked after a split leaves  it out of date until the period is re-split, which a valuation point over the period does before it is struck.  An unchanged split writes nothing, a re-split into a final period is its post-close activity, and a dry run  writes nothing and says which periods&#39; splits are out of date.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="managementFeeResplitRequest">The window to re-split, and whether to write.</param>
+        /// <param name="asAt">The asAt datetime at which to read the Fund, on a dry run only. Defaults to return the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ManagementFeeResplitResult</returns>
+        Lusid.Sdk.Client.ApiResponse<ManagementFeeResplitResult> ResplitPrepaidManagementFeesWithHttpInfo(string scope, string code, ManagementFeeResplitRequest managementFeeResplitRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
         /// </summary>
         /// <remarks>
@@ -2950,6 +3012,45 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TaxReturnResponse</returns>
         Lusid.Sdk.Client.ApiResponse<TaxReturnResponse> SendBackTaxReturnWithHttpInfo(string scope, string code, TaxReturnTransitionRequest taxReturnTransitionRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? taxPeriod = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] SetHoldingsForFund: Set holdings for a Fund.
+        /// </summary>
+        /// <remarks>
+        /// Set the holdings of the derived portfolio a Fund maintains for a NAV type to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the entire set of holdings for the derived  portfolio are always set to the provided targets for the specified effective datetime.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
+        /// <param name="adjustHoldingRequest">The complete set of target holdings for the Fund&#39;s derived portfolio.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>AdjustHolding</returns>
+        AdjustHolding SetHoldingsForFund(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, string? navTypeCode = default(string?), List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetHoldingsForFund: Set holdings for a Fund.
+        /// </summary>
+        /// <remarks>
+        /// Set the holdings of the derived portfolio a Fund maintains for a NAV type to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the entire set of holdings for the derived  portfolio are always set to the provided targets for the specified effective datetime.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
+        /// <param name="adjustHoldingRequest">The complete set of target holdings for the Fund&#39;s derived portfolio.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of AdjustHolding</returns>
+        Lusid.Sdk.Client.ApiResponse<AdjustHolding> SetHoldingsForFundWithHttpInfo(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, string? navTypeCode = default(string?), List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
         /// </summary>
@@ -6285,6 +6386,72 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ReactivatedNavTypesResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ReactivatedNavTypesResponse>> ReactivateNavTypesWithHttpInfoAsync(string scope, string code, List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] ReseedFacilityBalance: [EXPERIMENTAL] ReseedFacilityBalance: Re-seed a Facility&#39;s balance from its booked draws and repayments.
+        /// </summary>
+        /// <remarks>
+        /// Rebuild the balance a Facility&#39;s limit is judged on from the draws and repayments booked on it: DealFundings  drawn from it and capital calls repaying it, in Booked or Booking status, on allocation maps whose  structureMemberId is the Fund, and FacilityDrawEvents and FacilityRepaymentEvents in the sources of the Fund&#39;s  portfolios. Afterwards the balance is the booked draws and repayments. Running it again writes nothing. A  Facility with nothing booked on it is seeded with 0. Draws and repayments still in Booking status count, and  are named in a FacilityBookingInProgress warning.  A draw or repayment written at the same time makes the re-seed fail as a concurrent modification; retry it.  A draw or repayment naming the Facility on an allocation map whose structureMemberId is not a fund cannot be  attributed, and the re-seed is refused with 409 FacilityFlowsUnattributable naming them; nothing is written,  and draws, repayments, FacilityInterestEvents and FacilityCommitmentFeeEvents on the Facility are refused the  same way until the maps are fixed and the Facility is re-seeded.  With dryRun, nothing is written: the response says what a re-seed would write, or lists the draws and  repayments that cannot be attributed. Requires the Fund&#39;s update entitlement, except for a dry run.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="facilityCode">The code of the Facility to re-seed.</param>
+        /// <param name="dryRun">Report what a re-seed would write, and any draws or repayments that cannot be attributed, without writing anything. Defaults to false. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of FacilityReseedResult</returns>
+        System.Threading.Tasks.Task<FacilityReseedResult> ReseedFacilityBalanceAsync(string scope, string code, string facilityCode, bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReseedFacilityBalance: [EXPERIMENTAL] ReseedFacilityBalance: Re-seed a Facility&#39;s balance from its booked draws and repayments.
+        /// </summary>
+        /// <remarks>
+        /// Rebuild the balance a Facility&#39;s limit is judged on from the draws and repayments booked on it: DealFundings  drawn from it and capital calls repaying it, in Booked or Booking status, on allocation maps whose  structureMemberId is the Fund, and FacilityDrawEvents and FacilityRepaymentEvents in the sources of the Fund&#39;s  portfolios. Afterwards the balance is the booked draws and repayments. Running it again writes nothing. A  Facility with nothing booked on it is seeded with 0. Draws and repayments still in Booking status count, and  are named in a FacilityBookingInProgress warning.  A draw or repayment written at the same time makes the re-seed fail as a concurrent modification; retry it.  A draw or repayment naming the Facility on an allocation map whose structureMemberId is not a fund cannot be  attributed, and the re-seed is refused with 409 FacilityFlowsUnattributable naming them; nothing is written,  and draws, repayments, FacilityInterestEvents and FacilityCommitmentFeeEvents on the Facility are refused the  same way until the maps are fixed and the Facility is re-seeded.  With dryRun, nothing is written: the response says what a re-seed would write, or lists the draws and  repayments that cannot be attributed. Requires the Fund&#39;s update entitlement, except for a dry run.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="facilityCode">The code of the Facility to re-seed.</param>
+        /// <param name="dryRun">Report what a re-seed would write, and any draws or repayments that cannot be attributed, without writing anything. Defaults to false. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (FacilityReseedResult)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<FacilityReseedResult>> ReseedFacilityBalanceWithHttpInfoAsync(string scope, string code, string facilityCode, bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] ResplitPrepaidManagementFees: [EXPERIMENTAL] ResplitPrepaidManagementFees: Re-split the Fund&#39;s prepaid management fee periods.
+        /// </summary>
+        /// <remarks>
+        /// Derive again, for every prepaid management fee period meeting the window, the split of its offsets between the  fee payable and a receivable from the manager, from the period&#39;s prepayment, its accruals and the payments to  the manager the Fund&#39;s books now hold, without calculating any fee again. A payment booked after a split leaves  it out of date until the period is re-split, which a valuation point over the period does before it is struck.  An unchanged split writes nothing, a re-split into a final period is its post-close activity, and a dry run  writes nothing and says which periods&#39; splits are out of date.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="managementFeeResplitRequest">The window to re-split, and whether to write.</param>
+        /// <param name="asAt">The asAt datetime at which to read the Fund, on a dry run only. Defaults to return the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ManagementFeeResplitResult</returns>
+        System.Threading.Tasks.Task<ManagementFeeResplitResult> ResplitPrepaidManagementFeesAsync(string scope, string code, ManagementFeeResplitRequest managementFeeResplitRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] ResplitPrepaidManagementFees: [EXPERIMENTAL] ResplitPrepaidManagementFees: Re-split the Fund&#39;s prepaid management fee periods.
+        /// </summary>
+        /// <remarks>
+        /// Derive again, for every prepaid management fee period meeting the window, the split of its offsets between the  fee payable and a receivable from the manager, from the period&#39;s prepayment, its accruals and the payments to  the manager the Fund&#39;s books now hold, without calculating any fee again. A payment booked after a split leaves  it out of date until the period is re-split, which a valuation point over the period does before it is struck.  An unchanged split writes nothing, a re-split into a final period is its post-close activity, and a dry run  writes nothing and says which periods&#39; splits are out of date.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="managementFeeResplitRequest">The window to re-split, and whether to write.</param>
+        /// <param name="asAt">The asAt datetime at which to read the Fund, on a dry run only. Defaults to return the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ManagementFeeResplitResult)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ManagementFeeResplitResult>> ResplitPrepaidManagementFeesWithHttpInfoAsync(string scope, string code, ManagementFeeResplitRequest managementFeeResplitRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
         /// </summary>
         /// <remarks>
@@ -6385,6 +6552,47 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TaxReturnResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TaxReturnResponse>> SendBackTaxReturnWithHttpInfoAsync(string scope, string code, TaxReturnTransitionRequest taxReturnTransitionRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? taxPeriod = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] SetHoldingsForFund: Set holdings for a Fund.
+        /// </summary>
+        /// <remarks>
+        /// Set the holdings of the derived portfolio a Fund maintains for a NAV type to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the entire set of holdings for the derived  portfolio are always set to the provided targets for the specified effective datetime.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
+        /// <param name="adjustHoldingRequest">The complete set of target holdings for the Fund&#39;s derived portfolio.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of AdjustHolding</returns>
+        System.Threading.Tasks.Task<AdjustHolding> SetHoldingsForFundAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, string? navTypeCode = default(string?), List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetHoldingsForFund: Set holdings for a Fund.
+        /// </summary>
+        /// <remarks>
+        /// Set the holdings of the derived portfolio a Fund maintains for a NAV type to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the entire set of holdings for the derived  portfolio are always set to the provided targets for the specified effective datetime.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
+        /// <param name="adjustHoldingRequest">The complete set of target holdings for the Fund&#39;s derived portfolio.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (AdjustHolding)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AdjustHolding>> SetHoldingsForFundWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, string? navTypeCode = default(string?), List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
         /// </summary>
@@ -29598,6 +29806,520 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
+        /// [EXPERIMENTAL] ReseedFacilityBalance: [EXPERIMENTAL] ReseedFacilityBalance: Re-seed a Facility&#39;s balance from its booked draws and repayments. Rebuild the balance a Facility&#39;s limit is judged on from the draws and repayments booked on it: DealFundings  drawn from it and capital calls repaying it, in Booked or Booking status, on allocation maps whose  structureMemberId is the Fund, and FacilityDrawEvents and FacilityRepaymentEvents in the sources of the Fund&#39;s  portfolios. Afterwards the balance is the booked draws and repayments. Running it again writes nothing. A  Facility with nothing booked on it is seeded with 0. Draws and repayments still in Booking status count, and  are named in a FacilityBookingInProgress warning.  A draw or repayment written at the same time makes the re-seed fail as a concurrent modification; retry it.  A draw or repayment naming the Facility on an allocation map whose structureMemberId is not a fund cannot be  attributed, and the re-seed is refused with 409 FacilityFlowsUnattributable naming them; nothing is written,  and draws, repayments, FacilityInterestEvents and FacilityCommitmentFeeEvents on the Facility are refused the  same way until the maps are fixed and the Facility is re-seeded.  With dryRun, nothing is written: the response says what a re-seed would write, or lists the draws and  repayments that cannot be attributed. Requires the Fund&#39;s update entitlement, except for a dry run.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="facilityCode">The code of the Facility to re-seed.</param>
+        /// <param name="dryRun">Report what a re-seed would write, and any draws or repayments that cannot be attributed, without writing anything. Defaults to false. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>FacilityReseedResult</returns>
+        public FacilityReseedResult ReseedFacilityBalance(string scope, string code, string facilityCode, bool? dryRun = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<FacilityReseedResult> localVarResponse = ReseedFacilityBalanceWithHttpInfo(scope, code, facilityCode, dryRun, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReseedFacilityBalance: [EXPERIMENTAL] ReseedFacilityBalance: Re-seed a Facility&#39;s balance from its booked draws and repayments. Rebuild the balance a Facility&#39;s limit is judged on from the draws and repayments booked on it: DealFundings  drawn from it and capital calls repaying it, in Booked or Booking status, on allocation maps whose  structureMemberId is the Fund, and FacilityDrawEvents and FacilityRepaymentEvents in the sources of the Fund&#39;s  portfolios. Afterwards the balance is the booked draws and repayments. Running it again writes nothing. A  Facility with nothing booked on it is seeded with 0. Draws and repayments still in Booking status count, and  are named in a FacilityBookingInProgress warning.  A draw or repayment written at the same time makes the re-seed fail as a concurrent modification; retry it.  A draw or repayment naming the Facility on an allocation map whose structureMemberId is not a fund cannot be  attributed, and the re-seed is refused with 409 FacilityFlowsUnattributable naming them; nothing is written,  and draws, repayments, FacilityInterestEvents and FacilityCommitmentFeeEvents on the Facility are refused the  same way until the maps are fixed and the Facility is re-seeded.  With dryRun, nothing is written: the response says what a re-seed would write, or lists the draws and  repayments that cannot be attributed. Requires the Fund&#39;s update entitlement, except for a dry run.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="facilityCode">The code of the Facility to re-seed.</param>
+        /// <param name="dryRun">Report what a re-seed would write, and any draws or repayments that cannot be attributed, without writing anything. Defaults to false. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of FacilityReseedResult</returns>
+        public Lusid.Sdk.Client.ApiResponse<FacilityReseedResult> ReseedFacilityBalanceWithHttpInfo(string scope, string code, string facilityCode, bool? dryRun = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->ReseedFacilityBalance");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->ReseedFacilityBalance");
+            }
+
+            // verify the required parameter 'facilityCode' is set
+            if (facilityCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'facilityCode' when calling FundsApi->ReseedFacilityBalance");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("facilityCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(facilityCode)); // path parameter
+            if (dryRun != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dryRun", dryRun));
+            }
+
+            localVarRequestOptions.Operation = "FundsApi.ReseedFacilityBalance";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<FacilityReseedResult>("/api/funds/{scope}/{code}/facilities/{facilityCode}/$reseed", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ReseedFacilityBalance", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReseedFacilityBalance: [EXPERIMENTAL] ReseedFacilityBalance: Re-seed a Facility&#39;s balance from its booked draws and repayments. Rebuild the balance a Facility&#39;s limit is judged on from the draws and repayments booked on it: DealFundings  drawn from it and capital calls repaying it, in Booked or Booking status, on allocation maps whose  structureMemberId is the Fund, and FacilityDrawEvents and FacilityRepaymentEvents in the sources of the Fund&#39;s  portfolios. Afterwards the balance is the booked draws and repayments. Running it again writes nothing. A  Facility with nothing booked on it is seeded with 0. Draws and repayments still in Booking status count, and  are named in a FacilityBookingInProgress warning.  A draw or repayment written at the same time makes the re-seed fail as a concurrent modification; retry it.  A draw or repayment naming the Facility on an allocation map whose structureMemberId is not a fund cannot be  attributed, and the re-seed is refused with 409 FacilityFlowsUnattributable naming them; nothing is written,  and draws, repayments, FacilityInterestEvents and FacilityCommitmentFeeEvents on the Facility are refused the  same way until the maps are fixed and the Facility is re-seeded.  With dryRun, nothing is written: the response says what a re-seed would write, or lists the draws and  repayments that cannot be attributed. Requires the Fund&#39;s update entitlement, except for a dry run.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="facilityCode">The code of the Facility to re-seed.</param>
+        /// <param name="dryRun">Report what a re-seed would write, and any draws or repayments that cannot be attributed, without writing anything. Defaults to false. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of FacilityReseedResult</returns>
+        public async System.Threading.Tasks.Task<FacilityReseedResult> ReseedFacilityBalanceAsync(string scope, string code, string facilityCode, bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<FacilityReseedResult> localVarResponse = await ReseedFacilityBalanceWithHttpInfoAsync(scope, code, facilityCode, dryRun, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReseedFacilityBalance: [EXPERIMENTAL] ReseedFacilityBalance: Re-seed a Facility&#39;s balance from its booked draws and repayments. Rebuild the balance a Facility&#39;s limit is judged on from the draws and repayments booked on it: DealFundings  drawn from it and capital calls repaying it, in Booked or Booking status, on allocation maps whose  structureMemberId is the Fund, and FacilityDrawEvents and FacilityRepaymentEvents in the sources of the Fund&#39;s  portfolios. Afterwards the balance is the booked draws and repayments. Running it again writes nothing. A  Facility with nothing booked on it is seeded with 0. Draws and repayments still in Booking status count, and  are named in a FacilityBookingInProgress warning.  A draw or repayment written at the same time makes the re-seed fail as a concurrent modification; retry it.  A draw or repayment naming the Facility on an allocation map whose structureMemberId is not a fund cannot be  attributed, and the re-seed is refused with 409 FacilityFlowsUnattributable naming them; nothing is written,  and draws, repayments, FacilityInterestEvents and FacilityCommitmentFeeEvents on the Facility are refused the  same way until the maps are fixed and the Facility is re-seeded.  With dryRun, nothing is written: the response says what a re-seed would write, or lists the draws and  repayments that cannot be attributed. Requires the Fund&#39;s update entitlement, except for a dry run.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="facilityCode">The code of the Facility to re-seed.</param>
+        /// <param name="dryRun">Report what a re-seed would write, and any draws or repayments that cannot be attributed, without writing anything. Defaults to false. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (FacilityReseedResult)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<FacilityReseedResult>> ReseedFacilityBalanceWithHttpInfoAsync(string scope, string code, string facilityCode, bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->ReseedFacilityBalance");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->ReseedFacilityBalance");
+            }
+
+            // verify the required parameter 'facilityCode' is set
+            if (facilityCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'facilityCode' when calling FundsApi->ReseedFacilityBalance");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("facilityCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(facilityCode)); // path parameter
+            if (dryRun != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dryRun", dryRun));
+            }
+
+            localVarRequestOptions.Operation = "FundsApi.ReseedFacilityBalance";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<FacilityReseedResult>("/api/funds/{scope}/{code}/facilities/{facilityCode}/$reseed", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ReseedFacilityBalance", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ResplitPrepaidManagementFees: [EXPERIMENTAL] ResplitPrepaidManagementFees: Re-split the Fund&#39;s prepaid management fee periods. Derive again, for every prepaid management fee period meeting the window, the split of its offsets between the  fee payable and a receivable from the manager, from the period&#39;s prepayment, its accruals and the payments to  the manager the Fund&#39;s books now hold, without calculating any fee again. A payment booked after a split leaves  it out of date until the period is re-split, which a valuation point over the period does before it is struck.  An unchanged split writes nothing, a re-split into a final period is its post-close activity, and a dry run  writes nothing and says which periods&#39; splits are out of date.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="managementFeeResplitRequest">The window to re-split, and whether to write.</param>
+        /// <param name="asAt">The asAt datetime at which to read the Fund, on a dry run only. Defaults to return the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ManagementFeeResplitResult</returns>
+        public ManagementFeeResplitResult ResplitPrepaidManagementFees(string scope, string code, ManagementFeeResplitRequest managementFeeResplitRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ManagementFeeResplitResult> localVarResponse = ResplitPrepaidManagementFeesWithHttpInfo(scope, code, managementFeeResplitRequest, asAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ResplitPrepaidManagementFees: [EXPERIMENTAL] ResplitPrepaidManagementFees: Re-split the Fund&#39;s prepaid management fee periods. Derive again, for every prepaid management fee period meeting the window, the split of its offsets between the  fee payable and a receivable from the manager, from the period&#39;s prepayment, its accruals and the payments to  the manager the Fund&#39;s books now hold, without calculating any fee again. A payment booked after a split leaves  it out of date until the period is re-split, which a valuation point over the period does before it is struck.  An unchanged split writes nothing, a re-split into a final period is its post-close activity, and a dry run  writes nothing and says which periods&#39; splits are out of date.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="managementFeeResplitRequest">The window to re-split, and whether to write.</param>
+        /// <param name="asAt">The asAt datetime at which to read the Fund, on a dry run only. Defaults to return the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ManagementFeeResplitResult</returns>
+        public Lusid.Sdk.Client.ApiResponse<ManagementFeeResplitResult> ResplitPrepaidManagementFeesWithHttpInfo(string scope, string code, ManagementFeeResplitRequest managementFeeResplitRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->ResplitPrepaidManagementFees");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->ResplitPrepaidManagementFees");
+            }
+
+            // verify the required parameter 'managementFeeResplitRequest' is set
+            if (managementFeeResplitRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'managementFeeResplitRequest' when calling FundsApi->ResplitPrepaidManagementFees");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            localVarRequestOptions.Data = managementFeeResplitRequest;
+
+            localVarRequestOptions.Operation = "FundsApi.ResplitPrepaidManagementFees";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ManagementFeeResplitResult>("/api/funds/{scope}/{code}/fees/$resplit", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ResplitPrepaidManagementFees", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ResplitPrepaidManagementFees: [EXPERIMENTAL] ResplitPrepaidManagementFees: Re-split the Fund&#39;s prepaid management fee periods. Derive again, for every prepaid management fee period meeting the window, the split of its offsets between the  fee payable and a receivable from the manager, from the period&#39;s prepayment, its accruals and the payments to  the manager the Fund&#39;s books now hold, without calculating any fee again. A payment booked after a split leaves  it out of date until the period is re-split, which a valuation point over the period does before it is struck.  An unchanged split writes nothing, a re-split into a final period is its post-close activity, and a dry run  writes nothing and says which periods&#39; splits are out of date.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="managementFeeResplitRequest">The window to re-split, and whether to write.</param>
+        /// <param name="asAt">The asAt datetime at which to read the Fund, on a dry run only. Defaults to return the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ManagementFeeResplitResult</returns>
+        public async System.Threading.Tasks.Task<ManagementFeeResplitResult> ResplitPrepaidManagementFeesAsync(string scope, string code, ManagementFeeResplitRequest managementFeeResplitRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ManagementFeeResplitResult> localVarResponse = await ResplitPrepaidManagementFeesWithHttpInfoAsync(scope, code, managementFeeResplitRequest, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ResplitPrepaidManagementFees: [EXPERIMENTAL] ResplitPrepaidManagementFees: Re-split the Fund&#39;s prepaid management fee periods. Derive again, for every prepaid management fee period meeting the window, the split of its offsets between the  fee payable and a receivable from the manager, from the period&#39;s prepayment, its accruals and the payments to  the manager the Fund&#39;s books now hold, without calculating any fee again. A payment booked after a split leaves  it out of date until the period is re-split, which a valuation point over the period does before it is struck.  An unchanged split writes nothing, a re-split into a final period is its post-close activity, and a dry run  writes nothing and says which periods&#39; splits are out of date.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="managementFeeResplitRequest">The window to re-split, and whether to write.</param>
+        /// <param name="asAt">The asAt datetime at which to read the Fund, on a dry run only. Defaults to return the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ManagementFeeResplitResult)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ManagementFeeResplitResult>> ResplitPrepaidManagementFeesWithHttpInfoAsync(string scope, string code, ManagementFeeResplitRequest managementFeeResplitRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->ResplitPrepaidManagementFees");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->ResplitPrepaidManagementFees");
+            }
+
+            // verify the required parameter 'managementFeeResplitRequest' is set
+            if (managementFeeResplitRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'managementFeeResplitRequest' when calling FundsApi->ResplitPrepaidManagementFees");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            localVarRequestOptions.Data = managementFeeResplitRequest;
+
+            localVarRequestOptions.Operation = "FundsApi.ResplitPrepaidManagementFees";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ManagementFeeResplitResult>("/api/funds/{scope}/{code}/fees/$resplit", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ResplitPrepaidManagementFees", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate. Moves a &#39;Final&#39; status Valuation Point to status &#39;Estimate&#39;.  Returns the reverted Valuation Point alongside every variant that  finalising it had rejected.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -30384,6 +31106,324 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SendBackTaxReturn", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetHoldingsForFund: Set holdings for a Fund. Set the holdings of the derived portfolio a Fund maintains for a NAV type to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the entire set of holdings for the derived  portfolio are always set to the provided targets for the specified effective datetime.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
+        /// <param name="adjustHoldingRequest">The complete set of target holdings for the Fund&#39;s derived portfolio.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>AdjustHolding</returns>
+        public AdjustHolding SetHoldingsForFund(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, string? navTypeCode = default(string?), List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<AdjustHolding> localVarResponse = SetHoldingsForFundWithHttpInfo(scope, code, effectiveAt, adjustHoldingRequest, navTypeCode, reconciliationMethods, overrideMovementName, overrideOffsetMovementName, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetHoldingsForFund: Set holdings for a Fund. Set the holdings of the derived portfolio a Fund maintains for a NAV type to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the entire set of holdings for the derived  portfolio are always set to the provided targets for the specified effective datetime.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
+        /// <param name="adjustHoldingRequest">The complete set of target holdings for the Fund&#39;s derived portfolio.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of AdjustHolding</returns>
+        public Lusid.Sdk.Client.ApiResponse<AdjustHolding> SetHoldingsForFundWithHttpInfo(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, string? navTypeCode = default(string?), List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->SetHoldingsForFund");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->SetHoldingsForFund");
+            }
+
+            // verify the required parameter 'effectiveAt' is set
+            if (effectiveAt == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'effectiveAt' when calling FundsApi->SetHoldingsForFund");
+            }
+
+            // verify the required parameter 'adjustHoldingRequest' is set
+            if (adjustHoldingRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'adjustHoldingRequest' when calling FundsApi->SetHoldingsForFund");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            if (navTypeCode != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            }
+            if (reconciliationMethods != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "reconciliationMethods", reconciliationMethods));
+            }
+            if (overrideMovementName != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "overrideMovementName", overrideMovementName));
+            }
+            if (overrideOffsetMovementName != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "overrideOffsetMovementName", overrideOffsetMovementName));
+            }
+            localVarRequestOptions.Data = adjustHoldingRequest;
+
+            localVarRequestOptions.Operation = "FundsApi.SetHoldingsForFund";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<AdjustHolding>("/api/funds/{scope}/{code}/holdings", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetHoldingsForFund", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetHoldingsForFund: Set holdings for a Fund. Set the holdings of the derived portfolio a Fund maintains for a NAV type to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the entire set of holdings for the derived  portfolio are always set to the provided targets for the specified effective datetime.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
+        /// <param name="adjustHoldingRequest">The complete set of target holdings for the Fund&#39;s derived portfolio.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of AdjustHolding</returns>
+        public async System.Threading.Tasks.Task<AdjustHolding> SetHoldingsForFundAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, string? navTypeCode = default(string?), List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<AdjustHolding> localVarResponse = await SetHoldingsForFundWithHttpInfoAsync(scope, code, effectiveAt, adjustHoldingRequest, navTypeCode, reconciliationMethods, overrideMovementName, overrideOffsetMovementName, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetHoldingsForFund: Set holdings for a Fund. Set the holdings of the derived portfolio a Fund maintains for a NAV type to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the entire set of holdings for the derived  portfolio are always set to the provided targets for the specified effective datetime.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
+        /// <param name="adjustHoldingRequest">The complete set of target holdings for the Fund&#39;s derived portfolio.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (AdjustHolding)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AdjustHolding>> SetHoldingsForFundWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, string? navTypeCode = default(string?), List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->SetHoldingsForFund");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->SetHoldingsForFund");
+            }
+
+            // verify the required parameter 'effectiveAt' is set
+            if (effectiveAt == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'effectiveAt' when calling FundsApi->SetHoldingsForFund");
+            }
+
+            // verify the required parameter 'adjustHoldingRequest' is set
+            if (adjustHoldingRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'adjustHoldingRequest' when calling FundsApi->SetHoldingsForFund");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            if (navTypeCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            }
+            if (reconciliationMethods != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "reconciliationMethods", reconciliationMethods));
+            }
+            if (overrideMovementName != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "overrideMovementName", overrideMovementName));
+            }
+            if (overrideOffsetMovementName != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "overrideOffsetMovementName", overrideOffsetMovementName));
+            }
+            localVarRequestOptions.Data = adjustHoldingRequest;
+
+            localVarRequestOptions.Operation = "FundsApi.SetHoldingsForFund";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<AdjustHolding>("/api/funds/{scope}/{code}/holdings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetHoldingsForFund", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

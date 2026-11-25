@@ -37,13 +37,14 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ValuationPointResourceListOfAccountedTransaction" /> class.
         /// </summary>
         /// <param name="startValuationPoint">startValuationPoint.</param>
+        /// <param name="diagnostics">diagnostics.</param>
         /// <param name="varVersion">varVersion (required).</param>
         /// <param name="values">values (required).</param>
         /// <param name="href">href.</param>
         /// <param name="nextPage">nextPage.</param>
         /// <param name="previousPage">previousPage.</param>
         /// <param name="links">links.</param>
-        public ValuationPointResourceListOfAccountedTransaction(DiaryEntry startValuationPoint = default(DiaryEntry), ModelVersion varVersion = default(ModelVersion), List<AccountedTransaction> values = default(List<AccountedTransaction>), string href = default(string), string nextPage = default(string), string previousPage = default(string), List<Link> links = default(List<Link>))
+        public ValuationPointResourceListOfAccountedTransaction(DiaryEntry startValuationPoint = default(DiaryEntry), List<ValuationPointDiagnostic> diagnostics = default(List<ValuationPointDiagnostic>), ModelVersion varVersion = default(ModelVersion), List<AccountedTransaction> values = default(List<AccountedTransaction>), string href = default(string), string nextPage = default(string), string previousPage = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "varVersion" is required (not null)
             if (varVersion == null)
@@ -58,6 +59,7 @@ namespace Lusid.Sdk.Model
             }
             this.Values = values;
             this.StartValuationPoint = startValuationPoint;
+            this.Diagnostics = diagnostics;
             this.Href = href;
             this.NextPage = nextPage;
             this.PreviousPage = previousPage;
@@ -69,6 +71,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "startValuationPoint", EmitDefaultValue = false)]
         public DiaryEntry StartValuationPoint { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Diagnostics
+        /// </summary>
+        [DataMember(Name = "diagnostics", EmitDefaultValue = true)]
+        public List<ValuationPointDiagnostic> Diagnostics { get; set; }
 
         /// <summary>
         /// Gets or Sets VarVersion
@@ -115,6 +123,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ValuationPointResourceListOfAccountedTransaction {\n");
             sb.Append("  StartValuationPoint: ").Append(StartValuationPoint).Append("\n");
+            sb.Append("  Diagnostics: ").Append(Diagnostics).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
@@ -162,6 +171,12 @@ namespace Lusid.Sdk.Model
                     this.StartValuationPoint.Equals(input.StartValuationPoint))
                 ) && 
                 (
+                    this.Diagnostics == input.Diagnostics ||
+                    this.Diagnostics != null &&
+                    input.Diagnostics != null &&
+                    this.Diagnostics.SequenceEqual(input.Diagnostics)
+                ) && 
+                (
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
@@ -207,6 +222,10 @@ namespace Lusid.Sdk.Model
                 if (this.StartValuationPoint != null)
                 {
                     hashCode = (hashCode * 59) + this.StartValuationPoint.GetHashCode();
+                }
+                if (this.Diagnostics != null)
+                {
+                    hashCode = (hashCode * 59) + this.Diagnostics.GetHashCode();
                 }
                 if (this.VarVersion != null)
                 {

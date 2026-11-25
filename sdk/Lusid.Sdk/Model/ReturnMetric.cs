@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ReturnMetric" /> class.
         /// </summary>
         /// <param name="window">window.</param>
-        /// <param name="type">Available values: Return, IndicativeAmount. (required).</param>
+        /// <param name="type">Available values: Return, IndicativeAmount, Volatility. (required).</param>
         /// <param name="alias">alias.</param>
         public ReturnMetric(ReturnsMetricWindow window = default(ReturnsMetricWindow), string type = default(string), string alias = default(string))
         {
@@ -58,9 +58,9 @@ namespace Lusid.Sdk.Model
         public ReturnsMetricWindow Window { get; set; }
 
         /// <summary>
-        /// Available values: Return, IndicativeAmount.
+        /// Available values: Return, IndicativeAmount, Volatility.
         /// </summary>
-        /// <value>Available values: Return, IndicativeAmount.</value>
+        /// <value>Available values: Return, IndicativeAmount, Volatility.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 

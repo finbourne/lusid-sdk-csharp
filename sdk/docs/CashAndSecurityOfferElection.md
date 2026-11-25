@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **UnitsRatio** | [**UnitsRatio**](UnitsRatio.md) |  | 
 **ConsentFeePrice** | **decimal?** | Optional. The consent fee paid to holders who consent, on top of the exchange consideration. Quoted per 1,000 of face for bonds, using the current notional at the effective date of the event, and per unit for other instruments. Must be greater than 0. Required together with ConsentFeeCurrency, and only supported on an ExchangeOfferEvent. | [optional] 
 **ConsentFeeCurrency** | **string** | Optional. Currency of the consent fee. Required if a consent fee price is provided, and only supported on an ExchangeOfferEvent. | [optional] 
+**PaymentDate** | **DateTimeOffset?** | Optional. The date this option pays, for both its cash and its security. On MergerEvent,  RepurchaseOfferEvent and ExchangeOfferEvent it sets the settlement date of this option&#39;s transactions;  when omitted, the event-level date applies. Not supported on other events. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -36,7 +37,8 @@ CashAndSecurityOfferElection cashAndSecurityOfferElectionInstance = new CashAndS
     isDefault: isDefault,
     unitsRatio: unitsRatio,
     consentFeePrice: consentFeePrice,
-    consentFeeCurrency: consentFeeCurrency);
+    consentFeeCurrency: consentFeeCurrency,
+    paymentDate: paymentDate);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

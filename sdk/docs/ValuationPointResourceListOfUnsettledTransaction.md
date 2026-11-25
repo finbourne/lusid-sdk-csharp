@@ -6,6 +6,7 @@ ResourceList with extra header fields used by the various ValuationPoint endpoin
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StartValuationPoint** | [**DiaryEntry**](DiaryEntry.md) |  | [optional] 
+**Diagnostics** | [**List&lt;ValuationPointDiagnostic&gt;**](ValuationPointDiagnostic.md) |  | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | 
 **Values** | [**List&lt;UnsettledTransaction&gt;**](UnsettledTransaction.md) |  | 
 **Href** | **string** |  | [optional] 
@@ -19,6 +20,7 @@ using System;
 
 DiaryEntry? startValuationPoint = new DiaryEntry();
 
+List<ValuationPointDiagnostic> diagnostics = new List<ValuationPointDiagnostic>();
 ModelVersion varVersion = new ModelVersion();
 List<UnsettledTransaction> values = new List<UnsettledTransaction>();
 string href = "example href";
@@ -28,6 +30,7 @@ List<Link> links = new List<Link>();
 
 ValuationPointResourceListOfUnsettledTransaction valuationPointResourceListOfUnsettledTransactionInstance = new ValuationPointResourceListOfUnsettledTransaction(
     startValuationPoint: startValuationPoint,
+    diagnostics: diagnostics,
     varVersion: varVersion,
     values: values,
     href: href,

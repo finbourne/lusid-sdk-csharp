@@ -40,7 +40,8 @@ namespace Lusid.Sdk.Model
         /// <param name="reason">Why the fund manager overrode the methodology&#39;s decision. (required).</param>
         /// <param name="user">The user who made the override..</param>
         /// <param name="timestamp">When the override was made. (required).</param>
-        public PricingMethodologyOverride(string decision = default(string), string reason = default(string), string user = default(string), DateTimeOffset timestamp = default(DateTimeOffset))
+        /// <param name="netCashflow">The fund&#39;s net dealing cashflow the decision was taken on, in the fund currency, read as at the override&#39;s timestamp. An inflow is positive and an outflow negative. A net that moves within its swing tier leaves the decision standing, so this can differ from the audit&#39;s current netCashflow, and both are kept on the final valuation point. Null when the swing policy approves automatically, or the decision was taken before the net was recorded..</param>
+        public PricingMethodologyOverride(string decision = default(string), string reason = default(string), string user = default(string), DateTimeOffset timestamp = default(DateTimeOffset), decimal? netCashflow = default(decimal?))
         {
             // to ensure "decision" is required (not null)
             if (decision == null)
@@ -56,6 +57,7 @@ namespace Lusid.Sdk.Model
             this.Reason = reason;
             this.Timestamp = timestamp;
             this.User = user;
+            this.NetCashflow = netCashflow;
         }
 
         /// <summary>
@@ -87,6 +89,13 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset Timestamp { get; set; }
 
         /// <summary>
+        /// The fund&#39;s net dealing cashflow the decision was taken on, in the fund currency, read as at the override&#39;s timestamp. An inflow is positive and an outflow negative. A net that moves within its swing tier leaves the decision standing, so this can differ from the audit&#39;s current netCashflow, and both are kept on the final valuation point. Null when the swing policy approves automatically, or the decision was taken before the net was recorded.
+        /// </summary>
+        /// <value>The fund&#39;s net dealing cashflow the decision was taken on, in the fund currency, read as at the override&#39;s timestamp. An inflow is positive and an outflow negative. A net that moves within its swing tier leaves the decision standing, so this can differ from the audit&#39;s current netCashflow, and both are kept on the final valuation point. Null when the swing policy approves automatically, or the decision was taken before the net was recorded.</value>
+        [DataMember(Name = "netCashflow", EmitDefaultValue = true)]
+        public decimal? NetCashflow { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -98,6 +107,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  User: ").Append(User).Append("\n");
             sb.Append("  Timestamp: ").Append(Timestamp).Append("\n");
+            sb.Append("  NetCashflow: ").Append(NetCashflow).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -152,6 +162,11 @@ namespace Lusid.Sdk.Model
                     this.Timestamp == input.Timestamp ||
                     (this.Timestamp != null &&
                     this.Timestamp.Equals(input.Timestamp))
+                ) && 
+                (
+                    this.NetCashflow == input.NetCashflow ||
+                    (this.NetCashflow != null &&
+                    this.NetCashflow.Equals(input.NetCashflow))
                 );
         }
 
@@ -179,6 +194,10 @@ namespace Lusid.Sdk.Model
                 if (this.Timestamp != null)
                 {
                     hashCode = (hashCode * 59) + this.Timestamp.GetHashCode();
+                }
+                if (this.NetCashflow != null)
+                {
+                    hashCode = (hashCode * 59) + this.NetCashflow.GetHashCode();
                 }
                 return hashCode;
             }

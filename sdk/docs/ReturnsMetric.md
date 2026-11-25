@@ -5,10 +5,10 @@ Base class for a metric requested from the aggregated-returns (TWR) endpoint, me
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | Available values: Return, IndicativeAmount. | 
+**Type** | **string** | Available values: Return, IndicativeAmount, Volatility. | 
 **Alias** | **string** |  | [optional] 
 **SeedAmount** | **string** |  | 
-**Window** | [**ReturnsMetricWindow**](ReturnsMetricWindow.md) |  | [optional] 
+**Window** | [**ReturnsMetricWindow**](ReturnsMetricWindow.md) |  | 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -25,5 +25,6 @@ var returnsMetricInstance = new returnsMetric(indicativeAmountMetricInstance)
 
 
  * [ReturnMetric](./ReturnMetric.md)
+ * [VolatilityMetric](./VolatilityMetric.md)
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

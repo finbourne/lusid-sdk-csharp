@@ -41,7 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="electionKey">Unique key associated to this election. (required).</param>
         /// <param name="isChosen">Is this the election that has been explicitly chosen from multiple options..</param>
         /// <param name="isDefault">Is this election automatically applied in the absence of an election having been made.  May only be true for one election if multiple are provided..</param>
-        public TenderOfferElection(string tenderOfferCurrency = default(string), decimal tenderOfferPrice = default(decimal), string electionKey = default(string), bool isChosen = default(bool), bool isDefault = default(bool))
+        /// <param name="paymentDate">Optional. The date this option pays. On RepurchaseOfferEvent it sets the settlement date of this  option&#39;s transactions; when omitted, the event-level date applies. Not supported on other events..</param>
+        public TenderOfferElection(string tenderOfferCurrency = default(string), decimal tenderOfferPrice = default(decimal), string electionKey = default(string), bool isChosen = default(bool), bool isDefault = default(bool), DateTimeOffset? paymentDate = default(DateTimeOffset?))
         {
             // to ensure "tenderOfferCurrency" is required (not null)
             if (tenderOfferCurrency == null)
@@ -58,6 +59,7 @@ namespace Lusid.Sdk.Model
             this.ElectionKey = electionKey;
             this.IsChosen = isChosen;
             this.IsDefault = isDefault;
+            this.PaymentDate = paymentDate;
         }
 
         /// <summary>
@@ -96,6 +98,13 @@ namespace Lusid.Sdk.Model
         public bool IsDefault { get; set; }
 
         /// <summary>
+        /// Optional. The date this option pays. On RepurchaseOfferEvent it sets the settlement date of this  option&#39;s transactions; when omitted, the event-level date applies. Not supported on other events.
+        /// </summary>
+        /// <value>Optional. The date this option pays. On RepurchaseOfferEvent it sets the settlement date of this  option&#39;s transactions; when omitted, the event-level date applies. Not supported on other events.</value>
+        [DataMember(Name = "paymentDate", EmitDefaultValue = true)]
+        public DateTimeOffset? PaymentDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -108,6 +117,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ElectionKey: ").Append(ElectionKey).Append("\n");
             sb.Append("  IsChosen: ").Append(IsChosen).Append("\n");
             sb.Append("  IsDefault: ").Append(IsDefault).Append("\n");
+            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -164,6 +174,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.IsDefault == input.IsDefault ||
                     this.IsDefault.Equals(input.IsDefault)
+                ) && 
+                (
+                    this.PaymentDate == input.PaymentDate ||
+                    (this.PaymentDate != null &&
+                    this.PaymentDate.Equals(input.PaymentDate))
                 );
         }
 
@@ -187,6 +202,10 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.IsChosen.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsDefault.GetHashCode();
+                if (this.PaymentDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
+                }
                 return hashCode;
             }
         }

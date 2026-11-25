@@ -188,7 +188,13 @@ namespace Lusid.Sdk.Model
         /// Enum DiscountedForward for value: DiscountedForward
         /// </summary>
         [EnumMember(Value = "DiscountedForward")]
-        DiscountedForward = 27
+        DiscountedForward = 27,
+
+        /// <summary>
+        /// Enum IsdaStandardModel for value: IsdaStandardModel
+        /// </summary>
+        [EnumMember(Value = "IsdaStandardModel")]
+        IsdaStandardModel = 28
     }
 
 }

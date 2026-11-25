@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="TaxExceptionItem" /> class.
         /// </summary>
         /// <param name="id">An identifier stable within a response, built from the category, portfolio and instrument. (required).</param>
-        /// <param name="category">The kind of exception: UnmatchedDisposal, NegativePool, MissingValuation, UnclassifiedInstrument or CostWithoutUnits. (required).</param>
+        /// <param name="category">The kind of exception: UnmatchedDisposal, NegativePool, MissingValuation, UnclassifiedInstrument, CostWithoutUnits or DisposalBeforeIndexationFreeze. (required).</param>
         /// <param name="severity">Error when the exception blocks the tax computation, Warning when it casts doubt on it. (required).</param>
         /// <param name="portfolio">portfolio (required).</param>
         /// <param name="instrument">The LUSID unique identifier of the instrument the exception was raised against..</param>
@@ -91,9 +91,9 @@ namespace Lusid.Sdk.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// The kind of exception: UnmatchedDisposal, NegativePool, MissingValuation, UnclassifiedInstrument or CostWithoutUnits.
+        /// The kind of exception: UnmatchedDisposal, NegativePool, MissingValuation, UnclassifiedInstrument, CostWithoutUnits or DisposalBeforeIndexationFreeze.
         /// </summary>
-        /// <value>The kind of exception: UnmatchedDisposal, NegativePool, MissingValuation, UnclassifiedInstrument or CostWithoutUnits.</value>
+        /// <value>The kind of exception: UnmatchedDisposal, NegativePool, MissingValuation, UnclassifiedInstrument, CostWithoutUnits or DisposalBeforeIndexationFreeze.</value>
         [DataMember(Name = "category", IsRequired = true, EmitDefaultValue = true)]
         public string Category { get; set; }
 

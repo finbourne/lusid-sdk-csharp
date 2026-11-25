@@ -813,7 +813,13 @@ namespace Lusid.Sdk.Model
         /// Enum IncreaseInValueEvent for value: IncreaseInValueEvent
         /// </summary>
         [EnumMember(Value = "IncreaseInValueEvent")]
-        IncreaseInValueEvent = 131
+        IncreaseInValueEvent = 131,
+
+        /// <summary>
+        /// Enum FlexibleRepoCollateralSubstitutionEvent for value: FlexibleRepoCollateralSubstitutionEvent
+        /// </summary>
+        [EnumMember(Value = "FlexibleRepoCollateralSubstitutionEvent")]
+        FlexibleRepoCollateralSubstitutionEvent = 132
     }
 
 }

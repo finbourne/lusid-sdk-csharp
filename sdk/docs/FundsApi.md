@@ -86,9 +86,12 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**QueryCashStatement**](FundsApi.md#querycashstatement) | **POST** /api/funds/{scope}/{code}/valuationpoints/cashstatement/$query | [DEPRECATED] QueryCashStatement: [DEPRECATED] QueryCashStatement: Query cash statement for a Fund valuation point. |
 | [**QueryCashStatementLocalCurrency**](FundsApi.md#querycashstatementlocalcurrency) | **POST** /api/funds/{scope}/{code}/valuationpoints/cashstatementlocalcurrency/$query | [EARLY ACCESS] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point. |
 | [**ReactivateNavTypes**](FundsApi.md#reactivatenavtypes) | **POST** /api/funds/{scope}/{code}/reactivateNavTypes | [EXPERIMENTAL] ReactivateNavTypes: [EXPERIMENTAL] ReactivateNavTypes: Reactivate previously deactivated NAV types on a Fund. |
+| [**ReseedFacilityBalance**](FundsApi.md#reseedfacilitybalance) | **POST** /api/funds/{scope}/{code}/facilities/{facilityCode}/$reseed | [EXPERIMENTAL] ReseedFacilityBalance: [EXPERIMENTAL] ReseedFacilityBalance: Re-seed a Facility&#39;s balance from its booked draws and repayments. |
+| [**ResplitPrepaidManagementFees**](FundsApi.md#resplitprepaidmanagementfees) | **POST** /api/funds/{scope}/{code}/fees/$resplit | [EARLY ACCESS] ResplitPrepaidManagementFees: [EXPERIMENTAL] ResplitPrepaidManagementFees: Re-split the Fund&#39;s prepaid management fee periods. |
 | [**RevertValuationPointToEstimate**](FundsApi.md#revertvaluationpointtoestimate) | **POST** /api/funds/{scope}/{code}/valuationpoints/$reverttoestimate | [EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate. |
 | [**RunPartnerAllocations**](FundsApi.md#runpartnerallocations) | **POST** /api/funds/{scope}/{code}/partnerallocations/$run | [EARLY ACCESS] RunPartnerAllocations: [EXPERIMENTAL] RunPartnerAllocations: Allocate a period&#39;s income to the Fund&#39;s partners. |
 | [**SendBackTaxReturn**](FundsApi.md#sendbacktaxreturn) | **POST** /api/funds/{scope}/{code}/tax/return/send-back | [EARLY ACCESS] SendBackTaxReturn: [EARLY ACCESS] SendBackTaxReturn: Send the tax return back one workflow step. |
+| [**SetHoldingsForFund**](FundsApi.md#setholdingsforfund) | **PUT** /api/funds/{scope}/{code}/holdings | [EXPERIMENTAL] SetHoldingsForFund: Set holdings for a Fund. |
 | [**SetShareClassInstruments**](FundsApi.md#setshareclassinstruments) | **PUT** /api/funds/{scope}/{code}/shareclasses | [EARLY ACCESS] SetShareClassInstruments: Set the ShareClass Instruments on a Fund. |
 | [**UpdateFacility**](FundsApi.md#updatefacility) | **PUT** /api/funds/{scope}/{code}/facilities/{facilityCode} | [EXPERIMENTAL] UpdateFacility: [EXPERIMENTAL] UpdateFacility: Update a Facility. |
 | [**UpdateValuationPoint**](FundsApi.md#updatevaluationpoint) | **PUT** /api/funds/{scope}/{code}/valuationpoints | [EARLY ACCESS] UpdateValuationPoint: Update a Valuation Point. |
@@ -10142,6 +10145,244 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
+<a id="reseedfacilitybalance"></a>
+# **ReseedFacilityBalance**
+> FacilityReseedResult ReseedFacilityBalance (string scope, string code, string facilityCode, bool? dryRun = null)
+
+[EXPERIMENTAL] ReseedFacilityBalance: [EXPERIMENTAL] ReseedFacilityBalance: Re-seed a Facility's balance from its booked draws and repayments.
+
+Rebuild the balance a Facility's limit is judged on from the draws and repayments booked on it: DealFundings  drawn from it and capital calls repaying it, in Booked or Booking status, on allocation maps whose  structureMemberId is the Fund, and FacilityDrawEvents and FacilityRepaymentEvents in the sources of the Fund's  portfolios. Afterwards the balance is the booked draws and repayments. Running it again writes nothing. A  Facility with nothing booked on it is seeded with 0. Draws and repayments still in Booking status count, and  are named in a FacilityBookingInProgress warning.  A draw or repayment written at the same time makes the re-seed fail as a concurrent modification; retry it.  A draw or repayment naming the Facility on an allocation map whose structureMemberId is not a fund cannot be  attributed, and the re-seed is refused with 409 FacilityFlowsUnattributable naming them; nothing is written,  and draws, repayments, FacilityInterestEvents and FacilityCommitmentFeeEvents on the Facility are refused the  same way until the maps are fixed and the Facility is re-seeded.  With dryRun, nothing is written: the response says what a re-seed would write, or lists the draws and  repayments that cannot be attributed. Requires the Fund's update entitlement, except for a dry run.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var facilityCode = "facilityCode_example";  // string | The code of the Facility to re-seed.
+            var dryRun = true;  // bool? | Report what a re-seed would write, and any draws or repayments that cannot be attributed, without writing anything. Defaults to false. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // FacilityReseedResult result = apiInstance.ReseedFacilityBalance(scope, code, facilityCode, dryRun, opts: opts);
+
+                // [EXPERIMENTAL] ReseedFacilityBalance: [EXPERIMENTAL] ReseedFacilityBalance: Re-seed a Facility's balance from its booked draws and repayments.
+                FacilityReseedResult result = apiInstance.ReseedFacilityBalance(scope, code, facilityCode, dryRun);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.ReseedFacilityBalance: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the ReseedFacilityBalanceWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ReseedFacilityBalance: [EXPERIMENTAL] ReseedFacilityBalance: Re-seed a Facility's balance from its booked draws and repayments.
+    ApiResponse<FacilityReseedResult> response = apiInstance.ReseedFacilityBalanceWithHttpInfo(scope, code, facilityCode, dryRun);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.ReseedFacilityBalanceWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **facilityCode** | **string** | The code of the Facility to re-seed. |  |
+| **dryRun** | **bool?** | Report what a re-seed would write, and any draws or repayments that cannot be attributed, without writing anything. Defaults to false. | [optional]  |
+
+### Return type
+
+[**FacilityReseedResult**](FacilityReseedResult.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The outcome of the re-seed, or of the dry run. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="resplitprepaidmanagementfees"></a>
+# **ResplitPrepaidManagementFees**
+> ManagementFeeResplitResult ResplitPrepaidManagementFees (string scope, string code, ManagementFeeResplitRequest managementFeeResplitRequest, DateTimeOffset? asAt = null)
+
+[EARLY ACCESS] ResplitPrepaidManagementFees: [EXPERIMENTAL] ResplitPrepaidManagementFees: Re-split the Fund's prepaid management fee periods.
+
+Derive again, for every prepaid management fee period meeting the window, the split of its offsets between the  fee payable and a receivable from the manager, from the period's prepayment, its accruals and the payments to  the manager the Fund's books now hold, without calculating any fee again. A payment booked after a split leaves  it out of date until the period is re-split, which a valuation point over the period does before it is struck.  An unchanged split writes nothing, a re-split into a final period is its post-close activity, and a dry run  writes nothing and says which periods' splits are out of date.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var managementFeeResplitRequest = new ManagementFeeResplitRequest(); // ManagementFeeResplitRequest | The window to re-split, and whether to write.
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to read the Fund, on a dry run only. Defaults to return the latest version if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ManagementFeeResplitResult result = apiInstance.ResplitPrepaidManagementFees(scope, code, managementFeeResplitRequest, asAt, opts: opts);
+
+                // [EARLY ACCESS] ResplitPrepaidManagementFees: [EXPERIMENTAL] ResplitPrepaidManagementFees: Re-split the Fund's prepaid management fee periods.
+                ManagementFeeResplitResult result = apiInstance.ResplitPrepaidManagementFees(scope, code, managementFeeResplitRequest, asAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.ResplitPrepaidManagementFees: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the ResplitPrepaidManagementFeesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ResplitPrepaidManagementFees: [EXPERIMENTAL] ResplitPrepaidManagementFees: Re-split the Fund's prepaid management fee periods.
+    ApiResponse<ManagementFeeResplitResult> response = apiInstance.ResplitPrepaidManagementFeesWithHttpInfo(scope, code, managementFeeResplitRequest, asAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.ResplitPrepaidManagementFeesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **managementFeeResplitRequest** | [**ManagementFeeResplitRequest**](ManagementFeeResplitRequest.md) | The window to re-split, and whether to write. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to read the Fund, on a dry run only. Defaults to return the latest version if not specified. | [optional]  |
+
+### Return type
+
+[**ManagementFeeResplitResult**](ManagementFeeResplitResult.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The prepaid periods re-split and the fee transactions written. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
 <a id="revertvaluationpointtoestimate"></a>
 # **RevertValuationPointToEstimate**
 > RevertValuationPointResponse RevertValuationPointToEstimate (string scope, string code, RevertValuationPointDataRequest revertValuationPointDataRequest, string? navTypeCode = null)
@@ -10496,6 +10737,133 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The tax return after the transition. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="setholdingsforfund"></a>
+# **SetHoldingsForFund**
+> AdjustHolding SetHoldingsForFund (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, string? navTypeCode = null, List<string>? reconciliationMethods = null, string? overrideMovementName = null, string? overrideOffsetMovementName = null)
+
+[EXPERIMENTAL] SetHoldingsForFund: Set holdings for a Fund.
+
+Set the holdings of the derived portfolio a Fund maintains for a NAV type to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the entire set of holdings for the derived  portfolio are always set to the provided targets for the specified effective datetime.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel | The effective datetime or cut label at which the holdings should be set to the provided targets.
+            var adjustHoldingRequest = new List<AdjustHoldingRequest>(); // List<AdjustHoldingRequest> | The complete set of target holdings for the Fund's derived portfolio.
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
+            var reconciliationMethods = new List<string>?(); // List<string>? | Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. (optional) 
+            var overrideMovementName = "overrideMovementName_example";  // string? | Optional parameter to override movement name for the set holdings. (optional) 
+            var overrideOffsetMovementName = "overrideOffsetMovementName_example";  // string? | Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // AdjustHolding result = apiInstance.SetHoldingsForFund(scope, code, effectiveAt, adjustHoldingRequest, navTypeCode, reconciliationMethods, overrideMovementName, overrideOffsetMovementName, opts: opts);
+
+                // [EXPERIMENTAL] SetHoldingsForFund: Set holdings for a Fund.
+                AdjustHolding result = apiInstance.SetHoldingsForFund(scope, code, effectiveAt, adjustHoldingRequest, navTypeCode, reconciliationMethods, overrideMovementName, overrideOffsetMovementName);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.SetHoldingsForFund: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the SetHoldingsForFundWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] SetHoldingsForFund: Set holdings for a Fund.
+    ApiResponse<AdjustHolding> response = apiInstance.SetHoldingsForFundWithHttpInfo(scope, code, effectiveAt, adjustHoldingRequest, navTypeCode, reconciliationMethods, overrideMovementName, overrideOffsetMovementName);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.SetHoldingsForFundWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **effectiveAt** | **DateTimeOrCutLabel** | The effective datetime or cut label at which the holdings should be set to the provided targets. |  |
+| **adjustHoldingRequest** | [**List&lt;AdjustHoldingRequest&gt;**](AdjustHoldingRequest.md) | The complete set of target holdings for the Fund&#39;s derived portfolio. |  |
+| **navTypeCode** | **string?** | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
+| **reconciliationMethods** | [**List&lt;string&gt;?**](string.md) | Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. | [optional]  |
+| **overrideMovementName** | **string?** | Optional parameter to override movement name for the set holdings. | [optional]  |
+| **overrideOffsetMovementName** | **string?** | Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl | [optional]  |
+
+### Return type
+
+[**AdjustHolding**](AdjustHolding.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The version of the derived portfolio that contains the newly set holdings |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

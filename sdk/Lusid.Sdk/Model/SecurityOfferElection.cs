@@ -40,7 +40,8 @@ namespace Lusid.Sdk.Model
         /// <param name="isChosen">Is this the election that has been explicitly chosen from multiple options..</param>
         /// <param name="isDefault">Is this election automatically applied in the absence of an election having been made.  May only be true for one election if multiple are provided..</param>
         /// <param name="unitsRatio">unitsRatio (required).</param>
-        public SecurityOfferElection(string electionKey = default(string), bool isChosen = default(bool), bool isDefault = default(bool), UnitsRatio unitsRatio = default(UnitsRatio))
+        /// <param name="paymentDate">Optional. The date this option pays. On MergerEvent, RepurchaseOfferEvent, BonusIssueEvent and  ExchangeOfferEvent it sets the settlement date of this option&#39;s transactions; when omitted, the  event-level date applies. Not supported on other events..</param>
+        public SecurityOfferElection(string electionKey = default(string), bool isChosen = default(bool), bool isDefault = default(bool), UnitsRatio unitsRatio = default(UnitsRatio), DateTimeOffset? paymentDate = default(DateTimeOffset?))
         {
             // to ensure "electionKey" is required (not null)
             if (electionKey == null)
@@ -56,6 +57,7 @@ namespace Lusid.Sdk.Model
             this.UnitsRatio = unitsRatio;
             this.IsChosen = isChosen;
             this.IsDefault = isDefault;
+            this.PaymentDate = paymentDate;
         }
 
         /// <summary>
@@ -86,6 +88,13 @@ namespace Lusid.Sdk.Model
         public UnitsRatio UnitsRatio { get; set; }
 
         /// <summary>
+        /// Optional. The date this option pays. On MergerEvent, RepurchaseOfferEvent, BonusIssueEvent and  ExchangeOfferEvent it sets the settlement date of this option&#39;s transactions; when omitted, the  event-level date applies. Not supported on other events.
+        /// </summary>
+        /// <value>Optional. The date this option pays. On MergerEvent, RepurchaseOfferEvent, BonusIssueEvent and  ExchangeOfferEvent it sets the settlement date of this option&#39;s transactions; when omitted, the  event-level date applies. Not supported on other events.</value>
+        [DataMember(Name = "paymentDate", EmitDefaultValue = true)]
+        public DateTimeOffset? PaymentDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -97,6 +106,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  IsChosen: ").Append(IsChosen).Append("\n");
             sb.Append("  IsDefault: ").Append(IsDefault).Append("\n");
             sb.Append("  UnitsRatio: ").Append(UnitsRatio).Append("\n");
+            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -149,6 +159,11 @@ namespace Lusid.Sdk.Model
                     this.UnitsRatio == input.UnitsRatio ||
                     (this.UnitsRatio != null &&
                     this.UnitsRatio.Equals(input.UnitsRatio))
+                ) && 
+                (
+                    this.PaymentDate == input.PaymentDate ||
+                    (this.PaymentDate != null &&
+                    this.PaymentDate.Equals(input.PaymentDate))
                 );
         }
 
@@ -170,6 +185,10 @@ namespace Lusid.Sdk.Model
                 if (this.UnitsRatio != null)
                 {
                     hashCode = (hashCode * 59) + this.UnitsRatio.GetHashCode();
+                }
+                if (this.PaymentDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
                 }
                 return hashCode;
             }

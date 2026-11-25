@@ -39,9 +39,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="InflationCurveData" /> class.
         /// </summary>
         /// <param name="buildDate">Build date of the curve - this is the reference date for resolution of the swap constituents. (required).</param>
-        /// <param name="instruments">The set of instruments that define the curve.  The only supported instrument type is: [InflationSwap]. (required).</param>
+        /// <param name="instruments">The set of instruments that define the curve.  The only supported instrument type is: [InflationSwap].  Each is a zero-coupon swap starting on the build date. Their maturities form a contiguous monthly run (one per CPI month, each maturing on the index&#39;s inflationRollDay), then whole-year pillars one year apart; either part may be empty, and a curve with no monthly run starts at 1Y.  A monthly pillar on a month whose index print is already published fails the curve build. Quarterly (3M) indices take whole-year pillars only. A solved index that moves more than 25% from one period to the next (a forward rate above about 1,355% a year for a monthly index, 144% for a quarterly one) fails the curve build; published prints are exempt. (required).</param>
         /// <param name="quotes">The market quotes corresponding to the the instruments used to define the curve (required).</param>
-        /// <param name="seasonalFactors">Optional multiplicative seasonal adjustment factors, one per calendar month starting from January.  If provided there must be exactly 12 factors..</param>
+        /// <param name="seasonalFactors">Optional multiplicative seasonal adjustment factors, one per calendar month starting from January.  If provided there must be exactly 12 factors.  Seasonal factors only shape the months between pillars, so they have no effect on a curve with a pillar for every month; no warning is given..</param>
         /// <param name="outputType">What the values of the built curve represent.  Supported string (enumeration) values are: [Level, Ratio].  Defaults to \&quot;Level\&quot; if not provided..</param>
         /// <param name="lineage">Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;..</param>
         /// <param name="marketDataOptions">marketDataOptions.</param>
@@ -77,9 +77,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset BuildDate { get; set; }
 
         /// <summary>
-        /// The set of instruments that define the curve.  The only supported instrument type is: [InflationSwap].
+        /// The set of instruments that define the curve.  The only supported instrument type is: [InflationSwap].  Each is a zero-coupon swap starting on the build date. Their maturities form a contiguous monthly run (one per CPI month, each maturing on the index&#39;s inflationRollDay), then whole-year pillars one year apart; either part may be empty, and a curve with no monthly run starts at 1Y.  A monthly pillar on a month whose index print is already published fails the curve build. Quarterly (3M) indices take whole-year pillars only. A solved index that moves more than 25% from one period to the next (a forward rate above about 1,355% a year for a monthly index, 144% for a quarterly one) fails the curve build; published prints are exempt.
         /// </summary>
-        /// <value>The set of instruments that define the curve.  The only supported instrument type is: [InflationSwap].</value>
+        /// <value>The set of instruments that define the curve.  The only supported instrument type is: [InflationSwap].  Each is a zero-coupon swap starting on the build date. Their maturities form a contiguous monthly run (one per CPI month, each maturing on the index&#39;s inflationRollDay), then whole-year pillars one year apart; either part may be empty, and a curve with no monthly run starts at 1Y.  A monthly pillar on a month whose index print is already published fails the curve build. Quarterly (3M) indices take whole-year pillars only. A solved index that moves more than 25% from one period to the next (a forward rate above about 1,355% a year for a monthly index, 144% for a quarterly one) fails the curve build; published prints are exempt.</value>
         [DataMember(Name = "instruments", IsRequired = true, EmitDefaultValue = true)]
         public List<LusidInstrument> Instruments { get; set; }
 
@@ -91,9 +91,9 @@ namespace Lusid.Sdk.Model
         public List<MarketQuote> Quotes { get; set; }
 
         /// <summary>
-        /// Optional multiplicative seasonal adjustment factors, one per calendar month starting from January.  If provided there must be exactly 12 factors.
+        /// Optional multiplicative seasonal adjustment factors, one per calendar month starting from January.  If provided there must be exactly 12 factors.  Seasonal factors only shape the months between pillars, so they have no effect on a curve with a pillar for every month; no warning is given.
         /// </summary>
-        /// <value>Optional multiplicative seasonal adjustment factors, one per calendar month starting from January.  If provided there must be exactly 12 factors.</value>
+        /// <value>Optional multiplicative seasonal adjustment factors, one per calendar month starting from January.  If provided there must be exactly 12 factors.  Seasonal factors only shape the months between pillars, so they have no effect on a curve with a pillar for every month; no warning is given.</value>
         [DataMember(Name = "seasonalFactors", EmitDefaultValue = true)]
         public List<decimal> SeasonalFactors { get; set; }
 

@@ -55,6 +55,18 @@ namespace Lusid.Sdk.Model
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ReturnsMetric" /> class
+        /// with the <see cref="VolatilityMetric" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of VolatilityMetric.</param>
+        public ReturnsMetric(VolatilityMetric actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
 
         private Object _actualInstance;
 
@@ -77,9 +89,13 @@ namespace Lusid.Sdk.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(VolatilityMetric) || value is VolatilityMetric)
+                {
+                    this._actualInstance = value;
+                }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: IndicativeAmountMetric, ReturnMetric");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: IndicativeAmountMetric, ReturnMetric, VolatilityMetric");
                 }
             }
         }
@@ -102,6 +118,16 @@ namespace Lusid.Sdk.Model
         public ReturnMetric GetReturnMetric()
         {
             return (ReturnMetric)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `VolatilityMetric`. If the actual instance is not `VolatilityMetric`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of VolatilityMetric</returns>
+        public VolatilityMetric GetVolatilityMetric()
+        {
+            return (VolatilityMetric)this.ActualInstance;
         }
 
         /// <summary>
@@ -152,8 +178,11 @@ namespace Lusid.Sdk.Model
                     case "Return":
                         newReturnsMetric = new ReturnsMetric(JsonConvert.DeserializeObject<ReturnMetric>(jsonString, ReturnsMetric.AdditionalPropertiesSerializerSettings));
                         return newReturnsMetric;
+                    case "Volatility":
+                        newReturnsMetric = new ReturnsMetric(JsonConvert.DeserializeObject<VolatilityMetric>(jsonString, ReturnsMetric.AdditionalPropertiesSerializerSettings));
+                        return newReturnsMetric;
                     default:
-                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for ReturnsMetric. Possible values: IndicativeAmount Return", discriminatorValue));
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for ReturnsMetric. Possible values: IndicativeAmount Return Volatility", discriminatorValue));
                         break;
                 }
             }
@@ -203,6 +232,26 @@ namespace Lusid.Sdk.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ReturnMetric: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(VolatilityMetric).GetProperty("AdditionalProperties") == null)
+                {
+                    newReturnsMetric = new ReturnsMetric(JsonConvert.DeserializeObject<VolatilityMetric>(jsonString, ReturnsMetric.SerializerSettings));
+                }
+                else
+                {
+                    newReturnsMetric = new ReturnsMetric(JsonConvert.DeserializeObject<VolatilityMetric>(jsonString, ReturnsMetric.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("VolatilityMetric");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into VolatilityMetric: {1}", jsonString, exception.ToString()));
             }
 
             if (match == 0)

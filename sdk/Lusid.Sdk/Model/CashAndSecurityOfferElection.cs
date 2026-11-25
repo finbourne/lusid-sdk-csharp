@@ -45,7 +45,8 @@ namespace Lusid.Sdk.Model
         /// <param name="unitsRatio">unitsRatio (required).</param>
         /// <param name="consentFeePrice">Optional. The consent fee paid to holders who consent, on top of the exchange consideration. Quoted per 1,000 of face for bonds, using the current notional at the effective date of the event, and per unit for other instruments. Must be greater than 0. Required together with ConsentFeeCurrency, and only supported on an ExchangeOfferEvent..</param>
         /// <param name="consentFeeCurrency">Optional. Currency of the consent fee. Required if a consent fee price is provided, and only supported on an ExchangeOfferEvent..</param>
-        public CashAndSecurityOfferElection(string cashOfferCurrency = default(string), decimal cashOfferPrice = default(decimal), decimal? costFactor = default(decimal?), string electionKey = default(string), bool isChosen = default(bool), bool isDefault = default(bool), UnitsRatio unitsRatio = default(UnitsRatio), decimal? consentFeePrice = default(decimal?), string consentFeeCurrency = default(string))
+        /// <param name="paymentDate">Optional. The date this option pays, for both its cash and its security. On MergerEvent,  RepurchaseOfferEvent and ExchangeOfferEvent it sets the settlement date of this option&#39;s transactions;  when omitted, the event-level date applies. Not supported on other events..</param>
+        public CashAndSecurityOfferElection(string cashOfferCurrency = default(string), decimal cashOfferPrice = default(decimal), decimal? costFactor = default(decimal?), string electionKey = default(string), bool isChosen = default(bool), bool isDefault = default(bool), UnitsRatio unitsRatio = default(UnitsRatio), decimal? consentFeePrice = default(decimal?), string consentFeeCurrency = default(string), DateTimeOffset? paymentDate = default(DateTimeOffset?))
         {
             // to ensure "cashOfferCurrency" is required (not null)
             if (cashOfferCurrency == null)
@@ -71,6 +72,7 @@ namespace Lusid.Sdk.Model
             this.IsDefault = isDefault;
             this.ConsentFeePrice = consentFeePrice;
             this.ConsentFeeCurrency = consentFeeCurrency;
+            this.PaymentDate = paymentDate;
         }
 
         /// <summary>
@@ -136,6 +138,13 @@ namespace Lusid.Sdk.Model
         public string ConsentFeeCurrency { get; set; }
 
         /// <summary>
+        /// Optional. The date this option pays, for both its cash and its security. On MergerEvent,  RepurchaseOfferEvent and ExchangeOfferEvent it sets the settlement date of this option&#39;s transactions;  when omitted, the event-level date applies. Not supported on other events.
+        /// </summary>
+        /// <value>Optional. The date this option pays, for both its cash and its security. On MergerEvent,  RepurchaseOfferEvent and ExchangeOfferEvent it sets the settlement date of this option&#39;s transactions;  when omitted, the event-level date applies. Not supported on other events.</value>
+        [DataMember(Name = "paymentDate", EmitDefaultValue = true)]
+        public DateTimeOffset? PaymentDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -152,6 +161,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  UnitsRatio: ").Append(UnitsRatio).Append("\n");
             sb.Append("  ConsentFeePrice: ").Append(ConsentFeePrice).Append("\n");
             sb.Append("  ConsentFeeCurrency: ").Append(ConsentFeeCurrency).Append("\n");
+            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -228,6 +238,11 @@ namespace Lusid.Sdk.Model
                     this.ConsentFeeCurrency == input.ConsentFeeCurrency ||
                     (this.ConsentFeeCurrency != null &&
                     this.ConsentFeeCurrency.Equals(input.ConsentFeeCurrency))
+                ) && 
+                (
+                    this.PaymentDate == input.PaymentDate ||
+                    (this.PaymentDate != null &&
+                    this.PaymentDate.Equals(input.PaymentDate))
                 );
         }
 
@@ -266,6 +281,10 @@ namespace Lusid.Sdk.Model
                 if (this.ConsentFeeCurrency != null)
                 {
                     hashCode = (hashCode * 59) + this.ConsentFeeCurrency.GetHashCode();
+                }
+                if (this.PaymentDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
                 }
                 return hashCode;
             }
