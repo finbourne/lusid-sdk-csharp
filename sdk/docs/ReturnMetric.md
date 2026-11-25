@@ -1,10 +1,11 @@
 # Lusid.Sdk.Model.ReturnMetric
-The rate of return over each period of the grid.
+The rate of return over each period of the grid, or over a window looking back from each period when  one is given.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Window** | [**ReturnsMetricWindow**](ReturnsMetricWindow.md) |  | [optional] 
 **Type** | **string** | Available values: Return, IndicativeAmount. | 
 **Alias** | **string** |  | [optional] 
 
@@ -12,10 +13,13 @@ Name | Type | Description | Notes
 using Lusid.Sdk.Model;
 using System;
 
+ReturnsMetricWindow? window = new ReturnsMetricWindow();
+
 string type = "type";
 string alias = "example alias";
 
 ReturnMetric returnMetricInstance = new ReturnMetric(
+    window: window,
     type: type,
     alias: alias);
 ```

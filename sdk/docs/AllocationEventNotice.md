@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **PaymentHold** | [**AllocationPaymentHold**](AllocationPaymentHold.md) |  | [optional] 
 **Transfer** | [**AllocationEventNoticeTransfer**](AllocationEventNoticeTransfer.md) |  | [optional] 
 **Watermark** | **string** | DRAFT until the allocation event is booked, otherwise null. | [optional] 
+**CallCreditApplied** | **decimal** | The call credit an earlier equalisation kept for the partner that this call draws on, as a positive amount. The lines show the partner&#39;s gross share; the net amount due is that share less the credit applied. Zero when no credit was applied. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -41,7 +42,7 @@ AllocationPaymentHold? paymentHold = new AllocationPaymentHold();
 
 AllocationEventNoticeTransfer? transfer = new AllocationEventNoticeTransfer();
 
-string watermark = "example watermark";
+string watermark = "example watermark";decimal? callCreditApplied = "example callCreditApplied";
 
 AllocationEventNotice allocationEventNoticeInstance = new AllocationEventNotice(
     fund: fund,
@@ -57,7 +58,8 @@ AllocationEventNotice allocationEventNoticeInstance = new AllocationEventNotice(
     wire: wire,
     paymentHold: paymentHold,
     transfer: transfer,
-    watermark: watermark);
+    watermark: watermark,
+    callCreditApplied: callCreditApplied);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

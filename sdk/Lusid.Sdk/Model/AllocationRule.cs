@@ -287,6 +287,30 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Character, length must be greater than 1.", new [] { "Character" });
             }
 
+            // Basis (string) maxLength
+            if (this.Basis != null && this.Basis.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Basis, length must be less than 64.", new [] { "Basis" });
+            }
+
+            // Basis (string) minLength
+            if (this.Basis != null && this.Basis.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Basis, length must be greater than 0.", new [] { "Basis" });
+            }
+
+            // Exemption (string) maxLength
+            if (this.Exemption != null && this.Exemption.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Exemption, length must be less than 64.", new [] { "Exemption" });
+            }
+
+            // Exemption (string) minLength
+            if (this.Exemption != null && this.Exemption.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Exemption, length must be greater than 0.", new [] { "Exemption" });
+            }
+
             // Source (string) maxLength
             if (this.Source != null && this.Source.Length > 64)
             {

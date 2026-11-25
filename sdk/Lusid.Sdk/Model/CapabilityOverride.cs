@@ -171,10 +171,22 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Capability (string) maxLength
+            if (this.Capability != null && this.Capability.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Capability, length must be less than 64.", new [] { "Capability" });
+            }
+
             // Capability (string) minLength
             if (this.Capability != null && this.Capability.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Capability, length must be greater than 1.", new [] { "Capability" });
+            }
+
+            // Setting (string) maxLength
+            if (this.Setting != null && this.Setting.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Setting, length must be less than 64.", new [] { "Setting" });
             }
 
             // Setting (string) minLength

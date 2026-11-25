@@ -195,6 +195,18 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShareClassShortCode, length must be greater than 1.", new [] { "ShareClassShortCode" });
             }
 
+            // DistributionSeriesSelection (string) maxLength
+            if (this.DistributionSeriesSelection != null && this.DistributionSeriesSelection.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DistributionSeriesSelection, length must be less than 64.", new [] { "DistributionSeriesSelection" });
+            }
+
+            // DistributionSeriesSelection (string) minLength
+            if (this.DistributionSeriesSelection != null && this.DistributionSeriesSelection.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DistributionSeriesSelection, length must be greater than 0.", new [] { "DistributionSeriesSelection" });
+            }
+
             yield break;
         }
     }

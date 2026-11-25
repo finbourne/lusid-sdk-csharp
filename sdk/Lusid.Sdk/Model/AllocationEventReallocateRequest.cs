@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="AllocationEventReallocateRequest" /> class.
         /// </summary>
         /// <param name="reason">Why the event is being recomputed. (required).</param>
-        /// <param name="basisValues">Optional replacement basis values per investor record..</param>
+        /// <param name="basisValues">Optional replacement basis values per investor record. As on the event, for a register-backed basis they override the register value of the investor records they name rather than defining who takes part..</param>
         public AllocationEventReallocateRequest(string reason = default(string), List<AllocationMapBasisValue> basisValues = default(List<AllocationMapBasisValue>))
         {
             // to ensure "reason" is required (not null)
@@ -57,9 +57,9 @@ namespace Lusid.Sdk.Model
         public string Reason { get; set; }
 
         /// <summary>
-        /// Optional replacement basis values per investor record.
+        /// Optional replacement basis values per investor record. As on the event, for a register-backed basis they override the register value of the investor records they name rather than defining who takes part.
         /// </summary>
-        /// <value>Optional replacement basis values per investor record.</value>
+        /// <value>Optional replacement basis values per investor record. As on the event, for a register-backed basis they override the register value of the investor records they name rather than defining who takes part.</value>
         [DataMember(Name = "basisValues", EmitDefaultValue = true)]
         public List<AllocationMapBasisValue> BasisValues { get; set; }
 

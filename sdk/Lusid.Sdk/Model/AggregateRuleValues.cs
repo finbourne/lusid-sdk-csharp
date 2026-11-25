@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="ruleName">The name of the rule. (required).</param>
         /// <param name="leftValue">The left-side value..</param>
         /// <param name="rightValue">The right-side value..</param>
-        /// <param name="difference">The measured magnitude of the difference, ToString(ABS(leftValue - rightValue))..</param>
+        /// <param name="difference">The unsigned size of the difference: ABS(leftValue - rightValue) for a number, the Levenshtein distance for a string, days for a date, 0 or 1 for a boolean..</param>
         /// <param name="appliedTolerance">appliedTolerance.</param>
         public AggregateRuleValues(string ruleName = default(string), string leftValue = default(string), string rightValue = default(string), string difference = default(string), ToleranceBase appliedTolerance = default(ToleranceBase))
         {
@@ -77,9 +77,9 @@ namespace Lusid.Sdk.Model
         public string RightValue { get; set; }
 
         /// <summary>
-        /// The measured magnitude of the difference, ToString(ABS(leftValue - rightValue)).
+        /// The unsigned size of the difference: ABS(leftValue - rightValue) for a number, the Levenshtein distance for a string, days for a date, 0 or 1 for a boolean.
         /// </summary>
-        /// <value>The measured magnitude of the difference, ToString(ABS(leftValue - rightValue)).</value>
+        /// <value>The unsigned size of the difference: ABS(leftValue - rightValue) for a number, the Levenshtein distance for a string, days for a date, 0 or 1 for a boolean.</value>
         [DataMember(Name = "difference", EmitDefaultValue = true)]
         public string Difference { get; set; }
 

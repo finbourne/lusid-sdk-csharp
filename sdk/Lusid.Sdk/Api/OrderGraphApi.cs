@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
-        /// <param name="includeSwept">Include Swept Order Blocks. (default: true) (optional, default to true)</param>
+        /// <param name="includeSwept">Include Swept Order Blocks. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfOrderGraphBlock</returns>
@@ -65,7 +65,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
-        /// <param name="includeSwept">Include Swept Order Blocks. (default: true) (optional, default to true)</param>
+        /// <param name="includeSwept">Include Swept Order Blocks. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfOrderGraphBlock</returns>
@@ -165,7 +165,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
-        /// <param name="includeSwept">Include Swept Order Blocks. (default: true) (optional, default to true)</param>
+        /// <param name="includeSwept">Include Swept Order Blocks. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -186,7 +186,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
-        /// <param name="includeSwept">Include Swept Order Blocks. (default: true) (optional, default to true)</param>
+        /// <param name="includeSwept">Include Swept Order Blocks. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -402,7 +402,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
-        /// <param name="includeSwept">Include Swept Order Blocks. (default: true) (optional, default to true)</param>
+        /// <param name="includeSwept">Include Swept Order Blocks. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfOrderGraphBlock</returns>
@@ -423,7 +423,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
-        /// <param name="includeSwept">Include Swept Order Blocks. (default: true) (optional, default to true)</param>
+        /// <param name="includeSwept">Include Swept Order Blocks. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfOrderGraphBlock</returns>
@@ -549,7 +549,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
-        /// <param name="includeSwept">Include Swept Order Blocks. (default: true) (optional, default to true)</param>
+        /// <param name="includeSwept">Include Swept Order Blocks. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -571,7 +571,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/docs/properties (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
-        /// <param name="includeSwept">Include Swept Order Blocks. (default: true) (optional, default to true)</param>
+        /// <param name="includeSwept">Include Swept Order Blocks. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

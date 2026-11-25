@@ -164,6 +164,12 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Character, length must be greater than 1.", new [] { "Character" });
             }
 
+            // Basis (string) maxLength
+            if (this.Basis != null && this.Basis.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Basis, length must be less than 64.", new [] { "Basis" });
+            }
+
             // Basis (string) minLength
             if (this.Basis != null && this.Basis.Length < 1)
             {

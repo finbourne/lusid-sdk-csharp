@@ -50,7 +50,8 @@ namespace Lusid.Sdk.Model
         /// <param name="paymentHold">paymentHold.</param>
         /// <param name="transfer">transfer.</param>
         /// <param name="watermark">DRAFT until the allocation event is booked, otherwise null..</param>
-        public AllocationEventNotice(ResourceId fund = default(ResourceId), AllocationEventNoticeEvent varEvent = default(AllocationEventNoticeEvent), AllocationEventNoticePartner partner = default(AllocationEventNoticePartner), string currency = default(string), List<AllocationEventNoticeLine> lines = default(List<AllocationEventNoticeLine>), decimal netAmountDue = default(decimal), decimal taxWithheld = default(decimal), AllocationEventNoticeUnfundedReconciliation unfundedReconciliation = default(AllocationEventNoticeUnfundedReconciliation), AllocationEventNoticeCumulative cumulative = default(AllocationEventNoticeCumulative), AllocationEventNoticeCumulative gpColumn = default(AllocationEventNoticeCumulative), AllocationEventNoticeWire wire = default(AllocationEventNoticeWire), AllocationPaymentHold paymentHold = default(AllocationPaymentHold), AllocationEventNoticeTransfer transfer = default(AllocationEventNoticeTransfer), string watermark = default(string))
+        /// <param name="callCreditApplied">The call credit an earlier equalisation kept for the partner that this call draws on, as a positive amount. The lines show the partner&#39;s gross share; the net amount due is that share less the credit applied. Zero when no credit was applied..</param>
+        public AllocationEventNotice(ResourceId fund = default(ResourceId), AllocationEventNoticeEvent varEvent = default(AllocationEventNoticeEvent), AllocationEventNoticePartner partner = default(AllocationEventNoticePartner), string currency = default(string), List<AllocationEventNoticeLine> lines = default(List<AllocationEventNoticeLine>), decimal netAmountDue = default(decimal), decimal taxWithheld = default(decimal), AllocationEventNoticeUnfundedReconciliation unfundedReconciliation = default(AllocationEventNoticeUnfundedReconciliation), AllocationEventNoticeCumulative cumulative = default(AllocationEventNoticeCumulative), AllocationEventNoticeCumulative gpColumn = default(AllocationEventNoticeCumulative), AllocationEventNoticeWire wire = default(AllocationEventNoticeWire), AllocationPaymentHold paymentHold = default(AllocationPaymentHold), AllocationEventNoticeTransfer transfer = default(AllocationEventNoticeTransfer), string watermark = default(string), decimal callCreditApplied = default(decimal))
         {
             // to ensure "fund" is required (not null)
             if (fund == null)
@@ -101,6 +102,7 @@ namespace Lusid.Sdk.Model
             this.PaymentHold = paymentHold;
             this.Transfer = transfer;
             this.Watermark = watermark;
+            this.CallCreditApplied = callCreditApplied;
         }
 
         /// <summary>
@@ -193,6 +195,13 @@ namespace Lusid.Sdk.Model
         public string Watermark { get; set; }
 
         /// <summary>
+        /// The call credit an earlier equalisation kept for the partner that this call draws on, as a positive amount. The lines show the partner&#39;s gross share; the net amount due is that share less the credit applied. Zero when no credit was applied.
+        /// </summary>
+        /// <value>The call credit an earlier equalisation kept for the partner that this call draws on, as a positive amount. The lines show the partner&#39;s gross share; the net amount due is that share less the credit applied. Zero when no credit was applied.</value>
+        [DataMember(Name = "callCreditApplied", EmitDefaultValue = true)]
+        public decimal CallCreditApplied { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -214,6 +223,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PaymentHold: ").Append(PaymentHold).Append("\n");
             sb.Append("  Transfer: ").Append(Transfer).Append("\n");
             sb.Append("  Watermark: ").Append(Watermark).Append("\n");
+            sb.Append("  CallCreditApplied: ").Append(CallCreditApplied).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -317,6 +327,10 @@ namespace Lusid.Sdk.Model
                     this.Watermark == input.Watermark ||
                     (this.Watermark != null &&
                     this.Watermark.Equals(input.Watermark))
+                ) && 
+                (
+                    this.CallCreditApplied == input.CallCreditApplied ||
+                    this.CallCreditApplied.Equals(input.CallCreditApplied)
                 );
         }
 
@@ -379,6 +393,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Watermark.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.CallCreditApplied.GetHashCode();
                 return hashCode;
             }
         }

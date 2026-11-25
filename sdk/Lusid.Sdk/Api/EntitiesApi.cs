@@ -245,6 +245,33 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfChangeInterval</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfChangeInterval> GetEntityHistoryWithHttpInfo(string entityType, string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] GetHoldingEntitlementByEntityUniqueId: [EARLY ACCESS] Get holding entitlement by unique id
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the definition of a holding entitlement by its entity unique id, whichever state it is in.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityUniqueId">The entity unique identifier of the holding entitlement. The expected format is &#39;{portfolioEntityUniqueId}_{holdingEntitlementId}&#39;.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the holding entitlement. Defaults to returning the latest version of the holding entitlement if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>HoldingEntitlementEntity</returns>
+        HoldingEntitlementEntity GetHoldingEntitlementByEntityUniqueId(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] GetHoldingEntitlementByEntityUniqueId: [EARLY ACCESS] Get holding entitlement by unique id
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the definition of a holding entitlement by its entity unique id, whichever state it is in.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityUniqueId">The entity unique identifier of the holding entitlement. The expected format is &#39;{portfolioEntityUniqueId}_{holdingEntitlementId}&#39;.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the holding entitlement. Defaults to returning the latest version of the holding entitlement if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of HoldingEntitlementEntity</returns>
+        Lusid.Sdk.Client.ApiResponse<HoldingEntitlementEntity> GetHoldingEntitlementByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
         /// </summary>
         /// <remarks>
@@ -726,6 +753,35 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfChangeInterval)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfChangeInterval>> GetEntityHistoryWithHttpInfoAsync(string entityType, string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] GetHoldingEntitlementByEntityUniqueId: [EARLY ACCESS] Get holding entitlement by unique id
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the definition of a holding entitlement by its entity unique id, whichever state it is in.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityUniqueId">The entity unique identifier of the holding entitlement. The expected format is &#39;{portfolioEntityUniqueId}_{holdingEntitlementId}&#39;.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the holding entitlement. Defaults to returning the latest version of the holding entitlement if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of HoldingEntitlementEntity</returns>
+        System.Threading.Tasks.Task<HoldingEntitlementEntity> GetHoldingEntitlementByEntityUniqueIdAsync(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] GetHoldingEntitlementByEntityUniqueId: [EARLY ACCESS] Get holding entitlement by unique id
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the definition of a holding entitlement by its entity unique id, whichever state it is in.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityUniqueId">The entity unique identifier of the holding entitlement. The expected format is &#39;{portfolioEntityUniqueId}_{holdingEntitlementId}&#39;.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the holding entitlement. Defaults to returning the latest version of the holding entitlement if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (HoldingEntitlementEntity)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<HoldingEntitlementEntity>> GetHoldingEntitlementByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
         /// </summary>
@@ -2782,6 +2838,223 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityHistory", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetHoldingEntitlementByEntityUniqueId: [EARLY ACCESS] Get holding entitlement by unique id Retrieve the definition of a holding entitlement by its entity unique id, whichever state it is in.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityUniqueId">The entity unique identifier of the holding entitlement. The expected format is &#39;{portfolioEntityUniqueId}_{holdingEntitlementId}&#39;.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the holding entitlement. Defaults to returning the latest version of the holding entitlement if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>HoldingEntitlementEntity</returns>
+        public HoldingEntitlementEntity GetHoldingEntitlementByEntityUniqueId(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<HoldingEntitlementEntity> localVarResponse = GetHoldingEntitlementByEntityUniqueIdWithHttpInfo(entityUniqueId, asAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetHoldingEntitlementByEntityUniqueId: [EARLY ACCESS] Get holding entitlement by unique id Retrieve the definition of a holding entitlement by its entity unique id, whichever state it is in.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityUniqueId">The entity unique identifier of the holding entitlement. The expected format is &#39;{portfolioEntityUniqueId}_{holdingEntitlementId}&#39;.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the holding entitlement. Defaults to returning the latest version of the holding entitlement if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of HoldingEntitlementEntity</returns>
+        public Lusid.Sdk.Client.ApiResponse<HoldingEntitlementEntity> GetHoldingEntitlementByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'entityUniqueId' is set
+            if (entityUniqueId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'entityUniqueId' when calling EntitiesApi->GetHoldingEntitlementByEntityUniqueId");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("entityUniqueId", Lusid.Sdk.Client.ClientUtils.ParameterToString(entityUniqueId)); // path parameter
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "EntitiesApi.GetHoldingEntitlementByEntityUniqueId";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<HoldingEntitlementEntity>("/api/entities/holdingentitlements/{entityUniqueId}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetHoldingEntitlementByEntityUniqueId", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetHoldingEntitlementByEntityUniqueId: [EARLY ACCESS] Get holding entitlement by unique id Retrieve the definition of a holding entitlement by its entity unique id, whichever state it is in.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityUniqueId">The entity unique identifier of the holding entitlement. The expected format is &#39;{portfolioEntityUniqueId}_{holdingEntitlementId}&#39;.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the holding entitlement. Defaults to returning the latest version of the holding entitlement if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of HoldingEntitlementEntity</returns>
+        public async System.Threading.Tasks.Task<HoldingEntitlementEntity> GetHoldingEntitlementByEntityUniqueIdAsync(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<HoldingEntitlementEntity> localVarResponse = await GetHoldingEntitlementByEntityUniqueIdWithHttpInfoAsync(entityUniqueId, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetHoldingEntitlementByEntityUniqueId: [EARLY ACCESS] Get holding entitlement by unique id Retrieve the definition of a holding entitlement by its entity unique id, whichever state it is in.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityUniqueId">The entity unique identifier of the holding entitlement. The expected format is &#39;{portfolioEntityUniqueId}_{holdingEntitlementId}&#39;.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the holding entitlement. Defaults to returning the latest version of the holding entitlement if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (HoldingEntitlementEntity)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<HoldingEntitlementEntity>> GetHoldingEntitlementByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'entityUniqueId' is set
+            if (entityUniqueId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'entityUniqueId' when calling EntitiesApi->GetHoldingEntitlementByEntityUniqueId");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("entityUniqueId", Lusid.Sdk.Client.ClientUtils.ParameterToString(entityUniqueId)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "EntitiesApi.GetHoldingEntitlementByEntityUniqueId";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<HoldingEntitlementEntity>("/api/entities/holdingentitlements/{entityUniqueId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetHoldingEntitlementByEntityUniqueId", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

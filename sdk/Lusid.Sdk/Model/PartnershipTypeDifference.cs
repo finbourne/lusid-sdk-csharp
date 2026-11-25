@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A transaction type a fund&#39;s portfolios resolve whose register deltas are not its contract, or whose sides its scope does not define.
+    /// A transaction type a fund&#39;s portfolios resolve whose register deltas are not its contract, whose sides its scope does not define, or whose line legs lack the option that books them into the registry.
     /// </summary>
     [DataContract(Name = "PartnershipTypeDifference")]
     public partial class PartnershipTypeDifference : IEquatable<PartnershipTypeDifference>, IValidatableObject
@@ -42,7 +42,8 @@ namespace Lusid.Sdk.Model
         /// <param name="expected">The register balance deltas the pack&#39;s contract expects of the type. (required).</param>
         /// <param name="actual">The register balance deltas the type&#39;s movements carry, each named by its movement. (required).</param>
         /// <param name="missingSides">The sides the type&#39;s movements book through that the fund&#39;s transaction type scope does not define, so the type cannot be booked there; empty when every side is defined. (required).</param>
-        public PartnershipTypeDifference(string source = default(string), string type = default(string), string scope = default(string), List<PackRegisterDelta> expected = default(List<PackRegisterDelta>), List<RegisterDeltaMovement> actual = default(List<RegisterDeltaMovement>), List<string> missingSides = default(List<string>))
+        /// <param name="missingOptions">The movement options the type&#39;s line legs must carry to book the register and do not, each named by its movement. A leg that moves a register balance, or books the line&#39;s units and cost, without the &#39;Registry&#39; option books into the portfolio&#39;s holdings, where the register never looks; empty when every line leg carries it. (required).</param>
+        public PartnershipTypeDifference(string source = default(string), string type = default(string), string scope = default(string), List<PackRegisterDelta> expected = default(List<PackRegisterDelta>), List<RegisterDeltaMovement> actual = default(List<RegisterDeltaMovement>), List<string> missingSides = default(List<string>), List<MissingMovementOption> missingOptions = default(List<MissingMovementOption>))
         {
             // to ensure "source" is required (not null)
             if (source == null)
@@ -80,6 +81,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("missingSides is a required property for PartnershipTypeDifference and cannot be null");
             }
             this.MissingSides = missingSides;
+            // to ensure "missingOptions" is required (not null)
+            if (missingOptions == null)
+            {
+                throw new ArgumentNullException("missingOptions is a required property for PartnershipTypeDifference and cannot be null");
+            }
+            this.MissingOptions = missingOptions;
         }
 
         /// <summary>
@@ -125,6 +132,13 @@ namespace Lusid.Sdk.Model
         public List<string> MissingSides { get; set; }
 
         /// <summary>
+        /// The movement options the type&#39;s line legs must carry to book the register and do not, each named by its movement. A leg that moves a register balance, or books the line&#39;s units and cost, without the &#39;Registry&#39; option books into the portfolio&#39;s holdings, where the register never looks; empty when every line leg carries it.
+        /// </summary>
+        /// <value>The movement options the type&#39;s line legs must carry to book the register and do not, each named by its movement. A leg that moves a register balance, or books the line&#39;s units and cost, without the &#39;Registry&#39; option books into the portfolio&#39;s holdings, where the register never looks; empty when every line leg carries it.</value>
+        [DataMember(Name = "missingOptions", IsRequired = true, EmitDefaultValue = true)]
+        public List<MissingMovementOption> MissingOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -138,6 +152,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Expected: ").Append(Expected).Append("\n");
             sb.Append("  Actual: ").Append(Actual).Append("\n");
             sb.Append("  MissingSides: ").Append(MissingSides).Append("\n");
+            sb.Append("  MissingOptions: ").Append(MissingOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -205,6 +220,12 @@ namespace Lusid.Sdk.Model
                     this.MissingSides != null &&
                     input.MissingSides != null &&
                     this.MissingSides.SequenceEqual(input.MissingSides)
+                ) && 
+                (
+                    this.MissingOptions == input.MissingOptions ||
+                    this.MissingOptions != null &&
+                    input.MissingOptions != null &&
+                    this.MissingOptions.SequenceEqual(input.MissingOptions)
                 );
         }
 
@@ -240,6 +261,10 @@ namespace Lusid.Sdk.Model
                 if (this.MissingSides != null)
                 {
                     hashCode = (hashCode * 59) + this.MissingSides.GetHashCode();
+                }
+                if (this.MissingOptions != null)
+                {
+                    hashCode = (hashCode * 59) + this.MissingOptions.GetHashCode();
                 }
                 return hashCode;
             }

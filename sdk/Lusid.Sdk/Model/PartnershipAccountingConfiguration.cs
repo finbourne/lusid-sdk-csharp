@@ -325,6 +325,30 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // CommitmentCurrencyPolicy (string) maxLength
+            if (this.CommitmentCurrencyPolicy != null && this.CommitmentCurrencyPolicy.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommitmentCurrencyPolicy, length must be less than 64.", new [] { "CommitmentCurrencyPolicy" });
+            }
+
+            // CommitmentCurrencyPolicy (string) minLength
+            if (this.CommitmentCurrencyPolicy != null && this.CommitmentCurrencyPolicy.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommitmentCurrencyPolicy, length must be greater than 0.", new [] { "CommitmentCurrencyPolicy" });
+            }
+
+            // CapitalModel (string) maxLength
+            if (this.CapitalModel != null && this.CapitalModel.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CapitalModel, length must be less than 64.", new [] { "CapitalModel" });
+            }
+
+            // CapitalModel (string) minLength
+            if (this.CapitalModel != null && this.CapitalModel.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CapitalModel, length must be greater than 0.", new [] { "CapitalModel" });
+            }
+
             // AllocationBucketSet (string) maxLength
             if (this.AllocationBucketSet != null && this.AllocationBucketSet.Length > 64)
             {

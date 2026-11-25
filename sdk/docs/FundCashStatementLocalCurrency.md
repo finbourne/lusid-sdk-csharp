@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.FundCashStatementLocalCurrency
-A single row in the local-currency Fund Cash Statement report. Each row is a settled cash  movement with a running balance in local currency only; base-currency columns are out of  scope for this variant and are not returned.
+A single row in the local-currency Fund Cash Statement report. Each row is a settled cash  movement with a running balance in local currency, and the base-currency cash flow, realised FX  (split into its trade-date-to-settlement-date and cash pool parts), cost basis, balance at the  recipe's rate on the row's date and the unrealised FX between the two.
 
 ## Properties
 
@@ -21,6 +21,16 @@ Name | Type | Description | Notes
 **CashflowLocal** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **BalanceLocal** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The requested properties decorated onto the cash statement row. | [optional] 
+**CashflowBase** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**TradeDateToSettlementDateFxPnlBase** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**CashPoolFxPnlBase** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**CostBasisBase** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**BalanceBase** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**UnrealisedFxPnlBase** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**BalanceFxRate** | **decimal?** | The FX rate BalanceBase was struck at, from the row&#39;s currency to the base currency, or 1 for a balance already in the base currency. Not returned when BalanceBase is not, nor when BalanceLocal is zero and no rate was found. | [optional] 
+**BalanceBaseFailureReason** | **string** | Why BalanceBase, BalanceFxRate and UnrealisedFxPnlBase are not returned on this row: no FX rate was found for the row&#39;s currency at its accounting date within the recipe&#39;s quote interval, the rate found was not positive, or the rates could not be read. Null when the balance was struck, and on a row whose BalanceLocal is zero, which is zero in the base currency without a rate. | [optional] 
+**AvgRate** | **decimal?** | Weighted average FX rate (costBasisBase / balanceLocal). Null when balance is zero. | [optional] 
+**FxRateMovement** | **decimal?** | FX rate for this specific movement (CashflowBase / CashFlowLocal). Null when localAmount is zero. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -42,6 +52,19 @@ CurrencyAndAmount? cashflowLocal = new CurrencyAndAmount();
 CurrencyAndAmount? balanceLocal = new CurrencyAndAmount();
 
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
+CurrencyAndAmount? cashflowBase = new CurrencyAndAmount();
+
+CurrencyAndAmount? tradeDateToSettlementDateFxPnlBase = new CurrencyAndAmount();
+
+CurrencyAndAmount? cashPoolFxPnlBase = new CurrencyAndAmount();
+
+CurrencyAndAmount? costBasisBase = new CurrencyAndAmount();
+
+CurrencyAndAmount? balanceBase = new CurrencyAndAmount();
+
+CurrencyAndAmount? unrealisedFxPnlBase = new CurrencyAndAmount();
+
+string balanceBaseFailureReason = "example balanceBaseFailureReason";
 List<Link> links = new List<Link>();
 
 FundCashStatementLocalCurrency fundCashStatementLocalCurrencyInstance = new FundCashStatementLocalCurrency(
@@ -61,6 +84,16 @@ FundCashStatementLocalCurrency fundCashStatementLocalCurrencyInstance = new Fund
     cashflowLocal: cashflowLocal,
     balanceLocal: balanceLocal,
     properties: properties,
+    cashflowBase: cashflowBase,
+    tradeDateToSettlementDateFxPnlBase: tradeDateToSettlementDateFxPnlBase,
+    cashPoolFxPnlBase: cashPoolFxPnlBase,
+    costBasisBase: costBasisBase,
+    balanceBase: balanceBase,
+    unrealisedFxPnlBase: unrealisedFxPnlBase,
+    balanceFxRate: balanceFxRate,
+    balanceBaseFailureReason: balanceBaseFailureReason,
+    avgRate: avgRate,
+    fxRateMovement: fxRateMovement,
     links: links);
 ```
 

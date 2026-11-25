@@ -11,6 +11,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**GetCustomEntityByEntityUniqueId**](EntitiesApi.md#getcustomentitybyentityuniqueid) | **GET** /api/entities/customentities/{entityUniqueId} | GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId |
 | [**GetDataTypeByEntityUniqueId**](EntitiesApi.md#getdatatypebyentityuniqueid) | **GET** /api/entities/datatypes/{entityUniqueId} | GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId |
 | [**GetEntityHistory**](EntitiesApi.md#getentityhistory) | **GET** /api/entities/{entityType}/{entityUniqueId}/history | GetEntityHistory: List an entity&#39;s history information |
+| [**GetHoldingEntitlementByEntityUniqueId**](EntitiesApi.md#getholdingentitlementbyentityuniqueid) | **GET** /api/entities/holdingentitlements/{entityUniqueId} | [EARLY ACCESS] GetHoldingEntitlementByEntityUniqueId: [EARLY ACCESS] Get holding entitlement by unique id |
 | [**GetInstrumentByEntityUniqueId**](EntitiesApi.md#getinstrumentbyentityuniqueid) | **GET** /api/entities/instruments/{entityUniqueId} | GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId |
 | [**GetInstrumentEventByEntityUniqueId**](EntitiesApi.md#getinstrumenteventbyentityuniqueid) | **GET** /api/entities/instrumentevents/{entityUniqueId} | [EARLY ACCESS] GetInstrumentEventByEntityUniqueId: Get instrument event by EntityUniqueId |
 | [**GetInstrumentEventInstructionByEntityUniqueId**](EntitiesApi.md#getinstrumenteventinstructionbyentityuniqueid) | **GET** /api/entities/instrumenteventinstructions/{entityUniqueId} | GetInstrumentEventInstructionByEntityUniqueId: Get instrument event instruction by EntityUniqueId |
@@ -844,6 +845,121 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The change history of the provided entity. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getholdingentitlementbyentityuniqueid"></a>
+# **GetHoldingEntitlementByEntityUniqueId**
+> HoldingEntitlementEntity GetHoldingEntitlementByEntityUniqueId (string entityUniqueId, DateTimeOffset? asAt = null)
+
+[EARLY ACCESS] GetHoldingEntitlementByEntityUniqueId: [EARLY ACCESS] Get holding entitlement by unique id
+
+Retrieve the definition of a holding entitlement by its entity unique id, whichever state it is in.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<EntitiesApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<EntitiesApi>();
+            var entityUniqueId = "entityUniqueId_example";  // string | The entity unique identifier of the holding entitlement. The expected format is '{portfolioEntityUniqueId}_{holdingEntitlementId}'.
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the holding entitlement. Defaults to returning the latest version of the holding entitlement if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // HoldingEntitlementEntity result = apiInstance.GetHoldingEntitlementByEntityUniqueId(entityUniqueId, asAt, opts: opts);
+
+                // [EARLY ACCESS] GetHoldingEntitlementByEntityUniqueId: [EARLY ACCESS] Get holding entitlement by unique id
+                HoldingEntitlementEntity result = apiInstance.GetHoldingEntitlementByEntityUniqueId(entityUniqueId, asAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling EntitiesApi.GetHoldingEntitlementByEntityUniqueId: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the GetHoldingEntitlementByEntityUniqueIdWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetHoldingEntitlementByEntityUniqueId: [EARLY ACCESS] Get holding entitlement by unique id
+    ApiResponse<HoldingEntitlementEntity> response = apiInstance.GetHoldingEntitlementByEntityUniqueIdWithHttpInfo(entityUniqueId, asAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling EntitiesApi.GetHoldingEntitlementByEntityUniqueIdWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **entityUniqueId** | **string** | The entity unique identifier of the holding entitlement. The expected format is &#39;{portfolioEntityUniqueId}_{holdingEntitlementId}&#39;. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the holding entitlement. Defaults to returning the latest version of the holding entitlement if not specified. | [optional]  |
+
+### Return type
+
+[**HoldingEntitlementEntity**](HoldingEntitlementEntity.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The requested holding entitlement entity |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

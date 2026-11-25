@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The rate of return over each period of the grid.
+    /// The rate of return over each period of the grid, or over a window looking back from each period when  one is given.
     /// </summary>
     [DataContract(Name = "ReturnMetric")]
     public partial class ReturnMetric : IEquatable<ReturnMetric>, IValidatableObject
@@ -36,9 +36,10 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReturnMetric" /> class.
         /// </summary>
+        /// <param name="window">window.</param>
         /// <param name="type">Available values: Return, IndicativeAmount. (required).</param>
         /// <param name="alias">alias.</param>
-        public ReturnMetric(string type = default(string), string alias = default(string))
+        public ReturnMetric(ReturnsMetricWindow window = default(ReturnsMetricWindow), string type = default(string), string alias = default(string))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -46,8 +47,15 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("type is a required property for ReturnMetric and cannot be null");
             }
             this.Type = type;
+            this.Window = window;
             this.Alias = alias;
         }
+
+        /// <summary>
+        /// Gets or Sets Window
+        /// </summary>
+        [DataMember(Name = "window", EmitDefaultValue = false)]
+        public ReturnsMetricWindow Window { get; set; }
 
         /// <summary>
         /// Available values: Return, IndicativeAmount.
@@ -70,6 +78,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ReturnMetric {\n");
+            sb.Append("  Window: ").Append(Window).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Alias: ").Append(Alias).Append("\n");
             sb.Append("}\n");
@@ -108,6 +117,11 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
+                    this.Window == input.Window ||
+                    (this.Window != null &&
+                    this.Window.Equals(input.Window))
+                ) && 
+                (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
@@ -128,6 +142,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Window != null)
+                {
+                    hashCode = (hashCode * 59) + this.Window.GetHashCode();
+                }
                 if (this.Type != null)
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();

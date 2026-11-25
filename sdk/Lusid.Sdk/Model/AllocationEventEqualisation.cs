@@ -41,11 +41,14 @@ namespace Lusid.Sdk.Model
         /// <param name="interestRate">The simple annual rate of equalisation interest the admitted partners pay on each catch-up from the prior call&#39;s due date to the event date. Defaults to 0.08..</param>
         /// <param name="dayCountConvention">The day count of the equalisation interest: ACT/365 or ACT/360. Defaults to ACT/365..</param>
         /// <param name="interestOnFees">Whether equalisation interest is also charged on the management fee catch-ups, from each fee&#39;s due date. Defaults to false..</param>
-        /// <param name="treatment">How the existing partners&#39; excess is returned: ReturnOfExcess restores it to their uncalled commitment; RecallableDistribution distributes it as recallable capital. Defaults to ReturnOfExcess. Available values: ReturnOfExcess, RecallableDistribution..</param>
-        /// <param name="pnl">Whether profit and loss already allocated is re-trued between partners with no cash so each holds its post-close share (ReTrue), or the equalisation is kept to capital (CapitalOnly). Defaults to ReTrue. Available values: ReTrue, CapitalOnly..</param>
+        /// <param name="treatment">How the existing partners&#39; excess is returned: ReturnOfExcess restores it to their uncalled commitment; RecallableDistribution distributes it as recallable capital; CreditAgainstFutureCalls restores it to their uncalled commitment and keeps the cash in the fund as a credit their next calls draw down; RetainedByFund hands nothing back and instead calls the admitted partners up to the existing partners&#39; level on the commitments before the close. Defaults to ReturnOfExcess. Available values: ReturnOfExcess, RecallableDistribution, CreditAgainstFutureCalls, RetainedByFund..</param>
+        /// <param name="pnl">Whether profit and loss already allocated is re-trued between partners with no cash so each holds its post-close share (ReTrue), or the equalisation is kept to capital (CapitalOnly). Defaults to CapitalOnly when omitted on a request. An equalisation stored before this default was introduced keeps the treatment it was stored with, which is ReTrue. Available values: ReTrue, CapitalOnly..</param>
         /// <param name="feeCatchUps">The management fees each admitted partner owes from the first fee date to the close, including any stub period, as explicit amounts. Paid to the manager and allocated to that partner only..</param>
         /// <param name="marks">The valuation moves already allocated to the existing partners, by the member of the structure they belong to, to re-true to the admitted partners. Ignored when the profit and loss treatment is CapitalOnly..</param>
-        public AllocationEventEqualisation(List<ResourceId> priorCallIds = default(List<ResourceId>), List<string> newInvestorRecordIds = default(List<string>), decimal? interestRate = default(decimal?), string dayCountConvention = default(string), bool? interestOnFees = default(bool?), string treatment = default(string), string pnl = default(string), List<AllocationEventEqualisationFeeCatchUp> feeCatchUps = default(List<AllocationEventEqualisationFeeCatchUp>), List<AllocationEventEqualisationMark> marks = default(List<AllocationEventEqualisationMark>))
+        /// <param name="priorDistributionIds">The booked distributions on the same allocation map, dated before the close, whose return of capital is re-spread net of the prior calls. When omitted, every booked distribution on the map dated before the close counts..</param>
+        /// <param name="interestTreatment">How the equalisation interest reaches the existing partners: Cash pays it to them; CapitalCredit credits it to their capital accounts with no cash; None charges and pays no equalisation interest. Defaults to Cash. Available values: Cash, CapitalCredit, None..</param>
+        /// <param name="excludedComponents">The call components left out of the re-spread: ManagementFee, OtherFee, Expense, OrganisationCost or Recall. Defaults to ManagementFee. A component no prior call carries, other than ManagementFee, is refused. Available values: ManagementFee, OtherFee, Expense, OrganisationCost, Recall..</param>
+        public AllocationEventEqualisation(List<ResourceId> priorCallIds = default(List<ResourceId>), List<string> newInvestorRecordIds = default(List<string>), decimal? interestRate = default(decimal?), string dayCountConvention = default(string), bool? interestOnFees = default(bool?), string treatment = default(string), string pnl = default(string), List<AllocationEventEqualisationFeeCatchUp> feeCatchUps = default(List<AllocationEventEqualisationFeeCatchUp>), List<AllocationEventEqualisationMark> marks = default(List<AllocationEventEqualisationMark>), List<ResourceId> priorDistributionIds = default(List<ResourceId>), string interestTreatment = default(string), List<string> excludedComponents = default(List<string>))
         {
             // to ensure "priorCallIds" is required (not null)
             if (priorCallIds == null)
@@ -66,6 +69,9 @@ namespace Lusid.Sdk.Model
             this.Pnl = pnl;
             this.FeeCatchUps = feeCatchUps;
             this.Marks = marks;
+            this.PriorDistributionIds = priorDistributionIds;
+            this.InterestTreatment = interestTreatment;
+            this.ExcludedComponents = excludedComponents;
         }
 
         /// <summary>
@@ -104,16 +110,16 @@ namespace Lusid.Sdk.Model
         public bool? InterestOnFees { get; set; }
 
         /// <summary>
-        /// How the existing partners&#39; excess is returned: ReturnOfExcess restores it to their uncalled commitment; RecallableDistribution distributes it as recallable capital. Defaults to ReturnOfExcess. Available values: ReturnOfExcess, RecallableDistribution.
+        /// How the existing partners&#39; excess is returned: ReturnOfExcess restores it to their uncalled commitment; RecallableDistribution distributes it as recallable capital; CreditAgainstFutureCalls restores it to their uncalled commitment and keeps the cash in the fund as a credit their next calls draw down; RetainedByFund hands nothing back and instead calls the admitted partners up to the existing partners&#39; level on the commitments before the close. Defaults to ReturnOfExcess. Available values: ReturnOfExcess, RecallableDistribution, CreditAgainstFutureCalls, RetainedByFund.
         /// </summary>
-        /// <value>How the existing partners&#39; excess is returned: ReturnOfExcess restores it to their uncalled commitment; RecallableDistribution distributes it as recallable capital. Defaults to ReturnOfExcess. Available values: ReturnOfExcess, RecallableDistribution.</value>
+        /// <value>How the existing partners&#39; excess is returned: ReturnOfExcess restores it to their uncalled commitment; RecallableDistribution distributes it as recallable capital; CreditAgainstFutureCalls restores it to their uncalled commitment and keeps the cash in the fund as a credit their next calls draw down; RetainedByFund hands nothing back and instead calls the admitted partners up to the existing partners&#39; level on the commitments before the close. Defaults to ReturnOfExcess. Available values: ReturnOfExcess, RecallableDistribution, CreditAgainstFutureCalls, RetainedByFund.</value>
         [DataMember(Name = "treatment", EmitDefaultValue = true)]
         public string Treatment { get; set; }
 
         /// <summary>
-        /// Whether profit and loss already allocated is re-trued between partners with no cash so each holds its post-close share (ReTrue), or the equalisation is kept to capital (CapitalOnly). Defaults to ReTrue. Available values: ReTrue, CapitalOnly.
+        /// Whether profit and loss already allocated is re-trued between partners with no cash so each holds its post-close share (ReTrue), or the equalisation is kept to capital (CapitalOnly). Defaults to CapitalOnly when omitted on a request. An equalisation stored before this default was introduced keeps the treatment it was stored with, which is ReTrue. Available values: ReTrue, CapitalOnly.
         /// </summary>
-        /// <value>Whether profit and loss already allocated is re-trued between partners with no cash so each holds its post-close share (ReTrue), or the equalisation is kept to capital (CapitalOnly). Defaults to ReTrue. Available values: ReTrue, CapitalOnly.</value>
+        /// <value>Whether profit and loss already allocated is re-trued between partners with no cash so each holds its post-close share (ReTrue), or the equalisation is kept to capital (CapitalOnly). Defaults to CapitalOnly when omitted on a request. An equalisation stored before this default was introduced keeps the treatment it was stored with, which is ReTrue. Available values: ReTrue, CapitalOnly.</value>
         [DataMember(Name = "pnl", EmitDefaultValue = true)]
         public string Pnl { get; set; }
 
@@ -132,6 +138,27 @@ namespace Lusid.Sdk.Model
         public List<AllocationEventEqualisationMark> Marks { get; set; }
 
         /// <summary>
+        /// The booked distributions on the same allocation map, dated before the close, whose return of capital is re-spread net of the prior calls. When omitted, every booked distribution on the map dated before the close counts.
+        /// </summary>
+        /// <value>The booked distributions on the same allocation map, dated before the close, whose return of capital is re-spread net of the prior calls. When omitted, every booked distribution on the map dated before the close counts.</value>
+        [DataMember(Name = "priorDistributionIds", EmitDefaultValue = true)]
+        public List<ResourceId> PriorDistributionIds { get; set; }
+
+        /// <summary>
+        /// How the equalisation interest reaches the existing partners: Cash pays it to them; CapitalCredit credits it to their capital accounts with no cash; None charges and pays no equalisation interest. Defaults to Cash. Available values: Cash, CapitalCredit, None.
+        /// </summary>
+        /// <value>How the equalisation interest reaches the existing partners: Cash pays it to them; CapitalCredit credits it to their capital accounts with no cash; None charges and pays no equalisation interest. Defaults to Cash. Available values: Cash, CapitalCredit, None.</value>
+        [DataMember(Name = "interestTreatment", EmitDefaultValue = true)]
+        public string InterestTreatment { get; set; }
+
+        /// <summary>
+        /// The call components left out of the re-spread: ManagementFee, OtherFee, Expense, OrganisationCost or Recall. Defaults to ManagementFee. A component no prior call carries, other than ManagementFee, is refused. Available values: ManagementFee, OtherFee, Expense, OrganisationCost, Recall.
+        /// </summary>
+        /// <value>The call components left out of the re-spread: ManagementFee, OtherFee, Expense, OrganisationCost or Recall. Defaults to ManagementFee. A component no prior call carries, other than ManagementFee, is refused. Available values: ManagementFee, OtherFee, Expense, OrganisationCost, Recall.</value>
+        [DataMember(Name = "excludedComponents", EmitDefaultValue = true)]
+        public List<string> ExcludedComponents { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -148,6 +175,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  Pnl: ").Append(Pnl).Append("\n");
             sb.Append("  FeeCatchUps: ").Append(FeeCatchUps).Append("\n");
             sb.Append("  Marks: ").Append(Marks).Append("\n");
+            sb.Append("  PriorDistributionIds: ").Append(PriorDistributionIds).Append("\n");
+            sb.Append("  InterestTreatment: ").Append(InterestTreatment).Append("\n");
+            sb.Append("  ExcludedComponents: ").Append(ExcludedComponents).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -231,6 +261,23 @@ namespace Lusid.Sdk.Model
                     this.Marks != null &&
                     input.Marks != null &&
                     this.Marks.SequenceEqual(input.Marks)
+                ) && 
+                (
+                    this.PriorDistributionIds == input.PriorDistributionIds ||
+                    this.PriorDistributionIds != null &&
+                    input.PriorDistributionIds != null &&
+                    this.PriorDistributionIds.SequenceEqual(input.PriorDistributionIds)
+                ) && 
+                (
+                    this.InterestTreatment == input.InterestTreatment ||
+                    (this.InterestTreatment != null &&
+                    this.InterestTreatment.Equals(input.InterestTreatment))
+                ) && 
+                (
+                    this.ExcludedComponents == input.ExcludedComponents ||
+                    this.ExcludedComponents != null &&
+                    input.ExcludedComponents != null &&
+                    this.ExcludedComponents.SequenceEqual(input.ExcludedComponents)
                 );
         }
 
@@ -279,6 +326,18 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Marks.GetHashCode();
                 }
+                if (this.PriorDistributionIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriorDistributionIds.GetHashCode();
+                }
+                if (this.InterestTreatment != null)
+                {
+                    hashCode = (hashCode * 59) + this.InterestTreatment.GetHashCode();
+                }
+                if (this.ExcludedComponents != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExcludedComponents.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -300,13 +359,6 @@ namespace Lusid.Sdk.Model
             if (this.DayCountConvention != null && this.DayCountConvention.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DayCountConvention, length must be greater than 1.", new [] { "DayCountConvention" });
-            }
-
-            // DayCountConvention (string) pattern
-            Regex regexDayCountConvention = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexDayCountConvention.Match(this.DayCountConvention).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DayCountConvention, must match a pattern of " + regexDayCountConvention, new [] { "DayCountConvention" });
             }
 
             yield break;

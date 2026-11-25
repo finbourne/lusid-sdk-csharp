@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="currency">The ISO 4217 code of the currency of the amount. The amount may not be finer than the currency&#39;s minor unit: two decimal places for most currencies, none for JPY, three for KWD and BHD. A code with no defined minor unit, such as XAU or XAG, is taken to have two decimal places. (required).</param>
         /// <param name="eventDate">The date of the event: the point at which the map, its participants and their basis values are read. (required).</param>
         /// <param name="description">A description of the Allocation Event..</param>
-        /// <param name="basisValues">Optional basis values per investor record, used when the map&#39;s basis is not resolvable from stored data..</param>
+        /// <param name="basisValues">Optional basis values per investor record. For a register-backed basis such as Committed or PaidIn, the members&#39; registers are read and supplied values override the register value of the investor records they name rather than defining who takes part: every other open line on the map&#39;s members still takes part at its register value, so to leave an investor record out, exclude it on the map. For a basis not read from the register, such as ValueWeighted or PropertyWeighted, they are the values the event is weighted by..</param>
         /// <param name="components">The parts the amount splits into, each shared on its own basis and booked to its own slot. The component amounts must sum to the event amount. Absent means the whole amount is one component: Investment for a CapitalCall, ROC for a Distribution..</param>
         /// <param name="transfers">For a Transfer event, the legs to book: each moves a fraction of one capital interest line to another. Required for a Transfer event and not allowed on any other type. The fractions out of one line must sum to at most one; the amount of a Transfer event is zero..</param>
         /// <param name="equalisation">equalisation.</param>
@@ -145,9 +145,9 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Optional basis values per investor record, used when the map&#39;s basis is not resolvable from stored data.
+        /// Optional basis values per investor record. For a register-backed basis such as Committed or PaidIn, the members&#39; registers are read and supplied values override the register value of the investor records they name rather than defining who takes part: every other open line on the map&#39;s members still takes part at its register value, so to leave an investor record out, exclude it on the map. For a basis not read from the register, such as ValueWeighted or PropertyWeighted, they are the values the event is weighted by.
         /// </summary>
-        /// <value>Optional basis values per investor record, used when the map&#39;s basis is not resolvable from stored data.</value>
+        /// <value>Optional basis values per investor record. For a register-backed basis such as Committed or PaidIn, the members&#39; registers are read and supplied values override the register value of the investor records they name rather than defining who takes part: every other open line on the map&#39;s members still takes part at its register value, so to leave an investor record out, exclude it on the map. For a basis not read from the register, such as ValueWeighted or PropertyWeighted, they are the values the event is weighted by.</value>
         [DataMember(Name = "basisValues", EmitDefaultValue = true)]
         public List<AllocationMapBasisValue> BasisValues { get; set; }
 

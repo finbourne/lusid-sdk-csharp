@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Unfunded** | **decimal** | The unfunded capital. | 
 **Funded** | **decimal** | The funded capital. | 
 **OutstandingCalls** | **decimal?** | Capital called but not yet paid in, counting capital that was returned as recallable and has since been recalled. Omitted while a line that has had returned capital marked recallable has not been rebuilt with recalled capital as a balance, since the figure could then miss an unpaid recall. | [optional] 
+**CallCredit** | **decimal** | The credit an equalisation kept against the line&#39;s future calls, less what later calls have drawn on it: a liability to the partner, not capital, until a call applies it. Zero when the line holds none. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -24,7 +25,7 @@ decimal returned = "returned";
 decimal recallable = "recallable";
 decimal unfunded = "unfunded";
 decimal funded = "funded";
-
+decimal? callCredit = "example callCredit";
 
 FundPartnerBalances fundPartnerBalancesInstance = new FundPartnerBalances(
     committed: committed,
@@ -34,7 +35,8 @@ FundPartnerBalances fundPartnerBalancesInstance = new FundPartnerBalances(
     recallable: recallable,
     unfunded: unfunded,
     funded: funded,
-    outstandingCalls: outstandingCalls);
+    outstandingCalls: outstandingCalls,
+    callCredit: callCredit);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

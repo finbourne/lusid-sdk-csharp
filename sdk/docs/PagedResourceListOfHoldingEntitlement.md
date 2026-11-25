@@ -1,4 +1,4 @@
-# Lusid.Sdk.Model.PagedResourceListOfPartnerCapitalAccount
+# Lusid.Sdk.Model.PagedResourceListOfHoldingEntitlement
 
 ## Properties
 
@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NextPage** | **string** |  | [optional] 
 **PreviousPage** | **string** |  | [optional] 
-**Values** | [**List&lt;PartnerCapitalAccount&gt;**](PartnerCapitalAccount.md) |  | 
+**Values** | [**List&lt;HoldingEntitlement&gt;**](HoldingEntitlement.md) |  | 
 **Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
@@ -16,11 +16,11 @@ using System;
 
 string nextPage = "example nextPage";
 string previousPage = "example previousPage";
-List<PartnerCapitalAccount> values = new List<PartnerCapitalAccount>();
+List<HoldingEntitlement> values = new List<HoldingEntitlement>();
 string href = "example href";
 List<Link> links = new List<Link>();
 
-PagedResourceListOfPartnerCapitalAccount pagedResourceListOfPartnerCapitalAccountInstance = new PagedResourceListOfPartnerCapitalAccount(
+PagedResourceListOfHoldingEntitlement pagedResourceListOfHoldingEntitlementInstance = new PagedResourceListOfHoldingEntitlement(
     nextPage: nextPage,
     previousPage: previousPage,
     values: values,

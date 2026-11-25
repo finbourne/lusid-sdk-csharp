@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **Lines** | [**List&lt;ManagementFeeLine&gt;**](ManagementFeeLine.md) | The fee per partner. | 
 **Totals** | [**ManagementFeeTotals**](ManagementFeeTotals.md) |  | 
 **BookedTransactionIds** | **List&lt;string&gt;** | The identifiers of the transactions booked, if any. | 
+**FundTransactionIds** | **List&lt;string&gt;** | The identifiers of the fee transactions the run holds in the fund&#39;s own books, one per partner and fee component, when the run was booked. | [optional] 
+**Warnings** | **List&lt;string&gt;** | What booking the run noticed but did not refuse, each starting with its code, for example a payment to the manager on the fee payable in a currency other than the fee&#39;s, which settles none of the payable an offset is set against (FeePaymentCurrencyIgnored). Absent when there is nothing to warn of. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -22,6 +24,8 @@ string basis = "basis";
 List<ManagementFeeLine> lines = new List<ManagementFeeLine>();
 ManagementFeeTotals totals = new ManagementFeeTotals();
 List<string> bookedTransactionIds = new List<string>();
+List<string> fundTransactionIds = new List<string>();
+List<string> warnings = new List<string>();
 
 ManagementFeeResult managementFeeResultInstance = new ManagementFeeResult(
     fundId: fundId,
@@ -30,7 +34,9 @@ ManagementFeeResult managementFeeResultInstance = new ManagementFeeResult(
     basis: basis,
     lines: lines,
     totals: totals,
-    bookedTransactionIds: bookedTransactionIds);
+    bookedTransactionIds: bookedTransactionIds,
+    fundTransactionIds: fundTransactionIds,
+    warnings: warnings);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -46,7 +46,8 @@ namespace Lusid.Sdk.Model
         /// <param name="memo">memo (required).</param>
         /// <param name="foots">Whether the ending capital agrees across the quarter-to-date, year-to-date and inception-to-date columns within tolerance. (required).</param>
         /// <param name="footingDifference">The largest difference between the ending capital of any two columns. (required).</param>
-        public PartnerCapitalAccount(ResourceId fundId = default(ResourceId), string investorRecordId = default(string), string currency = default(string), DateTimeOffset periodStart = default(DateTimeOffset), DateTimeOffset periodEnd = default(DateTimeOffset), string status = default(string), List<PartnerCapitalAccountRow> rows = default(List<PartnerCapitalAccountRow>), PartnerCapitalAccountMemo memo = default(PartnerCapitalAccountMemo), bool foots = default(bool), decimal footingDifference = default(decimal))
+        /// <param name="warnings">Warnings about the register the account was read from, for example a transaction type of the fund that books a register line outside the registry, so that line is not in the account. Empty when there is nothing to warn of..</param>
+        public PartnerCapitalAccount(ResourceId fundId = default(ResourceId), string investorRecordId = default(string), string currency = default(string), DateTimeOffset periodStart = default(DateTimeOffset), DateTimeOffset periodEnd = default(DateTimeOffset), string status = default(string), List<PartnerCapitalAccountRow> rows = default(List<PartnerCapitalAccountRow>), PartnerCapitalAccountMemo memo = default(PartnerCapitalAccountMemo), bool foots = default(bool), decimal footingDifference = default(decimal), List<Warning> warnings = default(List<Warning>))
         {
             // to ensure "fundId" is required (not null)
             if (fundId == null)
@@ -88,6 +89,7 @@ namespace Lusid.Sdk.Model
             this.Memo = memo;
             this.Foots = foots;
             this.FootingDifference = footingDifference;
+            this.Warnings = warnings;
         }
 
         /// <summary>
@@ -159,6 +161,13 @@ namespace Lusid.Sdk.Model
         public decimal FootingDifference { get; set; }
 
         /// <summary>
+        /// Warnings about the register the account was read from, for example a transaction type of the fund that books a register line outside the registry, so that line is not in the account. Empty when there is nothing to warn of.
+        /// </summary>
+        /// <value>Warnings about the register the account was read from, for example a transaction type of the fund that books a register line outside the registry, so that line is not in the account. Empty when there is nothing to warn of.</value>
+        [DataMember(Name = "warnings", EmitDefaultValue = true)]
+        public List<Warning> Warnings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -176,6 +185,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Memo: ").Append(Memo).Append("\n");
             sb.Append("  Foots: ").Append(Foots).Append("\n");
             sb.Append("  FootingDifference: ").Append(FootingDifference).Append("\n");
+            sb.Append("  Warnings: ").Append(Warnings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -259,6 +269,12 @@ namespace Lusid.Sdk.Model
                 (
                     this.FootingDifference == input.FootingDifference ||
                     this.FootingDifference.Equals(input.FootingDifference)
+                ) && 
+                (
+                    this.Warnings == input.Warnings ||
+                    this.Warnings != null &&
+                    input.Warnings != null &&
+                    this.Warnings.SequenceEqual(input.Warnings)
                 );
         }
 
@@ -305,6 +321,10 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.Foots.GetHashCode();
                 hashCode = (hashCode * 59) + this.FootingDifference.GetHashCode();
+                if (this.Warnings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
+                }
                 return hashCode;
             }
         }

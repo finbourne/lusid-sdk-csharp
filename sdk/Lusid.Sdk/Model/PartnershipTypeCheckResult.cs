@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="pack">pack (required).</param>
         /// <param name="status">The outcome of the check. Available values: Ok, Differences. (required).</param>
-        /// <param name="differences">The transaction types whose register balance deltas are not their contract in the pack, or whose movements book through a side the fund&#39;s transaction type scope does not define; empty when the status is Ok. (required).</param>
+        /// <param name="differences">The transaction types whose register balance deltas are not their contract in the pack, whose movements book through a side the fund&#39;s transaction type scope does not define, or whose line legs lack the &#39;Registry&#39; movement option that books them into the registry; empty when the status is Ok. (required).</param>
         public PartnershipTypeCheckResult(PartnershipConfigPack pack = default(PartnershipConfigPack), string status = default(string), List<PartnershipTypeDifference> differences = default(List<PartnershipTypeDifference>))
         {
             // to ensure "pack" is required (not null)
@@ -75,9 +75,9 @@ namespace Lusid.Sdk.Model
         public string Status { get; set; }
 
         /// <summary>
-        /// The transaction types whose register balance deltas are not their contract in the pack, or whose movements book through a side the fund&#39;s transaction type scope does not define; empty when the status is Ok.
+        /// The transaction types whose register balance deltas are not their contract in the pack, whose movements book through a side the fund&#39;s transaction type scope does not define, or whose line legs lack the &#39;Registry&#39; movement option that books them into the registry; empty when the status is Ok.
         /// </summary>
-        /// <value>The transaction types whose register balance deltas are not their contract in the pack, or whose movements book through a side the fund&#39;s transaction type scope does not define; empty when the status is Ok.</value>
+        /// <value>The transaction types whose register balance deltas are not their contract in the pack, whose movements book through a side the fund&#39;s transaction type scope does not define, or whose line legs lack the &#39;Registry&#39; movement option that books them into the registry; empty when the status is Ok.</value>
         [DataMember(Name = "differences", IsRequired = true, EmitDefaultValue = true)]
         public List<PartnershipTypeDifference> Differences { get; set; }
 

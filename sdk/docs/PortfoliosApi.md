@@ -5,6 +5,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**BatchUpsertPortfolioAccessMetadata**](PortfoliosApi.md#batchupsertportfolioaccessmetadata) | **PUT** /api/portfolios/metadata | [EARLY ACCESS] BatchUpsertPortfolioAccessMetadata: Upsert multiple Portfolio Access Metadata Rules to multiple Portfolios |
+| [**DeleteHoldingEntitlement**](PortfoliosApi.md#deleteholdingentitlement) | **DELETE** /api/portfolios/{scope}/{code}/holdingentitlements/{holdingEntitlementId} | [EARLY ACCESS] DeleteHoldingEntitlement: [EARLY ACCESS] Delete Holding Entitlement |
 | [**DeleteInstrumentEventInstruction**](PortfoliosApi.md#deleteinstrumenteventinstruction) | **DELETE** /api/portfolios/{scope}/{code}/instrumenteventinstructions/{instrumentEventInstructionId} | [EARLY ACCESS] DeleteInstrumentEventInstruction: Delete Instrument Event Instruction |
 | [**DeleteKeyFromPortfolioAccessMetadata**](PortfoliosApi.md#deletekeyfromportfolioaccessmetadata) | **DELETE** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule |
 | [**DeletePortfolio**](PortfoliosApi.md#deleteportfolio) | **DELETE** /api/portfolios/{scope}/{code} | DeletePortfolio: Delete portfolio |
@@ -12,6 +13,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**DeletePortfolioReturns**](PortfoliosApi.md#deleteportfolioreturns) | **DELETE** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/$delete | [EARLY ACCESS] DeletePortfolioReturns: Delete Returns |
 | [**GetAggregatedReturnsDispersionMetrics**](PortfoliosApi.md#getaggregatedreturnsdispersionmetrics) | **POST** /api/portfolios/{scope}/{code}/returns/dispersion/$aggregated | [EARLY ACCESS] GetAggregatedReturnsDispersionMetrics: Get the Aggregated Returns Dispersion metric |
 | [**GetCompositeBreakdown**](PortfoliosApi.md#getcompositebreakdown) | **POST** /api/portfolios/{scope}/{code}/returns/breakdown | [EARLY ACCESS] GetCompositeBreakdown: Get the Composite Breakdown on how the composite Returns are calculated |
+| [**GetHoldingEntitlement**](PortfoliosApi.md#getholdingentitlement) | **GET** /api/portfolios/{scope}/{code}/holdingentitlements/{holdingEntitlementId} | [EARLY ACCESS] GetHoldingEntitlement: [EARLY ACCESS] Get Holding Entitlement |
 | [**GetInstrumentEventInstruction**](PortfoliosApi.md#getinstrumenteventinstruction) | **GET** /api/portfolios/{scope}/{code}/instrumenteventinstructions/{instrumentEventInstructionId} | [EARLY ACCESS] GetInstrumentEventInstruction: Get Instrument Event Instruction |
 | [**GetPortfolio**](PortfoliosApi.md#getportfolio) | **GET** /api/portfolios/{scope}/{code} | GetPortfolio: Get portfolio |
 | [**GetPortfolioAggregateReturns**](PortfoliosApi.md#getportfolioaggregatereturns) | **GET** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/aggregated | [DEPRECATED] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint). |
@@ -25,6 +27,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**GetPortfolioRelationships**](PortfoliosApi.md#getportfoliorelationships) | **GET** /api/portfolios/{scope}/{code}/relationships | GetPortfolioRelationships: Get portfolio relationships |
 | [**GetPortfolioReturns**](PortfoliosApi.md#getportfolioreturns) | **GET** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | GetPortfolioReturns: Get Returns |
 | [**GetPortfoliosAccessMetadataByKey**](PortfoliosApi.md#getportfoliosaccessmetadatabykey) | **GET** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object |
+| [**ListHoldingEntitlements**](PortfoliosApi.md#listholdingentitlements) | **GET** /api/portfolios/{scope}/{code}/holdingentitlements | [EARLY ACCESS] ListHoldingEntitlements: [EARLY ACCESS] List Holding Entitlements |
 | [**ListInstrumentEventInstructions**](PortfoliosApi.md#listinstrumenteventinstructions) | **GET** /api/portfolios/{scope}/{code}/instrumenteventinstructions | [EARLY ACCESS] ListInstrumentEventInstructions: List Instrument Event Instructions |
 | [**ListPortfolioProperties**](PortfoliosApi.md#listportfolioproperties) | **GET** /api/portfolios/{scope}/{code}/properties/list | [EARLY ACCESS] ListPortfolioProperties: Get portfolio properties |
 | [**ListPortfolios**](PortfoliosApi.md#listportfolios) | **GET** /api/portfolios | ListPortfolios: List portfolios |
@@ -32,6 +35,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**PatchPortfolio**](PortfoliosApi.md#patchportfolio) | **PATCH** /api/portfolios/{scope}/{code} | PatchPortfolio: Patch portfolio. |
 | [**PatchPortfolioAccessMetadata**](PortfoliosApi.md#patchportfolioaccessmetadata) | **PATCH** /api/portfolios/{scope}/{code}/metadata | [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio. |
 | [**UpdatePortfolio**](PortfoliosApi.md#updateportfolio) | **PUT** /api/portfolios/{scope}/{code} | UpdatePortfolio: Update portfolio |
+| [**UpsertHoldingEntitlements**](PortfoliosApi.md#upsertholdingentitlements) | **POST** /api/portfolios/{scope}/{code}/holdingentitlements | [EARLY ACCESS] UpsertHoldingEntitlements: [EARLY ACCESS] Upsert Holding Entitlements |
 | [**UpsertInstrumentEventInstructions**](PortfoliosApi.md#upsertinstrumenteventinstructions) | **POST** /api/portfolios/{scope}/{code}/instrumenteventinstructions | [EARLY ACCESS] UpsertInstrumentEventInstructions: Upsert Instrument Event Instructions |
 | [**UpsertPortfolioAccessMetadata**](PortfoliosApi.md#upsertportfolioaccessmetadata) | **PUT** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID. |
 | [**UpsertPortfolioProperties**](PortfoliosApi.md#upsertportfolioproperties) | **POST** /api/portfolios/{scope}/{code}/properties | UpsertPortfolioProperties: Upsert portfolio properties |
@@ -149,6 +153,125 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The successfully updated or inserted items or any failures |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="deleteholdingentitlement"></a>
+# **DeleteHoldingEntitlement**
+> DeletedEntityResponse DeleteHoldingEntitlement (string scope, string code, string holdingEntitlementId, DateTimeOrCutLabel? portfolioEffectiveAt = null)
+
+[EARLY ACCESS] DeleteHoldingEntitlement: [EARLY ACCESS] Delete Holding Entitlement
+
+Delete a particular holding entitlement of a particular portfolio.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
+            var holdingEntitlementId = "holdingEntitlementId_example";  // string | The id of the entitlement to be deleted.
+            var portfolioEffectiveAt = "portfolioEffectiveAt_example";  // DateTimeOrCutLabel? | The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteHoldingEntitlement(scope, code, holdingEntitlementId, portfolioEffectiveAt, opts: opts);
+
+                // [EARLY ACCESS] DeleteHoldingEntitlement: [EARLY ACCESS] Delete Holding Entitlement
+                DeletedEntityResponse result = apiInstance.DeleteHoldingEntitlement(scope, code, holdingEntitlementId, portfolioEffectiveAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling PortfoliosApi.DeleteHoldingEntitlement: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the DeleteHoldingEntitlementWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] DeleteHoldingEntitlement: [EARLY ACCESS] Delete Holding Entitlement
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteHoldingEntitlementWithHttpInfo(scope, code, holdingEntitlementId, portfolioEffectiveAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling PortfoliosApi.DeleteHoldingEntitlementWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. Together with the scope this uniquely identifies the portfolio. |  |
+| **holdingEntitlementId** | **string** | The id of the entitlement to be deleted. |  |
+| **portfolioEffectiveAt** | **DateTimeOrCutLabel?** | The effective date at which the portfolio will be resolved. Defaults to current time if not specified. | [optional]  |
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The datetime that the entitlement was deleted |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -990,6 +1113,133 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The aggregated returns grouped by return stream. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getholdingentitlement"></a>
+# **GetHoldingEntitlement**
+> HoldingEntitlement GetHoldingEntitlement (string scope, string code, string holdingEntitlementId, DateTimeOrCutLabel? portfolioEffectiveAt = null, DateTimeOffset? asAt = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
+
+[EARLY ACCESS] GetHoldingEntitlement: [EARLY ACCESS] Get Holding Entitlement
+
+Get a particular holding entitlement of a particular portfolio.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
+            var holdingEntitlementId = "holdingEntitlementId_example";  // string | The id of the entitlement to be retrieved.
+            var portfolioEffectiveAt = "portfolioEffectiveAt_example";  // DateTimeOrCutLabel? | The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the entitlement. Defaults to return the latest version of the entitlement if not specified. (optional) 
+            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // HoldingEntitlement result = apiInstance.GetHoldingEntitlement(scope, code, holdingEntitlementId, portfolioEffectiveAt, asAt, timelineScope, timelineCode, closedPeriodId, opts: opts);
+
+                // [EARLY ACCESS] GetHoldingEntitlement: [EARLY ACCESS] Get Holding Entitlement
+                HoldingEntitlement result = apiInstance.GetHoldingEntitlement(scope, code, holdingEntitlementId, portfolioEffectiveAt, asAt, timelineScope, timelineCode, closedPeriodId);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling PortfoliosApi.GetHoldingEntitlement: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the GetHoldingEntitlementWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetHoldingEntitlement: [EARLY ACCESS] Get Holding Entitlement
+    ApiResponse<HoldingEntitlement> response = apiInstance.GetHoldingEntitlementWithHttpInfo(scope, code, holdingEntitlementId, portfolioEffectiveAt, asAt, timelineScope, timelineCode, closedPeriodId);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling PortfoliosApi.GetHoldingEntitlementWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. Together with the scope this uniquely identifies the portfolio. |  |
+| **holdingEntitlementId** | **string** | The id of the entitlement to be retrieved. |  |
+| **portfolioEffectiveAt** | **DateTimeOrCutLabel?** | The effective date at which the portfolio will be resolved. Defaults to current time if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the entitlement. Defaults to return the latest version of the entitlement if not specified. | [optional]  |
+| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. | [optional]  |
+| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. | [optional]  |
+| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. | [optional]  |
+
+### Return type
+
+[**HoldingEntitlement**](HoldingEntitlement.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The requested holding entitlement |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -2618,6 +2868,139 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
+<a id="listholdingentitlements"></a>
+# **ListHoldingEntitlements**
+> PagedResourceListOfHoldingEntitlement ListHoldingEntitlements (string scope, string code, DateTimeOrCutLabel? portfolioEffectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
+
+[EARLY ACCESS] ListHoldingEntitlements: [EARLY ACCESS] List Holding Entitlements
+
+List the holding entitlements of a particular portfolio.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
+            var portfolioEffectiveAt = "portfolioEffectiveAt_example";  // DateTimeOrCutLabel? | The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the entitlements. Defaults to latest if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing entitlements; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional) 
+            var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
+            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfHoldingEntitlement result = apiInstance.ListHoldingEntitlements(scope, code, portfolioEffectiveAt, asAt, page, limit, filter, sortBy, timelineScope, timelineCode, closedPeriodId, opts: opts);
+
+                // [EARLY ACCESS] ListHoldingEntitlements: [EARLY ACCESS] List Holding Entitlements
+                PagedResourceListOfHoldingEntitlement result = apiInstance.ListHoldingEntitlements(scope, code, portfolioEffectiveAt, asAt, page, limit, filter, sortBy, timelineScope, timelineCode, closedPeriodId);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling PortfoliosApi.ListHoldingEntitlements: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the ListHoldingEntitlementsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ListHoldingEntitlements: [EARLY ACCESS] List Holding Entitlements
+    ApiResponse<PagedResourceListOfHoldingEntitlement> response = apiInstance.ListHoldingEntitlementsWithHttpInfo(scope, code, portfolioEffectiveAt, asAt, page, limit, filter, sortBy, timelineScope, timelineCode, closedPeriodId);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling PortfoliosApi.ListHoldingEntitlementsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. Together with the scope this uniquely identifies the portfolio. |  |
+| **portfolioEffectiveAt** | **DateTimeOrCutLabel?** | The effective date at which the portfolio will be resolved. Defaults to current time if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the entitlements. Defaults to latest if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing entitlements; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. | [optional]  |
+| **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
+| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. | [optional]  |
+| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. | [optional]  |
+| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. | [optional]  |
+
+### Return type
+
+[**PagedResourceListOfHoldingEntitlement**](PagedResourceListOfHoldingEntitlement.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The requested holding entitlements |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
 <a id="listinstrumenteventinstructions"></a>
 # **ListInstrumentEventInstructions**
 > PagedResourceListOfInstrumentEventInstruction ListInstrumentEventInstructions (string scope, string code, DateTimeOrCutLabel? portfolioEffectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
@@ -3484,6 +3867,127 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The updated definition of the portfolio |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="upsertholdingentitlements"></a>
+# **UpsertHoldingEntitlements**
+> HoldingEntitlementsResponse UpsertHoldingEntitlements (string scope, string code, string successMode, Dictionary<string, HoldingEntitlementRequest> requestBody, DateTimeOrCutLabel? portfolioEffectiveAt = null)
+
+[EARLY ACCESS] UpsertHoldingEntitlements: [EARLY ACCESS] Upsert Holding Entitlements
+
+Create or update holding entitlements on a portfolio. A holding entitlement states what one holding receives  under a corporate action, in the client's own figures, and is booked at its ex date.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
+            var successMode = "\"Partial\"";  // string | Whether the batch request should fail atomically or in a partial fashion - allowed values: Atomic, Partial (default) (default to "Partial")
+            var requestBody = new Dictionary<string, HoldingEntitlementRequest>(); // Dictionary<string, HoldingEntitlementRequest> | The entitlements to be upserted to the portfolio, keyed by a correlation id of the caller's choosing.
+            var portfolioEffectiveAt = "portfolioEffectiveAt_example";  // DateTimeOrCutLabel? | The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // HoldingEntitlementsResponse result = apiInstance.UpsertHoldingEntitlements(scope, code, successMode, requestBody, portfolioEffectiveAt, opts: opts);
+
+                // [EARLY ACCESS] UpsertHoldingEntitlements: [EARLY ACCESS] Upsert Holding Entitlements
+                HoldingEntitlementsResponse result = apiInstance.UpsertHoldingEntitlements(scope, code, successMode, requestBody, portfolioEffectiveAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling PortfoliosApi.UpsertHoldingEntitlements: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the UpsertHoldingEntitlementsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] UpsertHoldingEntitlements: [EARLY ACCESS] Upsert Holding Entitlements
+    ApiResponse<HoldingEntitlementsResponse> response = apiInstance.UpsertHoldingEntitlementsWithHttpInfo(scope, code, successMode, requestBody, portfolioEffectiveAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling PortfoliosApi.UpsertHoldingEntitlementsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. Together with the scope this uniquely identifies the portfolio. |  |
+| **successMode** | **string** | Whether the batch request should fail atomically or in a partial fashion - allowed values: Atomic, Partial (default) | [default to &quot;Partial&quot;] |
+| **requestBody** | [**Dictionary&lt;string, HoldingEntitlementRequest&gt;**](HoldingEntitlementRequest.md) | The entitlements to be upserted to the portfolio, keyed by a correlation id of the caller&#39;s choosing. |  |
+| **portfolioEffectiveAt** | **DateTimeOrCutLabel?** | The effective date at which the portfolio will be resolved. Defaults to current time if not specified. | [optional]  |
+
+### Return type
+
+[**HoldingEntitlementsResponse**](HoldingEntitlementsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The newly inserted or updated holding entitlements |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

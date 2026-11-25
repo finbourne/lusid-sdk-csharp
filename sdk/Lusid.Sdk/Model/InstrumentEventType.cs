@@ -807,7 +807,13 @@ namespace Lusid.Sdk.Model
         /// Enum InterestPaymentWithPrincipalEvent for value: InterestPaymentWithPrincipalEvent
         /// </summary>
         [EnumMember(Value = "InterestPaymentWithPrincipalEvent")]
-        InterestPaymentWithPrincipalEvent = 130
+        InterestPaymentWithPrincipalEvent = 130,
+
+        /// <summary>
+        /// Enum IncreaseInValueEvent for value: IncreaseInValueEvent
+        /// </summary>
+        [EnumMember(Value = "IncreaseInValueEvent")]
+        IncreaseInValueEvent = 131
     }
 
 }

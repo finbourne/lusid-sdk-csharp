@@ -62,7 +62,7 @@ namespace Examples
             var filter = "\"\"";  // string? | See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid (optional)  (default to "")
             var propertyKeys = new List<string>?(); // List<string>? | Must be block-level properties. See https://support.lusid.com/docs/properties (optional) 
             var useComplianceV2 = false;  // bool? | Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional)  (default to false)
-            var includeSwept = true;  // bool? | Include Swept Order Blocks. (default: true) (optional)  (default to true)
+            var includeSwept = false;  // bool? | Include Swept Order Blocks. (default: false) (optional)  (default to false)
 
             try
             {
@@ -114,7 +114,7 @@ catch (ApiException e)
 | **filter** | **string?** | See https://support.lusid.com/docs/filtering-information-retrieved-from-lusid | [optional] [default to &quot;&quot;] |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | Must be block-level properties. See https://support.lusid.com/docs/properties | [optional]  |
 | **useComplianceV2** | **bool?** | Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) | [optional] [default to false] |
-| **includeSwept** | **bool?** | Include Swept Order Blocks. (default: true) | [optional] [default to true] |
+| **includeSwept** | **bool?** | Include Swept Order Blocks. (default: false) | [optional] [default to false] |
 
 ### Return type
 

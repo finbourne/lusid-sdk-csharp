@@ -5,7 +5,7 @@ One labelled part of a capital account row's total: the kind of amount, the allo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Kind** | **string** | The kind of amount the entry labels: WithholdingTax for tax withheld from a distribution on the partner&#39;s behalf. | 
+**Kind** | **string** | The kind of amount the entry labels: WithholdingTax for tax withheld from a distribution on the partner&#39;s behalf; on the CallCredit row, CallCreditGranted for a credit an equalisation kept for the partner and CallCreditApplied, negative, for the part of it a call drew on. | 
 **AllocationEventId** | [**ResourceId**](ResourceId.md) |  | 
 **EventDate** | **DateTimeOffset** | The effective date of the allocation event the amount arose on. | 
 **Qtd** | **decimal** | The part of the row&#39;s quarter-to-date amount the entry labels; zero when the event falls outside the quarter. | 

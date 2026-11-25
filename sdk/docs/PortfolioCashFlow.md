@@ -15,11 +15,14 @@ Name | Type | Description | Notes
 **Balance** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **FxRate** | **decimal** | Exchange rate between the currency of this cash flow and the reporting currency. | 
 **CashflowReportingCurrency** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
-**BalanceReportingCurrency** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
+**BalanceReportingCurrency** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **TranslationGainLoss** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **CostBasisReportingCurrency** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **Transaction** | [**Transaction**](Transaction.md) |  | [optional] 
-**UnrealisedGainLossReportingCurrency** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
+**UnrealisedGainLossReportingCurrency** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**TradeDateToSettlementDateGainLossReportingCurrency** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
+**BalanceFxRate** | **decimal?** | The exchange rate the balance in the reporting currency was struck at: on an Activity row the recipe&#39;s quote for the row&#39;s date, after the recipe&#39;s quote lookback. Differs from FxRate when the cash flow was booked at another rate. The cash flow&#39;s own rate (FxRate) when no quote could be found; see BalanceFailureReason. | [optional] 
+**BalanceFailureReason** | **string** | Why the balance in the reporting currency could not be struck at the recipe&#39;s quote for the row&#39;s date and is at the cash flow&#39;s own rate instead; absent when it was struck at the quote, including on a row whose local balance is zero. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -33,12 +36,16 @@ CurrencyAndAmount cashflow = new CurrencyAndAmount();
 CurrencyAndAmount balance = new CurrencyAndAmount();decimal fxRate = "fxRate";
 
 CurrencyAndAmount cashflowReportingCurrency = new CurrencyAndAmount();
-CurrencyAndAmount balanceReportingCurrency = new CurrencyAndAmount();
+CurrencyAndAmount? balanceReportingCurrency = new CurrencyAndAmount();
+
 CurrencyAndAmount translationGainLoss = new CurrencyAndAmount();
 CurrencyAndAmount costBasisReportingCurrency = new CurrencyAndAmount();
 Transaction? transaction = new Transaction();
 
-CurrencyAndAmount unrealisedGainLossReportingCurrency = new CurrencyAndAmount();
+CurrencyAndAmount? unrealisedGainLossReportingCurrency = new CurrencyAndAmount();
+
+CurrencyAndAmount tradeDateToSettlementDateGainLossReportingCurrency = new CurrencyAndAmount();
+string balanceFailureReason = "example balanceFailureReason";
 List<Link> links = new List<Link>();
 
 PortfolioCashFlow portfolioCashFlowInstance = new PortfolioCashFlow(
@@ -57,6 +64,9 @@ PortfolioCashFlow portfolioCashFlowInstance = new PortfolioCashFlow(
     costBasisReportingCurrency: costBasisReportingCurrency,
     transaction: transaction,
     unrealisedGainLossReportingCurrency: unrealisedGainLossReportingCurrency,
+    tradeDateToSettlementDateGainLossReportingCurrency: tradeDateToSettlementDateGainLossReportingCurrency,
+    balanceFxRate: balanceFxRate,
+    balanceFailureReason: balanceFailureReason,
     links: links);
 ```
 

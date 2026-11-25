@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Memo** | [**PartnerCapitalAccountMemo**](PartnerCapitalAccountMemo.md) |  | 
 **Foots** | **bool** | Whether the ending capital agrees across the quarter-to-date, year-to-date and inception-to-date columns within tolerance. | 
 **FootingDifference** | **decimal** | The largest difference between the ending capital of any two columns. | 
+**Warnings** | [**List&lt;Warning&gt;**](Warning.md) | Warnings about the register the account was read from, for example a transaction type of the fund that books a register line outside the registry, so that line is not in the account. Empty when there is nothing to warn of. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -28,6 +29,7 @@ List<PartnerCapitalAccountRow> rows = new List<PartnerCapitalAccountRow>();
 PartnerCapitalAccountMemo memo = new PartnerCapitalAccountMemo();
 bool foots = //"True";decimal footingDifference = "footingDifference";
 
+List<Warning> warnings = new List<Warning>();
 
 PartnerCapitalAccount partnerCapitalAccountInstance = new PartnerCapitalAccount(
     fundId: fundId,
@@ -39,7 +41,8 @@ PartnerCapitalAccount partnerCapitalAccountInstance = new PartnerCapitalAccount(
     rows: rows,
     memo: memo,
     foots: foots,
-    footingDifference: footingDifference);
+    footingDifference: footingDifference,
+    warnings: warnings);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

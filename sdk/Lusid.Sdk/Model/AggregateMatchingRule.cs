@@ -38,10 +38,11 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="ruleName">The reference name of the rule. (required).</param>
         /// <param name="leftFormula">Derivation formula evaluated against the left side of the reconciliation. (required).</param>
-        /// <param name="leftOperation">Group-level operation applied to the left side&#39;s per-item values during reconciliation. Only Sum is currently supported; the other listed values are reserved and are rejected. Available values: Sum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears. (required).</param>
+        /// <param name="leftOperation">Group-level operation applied to the left side&#39;s per-item values during reconciliation. Sum adds up decimal values. UniformValue requires all items on the side to carry the same value of any type, and compares it with the other side&#39;s value. UniformValue must be used on both sides or on neither. Available values: Sum, UniformValue. (required).</param>
         /// <param name="rightFormula">Derivation formula evaluated against the right side of the reconciliation. (required).</param>
-        /// <param name="rightOperation">Group-level operation applied to the right side&#39;s per-item values during reconciliation. Only Sum is currently supported; the other listed values are reserved and are rejected. Available values: Sum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears. (required).</param>
-        public AggregateMatchingRule(string ruleName = default(string), string leftFormula = default(string), string leftOperation = default(string), string rightFormula = default(string), string rightOperation = default(string))
+        /// <param name="rightOperation">Group-level operation applied to the right side&#39;s per-item values during reconciliation. Sum adds up decimal values. UniformValue requires all items on the side to carry the same value of any type, and compares it with the other side&#39;s value. UniformValue must be used on both sides or on neither. Available values: Sum, UniformValue. (required).</param>
+        /// <param name="isCaseSensitive">Whether the comparison of a string rule is case sensitive. Optional, defaults to false. Only a rule whose values are strings can declare it..</param>
+        public AggregateMatchingRule(string ruleName = default(string), string leftFormula = default(string), string leftOperation = default(string), string rightFormula = default(string), string rightOperation = default(string), bool? isCaseSensitive = default(bool?))
         {
             // to ensure "ruleName" is required (not null)
             if (ruleName == null)
@@ -73,6 +74,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("rightOperation is a required property for AggregateMatchingRule and cannot be null");
             }
             this.RightOperation = rightOperation;
+            this.IsCaseSensitive = isCaseSensitive;
         }
 
         /// <summary>
@@ -90,9 +92,9 @@ namespace Lusid.Sdk.Model
         public string LeftFormula { get; set; }
 
         /// <summary>
-        /// Group-level operation applied to the left side&#39;s per-item values during reconciliation. Only Sum is currently supported; the other listed values are reserved and are rejected. Available values: Sum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears.
+        /// Group-level operation applied to the left side&#39;s per-item values during reconciliation. Sum adds up decimal values. UniformValue requires all items on the side to carry the same value of any type, and compares it with the other side&#39;s value. UniformValue must be used on both sides or on neither. Available values: Sum, UniformValue.
         /// </summary>
-        /// <value>Group-level operation applied to the left side&#39;s per-item values during reconciliation. Only Sum is currently supported; the other listed values are reserved and are rejected. Available values: Sum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears.</value>
+        /// <value>Group-level operation applied to the left side&#39;s per-item values during reconciliation. Sum adds up decimal values. UniformValue requires all items on the side to carry the same value of any type, and compares it with the other side&#39;s value. UniformValue must be used on both sides or on neither. Available values: Sum, UniformValue.</value>
         [DataMember(Name = "leftOperation", IsRequired = true, EmitDefaultValue = true)]
         public string LeftOperation { get; set; }
 
@@ -104,11 +106,18 @@ namespace Lusid.Sdk.Model
         public string RightFormula { get; set; }
 
         /// <summary>
-        /// Group-level operation applied to the right side&#39;s per-item values during reconciliation. Only Sum is currently supported; the other listed values are reserved and are rejected. Available values: Sum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears.
+        /// Group-level operation applied to the right side&#39;s per-item values during reconciliation. Sum adds up decimal values. UniformValue requires all items on the side to carry the same value of any type, and compares it with the other side&#39;s value. UniformValue must be used on both sides or on neither. Available values: Sum, UniformValue.
         /// </summary>
-        /// <value>Group-level operation applied to the right side&#39;s per-item values during reconciliation. Only Sum is currently supported; the other listed values are reserved and are rejected. Available values: Sum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears.</value>
+        /// <value>Group-level operation applied to the right side&#39;s per-item values during reconciliation. Sum adds up decimal values. UniformValue requires all items on the side to carry the same value of any type, and compares it with the other side&#39;s value. UniformValue must be used on both sides or on neither. Available values: Sum, UniformValue.</value>
         [DataMember(Name = "rightOperation", IsRequired = true, EmitDefaultValue = true)]
         public string RightOperation { get; set; }
+
+        /// <summary>
+        /// Whether the comparison of a string rule is case sensitive. Optional, defaults to false. Only a rule whose values are strings can declare it.
+        /// </summary>
+        /// <value>Whether the comparison of a string rule is case sensitive. Optional, defaults to false. Only a rule whose values are strings can declare it.</value>
+        [DataMember(Name = "isCaseSensitive", EmitDefaultValue = true)]
+        public bool? IsCaseSensitive { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -123,6 +132,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  LeftOperation: ").Append(LeftOperation).Append("\n");
             sb.Append("  RightFormula: ").Append(RightFormula).Append("\n");
             sb.Append("  RightOperation: ").Append(RightOperation).Append("\n");
+            sb.Append("  IsCaseSensitive: ").Append(IsCaseSensitive).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -182,6 +192,11 @@ namespace Lusid.Sdk.Model
                     this.RightOperation == input.RightOperation ||
                     (this.RightOperation != null &&
                     this.RightOperation.Equals(input.RightOperation))
+                ) && 
+                (
+                    this.IsCaseSensitive == input.IsCaseSensitive ||
+                    (this.IsCaseSensitive != null &&
+                    this.IsCaseSensitive.Equals(input.IsCaseSensitive))
                 );
         }
 
@@ -213,6 +228,10 @@ namespace Lusid.Sdk.Model
                 if (this.RightOperation != null)
                 {
                     hashCode = (hashCode * 59) + this.RightOperation.GetHashCode();
+                }
+                if (this.IsCaseSensitive != null)
+                {
+                    hashCode = (hashCode * 59) + this.IsCaseSensitive.GetHashCode();
                 }
                 return hashCode;
             }

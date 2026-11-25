@@ -8,6 +8,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**AccrueCarry**](FundsApi.md#accruecarry) | **POST** /api/funds/{scope}/{code}/carry/$accrue | [EARLY ACCESS] AccrueCarry: [EXPERIMENTAL] AccrueCarry: Accrue carried interest to the Fund&#39;s partners. |
 | [**AddAllocationGroups**](FundsApi.md#addallocationgroups) | **POST** /api/funds/{scope}/{code}/allocationgroups | [EARLY ACCESS] AddAllocationGroups: Add Allocation Groups to a Fund. |
 | [**AddSeries**](FundsApi.md#addseries) | **POST** /api/funds/{scope}/{code}/series | [EARLY ACCESS] AddSeries: Add Series to a Fund. |
+| [**AddShareClasses**](FundsApi.md#addshareclasses) | **POST** /api/funds/{scope}/{code}/shareclasses | [EXPERIMENTAL] AddShareClasses: Add ShareClasses to a Fund. |
 | [**AdvanceTaxReturn**](FundsApi.md#advancetaxreturn) | **POST** /api/funds/{scope}/{code}/tax/return/advance | [EARLY ACCESS] AdvanceTaxReturn: [EARLY ACCESS] AdvanceTaxReturn: Advance the tax return one workflow step. |
 | [**ApproveTaxProvision**](FundsApi.md#approvetaxprovision) | **POST** /api/funds/{scope}/{code}/valuationpoints/{diaryEntryCode}/tax/provision/approve | [EARLY ACCESS] ApproveTaxProvision: [EARLY ACCESS] ApproveTaxProvision: Approve the deferred-tax provision of a Valuation Point. |
 | [**CalculateManagementFees**](FundsApi.md#calculatemanagementfees) | **POST** /api/funds/{scope}/{code}/fees/$calculate | [EARLY ACCESS] CalculateManagementFees: [EXPERIMENTAL] CalculateManagementFees: Calculate the management fee per partner for a period. |
@@ -39,6 +40,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**GetFundTaxScope**](FundsApi.md#getfundtaxscope) | **GET** /api/funds/{scope}/{code}/tax/scope | [EARLY ACCESS] GetFundTaxScope: [EARLY ACCESS] GetFundTaxScope: Get the UK chargeable-gains tax scope of a fund. |
 | [**GetHoldingContributorsForFund**](FundsApi.md#getholdingcontributorsforfund) | **POST** /api/funds/{scope}/{code}/holdings/{holdingId}/contributors | [EARLY ACCESS] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund. |
 | [**GetHoldingsForFund**](FundsApi.md#getholdingsforfund) | **POST** /api/funds/{scope}/{code}/$holdings | [EARLY ACCESS] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund. |
+| [**GetOpenCloseMovementReportForFund**](FundsApi.md#getopenclosemovementreportforfund) | **POST** /api/funds/{scope}/{code}/valuationpoints/openclose/$query | [EARLY ACCESS] GetOpenCloseMovementReportForFund: Get the open, close and movement report for a Fund. |
 | [**GetPartnerCapitalAccount**](FundsApi.md#getpartnercapitalaccount) | **GET** /api/funds/{scope}/{code}/partners/{irScope}/{irCode}/capitalaccount | [EARLY ACCESS] GetPartnerCapitalAccount: [EARLY ACCESS] GetPartnerCapitalAccount: Get a partner&#39;s capital account statement. |
 | [**GetPartnerPerformance**](FundsApi.md#getpartnerperformance) | **GET** /api/funds/{scope}/{code}/partners/{irScope}/{irCode}/performance | [EARLY ACCESS] GetPartnerPerformance: [EARLY ACCESS] GetPartnerPerformance: Get a partner&#39;s performance measures. |
 | [**GetPartnerUnfundedReconciliation**](FundsApi.md#getpartnerunfundedreconciliation) | **GET** /api/funds/{scope}/{code}/partners/{investorRecordId}/unfundedreconciliation | [EARLY ACCESS] GetPartnerUnfundedReconciliation: [EARLY ACCESS] GetPartnerUnfundedReconciliation: Get a partner&#39;s unfunded commitment statement. |
@@ -566,6 +568,123 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The updated Fund with the added Series. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="addshareclasses"></a>
+# **AddShareClasses**
+> Fund AddShareClasses (string scope, string code, List<ShareClassDefinition> shareClassDefinition)
+
+[EXPERIMENTAL] AddShareClasses: Add ShareClasses to a Fund.
+
+Add new ShareClass definitions to the Fund. All requested ShareClassShortCodes must be new;  to update existing share classes use PatchFund.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var shareClassDefinition = new List<ShareClassDefinition>(); // List<ShareClassDefinition> | The definitions of the ShareClasses to add to the Fund.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // Fund result = apiInstance.AddShareClasses(scope, code, shareClassDefinition, opts: opts);
+
+                // [EXPERIMENTAL] AddShareClasses: Add ShareClasses to a Fund.
+                Fund result = apiInstance.AddShareClasses(scope, code, shareClassDefinition);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.AddShareClasses: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the AddShareClassesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] AddShareClasses: Add ShareClasses to a Fund.
+    ApiResponse<Fund> response = apiInstance.AddShareClassesWithHttpInfo(scope, code, shareClassDefinition);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.AddShareClassesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **shareClassDefinition** | [**List&lt;ShareClassDefinition&gt;**](ShareClassDefinition.md) | The definitions of the ShareClasses to add to the Fund. |  |
+
+### Return type
+
+[**Fund**](Fund.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The updated Fund with the added ShareClasses. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -4294,6 +4413,129 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
+<a id="getopenclosemovementreportforfund"></a>
+# **GetOpenCloseMovementReportForFund**
+> VersionedResourceListOfOpenCloseMovementRecord GetOpenCloseMovementReportForFund (string scope, string code, OpenCloseMovementQueryParameters openCloseMovementQueryParameters, string? navTypeCode = null, DateTimeOffset? asAt = null, string? filter = null)
+
+[EARLY ACCESS] GetOpenCloseMovementReportForFund: Get the open, close and movement report for a Fund.
+
+Get, for each instrument held by the transaction portfolios of a Fund (or each kept sub-holding key), the  net asset economic buckets at the opening and closing of a valuation point window, the period's movements  by economic bucket classified as the journal entry lines classify them, and the requested valuation  metrics and instrument properties. Signs follow the journal entry line convention.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var openCloseMovementQueryParameters = new OpenCloseMovementQueryParameters(); // OpenCloseMovementQueryParameters | The window, the sub-holding keys to keep separate, the instrument property keys and the valuation metrics to report.
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to resolve the fund and the timeline. Defaults              to return the latest version if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // VersionedResourceListOfOpenCloseMovementRecord result = apiInstance.GetOpenCloseMovementReportForFund(scope, code, openCloseMovementQueryParameters, navTypeCode, asAt, filter, opts: opts);
+
+                // [EARLY ACCESS] GetOpenCloseMovementReportForFund: Get the open, close and movement report for a Fund.
+                VersionedResourceListOfOpenCloseMovementRecord result = apiInstance.GetOpenCloseMovementReportForFund(scope, code, openCloseMovementQueryParameters, navTypeCode, asAt, filter);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.GetOpenCloseMovementReportForFund: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+#### Using the GetOpenCloseMovementReportForFundWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetOpenCloseMovementReportForFund: Get the open, close and movement report for a Fund.
+    ApiResponse<VersionedResourceListOfOpenCloseMovementRecord> response = apiInstance.GetOpenCloseMovementReportForFundWithHttpInfo(scope, code, openCloseMovementQueryParameters, navTypeCode, asAt, filter);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.GetOpenCloseMovementReportForFundWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **openCloseMovementQueryParameters** | [**OpenCloseMovementQueryParameters**](OpenCloseMovementQueryParameters.md) | The window, the sub-holding keys to keep separate, the instrument property keys and the valuation metrics to report. |  |
+| **navTypeCode** | **string?** | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to resolve the fund and the timeline. Defaults              to return the latest version if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+
+### Return type
+
+[**VersionedResourceListOfOpenCloseMovementRecord**](VersionedResourceListOfOpenCloseMovementRecord.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The open, close and movement report for transaction portfolios in a Fund |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
 <a id="getpartnercapitalaccount"></a>
 # **GetPartnerCapitalAccount**
 > PartnerCapitalAccount GetPartnerCapitalAccount (string scope, string code, string irScope, string irCode, DateTimeOffset? periodStart = null, DateTimeOffset? periodEnd = null, string? navTypeCode = null, DateTimeOffset? asAt = null)
@@ -4670,7 +4912,7 @@ catch (ApiException e)
 
 <a id="getpartners"></a>
 # **GetPartners**
-> PagedResourceListOfFundPartner GetPartners (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, bool? includeClosed = null, string? page = null, int? limit = null)
+> ResourceListWithWarningsOfFundPartner GetPartners (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, bool? includeClosed = null, string? page = null, int? limit = null)
 
 [EARLY ACCESS] GetPartners: [EARLY ACCESS] GetPartners: Get the partners of a partnership fund.
 
@@ -4726,10 +4968,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfFundPartner result = apiInstance.GetPartners(scope, code, effectiveAt, asAt, includeClosed, page, limit, opts: opts);
+                // ResourceListWithWarningsOfFundPartner result = apiInstance.GetPartners(scope, code, effectiveAt, asAt, includeClosed, page, limit, opts: opts);
 
                 // [EARLY ACCESS] GetPartners: [EARLY ACCESS] GetPartners: Get the partners of a partnership fund.
-                PagedResourceListOfFundPartner result = apiInstance.GetPartners(scope, code, effectiveAt, asAt, includeClosed, page, limit);
+                ResourceListWithWarningsOfFundPartner result = apiInstance.GetPartners(scope, code, effectiveAt, asAt, includeClosed, page, limit);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -4749,7 +4991,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] GetPartners: [EARLY ACCESS] GetPartners: Get the partners of a partnership fund.
-    ApiResponse<PagedResourceListOfFundPartner> response = apiInstance.GetPartnersWithHttpInfo(scope, code, effectiveAt, asAt, includeClosed, page, limit);
+    ApiResponse<ResourceListWithWarningsOfFundPartner> response = apiInstance.GetPartnersWithHttpInfo(scope, code, effectiveAt, asAt, includeClosed, page, limit);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -4776,7 +5018,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**PagedResourceListOfFundPartner**](PagedResourceListOfFundPartner.md)
+[**ResourceListWithWarningsOfFundPartner**](ResourceListWithWarningsOfFundPartner.md)
 
 ### HTTP request headers
 
@@ -4912,7 +5154,7 @@ catch (ApiException e)
 
 <a id="getregistryforfund"></a>
 # **GetRegistryForFund**
-> VersionedResourceListWithWarningsOfRegistryLine GetRegistryForFund (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? propertyKeys = null, string? navTypeCode = null)
+> VersionedResourceListWithWarningsOfRegistryLine GetRegistryForFund (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? propertyKeys = null, string? navTypeCode = null, string? investorRecordId = null, string? commitmentLineId = null, int? limit = null, string? page = null)
 
 [EXPERIMENTAL] GetRegistryForFund: [EXPERIMENTAL] GetRegistryForFund: Get the registry of a Fund.
 
@@ -4964,14 +5206,18 @@ namespace Examples
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto              the lines. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or \"Holding/system/CommittedCapital\". (optional) 
             var navTypeCode = "navTypeCode_example";  // string? | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
+            var investorRecordId = "investorRecordId_example";  // string? | When provided, only the lines of this investor record are returned. (optional) 
+            var commitmentLineId = "commitmentLineId_example";  // string? | When provided, only the lines of this commitment line are returned. (optional) 
+            var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // VersionedResourceListWithWarningsOfRegistryLine result = apiInstance.GetRegistryForFund(scope, code, effectiveAt, asAt, filter, propertyKeys, navTypeCode, opts: opts);
+                // VersionedResourceListWithWarningsOfRegistryLine result = apiInstance.GetRegistryForFund(scope, code, effectiveAt, asAt, filter, propertyKeys, navTypeCode, investorRecordId, commitmentLineId, limit, page, opts: opts);
 
                 // [EXPERIMENTAL] GetRegistryForFund: [EXPERIMENTAL] GetRegistryForFund: Get the registry of a Fund.
-                VersionedResourceListWithWarningsOfRegistryLine result = apiInstance.GetRegistryForFund(scope, code, effectiveAt, asAt, filter, propertyKeys, navTypeCode);
+                VersionedResourceListWithWarningsOfRegistryLine result = apiInstance.GetRegistryForFund(scope, code, effectiveAt, asAt, filter, propertyKeys, navTypeCode, investorRecordId, commitmentLineId, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -4991,7 +5237,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetRegistryForFund: [EXPERIMENTAL] GetRegistryForFund: Get the registry of a Fund.
-    ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> response = apiInstance.GetRegistryForFundWithHttpInfo(scope, code, effectiveAt, asAt, filter, propertyKeys, navTypeCode);
+    ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> response = apiInstance.GetRegistryForFundWithHttpInfo(scope, code, effectiveAt, asAt, filter, propertyKeys, navTypeCode, investorRecordId, commitmentLineId, limit, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -5015,6 +5261,10 @@ catch (ApiException e)
 | **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the lines. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/CommittedCapital\&quot;. | [optional]  |
 | **navTypeCode** | **string?** | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
+| **investorRecordId** | **string?** | When provided, only the lines of this investor record are returned. | [optional]  |
+| **commitmentLineId** | **string?** | When provided, only the lines of this commitment line are returned. | [optional]  |
+| **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. | [optional]  |
 
 ### Return type
 
@@ -6249,7 +6499,7 @@ catch (ApiException e)
 
 <a id="getvaluationforfund"></a>
 # **GetValuationForFund**
-> ListAggregationResponse GetValuationForFund (string scope, string code, string? navTypeCode = null, FundValuationRequest? fundValuationRequest = null)
+> ListAggregationResponse GetValuationForFund (string scope, string code, string? navTypeCode = null, bool? auditMode = null, FundValuationRequest? fundValuationRequest = null)
 
 [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund.
 
@@ -6297,15 +6547,16 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var navTypeCode = "navTypeCode_example";  // string? | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
+            var auditMode = false;  // bool? | When true, returns the stored valuation address keys instead of running the full aggregation engine, and returns no data if none are stored for the valuation point. Defaults to false. (optional)  (default to false)
             var fundValuationRequest = new FundValuationRequest?(); // FundValuationRequest? | The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ListAggregationResponse result = apiInstance.GetValuationForFund(scope, code, navTypeCode, fundValuationRequest, opts: opts);
+                // ListAggregationResponse result = apiInstance.GetValuationForFund(scope, code, navTypeCode, auditMode, fundValuationRequest, opts: opts);
 
                 // [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund.
-                ListAggregationResponse result = apiInstance.GetValuationForFund(scope, code, navTypeCode, fundValuationRequest);
+                ListAggregationResponse result = apiInstance.GetValuationForFund(scope, code, navTypeCode, auditMode, fundValuationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -6325,7 +6576,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund.
-    ApiResponse<ListAggregationResponse> response = apiInstance.GetValuationForFundWithHttpInfo(scope, code, navTypeCode, fundValuationRequest);
+    ApiResponse<ListAggregationResponse> response = apiInstance.GetValuationForFundWithHttpInfo(scope, code, navTypeCode, auditMode, fundValuationRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -6345,6 +6596,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **navTypeCode** | **string?** | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
+| **auditMode** | **bool?** | When true, returns the stored valuation address keys instead of running the full aggregation engine, and returns no data if none are stored for the valuation point. Defaults to false. | [optional] [default to false] |
 | **fundValuationRequest** | [**FundValuationRequest?**](FundValuationRequest?.md) | The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. | [optional]  |
 
 ### Return type
@@ -6626,7 +6878,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
 
-Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.                Rows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.
+Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.                Only the Journal Entry Lines selected by the pnlFilters and externalFeeFilters of the Fund Configuration are returned. If the Fund Configuration has neither pnlFilters nor externalFeeFilters, no rows are returned.                Rows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.
 
 ### Example
 ```csharp
@@ -7456,7 +7708,7 @@ namespace Examples
             var page = "page_example";  // string? | The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the treatment, specify \"treatment eq 'Monthly'\". For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional) 
-            var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\".              The fields that can be sorted on are FeeCode, DisplayName, Description, Origin, CalculationBase, AccrualCurrency,              Treatment, TotalAnnualAccrualAmount, FeeRatePercentage, PayableFrequency, BusinessDayConvention, StartDate, EndDate,              NavTypeCode, FeeTypeId.Scope, FeeTypeId.Code, PortfolioId.Scope, PortfolioId.Code, AnchorDate.Day and AnchorDate.Month.              To sort on a property from the 'Fee' domain, specify \"Properties[{domain}/{scope}/{code}]\", for example              \"Properties[Fee/Account/Id] ASC\". Sorting on any other field of a Fee returns a 400 that names the field. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Fee' domain to decorate onto each Fee.              These must take the format {domain}/{scope}/{code}, for example 'Fee/Account/Id'. (optional) 
 
             try
@@ -7509,7 +7761,7 @@ catch (ApiException e)
 | **page** | **string?** | The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the results.              For example, to filter on the treatment, specify \&quot;treatment eq &#39;Monthly&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. | [optional]  |
-| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;.              The fields that can be sorted on are FeeCode, DisplayName, Description, Origin, CalculationBase, AccrualCurrency,              Treatment, TotalAnnualAccrualAmount, FeeRatePercentage, PayableFrequency, BusinessDayConvention, StartDate, EndDate,              NavTypeCode, FeeTypeId.Scope, FeeTypeId.Code, PortfolioId.Scope, PortfolioId.Code, AnchorDate.Day and AnchorDate.Month.              To sort on a property from the &#39;Fee&#39; domain, specify \&quot;Properties[{domain}/{scope}/{code}]\&quot;, for example              \&quot;Properties[Fee/Account/Id] ASC\&quot;. Sorting on any other field of a Fee returns a 400 that names the field. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Fee&#39; domain to decorate onto each Fee.              These must take the format {domain}/{scope}/{code}, for example &#39;Fee/Account/Id&#39;. | [optional]  |
 
 ### Return type
@@ -8041,7 +8293,7 @@ catch (ApiException e)
 
 <a id="listpartnercapitalaccounts"></a>
 # **ListPartnerCapitalAccounts**
-> PagedResourceListOfPartnerCapitalAccount ListPartnerCapitalAccounts (string scope, string code, DateTimeOffset? periodStart = null, DateTimeOffset? periodEnd = null, string? navTypeCode = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null)
+> ResourceListWithWarningsOfPartnerCapitalAccount ListPartnerCapitalAccounts (string scope, string code, DateTimeOffset? periodStart = null, DateTimeOffset? periodEnd = null, string? navTypeCode = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null)
 
 [EARLY ACCESS] ListPartnerCapitalAccounts: [EARLY ACCESS] ListPartnerCapitalAccounts: List the capital account statements of a fund's partners.
 
@@ -8098,10 +8350,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfPartnerCapitalAccount result = apiInstance.ListPartnerCapitalAccounts(scope, code, periodStart, periodEnd, navTypeCode, asAt, page, limit, opts: opts);
+                // ResourceListWithWarningsOfPartnerCapitalAccount result = apiInstance.ListPartnerCapitalAccounts(scope, code, periodStart, periodEnd, navTypeCode, asAt, page, limit, opts: opts);
 
                 // [EARLY ACCESS] ListPartnerCapitalAccounts: [EARLY ACCESS] ListPartnerCapitalAccounts: List the capital account statements of a fund's partners.
-                PagedResourceListOfPartnerCapitalAccount result = apiInstance.ListPartnerCapitalAccounts(scope, code, periodStart, periodEnd, navTypeCode, asAt, page, limit);
+                ResourceListWithWarningsOfPartnerCapitalAccount result = apiInstance.ListPartnerCapitalAccounts(scope, code, periodStart, periodEnd, navTypeCode, asAt, page, limit);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -8121,7 +8373,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] ListPartnerCapitalAccounts: [EARLY ACCESS] ListPartnerCapitalAccounts: List the capital account statements of a fund's partners.
-    ApiResponse<PagedResourceListOfPartnerCapitalAccount> response = apiInstance.ListPartnerCapitalAccountsWithHttpInfo(scope, code, periodStart, periodEnd, navTypeCode, asAt, page, limit);
+    ApiResponse<ResourceListWithWarningsOfPartnerCapitalAccount> response = apiInstance.ListPartnerCapitalAccountsWithHttpInfo(scope, code, periodStart, periodEnd, navTypeCode, asAt, page, limit);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -8149,7 +8401,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**PagedResourceListOfPartnerCapitalAccount**](PagedResourceListOfPartnerCapitalAccount.md)
+[**ResourceListWithWarningsOfPartnerCapitalAccount**](ResourceListWithWarningsOfPartnerCapitalAccount.md)
 
 ### HTTP request headers
 
@@ -8775,7 +9027,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
 
-Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
+Lists the complex market data that the valuation of the specified Valuation Point consumed for a Fund,  including any items added via a Complex Close (Post-Close Activity).                Complex market data that is available but that the valuation did not consume is not listed, so a Fund whose holdings are all priced from quotes returns no rows.
 
 ### Example
 ```csharp
@@ -8819,7 +9071,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var valuationPointDataQueryParameters = new ValuationPointDataQueryParameters(); // ValuationPointDataQueryParameters | The arguments to use for querying the complex market data.
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version              of each item if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version               of each item if not specified. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing complex market data from a previous call to ListValuationPointComplexMarketData. (optional) 
             var navTypeCode = "navTypeCode_example";  // string? | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
@@ -8870,7 +9122,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **valuationPointDataQueryParameters** | [**ValuationPointDataQueryParameters**](ValuationPointDataQueryParameters.md) | The arguments to use for querying the complex market data. |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version              of each item if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version               of each item if not specified. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing complex market data from a previous call to ListValuationPointComplexMarketData. | [optional]  |
 | **navTypeCode** | **string?** | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |

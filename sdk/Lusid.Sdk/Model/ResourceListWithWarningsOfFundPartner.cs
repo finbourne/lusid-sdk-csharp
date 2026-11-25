@@ -23,61 +23,73 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// PagedResourceListOfFundPartner
+    /// ResourceListWithWarningsOfFundPartner
     /// </summary>
-    [DataContract(Name = "PagedResourceListOfFundPartner")]
-    public partial class PagedResourceListOfFundPartner : IEquatable<PagedResourceListOfFundPartner>, IValidatableObject
+    [DataContract(Name = "ResourceListWithWarningsOfFundPartner")]
+    public partial class ResourceListWithWarningsOfFundPartner : IEquatable<ResourceListWithWarningsOfFundPartner>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PagedResourceListOfFundPartner" /> class.
+        /// Initializes a new instance of the <see cref="ResourceListWithWarningsOfFundPartner" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PagedResourceListOfFundPartner() { }
+        protected ResourceListWithWarningsOfFundPartner() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PagedResourceListOfFundPartner" /> class.
+        /// Initializes a new instance of the <see cref="ResourceListWithWarningsOfFundPartner" /> class.
         /// </summary>
-        /// <param name="nextPage">nextPage.</param>
-        /// <param name="previousPage">previousPage.</param>
-        /// <param name="values">values (required).</param>
-        /// <param name="href">href.</param>
+        /// <param name="values">The resources to list. (required).</param>
+        /// <param name="href">The URI of the resource list..</param>
+        /// <param name="nextPage">The next page of results..</param>
+        /// <param name="previousPage">The previous page of results..</param>
+        /// <param name="warnings">warnings.</param>
         /// <param name="links">links.</param>
-        public PagedResourceListOfFundPartner(string nextPage = default(string), string previousPage = default(string), List<FundPartner> values = default(List<FundPartner>), string href = default(string), List<Link> links = default(List<Link>))
+        public ResourceListWithWarningsOfFundPartner(List<FundPartner> values = default(List<FundPartner>), string href = default(string), string nextPage = default(string), string previousPage = default(string), List<Warning> warnings = default(List<Warning>), List<Link> links = default(List<Link>))
         {
             // to ensure "values" is required (not null)
             if (values == null)
             {
-                throw new ArgumentNullException("values is a required property for PagedResourceListOfFundPartner and cannot be null");
+                throw new ArgumentNullException("values is a required property for ResourceListWithWarningsOfFundPartner and cannot be null");
             }
             this.Values = values;
+            this.Href = href;
             this.NextPage = nextPage;
             this.PreviousPage = previousPage;
-            this.Href = href;
+            this.Warnings = warnings;
             this.Links = links;
         }
 
         /// <summary>
-        /// Gets or Sets NextPage
+        /// The resources to list.
         /// </summary>
-        [DataMember(Name = "nextPage", EmitDefaultValue = true)]
-        public string NextPage { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PreviousPage
-        /// </summary>
-        [DataMember(Name = "previousPage", EmitDefaultValue = true)]
-        public string PreviousPage { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Values
-        /// </summary>
+        /// <value>The resources to list.</value>
         [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = true)]
         public List<FundPartner> Values { get; set; }
 
         /// <summary>
-        /// Gets or Sets Href
+        /// The URI of the resource list.
         /// </summary>
+        /// <value>The URI of the resource list.</value>
         [DataMember(Name = "href", EmitDefaultValue = true)]
         public string Href { get; set; }
+
+        /// <summary>
+        /// The next page of results.
+        /// </summary>
+        /// <value>The next page of results.</value>
+        [DataMember(Name = "nextPage", EmitDefaultValue = true)]
+        public string NextPage { get; set; }
+
+        /// <summary>
+        /// The previous page of results.
+        /// </summary>
+        /// <value>The previous page of results.</value>
+        [DataMember(Name = "previousPage", EmitDefaultValue = true)]
+        public string PreviousPage { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Warnings
+        /// </summary>
+        [DataMember(Name = "warnings", EmitDefaultValue = true)]
+        public List<Warning> Warnings { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -92,11 +104,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PagedResourceListOfFundPartner {\n");
-            sb.Append("  NextPage: ").Append(NextPage).Append("\n");
-            sb.Append("  PreviousPage: ").Append(PreviousPage).Append("\n");
+            sb.Append("class ResourceListWithWarningsOfFundPartner {\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
+            sb.Append("  NextPage: ").Append(NextPage).Append("\n");
+            sb.Append("  PreviousPage: ").Append(PreviousPage).Append("\n");
+            sb.Append("  Warnings: ").Append(Warnings).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -118,21 +131,32 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PagedResourceListOfFundPartner);
+            return this.Equals(input as ResourceListWithWarningsOfFundPartner);
         }
 
         /// <summary>
-        /// Returns true if PagedResourceListOfFundPartner instances are equal
+        /// Returns true if ResourceListWithWarningsOfFundPartner instances are equal
         /// </summary>
-        /// <param name="input">Instance of PagedResourceListOfFundPartner to be compared</param>
+        /// <param name="input">Instance of ResourceListWithWarningsOfFundPartner to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PagedResourceListOfFundPartner input)
+        public bool Equals(ResourceListWithWarningsOfFundPartner input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
+                (
+                    this.Values == input.Values ||
+                    this.Values != null &&
+                    input.Values != null &&
+                    this.Values.SequenceEqual(input.Values)
+                ) && 
+                (
+                    this.Href == input.Href ||
+                    (this.Href != null &&
+                    this.Href.Equals(input.Href))
+                ) && 
                 (
                     this.NextPage == input.NextPage ||
                     (this.NextPage != null &&
@@ -144,15 +168,10 @@ namespace Lusid.Sdk.Model
                     this.PreviousPage.Equals(input.PreviousPage))
                 ) && 
                 (
-                    this.Values == input.Values ||
-                    this.Values != null &&
-                    input.Values != null &&
-                    this.Values.SequenceEqual(input.Values)
-                ) && 
-                (
-                    this.Href == input.Href ||
-                    (this.Href != null &&
-                    this.Href.Equals(input.Href))
+                    this.Warnings == input.Warnings ||
+                    this.Warnings != null &&
+                    input.Warnings != null &&
+                    this.Warnings.SequenceEqual(input.Warnings)
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -171,6 +190,14 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Values != null)
+                {
+                    hashCode = (hashCode * 59) + this.Values.GetHashCode();
+                }
+                if (this.Href != null)
+                {
+                    hashCode = (hashCode * 59) + this.Href.GetHashCode();
+                }
                 if (this.NextPage != null)
                 {
                     hashCode = (hashCode * 59) + this.NextPage.GetHashCode();
@@ -179,13 +206,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PreviousPage.GetHashCode();
                 }
-                if (this.Values != null)
+                if (this.Warnings != null)
                 {
-                    hashCode = (hashCode * 59) + this.Values.GetHashCode();
-                }
-                if (this.Href != null)
-                {
-                    hashCode = (hashCode * 59) + this.Href.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
                 }
                 if (this.Links != null)
                 {

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The amount a seed amount has grown to by the end of each period of the grid: the seed amount multiplied by  one plus the return since the start of the requested window, geometrically linking the period returns.
+    /// The amount a seed amount has grown to by the end of each period of the grid: the seed amount multiplied by  one plus the return since the start of the requested range, geometrically linking the period returns, or  by one plus the return over a window looking back from each period when one is given.
     /// </summary>
     [DataContract(Name = "IndicativeAmountMetric")]
     public partial class IndicativeAmountMetric : IEquatable<IndicativeAmountMetric>, IValidatableObject
@@ -37,9 +37,10 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="IndicativeAmountMetric" /> class.
         /// </summary>
         /// <param name="seedAmount">seedAmount (required).</param>
+        /// <param name="window">window.</param>
         /// <param name="type">Available values: Return, IndicativeAmount. (required).</param>
         /// <param name="alias">alias.</param>
-        public IndicativeAmountMetric(string seedAmount = default(string), string type = default(string), string alias = default(string))
+        public IndicativeAmountMetric(string seedAmount = default(string), ReturnsMetricWindow window = default(ReturnsMetricWindow), string type = default(string), string alias = default(string))
         {
             // to ensure "seedAmount" is required (not null)
             if (seedAmount == null)
@@ -53,6 +54,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("type is a required property for IndicativeAmountMetric and cannot be null");
             }
             this.Type = type;
+            this.Window = window;
             this.Alias = alias;
         }
 
@@ -61,6 +63,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "seedAmount", IsRequired = true, EmitDefaultValue = true)]
         public string SeedAmount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Window
+        /// </summary>
+        [DataMember(Name = "window", EmitDefaultValue = false)]
+        public ReturnsMetricWindow Window { get; set; }
 
         /// <summary>
         /// Available values: Return, IndicativeAmount.
@@ -84,6 +92,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class IndicativeAmountMetric {\n");
             sb.Append("  SeedAmount: ").Append(SeedAmount).Append("\n");
+            sb.Append("  Window: ").Append(Window).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Alias: ").Append(Alias).Append("\n");
             sb.Append("}\n");
@@ -127,6 +136,11 @@ namespace Lusid.Sdk.Model
                     this.SeedAmount.Equals(input.SeedAmount))
                 ) && 
                 (
+                    this.Window == input.Window ||
+                    (this.Window != null &&
+                    this.Window.Equals(input.Window))
+                ) && 
+                (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
@@ -150,6 +164,10 @@ namespace Lusid.Sdk.Model
                 if (this.SeedAmount != null)
                 {
                     hashCode = (hashCode * 59) + this.SeedAmount.GetHashCode();
+                }
+                if (this.Window != null)
+                {
+                    hashCode = (hashCode * 59) + this.Window.GetHashCode();
                 }
                 if (this.Type != null)
                 {

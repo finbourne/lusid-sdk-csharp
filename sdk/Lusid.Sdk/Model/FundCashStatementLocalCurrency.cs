@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A single row in the local-currency Fund Cash Statement report. Each row is a settled cash  movement with a running balance in local currency only; base-currency columns are out of  scope for this variant and are not returned.
+    /// A single row in the local-currency Fund Cash Statement report. Each row is a settled cash  movement with a running balance in local currency, and the base-currency cash flow, realised FX  (split into its trade-date-to-settlement-date and cash pool parts), cost basis, balance at the  recipe&#39;s rate on the row&#39;s date and the unrealised FX between the two.
     /// </summary>
     [DataContract(Name = "FundCashStatementLocalCurrency")]
     public partial class FundCashStatementLocalCurrency : IEquatable<FundCashStatementLocalCurrency>, IValidatableObject
@@ -47,8 +47,18 @@ namespace Lusid.Sdk.Model
         /// <param name="cashflowLocal">cashflowLocal.</param>
         /// <param name="balanceLocal">balanceLocal.</param>
         /// <param name="properties">The requested properties decorated onto the cash statement row..</param>
+        /// <param name="cashflowBase">cashflowBase.</param>
+        /// <param name="tradeDateToSettlementDateFxPnlBase">tradeDateToSettlementDateFxPnlBase.</param>
+        /// <param name="cashPoolFxPnlBase">cashPoolFxPnlBase.</param>
+        /// <param name="costBasisBase">costBasisBase.</param>
+        /// <param name="balanceBase">balanceBase.</param>
+        /// <param name="unrealisedFxPnlBase">unrealisedFxPnlBase.</param>
+        /// <param name="balanceFxRate">The FX rate BalanceBase was struck at, from the row&#39;s currency to the base currency, or 1 for a balance already in the base currency. Not returned when BalanceBase is not, nor when BalanceLocal is zero and no rate was found..</param>
+        /// <param name="balanceBaseFailureReason">Why BalanceBase, BalanceFxRate and UnrealisedFxPnlBase are not returned on this row: no FX rate was found for the row&#39;s currency at its accounting date within the recipe&#39;s quote interval, the rate found was not positive, or the rates could not be read. Null when the balance was struck, and on a row whose BalanceLocal is zero, which is zero in the base currency without a rate..</param>
+        /// <param name="avgRate">Weighted average FX rate (costBasisBase / balanceLocal). Null when balance is zero..</param>
+        /// <param name="fxRateMovement">FX rate for this specific movement (CashflowBase / CashFlowLocal). Null when localAmount is zero..</param>
         /// <param name="links">links.</param>
-        public FundCashStatementLocalCurrency(int groupById = default(int), int sequenceNumber = default(int), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string sourceId = default(string), string cashStatementActionType = default(string), string entryType = default(string), DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), string movementName = default(string), ResourceId portfolioId = default(ResourceId), string instructionType = default(string), string diaryEntryCode = default(string), string originDiaryEntryCode = default(string), CurrencyAndAmount cashflowLocal = default(CurrencyAndAmount), CurrencyAndAmount balanceLocal = default(CurrencyAndAmount), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Link> links = default(List<Link>))
+        public FundCashStatementLocalCurrency(int groupById = default(int), int sequenceNumber = default(int), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string sourceId = default(string), string cashStatementActionType = default(string), string entryType = default(string), DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), string movementName = default(string), ResourceId portfolioId = default(ResourceId), string instructionType = default(string), string diaryEntryCode = default(string), string originDiaryEntryCode = default(string), CurrencyAndAmount cashflowLocal = default(CurrencyAndAmount), CurrencyAndAmount balanceLocal = default(CurrencyAndAmount), Dictionary<string, Property> properties = default(Dictionary<string, Property>), CurrencyAndAmount cashflowBase = default(CurrencyAndAmount), CurrencyAndAmount tradeDateToSettlementDateFxPnlBase = default(CurrencyAndAmount), CurrencyAndAmount cashPoolFxPnlBase = default(CurrencyAndAmount), CurrencyAndAmount costBasisBase = default(CurrencyAndAmount), CurrencyAndAmount balanceBase = default(CurrencyAndAmount), CurrencyAndAmount unrealisedFxPnlBase = default(CurrencyAndAmount), decimal? balanceFxRate = default(decimal?), string balanceBaseFailureReason = default(string), decimal? avgRate = default(decimal?), decimal? fxRateMovement = default(decimal?), List<Link> links = default(List<Link>))
         {
             this.GroupById = groupById;
             this.SequenceNumber = sequenceNumber;
@@ -66,6 +76,16 @@ namespace Lusid.Sdk.Model
             this.CashflowLocal = cashflowLocal;
             this.BalanceLocal = balanceLocal;
             this.Properties = properties;
+            this.CashflowBase = cashflowBase;
+            this.TradeDateToSettlementDateFxPnlBase = tradeDateToSettlementDateFxPnlBase;
+            this.CashPoolFxPnlBase = cashPoolFxPnlBase;
+            this.CostBasisBase = costBasisBase;
+            this.BalanceBase = balanceBase;
+            this.UnrealisedFxPnlBase = unrealisedFxPnlBase;
+            this.BalanceFxRate = balanceFxRate;
+            this.BalanceBaseFailureReason = balanceBaseFailureReason;
+            this.AvgRate = avgRate;
+            this.FxRateMovement = fxRateMovement;
             this.Links = links;
         }
 
@@ -179,6 +199,70 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
+        /// Gets or Sets CashflowBase
+        /// </summary>
+        [DataMember(Name = "cashflowBase", EmitDefaultValue = false)]
+        public CurrencyAndAmount CashflowBase { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TradeDateToSettlementDateFxPnlBase
+        /// </summary>
+        [DataMember(Name = "tradeDateToSettlementDateFxPnlBase", EmitDefaultValue = false)]
+        public CurrencyAndAmount TradeDateToSettlementDateFxPnlBase { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CashPoolFxPnlBase
+        /// </summary>
+        [DataMember(Name = "cashPoolFxPnlBase", EmitDefaultValue = false)]
+        public CurrencyAndAmount CashPoolFxPnlBase { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CostBasisBase
+        /// </summary>
+        [DataMember(Name = "costBasisBase", EmitDefaultValue = false)]
+        public CurrencyAndAmount CostBasisBase { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BalanceBase
+        /// </summary>
+        [DataMember(Name = "balanceBase", EmitDefaultValue = false)]
+        public CurrencyAndAmount BalanceBase { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UnrealisedFxPnlBase
+        /// </summary>
+        [DataMember(Name = "unrealisedFxPnlBase", EmitDefaultValue = false)]
+        public CurrencyAndAmount UnrealisedFxPnlBase { get; set; }
+
+        /// <summary>
+        /// The FX rate BalanceBase was struck at, from the row&#39;s currency to the base currency, or 1 for a balance already in the base currency. Not returned when BalanceBase is not, nor when BalanceLocal is zero and no rate was found.
+        /// </summary>
+        /// <value>The FX rate BalanceBase was struck at, from the row&#39;s currency to the base currency, or 1 for a balance already in the base currency. Not returned when BalanceBase is not, nor when BalanceLocal is zero and no rate was found.</value>
+        [DataMember(Name = "balanceFxRate", EmitDefaultValue = true)]
+        public decimal? BalanceFxRate { get; set; }
+
+        /// <summary>
+        /// Why BalanceBase, BalanceFxRate and UnrealisedFxPnlBase are not returned on this row: no FX rate was found for the row&#39;s currency at its accounting date within the recipe&#39;s quote interval, the rate found was not positive, or the rates could not be read. Null when the balance was struck, and on a row whose BalanceLocal is zero, which is zero in the base currency without a rate.
+        /// </summary>
+        /// <value>Why BalanceBase, BalanceFxRate and UnrealisedFxPnlBase are not returned on this row: no FX rate was found for the row&#39;s currency at its accounting date within the recipe&#39;s quote interval, the rate found was not positive, or the rates could not be read. Null when the balance was struck, and on a row whose BalanceLocal is zero, which is zero in the base currency without a rate.</value>
+        [DataMember(Name = "balanceBaseFailureReason", EmitDefaultValue = true)]
+        public string BalanceBaseFailureReason { get; set; }
+
+        /// <summary>
+        /// Weighted average FX rate (costBasisBase / balanceLocal). Null when balance is zero.
+        /// </summary>
+        /// <value>Weighted average FX rate (costBasisBase / balanceLocal). Null when balance is zero.</value>
+        [DataMember(Name = "avgRate", EmitDefaultValue = true)]
+        public decimal? AvgRate { get; set; }
+
+        /// <summary>
+        /// FX rate for this specific movement (CashflowBase / CashFlowLocal). Null when localAmount is zero.
+        /// </summary>
+        /// <value>FX rate for this specific movement (CashflowBase / CashFlowLocal). Null when localAmount is zero.</value>
+        [DataMember(Name = "fxRateMovement", EmitDefaultValue = true)]
+        public decimal? FxRateMovement { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -208,6 +292,16 @@ namespace Lusid.Sdk.Model
             sb.Append("  CashflowLocal: ").Append(CashflowLocal).Append("\n");
             sb.Append("  BalanceLocal: ").Append(BalanceLocal).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  CashflowBase: ").Append(CashflowBase).Append("\n");
+            sb.Append("  TradeDateToSettlementDateFxPnlBase: ").Append(TradeDateToSettlementDateFxPnlBase).Append("\n");
+            sb.Append("  CashPoolFxPnlBase: ").Append(CashPoolFxPnlBase).Append("\n");
+            sb.Append("  CostBasisBase: ").Append(CostBasisBase).Append("\n");
+            sb.Append("  BalanceBase: ").Append(BalanceBase).Append("\n");
+            sb.Append("  UnrealisedFxPnlBase: ").Append(UnrealisedFxPnlBase).Append("\n");
+            sb.Append("  BalanceFxRate: ").Append(BalanceFxRate).Append("\n");
+            sb.Append("  BalanceBaseFailureReason: ").Append(BalanceBaseFailureReason).Append("\n");
+            sb.Append("  AvgRate: ").Append(AvgRate).Append("\n");
+            sb.Append("  FxRateMovement: ").Append(FxRateMovement).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -325,6 +419,56 @@ namespace Lusid.Sdk.Model
                     this.Properties.SequenceEqual(input.Properties)
                 ) && 
                 (
+                    this.CashflowBase == input.CashflowBase ||
+                    (this.CashflowBase != null &&
+                    this.CashflowBase.Equals(input.CashflowBase))
+                ) && 
+                (
+                    this.TradeDateToSettlementDateFxPnlBase == input.TradeDateToSettlementDateFxPnlBase ||
+                    (this.TradeDateToSettlementDateFxPnlBase != null &&
+                    this.TradeDateToSettlementDateFxPnlBase.Equals(input.TradeDateToSettlementDateFxPnlBase))
+                ) && 
+                (
+                    this.CashPoolFxPnlBase == input.CashPoolFxPnlBase ||
+                    (this.CashPoolFxPnlBase != null &&
+                    this.CashPoolFxPnlBase.Equals(input.CashPoolFxPnlBase))
+                ) && 
+                (
+                    this.CostBasisBase == input.CostBasisBase ||
+                    (this.CostBasisBase != null &&
+                    this.CostBasisBase.Equals(input.CostBasisBase))
+                ) && 
+                (
+                    this.BalanceBase == input.BalanceBase ||
+                    (this.BalanceBase != null &&
+                    this.BalanceBase.Equals(input.BalanceBase))
+                ) && 
+                (
+                    this.UnrealisedFxPnlBase == input.UnrealisedFxPnlBase ||
+                    (this.UnrealisedFxPnlBase != null &&
+                    this.UnrealisedFxPnlBase.Equals(input.UnrealisedFxPnlBase))
+                ) && 
+                (
+                    this.BalanceFxRate == input.BalanceFxRate ||
+                    (this.BalanceFxRate != null &&
+                    this.BalanceFxRate.Equals(input.BalanceFxRate))
+                ) && 
+                (
+                    this.BalanceBaseFailureReason == input.BalanceBaseFailureReason ||
+                    (this.BalanceBaseFailureReason != null &&
+                    this.BalanceBaseFailureReason.Equals(input.BalanceBaseFailureReason))
+                ) && 
+                (
+                    this.AvgRate == input.AvgRate ||
+                    (this.AvgRate != null &&
+                    this.AvgRate.Equals(input.AvgRate))
+                ) && 
+                (
+                    this.FxRateMovement == input.FxRateMovement ||
+                    (this.FxRateMovement != null &&
+                    this.FxRateMovement.Equals(input.FxRateMovement))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -398,6 +542,46 @@ namespace Lusid.Sdk.Model
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                }
+                if (this.CashflowBase != null)
+                {
+                    hashCode = (hashCode * 59) + this.CashflowBase.GetHashCode();
+                }
+                if (this.TradeDateToSettlementDateFxPnlBase != null)
+                {
+                    hashCode = (hashCode * 59) + this.TradeDateToSettlementDateFxPnlBase.GetHashCode();
+                }
+                if (this.CashPoolFxPnlBase != null)
+                {
+                    hashCode = (hashCode * 59) + this.CashPoolFxPnlBase.GetHashCode();
+                }
+                if (this.CostBasisBase != null)
+                {
+                    hashCode = (hashCode * 59) + this.CostBasisBase.GetHashCode();
+                }
+                if (this.BalanceBase != null)
+                {
+                    hashCode = (hashCode * 59) + this.BalanceBase.GetHashCode();
+                }
+                if (this.UnrealisedFxPnlBase != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnrealisedFxPnlBase.GetHashCode();
+                }
+                if (this.BalanceFxRate != null)
+                {
+                    hashCode = (hashCode * 59) + this.BalanceFxRate.GetHashCode();
+                }
+                if (this.BalanceBaseFailureReason != null)
+                {
+                    hashCode = (hashCode * 59) + this.BalanceBaseFailureReason.GetHashCode();
+                }
+                if (this.AvgRate != null)
+                {
+                    hashCode = (hashCode * 59) + this.AvgRate.GetHashCode();
+                }
+                if (this.FxRateMovement != null)
+                {
+                    hashCode = (hashCode * 59) + this.FxRateMovement.GetHashCode();
                 }
                 if (this.Links != null)
                 {

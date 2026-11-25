@@ -44,7 +44,8 @@ namespace Lusid.Sdk.Model
         /// <param name="unfunded">The unfunded capital. (required).</param>
         /// <param name="funded">The funded capital. (required).</param>
         /// <param name="outstandingCalls">Capital called but not yet paid in, counting capital that was returned as recallable and has since been recalled. Omitted while a line that has had returned capital marked recallable has not been rebuilt with recalled capital as a balance, since the figure could then miss an unpaid recall..</param>
-        public FundPartnerBalances(decimal committed = default(decimal), decimal uncalledCommitment = default(decimal), decimal paidIn = default(decimal), decimal returned = default(decimal), decimal recallable = default(decimal), decimal unfunded = default(decimal), decimal funded = default(decimal), decimal? outstandingCalls = default(decimal?))
+        /// <param name="callCredit">The credit an equalisation kept against the line&#39;s future calls, less what later calls have drawn on it: a liability to the partner, not capital, until a call applies it. Zero when the line holds none..</param>
+        public FundPartnerBalances(decimal committed = default(decimal), decimal uncalledCommitment = default(decimal), decimal paidIn = default(decimal), decimal returned = default(decimal), decimal recallable = default(decimal), decimal unfunded = default(decimal), decimal funded = default(decimal), decimal? outstandingCalls = default(decimal?), decimal callCredit = default(decimal))
         {
             this.Committed = committed;
             this.UncalledCommitment = uncalledCommitment;
@@ -54,6 +55,7 @@ namespace Lusid.Sdk.Model
             this.Unfunded = unfunded;
             this.Funded = funded;
             this.OutstandingCalls = outstandingCalls;
+            this.CallCredit = callCredit;
         }
 
         /// <summary>
@@ -113,6 +115,13 @@ namespace Lusid.Sdk.Model
         public decimal? OutstandingCalls { get; set; }
 
         /// <summary>
+        /// The credit an equalisation kept against the line&#39;s future calls, less what later calls have drawn on it: a liability to the partner, not capital, until a call applies it. Zero when the line holds none.
+        /// </summary>
+        /// <value>The credit an equalisation kept against the line&#39;s future calls, less what later calls have drawn on it: a liability to the partner, not capital, until a call applies it. Zero when the line holds none.</value>
+        [DataMember(Name = "callCredit", EmitDefaultValue = true)]
+        public decimal CallCredit { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -128,6 +137,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Unfunded: ").Append(Unfunded).Append("\n");
             sb.Append("  Funded: ").Append(Funded).Append("\n");
             sb.Append("  OutstandingCalls: ").Append(OutstandingCalls).Append("\n");
+            sb.Append("  CallCredit: ").Append(CallCredit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -195,6 +205,10 @@ namespace Lusid.Sdk.Model
                     this.OutstandingCalls == input.OutstandingCalls ||
                     (this.OutstandingCalls != null &&
                     this.OutstandingCalls.Equals(input.OutstandingCalls))
+                ) && 
+                (
+                    this.CallCredit == input.CallCredit ||
+                    this.CallCredit.Equals(input.CallCredit)
                 );
         }
 
@@ -218,6 +232,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.OutstandingCalls.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.CallCredit.GetHashCode();
                 return hashCode;
             }
         }

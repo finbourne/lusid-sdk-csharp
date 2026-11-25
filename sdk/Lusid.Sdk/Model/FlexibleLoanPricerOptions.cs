@@ -41,12 +41,14 @@ namespace Lusid.Sdk.Model
         /// <param name="setCleanPVToZero">If set to true the CleanPV will be set to zero in valuations and PV will effectively just be the Accrual. (required).</param>
         /// <param name="usePriceQuoteForCleanPV">If set to true the CleanPV calculation will be looking for a price quote (no default price is assumed). CleanPV will be calculated as Holding/Balance * priceQuote / quoteScaleFactor.</param>
         /// <param name="excludeIncomeFromPV">Read by a TotalReturnSwap whose asset leg has a ResetSchedule and whose underlying pays interest or coupons. If set to true the swap&#39;s PV leaves out the underlying&#39;s interest and coupon payments and adds the interest accrued on them to the valuation date instead, so CleanPV is the price return and PV is CleanPV + Accrued..</param>
+        /// <param name="fundingLegAccruedOnly">Read by a TotalReturnSwap. If set to true the funding leg&#39;s PV is the interest it has accrued to the valuation date, in place of the coupons it has still to earn, so the swap carries no funding interest not yet earned: PV is the asset leg&#39;s PV plus the funding accrued, and CleanPV is PV less Accrued. A coupon already earned but not yet paid and a notional exchange keep the value they have with the option off. Under a funding notional reset the accrued is the re-struck one; an end-of-day valuation on a reset day whose reset is not yet stored re-strikes on the spot in its place, so the figure moves once that reset is stored. Supported by the price-return pricer (asset leg with a ResetSchedule) and by BondLookupPricer and FlexibleLoanPricer; refused for a swap without a ResetSchedule under ConstantTimeValueOfMoney or Discounting..</param>
         /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions, StripBondModelOptions. (required) (default to ModelOptionsTypeEnum.FlexibleLoanPricerOptions).</param>
-        public FlexibleLoanPricerOptions(bool setCleanPVToZero = default(bool), bool? usePriceQuoteForCleanPV = default(bool?), bool? excludeIncomeFromPV = default(bool?), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
+        public FlexibleLoanPricerOptions(bool setCleanPVToZero = default(bool), bool? usePriceQuoteForCleanPV = default(bool?), bool? excludeIncomeFromPV = default(bool?), bool? fundingLegAccruedOnly = default(bool?), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             this.SetCleanPVToZero = setCleanPVToZero;
             this.UsePriceQuoteForCleanPV = usePriceQuoteForCleanPV;
             this.ExcludeIncomeFromPV = excludeIncomeFromPV;
+            this.FundingLegAccruedOnly = fundingLegAccruedOnly;
         }
 
         /// <summary>
@@ -71,6 +73,13 @@ namespace Lusid.Sdk.Model
         public bool? ExcludeIncomeFromPV { get; set; }
 
         /// <summary>
+        /// Read by a TotalReturnSwap. If set to true the funding leg&#39;s PV is the interest it has accrued to the valuation date, in place of the coupons it has still to earn, so the swap carries no funding interest not yet earned: PV is the asset leg&#39;s PV plus the funding accrued, and CleanPV is PV less Accrued. A coupon already earned but not yet paid and a notional exchange keep the value they have with the option off. Under a funding notional reset the accrued is the re-struck one; an end-of-day valuation on a reset day whose reset is not yet stored re-strikes on the spot in its place, so the figure moves once that reset is stored. Supported by the price-return pricer (asset leg with a ResetSchedule) and by BondLookupPricer and FlexibleLoanPricer; refused for a swap without a ResetSchedule under ConstantTimeValueOfMoney or Discounting.
+        /// </summary>
+        /// <value>Read by a TotalReturnSwap. If set to true the funding leg&#39;s PV is the interest it has accrued to the valuation date, in place of the coupons it has still to earn, so the swap carries no funding interest not yet earned: PV is the asset leg&#39;s PV plus the funding accrued, and CleanPV is PV less Accrued. A coupon already earned but not yet paid and a notional exchange keep the value they have with the option off. Under a funding notional reset the accrued is the re-struck one; an end-of-day valuation on a reset day whose reset is not yet stored re-strikes on the spot in its place, so the figure moves once that reset is stored. Supported by the price-return pricer (asset leg with a ResetSchedule) and by BondLookupPricer and FlexibleLoanPricer; refused for a swap without a ResetSchedule under ConstantTimeValueOfMoney or Discounting.</value>
+        [DataMember(Name = "fundingLegAccruedOnly", EmitDefaultValue = true)]
+        public bool? FundingLegAccruedOnly { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +91,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  SetCleanPVToZero: ").Append(SetCleanPVToZero).Append("\n");
             sb.Append("  UsePriceQuoteForCleanPV: ").Append(UsePriceQuoteForCleanPV).Append("\n");
             sb.Append("  ExcludeIncomeFromPV: ").Append(ExcludeIncomeFromPV).Append("\n");
+            sb.Append("  FundingLegAccruedOnly: ").Append(FundingLegAccruedOnly).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -130,6 +140,11 @@ namespace Lusid.Sdk.Model
                     this.ExcludeIncomeFromPV == input.ExcludeIncomeFromPV ||
                     (this.ExcludeIncomeFromPV != null &&
                     this.ExcludeIncomeFromPV.Equals(input.ExcludeIncomeFromPV))
+                ) && base.Equals(input) && 
+                (
+                    this.FundingLegAccruedOnly == input.FundingLegAccruedOnly ||
+                    (this.FundingLegAccruedOnly != null &&
+                    this.FundingLegAccruedOnly.Equals(input.FundingLegAccruedOnly))
                 );
         }
 
@@ -150,6 +165,10 @@ namespace Lusid.Sdk.Model
                 if (this.ExcludeIncomeFromPV != null)
                 {
                     hashCode = (hashCode * 59) + this.ExcludeIncomeFromPV.GetHashCode();
+                }
+                if (this.FundingLegAccruedOnly != null)
+                {
+                    hashCode = (hashCode * 59) + this.FundingLegAccruedOnly.GetHashCode();
                 }
                 return hashCode;
             }

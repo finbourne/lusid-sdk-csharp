@@ -61,6 +61,37 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of BatchUpsertPortfolioAccessMetadataResponse</returns>
         Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioAccessMetadataResponse> BatchUpsertPortfolioAccessMetadataWithHttpInfo(Dictionary<string, BatchUpsertPortfolioAccessMetadataRequest> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? effectiveUntil = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] DeleteHoldingEntitlement: [EARLY ACCESS] Delete Holding Entitlement
+        /// </summary>
+        /// <remarks>
+        /// Delete a particular holding entitlement of a particular portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="holdingEntitlementId">The id of the entitlement to be deleted.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        DeletedEntityResponse DeleteHoldingEntitlement(string scope, string code, string holdingEntitlementId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteHoldingEntitlement: [EARLY ACCESS] Delete Holding Entitlement
+        /// </summary>
+        /// <remarks>
+        /// Delete a particular holding entitlement of a particular portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="holdingEntitlementId">The id of the entitlement to be deleted.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteHoldingEntitlementWithHttpInfo(string scope, string code, string holdingEntitlementId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] DeleteInstrumentEventInstruction: Delete Instrument Event Instruction
         /// </summary>
         /// <remarks>
@@ -285,6 +316,45 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CompositeBreakdownResponse</returns>
         Lusid.Sdk.Client.ApiResponse<CompositeBreakdownResponse> GetCompositeBreakdownWithHttpInfo(string scope, string code, CompositeBreakdownRequest compositeBreakdownRequest, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] GetHoldingEntitlement: [EARLY ACCESS] Get Holding Entitlement
+        /// </summary>
+        /// <remarks>
+        /// Get a particular holding entitlement of a particular portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="holdingEntitlementId">The id of the entitlement to be retrieved.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the entitlement. Defaults to return the latest version of the entitlement if not specified. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>HoldingEntitlement</returns>
+        HoldingEntitlement GetHoldingEntitlement(string scope, string code, string holdingEntitlementId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] GetHoldingEntitlement: [EARLY ACCESS] Get Holding Entitlement
+        /// </summary>
+        /// <remarks>
+        /// Get a particular holding entitlement of a particular portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="holdingEntitlementId">The id of the entitlement to be retrieved.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the entitlement. Defaults to return the latest version of the entitlement if not specified. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of HoldingEntitlement</returns>
+        Lusid.Sdk.Client.ApiResponse<HoldingEntitlement> GetHoldingEntitlementWithHttpInfo(string scope, string code, string holdingEntitlementId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentEventInstruction: Get Instrument Event Instruction
         /// </summary>
@@ -765,6 +835,51 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of List&lt;AccessMetadataValue&gt;</returns>
         Lusid.Sdk.Client.ApiResponse<List<AccessMetadataValue>> GetPortfoliosAccessMetadataByKeyWithHttpInfo(string scope, string code, string metadataKey, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] ListHoldingEntitlements: [EARLY ACCESS] List Holding Entitlements
+        /// </summary>
+        /// <remarks>
+        /// List the holding entitlements of a particular portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the entitlements. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing entitlements; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PagedResourceListOfHoldingEntitlement</returns>
+        PagedResourceListOfHoldingEntitlement ListHoldingEntitlements(string scope, string code, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] ListHoldingEntitlements: [EARLY ACCESS] List Holding Entitlements
+        /// </summary>
+        /// <remarks>
+        /// List the holding entitlements of a particular portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the entitlements. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing entitlements; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PagedResourceListOfHoldingEntitlement</returns>
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfHoldingEntitlement> ListHoldingEntitlementsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] ListInstrumentEventInstructions: List Instrument Event Instructions
         /// </summary>
         /// <remarks>
@@ -1020,6 +1135,39 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Portfolio</returns>
         Lusid.Sdk.Client.ApiResponse<Portfolio> UpdatePortfolioWithHttpInfo(string scope, string code, UpdatePortfolioRequest updatePortfolioRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] UpsertHoldingEntitlements: [EARLY ACCESS] Upsert Holding Entitlements
+        /// </summary>
+        /// <remarks>
+        /// Create or update holding entitlements on a portfolio. A holding entitlement states what one holding receives  under a corporate action, in the client&#39;s own figures, and is booked at its ex date.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="successMode">Whether the batch request should fail atomically or in a partial fashion - allowed values: Atomic, Partial (default)</param>
+        /// <param name="requestBody">The entitlements to be upserted to the portfolio, keyed by a correlation id of the caller&#39;s choosing.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>HoldingEntitlementsResponse</returns>
+        HoldingEntitlementsResponse UpsertHoldingEntitlements(string scope, string code, string successMode, Dictionary<string, HoldingEntitlementRequest> requestBody, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertHoldingEntitlements: [EARLY ACCESS] Upsert Holding Entitlements
+        /// </summary>
+        /// <remarks>
+        /// Create or update holding entitlements on a portfolio. A holding entitlement states what one holding receives  under a corporate action, in the client&#39;s own figures, and is booked at its ex date.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="successMode">Whether the batch request should fail atomically or in a partial fashion - allowed values: Atomic, Partial (default)</param>
+        /// <param name="requestBody">The entitlements to be upserted to the portfolio, keyed by a correlation id of the caller&#39;s choosing.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of HoldingEntitlementsResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<HoldingEntitlementsResponse> UpsertHoldingEntitlementsWithHttpInfo(string scope, string code, string successMode, Dictionary<string, HoldingEntitlementRequest> requestBody, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] UpsertInstrumentEventInstructions: Upsert Instrument Event Instructions
         /// </summary>
         /// <remarks>
@@ -1189,6 +1337,39 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BatchUpsertPortfolioAccessMetadataResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioAccessMetadataResponse>> BatchUpsertPortfolioAccessMetadataWithHttpInfoAsync(Dictionary<string, BatchUpsertPortfolioAccessMetadataRequest> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? effectiveUntil = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] DeleteHoldingEntitlement: [EARLY ACCESS] Delete Holding Entitlement
+        /// </summary>
+        /// <remarks>
+        /// Delete a particular holding entitlement of a particular portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="holdingEntitlementId">The id of the entitlement to be deleted.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteHoldingEntitlementAsync(string scope, string code, string holdingEntitlementId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteHoldingEntitlement: [EARLY ACCESS] Delete Holding Entitlement
+        /// </summary>
+        /// <remarks>
+        /// Delete a particular holding entitlement of a particular portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="holdingEntitlementId">The id of the entitlement to be deleted.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteHoldingEntitlementWithHttpInfoAsync(string scope, string code, string holdingEntitlementId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteInstrumentEventInstruction: Delete Instrument Event Instruction
         /// </summary>
@@ -1428,6 +1609,47 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CompositeBreakdownResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CompositeBreakdownResponse>> GetCompositeBreakdownWithHttpInfoAsync(string scope, string code, CompositeBreakdownRequest compositeBreakdownRequest, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] GetHoldingEntitlement: [EARLY ACCESS] Get Holding Entitlement
+        /// </summary>
+        /// <remarks>
+        /// Get a particular holding entitlement of a particular portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="holdingEntitlementId">The id of the entitlement to be retrieved.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the entitlement. Defaults to return the latest version of the entitlement if not specified. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of HoldingEntitlement</returns>
+        System.Threading.Tasks.Task<HoldingEntitlement> GetHoldingEntitlementAsync(string scope, string code, string holdingEntitlementId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] GetHoldingEntitlement: [EARLY ACCESS] Get Holding Entitlement
+        /// </summary>
+        /// <remarks>
+        /// Get a particular holding entitlement of a particular portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="holdingEntitlementId">The id of the entitlement to be retrieved.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the entitlement. Defaults to return the latest version of the entitlement if not specified. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (HoldingEntitlement)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<HoldingEntitlement>> GetHoldingEntitlementWithHttpInfoAsync(string scope, string code, string holdingEntitlementId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentEventInstruction: Get Instrument Event Instruction
         /// </summary>
@@ -1934,6 +2156,53 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;AccessMetadataValue&gt;)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<List<AccessMetadataValue>>> GetPortfoliosAccessMetadataByKeyWithHttpInfoAsync(string scope, string code, string metadataKey, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] ListHoldingEntitlements: [EARLY ACCESS] List Holding Entitlements
+        /// </summary>
+        /// <remarks>
+        /// List the holding entitlements of a particular portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the entitlements. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing entitlements; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PagedResourceListOfHoldingEntitlement</returns>
+        System.Threading.Tasks.Task<PagedResourceListOfHoldingEntitlement> ListHoldingEntitlementsAsync(string scope, string code, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] ListHoldingEntitlements: [EARLY ACCESS] List Holding Entitlements
+        /// </summary>
+        /// <remarks>
+        /// List the holding entitlements of a particular portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the entitlements. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing entitlements; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfHoldingEntitlement)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfHoldingEntitlement>> ListHoldingEntitlementsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] ListInstrumentEventInstructions: List Instrument Event Instructions
         /// </summary>
         /// <remarks>
@@ -2202,6 +2471,41 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Portfolio)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Portfolio>> UpdatePortfolioWithHttpInfoAsync(string scope, string code, UpdatePortfolioRequest updatePortfolioRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] UpsertHoldingEntitlements: [EARLY ACCESS] Upsert Holding Entitlements
+        /// </summary>
+        /// <remarks>
+        /// Create or update holding entitlements on a portfolio. A holding entitlement states what one holding receives  under a corporate action, in the client&#39;s own figures, and is booked at its ex date.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="successMode">Whether the batch request should fail atomically or in a partial fashion - allowed values: Atomic, Partial (default)</param>
+        /// <param name="requestBody">The entitlements to be upserted to the portfolio, keyed by a correlation id of the caller&#39;s choosing.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of HoldingEntitlementsResponse</returns>
+        System.Threading.Tasks.Task<HoldingEntitlementsResponse> UpsertHoldingEntitlementsAsync(string scope, string code, string successMode, Dictionary<string, HoldingEntitlementRequest> requestBody, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertHoldingEntitlements: [EARLY ACCESS] Upsert Holding Entitlements
+        /// </summary>
+        /// <remarks>
+        /// Create or update holding entitlements on a portfolio. A holding entitlement states what one holding receives  under a corporate action, in the client&#39;s own figures, and is booked at its ex date.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="successMode">Whether the batch request should fail atomically or in a partial fashion - allowed values: Atomic, Partial (default)</param>
+        /// <param name="requestBody">The entitlements to be upserted to the portfolio, keyed by a correlation id of the caller&#39;s choosing.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (HoldingEntitlementsResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<HoldingEntitlementsResponse>> UpsertHoldingEntitlementsWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, HoldingEntitlementRequest> requestBody, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertInstrumentEventInstructions: Upsert Instrument Event Instructions
         /// </summary>
@@ -2692,6 +2996,259 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchUpsertPortfolioAccessMetadata", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteHoldingEntitlement: [EARLY ACCESS] Delete Holding Entitlement Delete a particular holding entitlement of a particular portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="holdingEntitlementId">The id of the entitlement to be deleted.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        public DeletedEntityResponse DeleteHoldingEntitlement(string scope, string code, string holdingEntitlementId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteHoldingEntitlementWithHttpInfo(scope, code, holdingEntitlementId, portfolioEffectiveAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteHoldingEntitlement: [EARLY ACCESS] Delete Holding Entitlement Delete a particular holding entitlement of a particular portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="holdingEntitlementId">The id of the entitlement to be deleted.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteHoldingEntitlementWithHttpInfo(string scope, string code, string holdingEntitlementId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PortfoliosApi->DeleteHoldingEntitlement");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PortfoliosApi->DeleteHoldingEntitlement");
+            }
+
+            // verify the required parameter 'holdingEntitlementId' is set
+            if (holdingEntitlementId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'holdingEntitlementId' when calling PortfoliosApi->DeleteHoldingEntitlement");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("holdingEntitlementId", Lusid.Sdk.Client.ClientUtils.ParameterToString(holdingEntitlementId)); // path parameter
+            if (portfolioEffectiveAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+
+            localVarRequestOptions.Operation = "PortfoliosApi.DeleteHoldingEntitlement";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/portfolios/{scope}/{code}/holdingentitlements/{holdingEntitlementId}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteHoldingEntitlement", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteHoldingEntitlement: [EARLY ACCESS] Delete Holding Entitlement Delete a particular holding entitlement of a particular portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="holdingEntitlementId">The id of the entitlement to be deleted.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteHoldingEntitlementAsync(string scope, string code, string holdingEntitlementId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteHoldingEntitlementWithHttpInfoAsync(scope, code, holdingEntitlementId, portfolioEffectiveAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteHoldingEntitlement: [EARLY ACCESS] Delete Holding Entitlement Delete a particular holding entitlement of a particular portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="holdingEntitlementId">The id of the entitlement to be deleted.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteHoldingEntitlementWithHttpInfoAsync(string scope, string code, string holdingEntitlementId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PortfoliosApi->DeleteHoldingEntitlement");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PortfoliosApi->DeleteHoldingEntitlement");
+            }
+
+            // verify the required parameter 'holdingEntitlementId' is set
+            if (holdingEntitlementId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'holdingEntitlementId' when calling PortfoliosApi->DeleteHoldingEntitlement");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("holdingEntitlementId", Lusid.Sdk.Client.ClientUtils.ParameterToString(holdingEntitlementId)); // path parameter
+            if (portfolioEffectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+
+            localVarRequestOptions.Operation = "PortfoliosApi.DeleteHoldingEntitlement";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/portfolios/{scope}/{code}/holdingentitlements/{holdingEntitlementId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteHoldingEntitlement", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -4541,6 +5098,311 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompositeBreakdown", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetHoldingEntitlement: [EARLY ACCESS] Get Holding Entitlement Get a particular holding entitlement of a particular portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="holdingEntitlementId">The id of the entitlement to be retrieved.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the entitlement. Defaults to return the latest version of the entitlement if not specified. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>HoldingEntitlement</returns>
+        public HoldingEntitlement GetHoldingEntitlement(string scope, string code, string holdingEntitlementId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<HoldingEntitlement> localVarResponse = GetHoldingEntitlementWithHttpInfo(scope, code, holdingEntitlementId, portfolioEffectiveAt, asAt, timelineScope, timelineCode, closedPeriodId, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetHoldingEntitlement: [EARLY ACCESS] Get Holding Entitlement Get a particular holding entitlement of a particular portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="holdingEntitlementId">The id of the entitlement to be retrieved.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the entitlement. Defaults to return the latest version of the entitlement if not specified. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of HoldingEntitlement</returns>
+        public Lusid.Sdk.Client.ApiResponse<HoldingEntitlement> GetHoldingEntitlementWithHttpInfo(string scope, string code, string holdingEntitlementId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PortfoliosApi->GetHoldingEntitlement");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PortfoliosApi->GetHoldingEntitlement");
+            }
+
+            // verify the required parameter 'holdingEntitlementId' is set
+            if (holdingEntitlementId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'holdingEntitlementId' when calling PortfoliosApi->GetHoldingEntitlement");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("holdingEntitlementId", Lusid.Sdk.Client.ClientUtils.ParameterToString(holdingEntitlementId)); // path parameter
+            if (portfolioEffectiveAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (timelineScope != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
+            }
+            if (timelineCode != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
+            }
+            if (closedPeriodId != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
+            }
+
+            localVarRequestOptions.Operation = "PortfoliosApi.GetHoldingEntitlement";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<HoldingEntitlement>("/api/portfolios/{scope}/{code}/holdingentitlements/{holdingEntitlementId}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetHoldingEntitlement", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetHoldingEntitlement: [EARLY ACCESS] Get Holding Entitlement Get a particular holding entitlement of a particular portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="holdingEntitlementId">The id of the entitlement to be retrieved.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the entitlement. Defaults to return the latest version of the entitlement if not specified. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of HoldingEntitlement</returns>
+        public async System.Threading.Tasks.Task<HoldingEntitlement> GetHoldingEntitlementAsync(string scope, string code, string holdingEntitlementId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<HoldingEntitlement> localVarResponse = await GetHoldingEntitlementWithHttpInfoAsync(scope, code, holdingEntitlementId, portfolioEffectiveAt, asAt, timelineScope, timelineCode, closedPeriodId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetHoldingEntitlement: [EARLY ACCESS] Get Holding Entitlement Get a particular holding entitlement of a particular portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="holdingEntitlementId">The id of the entitlement to be retrieved.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the entitlement. Defaults to return the latest version of the entitlement if not specified. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (HoldingEntitlement)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<HoldingEntitlement>> GetHoldingEntitlementWithHttpInfoAsync(string scope, string code, string holdingEntitlementId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PortfoliosApi->GetHoldingEntitlement");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PortfoliosApi->GetHoldingEntitlement");
+            }
+
+            // verify the required parameter 'holdingEntitlementId' is set
+            if (holdingEntitlementId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'holdingEntitlementId' when calling PortfoliosApi->GetHoldingEntitlement");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("holdingEntitlementId", Lusid.Sdk.Client.ClientUtils.ParameterToString(holdingEntitlementId)); // path parameter
+            if (portfolioEffectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (timelineScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
+            }
+            if (timelineCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
+            }
+            if (closedPeriodId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
+            }
+
+            localVarRequestOptions.Operation = "PortfoliosApi.GetHoldingEntitlement";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<HoldingEntitlement>("/api/portfolios/{scope}/{code}/holdingentitlements/{holdingEntitlementId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetHoldingEntitlement", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -8322,6 +9184,345 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
+        /// [EARLY ACCESS] ListHoldingEntitlements: [EARLY ACCESS] List Holding Entitlements List the holding entitlements of a particular portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the entitlements. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing entitlements; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PagedResourceListOfHoldingEntitlement</returns>
+        public PagedResourceListOfHoldingEntitlement ListHoldingEntitlements(string scope, string code, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfHoldingEntitlement> localVarResponse = ListHoldingEntitlementsWithHttpInfo(scope, code, portfolioEffectiveAt, asAt, page, limit, filter, sortBy, timelineScope, timelineCode, closedPeriodId, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ListHoldingEntitlements: [EARLY ACCESS] List Holding Entitlements List the holding entitlements of a particular portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the entitlements. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing entitlements; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PagedResourceListOfHoldingEntitlement</returns>
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfHoldingEntitlement> ListHoldingEntitlementsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PortfoliosApi->ListHoldingEntitlements");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PortfoliosApi->ListHoldingEntitlements");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (portfolioEffectiveAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (page != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (sortBy != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
+            }
+            if (timelineScope != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
+            }
+            if (timelineCode != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
+            }
+            if (closedPeriodId != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
+            }
+
+            localVarRequestOptions.Operation = "PortfoliosApi.ListHoldingEntitlements";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<PagedResourceListOfHoldingEntitlement>("/api/portfolios/{scope}/{code}/holdingentitlements", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListHoldingEntitlements", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ListHoldingEntitlements: [EARLY ACCESS] List Holding Entitlements List the holding entitlements of a particular portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the entitlements. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing entitlements; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PagedResourceListOfHoldingEntitlement</returns>
+        public async System.Threading.Tasks.Task<PagedResourceListOfHoldingEntitlement> ListHoldingEntitlementsAsync(string scope, string code, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfHoldingEntitlement> localVarResponse = await ListHoldingEntitlementsWithHttpInfoAsync(scope, code, portfolioEffectiveAt, asAt, page, limit, filter, sortBy, timelineScope, timelineCode, closedPeriodId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ListHoldingEntitlements: [EARLY ACCESS] List Holding Entitlements List the holding entitlements of a particular portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the entitlements. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing entitlements; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
+        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineCode must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this is provided, timelineScope must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and read the entitlements as they stood when the period closed. Entitlements written after the period closed are not included.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfHoldingEntitlement)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfHoldingEntitlement>> ListHoldingEntitlementsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PortfoliosApi->ListHoldingEntitlements");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PortfoliosApi->ListHoldingEntitlements");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (portfolioEffectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
+            }
+            if (timelineScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
+            }
+            if (timelineCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
+            }
+            if (closedPeriodId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
+            }
+
+            localVarRequestOptions.Operation = "PortfoliosApi.ListHoldingEntitlements";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfHoldingEntitlement>("/api/portfolios/{scope}/{code}/holdingentitlements", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListHoldingEntitlements", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// [EARLY ACCESS] ListInstrumentEventInstructions: List Instrument Event Instructions Lists all instructions for a particular portfolio
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -10319,6 +11520,285 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdatePortfolio", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertHoldingEntitlements: [EARLY ACCESS] Upsert Holding Entitlements Create or update holding entitlements on a portfolio. A holding entitlement states what one holding receives  under a corporate action, in the client&#39;s own figures, and is booked at its ex date.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="successMode">Whether the batch request should fail atomically or in a partial fashion - allowed values: Atomic, Partial (default)</param>
+        /// <param name="requestBody">The entitlements to be upserted to the portfolio, keyed by a correlation id of the caller&#39;s choosing.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>HoldingEntitlementsResponse</returns>
+        public HoldingEntitlementsResponse UpsertHoldingEntitlements(string scope, string code, string successMode, Dictionary<string, HoldingEntitlementRequest> requestBody, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<HoldingEntitlementsResponse> localVarResponse = UpsertHoldingEntitlementsWithHttpInfo(scope, code, successMode, requestBody, portfolioEffectiveAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertHoldingEntitlements: [EARLY ACCESS] Upsert Holding Entitlements Create or update holding entitlements on a portfolio. A holding entitlement states what one holding receives  under a corporate action, in the client&#39;s own figures, and is booked at its ex date.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="successMode">Whether the batch request should fail atomically or in a partial fashion - allowed values: Atomic, Partial (default)</param>
+        /// <param name="requestBody">The entitlements to be upserted to the portfolio, keyed by a correlation id of the caller&#39;s choosing.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of HoldingEntitlementsResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<HoldingEntitlementsResponse> UpsertHoldingEntitlementsWithHttpInfo(string scope, string code, string successMode, Dictionary<string, HoldingEntitlementRequest> requestBody, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PortfoliosApi->UpsertHoldingEntitlements");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PortfoliosApi->UpsertHoldingEntitlements");
+            }
+
+            // verify the required parameter 'successMode' is set
+            if (successMode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'successMode' when calling PortfoliosApi->UpsertHoldingEntitlements");
+            }
+
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling PortfoliosApi->UpsertHoldingEntitlements");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (portfolioEffectiveAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "PortfoliosApi.UpsertHoldingEntitlements";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<HoldingEntitlementsResponse>("/api/portfolios/{scope}/{code}/holdingentitlements", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertHoldingEntitlements", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertHoldingEntitlements: [EARLY ACCESS] Upsert Holding Entitlements Create or update holding entitlements on a portfolio. A holding entitlement states what one holding receives  under a corporate action, in the client&#39;s own figures, and is booked at its ex date.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="successMode">Whether the batch request should fail atomically or in a partial fashion - allowed values: Atomic, Partial (default)</param>
+        /// <param name="requestBody">The entitlements to be upserted to the portfolio, keyed by a correlation id of the caller&#39;s choosing.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of HoldingEntitlementsResponse</returns>
+        public async System.Threading.Tasks.Task<HoldingEntitlementsResponse> UpsertHoldingEntitlementsAsync(string scope, string code, string successMode, Dictionary<string, HoldingEntitlementRequest> requestBody, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<HoldingEntitlementsResponse> localVarResponse = await UpsertHoldingEntitlementsWithHttpInfoAsync(scope, code, successMode, requestBody, portfolioEffectiveAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertHoldingEntitlements: [EARLY ACCESS] Upsert Holding Entitlements Create or update holding entitlements on a portfolio. A holding entitlement states what one holding receives  under a corporate action, in the client&#39;s own figures, and is booked at its ex date.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="successMode">Whether the batch request should fail atomically or in a partial fashion - allowed values: Atomic, Partial (default)</param>
+        /// <param name="requestBody">The entitlements to be upserted to the portfolio, keyed by a correlation id of the caller&#39;s choosing.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (HoldingEntitlementsResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<HoldingEntitlementsResponse>> UpsertHoldingEntitlementsWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, HoldingEntitlementRequest> requestBody, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PortfoliosApi->UpsertHoldingEntitlements");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PortfoliosApi->UpsertHoldingEntitlements");
+            }
+
+            // verify the required parameter 'successMode' is set
+            if (successMode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'successMode' when calling PortfoliosApi->UpsertHoldingEntitlements");
+            }
+
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling PortfoliosApi->UpsertHoldingEntitlements");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (portfolioEffectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "PortfoliosApi.UpsertHoldingEntitlements";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<HoldingEntitlementsResponse>("/api/portfolios/{scope}/{code}/holdingentitlements", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertHoldingEntitlements", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

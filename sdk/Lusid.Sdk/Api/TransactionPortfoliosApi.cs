@@ -1210,10 +1210,14 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the registry of the transaction portfolio. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#39;p&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the lines. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/CommittedCapital\&quot;. (optional)</param>
+        /// <param name="investorRecordId">When provided, only the lines of this investor record are returned. (optional)</param>
+        /// <param name="commitmentLineId">When provided, only the lines of this commitment line are returned. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListWithWarningsOfRegistryLine</returns>
-        VersionedResourceListWithWarningsOfRegistryLine GetRegistry(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        VersionedResourceListWithWarningsOfRegistryLine GetRegistry(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? investorRecordId = default(string?), string? commitmentLineId = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetRegistry: [EXPERIMENTAL] GetRegistry: Get the registry of a transaction portfolio.
@@ -1228,10 +1232,14 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the registry of the transaction portfolio. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#39;p&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the lines. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/CommittedCapital\&quot;. (optional)</param>
+        /// <param name="investorRecordId">When provided, only the lines of this investor record are returned. (optional)</param>
+        /// <param name="commitmentLineId">When provided, only the lines of this commitment line are returned. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListWithWarningsOfRegistryLine</returns>
-        Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> GetRegistryWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> GetRegistryWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? investorRecordId = default(string?), string? commitmentLineId = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetTransactionHistory: Get the history of a transaction
         /// </summary>
@@ -3202,11 +3210,15 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the registry of the transaction portfolio. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#39;p&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the lines. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/CommittedCapital\&quot;. (optional)</param>
+        /// <param name="investorRecordId">When provided, only the lines of this investor record are returned. (optional)</param>
+        /// <param name="commitmentLineId">When provided, only the lines of this commitment line are returned. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListWithWarningsOfRegistryLine</returns>
-        System.Threading.Tasks.Task<VersionedResourceListWithWarningsOfRegistryLine> GetRegistryAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<VersionedResourceListWithWarningsOfRegistryLine> GetRegistryAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? investorRecordId = default(string?), string? commitmentLineId = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetRegistry: [EXPERIMENTAL] GetRegistry: Get the registry of a transaction portfolio.
@@ -3221,11 +3233,15 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the registry of the transaction portfolio. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#39;p&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the lines. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/CommittedCapital\&quot;. (optional)</param>
+        /// <param name="investorRecordId">When provided, only the lines of this investor record are returned. (optional)</param>
+        /// <param name="commitmentLineId">When provided, only the lines of this commitment line are returned. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListWithWarningsOfRegistryLine)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine>> GetRegistryWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine>> GetRegistryWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? investorRecordId = default(string?), string? commitmentLineId = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetTransactionHistory: Get the history of a transaction
         /// </summary>
@@ -13468,12 +13484,16 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the registry of the transaction portfolio. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#39;p&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the lines. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/CommittedCapital\&quot;. (optional)</param>
+        /// <param name="investorRecordId">When provided, only the lines of this investor record are returned. (optional)</param>
+        /// <param name="commitmentLineId">When provided, only the lines of this commitment line are returned. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListWithWarningsOfRegistryLine</returns>
-        public VersionedResourceListWithWarningsOfRegistryLine GetRegistry(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public VersionedResourceListWithWarningsOfRegistryLine GetRegistry(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? investorRecordId = default(string?), string? commitmentLineId = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> localVarResponse = GetRegistryWithHttpInfo(scope, code, effectiveAt, asAt, filter, propertyKeys, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> localVarResponse = GetRegistryWithHttpInfo(scope, code, effectiveAt, asAt, filter, propertyKeys, investorRecordId, commitmentLineId, limit, page, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -13487,10 +13507,14 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the registry of the transaction portfolio. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#39;p&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the lines. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/CommittedCapital\&quot;. (optional)</param>
+        /// <param name="investorRecordId">When provided, only the lines of this investor record are returned. (optional)</param>
+        /// <param name="commitmentLineId">When provided, only the lines of this commitment line are returned. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListWithWarningsOfRegistryLine</returns>
-        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> GetRegistryWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> GetRegistryWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? investorRecordId = default(string?), string? commitmentLineId = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -13559,6 +13583,26 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
+            }
+            if (investorRecordId != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "investorRecordId", investorRecordId));
+            }
+            if (commitmentLineId != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "commitmentLineId", commitmentLineId));
+            }
+            if (limit != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetRegistry";
@@ -13605,13 +13649,17 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the registry of the transaction portfolio. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#39;p&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the lines. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/CommittedCapital\&quot;. (optional)</param>
+        /// <param name="investorRecordId">When provided, only the lines of this investor record are returned. (optional)</param>
+        /// <param name="commitmentLineId">When provided, only the lines of this commitment line are returned. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListWithWarningsOfRegistryLine</returns>
-        public async System.Threading.Tasks.Task<VersionedResourceListWithWarningsOfRegistryLine> GetRegistryAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<VersionedResourceListWithWarningsOfRegistryLine> GetRegistryAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? investorRecordId = default(string?), string? commitmentLineId = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> localVarResponse = await GetRegistryWithHttpInfoAsync(scope, code, effectiveAt, asAt, filter, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> localVarResponse = await GetRegistryWithHttpInfoAsync(scope, code, effectiveAt, asAt, filter, propertyKeys, investorRecordId, commitmentLineId, limit, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -13625,11 +13673,15 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the registry of the transaction portfolio. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#39;p&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the lines. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/CommittedCapital\&quot;. (optional)</param>
+        /// <param name="investorRecordId">When provided, only the lines of this investor record are returned. (optional)</param>
+        /// <param name="commitmentLineId">When provided, only the lines of this commitment line are returned. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListWithWarningsOfRegistryLine)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine>> GetRegistryWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine>> GetRegistryWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? investorRecordId = default(string?), string? commitmentLineId = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -13695,6 +13747,22 @@ namespace Lusid.Sdk.Api
             if (propertyKeys != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
+            }
+            if (investorRecordId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "investorRecordId", investorRecordId));
+            }
+            if (commitmentLineId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "commitmentLineId", commitmentLineId));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetRegistry";

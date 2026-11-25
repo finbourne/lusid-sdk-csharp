@@ -41,13 +41,15 @@ namespace Lusid.Sdk.Model
         /// <param name="basis">The capital base the fee is charged on. Available values: Auto, CommittedCapital, InvestedCapital. Auto charges on committed capital until the investment period ends and on invested capital after..</param>
         /// <param name="offsets">Fee income received by the manager that offsets the management fee..</param>
         /// <param name="book">When true, the net fee per partner is booked..</param>
-        public ManagementFeeRequest(DateTimeOffset periodStart = default(DateTimeOffset), DateTimeOffset periodEnd = default(DateTimeOffset), string basis = default(string), List<ManagementFeeOffset> offsets = default(List<ManagementFeeOffset>), bool book = default(bool))
+        /// <param name="prepaid">When true with book, the period&#39;s fee is booked in advance: the fund prepays each partner&#39;s gross fee per component against the fee payable at the period&#39;s start, and the partnership ledger is not charged. Offsets are not prepaid. Fee runs accruing inside the period then charge the fee against the prepayment, up to its balance and at the prepayment&#39;s rate, and any excess against the payable; an offset arising inside the period reduces the payable, and any part of it above the payable is booked as a receivable from the manager. Defaults to false..</param>
+        public ManagementFeeRequest(DateTimeOffset periodStart = default(DateTimeOffset), DateTimeOffset periodEnd = default(DateTimeOffset), string basis = default(string), List<ManagementFeeOffset> offsets = default(List<ManagementFeeOffset>), bool book = default(bool), bool prepaid = default(bool))
         {
             this.PeriodStart = periodStart;
             this.PeriodEnd = periodEnd;
             this.Basis = basis;
             this.Offsets = offsets;
             this.Book = book;
+            this.Prepaid = prepaid;
         }
 
         /// <summary>
@@ -86,6 +88,13 @@ namespace Lusid.Sdk.Model
         public bool Book { get; set; }
 
         /// <summary>
+        /// When true with book, the period&#39;s fee is booked in advance: the fund prepays each partner&#39;s gross fee per component against the fee payable at the period&#39;s start, and the partnership ledger is not charged. Offsets are not prepaid. Fee runs accruing inside the period then charge the fee against the prepayment, up to its balance and at the prepayment&#39;s rate, and any excess against the payable; an offset arising inside the period reduces the payable, and any part of it above the payable is booked as a receivable from the manager. Defaults to false.
+        /// </summary>
+        /// <value>When true with book, the period&#39;s fee is booked in advance: the fund prepays each partner&#39;s gross fee per component against the fee payable at the period&#39;s start, and the partnership ledger is not charged. Offsets are not prepaid. Fee runs accruing inside the period then charge the fee against the prepayment, up to its balance and at the prepayment&#39;s rate, and any excess against the payable; an offset arising inside the period reduces the payable, and any part of it above the payable is booked as a receivable from the manager. Defaults to false.</value>
+        [DataMember(Name = "prepaid", EmitDefaultValue = true)]
+        public bool Prepaid { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -98,6 +107,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Basis: ").Append(Basis).Append("\n");
             sb.Append("  Offsets: ").Append(Offsets).Append("\n");
             sb.Append("  Book: ").Append(Book).Append("\n");
+            sb.Append("  Prepaid: ").Append(Prepaid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -157,6 +167,10 @@ namespace Lusid.Sdk.Model
                 (
                     this.Book == input.Book ||
                     this.Book.Equals(input.Book)
+                ) && 
+                (
+                    this.Prepaid == input.Prepaid ||
+                    this.Prepaid.Equals(input.Prepaid)
                 );
         }
 
@@ -186,6 +200,7 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.Offsets.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Book.GetHashCode();
+                hashCode = (hashCode * 59) + this.Prepaid.GetHashCode();
                 return hashCode;
             }
         }

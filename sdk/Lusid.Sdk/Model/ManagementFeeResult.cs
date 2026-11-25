@@ -43,7 +43,9 @@ namespace Lusid.Sdk.Model
         /// <param name="lines">The fee per partner. (required).</param>
         /// <param name="totals">totals (required).</param>
         /// <param name="bookedTransactionIds">The identifiers of the transactions booked, if any. (required).</param>
-        public ManagementFeeResult(ResourceId fundId = default(ResourceId), DateTimeOffset periodStart = default(DateTimeOffset), DateTimeOffset periodEnd = default(DateTimeOffset), string basis = default(string), List<ManagementFeeLine> lines = default(List<ManagementFeeLine>), ManagementFeeTotals totals = default(ManagementFeeTotals), List<string> bookedTransactionIds = default(List<string>))
+        /// <param name="fundTransactionIds">The identifiers of the fee transactions the run holds in the fund&#39;s own books, one per partner and fee component, when the run was booked..</param>
+        /// <param name="warnings">What booking the run noticed but did not refuse, each starting with its code, for example a payment to the manager on the fee payable in a currency other than the fee&#39;s, which settles none of the payable an offset is set against (FeePaymentCurrencyIgnored). Absent when there is nothing to warn of..</param>
+        public ManagementFeeResult(ResourceId fundId = default(ResourceId), DateTimeOffset periodStart = default(DateTimeOffset), DateTimeOffset periodEnd = default(DateTimeOffset), string basis = default(string), List<ManagementFeeLine> lines = default(List<ManagementFeeLine>), ManagementFeeTotals totals = default(ManagementFeeTotals), List<string> bookedTransactionIds = default(List<string>), List<string> fundTransactionIds = default(List<string>), List<string> warnings = default(List<string>))
         {
             // to ensure "fundId" is required (not null)
             if (fundId == null)
@@ -77,6 +79,8 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("bookedTransactionIds is a required property for ManagementFeeResult and cannot be null");
             }
             this.BookedTransactionIds = bookedTransactionIds;
+            this.FundTransactionIds = fundTransactionIds;
+            this.Warnings = warnings;
         }
 
         /// <summary>
@@ -127,6 +131,20 @@ namespace Lusid.Sdk.Model
         public List<string> BookedTransactionIds { get; set; }
 
         /// <summary>
+        /// The identifiers of the fee transactions the run holds in the fund&#39;s own books, one per partner and fee component, when the run was booked.
+        /// </summary>
+        /// <value>The identifiers of the fee transactions the run holds in the fund&#39;s own books, one per partner and fee component, when the run was booked.</value>
+        [DataMember(Name = "fundTransactionIds", EmitDefaultValue = true)]
+        public List<string> FundTransactionIds { get; set; }
+
+        /// <summary>
+        /// What booking the run noticed but did not refuse, each starting with its code, for example a payment to the manager on the fee payable in a currency other than the fee&#39;s, which settles none of the payable an offset is set against (FeePaymentCurrencyIgnored). Absent when there is nothing to warn of.
+        /// </summary>
+        /// <value>What booking the run noticed but did not refuse, each starting with its code, for example a payment to the manager on the fee payable in a currency other than the fee&#39;s, which settles none of the payable an offset is set against (FeePaymentCurrencyIgnored). Absent when there is nothing to warn of.</value>
+        [DataMember(Name = "warnings", EmitDefaultValue = true)]
+        public List<string> Warnings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -141,6 +159,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  Lines: ").Append(Lines).Append("\n");
             sb.Append("  Totals: ").Append(Totals).Append("\n");
             sb.Append("  BookedTransactionIds: ").Append(BookedTransactionIds).Append("\n");
+            sb.Append("  FundTransactionIds: ").Append(FundTransactionIds).Append("\n");
+            sb.Append("  Warnings: ").Append(Warnings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -212,6 +232,18 @@ namespace Lusid.Sdk.Model
                     this.BookedTransactionIds != null &&
                     input.BookedTransactionIds != null &&
                     this.BookedTransactionIds.SequenceEqual(input.BookedTransactionIds)
+                ) && 
+                (
+                    this.FundTransactionIds == input.FundTransactionIds ||
+                    this.FundTransactionIds != null &&
+                    input.FundTransactionIds != null &&
+                    this.FundTransactionIds.SequenceEqual(input.FundTransactionIds)
+                ) && 
+                (
+                    this.Warnings == input.Warnings ||
+                    this.Warnings != null &&
+                    input.Warnings != null &&
+                    this.Warnings.SequenceEqual(input.Warnings)
                 );
         }
 
@@ -251,6 +283,14 @@ namespace Lusid.Sdk.Model
                 if (this.BookedTransactionIds != null)
                 {
                     hashCode = (hashCode * 59) + this.BookedTransactionIds.GetHashCode();
+                }
+                if (this.FundTransactionIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.FundTransactionIds.GetHashCode();
+                }
+                if (this.Warnings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
                 }
                 return hashCode;
             }

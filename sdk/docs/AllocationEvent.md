@@ -38,6 +38,7 @@ Name | Type | Description | Notes
 **SettlementDate** | **DateTimeOffset?** | The date the postings settle. Defaults to the event date. | [optional] 
 **Receipts** | [**List&lt;AllocationEventReceipt&gt;**](AllocationEventReceipt.md) | The cash received against the event, in the order it was recorded. | [optional] 
 **RefundPayments** | [**List&lt;AllocationEventRefundPayment&gt;**](AllocationEventRefundPayment.md) | The refunds paid out against the event to investors whose receipts exceeded what they owed, in the order they were recorded. | [optional] 
+**Transferees** | [**List&lt;AllocationEventTransferee&gt;**](AllocationEventTransferee.md) | For a Transfer event, each transferee the booking gives a line: the line, and the investment account it is opened under. On a dry run, the account and line the booking would create; on a booking, what it created. Empty on every other event. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -79,6 +80,7 @@ AllocationEventReversal? reversal = new AllocationEventReversal();
 
 List<AllocationEventReceipt> receipts = new List<AllocationEventReceipt>();
 List<AllocationEventRefundPayment> refundPayments = new List<AllocationEventRefundPayment>();
+List<AllocationEventTransferee> transferees = new List<AllocationEventTransferee>();
 List<Link> links = new List<Link>();
 
 AllocationEvent allocationEventInstance = new AllocationEvent(
@@ -115,6 +117,7 @@ AllocationEvent allocationEventInstance = new AllocationEvent(
     settlementDate: settlementDate,
     receipts: receipts,
     refundPayments: refundPayments,
+    transferees: transferees,
     links: links);
 ```
 

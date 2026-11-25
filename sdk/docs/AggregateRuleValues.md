@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **RuleName** | **string** | The name of the rule. | 
 **LeftValue** | **string** | The left-side value. | [optional] 
 **RightValue** | **string** | The right-side value. | [optional] 
-**Difference** | **string** | The measured magnitude of the difference, ToString(ABS(leftValue - rightValue)). | [optional] 
+**Difference** | **string** | The unsigned size of the difference: ABS(leftValue - rightValue) for a number, the Levenshtein distance for a string, days for a date, 0 or 1 for a boolean. | [optional] 
 **AppliedTolerance** | [**ToleranceBase**](ToleranceBase.md) |  | [optional] 
 
 ```csharp

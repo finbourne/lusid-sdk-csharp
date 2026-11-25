@@ -152,6 +152,35 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Fund</returns>
         Lusid.Sdk.Client.ApiResponse<Fund> AddSeriesWithHttpInfo(string scope, string code, List<SeriesDefinitionRequest> seriesDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] AddShareClasses: Add ShareClasses to a Fund.
+        /// </summary>
+        /// <remarks>
+        /// Add new ShareClass definitions to the Fund. All requested ShareClassShortCodes must be new;  to update existing share classes use PatchFund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="shareClassDefinition">The definitions of the ShareClasses to add to the Fund.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Fund</returns>
+        Fund AddShareClasses(string scope, string code, List<ShareClassDefinition> shareClassDefinition, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] AddShareClasses: Add ShareClasses to a Fund.
+        /// </summary>
+        /// <remarks>
+        /// Add new ShareClass definitions to the Fund. All requested ShareClassShortCodes must be new;  to update existing share classes use PatchFund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="shareClassDefinition">The definitions of the ShareClasses to add to the Fund.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of Fund</returns>
+        Lusid.Sdk.Client.ApiResponse<Fund> AddShareClassesWithHttpInfo(string scope, string code, List<ShareClassDefinition> shareClassDefinition, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] AdvanceTaxReturn: [EARLY ACCESS] AdvanceTaxReturn: Advance the tax return one workflow step.
         /// </summary>
         /// <remarks>
@@ -1147,6 +1176,41 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of VersionedResourceListOfPortfolioHolding</returns>
         Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfPortfolioHolding> GetHoldingsForFundWithHttpInfo(string scope, string code, SingleValuationPointQueryParameters singleValuationPointQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] GetOpenCloseMovementReportForFund: Get the open, close and movement report for a Fund.
+        /// </summary>
+        /// <remarks>
+        /// Get, for each instrument held by the transaction portfolios of a Fund (or each kept sub-holding key), the  net asset economic buckets at the opening and closing of a valuation point window, the period&#39;s movements  by economic bucket classified as the journal entry lines classify them, and the requested valuation  metrics and instrument properties. Signs follow the journal entry line convention.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="openCloseMovementQueryParameters">The window, the sub-holding keys to keep separate, the instrument property keys and the valuation metrics to report.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to resolve the fund and the timeline. Defaults              to return the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>VersionedResourceListOfOpenCloseMovementRecord</returns>
+        VersionedResourceListOfOpenCloseMovementRecord GetOpenCloseMovementReportForFund(string scope, string code, OpenCloseMovementQueryParameters openCloseMovementQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] GetOpenCloseMovementReportForFund: Get the open, close and movement report for a Fund.
+        /// </summary>
+        /// <remarks>
+        /// Get, for each instrument held by the transaction portfolios of a Fund (or each kept sub-holding key), the  net asset economic buckets at the opening and closing of a valuation point window, the period&#39;s movements  by economic bucket classified as the journal entry lines classify them, and the requested valuation  metrics and instrument properties. Signs follow the journal entry line convention.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="openCloseMovementQueryParameters">The window, the sub-holding keys to keep separate, the instrument property keys and the valuation metrics to report.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to resolve the fund and the timeline. Defaults              to return the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of VersionedResourceListOfOpenCloseMovementRecord</returns>
+        Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfOpenCloseMovementRecord> GetOpenCloseMovementReportForFundWithHttpInfo(string scope, string code, OpenCloseMovementQueryParameters openCloseMovementQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] GetPartnerCapitalAccount: [EARLY ACCESS] GetPartnerCapitalAccount: Get a partner&#39;s capital account statement.
         /// </summary>
         /// <remarks>
@@ -1271,8 +1335,8 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>PagedResourceListOfFundPartner</returns>
-        PagedResourceListOfFundPartner GetPartners(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeClosed = default(bool?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ResourceListWithWarningsOfFundPartner</returns>
+        ResourceListWithWarningsOfFundPartner GetPartners(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeClosed = default(bool?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetPartners: [EARLY ACCESS] GetPartners: Get the partners of a partnership fund.
@@ -1290,8 +1354,8 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of PagedResourceListOfFundPartner</returns>
-        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfFundPartner> GetPartnersWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeClosed = default(bool?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of ResourceListWithWarningsOfFundPartner</returns>
+        Lusid.Sdk.Client.ApiResponse<ResourceListWithWarningsOfFundPartner> GetPartnersWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeClosed = default(bool?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetPartnershipConfigPack: [EXPERIMENTAL] GetPartnershipConfigPack: Get the partnership configuration pack of a Fund.
         /// </summary>
@@ -1335,10 +1399,14 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the lines. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/CommittedCapital\&quot;. (optional)</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="investorRecordId">When provided, only the lines of this investor record are returned. (optional)</param>
+        /// <param name="commitmentLineId">When provided, only the lines of this commitment line are returned. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListWithWarningsOfRegistryLine</returns>
-        VersionedResourceListWithWarningsOfRegistryLine GetRegistryForFund(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        VersionedResourceListWithWarningsOfRegistryLine GetRegistryForFund(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? investorRecordId = default(string?), string? commitmentLineId = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetRegistryForFund: [EXPERIMENTAL] GetRegistryForFund: Get the registry of a Fund.
@@ -1354,10 +1422,14 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the lines. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/CommittedCapital\&quot;. (optional)</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="investorRecordId">When provided, only the lines of this investor record are returned. (optional)</param>
+        /// <param name="commitmentLineId">When provided, only the lines of this commitment line are returned. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListWithWarningsOfRegistryLine</returns>
-        Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> GetRegistryForFundWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> GetRegistryForFundWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? investorRecordId = default(string?), string? commitmentLineId = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetSeries: [EARLY ACCESS] GetSeries: List the Series of a Fund.
         /// </summary>
@@ -1700,11 +1772,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="auditMode">When true, returns the stored valuation address keys instead of running the full aggregation engine, and returns no data if none are stored for the valuation point. Defaults to false. (optional, default to false)</param>
         /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ListAggregationResponse</returns>
-        ListAggregationResponse GetValuationForFund(string scope, string code, string? navTypeCode = default(string?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ListAggregationResponse GetValuationForFund(string scope, string code, string? navTypeCode = default(string?), bool? auditMode = default(bool?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund.
@@ -1716,11 +1789,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="auditMode">When true, returns the stored valuation address keys instead of running the full aggregation engine, and returns no data if none are stored for the valuation point. Defaults to false. (optional, default to false)</param>
         /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ListAggregationResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> GetValuationForFundWithHttpInfo(string scope, string code, string? navTypeCode = default(string?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> GetValuationForFundWithHttpInfo(string scope, string code, string? navTypeCode = default(string?), bool? auditMode = default(bool?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetValuationPointData: Get Valuation Point Data for a Fund.
         /// </summary>
@@ -1803,7 +1877,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.                Rows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.
+        /// Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.                Only the Journal Entry Lines selected by the pnlFilters and externalFeeFilters of the Fund Configuration are returned. If the Fund Configuration has neither pnlFilters nor externalFeeFilters, no rows are returned.                Rows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -1824,7 +1898,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.                Rows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.
+        /// Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.                Only the Journal Entry Lines selected by the pnlFilters and externalFeeFilters of the Fund Configuration are returned. If the Fund Configuration has neither pnlFilters nor externalFeeFilters, no rows are returned.                Rows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -2067,7 +2141,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the treatment, specify \&quot;treatment eq &#39;Monthly&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;.              The fields that can be sorted on are FeeCode, DisplayName, Description, Origin, CalculationBase, AccrualCurrency,              Treatment, TotalAnnualAccrualAmount, FeeRatePercentage, PayableFrequency, BusinessDayConvention, StartDate, EndDate,              NavTypeCode, FeeTypeId.Scope, FeeTypeId.Code, PortfolioId.Scope, PortfolioId.Code, AnchorDate.Day and AnchorDate.Month.              To sort on a property from the &#39;Fee&#39; domain, specify \&quot;Properties[{domain}/{scope}/{code}]\&quot;, for example              \&quot;Properties[Fee/Account/Id] ASC\&quot;. Sorting on any other field of a Fee returns a 400 that names the field. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Fee&#39; domain to decorate onto each Fee.              These must take the format {domain}/{scope}/{code}, for example &#39;Fee/Account/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2088,7 +2162,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the treatment, specify \&quot;treatment eq &#39;Monthly&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;.              The fields that can be sorted on are FeeCode, DisplayName, Description, Origin, CalculationBase, AccrualCurrency,              Treatment, TotalAnnualAccrualAmount, FeeRatePercentage, PayableFrequency, BusinessDayConvention, StartDate, EndDate,              NavTypeCode, FeeTypeId.Scope, FeeTypeId.Code, PortfolioId.Scope, PortfolioId.Code, AnchorDate.Day and AnchorDate.Month.              To sort on a property from the &#39;Fee&#39; domain, specify \&quot;Properties[{domain}/{scope}/{code}]\&quot;, for example              \&quot;Properties[Fee/Account/Id] ASC\&quot;. Sorting on any other field of a Fee returns a 400 that names the field. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Fee&#39; domain to decorate onto each Fee.              These must take the format {domain}/{scope}/{code}, for example &#39;Fee/Account/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2267,8 +2341,8 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>PagedResourceListOfPartnerCapitalAccount</returns>
-        PagedResourceListOfPartnerCapitalAccount ListPartnerCapitalAccounts(string scope, string code, DateTimeOffset? periodStart = default(DateTimeOffset?), DateTimeOffset? periodEnd = default(DateTimeOffset?), string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ResourceListWithWarningsOfPartnerCapitalAccount</returns>
+        ResourceListWithWarningsOfPartnerCapitalAccount ListPartnerCapitalAccounts(string scope, string code, DateTimeOffset? periodStart = default(DateTimeOffset?), DateTimeOffset? periodEnd = default(DateTimeOffset?), string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListPartnerCapitalAccounts: [EARLY ACCESS] ListPartnerCapitalAccounts: List the capital account statements of a fund&#39;s partners.
@@ -2287,8 +2361,8 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of PagedResourceListOfPartnerCapitalAccount</returns>
-        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPartnerCapitalAccount> ListPartnerCapitalAccountsWithHttpInfo(string scope, string code, DateTimeOffset? periodStart = default(DateTimeOffset?), DateTimeOffset? periodEnd = default(DateTimeOffset?), string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of ResourceListWithWarningsOfPartnerCapitalAccount</returns>
+        Lusid.Sdk.Client.ApiResponse<ResourceListWithWarningsOfPartnerCapitalAccount> ListPartnerCapitalAccountsWithHttpInfo(string scope, string code, DateTimeOffset? periodStart = default(DateTimeOffset?), DateTimeOffset? periodEnd = default(DateTimeOffset?), string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListPartnerStatements: [EXPERIMENTAL] ListPartnerStatements: List the statements produced for a partner.
         /// </summary>
@@ -2456,13 +2530,13 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
         /// </summary>
         /// <remarks>
-        /// Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
+        /// Lists the complex market data that the valuation of the specified Valuation Point consumed for a Fund,  including any items added via a Complex Close (Post-Close Activity).                Complex market data that is available but that the valuation did not consume is not listed, so a Fund whose holdings are all priced from quotes returns no rows.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the complex market data.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version              of each item if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version               of each item if not specified. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing complex market data from a previous call to ListValuationPointComplexMarketData. (optional)</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
@@ -2475,13 +2549,13 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
         /// </summary>
         /// <remarks>
-        /// Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
+        /// Lists the complex market data that the valuation of the specified Valuation Point consumed for a Fund,  including any items added via a Complex Close (Post-Close Activity).                Complex market data that is available but that the valuation did not consume is not listed, so a Fund whose holdings are all priced from quotes returns no rows.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the complex market data.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version              of each item if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version               of each item if not specified. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing complex market data from a previous call to ListValuationPointComplexMarketData. (optional)</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
@@ -3350,6 +3424,37 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Fund)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fund>> AddSeriesWithHttpInfoAsync(string scope, string code, List<SeriesDefinitionRequest> seriesDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] AddShareClasses: Add ShareClasses to a Fund.
+        /// </summary>
+        /// <remarks>
+        /// Add new ShareClass definitions to the Fund. All requested ShareClassShortCodes must be new;  to update existing share classes use PatchFund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="shareClassDefinition">The definitions of the ShareClasses to add to the Fund.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of Fund</returns>
+        System.Threading.Tasks.Task<Fund> AddShareClassesAsync(string scope, string code, List<ShareClassDefinition> shareClassDefinition, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] AddShareClasses: Add ShareClasses to a Fund.
+        /// </summary>
+        /// <remarks>
+        /// Add new ShareClass definitions to the Fund. All requested ShareClassShortCodes must be new;  to update existing share classes use PatchFund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="shareClassDefinition">The definitions of the ShareClasses to add to the Fund.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (Fund)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fund>> AddShareClassesWithHttpInfoAsync(string scope, string code, List<ShareClassDefinition> shareClassDefinition, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] AdvanceTaxReturn: [EARLY ACCESS] AdvanceTaxReturn: Advance the tax return one workflow step.
         /// </summary>
@@ -4408,6 +4513,43 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (VersionedResourceListOfPortfolioHolding)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfPortfolioHolding>> GetHoldingsForFundWithHttpInfoAsync(string scope, string code, SingleValuationPointQueryParameters singleValuationPointQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] GetOpenCloseMovementReportForFund: Get the open, close and movement report for a Fund.
+        /// </summary>
+        /// <remarks>
+        /// Get, for each instrument held by the transaction portfolios of a Fund (or each kept sub-holding key), the  net asset economic buckets at the opening and closing of a valuation point window, the period&#39;s movements  by economic bucket classified as the journal entry lines classify them, and the requested valuation  metrics and instrument properties. Signs follow the journal entry line convention.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="openCloseMovementQueryParameters">The window, the sub-holding keys to keep separate, the instrument property keys and the valuation metrics to report.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to resolve the fund and the timeline. Defaults              to return the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of VersionedResourceListOfOpenCloseMovementRecord</returns>
+        System.Threading.Tasks.Task<VersionedResourceListOfOpenCloseMovementRecord> GetOpenCloseMovementReportForFundAsync(string scope, string code, OpenCloseMovementQueryParameters openCloseMovementQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] GetOpenCloseMovementReportForFund: Get the open, close and movement report for a Fund.
+        /// </summary>
+        /// <remarks>
+        /// Get, for each instrument held by the transaction portfolios of a Fund (or each kept sub-holding key), the  net asset economic buckets at the opening and closing of a valuation point window, the period&#39;s movements  by economic bucket classified as the journal entry lines classify them, and the requested valuation  metrics and instrument properties. Signs follow the journal entry line convention.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="openCloseMovementQueryParameters">The window, the sub-holding keys to keep separate, the instrument property keys and the valuation metrics to report.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to resolve the fund and the timeline. Defaults              to return the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (VersionedResourceListOfOpenCloseMovementRecord)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfOpenCloseMovementRecord>> GetOpenCloseMovementReportForFundWithHttpInfoAsync(string scope, string code, OpenCloseMovementQueryParameters openCloseMovementQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] GetPartnerCapitalAccount: [EARLY ACCESS] GetPartnerCapitalAccount: Get a partner&#39;s capital account statement.
         /// </summary>
         /// <remarks>
@@ -4539,8 +4681,8 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of PagedResourceListOfFundPartner</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfFundPartner> GetPartnersAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeClosed = default(bool?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ResourceListWithWarningsOfFundPartner</returns>
+        System.Threading.Tasks.Task<ResourceListWithWarningsOfFundPartner> GetPartnersAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeClosed = default(bool?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetPartners: [EARLY ACCESS] GetPartners: Get the partners of a partnership fund.
@@ -4559,8 +4701,8 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (PagedResourceListOfFundPartner)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfFundPartner>> GetPartnersWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeClosed = default(bool?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (ResourceListWithWarningsOfFundPartner)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListWithWarningsOfFundPartner>> GetPartnersWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeClosed = default(bool?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetPartnershipConfigPack: [EXPERIMENTAL] GetPartnershipConfigPack: Get the partnership configuration pack of a Fund.
         /// </summary>
@@ -4606,11 +4748,15 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the lines. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/CommittedCapital\&quot;. (optional)</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="investorRecordId">When provided, only the lines of this investor record are returned. (optional)</param>
+        /// <param name="commitmentLineId">When provided, only the lines of this commitment line are returned. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListWithWarningsOfRegistryLine</returns>
-        System.Threading.Tasks.Task<VersionedResourceListWithWarningsOfRegistryLine> GetRegistryForFundAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<VersionedResourceListWithWarningsOfRegistryLine> GetRegistryForFundAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? investorRecordId = default(string?), string? commitmentLineId = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetRegistryForFund: [EXPERIMENTAL] GetRegistryForFund: Get the registry of a Fund.
@@ -4626,11 +4772,15 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the lines. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/CommittedCapital\&quot;. (optional)</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="investorRecordId">When provided, only the lines of this investor record are returned. (optional)</param>
+        /// <param name="commitmentLineId">When provided, only the lines of this commitment line are returned. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListWithWarningsOfRegistryLine)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine>> GetRegistryForFundWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine>> GetRegistryForFundWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? investorRecordId = default(string?), string? commitmentLineId = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetSeries: [EARLY ACCESS] GetSeries: List the Series of a Fund.
         /// </summary>
@@ -4993,12 +5143,13 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="auditMode">When true, returns the stored valuation address keys instead of running the full aggregation engine, and returns no data if none are stored for the valuation point. Defaults to false. (optional, default to false)</param>
         /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ListAggregationResponse</returns>
-        System.Threading.Tasks.Task<ListAggregationResponse> GetValuationForFundAsync(string scope, string code, string? navTypeCode = default(string?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ListAggregationResponse> GetValuationForFundAsync(string scope, string code, string? navTypeCode = default(string?), bool? auditMode = default(bool?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetValuationForFund: Perform valuation for a Fund.
@@ -5010,12 +5161,13 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="auditMode">When true, returns the stored valuation address keys instead of running the full aggregation engine, and returns no data if none are stored for the valuation point. Defaults to false. (optional, default to false)</param>
         /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ListAggregationResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ListAggregationResponse>> GetValuationForFundWithHttpInfoAsync(string scope, string code, string? navTypeCode = default(string?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ListAggregationResponse>> GetValuationForFundWithHttpInfoAsync(string scope, string code, string? navTypeCode = default(string?), bool? auditMode = default(bool?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetValuationPointData: Get Valuation Point Data for a Fund.
         /// </summary>
@@ -5102,7 +5254,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.                Rows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.
+        /// Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.                Only the Journal Entry Lines selected by the pnlFilters and externalFeeFilters of the Fund Configuration are returned. If the Fund Configuration has neither pnlFilters nor externalFeeFilters, no rows are returned.                Rows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -5124,7 +5276,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.                Rows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.
+        /// Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.                Only the Journal Entry Lines selected by the pnlFilters and externalFeeFilters of the Fund Configuration are returned. If the Fund Configuration has neither pnlFilters nor externalFeeFilters, no rows are returned.                Rows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -5378,7 +5530,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the treatment, specify \&quot;treatment eq &#39;Monthly&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;.              The fields that can be sorted on are FeeCode, DisplayName, Description, Origin, CalculationBase, AccrualCurrency,              Treatment, TotalAnnualAccrualAmount, FeeRatePercentage, PayableFrequency, BusinessDayConvention, StartDate, EndDate,              NavTypeCode, FeeTypeId.Scope, FeeTypeId.Code, PortfolioId.Scope, PortfolioId.Code, AnchorDate.Day and AnchorDate.Month.              To sort on a property from the &#39;Fee&#39; domain, specify \&quot;Properties[{domain}/{scope}/{code}]\&quot;, for example              \&quot;Properties[Fee/Account/Id] ASC\&quot;. Sorting on any other field of a Fee returns a 400 that names the field. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Fee&#39; domain to decorate onto each Fee.              These must take the format {domain}/{scope}/{code}, for example &#39;Fee/Account/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5400,7 +5552,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the treatment, specify \&quot;treatment eq &#39;Monthly&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;.              The fields that can be sorted on are FeeCode, DisplayName, Description, Origin, CalculationBase, AccrualCurrency,              Treatment, TotalAnnualAccrualAmount, FeeRatePercentage, PayableFrequency, BusinessDayConvention, StartDate, EndDate,              NavTypeCode, FeeTypeId.Scope, FeeTypeId.Code, PortfolioId.Scope, PortfolioId.Code, AnchorDate.Day and AnchorDate.Month.              To sort on a property from the &#39;Fee&#39; domain, specify \&quot;Properties[{domain}/{scope}/{code}]\&quot;, for example              \&quot;Properties[Fee/Account/Id] ASC\&quot;. Sorting on any other field of a Fee returns a 400 that names the field. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Fee&#39; domain to decorate onto each Fee.              These must take the format {domain}/{scope}/{code}, for example &#39;Fee/Account/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5589,8 +5741,8 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of PagedResourceListOfPartnerCapitalAccount</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfPartnerCapitalAccount> ListPartnerCapitalAccountsAsync(string scope, string code, DateTimeOffset? periodStart = default(DateTimeOffset?), DateTimeOffset? periodEnd = default(DateTimeOffset?), string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ResourceListWithWarningsOfPartnerCapitalAccount</returns>
+        System.Threading.Tasks.Task<ResourceListWithWarningsOfPartnerCapitalAccount> ListPartnerCapitalAccountsAsync(string scope, string code, DateTimeOffset? periodStart = default(DateTimeOffset?), DateTimeOffset? periodEnd = default(DateTimeOffset?), string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListPartnerCapitalAccounts: [EARLY ACCESS] ListPartnerCapitalAccounts: List the capital account statements of a fund&#39;s partners.
@@ -5610,8 +5762,8 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (PagedResourceListOfPartnerCapitalAccount)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPartnerCapitalAccount>> ListPartnerCapitalAccountsWithHttpInfoAsync(string scope, string code, DateTimeOffset? periodStart = default(DateTimeOffset?), DateTimeOffset? periodEnd = default(DateTimeOffset?), string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (ResourceListWithWarningsOfPartnerCapitalAccount)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListWithWarningsOfPartnerCapitalAccount>> ListPartnerCapitalAccountsWithHttpInfoAsync(string scope, string code, DateTimeOffset? periodStart = default(DateTimeOffset?), DateTimeOffset? periodEnd = default(DateTimeOffset?), string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListPartnerStatements: [EXPERIMENTAL] ListPartnerStatements: List the statements produced for a partner.
         /// </summary>
@@ -5789,13 +5941,13 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
         /// </summary>
         /// <remarks>
-        /// Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
+        /// Lists the complex market data that the valuation of the specified Valuation Point consumed for a Fund,  including any items added via a Complex Close (Post-Close Activity).                Complex market data that is available but that the valuation did not consume is not listed, so a Fund whose holdings are all priced from quotes returns no rows.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the complex market data.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version              of each item if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version               of each item if not specified. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing complex market data from a previous call to ListValuationPointComplexMarketData. (optional)</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
@@ -5809,13 +5961,13 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
         /// </summary>
         /// <remarks>
-        /// Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
+        /// Lists the complex market data that the valuation of the specified Valuation Point consumed for a Fund,  including any items added via a Complex Close (Post-Close Activity).                Complex market data that is available but that the valuation did not consume is not listed, so a Fund whose holdings are all priced from quotes returns no rows.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the complex market data.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version              of each item if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version               of each item if not specified. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing complex market data from a previous call to ListValuationPointComplexMarketData. (optional)</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
@@ -7724,6 +7876,254 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AddSeries", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] AddShareClasses: Add ShareClasses to a Fund. Add new ShareClass definitions to the Fund. All requested ShareClassShortCodes must be new;  to update existing share classes use PatchFund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="shareClassDefinition">The definitions of the ShareClasses to add to the Fund.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Fund</returns>
+        public Fund AddShareClasses(string scope, string code, List<ShareClassDefinition> shareClassDefinition, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<Fund> localVarResponse = AddShareClassesWithHttpInfo(scope, code, shareClassDefinition, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] AddShareClasses: Add ShareClasses to a Fund. Add new ShareClass definitions to the Fund. All requested ShareClassShortCodes must be new;  to update existing share classes use PatchFund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="shareClassDefinition">The definitions of the ShareClasses to add to the Fund.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of Fund</returns>
+        public Lusid.Sdk.Client.ApiResponse<Fund> AddShareClassesWithHttpInfo(string scope, string code, List<ShareClassDefinition> shareClassDefinition, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->AddShareClasses");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->AddShareClasses");
+            }
+
+            // verify the required parameter 'shareClassDefinition' is set
+            if (shareClassDefinition == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'shareClassDefinition' when calling FundsApi->AddShareClasses");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = shareClassDefinition;
+
+            localVarRequestOptions.Operation = "FundsApi.AddShareClasses";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Fund>("/api/funds/{scope}/{code}/shareclasses", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddShareClasses", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] AddShareClasses: Add ShareClasses to a Fund. Add new ShareClass definitions to the Fund. All requested ShareClassShortCodes must be new;  to update existing share classes use PatchFund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="shareClassDefinition">The definitions of the ShareClasses to add to the Fund.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of Fund</returns>
+        public async System.Threading.Tasks.Task<Fund> AddShareClassesAsync(string scope, string code, List<ShareClassDefinition> shareClassDefinition, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<Fund> localVarResponse = await AddShareClassesWithHttpInfoAsync(scope, code, shareClassDefinition, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] AddShareClasses: Add ShareClasses to a Fund. Add new ShareClass definitions to the Fund. All requested ShareClassShortCodes must be new;  to update existing share classes use PatchFund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="shareClassDefinition">The definitions of the ShareClasses to add to the Fund.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (Fund)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fund>> AddShareClassesWithHttpInfoAsync(string scope, string code, List<ShareClassDefinition> shareClassDefinition, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->AddShareClasses");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->AddShareClasses");
+            }
+
+            // verify the required parameter 'shareClassDefinition' is set
+            if (shareClassDefinition == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'shareClassDefinition' when calling FundsApi->AddShareClasses");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = shareClassDefinition;
+
+            localVarRequestOptions.Operation = "FundsApi.AddShareClasses";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Fund>("/api/funds/{scope}/{code}/shareclasses", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddShareClasses", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -15883,6 +16283,293 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
+        /// [EARLY ACCESS] GetOpenCloseMovementReportForFund: Get the open, close and movement report for a Fund. Get, for each instrument held by the transaction portfolios of a Fund (or each kept sub-holding key), the  net asset economic buckets at the opening and closing of a valuation point window, the period&#39;s movements  by economic bucket classified as the journal entry lines classify them, and the requested valuation  metrics and instrument properties. Signs follow the journal entry line convention.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="openCloseMovementQueryParameters">The window, the sub-holding keys to keep separate, the instrument property keys and the valuation metrics to report.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to resolve the fund and the timeline. Defaults              to return the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>VersionedResourceListOfOpenCloseMovementRecord</returns>
+        public VersionedResourceListOfOpenCloseMovementRecord GetOpenCloseMovementReportForFund(string scope, string code, OpenCloseMovementQueryParameters openCloseMovementQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfOpenCloseMovementRecord> localVarResponse = GetOpenCloseMovementReportForFundWithHttpInfo(scope, code, openCloseMovementQueryParameters, navTypeCode, asAt, filter, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetOpenCloseMovementReportForFund: Get the open, close and movement report for a Fund. Get, for each instrument held by the transaction portfolios of a Fund (or each kept sub-holding key), the  net asset economic buckets at the opening and closing of a valuation point window, the period&#39;s movements  by economic bucket classified as the journal entry lines classify them, and the requested valuation  metrics and instrument properties. Signs follow the journal entry line convention.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="openCloseMovementQueryParameters">The window, the sub-holding keys to keep separate, the instrument property keys and the valuation metrics to report.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to resolve the fund and the timeline. Defaults              to return the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of VersionedResourceListOfOpenCloseMovementRecord</returns>
+        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfOpenCloseMovementRecord> GetOpenCloseMovementReportForFundWithHttpInfo(string scope, string code, OpenCloseMovementQueryParameters openCloseMovementQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->GetOpenCloseMovementReportForFund");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->GetOpenCloseMovementReportForFund");
+            }
+
+            // verify the required parameter 'openCloseMovementQueryParameters' is set
+            if (openCloseMovementQueryParameters == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'openCloseMovementQueryParameters' when calling FundsApi->GetOpenCloseMovementReportForFund");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (navTypeCode != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            }
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (filter != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            localVarRequestOptions.Data = openCloseMovementQueryParameters;
+
+            localVarRequestOptions.Operation = "FundsApi.GetOpenCloseMovementReportForFund";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<VersionedResourceListOfOpenCloseMovementRecord>("/api/funds/{scope}/{code}/valuationpoints/openclose/$query", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetOpenCloseMovementReportForFund", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetOpenCloseMovementReportForFund: Get the open, close and movement report for a Fund. Get, for each instrument held by the transaction portfolios of a Fund (or each kept sub-holding key), the  net asset economic buckets at the opening and closing of a valuation point window, the period&#39;s movements  by economic bucket classified as the journal entry lines classify them, and the requested valuation  metrics and instrument properties. Signs follow the journal entry line convention.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="openCloseMovementQueryParameters">The window, the sub-holding keys to keep separate, the instrument property keys and the valuation metrics to report.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to resolve the fund and the timeline. Defaults              to return the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of VersionedResourceListOfOpenCloseMovementRecord</returns>
+        public async System.Threading.Tasks.Task<VersionedResourceListOfOpenCloseMovementRecord> GetOpenCloseMovementReportForFundAsync(string scope, string code, OpenCloseMovementQueryParameters openCloseMovementQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfOpenCloseMovementRecord> localVarResponse = await GetOpenCloseMovementReportForFundWithHttpInfoAsync(scope, code, openCloseMovementQueryParameters, navTypeCode, asAt, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetOpenCloseMovementReportForFund: Get the open, close and movement report for a Fund. Get, for each instrument held by the transaction portfolios of a Fund (or each kept sub-holding key), the  net asset economic buckets at the opening and closing of a valuation point window, the period&#39;s movements  by economic bucket classified as the journal entry lines classify them, and the requested valuation  metrics and instrument properties. Signs follow the journal entry line convention.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="openCloseMovementQueryParameters">The window, the sub-holding keys to keep separate, the instrument property keys and the valuation metrics to report.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to resolve the fund and the timeline. Defaults              to return the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (VersionedResourceListOfOpenCloseMovementRecord)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfOpenCloseMovementRecord>> GetOpenCloseMovementReportForFundWithHttpInfoAsync(string scope, string code, OpenCloseMovementQueryParameters openCloseMovementQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->GetOpenCloseMovementReportForFund");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->GetOpenCloseMovementReportForFund");
+            }
+
+            // verify the required parameter 'openCloseMovementQueryParameters' is set
+            if (openCloseMovementQueryParameters == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'openCloseMovementQueryParameters' when calling FundsApi->GetOpenCloseMovementReportForFund");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (navTypeCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            localVarRequestOptions.Data = openCloseMovementQueryParameters;
+
+            localVarRequestOptions.Operation = "FundsApi.GetOpenCloseMovementReportForFund";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<VersionedResourceListOfOpenCloseMovementRecord>("/api/funds/{scope}/{code}/valuationpoints/openclose/$query", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetOpenCloseMovementReportForFund", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// [EARLY ACCESS] GetPartnerCapitalAccount: [EARLY ACCESS] GetPartnerCapitalAccount: Get a partner&#39;s capital account statement. One partner&#39;s capital account over a period, rolled from beginning capital through contributions,  distributions, transfers, allocated income, fees, gains and carried interest to ending capital, with  quarter-, year- and inception-to-date columns. The memo block carries the commitment position. The  statement is an estimate until a final valuation point covers the period end.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -16773,10 +17460,10 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>PagedResourceListOfFundPartner</returns>
-        public PagedResourceListOfFundPartner GetPartners(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeClosed = default(bool?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ResourceListWithWarningsOfFundPartner</returns>
+        public ResourceListWithWarningsOfFundPartner GetPartners(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeClosed = default(bool?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfFundPartner> localVarResponse = GetPartnersWithHttpInfo(scope, code, effectiveAt, asAt, includeClosed, page, limit, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ResourceListWithWarningsOfFundPartner> localVarResponse = GetPartnersWithHttpInfo(scope, code, effectiveAt, asAt, includeClosed, page, limit, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -16793,8 +17480,8 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of PagedResourceListOfFundPartner</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfFundPartner> GetPartnersWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeClosed = default(bool?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of ResourceListWithWarningsOfFundPartner</returns>
+        public Lusid.Sdk.Client.ApiResponse<ResourceListWithWarningsOfFundPartner> GetPartnersWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeClosed = default(bool?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -16891,7 +17578,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedResourceListOfFundPartner>("/api/funds/{scope}/{code}/partners", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ResourceListWithWarningsOfFundPartner>("/api/funds/{scope}/{code}/partners", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPartners", localVarResponse);
@@ -16918,10 +17605,10 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of PagedResourceListOfFundPartner</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfFundPartner> GetPartnersAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeClosed = default(bool?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ResourceListWithWarningsOfFundPartner</returns>
+        public async System.Threading.Tasks.Task<ResourceListWithWarningsOfFundPartner> GetPartnersAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeClosed = default(bool?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfFundPartner> localVarResponse = await GetPartnersWithHttpInfoAsync(scope, code, effectiveAt, asAt, includeClosed, page, limit, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListWithWarningsOfFundPartner> localVarResponse = await GetPartnersWithHttpInfoAsync(scope, code, effectiveAt, asAt, includeClosed, page, limit, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -16939,8 +17626,8 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (PagedResourceListOfFundPartner)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfFundPartner>> GetPartnersWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeClosed = default(bool?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (ResourceListWithWarningsOfFundPartner)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListWithWarningsOfFundPartner>> GetPartnersWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeClosed = default(bool?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -17033,7 +17720,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfFundPartner>("/api/funds/{scope}/{code}/partners", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListWithWarningsOfFundPartner>("/api/funds/{scope}/{code}/partners", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -17293,12 +17980,16 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the lines. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/CommittedCapital\&quot;. (optional)</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="investorRecordId">When provided, only the lines of this investor record are returned. (optional)</param>
+        /// <param name="commitmentLineId">When provided, only the lines of this commitment line are returned. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListWithWarningsOfRegistryLine</returns>
-        public VersionedResourceListWithWarningsOfRegistryLine GetRegistryForFund(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public VersionedResourceListWithWarningsOfRegistryLine GetRegistryForFund(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? investorRecordId = default(string?), string? commitmentLineId = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> localVarResponse = GetRegistryForFundWithHttpInfo(scope, code, effectiveAt, asAt, filter, propertyKeys, navTypeCode, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> localVarResponse = GetRegistryForFundWithHttpInfo(scope, code, effectiveAt, asAt, filter, propertyKeys, navTypeCode, investorRecordId, commitmentLineId, limit, page, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -17313,10 +18004,14 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the lines. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/CommittedCapital\&quot;. (optional)</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="investorRecordId">When provided, only the lines of this investor record are returned. (optional)</param>
+        /// <param name="commitmentLineId">When provided, only the lines of this commitment line are returned. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListWithWarningsOfRegistryLine</returns>
-        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> GetRegistryForFundWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> GetRegistryForFundWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? investorRecordId = default(string?), string? commitmentLineId = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -17390,6 +18085,26 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            }
+            if (investorRecordId != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "investorRecordId", investorRecordId));
+            }
+            if (commitmentLineId != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "commitmentLineId", commitmentLineId));
+            }
+            if (limit != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
 
             localVarRequestOptions.Operation = "FundsApi.GetRegistryForFund";
@@ -17437,13 +18152,17 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the lines. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/CommittedCapital\&quot;. (optional)</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="investorRecordId">When provided, only the lines of this investor record are returned. (optional)</param>
+        /// <param name="commitmentLineId">When provided, only the lines of this commitment line are returned. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListWithWarningsOfRegistryLine</returns>
-        public async System.Threading.Tasks.Task<VersionedResourceListWithWarningsOfRegistryLine> GetRegistryForFundAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<VersionedResourceListWithWarningsOfRegistryLine> GetRegistryForFundAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? investorRecordId = default(string?), string? commitmentLineId = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> localVarResponse = await GetRegistryForFundWithHttpInfoAsync(scope, code, effectiveAt, asAt, filter, propertyKeys, navTypeCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> localVarResponse = await GetRegistryForFundWithHttpInfoAsync(scope, code, effectiveAt, asAt, filter, propertyKeys, navTypeCode, investorRecordId, commitmentLineId, limit, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -17458,11 +18177,15 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the lines. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/CommittedCapital\&quot;. (optional)</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="investorRecordId">When provided, only the lines of this investor record are returned. (optional)</param>
+        /// <param name="commitmentLineId">When provided, only the lines of this commitment line are returned. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListWithWarningsOfRegistryLine)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine>> GetRegistryForFundWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfRegistryLine>> GetRegistryForFundWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? investorRecordId = default(string?), string? commitmentLineId = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -17532,6 +18255,22 @@ namespace Lusid.Sdk.Api
             if (navTypeCode != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            }
+            if (investorRecordId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "investorRecordId", investorRecordId));
+            }
+            if (commitmentLineId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "commitmentLineId", commitmentLineId));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
 
             localVarRequestOptions.Operation = "FundsApi.GetRegistryForFund";
@@ -20224,13 +20963,14 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="auditMode">When true, returns the stored valuation address keys instead of running the full aggregation engine, and returns no data if none are stored for the valuation point. Defaults to false. (optional, default to false)</param>
         /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ListAggregationResponse</returns>
-        public ListAggregationResponse GetValuationForFund(string scope, string code, string? navTypeCode = default(string?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ListAggregationResponse GetValuationForFund(string scope, string code, string? navTypeCode = default(string?), bool? auditMode = default(bool?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> localVarResponse = GetValuationForFundWithHttpInfo(scope, code, navTypeCode, fundValuationRequest, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> localVarResponse = GetValuationForFundWithHttpInfo(scope, code, navTypeCode, auditMode, fundValuationRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -20241,11 +20981,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="auditMode">When true, returns the stored valuation address keys instead of running the full aggregation engine, and returns no data if none are stored for the valuation point. Defaults to false. (optional, default to false)</param>
         /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ListAggregationResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> GetValuationForFundWithHttpInfo(string scope, string code, string? navTypeCode = default(string?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> GetValuationForFundWithHttpInfo(string scope, string code, string? navTypeCode = default(string?), bool? auditMode = default(bool?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -20304,6 +21045,11 @@ namespace Lusid.Sdk.Api
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
             }
+            if (auditMode != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "auditMode", auditMode));
+            }
             localVarRequestOptions.Data = fundValuationRequest;
 
             localVarRequestOptions.Operation = "FundsApi.GetValuationForFund";
@@ -20347,14 +21093,15 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="auditMode">When true, returns the stored valuation address keys instead of running the full aggregation engine, and returns no data if none are stored for the valuation point. Defaults to false. (optional, default to false)</param>
         /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ListAggregationResponse</returns>
-        public async System.Threading.Tasks.Task<ListAggregationResponse> GetValuationForFundAsync(string scope, string code, string? navTypeCode = default(string?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ListAggregationResponse> GetValuationForFundAsync(string scope, string code, string? navTypeCode = default(string?), bool? auditMode = default(bool?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> localVarResponse = await GetValuationForFundWithHttpInfoAsync(scope, code, navTypeCode, fundValuationRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> localVarResponse = await GetValuationForFundWithHttpInfoAsync(scope, code, navTypeCode, auditMode, fundValuationRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -20365,12 +21112,13 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="auditMode">When true, returns the stored valuation address keys instead of running the full aggregation engine, and returns no data if none are stored for the valuation point. Defaults to false. (optional, default to false)</param>
         /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ListAggregationResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ListAggregationResponse>> GetValuationForFundWithHttpInfoAsync(string scope, string code, string? navTypeCode = default(string?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ListAggregationResponse>> GetValuationForFundWithHttpInfoAsync(string scope, string code, string? navTypeCode = default(string?), bool? auditMode = default(bool?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -20428,6 +21176,10 @@ namespace Lusid.Sdk.Api
             if (navTypeCode != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            }
+            if (auditMode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "auditMode", auditMode));
             }
             localVarRequestOptions.Data = fundValuationRequest;
 
@@ -21093,7 +21845,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.                Rows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.
+        /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.                Only the Journal Entry Lines selected by the pnlFilters and externalFeeFilters of the Fund Configuration are returned. If the Fund Configuration has neither pnlFilters nor externalFeeFilters, no rows are returned.                Rows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -21115,7 +21867,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.                Rows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.
+        /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.                Only the Journal Entry Lines selected by the pnlFilters and externalFeeFilters of the Fund Configuration are returned. If the Fund Configuration has neither pnlFilters nor externalFeeFilters, no rows are returned.                Rows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -21257,7 +22009,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.                Rows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.
+        /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.                Only the Journal Entry Lines selected by the pnlFilters and externalFeeFilters of the Fund Configuration are returned. If the Fund Configuration has neither pnlFilters nor externalFeeFilters, no rows are returned.                Rows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -21280,7 +22032,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.                Rows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.
+        /// [EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.                Only the Journal Entry Lines selected by the pnlFilters and externalFeeFilters of the Fund Configuration are returned. If the Fund Configuration has neither pnlFilters nor externalFeeFilters, no rows are returned.                Rows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -23098,7 +23850,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the treatment, specify \&quot;treatment eq &#39;Monthly&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;.              The fields that can be sorted on are FeeCode, DisplayName, Description, Origin, CalculationBase, AccrualCurrency,              Treatment, TotalAnnualAccrualAmount, FeeRatePercentage, PayableFrequency, BusinessDayConvention, StartDate, EndDate,              NavTypeCode, FeeTypeId.Scope, FeeTypeId.Code, PortfolioId.Scope, PortfolioId.Code, AnchorDate.Day and AnchorDate.Month.              To sort on a property from the &#39;Fee&#39; domain, specify \&quot;Properties[{domain}/{scope}/{code}]\&quot;, for example              \&quot;Properties[Fee/Account/Id] ASC\&quot;. Sorting on any other field of a Fee returns a 400 that names the field. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Fee&#39; domain to decorate onto each Fee.              These must take the format {domain}/{scope}/{code}, for example &#39;Fee/Account/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -23120,7 +23872,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the treatment, specify \&quot;treatment eq &#39;Monthly&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;.              The fields that can be sorted on are FeeCode, DisplayName, Description, Origin, CalculationBase, AccrualCurrency,              Treatment, TotalAnnualAccrualAmount, FeeRatePercentage, PayableFrequency, BusinessDayConvention, StartDate, EndDate,              NavTypeCode, FeeTypeId.Scope, FeeTypeId.Code, PortfolioId.Scope, PortfolioId.Code, AnchorDate.Day and AnchorDate.Month.              To sort on a property from the &#39;Fee&#39; domain, specify \&quot;Properties[{domain}/{scope}/{code}]\&quot;, for example              \&quot;Properties[Fee/Account/Id] ASC\&quot;. Sorting on any other field of a Fee returns a 400 that names the field. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Fee&#39; domain to decorate onto each Fee.              These must take the format {domain}/{scope}/{code}, for example &#39;Fee/Account/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -23256,7 +24008,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the treatment, specify \&quot;treatment eq &#39;Monthly&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;.              The fields that can be sorted on are FeeCode, DisplayName, Description, Origin, CalculationBase, AccrualCurrency,              Treatment, TotalAnnualAccrualAmount, FeeRatePercentage, PayableFrequency, BusinessDayConvention, StartDate, EndDate,              NavTypeCode, FeeTypeId.Scope, FeeTypeId.Code, PortfolioId.Scope, PortfolioId.Code, AnchorDate.Day and AnchorDate.Month.              To sort on a property from the &#39;Fee&#39; domain, specify \&quot;Properties[{domain}/{scope}/{code}]\&quot;, for example              \&quot;Properties[Fee/Account/Id] ASC\&quot;. Sorting on any other field of a Fee returns a 400 that names the field. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Fee&#39; domain to decorate onto each Fee.              These must take the format {domain}/{scope}/{code}, for example &#39;Fee/Account/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -23279,7 +24031,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the treatment, specify \&quot;treatment eq &#39;Monthly&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;.              The fields that can be sorted on are FeeCode, DisplayName, Description, Origin, CalculationBase, AccrualCurrency,              Treatment, TotalAnnualAccrualAmount, FeeRatePercentage, PayableFrequency, BusinessDayConvention, StartDate, EndDate,              NavTypeCode, FeeTypeId.Scope, FeeTypeId.Code, PortfolioId.Scope, PortfolioId.Code, AnchorDate.Day and AnchorDate.Month.              To sort on a property from the &#39;Fee&#39; domain, specify \&quot;Properties[{domain}/{scope}/{code}]\&quot;, for example              \&quot;Properties[Fee/Account/Id] ASC\&quot;. Sorting on any other field of a Fee returns a 400 that names the field. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Fee&#39; domain to decorate onto each Fee.              These must take the format {domain}/{scope}/{code}, for example &#39;Fee/Account/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -24609,10 +25361,10 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>PagedResourceListOfPartnerCapitalAccount</returns>
-        public PagedResourceListOfPartnerCapitalAccount ListPartnerCapitalAccounts(string scope, string code, DateTimeOffset? periodStart = default(DateTimeOffset?), DateTimeOffset? periodEnd = default(DateTimeOffset?), string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ResourceListWithWarningsOfPartnerCapitalAccount</returns>
+        public ResourceListWithWarningsOfPartnerCapitalAccount ListPartnerCapitalAccounts(string scope, string code, DateTimeOffset? periodStart = default(DateTimeOffset?), DateTimeOffset? periodEnd = default(DateTimeOffset?), string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPartnerCapitalAccount> localVarResponse = ListPartnerCapitalAccountsWithHttpInfo(scope, code, periodStart, periodEnd, navTypeCode, asAt, page, limit, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ResourceListWithWarningsOfPartnerCapitalAccount> localVarResponse = ListPartnerCapitalAccountsWithHttpInfo(scope, code, periodStart, periodEnd, navTypeCode, asAt, page, limit, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -24630,8 +25382,8 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of PagedResourceListOfPartnerCapitalAccount</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPartnerCapitalAccount> ListPartnerCapitalAccountsWithHttpInfo(string scope, string code, DateTimeOffset? periodStart = default(DateTimeOffset?), DateTimeOffset? periodEnd = default(DateTimeOffset?), string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of ResourceListWithWarningsOfPartnerCapitalAccount</returns>
+        public Lusid.Sdk.Client.ApiResponse<ResourceListWithWarningsOfPartnerCapitalAccount> ListPartnerCapitalAccountsWithHttpInfo(string scope, string code, DateTimeOffset? periodStart = default(DateTimeOffset?), DateTimeOffset? periodEnd = default(DateTimeOffset?), string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -24733,7 +25485,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedResourceListOfPartnerCapitalAccount>("/api/funds/{scope}/{code}/capitalaccounts", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ResourceListWithWarningsOfPartnerCapitalAccount>("/api/funds/{scope}/{code}/capitalaccounts", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListPartnerCapitalAccounts", localVarResponse);
@@ -24761,10 +25513,10 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of PagedResourceListOfPartnerCapitalAccount</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfPartnerCapitalAccount> ListPartnerCapitalAccountsAsync(string scope, string code, DateTimeOffset? periodStart = default(DateTimeOffset?), DateTimeOffset? periodEnd = default(DateTimeOffset?), string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ResourceListWithWarningsOfPartnerCapitalAccount</returns>
+        public async System.Threading.Tasks.Task<ResourceListWithWarningsOfPartnerCapitalAccount> ListPartnerCapitalAccountsAsync(string scope, string code, DateTimeOffset? periodStart = default(DateTimeOffset?), DateTimeOffset? periodEnd = default(DateTimeOffset?), string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPartnerCapitalAccount> localVarResponse = await ListPartnerCapitalAccountsWithHttpInfoAsync(scope, code, periodStart, periodEnd, navTypeCode, asAt, page, limit, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListWithWarningsOfPartnerCapitalAccount> localVarResponse = await ListPartnerCapitalAccountsWithHttpInfoAsync(scope, code, periodStart, periodEnd, navTypeCode, asAt, page, limit, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -24783,8 +25535,8 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (PagedResourceListOfPartnerCapitalAccount)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPartnerCapitalAccount>> ListPartnerCapitalAccountsWithHttpInfoAsync(string scope, string code, DateTimeOffset? periodStart = default(DateTimeOffset?), DateTimeOffset? periodEnd = default(DateTimeOffset?), string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (ResourceListWithWarningsOfPartnerCapitalAccount)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListWithWarningsOfPartnerCapitalAccount>> ListPartnerCapitalAccountsWithHttpInfoAsync(string scope, string code, DateTimeOffset? periodStart = default(DateTimeOffset?), DateTimeOffset? periodEnd = default(DateTimeOffset?), string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -24881,7 +25633,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfPartnerCapitalAccount>("/api/funds/{scope}/{code}/capitalaccounts", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListWithWarningsOfPartnerCapitalAccount>("/api/funds/{scope}/{code}/capitalaccounts", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -26183,13 +26935,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point. Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
+        /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point. Lists the complex market data that the valuation of the specified Valuation Point consumed for a Fund,  including any items added via a Complex Close (Post-Close Activity).                Complex market data that is available but that the valuation did not consume is not listed, so a Fund whose holdings are all priced from quotes returns no rows.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the complex market data.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version              of each item if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version               of each item if not specified. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing complex market data from a previous call to ListValuationPointComplexMarketData. (optional)</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
@@ -26203,13 +26955,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point. Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
+        /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point. Lists the complex market data that the valuation of the specified Valuation Point consumed for a Fund,  including any items added via a Complex Close (Post-Close Activity).                Complex market data that is available but that the valuation did not consume is not listed, so a Fund whose holdings are all priced from quotes returns no rows.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the complex market data.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version              of each item if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version               of each item if not specified. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing complex market data from a previous call to ListValuationPointComplexMarketData. (optional)</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
@@ -26333,13 +27085,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point. Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
+        /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point. Lists the complex market data that the valuation of the specified Valuation Point consumed for a Fund,  including any items added via a Complex Close (Post-Close Activity).                Complex market data that is available but that the valuation did not consume is not listed, so a Fund whose holdings are all priced from quotes returns no rows.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the complex market data.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version              of each item if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version               of each item if not specified. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing complex market data from a previous call to ListValuationPointComplexMarketData. (optional)</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
@@ -26354,13 +27106,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point. Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
+        /// [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point. Lists the complex market data that the valuation of the specified Valuation Point consumed for a Fund,  including any items added via a Complex Close (Post-Close Activity).                Complex market data that is available but that the valuation did not consume is not listed, so a Fund whose holdings are all priced from quotes returns no rows.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the complex market data.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version              of each item if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve complex market data. Defaults to returning the latest version               of each item if not specified. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing complex market data from a previous call to ListValuationPointComplexMarketData. (optional)</param>
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>

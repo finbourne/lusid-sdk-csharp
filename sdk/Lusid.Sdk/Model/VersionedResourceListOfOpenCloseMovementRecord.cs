@@ -23,37 +23,62 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// PagedResourceListOfPartnerCapitalAccount
+    /// VersionedResourceListOfOpenCloseMovementRecord
     /// </summary>
-    [DataContract(Name = "PagedResourceListOfPartnerCapitalAccount")]
-    public partial class PagedResourceListOfPartnerCapitalAccount : IEquatable<PagedResourceListOfPartnerCapitalAccount>, IValidatableObject
+    [DataContract(Name = "VersionedResourceListOfOpenCloseMovementRecord")]
+    public partial class VersionedResourceListOfOpenCloseMovementRecord : IEquatable<VersionedResourceListOfOpenCloseMovementRecord>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PagedResourceListOfPartnerCapitalAccount" /> class.
+        /// Initializes a new instance of the <see cref="VersionedResourceListOfOpenCloseMovementRecord" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PagedResourceListOfPartnerCapitalAccount() { }
+        protected VersionedResourceListOfOpenCloseMovementRecord() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PagedResourceListOfPartnerCapitalAccount" /> class.
+        /// Initializes a new instance of the <see cref="VersionedResourceListOfOpenCloseMovementRecord" /> class.
         /// </summary>
-        /// <param name="nextPage">nextPage.</param>
-        /// <param name="previousPage">previousPage.</param>
+        /// <param name="varVersion">varVersion (required).</param>
         /// <param name="values">values (required).</param>
         /// <param name="href">href.</param>
+        /// <param name="nextPage">nextPage.</param>
+        /// <param name="previousPage">previousPage.</param>
         /// <param name="links">links.</param>
-        public PagedResourceListOfPartnerCapitalAccount(string nextPage = default(string), string previousPage = default(string), List<PartnerCapitalAccount> values = default(List<PartnerCapitalAccount>), string href = default(string), List<Link> links = default(List<Link>))
+        public VersionedResourceListOfOpenCloseMovementRecord(ModelVersion varVersion = default(ModelVersion), List<OpenCloseMovementRecord> values = default(List<OpenCloseMovementRecord>), string href = default(string), string nextPage = default(string), string previousPage = default(string), List<Link> links = default(List<Link>))
         {
+            // to ensure "varVersion" is required (not null)
+            if (varVersion == null)
+            {
+                throw new ArgumentNullException("varVersion is a required property for VersionedResourceListOfOpenCloseMovementRecord and cannot be null");
+            }
+            this.VarVersion = varVersion;
             // to ensure "values" is required (not null)
             if (values == null)
             {
-                throw new ArgumentNullException("values is a required property for PagedResourceListOfPartnerCapitalAccount and cannot be null");
+                throw new ArgumentNullException("values is a required property for VersionedResourceListOfOpenCloseMovementRecord and cannot be null");
             }
             this.Values = values;
+            this.Href = href;
             this.NextPage = nextPage;
             this.PreviousPage = previousPage;
-            this.Href = href;
             this.Links = links;
         }
+
+        /// <summary>
+        /// Gets or Sets VarVersion
+        /// </summary>
+        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
+        public ModelVersion VarVersion { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Values
+        /// </summary>
+        [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = true)]
+        public List<OpenCloseMovementRecord> Values { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Href
+        /// </summary>
+        [DataMember(Name = "href", EmitDefaultValue = true)]
+        public string Href { get; set; }
 
         /// <summary>
         /// Gets or Sets NextPage
@@ -68,18 +93,6 @@ namespace Lusid.Sdk.Model
         public string PreviousPage { get; set; }
 
         /// <summary>
-        /// Gets or Sets Values
-        /// </summary>
-        [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = true)]
-        public List<PartnerCapitalAccount> Values { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Href
-        /// </summary>
-        [DataMember(Name = "href", EmitDefaultValue = true)]
-        public string Href { get; set; }
-
-        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -92,11 +105,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PagedResourceListOfPartnerCapitalAccount {\n");
-            sb.Append("  NextPage: ").Append(NextPage).Append("\n");
-            sb.Append("  PreviousPage: ").Append(PreviousPage).Append("\n");
+            sb.Append("class VersionedResourceListOfOpenCloseMovementRecord {\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
+            sb.Append("  NextPage: ").Append(NextPage).Append("\n");
+            sb.Append("  PreviousPage: ").Append(PreviousPage).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -118,15 +132,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PagedResourceListOfPartnerCapitalAccount);
+            return this.Equals(input as VersionedResourceListOfOpenCloseMovementRecord);
         }
 
         /// <summary>
-        /// Returns true if PagedResourceListOfPartnerCapitalAccount instances are equal
+        /// Returns true if VersionedResourceListOfOpenCloseMovementRecord instances are equal
         /// </summary>
-        /// <param name="input">Instance of PagedResourceListOfPartnerCapitalAccount to be compared</param>
+        /// <param name="input">Instance of VersionedResourceListOfOpenCloseMovementRecord to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PagedResourceListOfPartnerCapitalAccount input)
+        public bool Equals(VersionedResourceListOfOpenCloseMovementRecord input)
         {
             if (input == null)
             {
@@ -134,14 +148,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.NextPage == input.NextPage ||
-                    (this.NextPage != null &&
-                    this.NextPage.Equals(input.NextPage))
-                ) && 
-                (
-                    this.PreviousPage == input.PreviousPage ||
-                    (this.PreviousPage != null &&
-                    this.PreviousPage.Equals(input.PreviousPage))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Values == input.Values ||
@@ -153,6 +162,16 @@ namespace Lusid.Sdk.Model
                     this.Href == input.Href ||
                     (this.Href != null &&
                     this.Href.Equals(input.Href))
+                ) && 
+                (
+                    this.NextPage == input.NextPage ||
+                    (this.NextPage != null &&
+                    this.NextPage.Equals(input.NextPage))
+                ) && 
+                (
+                    this.PreviousPage == input.PreviousPage ||
+                    (this.PreviousPage != null &&
+                    this.PreviousPage.Equals(input.PreviousPage))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -171,13 +190,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.NextPage != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this.NextPage.GetHashCode();
-                }
-                if (this.PreviousPage != null)
-                {
-                    hashCode = (hashCode * 59) + this.PreviousPage.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Values != null)
                 {
@@ -186,6 +201,14 @@ namespace Lusid.Sdk.Model
                 if (this.Href != null)
                 {
                     hashCode = (hashCode * 59) + this.Href.GetHashCode();
+                }
+                if (this.NextPage != null)
+                {
+                    hashCode = (hashCode * 59) + this.NextPage.GetHashCode();
+                }
+                if (this.PreviousPage != null)
+                {
+                    hashCode = (hashCode * 59) + this.PreviousPage.GetHashCode();
                 }
                 if (this.Links != null)
                 {

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Type** | **string** | Available values: Return, IndicativeAmount. | 
 **Alias** | **string** |  | [optional] 
 **SeedAmount** | **string** |  | 
+**Window** | [**ReturnsMetricWindow**](ReturnsMetricWindow.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

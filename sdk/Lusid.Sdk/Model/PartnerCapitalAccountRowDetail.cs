@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PartnerCapitalAccountRowDetail" /> class.
         /// </summary>
-        /// <param name="kind">The kind of amount the entry labels: WithholdingTax for tax withheld from a distribution on the partner&#39;s behalf. (required).</param>
+        /// <param name="kind">The kind of amount the entry labels: WithholdingTax for tax withheld from a distribution on the partner&#39;s behalf; on the CallCredit row, CallCreditGranted for a credit an equalisation kept for the partner and CallCreditApplied, negative, for the part of it a call drew on. (required).</param>
         /// <param name="allocationEventId">allocationEventId (required).</param>
         /// <param name="eventDate">The effective date of the allocation event the amount arose on. (required).</param>
         /// <param name="qtd">The part of the row&#39;s quarter-to-date amount the entry labels; zero when the event falls outside the quarter. (required).</param>
@@ -63,9 +63,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The kind of amount the entry labels: WithholdingTax for tax withheld from a distribution on the partner&#39;s behalf.
+        /// The kind of amount the entry labels: WithholdingTax for tax withheld from a distribution on the partner&#39;s behalf; on the CallCredit row, CallCreditGranted for a credit an equalisation kept for the partner and CallCreditApplied, negative, for the part of it a call drew on.
         /// </summary>
-        /// <value>The kind of amount the entry labels: WithholdingTax for tax withheld from a distribution on the partner&#39;s behalf.</value>
+        /// <value>The kind of amount the entry labels: WithholdingTax for tax withheld from a distribution on the partner&#39;s behalf; on the CallCredit row, CallCreditGranted for a credit an equalisation kept for the partner and CallCreditApplied, negative, for the part of it a call drew on.</value>
         [DataMember(Name = "kind", IsRequired = true, EmitDefaultValue = true)]
         public string Kind { get; set; }
 

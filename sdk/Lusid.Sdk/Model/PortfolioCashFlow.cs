@@ -46,13 +46,16 @@ namespace Lusid.Sdk.Model
         /// <param name="balance">balance (required).</param>
         /// <param name="fxRate">Exchange rate between the currency of this cash flow and the reporting currency. (required).</param>
         /// <param name="cashflowReportingCurrency">cashflowReportingCurrency (required).</param>
-        /// <param name="balanceReportingCurrency">balanceReportingCurrency (required).</param>
+        /// <param name="balanceReportingCurrency">balanceReportingCurrency.</param>
         /// <param name="translationGainLoss">translationGainLoss (required).</param>
         /// <param name="costBasisReportingCurrency">costBasisReportingCurrency (required).</param>
         /// <param name="transaction">transaction.</param>
-        /// <param name="unrealisedGainLossReportingCurrency">unrealisedGainLossReportingCurrency (required).</param>
+        /// <param name="unrealisedGainLossReportingCurrency">unrealisedGainLossReportingCurrency.</param>
+        /// <param name="tradeDateToSettlementDateGainLossReportingCurrency">tradeDateToSettlementDateGainLossReportingCurrency (required).</param>
+        /// <param name="balanceFxRate">The exchange rate the balance in the reporting currency was struck at: on an Activity row the recipe&#39;s quote for the row&#39;s date, after the recipe&#39;s quote lookback. Differs from FxRate when the cash flow was booked at another rate. The cash flow&#39;s own rate (FxRate) when no quote could be found; see BalanceFailureReason..</param>
+        /// <param name="balanceFailureReason">Why the balance in the reporting currency could not be struck at the recipe&#39;s quote for the row&#39;s date and is at the cash flow&#39;s own rate instead; absent when it was struck at the quote, including on a row whose local balance is zero..</param>
         /// <param name="links">links.</param>
-        public PortfolioCashFlow(int groupById = default(int), int sequenceNumber = default(int), DateTimeOffset effectiveDate = default(DateTimeOffset), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string type = default(string), string movementName = default(string), CurrencyAndAmount cashflow = default(CurrencyAndAmount), CurrencyAndAmount balance = default(CurrencyAndAmount), decimal fxRate = default(decimal), CurrencyAndAmount cashflowReportingCurrency = default(CurrencyAndAmount), CurrencyAndAmount balanceReportingCurrency = default(CurrencyAndAmount), CurrencyAndAmount translationGainLoss = default(CurrencyAndAmount), CurrencyAndAmount costBasisReportingCurrency = default(CurrencyAndAmount), Transaction transaction = default(Transaction), CurrencyAndAmount unrealisedGainLossReportingCurrency = default(CurrencyAndAmount), List<Link> links = default(List<Link>))
+        public PortfolioCashFlow(int groupById = default(int), int sequenceNumber = default(int), DateTimeOffset effectiveDate = default(DateTimeOffset), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string type = default(string), string movementName = default(string), CurrencyAndAmount cashflow = default(CurrencyAndAmount), CurrencyAndAmount balance = default(CurrencyAndAmount), decimal fxRate = default(decimal), CurrencyAndAmount cashflowReportingCurrency = default(CurrencyAndAmount), CurrencyAndAmount balanceReportingCurrency = default(CurrencyAndAmount), CurrencyAndAmount translationGainLoss = default(CurrencyAndAmount), CurrencyAndAmount costBasisReportingCurrency = default(CurrencyAndAmount), Transaction transaction = default(Transaction), CurrencyAndAmount unrealisedGainLossReportingCurrency = default(CurrencyAndAmount), CurrencyAndAmount tradeDateToSettlementDateGainLossReportingCurrency = default(CurrencyAndAmount), decimal? balanceFxRate = default(decimal?), string balanceFailureReason = default(string), List<Link> links = default(List<Link>))
         {
             this.GroupById = groupById;
             this.SequenceNumber = sequenceNumber;
@@ -87,12 +90,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("cashflowReportingCurrency is a required property for PortfolioCashFlow and cannot be null");
             }
             this.CashflowReportingCurrency = cashflowReportingCurrency;
-            // to ensure "balanceReportingCurrency" is required (not null)
-            if (balanceReportingCurrency == null)
-            {
-                throw new ArgumentNullException("balanceReportingCurrency is a required property for PortfolioCashFlow and cannot be null");
-            }
-            this.BalanceReportingCurrency = balanceReportingCurrency;
             // to ensure "translationGainLoss" is required (not null)
             if (translationGainLoss == null)
             {
@@ -105,15 +102,19 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("costBasisReportingCurrency is a required property for PortfolioCashFlow and cannot be null");
             }
             this.CostBasisReportingCurrency = costBasisReportingCurrency;
-            // to ensure "unrealisedGainLossReportingCurrency" is required (not null)
-            if (unrealisedGainLossReportingCurrency == null)
+            // to ensure "tradeDateToSettlementDateGainLossReportingCurrency" is required (not null)
+            if (tradeDateToSettlementDateGainLossReportingCurrency == null)
             {
-                throw new ArgumentNullException("unrealisedGainLossReportingCurrency is a required property for PortfolioCashFlow and cannot be null");
+                throw new ArgumentNullException("tradeDateToSettlementDateGainLossReportingCurrency is a required property for PortfolioCashFlow and cannot be null");
             }
-            this.UnrealisedGainLossReportingCurrency = unrealisedGainLossReportingCurrency;
+            this.TradeDateToSettlementDateGainLossReportingCurrency = tradeDateToSettlementDateGainLossReportingCurrency;
             this.EffectiveDate = effectiveDate;
             this.SubHoldingKeys = subHoldingKeys;
+            this.BalanceReportingCurrency = balanceReportingCurrency;
             this.Transaction = transaction;
+            this.UnrealisedGainLossReportingCurrency = unrealisedGainLossReportingCurrency;
+            this.BalanceFxRate = balanceFxRate;
+            this.BalanceFailureReason = balanceFailureReason;
             this.Links = links;
         }
 
@@ -187,7 +188,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets BalanceReportingCurrency
         /// </summary>
-        [DataMember(Name = "balanceReportingCurrency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "balanceReportingCurrency", EmitDefaultValue = false)]
         public CurrencyAndAmount BalanceReportingCurrency { get; set; }
 
         /// <summary>
@@ -211,8 +212,28 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets UnrealisedGainLossReportingCurrency
         /// </summary>
-        [DataMember(Name = "unrealisedGainLossReportingCurrency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "unrealisedGainLossReportingCurrency", EmitDefaultValue = false)]
         public CurrencyAndAmount UnrealisedGainLossReportingCurrency { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TradeDateToSettlementDateGainLossReportingCurrency
+        /// </summary>
+        [DataMember(Name = "tradeDateToSettlementDateGainLossReportingCurrency", IsRequired = true, EmitDefaultValue = true)]
+        public CurrencyAndAmount TradeDateToSettlementDateGainLossReportingCurrency { get; set; }
+
+        /// <summary>
+        /// The exchange rate the balance in the reporting currency was struck at: on an Activity row the recipe&#39;s quote for the row&#39;s date, after the recipe&#39;s quote lookback. Differs from FxRate when the cash flow was booked at another rate. The cash flow&#39;s own rate (FxRate) when no quote could be found; see BalanceFailureReason.
+        /// </summary>
+        /// <value>The exchange rate the balance in the reporting currency was struck at: on an Activity row the recipe&#39;s quote for the row&#39;s date, after the recipe&#39;s quote lookback. Differs from FxRate when the cash flow was booked at another rate. The cash flow&#39;s own rate (FxRate) when no quote could be found; see BalanceFailureReason.</value>
+        [DataMember(Name = "balanceFxRate", EmitDefaultValue = true)]
+        public decimal? BalanceFxRate { get; set; }
+
+        /// <summary>
+        /// Why the balance in the reporting currency could not be struck at the recipe&#39;s quote for the row&#39;s date and is at the cash flow&#39;s own rate instead; absent when it was struck at the quote, including on a row whose local balance is zero.
+        /// </summary>
+        /// <value>Why the balance in the reporting currency could not be struck at the recipe&#39;s quote for the row&#39;s date and is at the cash flow&#39;s own rate instead; absent when it was struck at the quote, including on a row whose local balance is zero.</value>
+        [DataMember(Name = "balanceFailureReason", EmitDefaultValue = true)]
+        public string BalanceFailureReason { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -243,6 +264,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  CostBasisReportingCurrency: ").Append(CostBasisReportingCurrency).Append("\n");
             sb.Append("  Transaction: ").Append(Transaction).Append("\n");
             sb.Append("  UnrealisedGainLossReportingCurrency: ").Append(UnrealisedGainLossReportingCurrency).Append("\n");
+            sb.Append("  TradeDateToSettlementDateGainLossReportingCurrency: ").Append(TradeDateToSettlementDateGainLossReportingCurrency).Append("\n");
+            sb.Append("  BalanceFxRate: ").Append(BalanceFxRate).Append("\n");
+            sb.Append("  BalanceFailureReason: ").Append(BalanceFailureReason).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -353,6 +377,21 @@ namespace Lusid.Sdk.Model
                     this.UnrealisedGainLossReportingCurrency.Equals(input.UnrealisedGainLossReportingCurrency))
                 ) && 
                 (
+                    this.TradeDateToSettlementDateGainLossReportingCurrency == input.TradeDateToSettlementDateGainLossReportingCurrency ||
+                    (this.TradeDateToSettlementDateGainLossReportingCurrency != null &&
+                    this.TradeDateToSettlementDateGainLossReportingCurrency.Equals(input.TradeDateToSettlementDateGainLossReportingCurrency))
+                ) && 
+                (
+                    this.BalanceFxRate == input.BalanceFxRate ||
+                    (this.BalanceFxRate != null &&
+                    this.BalanceFxRate.Equals(input.BalanceFxRate))
+                ) && 
+                (
+                    this.BalanceFailureReason == input.BalanceFailureReason ||
+                    (this.BalanceFailureReason != null &&
+                    this.BalanceFailureReason.Equals(input.BalanceFailureReason))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -419,6 +458,18 @@ namespace Lusid.Sdk.Model
                 if (this.UnrealisedGainLossReportingCurrency != null)
                 {
                     hashCode = (hashCode * 59) + this.UnrealisedGainLossReportingCurrency.GetHashCode();
+                }
+                if (this.TradeDateToSettlementDateGainLossReportingCurrency != null)
+                {
+                    hashCode = (hashCode * 59) + this.TradeDateToSettlementDateGainLossReportingCurrency.GetHashCode();
+                }
+                if (this.BalanceFxRate != null)
+                {
+                    hashCode = (hashCode * 59) + this.BalanceFxRate.GetHashCode();
+                }
+                if (this.BalanceFailureReason != null)
+                {
+                    hashCode = (hashCode * 59) + this.BalanceFailureReason.GetHashCode();
                 }
                 if (this.Links != null)
                 {

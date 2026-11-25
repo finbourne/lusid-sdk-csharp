@@ -4042,7 +4042,7 @@ catch (ApiException e)
 
 <a id="getregistry"></a>
 # **GetRegistry**
-> VersionedResourceListWithWarningsOfRegistryLine GetRegistry (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? propertyKeys = null)
+> VersionedResourceListWithWarningsOfRegistryLine GetRegistry (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? propertyKeys = null, string? investorRecordId = null, string? commitmentLineId = null, int? limit = null, string? page = null)
 
 [EXPERIMENTAL] GetRegistry: [EXPERIMENTAL] GetRegistry: Get the registry of a transaction portfolio.
 
@@ -4093,14 +4093,18 @@ namespace Examples
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the registry of the transaction portfolio. Defaults              to return the latest version if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set.              For example, to filter on the Holding Type, use \"holdingType eq 'p'\".              For more information about filtering LUSID results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto              the lines. These must have the format {domain}/{scope}/{code}, for example \"Instrument/system/Name\" or \"Holding/system/CommittedCapital\". (optional) 
+            var investorRecordId = "investorRecordId_example";  // string? | When provided, only the lines of this investor record are returned. (optional) 
+            var commitmentLineId = "commitmentLineId_example";  // string? | When provided, only the lines of this commitment line are returned. (optional) 
+            var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // VersionedResourceListWithWarningsOfRegistryLine result = apiInstance.GetRegistry(scope, code, effectiveAt, asAt, filter, propertyKeys, opts: opts);
+                // VersionedResourceListWithWarningsOfRegistryLine result = apiInstance.GetRegistry(scope, code, effectiveAt, asAt, filter, propertyKeys, investorRecordId, commitmentLineId, limit, page, opts: opts);
 
                 // [EXPERIMENTAL] GetRegistry: [EXPERIMENTAL] GetRegistry: Get the registry of a transaction portfolio.
-                VersionedResourceListWithWarningsOfRegistryLine result = apiInstance.GetRegistry(scope, code, effectiveAt, asAt, filter, propertyKeys);
+                VersionedResourceListWithWarningsOfRegistryLine result = apiInstance.GetRegistry(scope, code, effectiveAt, asAt, filter, propertyKeys, investorRecordId, commitmentLineId, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -4120,7 +4124,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetRegistry: [EXPERIMENTAL] GetRegistry: Get the registry of a transaction portfolio.
-    ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> response = apiInstance.GetRegistryWithHttpInfo(scope, code, effectiveAt, asAt, filter, propertyKeys);
+    ApiResponse<VersionedResourceListWithWarningsOfRegistryLine> response = apiInstance.GetRegistryWithHttpInfo(scope, code, effectiveAt, asAt, filter, propertyKeys, investorRecordId, commitmentLineId, limit, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -4143,6 +4147,10 @@ catch (ApiException e)
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the registry of the transaction portfolio. Defaults              to return the latest version if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#39;p&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the lines. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/CommittedCapital\&quot;. | [optional]  |
+| **investorRecordId** | **string?** | When provided, only the lines of this investor record are returned. | [optional]  |
+| **commitmentLineId** | **string?** | When provided, only the lines of this commitment line are returned. | [optional]  |
+| **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing registry lines from a previous call to get the registry.              This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,              propertyKeys, investorRecordId and commitmentLineId must not change between calls. | [optional]  |
 
 ### Return type
 

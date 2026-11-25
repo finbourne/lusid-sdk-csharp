@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **FundSide** | [**List&lt;AllocationPostingFundLine&gt;**](AllocationPostingFundLine.md) | The transactions written on the fund&#39;s own books. | [optional] 
 **Counts** | [**AllocationPostingCounts**](AllocationPostingCounts.md) |  | [optional] 
 **Warnings** | [**List&lt;AllocationEventBookingWarning&gt;**](AllocationEventBookingWarning.md) | The validation rules the booking would be allowed to proceed through under the map&#39;s policy. | [optional] 
+**Transferees** | [**List&lt;AllocationEventTransferee&gt;**](AllocationEventTransferee.md) | For a Transfer, each transferee the booking would give a line, with the investment account the line would be opened under and whether the booking would open that account too. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -21,13 +22,15 @@ List<AllocationPostingFundLine> fundSide = new List<AllocationPostingFundLine>()
 AllocationPostingCounts? counts = new AllocationPostingCounts();
 
 List<AllocationEventBookingWarning> warnings = new List<AllocationEventBookingWarning>();
+List<AllocationEventTransferee> transferees = new List<AllocationEventTransferee>();
 
 AllocationPostingPlan allocationPostingPlanInstance = new AllocationPostingPlan(
     lpSide: lpSide,
     rollUps: rollUps,
     fundSide: fundSide,
     counts: counts,
-    warnings: warnings);
+    warnings: warnings,
+    transferees: transferees);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

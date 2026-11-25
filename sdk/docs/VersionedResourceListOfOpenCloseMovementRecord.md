@@ -1,30 +1,33 @@
-# Lusid.Sdk.Model.PagedResourceListOfFundPartner
+# Lusid.Sdk.Model.VersionedResourceListOfOpenCloseMovementRecord
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | 
+**Values** | [**List&lt;OpenCloseMovementRecord&gt;**](OpenCloseMovementRecord.md) |  | 
+**Href** | **string** |  | [optional] 
 **NextPage** | **string** |  | [optional] 
 **PreviousPage** | **string** |  | [optional] 
-**Values** | [**List&lt;FundPartner&gt;**](FundPartner.md) |  | 
-**Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 
+ModelVersion varVersion = new ModelVersion();
+List<OpenCloseMovementRecord> values = new List<OpenCloseMovementRecord>();
+string href = "example href";
 string nextPage = "example nextPage";
 string previousPage = "example previousPage";
-List<FundPartner> values = new List<FundPartner>();
-string href = "example href";
 List<Link> links = new List<Link>();
 
-PagedResourceListOfFundPartner pagedResourceListOfFundPartnerInstance = new PagedResourceListOfFundPartner(
-    nextPage: nextPage,
-    previousPage: previousPage,
+VersionedResourceListOfOpenCloseMovementRecord versionedResourceListOfOpenCloseMovementRecordInstance = new VersionedResourceListOfOpenCloseMovementRecord(
+    varVersion: varVersion,
     values: values,
     href: href,
+    nextPage: nextPage,
+    previousPage: previousPage,
     links: links);
 ```
 

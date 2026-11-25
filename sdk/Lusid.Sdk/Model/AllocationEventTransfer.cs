@@ -37,8 +37,8 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="AllocationEventTransfer" /> class.
         /// </summary>
         /// <param name="fromLineId">The identifier of the capital interest line the fraction moves from, as it appears on the register of one of the map&#39;s members. (required).</param>
-        /// <param name="toInvestorRecordId">The investor record that receives the transferred interest. (required).</param>
-        /// <param name="toLineId">The identifier of the capital interest line the fraction moves to. Created if it does not exist. (required).</param>
+        /// <param name="toInvestorRecordId">The investor record that receives the transferred interest, in the fund&#39;s scope: &#39;idTypeScope/idTypeCode/value&#39;, the form the register and the partners&#39; capital report carry, or a bare value, read as the system InvestorRecordId. A record that is not in the fund&#39;s scope is refused with TransferDestinationRecordNotFound; it is never looked for in another scope. A record with no investment account in the fund has one opened for it when the transfer is booked. (required).</param>
+        /// <param name="toLineId">The identifier of the capital interest line the fraction moves to. Created if it does not exist, under the investment account the investor record holds in the fund, or the one the booking opens for it. (required).</param>
         /// <param name="toPortfolioId">toPortfolioId.</param>
         /// <param name="fraction">The fraction of the source line transferred, greater than zero and at most one. The legs out of one line together move each balance times the sum of their fractions, rounded to the currency&#39;s minor unit; each leg takes its share truncated to the minor unit and the last leg out of the line takes the remainder, so no leg takes more than its share, the legs never move more than the line holds, and fractions summing to one close the line. (required).</param>
         /// <param name="pnlSplit">How the profit and loss of the period containing the transfer is split: InterimClose closes the books on the transfer date; DailyProration prorates by days held. Defaults to InterimClose. Available values: InterimClose, DailyProration..</param>
@@ -79,16 +79,16 @@ namespace Lusid.Sdk.Model
         public string FromLineId { get; set; }
 
         /// <summary>
-        /// The investor record that receives the transferred interest.
+        /// The investor record that receives the transferred interest, in the fund&#39;s scope: &#39;idTypeScope/idTypeCode/value&#39;, the form the register and the partners&#39; capital report carry, or a bare value, read as the system InvestorRecordId. A record that is not in the fund&#39;s scope is refused with TransferDestinationRecordNotFound; it is never looked for in another scope. A record with no investment account in the fund has one opened for it when the transfer is booked.
         /// </summary>
-        /// <value>The investor record that receives the transferred interest.</value>
+        /// <value>The investor record that receives the transferred interest, in the fund&#39;s scope: &#39;idTypeScope/idTypeCode/value&#39;, the form the register and the partners&#39; capital report carry, or a bare value, read as the system InvestorRecordId. A record that is not in the fund&#39;s scope is refused with TransferDestinationRecordNotFound; it is never looked for in another scope. A record with no investment account in the fund has one opened for it when the transfer is booked.</value>
         [DataMember(Name = "toInvestorRecordId", IsRequired = true, EmitDefaultValue = true)]
         public string ToInvestorRecordId { get; set; }
 
         /// <summary>
-        /// The identifier of the capital interest line the fraction moves to. Created if it does not exist.
+        /// The identifier of the capital interest line the fraction moves to. Created if it does not exist, under the investment account the investor record holds in the fund, or the one the booking opens for it.
         /// </summary>
-        /// <value>The identifier of the capital interest line the fraction moves to. Created if it does not exist.</value>
+        /// <value>The identifier of the capital interest line the fraction moves to. Created if it does not exist, under the investment account the investor record holds in the fund, or the one the booking opens for it.</value>
         [DataMember(Name = "toLineId", IsRequired = true, EmitDefaultValue = true)]
         public string ToLineId { get; set; }
 
@@ -286,22 +286,15 @@ namespace Lusid.Sdk.Model
             }
 
             // ToInvestorRecordId (string) maxLength
-            if (this.ToInvestorRecordId != null && this.ToInvestorRecordId.Length > 64)
+            if (this.ToInvestorRecordId != null && this.ToInvestorRecordId.Length > 256)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ToInvestorRecordId, length must be less than 64.", new [] { "ToInvestorRecordId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ToInvestorRecordId, length must be less than 256.", new [] { "ToInvestorRecordId" });
             }
 
             // ToInvestorRecordId (string) minLength
             if (this.ToInvestorRecordId != null && this.ToInvestorRecordId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ToInvestorRecordId, length must be greater than 1.", new [] { "ToInvestorRecordId" });
-            }
-
-            // ToInvestorRecordId (string) pattern
-            Regex regexToInvestorRecordId = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexToInvestorRecordId.Match(this.ToInvestorRecordId).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ToInvestorRecordId, must match a pattern of " + regexToInvestorRecordId, new [] { "ToInvestorRecordId" });
             }
 
             // ToLineId (string) maxLength

@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PartnerCapitalAccountRow" /> class.
         /// </summary>
-        /// <param name="rowType">The row type: BeginningCapital, Contributions, Distributions, TransfersIn, TransfersOut, NetOperatingIncome, ManagementFeesGross, ManagementFeeOffsets, RealisedGainLoss, UnrealisedGainLoss, CarriedInterest or EndingCapital. (required).</param>
+        /// <param name="rowType">The row type: BeginningCapital, Contributions, Distributions, TransfersIn, TransfersOut, NetOperatingIncome, ManagementFeesGross, ManagementFeeOffsets, RealisedGainLoss, UnrealisedGainLoss, CarriedInterest, EndingCapital, EqualisationInterest (equalisation interest credited to the partner&#39;s capital with no cash, reported after ending capital, which counts it, and only when there is some) or CallCredit (a memo of the call credit equalisations kept for the partner against its future calls: the quarter-to-date and year-to-date columns are its movement in each and inception to date is the credit left at the period end. It is a liability of the fund to the partner, not capital, so ending capital does not count it. Reported last, and only while a credit is left or one moved in the year). (required).</param>
         /// <param name="qtd">The quarter-to-date amount for the row. (required).</param>
         /// <param name="ytd">The year-to-date amount for the row. (required).</param>
         /// <param name="itd">The inception-to-date amount for the row. (required).</param>
@@ -56,9 +56,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The row type: BeginningCapital, Contributions, Distributions, TransfersIn, TransfersOut, NetOperatingIncome, ManagementFeesGross, ManagementFeeOffsets, RealisedGainLoss, UnrealisedGainLoss, CarriedInterest or EndingCapital.
+        /// The row type: BeginningCapital, Contributions, Distributions, TransfersIn, TransfersOut, NetOperatingIncome, ManagementFeesGross, ManagementFeeOffsets, RealisedGainLoss, UnrealisedGainLoss, CarriedInterest, EndingCapital, EqualisationInterest (equalisation interest credited to the partner&#39;s capital with no cash, reported after ending capital, which counts it, and only when there is some) or CallCredit (a memo of the call credit equalisations kept for the partner against its future calls: the quarter-to-date and year-to-date columns are its movement in each and inception to date is the credit left at the period end. It is a liability of the fund to the partner, not capital, so ending capital does not count it. Reported last, and only while a credit is left or one moved in the year).
         /// </summary>
-        /// <value>The row type: BeginningCapital, Contributions, Distributions, TransfersIn, TransfersOut, NetOperatingIncome, ManagementFeesGross, ManagementFeeOffsets, RealisedGainLoss, UnrealisedGainLoss, CarriedInterest or EndingCapital.</value>
+        /// <value>The row type: BeginningCapital, Contributions, Distributions, TransfersIn, TransfersOut, NetOperatingIncome, ManagementFeesGross, ManagementFeeOffsets, RealisedGainLoss, UnrealisedGainLoss, CarriedInterest, EndingCapital, EqualisationInterest (equalisation interest credited to the partner&#39;s capital with no cash, reported after ending capital, which counts it, and only when there is some) or CallCredit (a memo of the call credit equalisations kept for the partner against its future calls: the quarter-to-date and year-to-date columns are its movement in each and inception to date is the credit left at the period end. It is a liability of the fund to the partner, not capital, so ending capital does not count it. Reported last, and only while a credit is left or one moved in the year).</value>
         [DataMember(Name = "rowType", IsRequired = true, EmitDefaultValue = true)]
         public string RowType { get; set; }
 

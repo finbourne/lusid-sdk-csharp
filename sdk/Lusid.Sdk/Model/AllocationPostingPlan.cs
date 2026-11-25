@@ -36,13 +36,15 @@ namespace Lusid.Sdk.Model
         /// <param name="fundSide">The transactions written on the fund&#39;s own books..</param>
         /// <param name="counts">counts.</param>
         /// <param name="warnings">The validation rules the booking would be allowed to proceed through under the map&#39;s policy..</param>
-        public AllocationPostingPlan(List<AllocationPostingLpLine> lpSide = default(List<AllocationPostingLpLine>), List<AllocationPostingRollUp> rollUps = default(List<AllocationPostingRollUp>), List<AllocationPostingFundLine> fundSide = default(List<AllocationPostingFundLine>), AllocationPostingCounts counts = default(AllocationPostingCounts), List<AllocationEventBookingWarning> warnings = default(List<AllocationEventBookingWarning>))
+        /// <param name="transferees">For a Transfer, each transferee the booking would give a line, with the investment account the line would be opened under and whether the booking would open that account too..</param>
+        public AllocationPostingPlan(List<AllocationPostingLpLine> lpSide = default(List<AllocationPostingLpLine>), List<AllocationPostingRollUp> rollUps = default(List<AllocationPostingRollUp>), List<AllocationPostingFundLine> fundSide = default(List<AllocationPostingFundLine>), AllocationPostingCounts counts = default(AllocationPostingCounts), List<AllocationEventBookingWarning> warnings = default(List<AllocationEventBookingWarning>), List<AllocationEventTransferee> transferees = default(List<AllocationEventTransferee>))
         {
             this.LpSide = lpSide;
             this.RollUps = rollUps;
             this.FundSide = fundSide;
             this.Counts = counts;
             this.Warnings = warnings;
+            this.Transferees = transferees;
         }
 
         /// <summary>
@@ -80,6 +82,13 @@ namespace Lusid.Sdk.Model
         public List<AllocationEventBookingWarning> Warnings { get; set; }
 
         /// <summary>
+        /// For a Transfer, each transferee the booking would give a line, with the investment account the line would be opened under and whether the booking would open that account too.
+        /// </summary>
+        /// <value>For a Transfer, each transferee the booking would give a line, with the investment account the line would be opened under and whether the booking would open that account too.</value>
+        [DataMember(Name = "transferees", EmitDefaultValue = true)]
+        public List<AllocationEventTransferee> Transferees { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,6 +101,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  FundSide: ").Append(FundSide).Append("\n");
             sb.Append("  Counts: ").Append(Counts).Append("\n");
             sb.Append("  Warnings: ").Append(Warnings).Append("\n");
+            sb.Append("  Transferees: ").Append(Transferees).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,6 +165,12 @@ namespace Lusid.Sdk.Model
                     this.Warnings != null &&
                     input.Warnings != null &&
                     this.Warnings.SequenceEqual(input.Warnings)
+                ) && 
+                (
+                    this.Transferees == input.Transferees ||
+                    this.Transferees != null &&
+                    input.Transferees != null &&
+                    this.Transferees.SequenceEqual(input.Transferees)
                 );
         }
 
@@ -186,6 +202,10 @@ namespace Lusid.Sdk.Model
                 if (this.Warnings != null)
                 {
                     hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
+                }
+                if (this.Transferees != null)
+                {
+                    hashCode = (hashCode * 59) + this.Transferees.GetHashCode();
                 }
                 return hashCode;
             }
